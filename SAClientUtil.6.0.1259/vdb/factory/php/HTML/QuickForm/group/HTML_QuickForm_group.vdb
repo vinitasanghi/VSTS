@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_QuickForm_group">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.HTML_QuickForm_element</simple_name>
+        <signature>HTML_QuickForm_group.HTML_QuickForm_element():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.HTML_QuickForm_group</simple_name>
+        <signature>HTML_QuickForm_group.HTML_QuickForm_group($elementName;$elementLabel;$elements;$separator;$appendName):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group._createElements</simple_name>
+        <signature>HTML_QuickForm_group._createElements():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group._createElementsIfNotExist</simple_name>
+        <signature>HTML_QuickForm_group._createElementsIfNotExist():mixed</signature>
+      </method>
+      <method vuln_id="1091308">
+        <simple_name>HTML_QuickForm_group.accept</simple_name>
+        <signature>HTML_QuickForm_group.accept($renderer;$required;$error):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.accept</simple_name>
+        <signature>HTML_QuickForm_group.accept():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091301">
+        <simple_name>HTML_QuickForm_group.exportValue</simple_name>
+        <signature>HTML_QuickForm_group.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480752"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091306">
+        <simple_name>HTML_QuickForm_group.freeze</simple_name>
+        <signature>HTML_QuickForm_group.freeze():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091300">
+        <simple_name>HTML_QuickForm_group.getElementName</simple_name>
+        <signature>HTML_QuickForm_group.getElementName($index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091305">
+        <simple_name>HTML_QuickForm_group.getElements</simple_name>
+        <signature>HTML_QuickForm_group.getElements():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091299">
+        <simple_name>HTML_QuickForm_group.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_group.getFrozenHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091302">
+        <simple_name>HTML_QuickForm_group.getGroupType</simple_name>
+        <signature>HTML_QuickForm_group.getGroupType():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091303">
+        <simple_name>HTML_QuickForm_group.getName</simple_name>
+        <signature>HTML_QuickForm_group.getName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091310">
+        <simple_name>HTML_QuickForm_group.getValue</simple_name>
+        <signature>HTML_QuickForm_group.getValue():mixed</signature>
+        <info_rule id="480753"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091298">
+        <simple_name>HTML_QuickForm_group.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_group.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_group.onQuickFormEvent():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091304">
+        <simple_name>HTML_QuickForm_group.setElements</simple_name>
+        <signature>HTML_QuickForm_group.setElements($elements):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091311">
+        <simple_name>HTML_QuickForm_group.setName</simple_name>
+        <signature>HTML_QuickForm_group.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091309">
+        <simple_name>HTML_QuickForm_group.setPersistantFreeze</simple_name>
+        <signature>HTML_QuickForm_group.setPersistantFreeze($persistant):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091312">
+        <simple_name>HTML_QuickForm_group.setValue</simple_name>
+        <signature>HTML_QuickForm_group.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.setValue</simple_name>
+        <signature>HTML_QuickForm_group.setValue():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091297">
+        <simple_name>HTML_QuickForm_group.toHtml</simple_name>
+        <signature>HTML_QuickForm_group.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091307">
+        <simple_name>HTML_QuickForm_group.unfreeze</simple_name>
+        <signature>HTML_QuickForm_group.unfreeze():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_QuickForm_group">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.HTML_QuickForm_element</simple_name>
+        <signature>HTML_QuickForm_group.HTML_QuickForm_element():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.HTML_QuickForm_group</simple_name>
+        <signature>HTML_QuickForm_group.HTML_QuickForm_group($elementName;$elementLabel;$elements;$separator;$appendName):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group._createElements</simple_name>
+        <signature>HTML_QuickForm_group._createElements():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group._createElementsIfNotExist</simple_name>
+        <signature>HTML_QuickForm_group._createElementsIfNotExist():mixed</signature>
+      </method>
+      <method vuln_id="1091308">
+        <simple_name>HTML_QuickForm_group.accept</simple_name>
+        <signature>HTML_QuickForm_group.accept($renderer;$required;$error):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.accept</simple_name>
+        <signature>HTML_QuickForm_group.accept():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091301">
+        <simple_name>HTML_QuickForm_group.exportValue</simple_name>
+        <signature>HTML_QuickForm_group.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480752"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091306">
+        <simple_name>HTML_QuickForm_group.freeze</simple_name>
+        <signature>HTML_QuickForm_group.freeze():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091300">
+        <simple_name>HTML_QuickForm_group.getElementName</simple_name>
+        <signature>HTML_QuickForm_group.getElementName($index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091305">
+        <simple_name>HTML_QuickForm_group.getElements</simple_name>
+        <signature>HTML_QuickForm_group.getElements():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091299">
+        <simple_name>HTML_QuickForm_group.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_group.getFrozenHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091302">
+        <simple_name>HTML_QuickForm_group.getGroupType</simple_name>
+        <signature>HTML_QuickForm_group.getGroupType():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091303">
+        <simple_name>HTML_QuickForm_group.getName</simple_name>
+        <signature>HTML_QuickForm_group.getName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091310">
+        <simple_name>HTML_QuickForm_group.getValue</simple_name>
+        <signature>HTML_QuickForm_group.getValue():mixed</signature>
+        <info_rule id="480753"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091298">
+        <simple_name>HTML_QuickForm_group.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_group.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_group.onQuickFormEvent():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091304">
+        <simple_name>HTML_QuickForm_group.setElements</simple_name>
+        <signature>HTML_QuickForm_group.setElements($elements):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091311">
+        <simple_name>HTML_QuickForm_group.setName</simple_name>
+        <signature>HTML_QuickForm_group.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091309">
+        <simple_name>HTML_QuickForm_group.setPersistantFreeze</simple_name>
+        <signature>HTML_QuickForm_group.setPersistantFreeze($persistant):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091312">
+        <simple_name>HTML_QuickForm_group.setValue</simple_name>
+        <signature>HTML_QuickForm_group.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_group.setValue</simple_name>
+        <signature>HTML_QuickForm_group.setValue():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091297">
+        <simple_name>HTML_QuickForm_group.toHtml</simple_name>
+        <signature>HTML_QuickForm_group.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091307">
+        <simple_name>HTML_QuickForm_group.unfreeze</simple_name>
+        <signature>HTML_QuickForm_group.unfreeze():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

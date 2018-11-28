@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Db_Select">
+      <method vuln_id="1110601">
+        <simple_name>Zend_Db_Select.$method</simple_name>
+        <signature>Zend_Db_Select.$method(Arg#0):Variant</signature>
+        <info_rule id="466543"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110622">
+        <simple_name>Zend_Db_Select.___Class_Initializer_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.___Class_Initializer_@__Db_Select_php_1():void</signature>
+        <info_rule id="466565"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110786">
+        <simple_name>Zend_Db_Select.__call_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.__call_@__Db_Select_php_1($method;$args):Variant</signature>
+        <info_rule id="466744"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110667">
+        <simple_name>Zend_Db_Select.__construct_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.__construct_@__Db_Select_php_1($adapter):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110723">
+        <simple_name>Zend_Db_Select.__toString_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.__toString_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="466679"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111085">
+        <simple_name>Zend_Db_Select._getDummyTable_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._getDummyTable_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="467073"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110628">
+        <simple_name>Zend_Db_Select._getQuotedSchema_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._getQuotedSchema_@__Db_Select_php_1($schema):Variant</signature>
+        <info_rule id="466572"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110691">
+        <simple_name>Zend_Db_Select._getQuotedTable_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._getQuotedTable_@__Db_Select_php_1($tableName;$correlationName):Variant</signature>
+        <info_rule id="466645"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111086">
+        <simple_name>Zend_Db_Select._joinUsing_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._joinUsing_@__Db_Select_php_1($type;$name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="467074"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111074">
+        <simple_name>Zend_Db_Select._join_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._join_@__Db_Select_php_1($type;$name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="467060"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110598">
+        <simple_name>Zend_Db_Select._renderColumns_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderColumns_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466540"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110646">
+        <simple_name>Zend_Db_Select._renderDistinct_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderDistinct_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466593"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111080">
+        <simple_name>Zend_Db_Select._renderForupdate_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderForupdate_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="467067"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110753">
+        <simple_name>Zend_Db_Select._renderFrom_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderFrom_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466710"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110816">
+        <simple_name>Zend_Db_Select._renderGroup_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderGroup_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466777"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110912">
+        <simple_name>Zend_Db_Select._renderHaving_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderHaving_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466880"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111132">
+        <simple_name>Zend_Db_Select._renderLimitoffset_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderLimitoffset_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="467127"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110947">
+        <simple_name>Zend_Db_Select._renderOrder_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderOrder_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466920"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110679">
+        <simple_name>Zend_Db_Select._renderUnion_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderUnion_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466630"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110703">
+        <simple_name>Zend_Db_Select._renderWhere_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderWhere_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466658"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110809">
+        <simple_name>Zend_Db_Select._tableCols_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._tableCols_@__Db_Select_php_1($correlationName;$cols;$afterCorrelationName):Variant</signature>
+        <info_rule id="466768"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111026">
+        <simple_name>Zend_Db_Select._where_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._where_@__Db_Select_php_1($condition;$value;$type;$bool):Variant</signature>
+        <info_rule id="467004"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110813">
+        <simple_name>Zend_Db_Select.assemble_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.assemble_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="466774"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111036">
+        <simple_name>Zend_Db_Select.bind_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.bind_@__Db_Select_php_1($bind):Variant</signature>
+        <info_rule id="467018"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110776">
+        <simple_name>Zend_Db_Select.columns_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.columns_@__Db_Select_php_1($cols;$correlationName):Variant</signature>
+        <info_rule id="466734"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110990">
+        <simple_name>Zend_Db_Select.distinct_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.distinct_@__Db_Select_php_1($flag):Variant</signature>
+        <info_rule id="466965"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110815">
+        <simple_name>Zend_Db_Select.forUpdate_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.forUpdate_@__Db_Select_php_1($flag):Variant</signature>
+        <info_rule id="466776"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110989">
+        <simple_name>Zend_Db_Select.from_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.from_@__Db_Select_php_1($name;$cols;$schema):Variant</signature>
+        <info_rule id="466964"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111070">
+        <simple_name>Zend_Db_Select.getAdapter_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.getAdapter_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="467055"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110969">
+        <simple_name>Zend_Db_Select.getBind_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.getBind_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="466943"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111133">
+        <simple_name>Zend_Db_Select.getPart_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.getPart_@__Db_Select_php_1($part):Variant</signature>
+        <info_rule id="467128"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110749">
+        <simple_name>Zend_Db_Select.group_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.group_@__Db_Select_php_1($spec):Variant</signature>
+        <info_rule id="466707"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110671">
+        <simple_name>Zend_Db_Select.having_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.having_@__Db_Select_php_1($cond):Variant</signature>
+        <info_rule id="466623"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111111">
+        <simple_name>Zend_Db_Select.joinCross_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinCross_@__Db_Select_php_1($name;$cols;$schema):Variant</signature>
+        <info_rule id="467101"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110974">
+        <simple_name>Zend_Db_Select.joinFull_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinFull_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466949"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110729">
+        <simple_name>Zend_Db_Select.joinInner_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinInner_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466685"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110657">
+        <simple_name>Zend_Db_Select.joinLeft_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinLeft_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466606"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110943">
+        <simple_name>Zend_Db_Select.joinNatural_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinNatural_@__Db_Select_php_1($name;$cols;$schema):Variant</signature>
+        <info_rule id="466915"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110781">
+        <simple_name>Zend_Db_Select.joinRight_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinRight_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466739"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110603">
+        <simple_name>Zend_Db_Select.join_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.join_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466545"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111097">
+        <simple_name>Zend_Db_Select.limitPage_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.limitPage_@__Db_Select_php_1($page;$rowCount):Variant</signature>
+        <info_rule id="467085"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110895">
+        <simple_name>Zend_Db_Select.limit_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.limit_@__Db_Select_php_1($count;$offset):Variant</signature>
+        <info_rule id="466860"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110872">
+        <simple_name>Zend_Db_Select.orHaving_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.orHaving_@__Db_Select_php_1($cond):Variant</signature>
+        <info_rule id="466837"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110787">
+        <simple_name>Zend_Db_Select.orWhere_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.orWhere_@__Db_Select_php_1($cond;$value;$type):Variant</signature>
+        <info_rule id="466746"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110765">
+        <simple_name>Zend_Db_Select.order_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.order_@__Db_Select_php_1($spec):Variant</signature>
+        <info_rule id="466722"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110893">
+        <simple_name>Zend_Db_Select.query_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.query_@__Db_Select_php_1($fetchMode;$bind):Variant</signature>
+        <info_rule id="466858"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111001">
+        <simple_name>Zend_Db_Select.reset_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.reset_@__Db_Select_php_1($part):Variant</signature>
+        <info_rule id="466979"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111145">
+        <simple_name>Zend_Db_Select.union_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.union_@__Db_Select_php_1($select;$type):Variant</signature>
+        <info_rule id="467140"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110902">
+        <simple_name>Zend_Db_Select.where_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.where_@__Db_Select_php_1($cond;$value;$type):Variant</signature>
+        <info_rule id="466869"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Db_Select">
+      <method vuln_id="1110601">
+        <simple_name>Zend_Db_Select.$method</simple_name>
+        <signature>Zend_Db_Select.$method(Arg#0):Variant</signature>
+        <info_rule id="466543"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110622">
+        <simple_name>Zend_Db_Select.___Class_Initializer_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.___Class_Initializer_@__Db_Select_php_1():void</signature>
+        <info_rule id="466565"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110786">
+        <simple_name>Zend_Db_Select.__call_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.__call_@__Db_Select_php_1($method;$args):Variant</signature>
+        <info_rule id="466744"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110667">
+        <simple_name>Zend_Db_Select.__construct_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.__construct_@__Db_Select_php_1($adapter):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110723">
+        <simple_name>Zend_Db_Select.__toString_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.__toString_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="466679"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111085">
+        <simple_name>Zend_Db_Select._getDummyTable_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._getDummyTable_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="467073"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110628">
+        <simple_name>Zend_Db_Select._getQuotedSchema_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._getQuotedSchema_@__Db_Select_php_1($schema):Variant</signature>
+        <info_rule id="466572"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110691">
+        <simple_name>Zend_Db_Select._getQuotedTable_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._getQuotedTable_@__Db_Select_php_1($tableName;$correlationName):Variant</signature>
+        <info_rule id="466645"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111086">
+        <simple_name>Zend_Db_Select._joinUsing_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._joinUsing_@__Db_Select_php_1($type;$name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="467074"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111074">
+        <simple_name>Zend_Db_Select._join_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._join_@__Db_Select_php_1($type;$name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="467060"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110598">
+        <simple_name>Zend_Db_Select._renderColumns_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderColumns_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466540"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110646">
+        <simple_name>Zend_Db_Select._renderDistinct_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderDistinct_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466593"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111080">
+        <simple_name>Zend_Db_Select._renderForupdate_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderForupdate_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="467067"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110753">
+        <simple_name>Zend_Db_Select._renderFrom_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderFrom_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466710"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110816">
+        <simple_name>Zend_Db_Select._renderGroup_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderGroup_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466777"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110912">
+        <simple_name>Zend_Db_Select._renderHaving_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderHaving_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466880"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111132">
+        <simple_name>Zend_Db_Select._renderLimitoffset_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderLimitoffset_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="467127"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110947">
+        <simple_name>Zend_Db_Select._renderOrder_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderOrder_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466920"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110679">
+        <simple_name>Zend_Db_Select._renderUnion_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderUnion_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466630"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110703">
+        <simple_name>Zend_Db_Select._renderWhere_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._renderWhere_@__Db_Select_php_1($sql):Variant</signature>
+        <info_rule id="466658"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110809">
+        <simple_name>Zend_Db_Select._tableCols_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._tableCols_@__Db_Select_php_1($correlationName;$cols;$afterCorrelationName):Variant</signature>
+        <info_rule id="466768"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111026">
+        <simple_name>Zend_Db_Select._where_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select._where_@__Db_Select_php_1($condition;$value;$type;$bool):Variant</signature>
+        <info_rule id="467004"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110813">
+        <simple_name>Zend_Db_Select.assemble_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.assemble_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="466774"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111036">
+        <simple_name>Zend_Db_Select.bind_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.bind_@__Db_Select_php_1($bind):Variant</signature>
+        <info_rule id="467018"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110776">
+        <simple_name>Zend_Db_Select.columns_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.columns_@__Db_Select_php_1($cols;$correlationName):Variant</signature>
+        <info_rule id="466734"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110990">
+        <simple_name>Zend_Db_Select.distinct_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.distinct_@__Db_Select_php_1($flag):Variant</signature>
+        <info_rule id="466965"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110815">
+        <simple_name>Zend_Db_Select.forUpdate_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.forUpdate_@__Db_Select_php_1($flag):Variant</signature>
+        <info_rule id="466776"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110989">
+        <simple_name>Zend_Db_Select.from_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.from_@__Db_Select_php_1($name;$cols;$schema):Variant</signature>
+        <info_rule id="466964"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111070">
+        <simple_name>Zend_Db_Select.getAdapter_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.getAdapter_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="467055"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110969">
+        <simple_name>Zend_Db_Select.getBind_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.getBind_@__Db_Select_php_1():Variant</signature>
+        <info_rule id="466943"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111133">
+        <simple_name>Zend_Db_Select.getPart_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.getPart_@__Db_Select_php_1($part):Variant</signature>
+        <info_rule id="467128"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110749">
+        <simple_name>Zend_Db_Select.group_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.group_@__Db_Select_php_1($spec):Variant</signature>
+        <info_rule id="466707"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110671">
+        <simple_name>Zend_Db_Select.having_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.having_@__Db_Select_php_1($cond):Variant</signature>
+        <info_rule id="466623"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111111">
+        <simple_name>Zend_Db_Select.joinCross_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinCross_@__Db_Select_php_1($name;$cols;$schema):Variant</signature>
+        <info_rule id="467101"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110974">
+        <simple_name>Zend_Db_Select.joinFull_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinFull_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466949"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110729">
+        <simple_name>Zend_Db_Select.joinInner_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinInner_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466685"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110657">
+        <simple_name>Zend_Db_Select.joinLeft_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinLeft_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466606"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110943">
+        <simple_name>Zend_Db_Select.joinNatural_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinNatural_@__Db_Select_php_1($name;$cols;$schema):Variant</signature>
+        <info_rule id="466915"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110781">
+        <simple_name>Zend_Db_Select.joinRight_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.joinRight_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466739"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110603">
+        <simple_name>Zend_Db_Select.join_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.join_@__Db_Select_php_1($name;$cond;$cols;$schema):Variant</signature>
+        <info_rule id="466545"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111097">
+        <simple_name>Zend_Db_Select.limitPage_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.limitPage_@__Db_Select_php_1($page;$rowCount):Variant</signature>
+        <info_rule id="467085"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110895">
+        <simple_name>Zend_Db_Select.limit_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.limit_@__Db_Select_php_1($count;$offset):Variant</signature>
+        <info_rule id="466860"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110872">
+        <simple_name>Zend_Db_Select.orHaving_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.orHaving_@__Db_Select_php_1($cond):Variant</signature>
+        <info_rule id="466837"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110787">
+        <simple_name>Zend_Db_Select.orWhere_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.orWhere_@__Db_Select_php_1($cond;$value;$type):Variant</signature>
+        <info_rule id="466746"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110765">
+        <simple_name>Zend_Db_Select.order_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.order_@__Db_Select_php_1($spec):Variant</signature>
+        <info_rule id="466722"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110893">
+        <simple_name>Zend_Db_Select.query_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.query_@__Db_Select_php_1($fetchMode;$bind):Variant</signature>
+        <info_rule id="466858"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111001">
+        <simple_name>Zend_Db_Select.reset_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.reset_@__Db_Select_php_1($part):Variant</signature>
+        <info_rule id="466979"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111145">
+        <simple_name>Zend_Db_Select.union_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.union_@__Db_Select_php_1($select;$type):Variant</signature>
+        <info_rule id="467140"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110902">
+        <simple_name>Zend_Db_Select.where_@__Db_Select_php_1</simple_name>
+        <signature>Zend_Db_Select.where_@__Db_Select_php_1($cond;$value;$type):Variant</signature>
+        <info_rule id="466869"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

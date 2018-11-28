@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_QuickForm_select">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select.HTML_QuickForm_select</simple_name>
+        <signature>HTML_QuickForm_select.HTML_QuickForm_select($elementName;$elementLabel;$options;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._findValue</simple_name>
+        <signature>HTML_QuickForm_select._findValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._getAttrString</simple_name>
+        <signature>HTML_QuickForm_select._getAttrString():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._getTabs</simple_name>
+        <signature>HTML_QuickForm_select._getTabs():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._parseAttributes</simple_name>
+        <signature>HTML_QuickForm_select._parseAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._prepareValue</simple_name>
+        <signature>HTML_QuickForm_select._prepareValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._removeAttr</simple_name>
+        <signature>HTML_QuickForm_select._removeAttr():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._updateAttrArray</simple_name>
+        <signature>HTML_QuickForm_select._updateAttrArray():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091380">
+        <simple_name>HTML_QuickForm_select.addOption</simple_name>
+        <signature>HTML_QuickForm_select.addOption($text;$value;$attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091402">
+        <simple_name>HTML_QuickForm_select.apiVersion</simple_name>
+        <signature>HTML_QuickForm_select.apiVersion():double</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091395">
+        <simple_name>HTML_QuickForm_select.exportValue</simple_name>
+        <signature>HTML_QuickForm_select.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480761"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091396">
+        <simple_name>HTML_QuickForm_select.getAttribute</simple_name>
+        <signature>HTML_QuickForm_select.getAttribute():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091392">
+        <simple_name>HTML_QuickForm_select.getComment</simple_name>
+        <signature>HTML_QuickForm_select.getComment():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091387">
+        <simple_name>HTML_QuickForm_select.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_select.getFrozenHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select.getMultiple</simple_name>
+        <signature>HTML_QuickForm_select.getMultiple():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091391">
+        <simple_name>HTML_QuickForm_select.getName</simple_name>
+        <signature>HTML_QuickForm_select.getName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091386">
+        <simple_name>HTML_QuickForm_select.getPrivateName</simple_name>
+        <signature>HTML_QuickForm_select.getPrivateName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091403">
+        <simple_name>HTML_QuickForm_select.getSelected</simple_name>
+        <signature>HTML_QuickForm_select.getSelected():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091401">
+        <simple_name>HTML_QuickForm_select.getSize</simple_name>
+        <signature>HTML_QuickForm_select.getSize():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091385">
+        <simple_name>HTML_QuickForm_select.getValue</simple_name>
+        <signature>HTML_QuickForm_select.getValue():array</signature>
+        <info_rule id="480760"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091393">
+        <simple_name>HTML_QuickForm_select.load</simple_name>
+        <signature>HTML_QuickForm_select.load($options;$param1;$param2;$param3;$param4):PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091382">
+        <simple_name>HTML_QuickForm_select.loadArray</simple_name>
+        <signature>HTML_QuickForm_select.loadArray($arr;$values):PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091399">
+        <simple_name>HTML_QuickForm_select.loadDbResult</simple_name>
+        <signature>HTML_QuickForm_select.loadDbResult($result;$textCol;$valueCol;$values):PEAR_Error</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091384">
+        <simple_name>HTML_QuickForm_select.loadQuery</simple_name>
+        <signature>HTML_QuickForm_select.loadQuery($conn;$sql;$textCol;$valueCol;$values):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091390">
+        <simple_name>HTML_QuickForm_select.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_select.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091398">
+        <simple_name>HTML_QuickForm_select.removeAttribute</simple_name>
+        <signature>HTML_QuickForm_select.removeAttribute():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091388">
+        <simple_name>HTML_QuickForm_select.setMultiple</simple_name>
+        <signature>HTML_QuickForm_select.setMultiple($multiple):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091397">
+        <simple_name>HTML_QuickForm_select.setName</simple_name>
+        <signature>HTML_QuickForm_select.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091389">
+        <simple_name>HTML_QuickForm_select.setSelected</simple_name>
+        <signature>HTML_QuickForm_select.setSelected($values):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091381">
+        <simple_name>HTML_QuickForm_select.setSize</simple_name>
+        <signature>HTML_QuickForm_select.setSize($size):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091400">
+        <simple_name>HTML_QuickForm_select.setValue</simple_name>
+        <signature>HTML_QuickForm_select.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091383">
+        <simple_name>HTML_QuickForm_select.toHtml</simple_name>
+        <signature>HTML_QuickForm_select.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091394">
+        <simple_name>HTML_QuickForm_select.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_select.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_QuickForm_select">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select.HTML_QuickForm_select</simple_name>
+        <signature>HTML_QuickForm_select.HTML_QuickForm_select($elementName;$elementLabel;$options;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._findValue</simple_name>
+        <signature>HTML_QuickForm_select._findValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._getAttrString</simple_name>
+        <signature>HTML_QuickForm_select._getAttrString():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._getTabs</simple_name>
+        <signature>HTML_QuickForm_select._getTabs():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._parseAttributes</simple_name>
+        <signature>HTML_QuickForm_select._parseAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._prepareValue</simple_name>
+        <signature>HTML_QuickForm_select._prepareValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._removeAttr</simple_name>
+        <signature>HTML_QuickForm_select._removeAttr():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select._updateAttrArray</simple_name>
+        <signature>HTML_QuickForm_select._updateAttrArray():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091380">
+        <simple_name>HTML_QuickForm_select.addOption</simple_name>
+        <signature>HTML_QuickForm_select.addOption($text;$value;$attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091402">
+        <simple_name>HTML_QuickForm_select.apiVersion</simple_name>
+        <signature>HTML_QuickForm_select.apiVersion():double</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091395">
+        <simple_name>HTML_QuickForm_select.exportValue</simple_name>
+        <signature>HTML_QuickForm_select.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480761"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091396">
+        <simple_name>HTML_QuickForm_select.getAttribute</simple_name>
+        <signature>HTML_QuickForm_select.getAttribute():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091392">
+        <simple_name>HTML_QuickForm_select.getComment</simple_name>
+        <signature>HTML_QuickForm_select.getComment():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091387">
+        <simple_name>HTML_QuickForm_select.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_select.getFrozenHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_select.getMultiple</simple_name>
+        <signature>HTML_QuickForm_select.getMultiple():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091391">
+        <simple_name>HTML_QuickForm_select.getName</simple_name>
+        <signature>HTML_QuickForm_select.getName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091386">
+        <simple_name>HTML_QuickForm_select.getPrivateName</simple_name>
+        <signature>HTML_QuickForm_select.getPrivateName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091403">
+        <simple_name>HTML_QuickForm_select.getSelected</simple_name>
+        <signature>HTML_QuickForm_select.getSelected():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091401">
+        <simple_name>HTML_QuickForm_select.getSize</simple_name>
+        <signature>HTML_QuickForm_select.getSize():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091385">
+        <simple_name>HTML_QuickForm_select.getValue</simple_name>
+        <signature>HTML_QuickForm_select.getValue():array</signature>
+        <info_rule id="480760"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091393">
+        <simple_name>HTML_QuickForm_select.load</simple_name>
+        <signature>HTML_QuickForm_select.load($options;$param1;$param2;$param3;$param4):PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091382">
+        <simple_name>HTML_QuickForm_select.loadArray</simple_name>
+        <signature>HTML_QuickForm_select.loadArray($arr;$values):PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091399">
+        <simple_name>HTML_QuickForm_select.loadDbResult</simple_name>
+        <signature>HTML_QuickForm_select.loadDbResult($result;$textCol;$valueCol;$values):PEAR_Error</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091384">
+        <simple_name>HTML_QuickForm_select.loadQuery</simple_name>
+        <signature>HTML_QuickForm_select.loadQuery($conn;$sql;$textCol;$valueCol;$values):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091390">
+        <simple_name>HTML_QuickForm_select.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_select.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091398">
+        <simple_name>HTML_QuickForm_select.removeAttribute</simple_name>
+        <signature>HTML_QuickForm_select.removeAttribute():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091388">
+        <simple_name>HTML_QuickForm_select.setMultiple</simple_name>
+        <signature>HTML_QuickForm_select.setMultiple($multiple):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091397">
+        <simple_name>HTML_QuickForm_select.setName</simple_name>
+        <signature>HTML_QuickForm_select.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091389">
+        <simple_name>HTML_QuickForm_select.setSelected</simple_name>
+        <signature>HTML_QuickForm_select.setSelected($values):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091381">
+        <simple_name>HTML_QuickForm_select.setSize</simple_name>
+        <signature>HTML_QuickForm_select.setSize($size):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091400">
+        <simple_name>HTML_QuickForm_select.setValue</simple_name>
+        <signature>HTML_QuickForm_select.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091383">
+        <simple_name>HTML_QuickForm_select.toHtml</simple_name>
+        <signature>HTML_QuickForm_select.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091394">
+        <simple_name>HTML_QuickForm_select.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_select.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XML_RPC_Client">
+      <method vuln_id="1092744">
+        <simple_name>XML_RPC_Client.XML_RPC_Client</simple_name>
+        <signature>XML_RPC_Client.XML_RPC_Client($path;$server;$port;$proxy;$proxy_port;$proxy_user;$proxy_pass):mixed</signature>
+        <rule>
+          <ActionObject id="463017">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="6" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463018">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="7" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="452062">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="6,7" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6,7"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092750">
+        <simple_name>XML_RPC_Client.createHeaders</simple_name>
+        <signature>XML_RPC_Client.createHeaders($msg):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092759">
+        <simple_name>XML_RPC_Client.send</simple_name>
+        <signature>XML_RPC_Client.send($msg;$timeout):object an</signature>
+        <info_rule id="480909"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <comment>todo Do we want sink here or on XML_RPC_Message tainting</comment>
+      </method>
+      <method vuln_id="1092746">
+        <simple_name>XML_RPC_Client.sendPayloadHTTP10</simple_name>
+        <signature>XML_RPC_Client.sendPayloadHTTP10($msg;$server;$port;$timeout;$username;$password):object an</signature>
+        <info_rule id="480911"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <comment>todo Do we want sink here or on XML_RPC_Message tainting</comment>
+      </method>
+      <method vuln_id="1092761">
+        <simple_name>XML_RPC_Client.setAutoBase64</simple_name>
+        <signature>XML_RPC_Client.setAutoBase64($in):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092736">
+        <simple_name>XML_RPC_Client.setCredentials</simple_name>
+        <signature>XML_RPC_Client.setCredentials($u;$p):mixed</signature>
+        <rule>
+          <ActionObject id="463016">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463015">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="452058">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092765">
+        <simple_name>XML_RPC_Client.setDebug</simple_name>
+        <signature>XML_RPC_Client.setDebug($in):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="XML_RPC_Client">
+      <method vuln_id="1092744">
+        <simple_name>XML_RPC_Client.XML_RPC_Client</simple_name>
+        <signature>XML_RPC_Client.XML_RPC_Client($path;$server;$port;$proxy;$proxy_port;$proxy_user;$proxy_pass):mixed</signature>
+        <rule>
+          <ActionObject id="463017">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="6" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463018">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="7" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="452062">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="6,7" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6,7"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092750">
+        <simple_name>XML_RPC_Client.createHeaders</simple_name>
+        <signature>XML_RPC_Client.createHeaders($msg):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092759">
+        <simple_name>XML_RPC_Client.send</simple_name>
+        <signature>XML_RPC_Client.send($msg;$timeout):object an</signature>
+        <info_rule id="480909"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <comment>todo Do we want sink here or on XML_RPC_Message tainting</comment>
+      </method>
+      <method vuln_id="1092746">
+        <simple_name>XML_RPC_Client.sendPayloadHTTP10</simple_name>
+        <signature>XML_RPC_Client.sendPayloadHTTP10($msg;$server;$port;$timeout;$username;$password):object an</signature>
+        <info_rule id="480911"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <comment>todo Do we want sink here or on XML_RPC_Message tainting</comment>
+      </method>
+      <method vuln_id="1092761">
+        <simple_name>XML_RPC_Client.setAutoBase64</simple_name>
+        <signature>XML_RPC_Client.setAutoBase64($in):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092736">
+        <simple_name>XML_RPC_Client.setCredentials</simple_name>
+        <signature>XML_RPC_Client.setCredentials($u;$p):mixed</signature>
+        <rule>
+          <ActionObject id="463016">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463015">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="452058">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092765">
+        <simple_name>XML_RPC_Client.setDebug</simple_name>
+        <signature>XML_RPC_Client.setDebug($in):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

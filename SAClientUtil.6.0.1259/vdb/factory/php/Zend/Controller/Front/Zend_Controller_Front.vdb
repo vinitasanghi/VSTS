@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Controller_Front">
+      <method vuln_id="1110045">
+        <simple_name>Zend_Controller_Front.___Class_Initializer_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.___Class_Initializer_@__Controller_Front_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109988">
+        <simple_name>Zend_Controller_Front.__construct_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.__construct_@__Controller_Front_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110060">
+        <simple_name>Zend_Controller_Front.addControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.addControllerDirectory_@__Controller_Front_php_1($directory;$module):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109951">
+        <simple_name>Zend_Controller_Front.addModuleDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.addModuleDirectory_@__Controller_Front_php_1($path):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110136">
+        <simple_name>Zend_Controller_Front.clearParams_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.clearParams_@__Controller_Front_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.dispatch_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.dispatch_@__Controller_Front_php_1($request;$response):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110278">
+        <simple_name>Zend_Controller_Front.getBaseUrl_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getBaseUrl_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109974">
+        <simple_name>Zend_Controller_Front.getControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getControllerDirectory_@__Controller_Front_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110187">
+        <simple_name>Zend_Controller_Front.getDefaultAction_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDefaultAction_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110320">
+        <simple_name>Zend_Controller_Front.getDefaultControllerName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDefaultControllerName_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110264">
+        <simple_name>Zend_Controller_Front.getDefaultModule_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDefaultModule_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110207">
+        <simple_name>Zend_Controller_Front.getDispatcher_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDispatcher_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109956">
+        <simple_name>Zend_Controller_Front.getInstance</simple_name>
+        <signature>Zend_Controller_Front.getInstance():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110149">
+        <simple_name>Zend_Controller_Front.getInstance_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getInstance_@__Controller_Front_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110178">
+        <simple_name>Zend_Controller_Front.getModuleControllerDirectoryName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getModuleControllerDirectoryName_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110326">
+        <simple_name>Zend_Controller_Front.getModuleDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getModuleDirectory_@__Controller_Front_php_1($module):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110023">
+        <simple_name>Zend_Controller_Front.getParam_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getParam_@__Controller_Front_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110140">
+        <simple_name>Zend_Controller_Front.getParams_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getParams_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110179">
+        <simple_name>Zend_Controller_Front.getPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getPlugin_@__Controller_Front_php_1($class):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109906">
+        <simple_name>Zend_Controller_Front.getPlugins_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getPlugins_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109920">
+        <simple_name>Zend_Controller_Front.getRequest_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getRequest_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109954">
+        <simple_name>Zend_Controller_Front.getResponse_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getResponse_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110133">
+        <simple_name>Zend_Controller_Front.getRouter_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getRouter_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110043">
+        <simple_name>Zend_Controller_Front.hasPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.hasPlugin_@__Controller_Front_php_1($class):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.registerPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.registerPlugin_@__Controller_Front_php_1($plugin;$stackIndex):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110208">
+        <simple_name>Zend_Controller_Front.removeControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.removeControllerDirectory_@__Controller_Front_php_1($module):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.resetInstance_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.resetInstance_@__Controller_Front_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.returnResponse_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.returnResponse_@__Controller_Front_php_1($flag):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.run_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.run_@__Controller_Front_php_1($controllerDirectory):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109990">
+        <simple_name>Zend_Controller_Front.setBaseUrl_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setBaseUrl_@__Controller_Front_php_1($base):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110129">
+        <simple_name>Zend_Controller_Front.setControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setControllerDirectory_@__Controller_Front_php_1($directory;$module):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110215">
+        <simple_name>Zend_Controller_Front.setDefaultAction_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDefaultAction_@__Controller_Front_php_1($action):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109877">
+        <simple_name>Zend_Controller_Front.setDefaultControllerName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDefaultControllerName_@__Controller_Front_php_1($controller):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110236">
+        <simple_name>Zend_Controller_Front.setDefaultModule_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDefaultModule_@__Controller_Front_php_1($module):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109925">
+        <simple_name>Zend_Controller_Front.setDispatcher_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDispatcher_@__Controller_Front_php_1($dispatcher):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109880">
+        <simple_name>Zend_Controller_Front.setModuleControllerDirectoryName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setModuleControllerDirectoryName_@__Controller_Front_php_1($name):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110327">
+        <simple_name>Zend_Controller_Front.setParam_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setParam_@__Controller_Front_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110038">
+        <simple_name>Zend_Controller_Front.setParams_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setParams_@__Controller_Front_php_1($params):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110295">
+        <simple_name>Zend_Controller_Front.setRequest_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setRequest_@__Controller_Front_php_1($request):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110169">
+        <simple_name>Zend_Controller_Front.setResponse_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setResponse_@__Controller_Front_php_1($response):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110189">
+        <simple_name>Zend_Controller_Front.setRouter_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setRouter_@__Controller_Front_php_1($router):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.throwExceptions_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.throwExceptions_@__Controller_Front_php_1($flag):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.unregisterPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.unregisterPlugin_@__Controller_Front_php_1($plugin):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Controller_Front">
+      <method vuln_id="1110045">
+        <simple_name>Zend_Controller_Front.___Class_Initializer_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.___Class_Initializer_@__Controller_Front_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109988">
+        <simple_name>Zend_Controller_Front.__construct_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.__construct_@__Controller_Front_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110060">
+        <simple_name>Zend_Controller_Front.addControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.addControllerDirectory_@__Controller_Front_php_1($directory;$module):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109951">
+        <simple_name>Zend_Controller_Front.addModuleDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.addModuleDirectory_@__Controller_Front_php_1($path):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110136">
+        <simple_name>Zend_Controller_Front.clearParams_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.clearParams_@__Controller_Front_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.dispatch_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.dispatch_@__Controller_Front_php_1($request;$response):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110278">
+        <simple_name>Zend_Controller_Front.getBaseUrl_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getBaseUrl_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109974">
+        <simple_name>Zend_Controller_Front.getControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getControllerDirectory_@__Controller_Front_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110187">
+        <simple_name>Zend_Controller_Front.getDefaultAction_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDefaultAction_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110320">
+        <simple_name>Zend_Controller_Front.getDefaultControllerName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDefaultControllerName_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110264">
+        <simple_name>Zend_Controller_Front.getDefaultModule_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDefaultModule_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110207">
+        <simple_name>Zend_Controller_Front.getDispatcher_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getDispatcher_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109956">
+        <simple_name>Zend_Controller_Front.getInstance</simple_name>
+        <signature>Zend_Controller_Front.getInstance():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110149">
+        <simple_name>Zend_Controller_Front.getInstance_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getInstance_@__Controller_Front_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110178">
+        <simple_name>Zend_Controller_Front.getModuleControllerDirectoryName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getModuleControllerDirectoryName_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110326">
+        <simple_name>Zend_Controller_Front.getModuleDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getModuleDirectory_@__Controller_Front_php_1($module):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110023">
+        <simple_name>Zend_Controller_Front.getParam_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getParam_@__Controller_Front_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110140">
+        <simple_name>Zend_Controller_Front.getParams_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getParams_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110179">
+        <simple_name>Zend_Controller_Front.getPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getPlugin_@__Controller_Front_php_1($class):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109906">
+        <simple_name>Zend_Controller_Front.getPlugins_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getPlugins_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109920">
+        <simple_name>Zend_Controller_Front.getRequest_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getRequest_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109954">
+        <simple_name>Zend_Controller_Front.getResponse_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getResponse_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110133">
+        <simple_name>Zend_Controller_Front.getRouter_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.getRouter_@__Controller_Front_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110043">
+        <simple_name>Zend_Controller_Front.hasPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.hasPlugin_@__Controller_Front_php_1($class):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.registerPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.registerPlugin_@__Controller_Front_php_1($plugin;$stackIndex):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110208">
+        <simple_name>Zend_Controller_Front.removeControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.removeControllerDirectory_@__Controller_Front_php_1($module):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.resetInstance_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.resetInstance_@__Controller_Front_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.returnResponse_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.returnResponse_@__Controller_Front_php_1($flag):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.run_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.run_@__Controller_Front_php_1($controllerDirectory):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109990">
+        <simple_name>Zend_Controller_Front.setBaseUrl_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setBaseUrl_@__Controller_Front_php_1($base):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110129">
+        <simple_name>Zend_Controller_Front.setControllerDirectory_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setControllerDirectory_@__Controller_Front_php_1($directory;$module):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110215">
+        <simple_name>Zend_Controller_Front.setDefaultAction_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDefaultAction_@__Controller_Front_php_1($action):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109877">
+        <simple_name>Zend_Controller_Front.setDefaultControllerName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDefaultControllerName_@__Controller_Front_php_1($controller):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110236">
+        <simple_name>Zend_Controller_Front.setDefaultModule_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDefaultModule_@__Controller_Front_php_1($module):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109925">
+        <simple_name>Zend_Controller_Front.setDispatcher_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setDispatcher_@__Controller_Front_php_1($dispatcher):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109880">
+        <simple_name>Zend_Controller_Front.setModuleControllerDirectoryName_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setModuleControllerDirectoryName_@__Controller_Front_php_1($name):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110327">
+        <simple_name>Zend_Controller_Front.setParam_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setParam_@__Controller_Front_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110038">
+        <simple_name>Zend_Controller_Front.setParams_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setParams_@__Controller_Front_php_1($params):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110295">
+        <simple_name>Zend_Controller_Front.setRequest_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setRequest_@__Controller_Front_php_1($request):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110169">
+        <simple_name>Zend_Controller_Front.setResponse_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setResponse_@__Controller_Front_php_1($response):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110189">
+        <simple_name>Zend_Controller_Front.setRouter_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.setRouter_@__Controller_Front_php_1($router):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.throwExceptions_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.throwExceptions_@__Controller_Front_php_1($flag):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Front.unregisterPlugin_@__Controller_Front_php_1</simple_name>
+        <signature>Zend_Controller_Front.unregisterPlugin_@__Controller_Front_php_1($plugin):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

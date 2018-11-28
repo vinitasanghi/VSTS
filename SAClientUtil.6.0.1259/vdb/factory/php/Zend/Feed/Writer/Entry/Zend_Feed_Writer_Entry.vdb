@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Feed_Writer_Entry">
+      <method vuln_id="1112087">
+        <simple_name>Zend_Feed_Writer_Entry.__call_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.__call_@__Feed_Writer_Entry_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111866">
+        <simple_name>Zend_Feed_Writer_Entry.__construct_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.__construct_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Writer_Entry._loadExtensions_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry._loadExtensions_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112218">
+        <simple_name>Zend_Feed_Writer_Entry.addAuthor_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addAuthor_@__Feed_Writer_Entry_php_1($name;$email;$uri):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112016">
+        <simple_name>Zend_Feed_Writer_Entry.addAuthors_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addAuthors_@__Feed_Writer_Entry_php_1($authors):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111783">
+        <simple_name>Zend_Feed_Writer_Entry.addCategories_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addCategories_@__Feed_Writer_Entry_php_1($categories):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112015">
+        <simple_name>Zend_Feed_Writer_Entry.addCategory_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addCategory_@__Feed_Writer_Entry_php_1($category):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112106">
+        <simple_name>Zend_Feed_Writer_Entry.createSource_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.createSource_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111721">
+        <simple_name>Zend_Feed_Writer_Entry.getAuthors_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getAuthors_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481079"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112083">
+        <simple_name>Zend_Feed_Writer_Entry.getCategories_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCategories_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481005"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111935">
+        <simple_name>Zend_Feed_Writer_Entry.getCommentCount_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCommentCount_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111950">
+        <simple_name>Zend_Feed_Writer_Entry.getCommentFeedLinks_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCommentFeedLinks_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481009"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112035">
+        <simple_name>Zend_Feed_Writer_Entry.getCommentLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCommentLink_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481168"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111856">
+        <simple_name>Zend_Feed_Writer_Entry.getContent_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getContent_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481172"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111774">
+        <simple_name>Zend_Feed_Writer_Entry.getCopyright_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCopyright_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481018"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112216">
+        <simple_name>Zend_Feed_Writer_Entry.getDateCreated_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getDateCreated_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481159"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111807">
+        <simple_name>Zend_Feed_Writer_Entry.getDateModified_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getDateModified_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481014"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111960">
+        <simple_name>Zend_Feed_Writer_Entry.getDescription_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getDescription_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481073"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112168">
+        <simple_name>Zend_Feed_Writer_Entry.getEnclosure_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getEnclosure_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481104"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112022">
+        <simple_name>Zend_Feed_Writer_Entry.getEncoding_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getEncoding_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112227">
+        <simple_name>Zend_Feed_Writer_Entry.getExtension_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getExtension_@__Feed_Writer_Entry_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112189">
+        <simple_name>Zend_Feed_Writer_Entry.getExtensions_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getExtensions_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111732">
+        <simple_name>Zend_Feed_Writer_Entry.getId_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getId_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481051"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112093">
+        <simple_name>Zend_Feed_Writer_Entry.getLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getLink_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481102"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112102">
+        <simple_name>Zend_Feed_Writer_Entry.getLinks_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getLinks_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481107"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111756">
+        <simple_name>Zend_Feed_Writer_Entry.getSource_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getSource_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481069"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112065">
+        <simple_name>Zend_Feed_Writer_Entry.getTitle_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getTitle_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481033"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112067">
+        <simple_name>Zend_Feed_Writer_Entry.getType_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getType_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112209">
+        <simple_name>Zend_Feed_Writer_Entry.remove_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.remove_@__Feed_Writer_Entry_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112162">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentCount_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentCount_@__Feed_Writer_Entry_php_1($count):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112020">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentFeedLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentFeedLink_@__Feed_Writer_Entry_php_1($link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112230">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentFeedLinks_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentFeedLinks_@__Feed_Writer_Entry_php_1($links):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111619">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentLink_@__Feed_Writer_Entry_php_1($link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111873">
+        <simple_name>Zend_Feed_Writer_Entry.setContent_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setContent_@__Feed_Writer_Entry_php_1($content):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112174">
+        <simple_name>Zend_Feed_Writer_Entry.setCopyright_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCopyright_@__Feed_Writer_Entry_php_1($copyright):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111609">
+        <simple_name>Zend_Feed_Writer_Entry.setDateCreated_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setDateCreated_@__Feed_Writer_Entry_php_1($date):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112108">
+        <simple_name>Zend_Feed_Writer_Entry.setDateModified_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setDateModified_@__Feed_Writer_Entry_php_1($date):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111913">
+        <simple_name>Zend_Feed_Writer_Entry.setDescription_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setDescription_@__Feed_Writer_Entry_php_1($description):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111728">
+        <simple_name>Zend_Feed_Writer_Entry.setEnclosure_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setEnclosure_@__Feed_Writer_Entry_php_1($enclosure):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111709">
+        <simple_name>Zend_Feed_Writer_Entry.setEncoding_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setEncoding_@__Feed_Writer_Entry_php_1($encoding):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111636">
+        <simple_name>Zend_Feed_Writer_Entry.setId_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setId_@__Feed_Writer_Entry_php_1($id):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111911">
+        <simple_name>Zend_Feed_Writer_Entry.setLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setLink_@__Feed_Writer_Entry_php_1($link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111990">
+        <simple_name>Zend_Feed_Writer_Entry.setSource_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setSource_@__Feed_Writer_Entry_php_1($source):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111626">
+        <simple_name>Zend_Feed_Writer_Entry.setTitle_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setTitle_@__Feed_Writer_Entry_php_1($title):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112027">
+        <simple_name>Zend_Feed_Writer_Entry.setType_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setType_@__Feed_Writer_Entry_php_1($type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Feed_Writer_Entry">
+      <method vuln_id="1112087">
+        <simple_name>Zend_Feed_Writer_Entry.__call_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.__call_@__Feed_Writer_Entry_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111866">
+        <simple_name>Zend_Feed_Writer_Entry.__construct_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.__construct_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Writer_Entry._loadExtensions_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry._loadExtensions_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112218">
+        <simple_name>Zend_Feed_Writer_Entry.addAuthor_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addAuthor_@__Feed_Writer_Entry_php_1($name;$email;$uri):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112016">
+        <simple_name>Zend_Feed_Writer_Entry.addAuthors_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addAuthors_@__Feed_Writer_Entry_php_1($authors):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111783">
+        <simple_name>Zend_Feed_Writer_Entry.addCategories_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addCategories_@__Feed_Writer_Entry_php_1($categories):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112015">
+        <simple_name>Zend_Feed_Writer_Entry.addCategory_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.addCategory_@__Feed_Writer_Entry_php_1($category):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112106">
+        <simple_name>Zend_Feed_Writer_Entry.createSource_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.createSource_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111721">
+        <simple_name>Zend_Feed_Writer_Entry.getAuthors_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getAuthors_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481079"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112083">
+        <simple_name>Zend_Feed_Writer_Entry.getCategories_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCategories_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481005"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111935">
+        <simple_name>Zend_Feed_Writer_Entry.getCommentCount_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCommentCount_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111950">
+        <simple_name>Zend_Feed_Writer_Entry.getCommentFeedLinks_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCommentFeedLinks_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481009"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112035">
+        <simple_name>Zend_Feed_Writer_Entry.getCommentLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCommentLink_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481168"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111856">
+        <simple_name>Zend_Feed_Writer_Entry.getContent_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getContent_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481172"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111774">
+        <simple_name>Zend_Feed_Writer_Entry.getCopyright_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getCopyright_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481018"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112216">
+        <simple_name>Zend_Feed_Writer_Entry.getDateCreated_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getDateCreated_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481159"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111807">
+        <simple_name>Zend_Feed_Writer_Entry.getDateModified_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getDateModified_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481014"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111960">
+        <simple_name>Zend_Feed_Writer_Entry.getDescription_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getDescription_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481073"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112168">
+        <simple_name>Zend_Feed_Writer_Entry.getEnclosure_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getEnclosure_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481104"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112022">
+        <simple_name>Zend_Feed_Writer_Entry.getEncoding_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getEncoding_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112227">
+        <simple_name>Zend_Feed_Writer_Entry.getExtension_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getExtension_@__Feed_Writer_Entry_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112189">
+        <simple_name>Zend_Feed_Writer_Entry.getExtensions_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getExtensions_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111732">
+        <simple_name>Zend_Feed_Writer_Entry.getId_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getId_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481051"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112093">
+        <simple_name>Zend_Feed_Writer_Entry.getLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getLink_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481102"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112102">
+        <simple_name>Zend_Feed_Writer_Entry.getLinks_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getLinks_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481107"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111756">
+        <simple_name>Zend_Feed_Writer_Entry.getSource_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getSource_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481069"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112065">
+        <simple_name>Zend_Feed_Writer_Entry.getTitle_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getTitle_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <info_rule id="481033"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112067">
+        <simple_name>Zend_Feed_Writer_Entry.getType_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.getType_@__Feed_Writer_Entry_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112209">
+        <simple_name>Zend_Feed_Writer_Entry.remove_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.remove_@__Feed_Writer_Entry_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112162">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentCount_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentCount_@__Feed_Writer_Entry_php_1($count):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112020">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentFeedLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentFeedLink_@__Feed_Writer_Entry_php_1($link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112230">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentFeedLinks_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentFeedLinks_@__Feed_Writer_Entry_php_1($links):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111619">
+        <simple_name>Zend_Feed_Writer_Entry.setCommentLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCommentLink_@__Feed_Writer_Entry_php_1($link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111873">
+        <simple_name>Zend_Feed_Writer_Entry.setContent_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setContent_@__Feed_Writer_Entry_php_1($content):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112174">
+        <simple_name>Zend_Feed_Writer_Entry.setCopyright_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setCopyright_@__Feed_Writer_Entry_php_1($copyright):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111609">
+        <simple_name>Zend_Feed_Writer_Entry.setDateCreated_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setDateCreated_@__Feed_Writer_Entry_php_1($date):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112108">
+        <simple_name>Zend_Feed_Writer_Entry.setDateModified_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setDateModified_@__Feed_Writer_Entry_php_1($date):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111913">
+        <simple_name>Zend_Feed_Writer_Entry.setDescription_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setDescription_@__Feed_Writer_Entry_php_1($description):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111728">
+        <simple_name>Zend_Feed_Writer_Entry.setEnclosure_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setEnclosure_@__Feed_Writer_Entry_php_1($enclosure):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111709">
+        <simple_name>Zend_Feed_Writer_Entry.setEncoding_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setEncoding_@__Feed_Writer_Entry_php_1($encoding):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111636">
+        <simple_name>Zend_Feed_Writer_Entry.setId_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setId_@__Feed_Writer_Entry_php_1($id):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111911">
+        <simple_name>Zend_Feed_Writer_Entry.setLink_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setLink_@__Feed_Writer_Entry_php_1($link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111990">
+        <simple_name>Zend_Feed_Writer_Entry.setSource_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setSource_@__Feed_Writer_Entry_php_1($source):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111626">
+        <simple_name>Zend_Feed_Writer_Entry.setTitle_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setTitle_@__Feed_Writer_Entry_php_1($title):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XML</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112027">
+        <simple_name>Zend_Feed_Writer_Entry.setType_@__Feed_Writer_Entry_php_1</simple_name>
+        <signature>Zend_Feed_Writer_Entry.setType_@__Feed_Writer_Entry_php_1($type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Auth_Adapter_InfoCard">
+      <method vuln_id="1109090">
+        <simple_name>Zend_Auth_Adapter_InfoCard.__construct_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.__construct_@__Auth_Adapter_InfoCard_php_1($strXmlDocument):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109110">
+        <simple_name>Zend_Auth_Adapter_InfoCard.addCertificatePair_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.addCertificatePair_@__Auth_Adapter_InfoCard_php_1($private_key_file;$public_key_file;$type;$password):Variant</signature>
+        <info_rule id="465778"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109030">
+        <simple_name>Zend_Auth_Adapter_InfoCard.authenticate_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.authenticate_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465693"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109120">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getAdapter_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getAdapter_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465790"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109019">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getCertificatePair_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getCertificatePair_@__Auth_Adapter_InfoCard_php_1($key_id):Variant</signature>
+        <info_rule id="465679"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109032">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getPKCipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getPKCipherObject_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465695"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109085">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getSymCipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getSymCipherObject_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465753"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109064">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getXmlToken_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getXmlToken_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465731"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109057">
+        <simple_name>Zend_Auth_Adapter_InfoCard.removeCertificatePair_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.removeCertificatePair_@__Auth_Adapter_InfoCard_php_1($key_id):Variant</signature>
+        <info_rule id="465723"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109024">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setAdapter_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setAdapter_@__Auth_Adapter_InfoCard_php_1($a):Variant</signature>
+        <info_rule id="465685"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109075">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setPKICipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setPKICipherObject_@__Auth_Adapter_InfoCard_php_1($cipherObj):Variant</signature>
+        <info_rule id="465743"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109112">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setSymCipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setSymCipherObject_@__Auth_Adapter_InfoCard_php_1($cipherObj):Variant</signature>
+        <info_rule id="465781"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109132">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setXmlToken_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setXmlToken_@__Auth_Adapter_InfoCard_php_1($strXmlToken):Variant</signature>
+        <info_rule id="465802"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Auth_Adapter_InfoCard">
+      <method vuln_id="1109090">
+        <simple_name>Zend_Auth_Adapter_InfoCard.__construct_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.__construct_@__Auth_Adapter_InfoCard_php_1($strXmlDocument):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109110">
+        <simple_name>Zend_Auth_Adapter_InfoCard.addCertificatePair_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.addCertificatePair_@__Auth_Adapter_InfoCard_php_1($private_key_file;$public_key_file;$type;$password):Variant</signature>
+        <info_rule id="465778"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109030">
+        <simple_name>Zend_Auth_Adapter_InfoCard.authenticate_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.authenticate_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465693"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109120">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getAdapter_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getAdapter_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465790"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109019">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getCertificatePair_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getCertificatePair_@__Auth_Adapter_InfoCard_php_1($key_id):Variant</signature>
+        <info_rule id="465679"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109032">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getPKCipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getPKCipherObject_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465695"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109085">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getSymCipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getSymCipherObject_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465753"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109064">
+        <simple_name>Zend_Auth_Adapter_InfoCard.getXmlToken_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.getXmlToken_@__Auth_Adapter_InfoCard_php_1():Variant</signature>
+        <info_rule id="465731"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109057">
+        <simple_name>Zend_Auth_Adapter_InfoCard.removeCertificatePair_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.removeCertificatePair_@__Auth_Adapter_InfoCard_php_1($key_id):Variant</signature>
+        <info_rule id="465723"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109024">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setAdapter_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setAdapter_@__Auth_Adapter_InfoCard_php_1($a):Variant</signature>
+        <info_rule id="465685"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109075">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setPKICipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setPKICipherObject_@__Auth_Adapter_InfoCard_php_1($cipherObj):Variant</signature>
+        <info_rule id="465743"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109112">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setSymCipherObject_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setSymCipherObject_@__Auth_Adapter_InfoCard_php_1($cipherObj):Variant</signature>
+        <info_rule id="465781"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109132">
+        <simple_name>Zend_Auth_Adapter_InfoCard.setXmlToken_@__Auth_Adapter_InfoCard_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_InfoCard.setXmlToken_@__Auth_Adapter_InfoCard_php_1($strXmlToken):Variant</signature>
+        <info_rule id="465802"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

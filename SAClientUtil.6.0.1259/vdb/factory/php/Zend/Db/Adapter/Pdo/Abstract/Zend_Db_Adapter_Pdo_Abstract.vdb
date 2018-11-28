@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Db_Adapter_Pdo_Abstract">
+      <method vuln_id="1111015">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.__construct_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.__construct_@__Db_Adapter_Pdo_Abstract_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110958">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._beginTransaction_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._beginTransaction_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466932"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110713">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._commit_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._commit_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466668"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111060">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._connect_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._connect_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="467044"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110837">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._dsn_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._dsn_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466800"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111139">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._quote_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._quote_@__Db_Adapter_Pdo_Abstract_php_1($value):Variant</signature>
+        <info_rule id="467134"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110848">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._rollBack_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._rollBack_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466811"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111035">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.closeConnection_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.closeConnection_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="467017"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111027">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.exec_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.exec_@__Db_Adapter_Pdo_Abstract_php_1($sql):Variant</signature>
+        <info_rule id="467006"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110712">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.getServerVersion_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.getServerVersion_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466667"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110643">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.isConnected_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.isConnected_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466590"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110611">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.lastInsertId_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.lastInsertId_@__Db_Adapter_Pdo_Abstract_php_1($tableName;$primaryKey):Variant</signature>
+        <info_rule id="466554"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111006">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.prepare_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.prepare_@__Db_Adapter_Pdo_Abstract_php_1($sql):Variant</signature>
+        <info_rule id="466986"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110861">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.query_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.query_@__Db_Adapter_Pdo_Abstract_php_1($sql;$bind):Variant</signature>
+        <info_rule id="466824"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110724">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.setFetchMode_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.setFetchMode_@__Db_Adapter_Pdo_Abstract_php_1($mode):Variant</signature>
+        <info_rule id="466680"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110602">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.supportsParameters_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.supportsParameters_@__Db_Adapter_Pdo_Abstract_php_1($type):Variant</signature>
+        <info_rule id="466544"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Db_Adapter_Pdo_Abstract">
+      <method vuln_id="1111015">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.__construct_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.__construct_@__Db_Adapter_Pdo_Abstract_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110958">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._beginTransaction_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._beginTransaction_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466932"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110713">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._commit_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._commit_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466668"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111060">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._connect_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._connect_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="467044"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110837">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._dsn_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._dsn_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466800"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111139">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._quote_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._quote_@__Db_Adapter_Pdo_Abstract_php_1($value):Variant</signature>
+        <info_rule id="467134"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110848">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract._rollBack_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract._rollBack_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466811"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111035">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.closeConnection_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.closeConnection_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="467017"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111027">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.exec_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.exec_@__Db_Adapter_Pdo_Abstract_php_1($sql):Variant</signature>
+        <info_rule id="467006"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110712">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.getServerVersion_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.getServerVersion_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466667"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110643">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.isConnected_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.isConnected_@__Db_Adapter_Pdo_Abstract_php_1():Variant</signature>
+        <info_rule id="466590"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110611">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.lastInsertId_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.lastInsertId_@__Db_Adapter_Pdo_Abstract_php_1($tableName;$primaryKey):Variant</signature>
+        <info_rule id="466554"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111006">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.prepare_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.prepare_@__Db_Adapter_Pdo_Abstract_php_1($sql):Variant</signature>
+        <info_rule id="466986"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110861">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.query_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.query_@__Db_Adapter_Pdo_Abstract_php_1($sql;$bind):Variant</signature>
+        <info_rule id="466824"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110724">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.setFetchMode_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.setFetchMode_@__Db_Adapter_Pdo_Abstract_php_1($mode):Variant</signature>
+        <info_rule id="466680"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110602">
+        <simple_name>Zend_Db_Adapter_Pdo_Abstract.supportsParameters_@__Db_Adapter_Pdo_Abstract_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Abstract.supportsParameters_@__Db_Adapter_Pdo_Abstract_php_1($type):Variant</signature>
+        <info_rule id="466544"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

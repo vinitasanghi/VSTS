@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings
+    display_name="C++ Scan Settings"
+    description="General settings that affect C++ scanning"
+    >
+
+	<Setting
+	    name="compiler_option_mappings"
+	    value        ="microsoft=cl_to_edg_option_mapping;gcc=gcc_to_edg_option_mapping;java=java_option_mappings;aix=vac_to_edg_option_mapping;xlc=xlc_to_edg_option_mapping;xlcpp=xlcpp_to_edg_option_mapping;edg=edg_to_edg_option_mapping;prexis=prexis_to_edg_option_mapping;CC=CC_to_edg_option_mapping"
+	    default_value="microsoft=cl_to_edg_option_mapping;gcc=gcc_to_edg_option_mapping;java=java_option_mappings;aix=vac_to_edg_option_mapping;xlc=xlc_to_edg_option_mapping;xlcpp=xlcpp_to_edg_option_mapping;edg=edg_to_edg_option_mapping;prexis=prexis_to_edg_option_mapping;CC=CC_to_edg_option_mapping"
+	    type="memo"
+        hidden="true"
+	    display_name="Compiler option mapping"
+	    />
+	<Setting
+	    name="cl_to_edg_option_mapping"
+	    value        ="I=-I $(arg);D=-D $(arg);TC=--c;TP=-p;J=-u;MT=-D_MT;MTd=-D_MT;MD=-D_MT -D_DLL;MDd=-D_MT -D_DLL;Zp1=--pack_alignment 1;Zp2=--pack_alignment 2;Zp4=--pack_alignment 4;Zp8=--pack_alignment 8;Zp16=--pack_alignment 16;FI=--preinclude $(arg);VsCpp11=--c++11;Zc:forScope-=--old_for_init;"
+	    default_value="I=-I $(arg);D=-D $(arg);TC=--c;TP=-p;J=-u;MT=-D_MT;MTd=-D_MT;MD=-D_MT -D_DLL;MDd=-D_MT -D_DLL;Zp1=--pack_alignment 1;Zp2=--pack_alignment 2;Zp4=--pack_alignment 4;Zp8=--pack_alignment 8;Zp16=--pack_alignment 16;FI=--preinclude $(arg);VsCpp11=--c++11;Zc:forScope-=--old_for_init;"
+	    type="memo"
+        hidden="true"
+	    display_name="CL to EDG option mapping"
+	    description="CL to EDG option mapping"
+	    />
+	<Setting
+	    name="gcc_to_edg_option_mapping"
+	    value        ="traditional-cpp=--old_style_preprocessing;fdollars-in-identifiers=--dollar;fsigned_char=--signed_chars;funsigned_char;--unsigned_chars;fwritable_strings=--no_const_string_literals;include=--preinclude $(arg);imacros=--preinclude_macros $(arg)"
+	    default_value="traditional-cpp=--old_style_preprocessing;fdollars-in-identifiers=--dollar;fsigned_char=--signed_chars;funsigned_char;--unsigned_chars;fwritable_strings=--no_const_string_literals;include=--preinclude $(arg);imacros=--preinclude_macros $(arg)"
+	    type="memo"
+        hidden="true"
+	    display_name="GCC to EDG option mapping"
+	    description="GCC to EDG option mapping"
+	    />
+	<Setting
+	    name="vac_to_edg_option_mapping"
+	    value        ="aix=--gnu_version 30300;qchars\=signed=-s;qchars\=unsigned=-u;qdollar=--dollar;qlonglong=--long_long"
+	    default_value="aix=--gnu_version 30300;qchars\=signed=-s;qchars\=unsigned=-u;qdollar=--dollar;qlonglong=--long_long"
+	    type="memo"
+        hidden="true"
+	    display_name="VAC to EDG option mapping"
+	    description="VAC to EDG option mapping"
+	    />
+	<Setting
+	    name="xlc_to_edg_option_mapping"
+	    value        ="xlc=--trigraphs --restrict -D__offsetof=__builtin_offsetof -D__wsizeof=sizeof;"
+	    default_value="xlc=--trigraphs --restrict -D__offsetof=__builtin_offsetof -D__wsizeof=sizeof;"
+	    type="memo"
+	    hidden="true"
+	    display_name="XL/C C to EDG option mapping"
+	    description="XL/C C to EDG option mapping"
+	    />
+	<Setting
+	    name="xlcpp_to_edg_option_mapping"
+	    value        ="xlcpp=--trigraphs --restrict --late_tiebreaker --dep_name -D_Export= -D__offsetof=__builtin_offsetof -D__wsizeof=sizeof;"
+	    default_value="xlcpp=--trigraphs --restrict --late_tiebreaker --dep_name -D_Export= -D__offsetof=__builtin_offsetof -D__wsizeof=sizeof;"
+	    type="memo"
+	    hidden="true"
+	    display_name="XL/C CPP to EDG option mapping"
+	    description="XL/C CPP to EDG option mapping"
+	    />
+	<Setting
+	    name="CC_to_edg_option_mapping"
+	    value        ="mt=-D_REENTRANT;compat\=4=-D__cplusplus=1 -DSUNPRO_CC_COMPAT=4;compat\=5=-D__cplusplus=199711L -D__SUNPRO_CC_COMPAT=5;"
+	    default_value="mt=-D_REENTRANT;compat\=4=-D__cplusplus=1 -DSUNPRO_CC_COMPAT=4;compat\=5=-D__cplusplus=199711L -D__SUNPRO_CC_COMPAT=5;"
+	    type="memo"
+        hidden="true"
+	    display_name="CC to EDG option mapping"
+	    description="CC to EDG option mapping"
+	    />
+	<Setting
+	    name="edg_to_edg_option_mapping"
+	    value        ="gcc=--gcc;g++=--g++;sun=--sun;remote_root=--remote_root $(arg);gnu_version=--gnu_version $(arg);diag_warning=--diag_warning $(arg);microsoft=--microsoft;no_microsoft=--no_microsoft;preinclude=--preinclude $(arg);preinclude_macros=--preinclude_macros $(arg);type_info_in_std=--type_info_in_std;ignore_std=--ignore_std"
+	    default_value="gcc=--gcc;g++=--g++;sun=--sun;remote_root=--remote_root $(arg);gnu_version=--gnu_version $(arg);diag_warning=--diag_warning $(arg);microsoft=--microsoft;no_microsoft=--no_microsoft;preinclude=--preinclude $(arg);preinclude_macros=--preinclude_macros $(arg);type_info_in_std=--type_info_in_std;ignore_std=--ignore_std"
+	    type="memo"
+        hidden="true"
+	    display_name="EDG to EDG option mapping"
+	    description="EDG to EDG option mapping"
+	    />
+	<Setting
+		name="prexis_to_edg_option_mapping"
+		value        ="vac_aix_powerpc=--gcc --targ_size_t_type=ulong -D_POWER -D_LONG_LONG;vacpp_aix_powerpc=--g++ --targ_size_t_type=ulong -D__vastart(ARG)=va_list() -D_THREAD_SAFE -D__TOS_AIX__ -D_POWER -D_LONG_LONG;gcc_aix_powerpc=--gcc --undefine_macro __i386 -D__builtin_va_start(args,n) -D__builtin_va_arg(args,type)=(type)0 -D__builtin_va_end(args) -D__DBL_MIN_EXP__=(-1021) -D__BIG_ENDIAN__=1 -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__WCHAR_MAX__=65535U -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -D__FLT_EVAL_METHOD=0 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=2.2204460492503131e-16L -D_LONG_LONG=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.7976931348623157e+308L -D_ARCH_PPC=1 -D__CHAR_UNSIGNED__=1 -D__LDBL_MAX_EXP__=1024 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__DBL_DIG__=15 -D_BIG_ENDIAN=1 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED=1 -D__LDBL_MANT_DIG__=53 -D_POWER=1 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=2.2250738585072014e-308L -D_AIX=1 -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=17 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-1021) -D__LDBL_MAX_10_EXP__=308 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__DBL_MAX_EXP__=1024 -D_AIX32=1 -D_AIX41=1 -D_AIX43=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D_AIX51=1 -D_AIX52=1 -D__LONG_LONG_MAX__=9223372036854775807LL -D__FLT_MAX__=3.40282347e+38F -D_IBMR2=1 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=4.9406564584124654e-324L -D__DBL_MIN__=2.2250738585072014e-308 -D__LDBL_MIN_10_EXP__=(-307) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=15 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24;g++_aix_powerpc=--g++ --undefine_macro __i386 -D__builtin_va_start(args,n) -D__builtin_va_arg(args,type)=(type)0 -D__builtin_va_end(args) -D__DBL_MIN_EXP__=(-1021) -D__BIG_ENDIAN__=1 -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__WCHAR_MAX__=65535U -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -D__FLT_EVAL_METHOD=0 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=2.2204460492503131e-16L -D_LONG_LONG=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.7976931348623157e+308L -D_ARCH_PPC=1 -D__CHAR_UNSIGNED__=1 -D__LDBL_MAX_EXP__=1024 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__DBL_DIG__=15 -D_BIG_ENDIAN=1 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED=1 -D__LDBL_MANT_DIG__=53 -D_POWER=1 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=2.2250738585072014e-308L -D_AIX=1 -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=17 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-1021) -D__LDBL_MAX_10_EXP__=308 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__DBL_MAX_EXP__=1024 -D_AIX32=1 -D_AIX41=1 -D_AIX43=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D_AIX51=1 -D_AIX52=1 -D__LONG_LONG_MAX__=9223372036854775807LL -D__FLT_MAX__=3.40282347e+38F -D_IBMR2=1 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=4.9406564584124654e-324L -D__DBL_MIN__=2.2250738585072014e-308 -D__LDBL_MIN_10_EXP__=(-307) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=15 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24;gcc_linux_i386=--gcc --targ_wchar_t_type=int -D__linux=1 -Dlinux=1 -D__linux__=1;g++_linux_i386=--g++ --targ_wchar_t_type=int --type_info_in_std -D__linux=1 -Dlinux=1 -D__linux__=1;sun_c_sparc=--c --sun_linker_scope --no_microsoft --undefine_macro __i386 -D__STDC__=0 -D__unix -D__sun -D__sparc -Dunix -Dsun -Dsparc;sun_c++_sparc=--sun --c++ --ignore_std --nonconst_ref_anachronism --no_sun_linker_scope --undefine_macro __i386 --incl_suffixes SUNWCCh:: --type_info_in_std -D__STDC__=0 -D__sun -Dsun -D__unix -Dunix -D__ARRAYNEW -D__sparc -Dsparc;gcc_solaris_sparc=--gcc --undefine_macro __i386 -D__STDC__=0 -D__DBL_MIN_EXP__=(-1021) -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__sparc=1 -D__WCHAR_MAX__=2147483647 -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -Dsun=1 -D__FLT_EVAL_METHOD__=0 -D__unix__=1 -Dunix=1 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=1.92592994438723585305597794258492732e-34L -Dsparc=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.18973149535723176508575932662800702e+4932L -D__unix=1 -D__LDBL_MAX_EXP__=16384 -D__LONG_MAX_EXP__=16384 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__PRAGMA_REDEFINE_EXTNAME=1 -D__DBL_DIG__=15 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED__=1 -D__LDBL_MANT_DIG__=113 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=3.36210314311209350626267781732175260e-4932L -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=36 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-16381) -D__LDBL_MAX_10_EXP__=4932 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__sun__=1 -D__SVR4=1 -D__GCC_NEW_VARARGS__=1 -D__DBL_MAX_EXP__=1024 -D__svr4__=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D__LONG_LONG_MAX__=9223372036854775807LL -D__sparc__=1 -D__FLT_MAX__=3.40282347e+38F -D__GXX_ABI_VERSION=102 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=6.47517511943802511092443895822764655e-4966L -D__DBL_MIN__=2.2250738585072014e-308 -D__PTRDIFF_TYPE__=int -D__sun=1 -D__LDBL_MIN_10_EXP__=(-4931) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=33 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24;g++_solaris_sparc=--g++ --undefine_macro __i386 --type_info_in_std -D__STDC__=0 -D__DBL_MIN_EXP__=(-1021) -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__sparc=1 -D__WCHAR_MAX__=2147483647 -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -Dsun=1 -D__FLT_EVAL_METHOD__=0 -D__unix__=1 -Dunix=1 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=1.92592994438723585305597794258492732e-34L -Dsparc=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.18973149535723176508575932662800702e+4932L -D__unix=1 -D__LDBL_MAX_EXP__=16384 -D__LONG_MAX_EXP__=16384 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__PRAGMA_REDEFINE_EXTNAME=1 -D__DBL_DIG__=15 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED__=1 -D__LDBL_MANT_DIG__=113 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=3.36210314311209350626267781732175260e-4932L -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=36 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-16381) -D__LDBL_MAX_10_EXP__=4932 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__sun__=1 -D__SVR4=1 -D__GCC_NEW_VARARGS__=1 -D__DBL_MAX_EXP__=1024 -D__svr4__=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D__LONG_LONG_MAX__=9223372036854775807LL -D__sparc__=1 -D__FLT_MAX__=3.40282347e+38F -D__GXX_ABI_VERSION=102 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=6.47517511943802511092443895822764655e-4966L -D__DBL_MIN__=2.2250738585072014e-308 -D__PTRDIFF_TYPE__=int -D__sun=1 -D__LDBL_MIN_10_EXP__=(-4931) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=33 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24 -D__EXTENSIONS__=1 -D_XOPEN_SOURCE=500 -D_LARGEFILE64_SOURCE=1 -D__EXCEPTIONS=1 -D_LARGEFILE_SOURCE=1 -D__cplusplus=1 -D__DEPRECATED=1"
+		default_value="vac_aix_powerpc=--gcc --targ_size_t_type=ulong -D_POWER -D_LONG_LONG;vacpp_aix_powerpc=--g++ --targ_size_t_type=ulong -D__vastart(ARG)=va_list() -D_THREAD_SAFE -D__TOS_AIX__ -D_POWER -D_LONG_LONG;gcc_aix_powerpc=--gcc --undefine_macro __i386 -D__builtin_va_start(args,n) -D__builtin_va_arg(args,type)=(type)0 -D__builtin_va_end(args) -D__DBL_MIN_EXP__=(-1021) -D__BIG_ENDIAN__=1 -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__WCHAR_MAX__=65535U -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -D__FLT_EVAL_METHOD=0 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=2.2204460492503131e-16L -D_LONG_LONG=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.7976931348623157e+308L -D_ARCH_PPC=1 -D__CHAR_UNSIGNED__=1 -D__LDBL_MAX_EXP__=1024 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__DBL_DIG__=15 -D_BIG_ENDIAN=1 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED=1 -D__LDBL_MANT_DIG__=53 -D_POWER=1 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=2.2250738585072014e-308L -D_AIX=1 -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=17 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-1021) -D__LDBL_MAX_10_EXP__=308 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__DBL_MAX_EXP__=1024 -D_AIX32=1 -D_AIX41=1 -D_AIX43=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D_AIX51=1 -D_AIX52=1 -D__LONG_LONG_MAX__=9223372036854775807LL -D__FLT_MAX__=3.40282347e+38F -D_IBMR2=1 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=4.9406564584124654e-324L -D__DBL_MIN__=2.2250738585072014e-308 -D__LDBL_MIN_10_EXP__=(-307) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=15 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24;g++_aix_powerpc=--g++ --undefine_macro __i386 -D__builtin_va_start(args,n) -D__builtin_va_arg(args,type)=(type)0 -D__builtin_va_end(args) -D__DBL_MIN_EXP__=(-1021) -D__BIG_ENDIAN__=1 -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__WCHAR_MAX__=65535U -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -D__FLT_EVAL_METHOD=0 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=2.2204460492503131e-16L -D_LONG_LONG=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.7976931348623157e+308L -D_ARCH_PPC=1 -D__CHAR_UNSIGNED__=1 -D__LDBL_MAX_EXP__=1024 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__DBL_DIG__=15 -D_BIG_ENDIAN=1 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED=1 -D__LDBL_MANT_DIG__=53 -D_POWER=1 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=2.2250738585072014e-308L -D_AIX=1 -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=17 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-1021) -D__LDBL_MAX_10_EXP__=308 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__DBL_MAX_EXP__=1024 -D_AIX32=1 -D_AIX41=1 -D_AIX43=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D_AIX51=1 -D_AIX52=1 -D__LONG_LONG_MAX__=9223372036854775807LL -D__FLT_MAX__=3.40282347e+38F -D_IBMR2=1 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=4.9406564584124654e-324L -D__DBL_MIN__=2.2250738585072014e-308 -D__LDBL_MIN_10_EXP__=(-307) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=15 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24;gcc_linux_i386=--gcc --targ_wchar_t_type=int -D__linux=1 -Dlinux=1 -D__linux__=1;g++_linux_i386=--g++ --targ_wchar_t_type=int --type_info_in_std -D__linux=1 -Dlinux=1 -D__linux__=1;sun_c_sparc=--c --sun_linker_scope --no_microsoft --undefine_macro __i386 -D__STDC__=0 -D__unix -D__sun -D__sparc -Dunix -Dsun -Dsparc;sun_c++_sparc=--sun --c++ --ignore_std --nonconst_ref_anachronism --no_sun_linker_scope --undefine_macro __i386 --incl_suffixes SUNWCCh:: --type_info_in_std -D__STDC__=0 -D__sun -Dsun -D__unix -Dunix -D__ARRAYNEW -D__sparc -Dsparc;gcc_solaris_sparc=--gcc --undefine_macro __i386 -D__STDC__=0 -D__DBL_MIN_EXP__=(-1021) -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__sparc=1 -D__WCHAR_MAX__=2147483647 -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -Dsun=1 -D__FLT_EVAL_METHOD__=0 -D__unix__=1 -Dunix=1 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=1.92592994438723585305597794258492732e-34L -Dsparc=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.18973149535723176508575932662800702e+4932L -D__unix=1 -D__LDBL_MAX_EXP__=16384 -D__LONG_MAX_EXP__=16384 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__PRAGMA_REDEFINE_EXTNAME=1 -D__DBL_DIG__=15 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED__=1 -D__LDBL_MANT_DIG__=113 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=3.36210314311209350626267781732175260e-4932L -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=36 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-16381) -D__LDBL_MAX_10_EXP__=4932 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__sun__=1 -D__SVR4=1 -D__GCC_NEW_VARARGS__=1 -D__DBL_MAX_EXP__=1024 -D__svr4__=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D__LONG_LONG_MAX__=9223372036854775807LL -D__sparc__=1 -D__FLT_MAX__=3.40282347e+38F -D__GXX_ABI_VERSION=102 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=6.47517511943802511092443895822764655e-4966L -D__DBL_MIN__=2.2250738585072014e-308 -D__PTRDIFF_TYPE__=int -D__sun=1 -D__LDBL_MIN_10_EXP__=(-4931) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=33 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24;g++_solaris_sparc=--g++ --undefine_macro __i386 --type_info_in_std -D__STDC__=0 -D__DBL_MIN_EXP__=(-1021) -D__FLT_MIN__=1.17549435e-38F -D__CHAR_BIT__=8 -D__sparc=1 -D__WCHAR_MAX__=2147483647 -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -Dsun=1 -D__FLT_EVAL_METHOD__=0 -D__unix__=1 -Dunix=1 -D__DBL_MIN_10_EXP__=(-307) -D__FINITE_MATH_ONLY__=0 -D__FLT_RADIX__=2 -D__LDBL_EPSILON__=1.92592994438723585305597794258492732e-34L -Dsparc=1 -D__SHRT_MAX__=32767 -D__LDBL_MAX__=1.18973149535723176508575932662800702e+4932L -D__unix=1 -D__LDBL_MAX_EXP__=16384 -D__LONG_MAX_EXP__=16384 -D__LONG_MAX__=2147483647L -D__SCHAR_MAX__=127 -D__PRAGMA_REDEFINE_EXTNAME=1 -D__DBL_DIG__=15 -D__USER_LABEL_PREFIX__ -D__STDC_HOSTED__=1 -D__LDBL_MANT_DIG__=113 -D__FLT_EPSILON__=1.19209290e-7F -D__LDBL_MIN__=3.36210314311209350626267781732175260e-4932L -D__FLT_DIG__=6 -D__FLT_MAX_10_EXP__=38 -D__INT_MAX__=2147483647 -D__FLT_MAX_EXP__=128 -D__DECIMAL_DIG__=36 -D__DBL_MANT_DIG__=53 -D__LDBL_MIN_EXP__=(-16381) -D__LDBL_MAX_10_EXP__=4932 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_MAX__=1.7976931348623157e+308 -D__sun__=1 -D__SVR4=1 -D__GCC_NEW_VARARGS__=1 -D__DBL_MAX_EXP__=1024 -D__svr4__=1 -D__FLT_DENORM_MIN__=1.40129846e-45F -D__LONG_LONG_MAX__=9223372036854775807LL -D__sparc__=1 -D__FLT_MAX__=3.40282347e+38F -D__GXX_ABI_VERSION=102 -D__FLT_MIN_10_EXP__=(-37) -D__FLT_MIN_EXP__=(-125) -D__DBL_MAX_10_EXP__=308 -D__LDBL_DENORM_MIN__=6.47517511943802511092443895822764655e-4966L -D__DBL_MIN__=2.2250738585072014e-308 -D__PTRDIFF_TYPE__=int -D__sun=1 -D__LDBL_MIN_10_EXP__=(-4931) -D__REGISTER_PREFIX__ -D__LDBL_DIG__=33 -D__NO_INLINE__=1 -D__FLT_MANT_DIG__=24 -D__EXTENSIONS__=1 -D_XOPEN_SOURCE=500 -D_LARGEFILE64_SOURCE=1 -D__EXCEPTIONS=1 -D_LARGEFILE_SOURCE=1 -D__cplusplus=1 -D__DEPRECATED=1"
+		type="memo"
+        hidden="true"
+		display_name="Ounce to EDG option mapping"
+	    description="Ounce to EDG option mapping"
+		/>
+	<Setting
+        name="enable_cpp_preprocessed_file_dump"
+	    value="false"
+	    default_value="false"
+	    type="bool"
+        display_name="Enable C++ preprocessed file dump"
+	    description="Enable C++ preprocessed file dump for debugging C/C++
+	        \n compilation/configuration errors. When 'true', the preprocessed file
+	        \n is dumped to the logs directory.  When 'true', this results in no
+	        \n findings, and so needs to be reset to 'false' once configuration errors
+	        \n have been resolved, and analysis results are desired."
+	    />
+	<Setting
+        name="log_c_frontend_command_line"
+	    value="false"
+	    default_value="false"
+	    type="bool"
+        display_name="Log C/C++ command line"
+	    description="Log the command line sent to the C/C++ frontend.
+             \n A boolean property.  True means send the command line to the exceptions log.
+             \n False means don't log it.
+             \n Note the command line is also logged if the server diagnostic level
+             \n is set to 'info'."
+	    />
+ 	<Setting
+		name="frameworksCLI_command_line"
+		value="-ea -Xmx1200m -Dcom.ibm.wala.taint.sa.newPca=true -classpath %FINDFILES(%%HOME%/walalib/*.jar%)% com.ibm.appscan.frameworks.FrameworksCLI -input %INPUT_FILE%"
+		default_value="-ea -Xmx1200m -Dcom.ibm.wala.taint.sa.newPca=true -classpath %FINDFILES(%%HOME%/walalib/*.jar%)% com.ibm.appscan.frameworks.FrameworksCLI -input %INPUT_FILE%"
+		type="text"
+        hidden="true"
+		display_name="frameworksCLI_WAFL_command_line"
+		description="Frameworks processor that generates WAFL file"
+	    />
+	<Setting 
+        name="vc7_dll_macros" 
+        value="_WINDLL" 
+        default_value="_WINDLL" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.0 Macros" 
+        description="VC++ 7.x Macros" 
+    />
+	<Setting 
+        name="vc7_dynamic_mfc" 
+        value="_AFXDLL" 
+        default_value="_AFXDLL" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.x Dynamic MFC" 
+        description="VC++ 7.x Dynamic MFC" 
+    />
+	<Setting 
+        name="vc7_dynamic_atl" 
+        value="_ATL_DLL" 
+        default_value="_ATL_DLL" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.x Dynamic ATL" 
+        description="VC++ 7.x Dynamic ATL" 
+    />
+	<Setting 
+        name="vc7_min_use_crt_in_atl" 
+        value="_ATL_MIN_CRT" 
+        default_value="_ATL_MIN_CRT" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.x Min Use CRT in ATL" 
+        description="VC++ 7.x Min Use CRT in ATL" 
+    />
+	<Setting 
+        name="vc7_multibyte_character_set_macros" 
+        value="_MBCS" 
+        default_value="_MBCS" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.x Multibyte Character Set Macros" 
+        description="VC++ 7.x Multibyte Character Set Macros" 
+    />
+	<Setting 
+        name="vc7_unicode_character_set_macros" 
+        value="_UNICODE;UNICODE" 
+        default_value="_UNICODE;UNICODE" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.x Unicode Character Set Macros" 
+        description="VC++ 7.x Unicode Character Set Macros" 
+    />
+	<Setting 
+        name="vc7_static_atl" 
+        value="_ATL_STATIC_REGISTRY" 
+        default_value="_ATL_STATIC_REGISTRY" 
+        type="text"
+        hidden="true"
+        display_name="VC++ 7.x Static ATL Macros" 
+        description="VC++ 7.x Static ATL Macros" 
+    />
+	<Setting 
+        name="vc6_version_num" 
+        value="1200" 
+        default_value="1200" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 6 Version Number" 
+        description="Visual Studio 6 Version Number" 
+    />
+	<Setting 
+        name="vc7_version_num" 
+        value="1300" 
+        default_value="1300" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 7.0 Version Number" 
+        description="Visual Studio 7.0 Version Number" 
+    />
+	<Setting 
+        name="vc71_version_num" 
+        value="1310" 
+        default_value="1310" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 7.1 Version Number" 
+        description="Visual Studio 7.1 Version Number" 
+    />
+	<Setting 
+        name="vc8_version_num" 
+        value="1400" 
+        default_value="1400" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 8.0 Version Number" 
+        description="Visual Studio 8.0 Version Number" 
+    />
+	<Setting 
+        name="vc9_version_num" 
+        value="1500" 
+        default_value="1500" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 9.0 Version Number" 
+        description="Visual Studio 9.0 Version Number" 
+    />
+
+	<Setting 
+        name="vc10_version_num" 
+        value="1600" 
+        default_value="1600" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 10.0 Version Number" 
+        description="Visual Studio 10.0 Version Number" 
+    />
+
+	<Setting 
+        name="vc11_version_num" 
+        value="1700" 
+        default_value="1700" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 11.0 Version Number" 
+        description="Visual Studio 11.0 Version Number" 
+    />
+	<Setting 
+        name="vc12_version_num" 
+        value="1800" 
+        default_value="1800" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 12.0 Version Number" 
+        description="Visual Studio 12.0 Version Number" 
+    />
+	<Setting 
+        name="vc14_version_num" 
+        value="1900" 
+        default_value="1900" 
+        type="text" 
+        read_only="true"
+        display_name="Visual Studio 14.0 Version Number" 
+        description="Visual Studio 14.0 Version Number" 
+    />
+
+	<Setting 
+        name="add_no_stdarg_builtin" 
+        value="false" 
+        default_value="false" 
+        type="bool"
+        display_name="Add no_stdarg_builtin to command line" 
+        description="Add no_stdarg_builtin to the front end command line for Microsoft VC++ project
+           \n Use when va_arg(or va_start, va_end) compilation errors are encountered." 
+    />
+</Settings>

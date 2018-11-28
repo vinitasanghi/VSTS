@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Net_URL">
+      <method vuln_id="-1">
+        <simple_name>Net_URL.Net_URL</simple_name>
+        <signature>Net_URL.Net_URL($url;$useBrackets):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.__construct</simple_name>
+        <signature>Net_URL.__construct($url;$useBrackets):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL._parseRawQuerystring</simple_name>
+        <signature>Net_URL._parseRawQuerystring($querystring):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092552">
+        <simple_name>Net_URL.addQueryString</simple_name>
+        <signature>Net_URL.addQueryString($name;$value;$preencoded):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092557">
+        <simple_name>Net_URL.addRawQueryString</simple_name>
+        <signature>Net_URL.addRawQueryString($querystring):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.getOption</simple_name>
+        <signature>Net_URL.getOption($optionName):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092560">
+        <simple_name>Net_URL.getQueryString</simple_name>
+        <signature>Net_URL.getQueryString():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092554">
+        <simple_name>Net_URL.getStandardPort</simple_name>
+        <signature>Net_URL.getStandardPort($scheme):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092559">
+        <simple_name>Net_URL.getURL</simple_name>
+        <signature>Net_URL.getURL():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.initialize</simple_name>
+        <signature>Net_URL.initialize():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092556">
+        <simple_name>Net_URL.removeQueryString</simple_name>
+        <signature>Net_URL.removeQueryString($name):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092553">
+        <simple_name>Net_URL.resolvePath</simple_name>
+        <signature>Net_URL.resolvePath($path):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.resolvePath</simple_name>
+        <signature>Net_URL.resolvePath():Variant</signature>
+      </method>
+      <method vuln_id="1092558">
+        <simple_name>Net_URL.setOption</simple_name>
+        <signature>Net_URL.setOption($optionName;$value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092555">
+        <simple_name>Net_URL.setProtocol</simple_name>
+        <signature>Net_URL.setProtocol($protocol;$port):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Net_URL">
+      <method vuln_id="-1">
+        <simple_name>Net_URL.Net_URL</simple_name>
+        <signature>Net_URL.Net_URL($url;$useBrackets):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.__construct</simple_name>
+        <signature>Net_URL.__construct($url;$useBrackets):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL._parseRawQuerystring</simple_name>
+        <signature>Net_URL._parseRawQuerystring($querystring):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092552">
+        <simple_name>Net_URL.addQueryString</simple_name>
+        <signature>Net_URL.addQueryString($name;$value;$preencoded):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092557">
+        <simple_name>Net_URL.addRawQueryString</simple_name>
+        <signature>Net_URL.addRawQueryString($querystring):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.getOption</simple_name>
+        <signature>Net_URL.getOption($optionName):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092560">
+        <simple_name>Net_URL.getQueryString</simple_name>
+        <signature>Net_URL.getQueryString():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092554">
+        <simple_name>Net_URL.getStandardPort</simple_name>
+        <signature>Net_URL.getStandardPort($scheme):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092559">
+        <simple_name>Net_URL.getURL</simple_name>
+        <signature>Net_URL.getURL():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.initialize</simple_name>
+        <signature>Net_URL.initialize():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092556">
+        <simple_name>Net_URL.removeQueryString</simple_name>
+        <signature>Net_URL.removeQueryString($name):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092553">
+        <simple_name>Net_URL.resolvePath</simple_name>
+        <signature>Net_URL.resolvePath($path):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_URL.resolvePath</simple_name>
+        <signature>Net_URL.resolvePath():Variant</signature>
+      </method>
+      <method vuln_id="1092558">
+        <simple_name>Net_URL.setOption</simple_name>
+        <signature>Net_URL.setOption($optionName;$value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092555">
+        <simple_name>Net_URL.setProtocol</simple_name>
+        <signature>Net_URL.setProtocol($protocol;$port):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

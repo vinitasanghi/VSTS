@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="maxdb">
+      <method vuln_id="1087101">
+        <simple_name>___Php.maxdb.__construct</simple_name>
+        <signature>___Php.maxdb.__construct(___Php.String;string name;___Php.String;___Php.String;int;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462497">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462498">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474092">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+      </method>
+      <method vuln_id="1087254">
+        <simple_name>___Php.maxdb.affected_rows</simple_name>
+        <signature>___Php.maxdb.affected_rows(int):int</signature>
+        <info_rule id="454354"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087158">
+        <simple_name>___Php.maxdb.auto_commit</simple_name>
+        <signature>___Php.maxdb.auto_commit(bool):bool</signature>
+        <info_rule id="454218"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1087139">
+        <simple_name>___Php.maxdb.change_user</simple_name>
+        <signature>___Php.maxdb.change_user(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454190"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462502">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462503">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474096">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087202">
+        <simple_name>___Php.maxdb.character_set_name</simple_name>
+        <signature>___Php.maxdb.character_set_name():___Php.String</signature>
+        <info_rule id="454282"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087239">
+        <simple_name>___Php.maxdb.close</simple_name>
+        <signature>___Php.maxdb.close():bool</signature>
+        <info_rule id="454332"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087114">
+        <simple_name>___Php.maxdb.commit</simple_name>
+        <signature>___Php.maxdb.commit():bool</signature>
+        <info_rule id="454157"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1087182">
+        <simple_name>___Php.maxdb.disable_reads_from_master</simple_name>
+        <signature>___Php.maxdb.disable_reads_from_master():void</signature>
+        <info_rule id="454250"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087106">
+        <simple_name>___Php.maxdb.errno</simple_name>
+        <signature>___Php.maxdb.errno():int</signature>
+        <info_rule id="454146"/>
+        <rule>
+          <ActionObject id="474094">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461635">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454145">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087100">
+        <simple_name>___Php.maxdb.error</simple_name>
+        <signature>___Php.maxdb.error():___Php.String</signature>
+        <info_rule id="454134"/>
+        <rule>
+          <ActionObject id="474091">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461633">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454132">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="454131">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087189">
+        <simple_name>___Php.maxdb.field_count</simple_name>
+        <signature>___Php.maxdb.field_count():int</signature>
+        <info_rule id="454259"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087184">
+        <simple_name>___Php.maxdb.host_info</simple_name>
+        <signature>___Php.maxdb.host_info():___Php.String</signature>
+        <info_rule id="454253"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087147">
+        <simple_name>___Php.maxdb.info</simple_name>
+        <signature>___Php.maxdb.info():___Php.String</signature>
+        <info_rule id="454200"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087110">
+        <simple_name>___Php.maxdb.insert_id</simple_name>
+        <signature>___Php.maxdb.insert_id():mixed</signature>
+        <info_rule id="454152"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087197">
+        <simple_name>___Php.maxdb.kill</simple_name>
+        <signature>___Php.maxdb.kill(int):bool</signature>
+        <info_rule id="454273"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087229">
+        <simple_name>___Php.maxdb.multi_query</simple_name>
+        <signature>___Php.maxdb.multi_query(___Php.String):bool</signature>
+        <info_rule id="454321"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087203">
+        <simple_name>___Php.maxdb.num_rows</simple_name>
+        <signature>___Php.maxdb.num_rows():int</signature>
+        <info_rule id="454283"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087140">
+        <simple_name>___Php.maxdb.options</simple_name>
+        <signature>___Php.maxdb.options(int;mixed):bool</signature>
+        <info_rule id="454192"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087185">
+        <simple_name>___Php.maxdb.ping</simple_name>
+        <signature>___Php.maxdb.ping():bool</signature>
+        <info_rule id="454254"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087198">
+        <simple_name>___Php.maxdb.protocol_version</simple_name>
+        <signature>___Php.maxdb.protocol_version():___Php.String</signature>
+        <info_rule id="454275"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087107">
+        <simple_name>___Php.maxdb.query</simple_name>
+        <signature>___Php.maxdb.query(___Php.String):mixed</signature>
+        <info_rule id="454148"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087166">
+        <simple_name>___Php.maxdb.real_connect</simple_name>
+        <signature>___Php.maxdb.real_connect(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String):bool</signature>
+        <info_rule id="454230"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="4,5"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462505">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462506">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="5" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474098">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4,5" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087260">
+        <simple_name>___Php.maxdb.real_escape_string</simple_name>
+        <signature>___Php.maxdb.real_escape_string(___Php.String):___Php.String</signature>
+        <info_rule id="454363"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation.Encoding</property>
+      </method>
+      <method vuln_id="1087247">
+        <simple_name>___Php.maxdb.real_query</simple_name>
+        <signature>___Php.maxdb.real_query(___Php.String):bool</signature>
+        <info_rule id="454345"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087175">
+        <simple_name>___Php.maxdb.rollback</simple_name>
+        <signature>___Php.maxdb.rollback():bool</signature>
+        <info_rule id="454241"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1087262">
+        <simple_name>___Php.maxdb.rpl_query_type</simple_name>
+        <signature>___Php.maxdb.rpl_query_type():int</signature>
+        <info_rule id="454365"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087172">
+        <simple_name>___Php.maxdb.send_query</simple_name>
+        <signature>___Php.maxdb.send_query(___Php.String):bool</signature>
+        <info_rule id="454237"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087127">
+        <simple_name>___Php.maxdb.server_info</simple_name>
+        <signature>___Php.maxdb.server_info():___Php.String</signature>
+        <info_rule id="454175"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087178">
+        <simple_name>___Php.maxdb.server_version</simple_name>
+        <signature>___Php.maxdb.server_version():int</signature>
+        <info_rule id="454244"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087257">
+        <simple_name>___Php.maxdb.sqlstate</simple_name>
+        <signature>___Php.maxdb.sqlstate():___Php.String</signature>
+        <info_rule id="454358"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087113">
+        <simple_name>___Php.maxdb.ssl_set</simple_name>
+        <signature>___Php.maxdb.ssl_set(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454155"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Cryptography</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Cryptography.SSL</property>
+      </method>
+      <method vuln_id="1087181">
+        <simple_name>___Php.maxdb.stat</simple_name>
+        <signature>___Php.maxdb.stat():___Php.String</signature>
+        <info_rule id="454249"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087237">
+        <simple_name>___Php.maxdb.stmt_init</simple_name>
+        <signature>___Php.maxdb.stmt_init():object</signature>
+        <info_rule id="454330"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087141">
+        <simple_name>___Php.maxdb.store_result</simple_name>
+        <signature>___Php.maxdb.store_result():bool</signature>
+        <info_rule id="454193"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087131">
+        <simple_name>___Php.maxdb.thread_id</simple_name>
+        <signature>___Php.maxdb.thread_id():int</signature>
+        <info_rule id="454179"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087241">
+        <simple_name>___Php.maxdb.use_result</simple_name>
+        <signature>___Php.maxdb.use_result():int</signature>
+        <info_rule id="454334"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087171">
+        <simple_name>___Php.maxdb.warning_count</simple_name>
+        <signature>___Php.maxdb.warning_count():int</signature>
+        <info_rule id="454236"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+    </class>
+    <class name="maxdb">
+      <method vuln_id="1087101">
+        <simple_name>___Php.maxdb.__construct</simple_name>
+        <signature>___Php.maxdb.__construct(___Php.String;string name;___Php.String;___Php.String;int;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462497">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462498">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474092">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+      </method>
+      <method vuln_id="1087254">
+        <simple_name>___Php.maxdb.affected_rows</simple_name>
+        <signature>___Php.maxdb.affected_rows(int):int</signature>
+        <info_rule id="454354"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087158">
+        <simple_name>___Php.maxdb.auto_commit</simple_name>
+        <signature>___Php.maxdb.auto_commit(bool):bool</signature>
+        <info_rule id="454218"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1087139">
+        <simple_name>___Php.maxdb.change_user</simple_name>
+        <signature>___Php.maxdb.change_user(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454190"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462502">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462503">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474096">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087202">
+        <simple_name>___Php.maxdb.character_set_name</simple_name>
+        <signature>___Php.maxdb.character_set_name():___Php.String</signature>
+        <info_rule id="454282"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087239">
+        <simple_name>___Php.maxdb.close</simple_name>
+        <signature>___Php.maxdb.close():bool</signature>
+        <info_rule id="454332"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087114">
+        <simple_name>___Php.maxdb.commit</simple_name>
+        <signature>___Php.maxdb.commit():bool</signature>
+        <info_rule id="454157"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1087182">
+        <simple_name>___Php.maxdb.disable_reads_from_master</simple_name>
+        <signature>___Php.maxdb.disable_reads_from_master():void</signature>
+        <info_rule id="454250"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087106">
+        <simple_name>___Php.maxdb.errno</simple_name>
+        <signature>___Php.maxdb.errno():int</signature>
+        <info_rule id="454146"/>
+        <rule>
+          <ActionObject id="474094">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461635">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454145">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087100">
+        <simple_name>___Php.maxdb.error</simple_name>
+        <signature>___Php.maxdb.error():___Php.String</signature>
+        <info_rule id="454134"/>
+        <rule>
+          <ActionObject id="474091">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461633">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454132">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="454131">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087189">
+        <simple_name>___Php.maxdb.field_count</simple_name>
+        <signature>___Php.maxdb.field_count():int</signature>
+        <info_rule id="454259"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087184">
+        <simple_name>___Php.maxdb.host_info</simple_name>
+        <signature>___Php.maxdb.host_info():___Php.String</signature>
+        <info_rule id="454253"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087147">
+        <simple_name>___Php.maxdb.info</simple_name>
+        <signature>___Php.maxdb.info():___Php.String</signature>
+        <info_rule id="454200"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087110">
+        <simple_name>___Php.maxdb.insert_id</simple_name>
+        <signature>___Php.maxdb.insert_id():mixed</signature>
+        <info_rule id="454152"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087197">
+        <simple_name>___Php.maxdb.kill</simple_name>
+        <signature>___Php.maxdb.kill(int):bool</signature>
+        <info_rule id="454273"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087229">
+        <simple_name>___Php.maxdb.multi_query</simple_name>
+        <signature>___Php.maxdb.multi_query(___Php.String):bool</signature>
+        <info_rule id="454321"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087203">
+        <simple_name>___Php.maxdb.num_rows</simple_name>
+        <signature>___Php.maxdb.num_rows():int</signature>
+        <info_rule id="454283"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087140">
+        <simple_name>___Php.maxdb.options</simple_name>
+        <signature>___Php.maxdb.options(int;mixed):bool</signature>
+        <info_rule id="454192"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087185">
+        <simple_name>___Php.maxdb.ping</simple_name>
+        <signature>___Php.maxdb.ping():bool</signature>
+        <info_rule id="454254"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087198">
+        <simple_name>___Php.maxdb.protocol_version</simple_name>
+        <signature>___Php.maxdb.protocol_version():___Php.String</signature>
+        <info_rule id="454275"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087107">
+        <simple_name>___Php.maxdb.query</simple_name>
+        <signature>___Php.maxdb.query(___Php.String):mixed</signature>
+        <info_rule id="454148"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087166">
+        <simple_name>___Php.maxdb.real_connect</simple_name>
+        <signature>___Php.maxdb.real_connect(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String):bool</signature>
+        <info_rule id="454230"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="4,5"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462505">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462506">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="5" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474098">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4,5" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087260">
+        <simple_name>___Php.maxdb.real_escape_string</simple_name>
+        <signature>___Php.maxdb.real_escape_string(___Php.String):___Php.String</signature>
+        <info_rule id="454363"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation.Encoding</property>
+      </method>
+      <method vuln_id="1087247">
+        <simple_name>___Php.maxdb.real_query</simple_name>
+        <signature>___Php.maxdb.real_query(___Php.String):bool</signature>
+        <info_rule id="454345"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087175">
+        <simple_name>___Php.maxdb.rollback</simple_name>
+        <signature>___Php.maxdb.rollback():bool</signature>
+        <info_rule id="454241"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1087262">
+        <simple_name>___Php.maxdb.rpl_query_type</simple_name>
+        <signature>___Php.maxdb.rpl_query_type():int</signature>
+        <info_rule id="454365"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087172">
+        <simple_name>___Php.maxdb.send_query</simple_name>
+        <signature>___Php.maxdb.send_query(___Php.String):bool</signature>
+        <info_rule id="454237"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087127">
+        <simple_name>___Php.maxdb.server_info</simple_name>
+        <signature>___Php.maxdb.server_info():___Php.String</signature>
+        <info_rule id="454175"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087178">
+        <simple_name>___Php.maxdb.server_version</simple_name>
+        <signature>___Php.maxdb.server_version():int</signature>
+        <info_rule id="454244"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087257">
+        <simple_name>___Php.maxdb.sqlstate</simple_name>
+        <signature>___Php.maxdb.sqlstate():___Php.String</signature>
+        <info_rule id="454358"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087113">
+        <simple_name>___Php.maxdb.ssl_set</simple_name>
+        <signature>___Php.maxdb.ssl_set(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454155"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Cryptography</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Cryptography.SSL</property>
+      </method>
+      <method vuln_id="1087181">
+        <simple_name>___Php.maxdb.stat</simple_name>
+        <signature>___Php.maxdb.stat():___Php.String</signature>
+        <info_rule id="454249"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087237">
+        <simple_name>___Php.maxdb.stmt_init</simple_name>
+        <signature>___Php.maxdb.stmt_init():object</signature>
+        <info_rule id="454330"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087141">
+        <simple_name>___Php.maxdb.store_result</simple_name>
+        <signature>___Php.maxdb.store_result():bool</signature>
+        <info_rule id="454193"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087131">
+        <simple_name>___Php.maxdb.thread_id</simple_name>
+        <signature>___Php.maxdb.thread_id():int</signature>
+        <info_rule id="454179"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087241">
+        <simple_name>___Php.maxdb.use_result</simple_name>
+        <signature>___Php.maxdb.use_result():int</signature>
+        <info_rule id="454334"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087171">
+        <simple_name>___Php.maxdb.warning_count</simple_name>
+        <signature>___Php.maxdb.warning_count():int</signature>
+        <info_rule id="454236"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

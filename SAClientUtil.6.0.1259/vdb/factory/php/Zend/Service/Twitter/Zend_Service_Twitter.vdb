@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_Twitter">
+      <method vuln_id="1119354">
+        <simple_name>Zend_Service_Twitter.__call_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.__call_@__Service_Twitter_php_1($method;$params):Variant</signature>
+        <info_rule id="471760"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119496">
+        <simple_name>Zend_Service_Twitter.__construct_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.__construct_@__Service_Twitter_php_1($username;$password):Variant</signature>
+        <info_rule id="471895"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="471893">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="471892">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1118952">
+        <simple_name>Zend_Service_Twitter.__get_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.__get_@__Service_Twitter_php_1($type):Variant</signature>
+        <info_rule id="471377"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119742">
+        <simple_name>Zend_Service_Twitter._get_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._get_@__Service_Twitter_php_1($path;$query):Variant</signature>
+        <info_rule id="472129"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119821">
+        <simple_name>Zend_Service_Twitter._init_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._init_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472208"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118920">
+        <simple_name>Zend_Service_Twitter._performPost_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._performPost_@__Service_Twitter_php_1($method;$data):Variant</signature>
+        <info_rule id="471344"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118737">
+        <simple_name>Zend_Service_Twitter._post_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._post_@__Service_Twitter_php_1($path;$data):Variant</signature>
+        <info_rule id="471174"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119776">
+        <simple_name>Zend_Service_Twitter._prepare_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._prepare_@__Service_Twitter_php_1($path):Variant</signature>
+        <info_rule id="472166"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119924">
+        <simple_name>Zend_Service_Twitter._setDate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._setDate_@__Service_Twitter_php_1($value):Variant</signature>
+        <info_rule id="472304"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119165">
+        <simple_name>Zend_Service_Twitter._validInteger_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._validInteger_@__Service_Twitter_php_1($int):Variant</signature>
+        <info_rule id="471588"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119513">
+        <simple_name>Zend_Service_Twitter._validateScreenName_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._validateScreenName_@__Service_Twitter_php_1($name):Variant</signature>
+        <info_rule id="471912"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119874">
+        <simple_name>Zend_Service_Twitter.accountEndSession_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.accountEndSession_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472262"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119915">
+        <simple_name>Zend_Service_Twitter.accountRateLimitStatus_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.accountRateLimitStatus_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472296"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119411">
+        <simple_name>Zend_Service_Twitter.accountVerifyCredentials_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.accountVerifyCredentials_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471812"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118986">
+        <simple_name>Zend_Service_Twitter.blockBlocking_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockBlocking_@__Service_Twitter_php_1($page;$returnUserIds):Variant</signature>
+        <info_rule id="471411"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119034">
+        <simple_name>Zend_Service_Twitter.blockCreate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockCreate_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471469"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119314">
+        <simple_name>Zend_Service_Twitter.blockDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471725"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119149">
+        <simple_name>Zend_Service_Twitter.blockExists_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockExists_@__Service_Twitter_php_1($id;$returnResult):Variant</signature>
+        <info_rule id="471571"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119615">
+        <simple_name>Zend_Service_Twitter.directMessageDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472004"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118949">
+        <simple_name>Zend_Service_Twitter.directMessageMessages_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageMessages_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471374"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118860">
+        <simple_name>Zend_Service_Twitter.directMessageNew_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageNew_@__Service_Twitter_php_1($user;$text):Variant</signature>
+        <info_rule id="471287"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119596">
+        <simple_name>Zend_Service_Twitter.directMessageSent_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageSent_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471988"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119461">
+        <simple_name>Zend_Service_Twitter.favoriteCreate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.favoriteCreate_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471858"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119346">
+        <simple_name>Zend_Service_Twitter.favoriteDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.favoriteDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471751"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119503">
+        <simple_name>Zend_Service_Twitter.favoriteFavorites_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.favoriteFavorites_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471902"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119692">
+        <simple_name>Zend_Service_Twitter.friendshipCreate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.friendshipCreate_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472078"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119939">
+        <simple_name>Zend_Service_Twitter.friendshipDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.friendshipDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472319"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119624">
+        <simple_name>Zend_Service_Twitter.friendshipExists_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.friendshipExists_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472016"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119316">
+        <simple_name>Zend_Service_Twitter.getLocalHttpClient_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.getLocalHttpClient_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471727"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119584">
+        <simple_name>Zend_Service_Twitter.getPassword_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.getPassword_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471978"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119787">
+        <simple_name>Zend_Service_Twitter.getUsername_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.getUsername_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472176"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118679">
+        <simple_name>Zend_Service_Twitter.setLocalHttpClient_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.setLocalHttpClient_@__Service_Twitter_php_1($client):Variant</signature>
+        <info_rule id="471119"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119950">
+        <simple_name>Zend_Service_Twitter.setPassword_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.setPassword_@__Service_Twitter_php_1($value):Variant</signature>
+        <info_rule id="472329"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119695">
+        <simple_name>Zend_Service_Twitter.setUsername_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.setUsername_@__Service_Twitter_php_1($value):Variant</signature>
+        <info_rule id="472081"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119102">
+        <simple_name>Zend_Service_Twitter.statusDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471531"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118965">
+        <simple_name>Zend_Service_Twitter.statusFriendsTimeline_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusFriendsTimeline_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471390"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119524">
+        <simple_name>Zend_Service_Twitter.statusPublicTimeline_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusPublicTimeline_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471924"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118662">
+        <simple_name>Zend_Service_Twitter.statusReplies_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusReplies_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471104"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119733">
+        <simple_name>Zend_Service_Twitter.statusShow_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusShow_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472120"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119368">
+        <simple_name>Zend_Service_Twitter.statusUpdate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusUpdate_@__Service_Twitter_php_1($status;$inReplyToStatusId):Variant</signature>
+        <info_rule id="471773"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120017">
+        <simple_name>Zend_Service_Twitter.statusUserTimeline_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusUserTimeline_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="472388"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119366">
+        <simple_name>Zend_Service_Twitter.userFeatured_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userFeatured_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471771"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118939">
+        <simple_name>Zend_Service_Twitter.userFollowers_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userFollowers_@__Service_Twitter_php_1($lite):Variant</signature>
+        <info_rule id="471365"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118835">
+        <simple_name>Zend_Service_Twitter.userFriends_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userFriends_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471265"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119250">
+        <simple_name>Zend_Service_Twitter.userShow_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userShow_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471668"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+    <class name="Zend_Service_Twitter">
+      <method vuln_id="1119354">
+        <simple_name>Zend_Service_Twitter.__call_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.__call_@__Service_Twitter_php_1($method;$params):Variant</signature>
+        <info_rule id="471760"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119496">
+        <simple_name>Zend_Service_Twitter.__construct_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.__construct_@__Service_Twitter_php_1($username;$password):Variant</signature>
+        <info_rule id="471895"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="471893">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="471892">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1118952">
+        <simple_name>Zend_Service_Twitter.__get_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.__get_@__Service_Twitter_php_1($type):Variant</signature>
+        <info_rule id="471377"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119742">
+        <simple_name>Zend_Service_Twitter._get_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._get_@__Service_Twitter_php_1($path;$query):Variant</signature>
+        <info_rule id="472129"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119821">
+        <simple_name>Zend_Service_Twitter._init_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._init_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472208"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118920">
+        <simple_name>Zend_Service_Twitter._performPost_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._performPost_@__Service_Twitter_php_1($method;$data):Variant</signature>
+        <info_rule id="471344"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118737">
+        <simple_name>Zend_Service_Twitter._post_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._post_@__Service_Twitter_php_1($path;$data):Variant</signature>
+        <info_rule id="471174"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119776">
+        <simple_name>Zend_Service_Twitter._prepare_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._prepare_@__Service_Twitter_php_1($path):Variant</signature>
+        <info_rule id="472166"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119924">
+        <simple_name>Zend_Service_Twitter._setDate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._setDate_@__Service_Twitter_php_1($value):Variant</signature>
+        <info_rule id="472304"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119165">
+        <simple_name>Zend_Service_Twitter._validInteger_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._validInteger_@__Service_Twitter_php_1($int):Variant</signature>
+        <info_rule id="471588"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119513">
+        <simple_name>Zend_Service_Twitter._validateScreenName_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter._validateScreenName_@__Service_Twitter_php_1($name):Variant</signature>
+        <info_rule id="471912"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119874">
+        <simple_name>Zend_Service_Twitter.accountEndSession_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.accountEndSession_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472262"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119915">
+        <simple_name>Zend_Service_Twitter.accountRateLimitStatus_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.accountRateLimitStatus_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472296"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119411">
+        <simple_name>Zend_Service_Twitter.accountVerifyCredentials_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.accountVerifyCredentials_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471812"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118986">
+        <simple_name>Zend_Service_Twitter.blockBlocking_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockBlocking_@__Service_Twitter_php_1($page;$returnUserIds):Variant</signature>
+        <info_rule id="471411"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119034">
+        <simple_name>Zend_Service_Twitter.blockCreate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockCreate_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471469"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119314">
+        <simple_name>Zend_Service_Twitter.blockDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471725"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119149">
+        <simple_name>Zend_Service_Twitter.blockExists_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.blockExists_@__Service_Twitter_php_1($id;$returnResult):Variant</signature>
+        <info_rule id="471571"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119615">
+        <simple_name>Zend_Service_Twitter.directMessageDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472004"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118949">
+        <simple_name>Zend_Service_Twitter.directMessageMessages_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageMessages_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471374"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118860">
+        <simple_name>Zend_Service_Twitter.directMessageNew_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageNew_@__Service_Twitter_php_1($user;$text):Variant</signature>
+        <info_rule id="471287"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119596">
+        <simple_name>Zend_Service_Twitter.directMessageSent_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.directMessageSent_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471988"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119461">
+        <simple_name>Zend_Service_Twitter.favoriteCreate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.favoriteCreate_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471858"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119346">
+        <simple_name>Zend_Service_Twitter.favoriteDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.favoriteDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471751"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119503">
+        <simple_name>Zend_Service_Twitter.favoriteFavorites_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.favoriteFavorites_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471902"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119692">
+        <simple_name>Zend_Service_Twitter.friendshipCreate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.friendshipCreate_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472078"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119939">
+        <simple_name>Zend_Service_Twitter.friendshipDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.friendshipDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472319"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119624">
+        <simple_name>Zend_Service_Twitter.friendshipExists_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.friendshipExists_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472016"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119316">
+        <simple_name>Zend_Service_Twitter.getLocalHttpClient_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.getLocalHttpClient_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471727"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119584">
+        <simple_name>Zend_Service_Twitter.getPassword_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.getPassword_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471978"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119787">
+        <simple_name>Zend_Service_Twitter.getUsername_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.getUsername_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="472176"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118679">
+        <simple_name>Zend_Service_Twitter.setLocalHttpClient_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.setLocalHttpClient_@__Service_Twitter_php_1($client):Variant</signature>
+        <info_rule id="471119"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119950">
+        <simple_name>Zend_Service_Twitter.setPassword_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.setPassword_@__Service_Twitter_php_1($value):Variant</signature>
+        <info_rule id="472329"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119695">
+        <simple_name>Zend_Service_Twitter.setUsername_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.setUsername_@__Service_Twitter_php_1($value):Variant</signature>
+        <info_rule id="472081"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119102">
+        <simple_name>Zend_Service_Twitter.statusDestroy_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusDestroy_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471531"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118965">
+        <simple_name>Zend_Service_Twitter.statusFriendsTimeline_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusFriendsTimeline_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471390"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119524">
+        <simple_name>Zend_Service_Twitter.statusPublicTimeline_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusPublicTimeline_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471924"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118662">
+        <simple_name>Zend_Service_Twitter.statusReplies_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusReplies_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471104"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119733">
+        <simple_name>Zend_Service_Twitter.statusShow_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusShow_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="472120"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119368">
+        <simple_name>Zend_Service_Twitter.statusUpdate_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusUpdate_@__Service_Twitter_php_1($status;$inReplyToStatusId):Variant</signature>
+        <info_rule id="471773"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120017">
+        <simple_name>Zend_Service_Twitter.statusUserTimeline_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.statusUserTimeline_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="472388"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119366">
+        <simple_name>Zend_Service_Twitter.userFeatured_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userFeatured_@__Service_Twitter_php_1():Variant</signature>
+        <info_rule id="471771"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118939">
+        <simple_name>Zend_Service_Twitter.userFollowers_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userFollowers_@__Service_Twitter_php_1($lite):Variant</signature>
+        <info_rule id="471365"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118835">
+        <simple_name>Zend_Service_Twitter.userFriends_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userFriends_@__Service_Twitter_php_1($params):Variant</signature>
+        <info_rule id="471265"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119250">
+        <simple_name>Zend_Service_Twitter.userShow_@__Service_Twitter_php_1</simple_name>
+        <signature>Zend_Service_Twitter.userShow_@__Service_Twitter_php_1($id):Variant</signature>
+        <info_rule id="471668"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

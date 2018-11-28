@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Loader_Autoloader">
+      <method vuln_id="1115725">
+        <simple_name>Zend_Loader_Autoloader.__construct_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.__construct_@__Loader_Autoloader_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115673">
+        <simple_name>Zend_Loader_Autoloader._autoload_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._autoload_@__Loader_Autoloader_php_1($class):Variant</signature>
+        <info_rule id="468925"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115706">
+        <simple_name>Zend_Loader_Autoloader._getAvailableVersions_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._getAvailableVersions_@__Loader_Autoloader_php_1($path;$version):Variant</signature>
+        <info_rule id="468957"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115710">
+        <simple_name>Zend_Loader_Autoloader._getVersionPath_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._getVersionPath_@__Loader_Autoloader_php_1($path;$version):Variant</signature>
+        <info_rule id="468961"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115734">
+        <simple_name>Zend_Loader_Autoloader._getVersionType_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._getVersionType_@__Loader_Autoloader_php_1($version):Variant</signature>
+        <info_rule id="468983"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115737">
+        <simple_name>Zend_Loader_Autoloader._setNamespaceAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._setNamespaceAutoloaders_@__Loader_Autoloader_php_1($autoloaders;$namespace):Variant</signature>
+        <info_rule id="468986"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115694">
+        <simple_name>Zend_Loader_Autoloader.autoload</simple_name>
+        <signature>Zend_Loader_Autoloader.autoload(Arg#0):Variant</signature>
+        <info_rule id="468945"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115681">
+        <simple_name>Zend_Loader_Autoloader.autoload_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.autoload_@__Loader_Autoloader_php_1($class):Variant</signature>
+        <info_rule id="468932"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115741">
+        <simple_name>Zend_Loader_Autoloader.getAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getAutoloaders_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468990"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115697">
+        <simple_name>Zend_Loader_Autoloader.getClassAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getClassAutoloaders_@__Loader_Autoloader_php_1($class):Variant</signature>
+        <info_rule id="468948"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115707">
+        <simple_name>Zend_Loader_Autoloader.getDefaultAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getDefaultAutoloader_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468958"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115701">
+        <simple_name>Zend_Loader_Autoloader.getInstance</simple_name>
+        <signature>Zend_Loader_Autoloader.getInstance():Variant</signature>
+        <info_rule id="468952"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115683">
+        <simple_name>Zend_Loader_Autoloader.getInstance_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getInstance_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468934"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115740">
+        <simple_name>Zend_Loader_Autoloader.getNamespaceAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getNamespaceAutoloaders_@__Loader_Autoloader_php_1($namespace):Variant</signature>
+        <info_rule id="468989"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115714">
+        <simple_name>Zend_Loader_Autoloader.getRegisteredNamespaces_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getRegisteredNamespaces_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468965"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115718">
+        <simple_name>Zend_Loader_Autoloader.getZfPath_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getZfPath_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468969"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115671">
+        <simple_name>Zend_Loader_Autoloader.isFallbackAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.isFallbackAutoloader_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468923"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115744">
+        <simple_name>Zend_Loader_Autoloader.pushAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.pushAutoloader_@__Loader_Autoloader_php_1($callback;$namespace):Variant</signature>
+        <info_rule id="468993"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115696">
+        <simple_name>Zend_Loader_Autoloader.registerNamespace_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.registerNamespace_@__Loader_Autoloader_php_1($namespace):Variant</signature>
+        <info_rule id="468947"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115685">
+        <simple_name>Zend_Loader_Autoloader.removeAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.removeAutoloader_@__Loader_Autoloader_php_1($callback;$namespace):Variant</signature>
+        <info_rule id="468936"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115715">
+        <simple_name>Zend_Loader_Autoloader.resetInstance_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.resetInstance_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468966"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115703">
+        <simple_name>Zend_Loader_Autoloader.setAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setAutoloaders_@__Loader_Autoloader_php_1($autoloaders):Variant</signature>
+        <info_rule id="468954"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115684">
+        <simple_name>Zend_Loader_Autoloader.setDefaultAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setDefaultAutoloader_@__Loader_Autoloader_php_1($callback):Variant</signature>
+        <info_rule id="468935"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115717">
+        <simple_name>Zend_Loader_Autoloader.setFallbackAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setFallbackAutoloader_@__Loader_Autoloader_php_1($flag):Variant</signature>
+        <info_rule id="468968"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115719">
+        <simple_name>Zend_Loader_Autoloader.setZfPath_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setZfPath_@__Loader_Autoloader_php_1($spec;$version):Variant</signature>
+        <info_rule id="468970"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115723">
+        <simple_name>Zend_Loader_Autoloader.suppressNotFoundWarnings_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.suppressNotFoundWarnings_@__Loader_Autoloader_php_1($flag):Variant</signature>
+        <info_rule id="468974"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115698">
+        <simple_name>Zend_Loader_Autoloader.unregisterNamespace_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.unregisterNamespace_@__Loader_Autoloader_php_1($namespace):Variant</signature>
+        <info_rule id="468949"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115674">
+        <simple_name>Zend_Loader_Autoloader.unshiftAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.unshiftAutoloader_@__Loader_Autoloader_php_1($callback;$namespace):Variant</signature>
+        <info_rule id="468926"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Loader_Autoloader">
+      <method vuln_id="1115725">
+        <simple_name>Zend_Loader_Autoloader.__construct_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.__construct_@__Loader_Autoloader_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115673">
+        <simple_name>Zend_Loader_Autoloader._autoload_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._autoload_@__Loader_Autoloader_php_1($class):Variant</signature>
+        <info_rule id="468925"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115706">
+        <simple_name>Zend_Loader_Autoloader._getAvailableVersions_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._getAvailableVersions_@__Loader_Autoloader_php_1($path;$version):Variant</signature>
+        <info_rule id="468957"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115710">
+        <simple_name>Zend_Loader_Autoloader._getVersionPath_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._getVersionPath_@__Loader_Autoloader_php_1($path;$version):Variant</signature>
+        <info_rule id="468961"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115734">
+        <simple_name>Zend_Loader_Autoloader._getVersionType_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._getVersionType_@__Loader_Autoloader_php_1($version):Variant</signature>
+        <info_rule id="468983"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115737">
+        <simple_name>Zend_Loader_Autoloader._setNamespaceAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader._setNamespaceAutoloaders_@__Loader_Autoloader_php_1($autoloaders;$namespace):Variant</signature>
+        <info_rule id="468986"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115694">
+        <simple_name>Zend_Loader_Autoloader.autoload</simple_name>
+        <signature>Zend_Loader_Autoloader.autoload(Arg#0):Variant</signature>
+        <info_rule id="468945"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115681">
+        <simple_name>Zend_Loader_Autoloader.autoload_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.autoload_@__Loader_Autoloader_php_1($class):Variant</signature>
+        <info_rule id="468932"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115741">
+        <simple_name>Zend_Loader_Autoloader.getAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getAutoloaders_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468990"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115697">
+        <simple_name>Zend_Loader_Autoloader.getClassAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getClassAutoloaders_@__Loader_Autoloader_php_1($class):Variant</signature>
+        <info_rule id="468948"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115707">
+        <simple_name>Zend_Loader_Autoloader.getDefaultAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getDefaultAutoloader_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468958"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115701">
+        <simple_name>Zend_Loader_Autoloader.getInstance</simple_name>
+        <signature>Zend_Loader_Autoloader.getInstance():Variant</signature>
+        <info_rule id="468952"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115683">
+        <simple_name>Zend_Loader_Autoloader.getInstance_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getInstance_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468934"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115740">
+        <simple_name>Zend_Loader_Autoloader.getNamespaceAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getNamespaceAutoloaders_@__Loader_Autoloader_php_1($namespace):Variant</signature>
+        <info_rule id="468989"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115714">
+        <simple_name>Zend_Loader_Autoloader.getRegisteredNamespaces_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getRegisteredNamespaces_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468965"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115718">
+        <simple_name>Zend_Loader_Autoloader.getZfPath_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.getZfPath_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468969"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115671">
+        <simple_name>Zend_Loader_Autoloader.isFallbackAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.isFallbackAutoloader_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468923"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115744">
+        <simple_name>Zend_Loader_Autoloader.pushAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.pushAutoloader_@__Loader_Autoloader_php_1($callback;$namespace):Variant</signature>
+        <info_rule id="468993"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115696">
+        <simple_name>Zend_Loader_Autoloader.registerNamespace_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.registerNamespace_@__Loader_Autoloader_php_1($namespace):Variant</signature>
+        <info_rule id="468947"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115685">
+        <simple_name>Zend_Loader_Autoloader.removeAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.removeAutoloader_@__Loader_Autoloader_php_1($callback;$namespace):Variant</signature>
+        <info_rule id="468936"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115715">
+        <simple_name>Zend_Loader_Autoloader.resetInstance_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.resetInstance_@__Loader_Autoloader_php_1():Variant</signature>
+        <info_rule id="468966"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115703">
+        <simple_name>Zend_Loader_Autoloader.setAutoloaders_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setAutoloaders_@__Loader_Autoloader_php_1($autoloaders):Variant</signature>
+        <info_rule id="468954"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115684">
+        <simple_name>Zend_Loader_Autoloader.setDefaultAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setDefaultAutoloader_@__Loader_Autoloader_php_1($callback):Variant</signature>
+        <info_rule id="468935"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115717">
+        <simple_name>Zend_Loader_Autoloader.setFallbackAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setFallbackAutoloader_@__Loader_Autoloader_php_1($flag):Variant</signature>
+        <info_rule id="468968"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115719">
+        <simple_name>Zend_Loader_Autoloader.setZfPath_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.setZfPath_@__Loader_Autoloader_php_1($spec;$version):Variant</signature>
+        <info_rule id="468970"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115723">
+        <simple_name>Zend_Loader_Autoloader.suppressNotFoundWarnings_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.suppressNotFoundWarnings_@__Loader_Autoloader_php_1($flag):Variant</signature>
+        <info_rule id="468974"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115698">
+        <simple_name>Zend_Loader_Autoloader.unregisterNamespace_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.unregisterNamespace_@__Loader_Autoloader_php_1($namespace):Variant</signature>
+        <info_rule id="468949"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115674">
+        <simple_name>Zend_Loader_Autoloader.unshiftAutoloader_@__Loader_Autoloader_php_1</simple_name>
+        <signature>Zend_Loader_Autoloader.unshiftAutoloader_@__Loader_Autoloader_php_1($callback;$namespace):Variant</signature>
+        <info_rule id="468926"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

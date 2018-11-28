@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Log_mcal">
+      <method vuln_id="-1">
+        <simple_name>Log_mcal.Log_mcal</simple_name>
+        <signature>Log_mcal.Log_mcal($name;$ident;$conf;$level):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log_mcal._announce</simple_name>
+        <signature>Log_mcal._announce():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log_mcal._extractMessage</simple_name>
+        <signature>Log_mcal._extractMessage():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log_mcal._isMasked</simple_name>
+        <signature>Log_mcal._isMasked():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091673">
+        <simple_name>Log_mcal.close</simple_name>
+        <signature>Log_mcal.close():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091671">
+        <simple_name>Log_mcal.log</simple_name>
+        <signature>Log_mcal.log($message;$priority):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091672">
+        <simple_name>Log_mcal.open</simple_name>
+        <signature>Log_mcal.open():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Log_mcal">
+      <method vuln_id="-1">
+        <simple_name>Log_mcal.Log_mcal</simple_name>
+        <signature>Log_mcal.Log_mcal($name;$ident;$conf;$level):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log_mcal._announce</simple_name>
+        <signature>Log_mcal._announce():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log_mcal._extractMessage</simple_name>
+        <signature>Log_mcal._extractMessage():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log_mcal._isMasked</simple_name>
+        <signature>Log_mcal._isMasked():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091673">
+        <simple_name>Log_mcal.close</simple_name>
+        <signature>Log_mcal.close():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091671">
+        <simple_name>Log_mcal.log</simple_name>
+        <signature>Log_mcal.log($message;$priority):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091672">
+        <simple_name>Log_mcal.open</simple_name>
+        <signature>Log_mcal.open():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

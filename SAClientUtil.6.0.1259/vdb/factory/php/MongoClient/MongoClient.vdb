@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MongoClient">
+      <method>
+        <simple_name>MongoClient.__construct</simple_name>
+        <signature>MongoClient.__construct(___Php.String):void</signature>
+        <info_rule id="0"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.__construct</simple_name>
+        <signature>MongoClient.__construct(___Php.String;___Php.Array):void</signature>
+        <info_rule id="0"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.__construct</simple_name>
+        <signature>MongoClient.__construct(___Php.String;___Php.Array;___Php.Array):void</signature>
+        <info_rule id="0"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.__get</simple_name>
+        <signature>MongoClient.__get(___Php.String):___Php.MongoDB</signature>
+        <info_rule id="0"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.close</simple_name>
+        <signature>MongoClient.close(___Php.String):bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.close</simple_name>
+        <signature>MongoClient.close(bool):bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.connect</simple_name>
+        <signature>MongoClient.connect():bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.dropDB</simple_name>
+        <signature>MongoClient.dropDB(mixed):___Php.Array</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getConnections</simple_name>
+        <signature>MongoClient.getConnections():___Php.Array</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getHosts</simple_name>
+        <signature>MongoClient.getHosts(_):___Php.Array</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getReadPreference</simple_name>
+        <signature>MongoClient.getReadPreference(_):___Php.Array</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getWriteConcern</simple_name>
+        <signature>MongoClient.getWriteConcern(_):___Php.Array</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.killCursor</simple_name>
+        <signature>MongoClient.killCursor(___Php.String;int):bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.listDBs</simple_name>
+        <signature>MongoClient.listDBs():___Php.Array</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.selectCollection</simple_name>
+        <signature>MongoClient.selectCollection(___Php.String;___Php.String):MongoCollection</signature>
+        <info_rule id="0"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.selectDB</simple_name>
+        <signature>MongoClient.selectDB(___Php.String):MongoDB</signature>
+        <info_rule id="0"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setReadPreference</simple_name>
+        <signature>MongoClient.setReadPreference(___Php.String):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setReadPreference</simple_name>
+        <signature>MongoClient.setReadPreference(___Php.String;___Php.Array):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setWriteConcern</simple_name>
+        <signature>MongoClient.setWriteConcern(mixed):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setWriteConcern</simple_name>
+        <signature>MongoClient.setWriteConcern(mixed;int):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+    </class>
+    <class name="MongoClient">
+      <method>
+        <simple_name>MongoClient.__construct</simple_name>
+        <signature>MongoClient.__construct(___Php.String):void</signature>
+        <info_rule id="0"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.__construct</simple_name>
+        <signature>MongoClient.__construct(___Php.String;___Php.Array):void</signature>
+        <info_rule id="0"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.__construct</simple_name>
+        <signature>MongoClient.__construct(___Php.String;___Php.Array;___Php.Array):void</signature>
+        <info_rule id="0"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.__get</simple_name>
+        <signature>MongoClient.__get(___Php.String):___Php.MongoDB</signature>
+        <info_rule id="0"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.close</simple_name>
+        <signature>MongoClient.close(___Php.String):bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.close</simple_name>
+        <signature>MongoClient.close(bool):bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.connect</simple_name>
+        <signature>MongoClient.connect():bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.dropDB</simple_name>
+        <signature>MongoClient.dropDB(mixed):___Php.Array</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getConnections</simple_name>
+        <signature>MongoClient.getConnections():___Php.Array</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getHosts</simple_name>
+        <signature>MongoClient.getHosts(_):___Php.Array</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getReadPreference</simple_name>
+        <signature>MongoClient.getReadPreference(_):___Php.Array</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.getWriteConcern</simple_name>
+        <signature>MongoClient.getWriteConcern(_):___Php.Array</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.killCursor</simple_name>
+        <signature>MongoClient.killCursor(___Php.String;int):bool</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.listDBs</simple_name>
+        <signature>MongoClient.listDBs():___Php.Array</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.selectCollection</simple_name>
+        <signature>MongoClient.selectCollection(___Php.String;___Php.String):MongoCollection</signature>
+        <info_rule id="0"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.selectDB</simple_name>
+        <signature>MongoClient.selectDB(___Php.String):MongoDB</signature>
+        <info_rule id="0"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setReadPreference</simple_name>
+        <signature>MongoClient.setReadPreference(___Php.String):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setReadPreference</simple_name>
+        <signature>MongoClient.setReadPreference(___Php.String;___Php.Array):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setWriteConcern</simple_name>
+        <signature>MongoClient.setWriteConcern(mixed):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoClient.setWriteConcern</simple_name>
+        <signature>MongoClient.setWriteConcern(mixed;int):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

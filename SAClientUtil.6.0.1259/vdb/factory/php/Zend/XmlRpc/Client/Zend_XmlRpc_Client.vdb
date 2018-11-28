@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_XmlRpc_Client">
+      <method vuln_id="1122055">
+        <simple_name>Zend_XmlRpc_Client.__construct_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.__construct_@__XmlRpc_Client_php_1($server;$httpClient):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121985">
+        <simple_name>Zend_XmlRpc_Client._createRequest_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client._createRequest_@__XmlRpc_Client_php_1($method;$params):Variant</signature>
+        <info_rule id="473291"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1121930">
+        <simple_name>Zend_XmlRpc_Client.call_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.call_@__XmlRpc_Client_php_1($method;$params):Variant</signature>
+        <info_rule id="473230"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1121942">
+        <simple_name>Zend_XmlRpc_Client.doRequest_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.doRequest_@__XmlRpc_Client_php_1($request;$response):Variant</signature>
+        <info_rule id="473247"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1122002">
+        <simple_name>Zend_XmlRpc_Client.getHttpClient_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getHttpClient_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473307"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121940">
+        <simple_name>Zend_XmlRpc_Client.getIntrospector_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getIntrospector_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473245"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121948">
+        <simple_name>Zend_XmlRpc_Client.getLastRequest_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getLastRequest_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473254"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122071">
+        <simple_name>Zend_XmlRpc_Client.getLastResponse_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getLastResponse_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473374"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122017">
+        <simple_name>Zend_XmlRpc_Client.getProxy</simple_name>
+        <signature>Zend_XmlRpc_Client.getProxy(Arg#0):Variant</signature>
+        <info_rule id="473321"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121963">
+        <simple_name>Zend_XmlRpc_Client.getProxy_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getProxy_@__XmlRpc_Client_php_1($namespace):Variant</signature>
+        <info_rule id="473269"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122003">
+        <simple_name>Zend_XmlRpc_Client.setHttpClient_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.setHttpClient_@__XmlRpc_Client_php_1($httpClient):Variant</signature>
+        <info_rule id="473308"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121924">
+        <simple_name>Zend_XmlRpc_Client.setIntrospector_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.setIntrospector_@__XmlRpc_Client_php_1($introspector):Variant</signature>
+        <info_rule id="473223"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122016">
+        <simple_name>Zend_XmlRpc_Client.setSkipSystemLookup_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.setSkipSystemLookup_@__XmlRpc_Client_php_1($flag):Variant</signature>
+        <info_rule id="473320"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121913">
+        <simple_name>Zend_XmlRpc_Client.skipSystemLookup_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.skipSystemLookup_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473214"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+    </class>
+    <class name="Zend_XmlRpc_Client">
+      <method vuln_id="1122055">
+        <simple_name>Zend_XmlRpc_Client.__construct_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.__construct_@__XmlRpc_Client_php_1($server;$httpClient):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121985">
+        <simple_name>Zend_XmlRpc_Client._createRequest_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client._createRequest_@__XmlRpc_Client_php_1($method;$params):Variant</signature>
+        <info_rule id="473291"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1121930">
+        <simple_name>Zend_XmlRpc_Client.call_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.call_@__XmlRpc_Client_php_1($method;$params):Variant</signature>
+        <info_rule id="473230"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1121942">
+        <simple_name>Zend_XmlRpc_Client.doRequest_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.doRequest_@__XmlRpc_Client_php_1($request;$response):Variant</signature>
+        <info_rule id="473247"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1122002">
+        <simple_name>Zend_XmlRpc_Client.getHttpClient_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getHttpClient_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473307"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121940">
+        <simple_name>Zend_XmlRpc_Client.getIntrospector_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getIntrospector_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473245"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121948">
+        <simple_name>Zend_XmlRpc_Client.getLastRequest_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getLastRequest_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473254"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122071">
+        <simple_name>Zend_XmlRpc_Client.getLastResponse_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getLastResponse_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473374"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122017">
+        <simple_name>Zend_XmlRpc_Client.getProxy</simple_name>
+        <signature>Zend_XmlRpc_Client.getProxy(Arg#0):Variant</signature>
+        <info_rule id="473321"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121963">
+        <simple_name>Zend_XmlRpc_Client.getProxy_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.getProxy_@__XmlRpc_Client_php_1($namespace):Variant</signature>
+        <info_rule id="473269"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122003">
+        <simple_name>Zend_XmlRpc_Client.setHttpClient_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.setHttpClient_@__XmlRpc_Client_php_1($httpClient):Variant</signature>
+        <info_rule id="473308"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121924">
+        <simple_name>Zend_XmlRpc_Client.setIntrospector_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.setIntrospector_@__XmlRpc_Client_php_1($introspector):Variant</signature>
+        <info_rule id="473223"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122016">
+        <simple_name>Zend_XmlRpc_Client.setSkipSystemLookup_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.setSkipSystemLookup_@__XmlRpc_Client_php_1($flag):Variant</signature>
+        <info_rule id="473320"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121913">
+        <simple_name>Zend_XmlRpc_Client.skipSystemLookup_@__XmlRpc_Client_php_1</simple_name>
+        <signature>Zend_XmlRpc_Client.skipSystemLookup_@__XmlRpc_Client_php_1():Variant</signature>
+        <info_rule id="473214"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

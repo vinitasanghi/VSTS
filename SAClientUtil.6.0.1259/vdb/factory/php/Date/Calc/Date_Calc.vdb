@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Date_Calc">
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.NWeekdayOfMonth</simple_name>
+        <signature>Date_Calc.NWeekdayOfMonth($week;$dow;$month;$year;$format):string</signature>
+      </method>
+      <method vuln_id="1090962">
+        <simple_name>Date_Calc.beginOfMonth</simple_name>
+        <signature>Date_Calc.beginOfMonth(int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091002">
+        <simple_name>Date_Calc.beginOfMonthBySpan</simple_name>
+        <signature>Date_Calc.beginOfMonthBySpan(int;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090992">
+        <simple_name>Date_Calc.beginOfNextMonth</simple_name>
+        <signature>Date_Calc.beginOfNextMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090991">
+        <simple_name>Date_Calc.beginOfNextWeek</simple_name>
+        <signature>Date_Calc.beginOfNextWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090983">
+        <simple_name>Date_Calc.beginOfPrevMonth</simple_name>
+        <signature>Date_Calc.beginOfPrevMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090999">
+        <simple_name>Date_Calc.beginOfPrevWeek</simple_name>
+        <signature>Date_Calc.beginOfPrevWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090973">
+        <simple_name>Date_Calc.beginOfWeek</simple_name>
+        <signature>Date_Calc.beginOfWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.compareDates</simple_name>
+        <signature>Date_Calc.compareDates():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090985">
+        <simple_name>Date_Calc.compareDates</simple_name>
+        <signature>Date_Calc.compareDates(int;int;int;int;int;int):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.dateDiff</simple_name>
+        <signature>Date_Calc.dateDiff():Variant</signature>
+      </method>
+      <method vuln_id="1090980">
+        <simple_name>Date_Calc.dateDiff</simple_name>
+        <signature>Date_Calc.dateDiff(int;int;int;int;int;int):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090957">
+        <simple_name>Date_Calc.dateFormat</simple_name>
+        <signature>Date_Calc.dateFormat(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090984">
+        <simple_name>Date_Calc.dateNow</simple_name>
+        <signature>Date_Calc.dateNow(___Php.String):___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090969">
+        <simple_name>Date_Calc.dateSeason</simple_name>
+        <signature>Date_Calc.dateSeason(___Php.String;___Php.String):float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.dateToDays</simple_name>
+        <signature>Date_Calc.dateToDays():Variant</signature>
+      </method>
+      <method vuln_id="1090982">
+        <simple_name>Date_Calc.dateToDays</simple_name>
+        <signature>Date_Calc.dateToDays(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.dayOfWeek</simple_name>
+        <signature>Date_Calc.dayOfWeek():Variant</signature>
+      </method>
+      <method vuln_id="1090976">
+        <simple_name>Date_Calc.dayOfWeek</simple_name>
+        <signature>Date_Calc.dayOfWeek(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.daysInMonth</simple_name>
+        <signature>Date_Calc.daysInMonth():Variant</signature>
+      </method>
+      <method vuln_id="1090958">
+        <simple_name>Date_Calc.daysInMonth</simple_name>
+        <signature>Date_Calc.daysInMonth(int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.daysToDate</simple_name>
+        <signature>Date_Calc.daysToDate():Variant</signature>
+      </method>
+      <method vuln_id="1091005">
+        <simple_name>Date_Calc.daysToDate</simple_name>
+        <signature>Date_Calc.daysToDate(ints;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090968">
+        <simple_name>Date_Calc.defaultCentury</simple_name>
+        <signature>Date_Calc.defaultCentury(int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090965">
+        <simple_name>Date_Calc.endOfMonthBySpan</simple_name>
+        <signature>Date_Calc.endOfMonthBySpan(int;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090998">
+        <simple_name>Date_Calc.endOfNextMonth</simple_name>
+        <signature>Date_Calc.endOfNextMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091003">
+        <simple_name>Date_Calc.endOfPrevMonth</simple_name>
+        <signature>Date_Calc.endOfPrevMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090977">
+        <simple_name>Date_Calc.endOfWeek</simple_name>
+        <signature>Date_Calc.endOfWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.firstOfMonthWeekday</simple_name>
+        <signature>Date_Calc.firstOfMonthWeekday(int;int):int</signature>
+      </method>
+      <method vuln_id="1090972">
+        <simple_name>Date_Calc.getCalendarMonth</simple_name>
+        <signature>Date_Calc.getCalendarMonth(int;int;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090986">
+        <simple_name>Date_Calc.getCalendarWeek</simple_name>
+        <signature>Date_Calc.getCalendarWeek(int;int;int;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090964">
+        <simple_name>Date_Calc.getCalendarYear</simple_name>
+        <signature>Date_Calc.getCalendarYear(int;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090963">
+        <simple_name>Date_Calc.getDay</simple_name>
+        <signature>Date_Calc.getDay():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090970">
+        <simple_name>Date_Calc.getMonth</simple_name>
+        <signature>Date_Calc.getMonth():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getMonthAbbrname</simple_name>
+        <signature>Date_Calc.getMonthAbbrname():Variant</signature>
+      </method>
+      <method vuln_id="1090989">
+        <simple_name>Date_Calc.getMonthAbbrname</simple_name>
+        <signature>Date_Calc.getMonthAbbrname(int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091001">
+        <simple_name>Date_Calc.getMonthFromFullName</simple_name>
+        <signature>Date_Calc.getMonthFromFullName(___Php.String):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getMonthFullname</simple_name>
+        <signature>Date_Calc.getMonthFullname():Variant</signature>
+      </method>
+      <method vuln_id="1090994">
+        <simple_name>Date_Calc.getMonthFullname</simple_name>
+        <signature>Date_Calc.getMonthFullname(int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090960">
+        <simple_name>Date_Calc.getMonthNames</simple_name>
+        <signature>Date_Calc.getMonthNames():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091006">
+        <simple_name>Date_Calc.getWeekDays</simple_name>
+        <signature>Date_Calc.getWeekDays():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getWeekdayAbbrname</simple_name>
+        <signature>Date_Calc.getWeekdayAbbrname():Variant</signature>
+      </method>
+      <method vuln_id="1091004">
+        <simple_name>Date_Calc.getWeekdayAbbrname</simple_name>
+        <signature>Date_Calc.getWeekdayAbbrname(int;int;int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getWeekdayFullname</simple_name>
+        <signature>Date_Calc.getWeekdayFullname():Variant</signature>
+      </method>
+      <method vuln_id="1090993">
+        <simple_name>Date_Calc.getWeekdayFullname</simple_name>
+        <signature>Date_Calc.getWeekdayFullname(int;int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090978">
+        <simple_name>Date_Calc.getYear</simple_name>
+        <signature>Date_Calc.getYear():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090974">
+        <simple_name>Date_Calc.gregorianToISO</simple_name>
+        <signature>Date_Calc.gregorianToISO(int;int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090990">
+        <simple_name>Date_Calc.isFutureDate</simple_name>
+        <signature>Date_Calc.isFutureDate(int;int;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.isLeapYear</simple_name>
+        <signature>Date_Calc.isLeapYear():Variant</signature>
+      </method>
+      <method vuln_id="1090967">
+        <simple_name>Date_Calc.isLeapYear</simple_name>
+        <signature>Date_Calc.isLeapYear(int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090996">
+        <simple_name>Date_Calc.isPastDate</simple_name>
+        <signature>Date_Calc.isPastDate(int;int;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090959">
+        <simple_name>Date_Calc.isValidDate</simple_name>
+        <signature>Date_Calc.isValidDate(int;int;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.julianDate</simple_name>
+        <signature>Date_Calc.julianDate():Variant</signature>
+      </method>
+      <method vuln_id="1090971">
+        <simple_name>Date_Calc.julianDate</simple_name>
+        <signature>Date_Calc.julianDate(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.nextDay</simple_name>
+        <signature>Date_Calc.nextDay():Variant</signature>
+      </method>
+      <method vuln_id="1090995">
+        <simple_name>Date_Calc.nextDay</simple_name>
+        <signature>Date_Calc.nextDay(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091007">
+        <simple_name>Date_Calc.nextDayOfWeek</simple_name>
+        <signature>Date_Calc.nextDayOfWeek(int;int;int;int;___Php.String;bool):___Php.String</signature>
+      </method>
+      <method vuln_id="1090981">
+        <simple_name>Date_Calc.nextDayOfWeekOnOrAfter</simple_name>
+        <signature>Date_Calc.nextDayOfWeekOnOrAfter(int;int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.nextWeekday</simple_name>
+        <signature>Date_Calc.nextWeekday():Variant</signature>
+      </method>
+      <method vuln_id="1090961">
+        <simple_name>Date_Calc.nextWeekday</simple_name>
+        <signature>Date_Calc.nextWeekday(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.prevDay</simple_name>
+        <signature>Date_Calc.prevDay():Variant</signature>
+      </method>
+      <method vuln_id="1091000">
+        <simple_name>Date_Calc.prevDay</simple_name>
+        <signature>Date_Calc.prevDay(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090987">
+        <simple_name>Date_Calc.prevDayOfWeek</simple_name>
+        <signature>Date_Calc.prevDayOfWeek(int;int;int;int;___Php.String;bool):___Php.String</signature>
+      </method>
+      <method vuln_id="1090997">
+        <simple_name>Date_Calc.prevDayOfWeekOnOrBefore</simple_name>
+        <signature>Date_Calc.prevDayOfWeekOnOrBefore(int;int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.prevWeekday</simple_name>
+        <signature>Date_Calc.prevWeekday():Variant</signature>
+      </method>
+      <method vuln_id="1090979">
+        <simple_name>Date_Calc.prevWeekday</simple_name>
+        <signature>Date_Calc.prevWeekday(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.quarterOfYear</simple_name>
+        <signature>Date_Calc.quarterOfYear():Variant</signature>
+      </method>
+      <method vuln_id="1090975">
+        <simple_name>Date_Calc.quarterOfYear</simple_name>
+        <signature>Date_Calc.quarterOfYear(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.weekOfYear</simple_name>
+        <signature>Date_Calc.weekOfYear():Variant</signature>
+      </method>
+      <method vuln_id="1090988">
+        <simple_name>Date_Calc.weekOfYear</simple_name>
+        <signature>Date_Calc.weekOfYear(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.weeksInMonth</simple_name>
+        <signature>Date_Calc.weeksInMonth():Variant</signature>
+      </method>
+      <method vuln_id="1090966">
+        <simple_name>Date_Calc.weeksInMonth</simple_name>
+        <signature>Date_Calc.weeksInMonth(int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Date_Calc">
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.NWeekdayOfMonth</simple_name>
+        <signature>Date_Calc.NWeekdayOfMonth($week;$dow;$month;$year;$format):string</signature>
+      </method>
+      <method vuln_id="1090962">
+        <simple_name>Date_Calc.beginOfMonth</simple_name>
+        <signature>Date_Calc.beginOfMonth(int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091002">
+        <simple_name>Date_Calc.beginOfMonthBySpan</simple_name>
+        <signature>Date_Calc.beginOfMonthBySpan(int;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090992">
+        <simple_name>Date_Calc.beginOfNextMonth</simple_name>
+        <signature>Date_Calc.beginOfNextMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090991">
+        <simple_name>Date_Calc.beginOfNextWeek</simple_name>
+        <signature>Date_Calc.beginOfNextWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090983">
+        <simple_name>Date_Calc.beginOfPrevMonth</simple_name>
+        <signature>Date_Calc.beginOfPrevMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090999">
+        <simple_name>Date_Calc.beginOfPrevWeek</simple_name>
+        <signature>Date_Calc.beginOfPrevWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090973">
+        <simple_name>Date_Calc.beginOfWeek</simple_name>
+        <signature>Date_Calc.beginOfWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.compareDates</simple_name>
+        <signature>Date_Calc.compareDates():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090985">
+        <simple_name>Date_Calc.compareDates</simple_name>
+        <signature>Date_Calc.compareDates(int;int;int;int;int;int):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.dateDiff</simple_name>
+        <signature>Date_Calc.dateDiff():Variant</signature>
+      </method>
+      <method vuln_id="1090980">
+        <simple_name>Date_Calc.dateDiff</simple_name>
+        <signature>Date_Calc.dateDiff(int;int;int;int;int;int):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090957">
+        <simple_name>Date_Calc.dateFormat</simple_name>
+        <signature>Date_Calc.dateFormat(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090984">
+        <simple_name>Date_Calc.dateNow</simple_name>
+        <signature>Date_Calc.dateNow(___Php.String):___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090969">
+        <simple_name>Date_Calc.dateSeason</simple_name>
+        <signature>Date_Calc.dateSeason(___Php.String;___Php.String):float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.dateToDays</simple_name>
+        <signature>Date_Calc.dateToDays():Variant</signature>
+      </method>
+      <method vuln_id="1090982">
+        <simple_name>Date_Calc.dateToDays</simple_name>
+        <signature>Date_Calc.dateToDays(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.dayOfWeek</simple_name>
+        <signature>Date_Calc.dayOfWeek():Variant</signature>
+      </method>
+      <method vuln_id="1090976">
+        <simple_name>Date_Calc.dayOfWeek</simple_name>
+        <signature>Date_Calc.dayOfWeek(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.daysInMonth</simple_name>
+        <signature>Date_Calc.daysInMonth():Variant</signature>
+      </method>
+      <method vuln_id="1090958">
+        <simple_name>Date_Calc.daysInMonth</simple_name>
+        <signature>Date_Calc.daysInMonth(int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.daysToDate</simple_name>
+        <signature>Date_Calc.daysToDate():Variant</signature>
+      </method>
+      <method vuln_id="1091005">
+        <simple_name>Date_Calc.daysToDate</simple_name>
+        <signature>Date_Calc.daysToDate(ints;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090968">
+        <simple_name>Date_Calc.defaultCentury</simple_name>
+        <signature>Date_Calc.defaultCentury(int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090965">
+        <simple_name>Date_Calc.endOfMonthBySpan</simple_name>
+        <signature>Date_Calc.endOfMonthBySpan(int;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090998">
+        <simple_name>Date_Calc.endOfNextMonth</simple_name>
+        <signature>Date_Calc.endOfNextMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091003">
+        <simple_name>Date_Calc.endOfPrevMonth</simple_name>
+        <signature>Date_Calc.endOfPrevMonth(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090977">
+        <simple_name>Date_Calc.endOfWeek</simple_name>
+        <signature>Date_Calc.endOfWeek(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.firstOfMonthWeekday</simple_name>
+        <signature>Date_Calc.firstOfMonthWeekday(int;int):int</signature>
+      </method>
+      <method vuln_id="1090972">
+        <simple_name>Date_Calc.getCalendarMonth</simple_name>
+        <signature>Date_Calc.getCalendarMonth(int;int;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090986">
+        <simple_name>Date_Calc.getCalendarWeek</simple_name>
+        <signature>Date_Calc.getCalendarWeek(int;int;int;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090964">
+        <simple_name>Date_Calc.getCalendarYear</simple_name>
+        <signature>Date_Calc.getCalendarYear(int;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090963">
+        <simple_name>Date_Calc.getDay</simple_name>
+        <signature>Date_Calc.getDay():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090970">
+        <simple_name>Date_Calc.getMonth</simple_name>
+        <signature>Date_Calc.getMonth():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getMonthAbbrname</simple_name>
+        <signature>Date_Calc.getMonthAbbrname():Variant</signature>
+      </method>
+      <method vuln_id="1090989">
+        <simple_name>Date_Calc.getMonthAbbrname</simple_name>
+        <signature>Date_Calc.getMonthAbbrname(int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091001">
+        <simple_name>Date_Calc.getMonthFromFullName</simple_name>
+        <signature>Date_Calc.getMonthFromFullName(___Php.String):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getMonthFullname</simple_name>
+        <signature>Date_Calc.getMonthFullname():Variant</signature>
+      </method>
+      <method vuln_id="1090994">
+        <simple_name>Date_Calc.getMonthFullname</simple_name>
+        <signature>Date_Calc.getMonthFullname(int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090960">
+        <simple_name>Date_Calc.getMonthNames</simple_name>
+        <signature>Date_Calc.getMonthNames():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091006">
+        <simple_name>Date_Calc.getWeekDays</simple_name>
+        <signature>Date_Calc.getWeekDays():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getWeekdayAbbrname</simple_name>
+        <signature>Date_Calc.getWeekdayAbbrname():Variant</signature>
+      </method>
+      <method vuln_id="1091004">
+        <simple_name>Date_Calc.getWeekdayAbbrname</simple_name>
+        <signature>Date_Calc.getWeekdayAbbrname(int;int;int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.getWeekdayFullname</simple_name>
+        <signature>Date_Calc.getWeekdayFullname():Variant</signature>
+      </method>
+      <method vuln_id="1090993">
+        <simple_name>Date_Calc.getWeekdayFullname</simple_name>
+        <signature>Date_Calc.getWeekdayFullname(int;int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090978">
+        <simple_name>Date_Calc.getYear</simple_name>
+        <signature>Date_Calc.getYear():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090974">
+        <simple_name>Date_Calc.gregorianToISO</simple_name>
+        <signature>Date_Calc.gregorianToISO(int;int;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090990">
+        <simple_name>Date_Calc.isFutureDate</simple_name>
+        <signature>Date_Calc.isFutureDate(int;int;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.isLeapYear</simple_name>
+        <signature>Date_Calc.isLeapYear():Variant</signature>
+      </method>
+      <method vuln_id="1090967">
+        <simple_name>Date_Calc.isLeapYear</simple_name>
+        <signature>Date_Calc.isLeapYear(int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090996">
+        <simple_name>Date_Calc.isPastDate</simple_name>
+        <signature>Date_Calc.isPastDate(int;int;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090959">
+        <simple_name>Date_Calc.isValidDate</simple_name>
+        <signature>Date_Calc.isValidDate(int;int;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.julianDate</simple_name>
+        <signature>Date_Calc.julianDate():Variant</signature>
+      </method>
+      <method vuln_id="1090971">
+        <simple_name>Date_Calc.julianDate</simple_name>
+        <signature>Date_Calc.julianDate(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.nextDay</simple_name>
+        <signature>Date_Calc.nextDay():Variant</signature>
+      </method>
+      <method vuln_id="1090995">
+        <simple_name>Date_Calc.nextDay</simple_name>
+        <signature>Date_Calc.nextDay(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091007">
+        <simple_name>Date_Calc.nextDayOfWeek</simple_name>
+        <signature>Date_Calc.nextDayOfWeek(int;int;int;int;___Php.String;bool):___Php.String</signature>
+      </method>
+      <method vuln_id="1090981">
+        <simple_name>Date_Calc.nextDayOfWeekOnOrAfter</simple_name>
+        <signature>Date_Calc.nextDayOfWeekOnOrAfter(int;int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.nextWeekday</simple_name>
+        <signature>Date_Calc.nextWeekday():Variant</signature>
+      </method>
+      <method vuln_id="1090961">
+        <simple_name>Date_Calc.nextWeekday</simple_name>
+        <signature>Date_Calc.nextWeekday(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.prevDay</simple_name>
+        <signature>Date_Calc.prevDay():Variant</signature>
+      </method>
+      <method vuln_id="1091000">
+        <simple_name>Date_Calc.prevDay</simple_name>
+        <signature>Date_Calc.prevDay(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090987">
+        <simple_name>Date_Calc.prevDayOfWeek</simple_name>
+        <signature>Date_Calc.prevDayOfWeek(int;int;int;int;___Php.String;bool):___Php.String</signature>
+      </method>
+      <method vuln_id="1090997">
+        <simple_name>Date_Calc.prevDayOfWeekOnOrBefore</simple_name>
+        <signature>Date_Calc.prevDayOfWeekOnOrBefore(int;int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.prevWeekday</simple_name>
+        <signature>Date_Calc.prevWeekday():Variant</signature>
+      </method>
+      <method vuln_id="1090979">
+        <simple_name>Date_Calc.prevWeekday</simple_name>
+        <signature>Date_Calc.prevWeekday(int;int;int;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.quarterOfYear</simple_name>
+        <signature>Date_Calc.quarterOfYear():Variant</signature>
+      </method>
+      <method vuln_id="1090975">
+        <simple_name>Date_Calc.quarterOfYear</simple_name>
+        <signature>Date_Calc.quarterOfYear(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.weekOfYear</simple_name>
+        <signature>Date_Calc.weekOfYear():Variant</signature>
+      </method>
+      <method vuln_id="1090988">
+        <simple_name>Date_Calc.weekOfYear</simple_name>
+        <signature>Date_Calc.weekOfYear(int;int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Calc.weeksInMonth</simple_name>
+        <signature>Date_Calc.weeksInMonth():Variant</signature>
+      </method>
+      <method vuln_id="1090966">
+        <simple_name>Date_Calc.weeksInMonth</simple_name>
+        <signature>Date_Calc.weeksInMonth(int;int):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

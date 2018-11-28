@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Mime_Message">
+      <method vuln_id="1116469">
+        <simple_name>Zend_Mime_Message.__construct_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.__construct_@__Mime_Message_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Mime_Message._disassembleMime_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message._disassembleMime_@__Mime_Message_php_1($body;$boundary):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116453">
+        <simple_name>Zend_Mime_Message.addPart_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.addPart_@__Mime_Message_php_1($part):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116448">
+        <simple_name>Zend_Mime_Message.createFromMessage_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.createFromMessage_@__Mime_Message_php_1($message;$boundary;$EOL):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116476">
+        <simple_name>Zend_Mime_Message.generateMessage_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.generateMessage_@__Mime_Message_php_1($EOL):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116438">
+        <simple_name>Zend_Mime_Message.getMime_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getMime_@__Mime_Message_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116470">
+        <simple_name>Zend_Mime_Message.getPartContent_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getPartContent_@__Mime_Message_php_1($partnum;$EOL):Variant</signature>
+        <info_rule id="481213"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116456">
+        <simple_name>Zend_Mime_Message.getPartHeadersArray_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getPartHeadersArray_@__Mime_Message_php_1($partnum):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116452">
+        <simple_name>Zend_Mime_Message.getPartHeaders_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getPartHeaders_@__Mime_Message_php_1($partnum;$EOL):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116447">
+        <simple_name>Zend_Mime_Message.getParts_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getParts_@__Mime_Message_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116468">
+        <simple_name>Zend_Mime_Message.isMultiPart_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.isMultiPart_@__Mime_Message_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116459">
+        <simple_name>Zend_Mime_Message.setMime_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.setMime_@__Mime_Message_php_1($mime):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116442">
+        <simple_name>Zend_Mime_Message.setParts_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.setParts_@__Mime_Message_php_1($parts):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Mime_Message">
+      <method vuln_id="1116469">
+        <simple_name>Zend_Mime_Message.__construct_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.__construct_@__Mime_Message_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Mime_Message._disassembleMime_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message._disassembleMime_@__Mime_Message_php_1($body;$boundary):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116453">
+        <simple_name>Zend_Mime_Message.addPart_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.addPart_@__Mime_Message_php_1($part):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116448">
+        <simple_name>Zend_Mime_Message.createFromMessage_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.createFromMessage_@__Mime_Message_php_1($message;$boundary;$EOL):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116476">
+        <simple_name>Zend_Mime_Message.generateMessage_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.generateMessage_@__Mime_Message_php_1($EOL):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116438">
+        <simple_name>Zend_Mime_Message.getMime_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getMime_@__Mime_Message_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116470">
+        <simple_name>Zend_Mime_Message.getPartContent_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getPartContent_@__Mime_Message_php_1($partnum;$EOL):Variant</signature>
+        <info_rule id="481213"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116456">
+        <simple_name>Zend_Mime_Message.getPartHeadersArray_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getPartHeadersArray_@__Mime_Message_php_1($partnum):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116452">
+        <simple_name>Zend_Mime_Message.getPartHeaders_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getPartHeaders_@__Mime_Message_php_1($partnum;$EOL):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116447">
+        <simple_name>Zend_Mime_Message.getParts_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.getParts_@__Mime_Message_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116468">
+        <simple_name>Zend_Mime_Message.isMultiPart_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.isMultiPart_@__Mime_Message_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116459">
+        <simple_name>Zend_Mime_Message.setMime_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.setMime_@__Mime_Message_php_1($mime):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116442">
+        <simple_name>Zend_Mime_Message.setParts_@__Mime_Message_php_1</simple_name>
+        <signature>Zend_Mime_Message.setParts_@__Mime_Message_php_1($parts):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,1755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Static Analyzer 自述文件" />
+<meta name="DC.Relation" scheme="URI" content="https://appscan.bluemix.net/swagger/" />
+<meta name="DC.Date" scheme="iso8601" content="2017-09-13" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="src_readme_index" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<title>Static Analyzer 自述文件</title>
+</head>
+<body><div role="main">
+<div class="nested0" id="src_readme_index"><h1 class="title topictitle1"><span class="keyword">Static Analyzer</span> 自述文件</h1>
+<div class="body"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_readme" title="使用静态分析来扫描源代码以查找安全漏洞。要完成此操作，需要下载一个小型实用程序。如果将该实用程序解压缩到本地磁盘，可以使用其命令行界面 (CLI) 来对所有受支持的语言执行安全性分析。或者，可运行将静态分析插件安装到 Eclipse、Maven 或 Visual Studio 的附带安装程序。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">Static Analyzer 入门</a></li>
+<li class="li"><a class="xref" href="readme.html#src_whats_new" title="发现 Application Security on Cloud 服务中最近添加的静态分析功能。">最近静态分析更新</a></li>
+<li class="li">设置 <span class="keyword">Static Analyzer</span><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_utility_install" title="对于静态分析，下载小型 Client Utility。如果将该实用程序解压缩到本地磁盘，可以使用其命令行界面 (CLI) 来执行安全性分析。或者，可运行所包含的安装程序，该程序用于将静态分析插件添加到 Maven 构建环境或添加到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE)。">设置 Static Analyzer Client Utility</a></li>
+<li class="li"><a class="xref" href="readme.html#src_utility_uninstall" title="该任务描述了如何从集成开发环境 (IDE) 移除 Static Analyzer Client Utility 插件。此外，将提供移除 Client Utility 指示信息。如果您打算从系统中移除 Static Analyzer Client Utility 组件，您仅需要遵照这些指示信息即可。如果您将这些组件升级至新的 Client Utility 版本，那么在安装新版本之前，插件安装会自动移除旧的组件。">移除 Static Analyzer Client Utility</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req" title="本主题描述了当您执行静态分析时受支持的操作系统以及 ASoC 可以扫描的文件类型、位置和项目。">静态分析的系统需求</a></li>
+<li class="li"><a class="xref" href="readme.html#src_govt_compliance" title="遵从美国政府的安全和信息技术法规有助于消除销售难题和障碍。这还向全球潜在客户提供了一个证明点以表明 IBM 正在努力使其产品在行业中具有最高安全性。Static Analyzer Client Utility 支持本主题中概述的各项标准和准则。要了解如何配置合规性的实用程序，请联系您的 IBM 支持代表。">美国政府法规遵从性</a></li>
+</ul>
+</li>
+<li class="li"><span class="keyword">中间表示</span> (<span class="keyword">IRX</span>) 文件生成<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen" title="要扫描源代码中的安全漏洞，请执行以下主题中的步骤。">扫描安全漏洞</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_cli" title="必须生成将提交到云的 IRX 文件，才可启动文件的分析。如果要使用 CLI，请遵循以下指示信息来创建该文件。">使用命令行界面 (CLI) 生成 IRX 文件</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_maven" title="必须生成将提交到云的 IRX 文件，才可启动文件的分析。如果要扫描 Maven 项目，请遵循以下指示信息来创建该文件。">为 Maven 项目生成 IRX 文件</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">在集成开发环境中执行扫描</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">使用 CLI 配置 IRX 文件生成</a></li>
+<li class="li"><a class="xref" href="readme.html#src_troubleshoot_irx_gen">生成静态分析 IRX 文件时发生错误或警告</a></li>
+<li class="li"><a class="xref" href="readme.html#src_troubleshoot_eclipse_install">设置 Static Analyzer Client Utility 时 Eclipse 插件安装失败。</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations" title="使用静态分析来扫描 Java 时，支持 @ValidatorMethod、@CallbackMethod和 @SuppressSecurityTrace 方法级别注释。">支持的 Java 源代码注释</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations" title="使用静态分析来扫描 .NET 时，支持 [ValidatorMethod]、[CallbackMethod] 和 [SuppressSecurityTrace] 方法级别属性。使用这些属性时，还将接受 [ValidatorMethod()]、[CallbackMethod()] 和 [SuppressSecurityTrace()]。">受支持的 .NET 源代码属性</a></li>
+<li class="li"><a class="xref" href="readme.html#src_php_config" title="在为 PHP 生成 IRX 文件后，将创建使您能够在下次扫描文件时配置 IRX 生成的配置文件。">配置未解析的 PHP include 表达式和未知 PHP 类</a></li>
+<li class="li"><a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a></li>
+</ul>
+</li>
+<li class="li">CLI 命令参考 (Windows)<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_help" title="使用命令帮助可检索可用命令的列表，或检索有关单个命令的信息。">命令帮助</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。">分析命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_global" title="使用全局命令可以显示 CLI 帮助和 Static Analyzer Client Utility 版本信息。">全局命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_config" title="使用配置命令可以准备文件进行扫描。">配置命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate" title="使用认证命令可登录到 ASoC 服务。">认证命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_results" title="使用结果命令可以从分析服务中检索扫描结果。">结果命令</a></li>
+</ul>
+</li>
+<li class="li">CLI 命令参考（Linux 和 macOS）<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_help" title="使用命令帮助可检索可用命令的列表，或检索有关单个命令的信息。">命令帮助</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。">分析命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_global" title="使用全局命令可以显示 CLI 帮助和 Static Analyzer Client Utility 版本信息。">全局命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_config" title="使用配置命令可以准备文件进行扫描。">配置命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate" title="使用认证命令可登录到 ASoC 服务。">认证命令</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_results" title="使用结果命令可以从分析服务中检索扫描结果。">结果命令</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_readme"><h2 class="title topictitle2"><span class="keyword">Static Analyzer</span> 入门</h2>
+<div class="body taskbody"><p class="shortdesc">使用静态分析来扫描源代码以查找安全漏洞。要完成此操作，需要下载一个小型实用程序。如果将该实用程序解压缩到本地磁盘，可以使用其命令行界面 (CLI) 来对所有受支持的语言执行安全性分析。或者，可运行将静态分析插件安装到 Eclipse、Maven 或 Visual Studio 的附带安装程序。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e305">过程</h3></div><ul class="ul steps-unordered"><li class="li step"><span class="ph cmd">要了解如何使用位于 <span class="keyword">IBM Cloud Marketplace</span> 的 <span class="keyword">Application Security on Cloud</span> 服务，请参阅 <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/Welcome.html" target="_blank" title="（在新的选项卡或窗口中打开）">http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/Welcome.html</a>。</span></li>
+<li class="li step"><span class="ph cmd">要了解如何使用 <span class="keyword">Application Security on Cloud for Bluemix</span>，请参阅<a class="xref" href="https://console.ng.bluemix.net/docs/services/ApplicationSecurityonCloud/index.html" target="_blank" title="（在新的选项卡或窗口中打开）">https://console.ng.bluemix.net/docs/services/ApplicationSecurityonCloud/index.html</a>。</span></li>
+<li class="li step"><span class="ph cmd">该自述文件的其余部分涵盖了 <span class="keyword">Static Analyzer Client Utility</span> 安装和使用方法。</span></li>
+</ul>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_whats_new"><h2 class="title topictitle2">最近静态分析更新</h2>
+<div class="body refbody"><p class="shortdesc">发现 <span class="keyword">Application Security on Cloud</span> 服务中最近添加的静态分析功能。</p>
+<div class="section"></div>
+<div class="section"><h3 class="title sectiontitle">2017 年 9 月 10 日的新功能</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__11SEPT17">之前，<span class="keyword">Application Security on Cloud</span> 根据
+<samp class="ph codeph">app_id</samp> 与应用程序关联。最近的更新将该关联从 <samp class="ph codeph">app_id</samp> 更新为 <samp class="ph codeph">guid</samp>。在大多数情况下，
+<span class="keyword">ASoC</span> 服务将提示您重新根据该更新关联应用程序。对于 Jenkins 和 CLI，必须采取额外的步骤。请参阅
+<a class="xref" href="readme.html#src_troubleshoot_mult_asset_groups_cm">安全性扫描失败，并出现 Application with id x does not exist 错误</a>以获取更多信息。</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.1157 中的新功能（2017 年 8 月 24 日）</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__24aug17new1">对 Open Source Analyzer 支持的改进：<p class="p">改进了在相同会话中运行多个扫描时 Open
+Source Analyzer 和 Eclipse 的性能。</p>
+</li>
+<li class="li" id="src_whats_new__24aug17new2">对 C/C++ 支持的改进：<p class="p">能更大程度地发现 C++ macros 和编译器选项。</p>
+</li>
+<li class="li" id="src_whats_new__24aug17new3">更改了在没有跟踪的情况下对 Static Analysis 问题的识别。<p class="p">我们改进了 Static Analysis 引擎，并通过该引擎改进了无跟踪发现的散列算法。由于该更改，在“问题”选项卡中会将部署该最新更新之后检测到的很多静态
+分析结果复制一次。这主要会影响 Node.js、Ruby 和 JavaScript 结果，但也可能影响其他语言。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.1142 中的新增功能（2017 年 6 月 28）</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__30jun17new1">更好地支持 C/C++，包括 Visual Studio 2015：<p class="p">C/C++ 扫描改进包含扫描 64 位项目的能力，这一改进目标瞄准了 Visual Studio 2015 平台工具集。</p>
+</li>
+<li class="li" id="src_whats_new__30jun17new2">为 .NET 提供更好的日志记录：<p class="p">针对所有 .NET 相关项目的日志记录和稳定性的改进。</p>
+</li>
+<li class="li" id="src_whats_new__30jun17new3">Javascript 改进：<p class="p"> Javascript 跟踪稳定性，因此不完整的跟踪不会导致返回结果的问题。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.1118 中的新增功能（2017 年 6 月 14）</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__14jun17new1">改进了对 NodeJS 和 Ruby 的支持：<p class="p">Node.js 和 Ruby 扫描与 Intelligent Findings Analytics (IFA) 完全集成，提供更快的扫描时间。</p>
+</li>
+<li class="li" id="src_whats_new__14jun17new2"> 改进了客户机端 JavaScript：<p class="p">我们改进了由 Javascript 引擎生成的跟踪和非跟踪结果的显示。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">2017 年 2 月 3 日的新功能</h3>
+<ul class="ul"><li class="li">使用 Jenkins 插件时：<ul class="ul" id="src_whats_new__20170203_jenkins"><li class="li">现在支持动态分析。通过此功能，您可以对浏览器中运行的应用程序执行分析。</li>
+<li class="li">指定登录凭证时，现在需要使用生成的 API 密钥。</li>
+</ul>
+<div class="note note"><span class="notetitle">注：</span> 不支持通过 Jenkins 插件连接到 <span class="keyword">Application Security on Cloud for Bluemix</span>。</div>
+</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.1054 中的新功能（2017 年 1 月 25 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20170125_ica_cpp">现在，C/C++ <a class="xref" href="src_results.html#src_results" title="本主题描述静态分析扫描结果中可用的功能。">静态分析扫描</a>期间会应用智能代码分析 (ICA)。<p class="p">先前已针对 Java、.NET 和 PHP 扫描引入了 ICA。使用此技术，将发现新应用程序编程接口 (API) 并针对安全影响进行评估。通过 ICA，将复审所有第三方 API 和框架并分配正确的安全影响。这将得到更加完整的扫描结果。</p>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.1036 中的新增功能（2016 年 12 月 21 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20161221_api_login">在 <span class="keyword">IBM Cloud Marketplace</span> 中使用此服务时，分析现在支持使用生成的 API 密钥登录。<ul class="ul" id="src_whats_new__20161221_api_login_list"><li class="li"><a class="xref" href="readme.html#src_irx_gen_ide__login">从集成开发环境登录</a>时，现在需要使用生成的 API 密钥。</li>
+<li class="li">通过 CLI登录时，请发出 <samp class="ph codeph">appscan api_login</samp> 命令 <span class="ph">(<span class="ph" id="src_whats_new__d8727e9">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh api_login</samp> 命令 <span class="ph">（<span class="ph" id="src_whats_new__d8736e9">Linux 和 macOS</span>）</span>。此命令可与与<a class="xref" href="readme.html#src_cli_win_authenticate" title="使用认证命令可登录到 ASoC 服务。"><span class="ph"><span class="ph" id="src_whats_new__d8727e4">认证命令</span>
+<span class="ph" id="src_whats_new__d8727e7">(<span class="ph" id="src_whats_new__d8727e9-d8694e184a1310">Windows</span>)</span></span></a> 或<a class="xref" href="readme.html#src_cli_linux_authenticate" title="使用认证命令可登录到 ASoC 服务。"><span class="ph"><span class="ph">认证命令</span>
+<span class="ph" id="src_whats_new__d8736e7">（<span class="ph" id="src_whats_new__d8736e9-d8694e197a1310">Linux 和 macOS</span>）</span></span></a> 主题中列出的选项配合使用。</li>
+</ul>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">2016 年 12 月 13 日的新增功能</h3>
+<ul class="ul"><li class="li"><span class="ph" id="src_whats_new__jenkins_content">现在支持在 Jenkins 自动化服务器中添加移动和静态分析。<span class="keyword">IBM Application Security on Cloud</span> Jenkins 插件可用于在您的 Jenkins 项目中增加安全扫描支持。此插件可用于在 <span class="keyword">IBM Cloud Marketplace</span> 上连接到 <span class="keyword">IBM Application Security on Cloud</span>。 </span><div class="note note" id="src_whats_new__jenkins_bluemix"><span class="notetitle">注：</span> 不支持通过 Jenkins 插件连接到 <span class="keyword">Application Security on Cloud for Bluemix</span>。</div>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.1001 中的新增功能（2016 年 11 月 5 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20161116_ica"><a class="xref" href="src_results.html#src_results" title="本主题描述静态分析扫描结果中可用的功能。">静态分析扫描</a>现在使用智能代码分析 (ICA)。ICA 自动发现新的应用程序编程接口 (API) 并评估它们的安全影响。通过 ICA，将复审所有第三方 API 和框架并分配正确的安全影响。这将得到更加完整的扫描结果。<div class="note note"><span class="notetitle">注：</span> 现在，扫描 Java、C/C++、.NET 和 PHP 时，仅应用 ICA。</div>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.971 中的新增功能（2016 年 10 月 5 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20161005_macos"><a class="xref" href="readme.html#src_sys_req__os">现在在 macOS V10.11 和更高版本上支持静态分析 CLI、Eclipse 插件和 Maven 插件。</a></li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.934 中的新增功能（2016 年 9 月 14 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20160914_cpp"><a class="xref" href="readme.html#src_sys_req__scan">静态分析现在支持在 Visual Studio 解决方案中扫描 C/C++。</a><div class="note note"><span class="notetitle">注：</span> <ul class="ul"><li class="li">支持受管和不受管 C++ 项目。</li>
+<li class="li">不支持仅针对 32 位 Windows 编写的 Visual Studio 解决方案。Visual Studio 解决方案必须以 64 位 Windows 或者同时以 32 位和 64 位 Windows 为目标。</li>
+</ul>
+</div>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.920 中的新增功能（2016 年 8 月 23 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20160720_persist">从 <span class="keyword">Static Analyzer Client Utility</span> 登录服务时，您现在可以执行以下操作，以在登录令牌文件过期时让实用程序自动尝试向服务重新认证。<ul class="ul"><li class="li">如果从命令行界面 (CLI) 登录，使用 <samp class="ph codeph">-persist</samp> 选项，如<a class="xref" href="readme.html#src_cli_win_authenticate" title="使用认证命令可登录到 ASoC 服务。"><span class="ph"><span class="ph" id="src_whats_new__d8727e4-d8694e287a1310">认证命令</span>
+<span class="ph" id="src_whats_new__d8727e7-d8694e290a1310">(<span class="ph" id="src_whats_new__d8727e9-d8694e292a1310">Windows</span>)</span></span></a>和<a class="xref" href="readme.html#src_cli_linux_authenticate" title="使用认证命令可登录到 ASoC 服务。"><span class="ph"><span class="ph">认证命令</span>
+<span class="ph" id="src_whats_new__d8736e7-d8694e302a1310">（<span class="ph" id="src_whats_new__d8736e9-d8694e304a1310">Linux 和 macOS</span>）</span></span></a>中所述。</li>
+<li class="li">如果要<a class="xref" href="readme.html#src_irx_gen_ide" title="这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">从集成开发环境 (IDE) 登录</a>，选择<span class="ph uicontrol">保存凭证</span>复选框。</li>
+</ul>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.891 中的新增功能（2016 年 7 月 20 日）</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20160720_app_assoc"><strong class="ph b">仅 <span class="keyword">IBM Cloud Marketplace</span>：</strong>如果要连接到 <span class="keyword">IBM Cloud Marketplace</span> 处的 <span class="keyword">Application Security on Cloud</span>，静态分析扫描现在必须与现有 <span class="keyword">Application Security on Cloud</span> 应用程序关联。与应用程序关联的扫描让您能够利用 <span class="keyword">Application Security on Cloud</span> 仪表板的报告和趋势功能部件。<p class="p">要了解在通过 CLI 提交扫描时如何关联应用程序，请参阅<a class="xref" href="readme.html#src_cli_win_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。"><span class="ph"><span class="ph" id="src_whats_new__d8811e4">分析命令</span>
+<span class="ph" id="src_whats_new__d8811e7">(<span class="ph" id="src_whats_new__d8811e9">Windows</span>)</span></span></a>或<a class="xref" href="readme.html#src_cli_linux_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。"><span class="ph"><span class="ph">分析命令</span>
+<span class="ph" id="src_whats_new__d8816e7">（<span class="ph" id="src_whats_new__d8816e9">Linux 和 macOS</span>）</span></span></a>。要了解在从 IDE 提交扫描时如何执行该操作，请参阅<a class="xref" href="readme.html#src_irx_gen_ide" title="这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">在集成开发环境中执行扫描</a>。</p>
+</li>
+<li class="li" id="src_whats_new__20160720_cs_js"><a class="xref" href="readme.html#src_sys_req__scan">静态分析扫描期间增强了客户机端 JavaScript 发现</a></li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.839 中的新增功能（2016 年 6 月 22 日）</h3>
+<ul class="ul" id="src_whats_new__20160622_src"><li class="li" id="src_whats_new__20160622_src_lang"><a class="xref" href="readme.html#src_sys_req__scan">静态分析现在包含对以下语言的支持：</a><ul class="ul"><li class="li">客户机端 JavaScript</li>
+<li class="li">PHP</li>
+<li class="li">Ruby</li>
+</ul>
+</li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">V6.0.839 中的新增功能（2016 年 1 月）</h3>
+<ul class="ul" id="src_whats_new__20160601_src"><li class="li" id="src_whats_new__20160601_src_nodejs"><a class="xref" href="readme.html#src_sys_req__scan">现在支持将 Node.js 用于静态分析扫描</a></li>
+<li class="li">常规错误修订</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">2016 年 4 月 5 日的新功能</h3>
+<ul class="ul" id="src_whats_new__20160405_src"><li class="li" id="src_whats_new__20160405_src_intellij"><a class="xref" href="readme.html#src_irx_gen_ide" title="这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">在 IntelliJ IDE 方便时通过 <span class="keyword">Static Analyzer</span> 扫描和查看漏洞。</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_utility_install"><h2 class="title topictitle2">设置 <span class="keyword">Static Analyzer Client Utility</span></h2>
+<div class="body taskbody"><p class="shortdesc">对于静态分析，下载小型 <span class="keyword">Client Utility</span>。如果将该实用程序解压缩到本地磁盘，可以使用其命令行界面 (CLI) 来执行安全性分析。或者，可运行所包含的安装程序，该程序用于将静态分析插件添加到 Maven 构建环境或添加到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE)。</p>
+<div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e811">关于此任务</h3></div><p class="p">使用静态分析时，扫描源代码以生成将上载到云的文件。将使用跟踪分析来扫描文件（加密 <span class="keyword">IRX</span>
+(<span class="keyword">.irx</span>) 文件）来查找安全漏洞。针对编译的语言生成 <span class="keyword">IRX</span> 文件时，应用程序字节代码文件将转换为代码的 <span class="keyword">中间表示</span>。针对脚本编制语言生成 <span class="keyword">IRX</span> 文件时，源文件将包含在加密 <span class="keyword">IRX</span> 文件中。</p>
+
+<p class="p">使用 Eclipse、IntelliJ IDEA 或 Visual Studio 插件时，<span class="keyword">IRX</span> 文件生成和上载将在使用静态分析操作时自动发送。</p>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 运行安装程序时，如果不在特定 IDE 中使用静态分析，但已安装了该 IDE 并且期望在将来使用，那么现在可能想要将插件安装到该 IDE 以便无需在将来重新运行安装程序。</div>
+
+<div class="note fastpath" id="src_utility_install__yes_no"><span class="fastpathtitle">捷径：</span> 在安装程序中输入 <span class="ph uicontrol">yes</span> 或 <span class="ph uicontrol">no</span> 时，也可以改为输入缩写 <span class="ph uicontrol">y</span> 或 <span class="ph uicontrol">n</span>。如果在正在非英语计算机上运行的安装程序中输入缩写，输入的缩写必须为 <span class="ph uicontrol">y</span> 或 <span class="ph uicontrol">n</span>。</div>
+
+<div class="note important"><span class="importanttitle">要点：</span> <span class="keyword">Client Utility</span> 不应该放在包含非 ASCII 字符的目录中。</div>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e869">过程</h3></div><p class="li stepsection" id="src_utility_install__stepsection">要设置 <span class="keyword">Client Utility</span>：</p><ol class="ol steps"><li class="li step stepexpand" id="src_utility_install__download"><span class="ph cmd"><span class="ph" id="src_utility_install__download_ph">选择计划运行 <span class="keyword">Client Utility</span> 的平台，然后单击<span class="ph uicontrol">下载</span>。这将下载 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件（其中，<span class="ph filepath">&lt;version&gt;</span> 是 <span class="keyword">Client Utility</span> 的当前版本，而 <span class="ph filepath">&lt;os&gt;</span> 是 <span class="keyword">Client Utility</span> 所适用的操作系统。</span></span> <div class="note note"><span class="notetitle">注：</span> 可再次打开欢迎表单，方法是选择表单中的<span class="ph uicontrol">我如何创建 <span class="keyword">IRX</span> 文件？</span>来选择 <span class="keyword">IRX</span> 文件。</div>
+</li>
+<li class="li step stepexpand" id="src_utility_install__extract"><span class="ph cmd"><span class="ph" id="src_utility_install__extract_ph">将文件解压缩到本地驱动器。</span></span></li>
+<li class="li step stepexpand" id="src_utility_install__cli_path"><span class="ph cmd"><span class="ph" id="src_utility_install__cli_path_ph"><strong class="ph b">如果计划使用 CLI 生成 <span class="keyword">IRX</span> 文件、上传 <span class="keyword">IRX</span> 文件或管理扫描：</strong>请将解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在 <span class="ph filepath">\bin</span> 目录的位置添加到 <samp class="ph codeph">PATH</samp> 环境变量。如果未执行此操作，那么每次发出命令时，都需要使用解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件的 <span class="ph filepath">\bin</span> 目录来限定所有命令。</span></span> <div class="note important" id="src_utility_install__dotnet_register"><span class="importanttitle">要点：</span> 如果计划通过 CLI 或 Microsoft Visual Studio 来扫描 .NET，那么必须以管理员身份运行这三个 <span class="ph filepath">.bat</span> 文件（位于已解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件中）：
+<ul class="ul"><li class="li"><span class="ph filepath">bin\register.bat</span></li>
+<li class="li"><span class="ph filepath">walalib\dotnet.libs40\RegisterInGAC.bat</span></li>
+<li class="li"><span class="ph filepath">walalib\dotnet.libs35\RegisterInGAC.bat</span></li>
+</ul>
+
+<p class="p">这些文件可手动运行，或者可以管理员身份运行 <span class="ph filepath">install-plugins.bat</span> 文件（如果仅使用 CLI，运行 <span class="ph filepath">install-plugins.bat</span>，在提示安装静态分析插件时输入<span class="ph uicontrol">否</span>）。</p>
+
+<p class="p">如果不以管理员身份运行这些文件，那么每次使用 CLI 时都将在控制台中显示一条警告消息。如果要扫描 Java 目标，可忽略该消息。</p>
+</div>
+
+
+<div class="note tip" id="src_utility_install__path_tip"><span class="tiptitle">提示：</span> 更改 <samp class="ph codeph">PATH</samp> 或，在命令提示符上发出 <samp class="ph codeph">appscan version</samp>
+<span class="ph">(<span class="ph" id="src_utility_install__d8035e9">Windows</span>)</span>或 <samp class="ph codeph">appscan.sh version</samp>
+<span class="ph">（<span class="ph" id="src_utility_install__d8044e9">Linux 和 macOS</span>）</span>。如果返回了 <span class="keyword">Static Analyzer Client Utility</span> 版本、主目录
+和其他信息，那么 <samp class="ph codeph">PATH</samp> 已正确设置。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_utility_install__maven_eclipse"><strong class="ph b">如果计划将静态分析插件添加到 Eclipse、Microsoft Visual Studio（仅 Windows 上）、IntelliJ IDEA 或 Maven：</strong>在已解压缩的 <span class="keyword">Client Utility</span> 中找到并运行 <span class="ph filepath">install-plugins.bat</span> (Windows) 或 <span class="ph filepath">install-plugins.sh</span>（Linux 和 macOS）。在 Windows 上，以管理员身份运行文件。如果要将插件添加到 Linux 或 macOS 上的 Eclipse，确保登录到有权修改将安装到的 Eclipse 实例的帐户。</span></span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">缺省情况下，<span class="keyword">Client Utility</span> 将连接到位于 <span class="keyword">IBM Cloud Marketplace</span> 的 <span class="keyword">ASoC</span> 服务。如果将改为连接到位于 <span class="keyword">IBM
+Bluemix®</span> 的该服务，请在系统提示时输入 <span class="ph uicontrol">yes</span>。</span></li>
+<li class="li substep substepexpand" id="src_utility_install__eclipse"><span class="ph cmd"><span class="ph" id="src_utility_install__eclipse_ph">如果计划扫描 Eclipse 中的源代码，请遵循安装程序中的提示。<span class="ph" id="src_utility_install__eclipse_location">如果选择安装 Eclipse 插件，那么系统将提示您输入 Eclipse 安装的位置。输入包含 <span class="ph filepath">eclipse.exe</span> (Windows) 或 <span class="ph filepath">eclipse</span>（Linux 和 macOS）文件的目录的完整路径。</span></span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__maven"><span class="ph cmd"><span class="ph" id="src_utility_install__maven_ph">如果计划使用 Maven for <span class="keyword">IRX</span> 文件生成，请遵循安装程序中的提示。</span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__intellij"><span class="ph cmd"><span class="ph">如果计划扫描 IntelliJ IDEA 中的源代码，请遵循安装程序中的提示。如果选择安装 IntelliJ IDEA 插件，那么系统将提示您输入 IntelliJ IDEA 配置目录的位置。输入该目录的完整路径。</span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__vs"><span class="ph cmd"><span class="ph" id="src_utility_install__vs_ph"><strong class="ph b">仅 Windows：</strong>如果计划扫描 Visual Studio 中的源代码，请遵循安装程序中的提示。<span class="ph" id="src_utility_install__vs_version_ph">如果选择安装 Visual Studio 插件，那么将提示您选择插件将安装到的 Visual Studio 的版本。输入您想要将插件安装到其中的 Visual Studio 版本一致的版本。</span></span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__command_prompt_close"><span class="ph cmd"><span class="ph" id="src_utility_install__command_prompt_close_ph">按任意键关闭命令提示符。</span></span></li>
+<li class="li substep substepexpand"><span class="ph cmd">对于已将插件安装到的任何 IDE，重新启动该 IDE。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph" id="src_utility_install__linux_shell"><strong class="ph b">仅 Linux：</strong>在命令提示符中，浏览到包含 Client Utility 的目录，然后将以下行添加到 shell资源文件（例如，<span class="ph filepath">.bash_profile</span> 或 <span class="ph filepath">.shrc</span>）：</span></span> <pre class="pre codeblock" id="src_utility_install__linux_shell_codeblock"><code>export APPSCAN_INSTALL_DIR=&lt;client_utility&gt;
+export PATH=${APPSCAN_INSTALL_DIR}/bin:${PATH}
+export LD_LIBRARY_PATH=${APPSCAN_INSTALL_DIR}/bin:${LD_LIBRARY_PATH}</code></pre>
+
+
+<p class="p" id="src_utility_install__linux_shell_end">其中 <samp class="ph codeph">&lt;client_utility&gt;</samp> 是 <span class="keyword">Client Utility</span> 的路径。添加这些行后，先重新装入 shell，然后再使用静态分析插件。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph" id="src_utility_install__macos_shell"><strong class="ph b">仅 macOS：</strong>在命令提示符中，浏览到包含 Client Utility 的目录，然后将以下行添加到 shell 资源文件（例如，<span class="ph filepath">.bash_profile</span> 或 <span class="ph filepath">.shrc</span>）：</span></span> <pre class="pre codeblock" id="src_utility_install__macos_shell_codeblock"><code>export APPSCAN_INSTALL_DIR=&lt;client_utility&gt;
+export PATH=${APPSCAN_INSTALL_DIR}/bin:${PATH}
+export DYLD_LIBRARY_PATH=${APPSCAN_INSTALL_DIR}/bin:${DYLD_LIBRARY_PATH}</code></pre>
+
+
+<p class="p" id="src_utility_install__macos_shell_end">其中 <samp class="ph codeph">&lt;client_utility&gt;</samp> 是 <span class="keyword">Client Utility</span> 的路径。添加这些行后，先重新装入 shell，然后再使用静态分析插件。</p>
+
+
+<div class="note important"><span class="importanttitle">要点：</span> 在 shell 资源文件中设置环境变量仅会影响在终端中启动的应用程序。因此，必须使用终端窗口来启动要在其中运行静态分析的集成开发环境 (IDE)。</div>
+</li>
+</ol>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e1177">下一步做什么</h3></div><p class="p" id="src_utility_install__proxy"><strong class="ph b">如果要在代理之后的计算机上运行 <span class="keyword">Client Utility</span>，</strong>使用以下某个用于指定代理的方法，以便 <span class="keyword">Client Utility</span> 可连接到云：</p>
+
+<ul class="ul"><li class="li"><strong class="ph b"><span class="keyword">Client Utility</span> CLI 和受支持集成开发环境 (IDE)</strong>：设置该全局或系统环境变量，以便可自动识别代理。<ul class="ul"><li class="li">Windows：<samp class="ph codeph" id="src_utility_install__proxy_global">APPSCAN_OPTS=-Dhttps.proxyHost=&lt;proxy&gt;
+-Dhttps.proxyPort=&lt;port&gt;</samp></li>
+<li class="li">Linux 和 macOS：<samp class="ph codeph">APPSCAN_OPTS="-Dhttps.proxyHost=&lt;proxy&gt;
+-Dhttps.proxyPort=&lt;port&gt;"</samp></li>
+</ul>
+<p class="p">其中 <samp class="ph codeph">&lt;proxy&gt;</samp> 是代理服务器的主机名，<samp class="ph codeph">&lt;port&gt;</samp> 是代理程序服务器正在使用的端口号。</p>
+<p class="p">或者，每次使用 CLI 或 IDE（从命令提示符或终端启动）时，可通过发出以下命令将 <span class="keyword">Client Utility</span> 设置为使用代理：</p>
+<ul class="ul"><li class="li">Windows：<samp class="ph codeph" id="src_utility_install__proxy_command">set
+"APPSCAN_OPTS=-Dhttps.proxyHost=&lt;proxy&gt; -Dhttps.proxyPort=&lt;port&gt;"</samp></li>
+<li class="li">Linux 和 macOS：<samp class="ph codeph">export
+APPSCAN_OPTS="-Dhttps.proxyHost=&lt;proxy&gt; -Dhttps.proxyPort=&lt;port&gt;"</samp></li>
+</ul>
+</li>
+<li class="li" id="src_utility_install__env_var_maven"><strong class="ph b">Maven</strong>：如果已将静态分析插件添加到 Maven，可全局地将属性添加到 <samp class="ph codeph">MAVEN_OPTS</samp> 环境变量，或者可将属性添加到每个命令。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_utility_uninstall"><h2 class="title topictitle2">移除 <span class="keyword">Static Analyzer Client Utility</span></h2>
+<div class="body taskbody"><p class="shortdesc">该任务描述了如何从集成开发环境 (IDE) 移除 <span class="keyword">Static Analyzer Client Utility</span> 插件。此外，将提供移除 <span class="keyword">Client Utility</span> 指示信息。如果您打算从系统中移除 <span class="keyword">Static Analyzer Client Utility</span> 组件，您仅需要遵照这些指示信息即可。如果您将这些组件升级至新的 <span class="keyword">Client Utility</span> 版本，那么在安装新版本之前，插件安装会自动移除旧的组件。</p>
+<div class="section prereq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e1270">开始之前</h3></div><div class="note important"><span class="importanttitle">要点：</span> 如果已将 <span class="keyword">Client Utility</span> 插件安装至 IDE，那么您需要在已解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 位置运行一个或多个文件或命令来完成移除 IDE 插件。这些文件是：
+<ul class="ul"><li class="li"><strong class="ph b"><span class="keyword">Static Analyzer Client Utility</span> V6.0.865 以及更早版本：</strong><ul class="ul"><li class="li"><span class="ph filepath">walalib\dotnet.libs35\UnRegisterInGAC.bat</span></li>
+<li class="li"><span class="ph filepath">walalib\dotnet.libs40\UnRegisterInGAC.bat</span></li>
+</ul>
+</li>
+<li class="li"><strong class="ph b">所有 <span class="keyword">Static Analyzer Client Utility</span> 版本，包括 V6.0.865 和更早版本：</strong>以管理员身份打开命令提示符，将目录更改为您已解压缩 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 的位置。将目录更改为 <span class="ph filepath">bin\</span> 文件夹，然后发布命令：<pre class="pre codeblock"><code>regsvr32 /u msdia80.dll</code></pre>
+</li>
+</ul>
+
+<p class="p">为了能运行这些文件和命令，请勿在移除所有 IDE 插件之前删除已解压缩 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 内容。</p>
+
+<p class="p">遵照以下指示信息从 IDE 移除插件，您可以在此之前或之后运行这些文件和命令。</p>
+</div>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e1316">过程</h3></div><ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd"><strong class="ph b">Eclipse：</strong></span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">在 Eclipse 中，从主工作台菜单栏中选择<span class="ph menucascade"><span class="ph uicontrol">帮助</span> &gt; <span class="ph uicontrol">安装新软件</span></span>。</span></li>
+<li class="li substep"><span class="ph cmd">在安装对话框<span class="ph uicontrol">详细信息</span>选择中，单击<span class="ph uicontrol">已安装什么？</span>链接。</span></li>
+<li class="li substep"><span class="ph cmd">在已安装软件列表中，找到并选择 <span class="ph uicontrol"><span class="keyword">Static Analyzer</span></span>，然后选择<span class="ph uicontrol">卸载</span>。</span></li>
+<li class="li substep"><span class="ph cmd">在卸载对话框中，单击<span class="ph uicontrol">完成</span>。</span></li>
+<li class="li substep"><span class="ph cmd">系统提示时，重新启动 Eclipse。</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><strong class="ph b">IntelliJ IDEA：</strong></span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">在 IntelliJ IDEA 中，从主菜单栏选择<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">设置</span></span>。</span></li>
+<li class="li substep"><span class="ph cmd">在设置对话框中，选择<span class="ph uicontrol">插件</span>。</span></li>
+<li class="li substep"><span class="ph cmd">在插件列表中，找到并选择 <span class="ph uicontrol"><span class="keyword">Static Analyzer</span> 插件</span>。</span></li>
+<li class="li substep"><span class="ph cmd">单击<span class="ph uicontrol">卸载</span>。</span></li>
+<li class="li substep"><span class="ph cmd">单击<span class="ph uicontrol">重新启动 IntelliJ IDEA</span>。</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><strong class="ph b">Visual Studio：</strong></span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">在 Visual Studio 中，从主菜单选择<span class="ph menucascade"><span class="ph uicontrol">工具</span> &gt; <span class="ph uicontrol">扩展和更新</span></span>。</span></li>
+<li class="li substep"><span class="ph cmd">在已安装扩展和更新列表中，找到并选择<span class="ph uicontrol"><span class="keyword">IBM Static Analyzer</span></span>。</span></li>
+<li class="li substep"><span class="ph cmd">单击<span class="ph uicontrol">卸载</span>，当提示卸载 <span class="keyword">IBM Static Analyzer</span> 时，单击<span class="ph uicontrol">确定</span>。</span></li>
+<li class="li substep"><span class="ph cmd">选择<span class="ph uicontrol">立即重新启动</span>以重新启动 Visual Studio - 或（如果您稍后重新启动 Visual Studio）选择<span class="ph uicontrol">关闭</span>。</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><strong class="ph b"><span class="keyword">Client Utility</span>：</strong>要移除 <span class="keyword">Client Utility</span>，您仅需要从系统中删除已解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 内容。如果您已将 <span class="keyword">Client Utility</span>
+<span class="ph filepath">\bin</span> 目录位置添加至 <samp class="ph codeph">PATH</samp> 环境变量，那么请将其移除。</span>  </li>
+</ul>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_sys_req"><h2 class="title topictitle2"><span class="ph" id="title">静态分析的系统需求</span></h2>
+<div class="body refbody"><p class="shortdesc"><span class="ph" id="shortdesc">本主题描述了当您执行静态分析时受支持的操作系统以及 <span class="keyword">ASoC</span> 可以扫描的文件类型、位置和项目。</span></p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_sys_req__scan">语言支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__os">操作系统支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__maven">Maven 项目支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__eclipse">Eclipse 支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__intellij">IntelliJ IDEA 支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__vs">Microsoft Visual Studio 支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__jenkins">Jenkins 支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__app_server">应用程序服务器支持</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a></li>
+</ul>
+</div>
+<div class="section" id="src_sys_req__scan"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__scan_title">语言支持</span></h3>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="src_sys_req__table_ylp_rn5_jw" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 静态分析语言支持</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry thleft" valign="top" width="33.33333333333333%" id="d69e1536">语言</th>
+<th class="entry thleft" valign="top" width="33.33333333333333%" id="d69e1538">受支持的 <span class="keyword">Client Utility</span> CLI 文件类型</th>
+<th class="entry thleft" valign="top" width="33.33333333333333%" id="d69e1543">受支持语言所在的操作系统</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">Java 和 Java web 内容</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 "><ul class="ul"><li class="li"><span class="ph filepath">.class</span></li>
+<li class="li"><span class="ph filepath">.jar</span></li>
+<li class="li"><span class="ph filepath">.war</span></li>
+<li class="li"><span class="ph filepath">.ear</span></li>
+<li class="li">Eclipse 工作空间中的 Java 项目</li>
+<li class="li">受支持应用程序服务器（受支持应用程序服务器包括 Apache Tomcat V7 和更高版本以及 WebSphere® Application Server V7、V8.0 和 V8.5）上部署的 Java Web 应用程序</li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 "><a class="xref" href="readme.html#src_sys_req__os">所有受支持的操作系统</a></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">.NET (C#, ASP.NET, VB.NET)</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 "><ul class="ul"><li class="li">Visual Studio 解决方案</li>
+<li class="li">.NET 组合件</li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 ">Windows</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">C/C++</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 ">Visual Studio 解决方案<div class="note note" id="src_sys_req__cpp_restriction"><span class="notetitle">注：</span> <ul class="ul"><li class="li">支持受管和不受管 C++ 项目。</li>
+<li class="li">不支持仅针对 32 位 Windows 编写的 Visual Studio 解决方案。Visual Studio 解决方案必须以 64 位 Windows 或者同时以 32 位和 64 位 Windows 为目标。</li>
+</ul>
+</div>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 ">Windows</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">客户机端 JavaScript</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 ">包含 HTML 并引用了 <span class="ph filepath">.js</span> 文件的文件</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 "><a class="xref" href="readme.html#src_sys_req__os">所有受支持的操作系统</a></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">Node.js</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 ">带有 <span class="ph filepath">package.json</span> 的有效节点软件包管理器 (npm) 软件包</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 "><a class="xref" href="readme.html#src_sys_req__os">所有受支持的操作系统</a></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">PHP</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 "><ul class="ul"><li class="li"><span class="ph filepath">.php</span></li>
+<li class="li"><span class="ph filepath">.php*</span></li>
+<li class="li"><span class="ph filepath">.phtm</span></li>
+<li class="li"><span class="ph filepath">.inc</span></li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 ">Windows 和 Linux</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1536 ">Ruby</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1538 "><ul class="ul"><li class="li"><span class="ph filepath">.rb</span></li>
+<li class="li"><span class="ph filepath">.gem</span></li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1543 "><a class="xref" href="readme.html#src_sys_req__os">所有受支持的操作系统</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">可从静态分析命令行界面 (CLI) 扫描所有受支持的语言。此外，还可以在 Eclipse 和 IntelliJ IDEA 中扫描 Java 项目，并且在 Visual Studio 中，可以扫描 .NET 和 C/C++。</p>
+</div>
+<div class="section" id="src_sys_req__os"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__os_title">操作系统支持</span></h3>
+<p class="p" id="src_sys_req__os_p1"><span class="keyword">Static Analyzer Client Utility</span> 在 Windows、macOS 和 Linux 上均受支持。</p>
+
+<p class="p"><strong class="ph b">Windows：</strong> The <span class="keyword">Client Utility</span> 在 64 位系统上受支持，而且以 64 位方式运行。</p>
+
+<p class="p"><strong class="ph b">macOS：:</strong>现在在 macOS V10.11 和更高版本上支持静态分析 CLI、Eclipse 插件和 Maven 插件。<span class="keyword">Client Utility</span> 在 64 位系统上受支持，而且以 64 位方式运行。</p>
+
+<div class="p" id="src_sys_req__os_p3_linux"><strong class="ph b">Linux：</strong> The <span class="keyword">Client Utility</span> 在 32 位和 64 位系统上受支持。<ul class="ul"><li class="li">在 64 位 Linux 系统上，<span class="keyword">Static Analyzer Client Utility</span> 以 32 位方式运行。</li>
+<li class="li">64 位 Linux 需要首先安装这些这些库，然后安装 <span class="keyword">Static Analyzer Client Utility</span>：<ul class="ul"><li class="li"><samp class="ph codeph">glibc.i686</samp></li>
+<li class="li"><samp class="ph codeph">libgcc.i686</samp></li>
+<li class="li"><samp class="ph codeph">libstdc++.i686</samp></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="src_sys_req__maven"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__maven_title">Maven 项目支持</span></h3>
+<p class="p" id="src_sys_req__maven_p1">下载 <span class="keyword">Static Analyzer Client Utility</span> 后，可选择将插件安装到 Maven，以便您可以扫描 Maven 项目。支持 Maven V3.x。</p>
+
+<p class="p" id="src_sys_req__maven_prereq">必须在系统上安装 Maven 后，才能安装 Maven 插件，并且 <samp class="ph codeph">mvn</samp> 命令必须包含在系统 <samp class="ph codeph">PATH</samp> 环境变量中。</p>
+</div>
+<div class="section" id="src_sys_req__eclipse"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__eclipse_title">Eclipse 支持</span></h3>
+<p class="p" id="src_sys_req__eclipse_p1">下载 <span class="keyword">Static Analyzer Client Utility</span> 后，可选择将插件安装到 Eclipse，以便您可以从其用户界面扫描 Java 项目。支持 Eclipse V4.2 或更高版本。这包含 Eclipse V4.2 的 Eclipse 3.8 发行版。</p>
+
+<p class="p">必须首先在系统上安装 Eclipse，然后才能安装 Eclipse 插件。</p>
+
+<p class="p" id="src_sys_req__eclipse_prereq">如果希望使用静态分析 CLI 为 Eclipse 工作空间生成 <span class="keyword">IRX</span> 文件，那么必须在安装 <span class="keyword">Client Utility</span> 插件期间指定 Eclipse <span class="ph filepath">eclipse.exe</span>（在 Windows 上）或 <span class="ph filepath">eclipse</span>（在 Linux 上）文件的位置。</p>
+</div>
+<div class="section" id="src_sys_req__intellij"><h3 class="title sectiontitle"><span class="ph">IntelliJ IDEA 支持</span></h3>
+<p class="p">下载 <span class="keyword">Static Analyzer Client Utility</span> 后，可选择将插件安装到 IntelliJ IDEA，以便您可以从其用户界面扫描 Java 项目。支持 IntelliJ IDEA V15.x Community 和 IntelliJ IDEA V15.x Ultimate。</p>
+
+<p class="p">必须首先在系统上安装 IntelliJ IDEA，然后才能安装 IntelliJ IDEA 插件。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 要显示结果和报告，IntelliJ IDEA 必须与 Oracle JDK 一起运行。要了解如何通过 Oracle JDK 设置 IntelliJ IDEA，请参阅 <a class="xref" href="https://www.jetbrains.com/idea/documentation/" target="_blank" title="（在新的选项卡或窗口中打开）">IntelliJ IDEA 文档</a>。</div>
+
+<div class="note note"><span class="notetitle">注：</span> macOS 上不支持 IntelliJ IDEA 插件。</div>
+</div>
+<div class="section" id="src_sys_req__vs"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__vs_title">Microsoft Visual Studio 支持</span></h3>
+<p class="p" id="src_sys_req__vs_p1">下载 <span class="keyword">Static Analyzer Client Utility</span> 后，可选择将插件安装到 Visual Studio，这样就可从其用户界面扫描 .NET（C#、ASP.NET、VB.NET）和 C++ 解决方案、项目和 web 站点。支持 Microsoft Visual
+Studio 2012、2013 和 2015。从 CLI 扫描时，除了 Visual Studio 2012、2013 和 2015 解决方案和项目之外，还可扫描 Visual Studio 2010 解决方案和项目。</p>
+
+<p class="p" id="src_sys_req__vs_prereq">必须首先在系统上安装 Visual Studio，然后才能安装 Visual Studio 插件。</p>
+
+<div class="note note"><span class="notetitle">注：</span> <ul class="ul"><li class="li">支持受管和不受管 C++ 项目。</li>
+<li class="li">不支持仅针对 32 位 Windows 编写的 Visual Studio 解决方案。Visual Studio 解决方案必须以 64 位 Windows 或者同时以 32 位和 64 位 Windows 为目标。</li>
+</ul>
+</div>
+
+<div class="note note"><span class="notetitle">注：</span> macOS 上不支持 Visual Studio 插件。</div>
+</div>
+<div class="section" id="src_sys_req__jenkins"><h3 class="title sectiontitle"><span class="ph">Jenkins 支持</span></h3>
+<p class="p"><span class="keyword">IBM Application Security on Cloud</span> Jenkins 插件可用于将静态和移动分析构建步骤添加到 Jenkins 构建项目中。您可以将此插件安装到 Jenkins V1.609.1 或更高版本中。通过此插件，您可以登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">IBM Application Security on Cloud</span> 服务</p>
+
+<div class="note note"><span class="notetitle">注：</span> 目前不支持通过此插件连接到 <span class="keyword">Application Security on Cloud for Bluemix</span>。</div>
+</div>
+<div class="section" id="src_sys_req__app_server"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__app_server_title">应用程序服务器支持</span></h3>
+<p class="p" id="src_sys_req__app_server_p1">该 <span class="keyword">Client Utility</span> 包含用于基本 JavaServer Page 编译的
+Apache Tomcat V7 应用程序服务器 <span class="ph filepath">.jar</span> 文件。要实现更好的兼容性，可配置 CLI 以使用您自己的应用程序服务器（受支持应用程序服务器包括 Apache Tomcat V7 和更高版本、WebSphere Application Server V7、V8.0 和 V8.5.x）。</p>
+</div>
+<div class="section" id="src_sys_req__version_check"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__version_check_title"><span class="keyword">Client Utility</span> 和云服务版本兼容性</span></h3>
+<p class="p" id="src_sys_req__version_check_p1">当您执行以下操作时，会自动执行您的 <span class="keyword">Static Analyzer Client Utility</span> 版本检查：</p>
+
+<ul class="ul" id="src_sys_req__version_check_ul1"><li class="li">发出 <samp class="ph codeph">appscan prepare</samp> 命令（<span class="ph">Windows</span> 上）或 <samp class="ph codeph">appscan.sh prepare</samp> 命令（<span class="ph">Linux 和 macOS</span> 上）。</li>
+<li class="li">在安装了静态分析插件的集成开发环境中使用 <span class="ph uicontrol">运行静态分析</span> 操作。</li>
+<li class="li">使用 <samp class="ph codeph">prepare</samp> 选项为 Maven 项目生成 <span class="keyword">IRX</span> 文件。</li>
+<li class="li">使用 <samp class="ph codeph">appscan queue_analysis</samp> 命令（<span class="ph">Windows</span> 上）或 <samp class="ph codeph">appscan.sh queue_analysis</samp> 命令（<span class="ph">Linux 和 macOS</span> 上）上载 <span class="keyword">IRX</span> 文件。</li>
+<li class="li">将 <span class="keyword">IRX</span> 文件上传到云。</li>
+</ul>
+
+<p class="p">当您执行任何 <em class="ph i">prepare</em> 或 <span class="ph uicontrol">运行静态分析</span> 操作时，都可能会收到一条警告，
+指示您可用 <span class="keyword">Client Utility</span> 的新版本。在此情况下，您可以不升级 <span class="keyword">Client Utility</span> 继续 - 或您可以升级 <span class="keyword">Client Utility</span> 以获取<a class="xref" href="readme.html#src_whats_new" title="发现 Application Security on Cloud 服务中最近添加的静态分析功能。">新增特性和功能</a>优势。</p>
+
+<p class="p">当您使用 <span class="keyword">Client Utility</span> 的版本执行任何以上操作，其不再提供支持，消息将指示 <span class="keyword">Client Utility</span> 必须更新。在此情况下，请下载和<a class="xref" href="readme.html#src_utility_install" title="对于静态分析，下载小型 Client Utility。如果将该实用程序解压缩到本地磁盘，可以使用其命令行界面 (CLI) 来执行安全性分析。或者，可运行所包含的安装程序，该程序用于将静态分析插件添加到 Maven 构建环境或添加到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE)。">设置最新<span class="keyword">Client Utility</span></a>。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_govt_compliance"><h2 class="title topictitle2"><span class="ph" id="title">美国政府法规遵从性</span></h2>
+<div class="body refbody"><p class="shortdesc"><span class="ph" id="shortdesc">遵从美国政府的安全和信息技术法规有助于消除销售难题和障碍。这还向全球潜在客户提供了一个证明点以表明 IBM 正在努力使其产品在行业中具有最高安全性。<span class="keyword">Static Analyzer Client Utility</span> 支持本主题中概述的各项标准和准则。要了解如何配置合规性的实用程序，请联系您的 IBM 支持代表。</span></p>
+<div class="section" id="src_govt_compliance__fips"><h3 class="title sectiontitle"><span class="ph" id="src_govt_compliance__fips_title">联邦信息处理标准 (FIPS)</span></h3><p class="p" id="src_govt_compliance__fips_p1">通过执行 Maven 插件，<span class="keyword">Static Analyzer Client Utility</span> 符合 FIPS 标准而且现成可用。</p>
+
+<p class="p">要启用 Maven 插件一致性，确保系统 Java 运行时环境 (JRE) 符合 FIPS 标准。</p>
+</div>
+</div>
+</div>
+<div class="topic nested1" xml:lang="zh-cn" id="src_irx_gen"><h2 class="title topictitle2">扫描安全漏洞</h2>
+<div class="body"><p class="shortdesc">要扫描源代码中的安全漏洞，请执行以下主题中的步骤。</p>
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_cli" title="必须生成将提交到云的 IRX 文件，才可启动文件的分析。如果要使用 CLI，请遵循以下指示信息来创建该文件。">使用命令行界面 (CLI) 生成 IRX 文件</a><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">使用 CLI 配置 IRX 文件生成</a></li>
+</ul>
+</li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_maven" title="必须生成将提交到云的 IRX 文件，才可启动文件的分析。如果要扫描 Maven 项目，请遵循以下指示信息来创建该文件。">为 Maven 项目生成 IRX 文件</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">在集成开发环境中执行扫描</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations" title="使用静态分析来扫描 Java 时，支持 @ValidatorMethod、@CallbackMethod和 @SuppressSecurityTrace 方法级别注释。">支持的 Java 源代码注释</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations" title="使用静态分析来扫描 .NET 时，支持 [ValidatorMethod]、[CallbackMethod] 和 [SuppressSecurityTrace] 方法级别属性。使用这些属性时，还将接受 [ValidatorMethod()]、[CallbackMethod()] 和 [SuppressSecurityTrace()]。">受支持的 .NET 源代码属性</a></li>
+<li class="li"><a class="xref" href="readme.html#src_php_config" title="在为 PHP 生成 IRX 文件后，将创建使您能够在下次扫描文件时配置 IRX 生成的配置文件。">配置未解析的 PHP include 表达式和未知 PHP 类</a></li>
+<li class="li"><a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a></li>
+</ul>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_irx_gen_cli"><h2 class="title topictitle2">使用命令行界面 (CLI) 生成 <span class="keyword">IRX</span> 文件</h2>
+<div class="body taskbody"><p class="shortdesc">必须生成将提交到云的 <span class="keyword">IRX</span> 文件，才可启动文件的分析。如果要使用 CLI，请遵循以下指示信息来创建该文件。</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e2175">过程</h3></div><p class="li stepsection">要生成 <span class="keyword">IRX</span> 文件，请执行以下操作：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__d4929e29">确保您已打开新的命令提示符窗口（请勿使用用于安装 <span class="keyword">Client Utility</span> 的命令提示符窗口）。</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__step2">在命令提示符处，发出命令以将目记录切换到包含您的文件的位置。请参阅<a class="xref" href="readme.html#src_sys_req__scan">语言支持</a>以了解受支持的文件类型。如果在 Eclipse 中扫描 Java 项目，请将目录切换到您的 Eclipse 工作空间。</span></span> <div class="note note"><span class="notetitle">注：</span> <ul class="ul"><li class="li"><span class="ph" id="src_irx_gen_cli__step2_config_file">如果要使用配置文件生成 <span class="keyword">IRX</span> 文件，那么此步骤不是必需的。</span> 请参阅<a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">使用 CLI 配置 IRX 文件生成</a>。</li>
+<li class="li"><span class="ph" id="src_irx_gen_cli__step2_eclipse">使用 CLI 时，不能扫描 Eclipse 工作空间中的个别项目，而只能扫描整个工作空间。如果要扫描个别项目，那么必须在 Eclipse 中生成 <span class="keyword">IRX</span> 文件。</span></li>
+<li class="li"><span class="ph" id="src_irx_gen_cli__step2_vs"><span class="ph filepath">.dll</span> 和 <span class="ph filepath">.exe</span> 文件必须是有效 .NET 组合件。</span></li>
+</ul>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__step3">发出 <samp class="ph codeph">appscan prepare</samp>
+<span class="ph">(<span class="ph" id="src_irx_gen_cli__d4946e9">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh prepare</samp>
+<span class="ph">（<span class="ph" id="src_irx_gen_cli__d4955e9">Linux 和 macOS</span>）</span> 命令</span>。该命令与<a class="xref" href="readme.html#src_cli_win_config" title="使用配置命令可以准备文件进行扫描。">配置命令 (Windows)</a> 和<a class="xref" href="readme.html#src_cli_linux_config" title="使用配置命令可以准备文件进行扫描。">配置命令（Linux 和 macOS）</a>主题中列出的选项配合使用。例如，可使用 <samp class="ph codeph">-d</samp> 和 <samp class="ph codeph">-n</samp> 选项指定用于保存 <span class="keyword">IRX</span> 文件的特定目录，以及使用特定文件名保存文件。此外，可使用配置文件运行此命令以指定能够帮助生成完整 <span class="keyword">IRX</span> 文件的其他信息（请参阅<a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">使用 CLI 配置 IRX 文件生成</a>）。</span> <div class="note tip"><span class="tiptitle">提示：</span> <span class="ph">缺省情况下，在 <span class="keyword">IRX</span> 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循<a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a>中的指示信息来修改第三方代码排除设置。要包含第三方代码，请在发出 <samp class="ph codeph">prepare</samp> 命令时指定 <samp class="ph codeph">-t</samp> 或 <samp class="ph codeph">--thirdParty</samp> 选项。</span>
+<p class="p">如果您是通常包含在扫描中的第三方代码的开发人员，应使用该设置来包含第三方代码。</p>
+</div>
+
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__step4">发出该命令后，<span class="keyword">Client Utility</span> 将收集从中发出该命令的目录及其所有子目录中任何受支持文件的信息。将在该目录中创建 <span class="keyword">IRX</span> 文件。此文件的名称基于从中发出该命令的目录，并包含日期和时间戳记（假定您未使用配置选项来指定其他文件名）。</span></span></li>
+<li class="li step stepexpand" id="src_irx_gen_cli__submit_irx"><span class="ph cmd">将 <span class="keyword">IRX</span> 文件提交到云以进行分析。为此，发出 <samp class="ph codeph">appscan queue_analysis</samp> 命令 <span class="ph">(<span class="ph" id="src_irx_gen_cli__d5006e9">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh queue_analysis</samp> 命令 <span class="ph">（<span class="ph" id="src_irx_gen_cli__d5015e9">Linux 和 macOS</span>）</span>。此命令可与与<a class="xref" href="readme.html#src_cli_win_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。"><span class="ph"><span class="ph" id="src_irx_gen_cli__d5006e4">分析命令</span>
+<span class="ph" id="src_irx_gen_cli__d5006e7">(<span class="ph" id="src_irx_gen_cli__d5006e9-d4904e195a1310">Windows</span>)</span></span></a> 或<a class="xref" href="readme.html#src_cli_linux_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。"><span class="ph"><span class="ph">分析命令</span>
+<span class="ph" id="src_irx_gen_cli__d5015e7">（<span class="ph" id="src_irx_gen_cli__d5015e9-d4904e207a1310">Linux 和 macOS</span>）</span></span></a> 主题中列出的选项配合使用。</span></li>
+</ol>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_irx_gen_maven"><h2 class="title topictitle2">为 Maven 项目生成 <span class="keyword">IRX</span> 文件</h2>
+<div class="body taskbody"><p class="shortdesc">必须生成将提交到云的 <span class="keyword">IRX</span> 文件，才可启动文件的分析。如果要扫描 Maven 项目，请遵循以下指示信息来创建该文件。</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e2428">过程</h3></div><p class="li stepsection">要生成 <span class="keyword">IRX</span> 文件，请执行以下操作：</p><ol class="ol steps"><li class="li step stepexpand" id="src_irx_gen_maven__step1"><span class="ph cmd"><span class="ph" id="src_irx_gen_maven__step1_ph">确保您已打开新的命令提示符窗口（请勿使用用于安装 <span class="keyword">Client Utility</span> 的命令提示符窗口）。</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_maven__step2">在命令提示符处，发出命令以将目录切换到包含 Maven 项目的位置（包含 <span class="ph filepath">pom.xml</span> 文件的文件夹）。</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_maven__step3">发出以下某个命令：</span></span> <ul class="ul" id="src_irx_gen_maven__step3_ul"><li class="li">如果尚未构建 Maven 项目，请发出 <samp class="ph codeph">mvn
+package com.ibm.appscan:appscan-maven-plugin:prepare</samp>。发出此命令后，将在 Maven 项目的 <span class="ph filepath">target</span> 目录中创建 <span class="keyword">IRX</span> 文件。<span class="ph" id="src_irx_gen_maven__maven_filename">该文件的名称基于顶级 Maven 项目
+（<span class="ph filepath">pom.xml</span> 文件中项目的名称），假定您未使用用于指定不同文件名的配置选项。</span></li>
+<li class="li">如果已构建 Maven 项目，请发出 <samp class="ph codeph">mvn
+com.ibm.appscan:appscan-maven-plugin:prepare</samp>。发出此命令后，将在 Maven 项目的 <span class="ph filepath">target</span> 目录中创建 <span class="keyword">IRX</span> 文件。<span class="ph">该文件的名称基于顶级 Maven 项目
+（<span class="ph filepath">pom.xml</span> 文件中项目的名称），假定您未使用用于指定不同文件名的配置选项。</span><div class="note note"><span class="notetitle">注：</span> 如果 Maven 项目具有针对同一反应器构建中另一个项目的编译时依赖关系，那么现有 Maven 错误 (<a class="xref" href="https://issues.apache.org/jira/browse/MNG-3283" target="_blank" title="（在新的选项卡或窗口中打开）">https://issues.apache.org/jira/browse/MNG-3283</a>) 将导致 <samp class="ph codeph">mvn com.ibm.appscan:appscan-maven-plugin:prepare</samp> 命令失败。要解决该问题，请执行以下某个步骤：
+<ul class="ul"><li class="li">在运行 <span class="keyword">Client Utility</span>
+<samp class="ph codeph">prepare</samp> 命令之前运行 <samp class="ph codeph">mvn install</samp> 命令而不是 <samp class="ph codeph">mvn
+package</samp>。</li>
+<li class="li">同时发出 <samp class="ph codeph">mvn package</samp> 命令和 <span class="keyword">Client Utility</span>
+<samp class="ph codeph">prepare</samp> 命令（发出 <samp class="ph codeph">mvn package com.ibm.appscan:appscan-maven-plugin:prepare</samp>）。</li>
+</ul>
+</div>
+</li>
+<li class="li">如果希望在其他目录中创建 <span class="keyword">IRX</span> 文件，或使用其他文件名，请发出带 <samp class="ph codeph">-Doutput</samp> 选项的命令：<p class="p">在 Windows 上，发出以下命令：</p>
+<pre class="pre codeblock"><code>mvn package com.ibm.appscan:appscan-maven-plugin:prepare -Doutput=&lt;output_location&gt;\&lt;filename&gt;<span class="keyword">.irx</span></code></pre>
+<p class="p">在 Linux 和 macOS 上，发出以下命令：</p>
+<pre class="pre codeblock"><code>mvn package com.ibm.appscan:appscan-maven-plugin:prepare -Doutput=&lt;output_location&gt;/&lt;filename&gt;<span class="keyword">.irx</span></code></pre>
+
+<p class="p">其中，<samp class="ph codeph">&lt;output_location&gt;</samp> 是要保存文件的目录，<samp class="ph codeph">filename</samp> 是文件名。</p>
+</li>
+<li class="li">该 <span class="keyword">Client Utility</span> 包含 Tomcat JSP 编译器。缺省情况下，在生成 <span class="keyword">IRX</span> 文件期间会使用此 JSP 编译器。如果要为 WAR 或 EAR 文件生成 <span class="keyword">IRX</span> 文件，且希望使用其他 JSP 编译器，请发出带 <samp class="ph codeph">-DjspCompiler</samp> 选项的命令。例如：<pre class="pre codeblock"><code>mvn com.ibm.appscan:appscan-maven-plugin:prepare -DjspCompiler=&lt;jsp_compiler&gt;</code></pre>
+<p class="p">其中，<samp class="ph codeph">&lt;jsp_compiler&gt;</samp> 是要使用的 JSP 编译器的路径（指定服务器的根目录）。</p>
+</li>
+</ul>
+
+
+<div class="note tip"><span class="tiptitle">提示：</span> 缺省情况下，<span class="keyword">IRX</span> 文件生成期间不扫描第三方代码。可通过遵循<a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a>中的指示信息来修改第三方代码排除设置。要包含第三方代码，请发出带有 <samp class="ph codeph">-DthirdParty</samp> 选项的命令。<p class="p">如果您是通常包含在扫描中的第三方代码的开发人员，应使用该设置来包含第三方代码。</p>
+</div>
+
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">将 <span class="keyword">IRX</span> 文件提交到云以进行分析。为此，发出 <samp class="ph codeph">appscan queue_analysis</samp> 命令 <span class="ph">(<span class="ph" id="src_irx_gen_maven__d6167e171">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh queue_analysis</samp> 命令 <span class="ph">（<span class="ph" id="src_irx_gen_maven__d6167e181">Linux 和 macOS</span>）</span>。此命令可与与<a class="xref" href="readme.html#src_cli_win_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。"><span class="ph"><span class="ph" id="src_irx_gen_maven__d6167e190">分析命令</span>
+<span class="ph" id="src_irx_gen_maven__d6167e193">(<span class="ph" id="src_irx_gen_maven__d6167e195">Windows</span>)</span></span></a> 或<a class="xref" href="readme.html#src_cli_linux_analysis" title="分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。"><span class="ph"><span class="ph">分析命令</span>
+<span class="ph" id="src_irx_gen_maven__d6167e205">（<span class="ph" id="src_irx_gen_maven__d6167e207">Linux 和 macOS</span>）</span></span></a> 主题中列出的选项配合使用。</span></li>
+</ol>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_irx_gen_config"><h2 class="title topictitle2"><span class="ph" id="title">使用 CLI 配置 <span class="keyword">IRX</span> 文件生成</span></h2>
+<div class="body refbody"><p class="shortdesc">您可以使用配置文件来生成 <span class="keyword">IRX</span> 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 <span class="keyword">IRX</span> 文件的其他信息。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_config__usage">配置文件用法</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config__template">配置文件模板和设置</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config__behavior">目标包含和排除行为</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config__example">配置文件示例</a></li>
+</ul>
+</div>
+<div class="section" id="src_irx_gen_config__usage"><h3 class="title sectiontitle">配置文件用法</h3><p class="p">配置文件可用于指示在生成 <span class="keyword">IRX</span> 文件时要包含或排除哪些目标。还可以指定包含已构建工件的目录，而且可以指定应该在生成 <span class="keyword">IRX</span> 文件期间使用的构建信息（例如，可使用此设置来指定特定的 JDK 或 JSP 编译器）。</p>
+<p class="p">无论何时发出 <samp class="ph codeph">appscan prepare</samp>
+<span class="ph">(<span class="ph" id="src_irx_gen_config__d5182e9">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh prepare</samp>
+<span class="ph">（<span class="ph" id="src_irx_gen_config__d5191e9">Linux 和 macOS</span>）</span> 命令来生成 <span class="keyword">IRX</span> 文件，<span class="keyword">Static Analyzer Client Utility</span> 都将自动检查当前目录中是否存在 <span class="ph filepath">appscan-config.xml</span> 文件。如果找到该文件，那么将自动使用该文件。</p>
+<p class="p">如果您在其他目录中有配置文件，或配置文件具有不同的文件名，那么可通过在发出 <samp class="ph codeph">appscan prepare</samp> 或 <samp class="ph codeph">appscan.sh prepare</samp> 命令时包含 <samp class="ph codeph">-c</samp> 选项来使用该文件。在该情况下，您需要在 <span class="ph">(<span class="ph" id="src_irx_gen_config__d5182e9-d5149e97a1310">Windows</span>)</span> 上发出 <samp class="ph codeph">appscan prepare -c &lt;configuration_file&gt;</samp> 或在 <span class="ph">（<span class="ph" id="src_irx_gen_config__d5191e9-d5149e108a1310">Linux 和 macOS</span>）</span> 上发出 <samp class="ph codeph">appscan.sh prepare -c &lt;configuration_file&gt;</samp>，其中 <samp class="ph codeph">&lt;configuration_file&gt;</samp> 是配置文件的完整路径和文件名。</p>
+</div>
+<div class="section" id="src_irx_gen_config__template"><h3 class="title sectiontitle">配置文件模板和设置</h3><p class="p">准备配置文件时，请使用以下模板：</p>
+<pre class="pre codeblock"><code>&lt;Configuration&gt;
+  &lt;Targets&gt;
+    &lt;Target outputs-only="true/false" path="scan_target_path"&gt;
+      &lt;CustomBuildInfo build_info="info"/&gt;
+      &lt;Include&gt;string_pattern&lt;/Include&gt;
+      &lt;Exclude&gt;string_pattern&lt;/Exclude&gt;
+    &lt;/Target&gt;
+  &lt;/Targets&gt;
+&lt;/Configuration&gt;</code></pre>
+<p class="p">您可在其中使用 <samp class="ph codeph">Targets</samp> 元素指示生成 <span class="keyword">IRX</span> 文件时要扫描的目标。目标 (<samp class="ph codeph">Target</samp>) 属性及子元素的用法如下：</p>
+<ul class="ul"><li class="li">仅当要扫描目录并强制 <span class="keyword">Client Utility</span> 仅查找构建输出文件（例如，<samp class="ph codeph">.jar</samp>、<span class="ph filepath">.war</span> 和 <span class="ph filepath">.class</span> 文件）时，才会使用 <samp class="ph codeph">Target</samp> 元素的 <samp class="ph codeph">outputs-only</samp> 属性。缺省情况下，此属性设置为 <samp class="ph codeph">false</samp>。这意味着 <span class="keyword">Client Utility</span> 将搜索目录以确定该目录是否为目标（例如，应用程序服务器或 Eclipse 工作空间），或者该目录是否包含诸如构建脚本、Maven <span class="ph filepath">.pom</span> 文件和 <samp class="ph codeph">make</samp> 文件之类的项。如果要将扫描目标视为简单目录，并且只查找输出文件，请在 <samp class="ph codeph">Target</samp> 元素中指定 <samp class="ph codeph">outputs-only="true"</samp>。<p class="p">例如，如果指定 <samp class="ph codeph">&lt;Target outputs-only="false" path="C:\Tomcat"&gt;</samp>，<span class="keyword">Client Utility</span> 将假定目标是 Tomcat 应用程序服务器，并搜索其部署的 <span class="ph filepath">.war</span> 文件。但是，如果指定 <samp class="ph codeph">&lt;Target outputs-only="true" path="C:\Tomcat"&gt;</samp>，那么 <span class="keyword">Client Utility</span> 会将该位置视为目录，并在其中查找所有构建输出文件。</p>
+</li>
+<li class="li">使用 <samp class="ph codeph">Target</samp> 元素的 <samp class="ph codeph">path</samp> 属性可指定一个扫描目标的路径或多个扫描目标的目录 (<samp class="ph codeph">&lt;scan_target_path&gt;</samp>)。指定目录时，在扫描期间将包含其所有子目录。<p class="p">例
+如，如果指定 <samp class="ph codeph">&lt;Target outputs-only="false" path="C:\WebSphere\AppServer85\profiles\AppSrv01"&gt;</samp>，那么
+<span class="keyword">Client Utility</span> 将查找 <samp class="ph codeph">AppSrv01</samp> 概要文件中所有已部署的 <span class="ph filepath">.ear</span> 文件。如果指定 <samp class="ph codeph">&lt;Target outputs-only="false"
+path="C:\WebSphere\AppServer85"&gt;</samp>，那么 <span class="keyword">Client Utility</span> 将查找所有概要文件中的所有已部署
+<span class="ph filepath">.ear</span> 文件。</p>
+</li>
+<li class="li">您还可以指定这些可选的 <samp class="ph codeph">Target</samp> 子元素：<ul class="ul"><li class="li">可以使用 <samp class="ph codeph">CustomBuildInfo</samp> 元素来设置属性。通过使用 <pre class="pre codeblock"><code>&lt;CustomBuildInfo build_info="info"/&gt;</code></pre>
+ 这部分模板，可根据目标语言来指定构建信息。对于某些语言，可设置多个属性，
+例如可根据目标语言设置 <samp class="ph codeph"> &lt;CustomBuildInfo build_info_1="info_1" build_info_2="info_2"
+build_info_3="info_3"/&gt;</samp>。<ul class="ul"><li class="li">对于 Java，可设置以下属性：<pre class="pre codeblock"><code>&lt;CustomBuildInfo additional_classpath="dependency_path"
+  jdk_path="JDK_path" jsp_compiler="JSP_compiler_path"/&gt;</code></pre>
+<ul class="ul"><li class="li">使用 <samp class="ph codeph">additional_classpath</samp> 属性指定更多类路径。在 Windows 上，使用分号分隔多个类路径。在 Linux 和 macOS 上，通过冒号分隔多个类路径。</li>
+<li class="li">使用 <samp class="ph codeph">jdk_path</samp> 属性指定 JDK 安装的路径。</li>
+<li class="li">使用 <samp class="ph codeph">jsp_compiler</samp> 属性指定 JSP 编译器的路径，例如 <samp class="ph codeph">jsp_compiler="C:\Tomcat"</samp>。</li>
+</ul>
+</li>
+<li class="li">对于 .NET（仅 Windows），可设置以下属性：<pre class="pre codeblock"><code>&lt;CustomBuildInfo reference="assembly_reference"
+  configuration="build_configuration"/&gt;</code></pre>
+<ul class="ul"><li class="li">使用 <samp class="ph codeph">reference</samp> 属性添加组合件参考。用分号分隔多个引用。</li>
+<li class="li">使用 <samp class="ph codeph">configuration</samp> 属性可包含 Visual Studio 解决方案发现的构建配置。</li>
+</ul>
+</li>
+<li class="li">对于 C/C++（仅 Windows），可设置以下属性：<pre class="pre codeblock"><code>&lt;CustomBuildInfo configuration="build_configuration"
+  include_paths="include_directories" macros="macros" compiler_opts=/&gt;</code></pre>
+<ul class="ul"><li class="li">使用 <samp class="ph codeph">configuration</samp> 属性可包含构建配置。</li>
+<li class="li">使用 <samp class="ph codeph">include_paths</samp> 属性指定包含路径。用分号分隔多个包含路径。</li>
+<li class="li">使用 <samp class="ph codeph">macros</samp> 属性包含宏。用分号分隔多个宏。</li>
+<li class="li">使用 <samp class="ph codeph">compiler_opts</samp> 属性指定编译器选项。用分号分隔多个选项。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="note note"><span class="notetitle">注：</span> 通过这些属性设置的值将由子目标继承。例如，如果目标是 <span class="ph filepath">EAR</span> 文件，其中包含 <span class="ph filepath">WAR</span> 和 <span class="ph filepath">JAR</span> 子目标，那么会假定 <span class="ph filepath">WAR</span> 和 <span class="ph filepath">JAR</span> 具有为使用这些属性的 <span class="ph filepath">EAR</span> 文件设置的相同值。</div>
+</li>
+<li class="li">使用 <samp class="ph codeph">Include</samp> 子元素可指定在生成 <span class="keyword">IRX</span> 文件时要包含的文件模式 (<samp class="ph codeph">&lt;string_pattern&gt;</samp>)。
+<samp class="ph codeph">Include</samp> 行为取决于目标类型，如<cite class="cite">目标包含和排除行为</cite>部分中所概述。要指定多个 <samp class="ph codeph">include</samp> 模式，请在其自己的 <samp class="ph codeph">&lt;Include&gt;&lt;/Include&gt;</samp> 标记中添加每个模式。例如，<pre class="pre codeblock"><code>&lt;Include&gt;string_pattern_1&lt;/Include&gt;
+&lt;Include&gt;string_pattern_2&lt;/Include&gt;</code></pre>
+<div class="note note" id="src_irx_gen_config__inc_exc_note"><span class="notetitle">注：</span> 如果指定了冲突的 <samp class="ph codeph">include</samp> 和 <samp class="ph codeph">exclude</samp> 模式，那么 <samp class="ph codeph">exclude</samp> 模式优先。</div>
+</li>
+<li class="li">使用 <samp class="ph codeph">Exclude</samp> 子元素可指定生成 <span class="keyword">IRX</span> 文件时要排除的文件模式。<samp class="ph codeph">Exclude</samp>行为取决于目标类型，如<cite class="cite">目标包含和排除行为</cite>部分中所概述。要指定多个 <samp class="ph codeph">exclude</samp> 模式，请在其自己的 <samp class="ph codeph">&lt;Exclude&gt;&lt;/Exclude&gt;</samp> 标记中添加每个模式。
+<div class="note note"><span class="notetitle">注：</span> 如果指定了冲突的 <samp class="ph codeph">include</samp> 和 <samp class="ph codeph">exclude</samp> 模式，那么 <samp class="ph codeph">exclude</samp> 模式优先。</div>
+</li>
+</ul>
+</div>
+<div class="section" id="src_irx_gen_config__behavior"><h3 class="title sectiontitle">目标包含和排除行为</h3><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="下表按目标类型概述了包含和排除设置的行为。" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 2. 目标包含和排除行为</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry thleft thbot" valign="bottom" id="d69e3101">目标类型</th>
+<th class="entry thleft thbot" valign="bottom" id="d69e3103">行为</th>
+<th class="entry thleft thbot" valign="bottom" id="d69e3105">示例</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d69e3101 "><span class="ph filepath">.jar</span>，<span class="ph filepath">.dll</span></td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标为 <span class="ph filepath">.jar</span> 或 <span class="ph filepath">.dll</span> 文件，那么包含或排除目标对扫描没有影响，因为这些文件无法包含目标。</td>
+<td class="entry" valign="top" headers="d69e3105 "> </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3101 "><span class="ph filepath">.war</span></td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标是 <span class="ph filepath">.war</span> 文件，那么可以在 <span class="ph filepath">WEB-INF/lib</span> 中包含或排除 <span class="ph filepath">.jar</span> 文件。<div class="note note"><span class="notetitle">注：</span> 缺省情况下，<span class="ph filepath">.jar</span> 文件被视为第三方代码，并添加到 <span class="ph filepath">.war</span> 文件的类路径（缺省情况下会排除这些文件）。</div>
+</td>
+<td class="entry" valign="top" headers="d69e3105 "><span class="ph filepath">com.ibm.*.jar</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3101 "><span class="ph filepath">.ear</span></td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标是 <span class="ph filepath">.ear</span> 文件，那么可以包含或排除 <span class="ph filepath">.jar</span> 和 <span class="ph filepath">.war</span> 文件。</td>
+<td class="entry" valign="top" headers="d69e3105 "><ul class="ul"><li class="li"><span class="ph filepath">com.ibm.*.jar</span></li>
+<li class="li"><span class="ph filepath">JSPWiki.war</span></li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3101 ">目录</td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标是目录，那么可以包含或排除任何目标或目标类型的路径或文件名。</td>
+<td class="entry" valign="top" headers="d69e3105 "><ul class="ul"><li class="li"><span class="ph filepath">com.ibm.*.jar</span></li>
+<li class="li"><span class="ph filepath">test/</span>：包含或排除 <span class="ph filepath">test/</span> 目录及其子目录中的所有内容。</li>
+<li class="li"><span class="ph filepath">test/*.jar</span>：包含或排除 <span class="ph filepath">test/</span> 目录（但其子目录除外）中的所有 <span class="ph filepath">.jar</span> 文件。</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3101 ">Web 服务器（请参阅<cite class="cite">系统需求</cite>以了解有关受支持 Web 服务器的信息）</td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标是 Web 服务器，那么可以包含或排除在该服务器上部署的任何应用程序的文件名。</td>
+<td class="entry" valign="top" headers="d69e3105 "><ul class="ul"><li class="li"><span class="ph filepath">JSPWiki.war</span></li>
+<li class="li"><span class="ph filepath">MyApp.ear</span></li>
+<li class="li"><span class="ph filepath">*.war</span>（目标为 Tomcat 服务器时）</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3101 "><span class="ph filepath">.sln</span> (.NET)</td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标是包含 .NET 项目的 Visual Studio 解决方案文件，那么可在解决方案中包含或排除由项目生成的任何 .NET 组合件的文件名。</td>
+<td class="entry" valign="top" headers="d69e3105 "><ul class="ul"><li class="li"><span class="ph filepath">*\MyLib.dll</span></li>
+<li class="li"><span class="ph filepath">*\MyApp.exe</span></li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3101 "><span class="ph filepath">.sln</span> (C/C++)</td>
+<td class="entry" valign="top" headers="d69e3103 ">如果目标是包含不受管 C/C++ 项目的 Visual Studio 解决方案文件，那么可包含或排除由任何项目生成的文件名。</td>
+<td class="entry" valign="top" headers="d69e3105 "><ul class="ul"><li class="li"><span class="ph filepath">*\myProject.vcxproj</span></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="src_irx_gen_config__example"><h3 class="title sectiontitle">配置文件示例</h3><pre class="pre codeblock"><code>&lt;Configuration&gt;
+  &lt;Targets&gt;
+    &lt;Target path="C:\test\MyApplication.ear"&gt;
+      &lt;CustomBuildInfo additional_classpath="C:\java\lib;C:\java2\lib"
+        jdk_path="C:\Program Files\Java\jdk1.7" jsp_compiler="C:\Tomcat"/&gt;
+      &lt;Include&gt;ShoppingCart.war&lt;/Include&gt;
+      &lt;Include&gt;*Account.jar&lt;/Include&gt;
+      &lt;Exclude&gt;thirdPartyJars/&lt;/Exclude&gt;
+      &lt;Exclude&gt;*test*&lt;/Exclude&gt;
+    &lt;/Target&gt;
+  &lt;/Targets&gt;
+&lt;/Configuration&gt;</code></pre>
+<div class="p">在此配置文件中：<ul class="ul"><li class="li"><span class="ph filepath">C:\test\MyApplication.ear</span> 是目标。</li>
+<li class="li">将搜索 <span class="ph filepath">C:\java\lib</span> 和 <span class="ph filepath">C:\java2\lib</span> 以查找编译所需的任何类文件依赖关系。</li>
+<li class="li">将使用 <span class="ph filepath">C:\Program Files\Java\jdk1.7</span> 来查找依赖关系。</li>
+<li class="li">会将 <span class="ph filepath">C:\Tomcat</span> 编译器用于 JSP 编译，而不会使用 <span class="keyword">Static Analyzer Client Utility</span> 随附的 Apache Tomcat V7 应用程序。</li>
+<li class="li">生成 <span class="keyword">IRX</span> 文件时，将包含 <span class="ph filepath">ShoppingCart.war</span> 文件以及以 <span class="ph filepath">*Account.jar</span> 结尾的所有文件。将排除 <span class="ph filepath">EAR</span> 文件的 <span class="ph filepath">thirdPartyJars/</span> 中的全部内容，同时排除文件名中包含字符串 <span class="ph filepath">test</span> 的任何文件。如果存在冲突，那么 <samp class="ph codeph">exclude</samp> 模式优先。例如，如果 <span class="ph filepath">EAR</span> 文件包含 <span class="ph filepath">testCustomerAccount.jar</span> 文件，由于 <span class="ph filepath">test</span> <samp class="ph codeph">exclude</samp> 模式优先于 <span class="ph filepath">*Account.jar</span> <samp class="ph codeph">include</samp> 模式，因此将排除此文件。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_irx_gen_ide"><h2 class="title topictitle2">在集成开发环境中执行扫描</h2>
+<div class="body taskbody"><p class="shortdesc">这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。</p>
+<div class="section prereq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e3337">开始之前</h3></div>缺省情况下，扫描 Java 和 .NET 时，不会包含第三方代码。可通过遵循<a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a>中的指示信息来修改第三方代码排除设置。<ul class="ul"><li class="li">要在扫描 Eclipse、IntelliJ IDEA 或 Visual Studio 时包含第三方代码，请使用以下方法之一：<ul class="ul"><li class="li">在启动标识之前设置此全局变量或系统环境变量：
+<pre class="pre codeblock"><code>APPSCAN_OPTS=-DthirdParty</code></pre>
+</li>
+<li class="li">每次使用 IDE 时，可在启动 IDE 之前发出命令：<pre class="pre codeblock"><code>set APPSCAN_OPTS=-DthirdParty</code></pre>
+</li>
+</ul>
+</li>
+<li class="li">或者，在扫描 Eclipse 时，可以执行以下操作：在启动 Eclipse 之前修改 <span class="ph filepath">eclipse.ini</span> 文件，以使 <samp class="ph codeph">-vmargs</samp> 节包含 <samp class="ph codeph">-DthirdParty</samp>。</li>
+<li class="li">或者，在扫描 IntelliJ IDEA 时，可以执行以下操作：在 IntelliJ IDEA 安装的 <span class="ph filepath">bin</span> 目录中，在启动 IntelliJ IDEA 之前修改 <span class="ph filepath">idea.exe.vmoptions</span> 文件。向该文件添加 <samp class="ph codeph">-DthirdParty</samp>，然后保存该文件。</li>
+</ul>
+<p class="p" id="src_irx_gen_ide__third_party_par">如果您是通常包含在扫描中的第三方代码的开发人员，应使用该设置来包含第三方代码。</p>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e3384">过程</h3></div><p class="li stepsection">要扫描源代码并打开评估或报告，请执行以下操作：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_ide__step1">确保插件已安装到 IDE。安装期间，如果 IDE 已打开，请将其重新启动。</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_ide__step2">选择要扫描的项：</span></span> <ul class="ul"><li class="li">在 Eclipse 中，选择要扫描的一个或多个项目。要扫描整个 Eclipse 工作空间，请选择所有项目。</li>
+<li class="li">在 IntelliJ IDEA 中，选择要扫描的项目模块。</li>
+<li class="li">在 Visual Studio 中，选择要扫描的解决方案、项目或 Web 站点。</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_ide__step3">右键单击选择内容并选择<span class="ph menucascade"><span class="ph uicontrol">安全性分析</span> &gt; <span class="ph uicontrol" id="src_irx_gen_ide__ide_action">运行静态分析</span></span>。</span></span> <div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+</li>
+<li class="li step stepexpand" id="src_irx_gen_ide__login"><span class="ph cmd">扫描准备之后，如果尚未登录到服务，将显示“登录”对话框。打开的对话框由启动 <span class="ph filepath">install-plugins.bat</span> (Windows) 或 <span class="ph filepath">install-plugins.sh</span>（Linux 和 macOS）安装程序之后进行的连接设置确定。在该对话框中，输入服务凭证：</span> <ul class="ul choices"><li class="li choice"><strong class="ph b">如果您要连接到 Cloud Marketplace</strong>：在 <span class="keyword">Application Security on Cloud</span> 服务中生成 API 密钥时，您将收到<span class="ph uicontrol">密钥标识</span>和<span class="ph uicontrol">密钥机密</span>。在<span class="ph uicontrol">标识</span>和<span class="ph uicontrol">机密</span>字段中输入值。如果您还没有生成 API 密钥，请点击对话框中的链接以创建一个。</li>
+<li class="li choice"><strong class="ph b">如果要连接到 Bluemix</strong>：输入服务凭证中指示的<span class="ph uicontrol">绑定标识</span>和<span class="ph uicontrol">密码</span>。<p class="p">要确定 <span class="keyword">Bluemix</span> 服务凭证，在服务仪表板左边导航窗格中选择<span class="ph uicontrol">服务凭证</span>。请参阅<a class="xref" href="https://console.ng.bluemix.net/docs/services/reqnsi.html#accser_external">启用外部应用程序以使用 Bluemix 服务</a>。</p>
+</li>
+</ul>
+在登录服务时，将创建加密的密钥文件。然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他操作引用。<p class="p">如果您登录 Bluemix，那么该令牌文件在创建两小时后到期。在此情况下，它到期之后，您将需要再次登录服务以继续进一步的操作，或者可在登录时选择<span class="ph uicontrol">保存凭证</span>复选框。选中该复选框时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+</li>
+<li class="li step stepexpand" id="src_irx_gen_ide__associate_app"><span class="ph cmd"><strong class="ph b">仅 <span class="keyword">IBM Cloud Marketplace</span>：</strong>如果要连接到 <span class="keyword">IBM Cloud Marketplace</span> 处的 <span class="keyword">Application Security on Cloud</span>，IDE 中的静态分析扫描必须与现有 <span class="keyword">Application Security on Cloud</span> 应用程序关联。扫描启动后，您将看到对话框提示，选择要关联的应用程序。</span> <p class="p">选择与扫描关联的应用程序之后，关联信息保存如下：</p>
+
+
+<ul class="ul"><li class="li">在 Eclipse 中，有与您整个工作空间相关联的应用程序。该关联的信息保存在 <span class="ph filepath">&lt;workspace&gt;/.metadata/.plugins/com.ibm.appscan.eclipse.plugin/.scans/.app</span>，
+其中 <span class="ph filepath">&lt;workspace&gt;</span> 为 Eclipse 工作空间的位置。</li>
+<li class="li">在 IntelliJ IDEA 中，应用程序与单个项目模块关联。该关联的信息保存在 <span class="ph filepath">&lt;project&gt;/.scans/.app</span>，其中 <span class="ph filepath">&lt;project&gt;</span> 为项目模块的位置。</li>
+<li class="li">在 Visual Studio 中，应用程序与解决方案关联。该关联的信息保存在 <span class="ph filepath">&lt;solution&gt;/.scans/.app</span>，其中 <span class="ph filepath">&lt;solution&gt;</span> 为包含 <span class="ph filepath">.sln</span>
+文件的目录。</li>
+</ul>
+
+
+<p class="p">如果 <span class="ph filepath">.app</span> 文件从任何这些位置中移除，您将收到提示，在下次扫描时选择关联的应用程序。如果您已选择关联应用程序，但是想更改为其他的应用程序，请删除 <span class="ph filepath">.app</span> 文件并重新扫描。</p>
+
+
+<div class="note note"><span class="notetitle">注：</span> 当您已连接至位于 <span class="keyword">IBM
+Bluemix</span> 的 <span class="keyword">Application Security on Cloud</span> 服务时，应用程序关联不适用。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">“Static Analyzer 扫描”视图在扫描提交后打开。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">扫描完成后，通过将打开，其中包含用于打开<span class="ph uicontrol">结果</span>或<span class="ph uicontrol">报告</span>的链接。此外，“Static Analyzer 扫描”视图将更新以包含扫描。视图将列出扫描名称、状态、开始时间和结束时间、以及发现的漏洞数量和严重性。</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">结果</span>：选择通知中的链接可打开结果，或双击视图中<span class="ph uicontrol">结果</span>链接中的图标（在 Visual Studio 中，结果还可使用系统托盘来打开）。这将打开按修订组列出结果的交互评估。<span class="ph">一个修订组代表了分组发现结果流过的最常用节点。通常，如果一个修订是针对一个修订组实施的，那么少量工作就能取得最大成效。修订组还可视为可在其中同时查看相关发现结果的逻辑分组点。请注意，修订组可能并不是应该将修订放入的准确位置。未来的重构、编码实践和其他因素都可能会阻止将修订组位置用于修订。</span></span> <p class="p">在评估中：</p>
+
+
+<ul class="ul"><li class="li">每个修订组都会显示建议的修订位置、用于打开该修订位置的源的链接，以及将在更正源代码后得以修复的漏洞的发生次数。</li>
+<li class="li">如果选择漏洞，将打开该漏洞的描述（通常包含示例和建议）。</li>
+<li class="li">如果选择<span class="ph uicontrol">详细信息</span>按钮，那么修订组会打开将在更正源代码后得以修复的所有发现结果。在详细视图中，如果选择源位置，那么将在源编辑器中打开。选择“跟踪”图标将打开跟踪，其中显示流经应用程序的数据流。</li>
+</ul>
+
+
+<div class="note important"><span class="importanttitle">要点：</span> 交互式评估（结果）在 IntelliJ IDEA 中不可用，或者对于特定预订级别不可用。</div>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">报告</span>：选择通知中的链接可打开报告，或双击视图中<span class="ph uicontrol">报告</span>链接中的图标（在 Visual Studio 中，报告还可使用系统托盘来打开）。这将打开结果的报告。报告还将在您连接到的 Cloud 服务上提供。</span></li>
+</ol>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e3615">结果</h3></div><div class="note important"><span class="importanttitle">要点：</span> 集成开发环境中不支持重新扫描。</div>
+</div>
+</div>
+</div>
+<div class="topic tsTroubleshooting nested1" xml:lang="zh-cn" id="src_troubleshoot_irx_gen"><h2 class="title topictitle2"><span class="ph" id="title">生成静态分析 <span class="keyword">IRX</span> 文件时发生错误或警告</span></h2>
+<div class="body tsBody"><h2 id="tstitled69e3641" class="sectiontitle">症状</h2>
+<div class="section tsSymptoms"><span class="ph" id="src_troubleshoot_irx_gen__symptoms">生成 <span class="keyword">IRX</span> 文件时，可能会收到错误或警告，或 <span class="keyword">IRX</span> 文件生成可能会失败。<span class="keyword">IRX</span> 文件生成失败时，会在生成的文件的名称中附加 <span class="ph filepath">_failed</span>（例如，<span class="ph filepath">my_<span class="keyword">irx</span>_file_failed<span class="keyword">.irx</span></span>）。发生此情况时，有多种选项可用于对 <span class="keyword">IRX</span> 文件生成进行故障诊断。</span></div>
+<h2 id="tstitled69e3668" class="sectiontitle">解决问题</h2>
+<div class="section tsResolve"><ul class="ul"><li class="li"><strong class="ph b" id="src_troubleshoot_irx_gen__resolve_li1_heading">使用配置文件对 <span class="keyword">IRX</span> 文件生成进行故障诊断</strong><p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p1">如果在没有使用配置文件的情况下生成 <span class="keyword">IRX</span> 文件，且文件生成未完成（或者如果已完成但有错误），那么 <span class="keyword">Static Analyzer Client Utility</span> 将生成临时配置文件，以供您在后续扫描中使用。此文件类似于配置文件模板，其中包含一个 <samp class="ph codeph">Targets</samp> 元素以及有关目标的已知信息。但是，此文件还将包含 <samp class="ph codeph">&lt;TargetSettings&gt;</samp> 元素，可通过添加允许 <span class="keyword">Client Utility</span> 生成完整 <span class="keyword">IRX</span> 文件的信息来进行修改。此文件将命名为 <span class="ph filepath">appscan-config.xml</span>，并保存到当前目录中。这意味着此文件将自动用于下一次扫描。</p>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p2">例如，假定生成 <span class="keyword">IRX</span> 文件所针对的目标中包含找不到的外部依赖关系，那么您可能会收到类似以下内容的消息：</p>
+<pre class="pre codeblock" id="src_troubleshoot_irx_gen__resolve_li1_codeblock1"><code>C:\myTargetDirectory&gt;appscan prepare
+创建了 <span class="keyword">IRX</span> 文件，但此文件可能不完整。
+C:\myTargetDirectory\myTarget.jar 需要以下包：
+      org.apache.jasper.*
+appscan-config.xml 文件已在以下位置创建：C:\myTargetDirectory\appscan-config.xml
+请更新此文件并重新运行命令。</code></pre>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p3">生成的 <span class="ph filepath">appscan-config.xml</span> 文件类似于以下内容：</p>
+<pre class="pre codeblock" id="src_troubleshoot_irx_gen__resolve_li1_codeblock2"><code>&lt;Configuration&gt;
+  &lt;Targets&gt;
+    &lt;Target outputs-only="true" path="C:\myTargetDirectory"/&gt;
+  &lt;/Targets&gt;
+  &lt;Settings/&gt;
+  &lt;TargetSettings&gt;
+    &lt;Target path="C:\myTargetDirectory\myTarget.jar"/&gt;
+      &lt;!--Please add the path of the following dependencies to the attribute "additional_classpath" below, separated by semi-colon.
+			  org.apache.jasper.*--&gt;
+      &lt;CustomBuildInfo additional_classpath=""/&gt;
+    &lt;/Target&gt;
+  &lt;/TargetSettings&gt;
+&lt;/Configuration&gt; </code></pre>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p4">要解决问题，请更新 <span class="ph filepath">org.apache.jasper.*</span> 以在类路径上包含 <samp class="ph codeph">&lt;CustomBuildInfo
+additional_classpath=""/&gt;</samp> 类，保存 <span class="ph filepath">appscan-config.xml</span> 文件，然后重新运行 <samp class="ph codeph">appscan prepare</samp>
+<span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7635e9">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh prepare</samp>
+<span class="ph">（<span class="ph" id="src_troubleshoot_irx_gen__d7644e9">Linux 和 macOS</span>）</span> 命令。
+指定 <span class="ph filepath">JAR</span> 文件的路径时，支持标准 Java 类路径语法（例如，支持通配符）。</p>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p5">如果在已使用配置文件的情况下遇到类似问题，您会收到指示这些问题的消息。使用此消息来更新现有配置文件，然后重新运行命令。</p>
+<p class="p">配置文件在<a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">使用 CLI 配置 IRX 文件生成</a>中进行了描述。</p>
+</li>
+<li class="li" id="src_troubleshoot_irx_gen__resolve_li2"><strong class="ph b">以调试方式生成 <span class="keyword">IRX</span> 文件</strong><p class="p">如果要从 CLI 生成 <span class="keyword">IRX</span> 文件，可发出带有调试选项的 <samp class="ph codeph">appscan prepare</samp>
+<span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7635e9-d7566e159a1310">Windows</span>)</span> 或 <samp class="ph codeph">appscan.sh prepare</samp>
+<span class="ph">（<span class="ph" id="src_troubleshoot_irx_gen__d7644e9-d7566e169a1310">Linux 和 macOS</span>）</span> 命令。这会生成更多日志文件。</p>
+</li>
+<li class="li" id="src_troubleshoot_irx_gen__resolve_li3"><strong class="ph b">与 <span class="keyword">IRX</span> 文件生成关联的日志文件</strong><p class="p">要查看错误或警告，可以查阅同时生成的日志文件。日志文件将保存到 <span class="ph filepath">.zip</span> 归档文件中。缺省情况下，会将此文件保存到保存 <span class="keyword">IRX</span> 的相同位置，或者可通过使用 <samp class="ph codeph">appscan prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7635e9-d7566e194a1310">Windows</span>)</span>或 <samp class="ph codeph">appscan.sh prepare</samp>
+<span class="ph">（<span class="ph" id="src_troubleshoot_irx_gen__d7644e9-d7566e205a1310">Linux 和 macOS</span>）</span> 命令的 <samp class="ph codeph">-l</samp> 选项来指定另一个位置。<span class="ph filepath">.zip</span> 文件的名称基于生成的 <span class="keyword">IRX</span> 文件的名称。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic tsTroubleshooting nested1" xml:lang="zh-cn" id="src_troubleshoot_eclipse_install"><h2 class="title topictitle2">设置 <span class="keyword">Static Analyzer Client Utility</span> 时 Eclipse 插件安装失败。</h2>
+<div class="body tsBody"><h2 id="tstitled69e3870" class="sectiontitle">症状</h2>
+<div class="section tsSymptoms"><p class="p">将静态分析插件安装到 Eclipse 时，安装将失败并弹出错误。</p>
+</div>
+<h2 id="tstitled69e3873" class="sectiontitle">解决问题</h2>
+<div class="section tsResolve"><p class="p">如果 Eclipse 插件安装失败，请改为使用 Eclipse 用户界面进行安装：</p>
+
+<ol class="ol"><li class="li">在 Eclipse 中，从主工作台菜单栏中选择<span class="ph menucascade"><span class="ph uicontrol">帮助</span> &gt; <span class="ph uicontrol">安装新软件</span></span>。</li>
+<li class="li">在“安装”对话框的“可用软件”页面中，单击<span class="ph uicontrol">添加</span>。</li>
+<li class="li">在“添加站点”对话框（在某些版本的 Eclipse 中，该对话框名为“添加存储库”）的<span class="ph uicontrol">名称</span>字段中，指定更新站点的名称。</li>
+<li class="li">单击<span class="ph uicontrol">归档</span>。</li>
+<li class="li">在“浏览以查找文件夹”对话框中，导航到已解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在位置中的 <span class="ph filepath">plugins\eclipse\eclipse_plugin.zip</span> (Windows) 或 <span class="ph filepath">plugins/eclipse/eclipse_plugin.zip</span>（Linux 和 macOS）文件。</li>
+<li class="li">单击<span class="ph uicontrol">确定</span>以返回到“添加站点”对话框，然后单击<span class="ph uicontrol">确定</span>以添加更新站点。</li>
+<li class="li">新站点将显示在列表中。选中该站点旁边的复选框，然后单击<span class="ph uicontrol">下一步</span>以继续执行下一个安装面板。</li>
+<li class="li">在“安装详细信息”页面中，复审要安装的项，然后单击<span class="ph uicontrol">下一步</span>。</li>
+<li class="li">在“查看许可证”页面中，接受许可协议，然后单击<span class="ph uicontrol">完成</span>。</li>
+<li class="li">系统提示时，重新启动 Eclipse。</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="topic tsTroubleshooting nested1" xml:lang="zh-cn" id="src_troubleshoot_mult_asset_groups_cm"><h2 class="title topictitle2">安全性扫描失败，并出现 <samp class="ph codeph">Application with id <em class="ph i">x</em> does not exist</samp> 错误</h2>
+<div class="body tsBody"><h2 id="tstitled69e3967" class="sectiontitle">症状</h2>
+<div class="section tsSymptoms"><p class="p">运行使用 IDE 插件或命令行界面 (CLI) 的扫描的操作失败，并出现以下错误：</p>
+
+<pre class="pre codeblock"><code>Application with id <em class="ph i">x</em> does not exist</code></pre>
+
+<pre class="pre codeblock"><code>Failed to run the security scan: Problems occurred submitting the IRX file to the analysis service.</code></pre>
+</div>
+<h2 id="tstitled69e3979" class="sectiontitle">原因</h2>
+<div class="section tsCauses"><p class="p">之前，
+<span class="keyword">Application Security on Cloud</span> 根据 <samp class="ph codeph">app_id</samp> 与应用程序关联。最近的更新将该关
+联从 <samp class="ph codeph">app_id</samp> 更新为 <samp class="ph codeph">guid</samp>。在大多数情况下， <span class="keyword">ASoC</span> 服务将提示您重新根据该
+更新关联应用程序。对于 Jenkins 和 IDE 插件以及 CLI，必须采取额外的步骤。</p>
+</div>
+<h2 id="tstitled69e3997" class="sectiontitle">解决问题</h2>
+<div class="section tsResolve"><p class="p">对于 Jenkins 插件，根据<a class="xref" href="appseccloud_jenkins.html#appseccloud_jenkins" title="IBM Application Security on Cloud Jenkins 插件可用于在您的 Jenkins 项目中增加安全扫描支持。此插件可用于在 IBM Cloud Marketplace 上连接到 IBM Application Security on Cloud。">向 Jenkins 自动化服务器添加安全性分析</a>中的
+指示信息重新保存 Jenkins 插件配置，并重试扫描。</p>
+
+<p class="p">对于 IDE 插件，在提示时，重新选择要扫描的相同应用程序，并单击<span class="ph uicontrol">确定</span>。</p>
+
+<p class="p">对于 CLI，新的 <samp class="ph codeph">guid</samp> 将替换 <samp class="ph codeph">app_id</samp>。<samp class="ph codeph">guid</samp> 是一个唯一的 32 位标识。例如，<samp class="ph codeph">33c3281a-6d7c-e711-b334-002590731623</samp>。通过使用
+<samp class="ph codeph">appscan list_apps</samp> 命令，确定每个应用程序的 <samp class="ph codeph">guid</samp>，并在脚本或命令行中的 <samp class="ph codeph">queue_analysis</samp> 命令上将 <samp class="ph codeph">app_id</samp> 替换
+为该值。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_java_annotations"><h2 class="title topictitle2">支持的 Java 源代码注释</h2>
+<div class="body refbody"><p class="shortdesc">使用静态分析来扫描 Java 时，支持 <samp class="ph codeph">@ValidatorMethod</samp>、<samp class="ph codeph">@CallbackMethod</samp>和 <samp class="ph codeph">@SuppressSecurityTrace</samp> 方法级别注释。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_java_annotations__using">使用注释</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations__validator_method">@ValidatorMethod</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations__suppress_security_trace">@SuppressSecurityTrace</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations__callback_method">@CallbackMethod</a></li>
+</ul>
+</div>
+<div class="section" id="src_java_annotations__using"><h3 class="title sectiontitle">使用注释</h3>
+<p class="p">通过执行以下步骤可使用注释：</p>
+
+<ol class="ol"><li class="li">缺省情况下，已启用注释支持。注释 <span class="ph filepath">.jar</span> 文件位于解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在的 <span class="ph filepath">\annotation</span> 目录中。</li>
+<li class="li">如果要扫描预编译的类、<span class="ph filepath">.war</span> 文件或 <span class="ph filepath">.jar</span> 文件，请将 <span class="ph filepath">com.ibm.security.annotation.jar</span> 添加到包含附注释的源代码的 Java 项目，然后重建该项目。</li>
+<li class="li">如果要在安装了静态分析插件的集成开发环境中扫描，将 <span class="ph filepath">com.ibm.security.annotation.jar</span> 添加到 Java 类路径。</li>
+<li class="li">如果要使用静态分析 CLI，<a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">创建配置文件</a>，并在配置文件中设置 <samp class="ph codeph">CustomBuildInfo additional_classpath="dependency_path"</samp> 以便 <samp class="ph codeph">dependency_path</samp> 包含 <span class="ph filepath">com.ibm.security.annotation.jar</span> 文件的位置。</li>
+</ol>
+
+<p class="p">注释可以在扫描之前添加到源代码，也可以在扫描之后和分类期间进行添加，以识别并消除假正值。如果要在安装了静态分析插件的 IDE 中扫描，<span class="ph uicontrol">帮我修正该问题</span>按钮将在扫描报告中可用。选择此按钮时，将显示可以添加注释的点。</p>
+
+<p class="p">提供注释是为了允许您将知识以安全性注释的形式直接插入到源代码中。因为注释可能用于声明代码安全的部分，所以使用时应小心。不应将注释用于应该扫描以检查安全漏洞的代码。如果使用注释，安全分析人员可通过禁用解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件的 <span class="ph filepath">\config</span> 目录中 <span class="ph filepath">irgen-engine.apsettings</span> 文件中的功能来忽略这些注释。在此文件中，找到以下设置：</p>
+
+<pre class="pre codeblock" id="src_java_annotations__setting"><code>&lt;Setting
+  name="process_security_annotations"
+  value="true"
+  default_value="true"
+  description="When turned on, method annotations will be processed - used by DotNet and Java LSPs"
+  display_name="Process Security Annotations"
+  type="bool"
+/&gt;</code></pre>
+
+<p class="p" id="src_java_annotations__setting_disable">要禁用此功能，请将 <samp class="ph codeph">value="true"</samp> 更改为 <samp class="ph codeph">value="false"</samp>。</p>
+
+<div class="note note" id="src_java_annotations__setting_enable"><span class="notetitle">注：</span> 在此设置被设置为 <samp class="ph codeph">value="false"</samp> 的情况下，如果要使用注释，请将其设置为 <samp class="ph codeph">value="true"</samp>。</div>
+</div>
+<div class="section" id="src_java_annotations__validator_method"><h3 class="title sectiontitle"><samp class="ph codeph">@ValidatorMethod</samp></h3>
+<p class="p">验证程序是用于对输入数据执行检查的方法，通常会返回布尔值以指示输入是否有效。您可以将用户输入更改为可接受的格式，而不使用验证程序来接受或拒绝输入。这些方法称为杀毒器。</p>
+
+<p class="p">使用 <samp class="ph codeph">@ValidatorMethod</samp> 注释，可以识别应用程序源代码中的所有验证程序和杀毒器方法。在静态扫描期间，此信息将用于除去流经这些方法的数据流，因为这些数据现在已视为安全。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 目前，没有规定要求指定附注释的方法的哪些参数应该视为已验证。在静态分析扫描期间，所有输入参数都假定已经过验证。</div>
+</div>
+<div class="section" id="src_java_annotations__suppress_security_trace"><h3 class="title sectiontitle"><samp class="ph codeph">@SuppressSecurityTrace</samp></h3>
+<p class="p">流经标记有此注释的方法的所有跟踪都将除去。当特定跟踪组识别为假正值，或者识别为重要性或相关性比其他组低时，这样做非常有用。可以使用此注释来过滤掉这些跟踪，或者隐藏这些跟踪以减少混乱。</p>
+</div>
+<div class="section" id="src_java_annotations__callback_method"><h3 class="title sectiontitle"><samp class="ph codeph">@CallbackMethod</samp></h3>
+<p class="p">此注释用于识别对应用程序的回调或应用程序的入口点。所有自变量都视为带有污点。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_dotnet_annotations"><h2 class="title topictitle2">受支持的 .NET 源代码属性</h2>
+<div class="body refbody"><p class="shortdesc">使用静态分析来扫描 .NET 时，支持 <samp class="ph codeph">[ValidatorMethod]</samp>、<samp class="ph codeph">[CallbackMethod]</samp> 和 <samp class="ph codeph">[SuppressSecurityTrace]</samp> 方法级别属性。使用这些属性时，还将接受 <samp class="ph codeph">[ValidatorMethod()]</samp>、<samp class="ph codeph">[CallbackMethod()]</samp> 和 <samp class="ph codeph">[SuppressSecurityTrace()]</samp>。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__using">使用属性</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__validator_method">[ValidatorMethod] 或 [ValidatorMethod()]</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__suppress_security_trace">[SuppressSecurityTrace] 或 [SuppressSecurityTrace()]</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__callback_method">[CallbackMethod] 或 [CallbackMethod()]</a></li>
+</ul>
+</div>
+<div class="section" id="src_dotnet_annotations__using"><h3 class="title sectiontitle">使用属性</h3>
+<p class="p">属性可通过完成以下这些步骤来使用：</p>
+
+<ol class="ol"><li class="li">缺省情况下，将启用属性的支持。属性 <span class="ph filepath">SecurityAttributes.dll</span> 文件位于解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件的 <span class="ph filepath">\annotation</span> 目录中。</li>
+<li class="li">如果要扫描预编译的类、<span class="ph filepath">.exe</span> 文件或 <span class="ph filepath">.dll</span> 文件，将 <span class="ph filepath">SecurityAttributes.dll</span> 添加到包含附注释的源代码的 .NET 项目，然后重新构建项目。</li>
+<li class="li">如果要在安装了静态分析插件的集成开发环境中扫描，添加 <span class="ph filepath">SecurityAttributes.dll</span> 作为参考。</li>
+<li class="li">如果要使用静态分析 CLI，<a class="xref" href="readme.html#src_irx_gen_config" title="您可以使用配置文件来生成 IRX 文件，可在配置文件中指定单独的目标，也可包含或排除目标。此外，还可使用配置文件指定能够帮助生成完整 IRX 文件的其他信息。">创建配置文件</a>，并在配置文件中设置 <samp class="ph codeph">CustomBuildInfo additional_classpath="dependency_path"</samp> 以便 <samp class="ph codeph">dependency_path</samp> 包含 <span class="ph filepath">SecurityAttributes.dll</span> 文件的位置。</li>
+</ol>
+
+<p class="p">属性可以在扫描之前添加到源代码，也可以在扫描之后和分类期间进行添加，以识别并消除假正值。如果要在安装了静态分析插件的 IDE 中扫描，<span class="ph uicontrol">帮我修正该问题</span>按钮将在扫描报告中可用。选择该按钮时，将显示可添加属性的可能的点。</p>
+
+<p class="p">提供属性是为了允许您将知识以安全性属性的形式直接插入到源代码中。因为属性可能用于声明代码安全的部分，所以使用时应小心。不应将注释用于应该扫描以检查安全漏洞的代码。如果使用属性，安全分析人员可通过禁用解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件的 <span class="ph filepath">\config</span> 目录中 <span class="ph filepath">irgen-engine.apsettings</span> 文件中的功能来忽略这些注释。在此文件中，找到以下设置：</p>
+
+<pre class="pre codeblock"><code>&lt;Setting
+  name="process_security_annotations"
+  value="true"
+  default_value="true"
+  description="When turned on, method annotations will be processed - used by DotNet and Java LSPs"
+  display_name="Process Security Annotations"
+  type="bool"
+/&gt;</code></pre>
+
+<p class="p">要禁用此功能，请将 <samp class="ph codeph">value="true"</samp> 更改为 <samp class="ph codeph">value="false"</samp>。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 在此设置被设置为 <samp class="ph codeph">value="false"</samp> 的情况下，如果要使用注释，请将其设置为 <samp class="ph codeph">value="true"</samp>。</div>
+</div>
+<div class="section" id="src_dotnet_annotations__validator_method"><h3 class="title sectiontitle"><samp class="ph codeph">[ValidatorMethod]</samp> 或 <samp class="ph codeph">[ValidatorMethod()]</samp></h3>
+<p class="p">验证程序是用于对输入数据执行检查的方法，通常会返回布尔值以指示输入是否有效。您可以将用户输入更改为可接受的格式，而不使用验证程序来接受或拒绝输入。这些方法称为杀毒器。</p>
+
+<p class="p">使用 <samp class="ph codeph">[ValidatorMethod]</samp> 属性，可以识别应用程序源代码中的所有验证程序和杀毒器方法。在静态扫描期间，此信息将用于除去流经这些方法的数据流，因为这些数据现在已视为安全。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 目前，没有规定要求指定附注释的方法的哪些参数应该视为已验证。在静态分析扫描期间，所有输入参数都假定已经过验证。</div>
+</div>
+<div class="section" id="src_dotnet_annotations__suppress_security_trace"><h3 class="title sectiontitle"><samp class="ph codeph">[SuppressSecurityTrace]</samp> 或 <samp class="ph codeph">[SuppressSecurityTrace()]</samp></h3>
+<p class="p">将除去流经通过该属性标记的方法的所有跟踪。当特定跟踪组识别为假正值，或者识别为重要性或相关性比其他组低时，这样做非常有用。可使用该属性来过滤出这些跟踪，或隐藏跟踪，以减少混乱。</p>
+</div>
+<div class="section" id="src_dotnet_annotations__callback_method"><h3 class="title sectiontitle"><samp class="ph codeph">[CallbackMethod]</samp> 或 <samp class="ph codeph">[CallbackMethod()]</samp></h3>
+<p class="p">该属性用于识别应用程序的回调或入口点。所有自变量都视为带有污点。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_php_config"><h2 class="title topictitle2">配置未解析的 PHP <samp class="ph codeph">include</samp> 表达式和未知 PHP 类</h2>
+<div class="body refbody"><p class="shortdesc">在为 PHP 生成 <span class="keyword">IRX</span> 文件后，将创建使您能够在下次扫描文件时配置 <span class="keyword">IRX</span> 生成的配置文件。</p>
+<div class="section"><p class="p">配置文件 <span class="ph filepath">php-scan-config.xml</span> 在发出 <samp class="ph codeph">prepare</samp> 命令的位置生成。文件包含两个部分，<samp class="ph codeph">&lt;UserInputs&gt;</samp> 和 <samp class="ph codeph">&lt;Php-Unknown-Configuration&gt;</samp>。</p>
+
+<p class="p"><span class="ph filepath">&lt;UserInputs&gt;</span> 部分包含了可针对 PHP 扫描进行修改的配置设置。该部分预先填充了样本值。可使用分号 (<samp class="ph codeph">;</samp>) 附加到这些值。该部分中的设置为：</p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">&lt;RegularExpression&gt;</samp>：这是允许为搜索文本指定正则表达式的高级功能。</li>
+<li class="li"><samp class="ph codeph">&lt;ReplaceText&gt;</samp>：该设置用于样本文本搜索和替换。搜索文本按原样使用，如果在包含的文本中的任何位置发现了搜索文本，那么搜索文本将被替换为替换文本。</li>
+<li class="li"><samp class="ph codeph">&lt;Function&gt;</samp>：当将替换函数调用时，将使用该设置。搜索文本应为不带有括号的函数名称。搜索文本将进行扩充以查找带有指定名称且名称后跟括号的函数调用，并将与括号中的任何内容匹配。</li>
+<li class="li"><samp class="ph codeph">&lt;SimpleText&gt;</samp>：简化替换文本。当替换文本为单个字符串时，使用该选项。</li>
+<li class="li"><samp class="ph codeph">&lt;SimpleRegEx&gt;</samp>：简化替换正则表达式。当替换正则表达式为单个字符串时，使用该选项。</li>
+<li class="li"><samp class="ph codeph">&lt;AdditionalIncludePaths&gt;</samp>使用该设置以添加包含引用文件的其他 <samp class="ph codeph">include</samp> 路径。</li>
+</ul>
+
+<p class="p"><samp class="ph codeph">&lt;Php-Unknown-Configuration&gt;</samp> 部分包含在上次扫描中发现的所有未解析 <samp class="ph codeph">include</samp> 表达式和未知类。使用该信息可完成 <samp class="ph codeph">&lt;UserInputs&gt;</samp> 部分。</p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">&lt;Summary&gt;</samp>：汇总了上次扫描中未知 <samp class="ph codeph">include</samp> 表达式 (<samp class="ph codeph">&lt;NumberOfUnknownIncludeExprs&gt;</samp>) 和未知类 (<samp class="ph codeph">&lt;NumberOfUnknownClasses&gt;</samp>) 的数量。</li>
+<li class="li"><samp class="ph codeph">&lt;SourceFile&gt;</samp>：所有未知 <samp class="ph codeph">include</samp> 表达式和未知类都通过源文件名称以字母顺序列出。对于每个源文件，文件路径 (<samp class="ph codeph">&lt;FilePath&gt;</samp>) 列出源的绝对路径、未知类 (<samp class="ph codeph">&lt;UnknownClass&gt;</samp>) 和未知 <samp class="ph codeph">include</samp> 表达式 (<samp class="ph codeph">&lt;UnknownIncludes&gt;</samp>)。</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">未知类 (<samp class="ph codeph">&lt;UnknownClass&gt;</samp>) 信息</h3>
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d69e4543" class="stentry thleft thbot">标记</th>
+<th valign="bottom" align="left" id="d69e4545" class="stentry thleft thbot">描述</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4543" class="stentry"><samp class="ph codeph">&lt;ClassName&gt;</samp></td>
+<td valign="top" headers="d69e4545" class="stentry">源代码中引用的类名，以及源文件 (<samp class="ph codeph">&lt;FilePath&gt;</samp>) 中使用了类的位置。您可能想要查看编辑器中的位置以查看是否应该对不明类进行解析。</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4543" class="stentry"><samp class="ph codeph">&lt;Status&gt;</samp></td>
+<td valign="top" headers="d69e4545" class="stentry">指示类是<samp class="ph codeph">已解析</samp>还是<samp class="ph codeph">未解析</samp>。</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4543" class="stentry"><samp class="ph codeph">&lt;ResolvedBy&gt;</samp></td>
+<td valign="top" headers="d69e4545" class="stentry">指示未知类是如何解析的。值包括：<ul class="ul"><li class="li"><samp class="ph codeph">AutoResolver</samp>：使用内部启发式来查找文件的应用程序。</li>
+<li class="li"><samp class="ph codeph">SearchReplace</samp>：向包含的文本应用了一个或多个搜索和替换规则以生成更新的文本。</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3 class="title sectiontitle"> 未知 <samp class="ph codeph">include</samp> 表达式 (<samp class="ph codeph">&lt;UnknownIncludes&gt;</samp>) 信息</h3>
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d69e4595" class="stentry thleft thbot">标记</th>
+<th valign="bottom" align="left" id="d69e4597" class="stentry thleft thbot">描述</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4595" class="stentry"><samp class="ph codeph">&lt;IncludeText&gt;</samp></td>
+<td valign="top" headers="d69e4597" class="stentry">源代码中存在的表达式文本，以及源文件 (<samp class="ph codeph">&lt;FilePath&gt;</samp>) 中使用了表达式的位置。您可能想要查看编辑器中的位置以查看是否应该对不明 <samp class="ph codeph">include</samp> 表达式进行解析。</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4595" class="stentry"><samp class="ph codeph">&lt;UpdatedText&gt;</samp></td>
+<td valign="top" headers="d69e4597" class="stentry">上次扫描期间使用的更新文本。</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4595" class="stentry"><samp class="ph codeph">&lt;Status&gt;</samp></td>
+<td valign="top" headers="d69e4597" class="stentry">指示表达式是<samp class="ph codeph">已解析</samp>还是<samp class="ph codeph">未解析</samp>。</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4595" class="stentry"><samp class="ph codeph">&lt;ResolvedBy&gt;</samp></td>
+<td valign="top" headers="d69e4597" class="stentry">指示更新文本是如何生成的。值包括：<ul class="ul"><li class="li"><samp class="ph codeph">AutoResolver</samp>：使用内部启发式来查找文件的应用程序。</li>
+<li class="li"><samp class="ph codeph">SearchReplace</samp>：向包含的文本应用了一个或多个搜索和替换规则以生成更新的文本。</li>
+<li class="li"><samp class="ph codeph">SearchReplace+AutoResolver</samp>：向包含的文本应用了一个或多个搜索和替换规则以生成更新的文本，然后应用了内部启发式来查找文件。</li>
+<li class="li"><samp class="ph codeph">SearchReplace+IncludePath</samp>：向包含的文本应用了一个或多个搜索和替换规则以生成更新的文本，然后将这些搜索和替换规则与 <samp class="ph codeph">include</samp> 路径上的目录合并以查找文件。</li>
+<li class="li"><samp class="ph codeph">SearchReplace+RelativeDir</samp>：向包含的文本应用了一个或多个搜索和替换规则以生成更新的文本，然后发现这些搜索和替换规则相对于包含 <samp class="ph codeph">include</samp> 表达式的源目录。</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="zh-cn" id="src_third_party"><h2 class="title topictitle2">管理第三方 Java and .NET 排除</h2>
+<div class="body taskbody"><p class="shortdesc">缺省情况下，在 <span class="keyword">IRX</span> 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。</p>
+<div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e4679">关于此任务</h3></div><p class="p">为代码生成 <span class="keyword">IRX</span> 文件时，将排除第三方代码，以便评估不包含您不想分析的代码的信息和结果。要修改被排除的内容，遵循该主题中的步骤。但如果想要在扫描时包含第三方代码，请参阅以下主题：</p>
+
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_cli" title="必须生成将提交到云的 IRX 文件，才可启动文件的分析。如果要使用 CLI，请遵循以下指示信息来创建该文件。">使用命令行界面 (CLI) 生成 IRX 文件</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_maven" title="必须生成将提交到云的 IRX 文件，才可启动文件的分析。如果要扫描 Maven 项目，请遵循以下指示信息来创建该文件。">为 Maven 项目生成 IRX 文件</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="这些指示信息说明了如何在将静态分析插件安装到 Eclipse、IntelliJ IDEA 或 Visual Studio 集成开发环境 (IDE) 之后使用它们来扫描源代码。在 Eclipse 和 IntelliJ IDEA 中，可以扫描 Java 项目，在 Visual Studio 中，可以扫描 .NET（C#、ASP.NET 和 VB.NET）。">在集成开发环境中执行扫描</a></li>
+</ul>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e4711">过程</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">找到已解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件的 <span class="ph filepath">config</span> 目录（其中 <span class="ph filepath">&lt;version&gt;</span> 是 <span class="keyword">Client Utility</span> 的当前版本）。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在该目录中，找到 <span class="ph filepath">dot_net.exclusions</span> (.NET) 或 <span class="ph filepath">java.exclusions</span> (Java) 文件。</span> <div class="note note"><span class="notetitle">注：</span> 该目录中的其他 <span class="ph filepath">.exclusions</span> 文件是试验性的，修改它们将不会影响第三方排除。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">在文本编辑器中打开文件，将看到它是以下格式的 XML 语句：</span> <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;Exclusions&gt;
+  &lt;packages&gt;
+    &lt;package name="package_name"/&gt;
+  &lt;/packages&gt;
+  ...
+&lt;/Exclusions&gt;</code></pre>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">编辑文件以添加要排除的软件包。</span> <div class="note note"><span class="notetitle">注：</span> <ul class="ul"><li class="li">指定的软件包名称将与具有相同前缀的所有软件包匹配（它们被视为后跟通配符一般）。例如，如果添加 <samp class="ph codeph">&lt;package
+name="<strong class="ph b">com.mycompany.common</strong>"/&gt;</samp> 作为排除，那么将排除 <samp class="ph codeph">&lt;package
+name="<strong class="ph b">com.mycompany.common</strong>.action1"/&gt;</samp> 和 <samp class="ph codeph">&lt;package
+name="<strong class="ph b">com.mycompany.common</strong>.action2"/&gt;</samp>。</li>
+<li class="li">只有添加到 <samp class="ph codeph">&lt;packages&gt;</samp> 容器的条目会影响第三方排除。添加类和方法将不会影响排除。</li>
+</ul>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">保存文件，然后为源代码生成 <span class="keyword">IRX</span> 文件。</span></li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e4785">下一步做什么</h3></div>如果要修改排除文件，应参照以下最佳实践：<ul class="ul"><li class="li">保留已修改的排除文件的备份。特别请记住，如果升级到 <span class="keyword">Static Analyzer Client Utility</span>的更新版本，将下载不包含更新的排除文件版本。更新 <span class="keyword">Client Utility</span> 时，保留已修改的排除文件的副本，然后将它们复制到新的 <span class="keyword">Client Utility</span>。</li>
+<li class="li">保留 XML 条目的单个块中的修改，以便在需要时可轻松地复制和粘贴这些修改。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_win_help"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">命令帮助</span>
+<span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用命令帮助可检索可用命令的列表，或检索有关单个命令的信息。</p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_help__help_command">appscan help</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<p class="p" id="src_cli_win_help__help_p1">要使用 CLI 来检索可用命令的列表，请发出以下命令：<samp class="ph codeph">appscan help</samp></p>
+<p class="p" id="src_cli_win_help__help_p2">要使用 CLI 来检索有关单个命令的信息，请发出命令 <samp class="ph codeph">appscan help &lt;command&gt;</samp>，其中 <samp class="ph codeph">&lt;command&gt;</samp> 是希望显示其帮助的命令。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_win_analysis"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">分析命令</span>
+<span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。</p>
+<div class="section"><p class="p">使用这些命令之前，请确保已登录到分析服务（请参阅<a class="xref" href="readme.html#src_cli_win_authenticate" title="使用认证命令可登录到 ASoC 服务。">认证命令</a>）。</p>
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__status">appscan status</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__list">appscan list</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__list_apps">appscan list_apps</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__cancel">appscan cancel</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__queue_analysis">appscan queue_analysis</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__info">appscan info</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_analysis__status"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__status_command">appscan status</samp></h3><p class="p" id="src_cli_win_analysis__syntax"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__status_syntax"><code>appscan status<span class="ph" id="src_cli_win_analysis__status_command_options"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p" id="src_cli_win_analysis__description"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_analysis__status_p1">对分析作业返回下列其中一个状态码：</p>
+<pre class="pre codeblock" id="src_cli_win_analysis__status_codeblock"><code>0 = Pending（暂挂）
+1 = Starting（正在启动）
+2 = Running（正在运行）
+3 = FinishedRunning（运行完成）
+4 = FinishedRunningWithErrors（运行完成，但有错误）
+5 = PendingSupport（暂挂支持）
+6 = Ready（就绪）
+7 = ReadyIncomplete（未完全就绪）
+8 = FailedToScan（无法扫描）
+9 = ManuallyStopped（已手动停止）
+10 = None（无）
+11 = Initiating（正在启动）
+12 = MissingConfiguration（缺少配置）
+13 = PossibleMissingConfiguration（可能缺少配置）</code></pre>
+<p class="p" id="src_cli_win_analysis__required_options"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul" id="src_cli_win_analysis__status_ul1"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<div class="note tip" id="src_cli_win_analysis__options_order"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p" id="src_cli_win_analysis__examples"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_analysis__status_p3">要查看作业标识 12345 的状态，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_win_analysis__status_examples_codeblock1"><code>appscan status -i 12345</code></pre>
+<p class="p" id="src_cli_win_analysis__status_p4">如果返回码为 <samp class="ph codeph">0</samp>，说明该作业暂挂。如果返回码为 <samp class="ph codeph">1</samp>，那么作业正在启动，等等。</p>
+</div>
+<div class="section" id="src_cli_win_analysis__list"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__list_command">appscan list</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__list_syntax"><code>appscan list</code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_analysis__list_p1">列出所有分析作业，包括已排队、正在运行和已完成的作业。将返回每个作业的标识，以便您可以将这些标识用于其他命令。例如，可在命令提示符或脚本中将标识用于 <samp class="ph codeph">info</samp> 命令。</p>
+</div>
+<div class="section" id="src_cli_win_analysis__list_apps"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__list_apps_command">appscan list_apps</samp></h3>
+<p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_win_analysis__list_apps_syntax"><code>appscan list_apps</code></pre>
+
+<p class="p"><strong class="ph b">描述：</strong></p>
+
+<p class="p" id="src_cli_win_analysis__list_apps_p1"><strong class="ph b">仅 <span class="keyword">IBM Cloud Marketplace</span>：</strong>如果您已连接至位于 <span class="keyword">IBM Cloud Marketplace</span> 的 <span class="keyword">Application Security on Cloud</span> 服务，那么您提交到云的 <span class="keyword">IRX</span> 文件必须与现有 <span class="keyword">Application Security on Cloud</span> 应用程序关联。</p>
+
+<p class="p" id="src_cli_win_analysis__list_apps_p2">使用此命令可以查看您有权访问的 <span class="keyword">Application Security on Cloud</span> 应用程序。要使用此命令，必须向 <span class="keyword">IBM Cloud Marketplace</span> 上的服务进行认证。在发出此命令后，将显示 <span class="keyword">Application Security on Cloud</span> 应用程序的列表，并在后面的括号中显示应用程序的标识。在使用 <samp class="ph codeph">queue_analysis</samp> 命令的 <samp class="ph codeph">-a</samp> 选项时，请使用此列表中的标识值。</p>
+
+<div class="note note" id="src_cli_win_analysis__list_apps_note1"><span class="notetitle">注：</span> 当您已连接至位于 <span class="keyword">Bluemix</span> 的 <span class="keyword">ASoC</span> 服务时，应用程序关联不适用。</div>
+</div>
+<div class="section" id="src_cli_win_analysis__cancel"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__cancel_command">appscan cancel</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__cancel_syntax"><code>appscan cancel<span class="ph" id="src_cli_win_analysis__cancel_command_options"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_analysis__cancel_p1">取消正在运行或已排队的分析作业。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul" id="src_cli_win_analysis__cancel_ul1"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_analysis__cancel_p3">要取消作业标识 12345，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_win_analysis__cancel_examples_codeblock1"><code>appscan cancel -i 12345</code></pre>
+</div>
+<div class="section" id="src_cli_win_analysis__queue_analysis"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__queue_analysis_command">appscan queue_analysis</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__queue_analysis_syntax"><code>appscan queue_analysis<span class="ph" id="src_cli_win_analysis__queue_analysis_command_options"> -a &lt;app_id&gt; -f &lt;<span class="keyword">irx</span>_file&gt; -n &lt;scan_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_analysis__queue_analysis_p1">将 <span class="keyword">IRX</span> 文件提交到云以进行分析。扫描完成后，将接收到电子邮件通知（邮件将发送到与登录分析服务时使用的帐户关联的电子邮件地址）。电子邮件包含云的链接，以便您可以登录来下载扫描。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul" id="src_cli_win_analysis__queue_analysis_ul1"><li class="li" id="src_cli_win_analysis__queue_analysis_ul1_li1"><samp class="ph codeph">-f</samp>：指定 <samp class="ph codeph">-f &lt;<span class="keyword">irx</span>_file&gt;</samp>，其中 <samp class="ph codeph">&lt;<span class="keyword">irx</span>_file&gt;</samp> 是您希望提交以进行扫描的 <span class="keyword">IRX</span> 文件。如果 <span class="keyword">IRX</span> 文件不在当前目录中，请使用此选项指定 <span class="keyword">IRX</span> 文件路径和文件名。<div class="note note"><span class="notetitle">注：</span> 仅当以下一个或两个语句都满足时，才需要该选项：
+<ul class="ul"><li class="li">您是从包含多个 <span class="keyword">IRX</span> 文件的目录发出的命令。如果目录仅包含一个 <span class="keyword">IRX</span> 文件，那么在未使用 <samp class="ph codeph">-f</samp> 选项的情况下将提交此文件。</li>
+<li class="li">您是从不包含 <span class="keyword">IRX</span> 文件的目录发出的命令。在此情况下，必须使用 <samp class="ph codeph">-f</samp> 选项指定要提交的 <span class="keyword">IRX</span> 文件的路径和文件名。</li>
+</ul>
+</div>
+</li>
+<li class="li" id="src_cli_win_analysis__queue_analysis_ul1_li2"><samp class="ph codeph">-n</samp>：指定 <samp class="ph codeph">-n &lt;scan_name&gt;</samp>，其中 <samp class="ph codeph">&lt;scan_name&gt;</samp> 是云上将发生的扫描的名称。</li>
+<li class="li"><samp class="ph codeph">-a</samp><strong class="ph b">（仅 <span class="keyword">IBM Cloud Marketplace</span>：）</strong>如果您已连接至位于 <span class="keyword">IBM Cloud Marketplace</span> 的 <span class="keyword">Application Security on Cloud</span> 服务，那么您提交到云的 <span class="keyword">IRX</span> 文件必须与现有 <span class="keyword">Application Security on Cloud</span> 应用程序关联。使用此选项，指定 <samp class="ph codeph">-a &lt;app_id&gt;</samp>，其中 <samp class="ph codeph">&lt;app_id&gt;</samp> 是要关联的应用程序的标识。要确定标识，请使用 <samp class="ph codeph">list_apps</samp> 命令。<div class="note note"><span class="notetitle">注：</span> 当您已连接至位于 <span class="keyword">Bluemix</span> 的 <span class="keyword">ASoC</span> 服务时，应用程序关联不适用。</div>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_analysis__queue_analysis_p3">连接到 <span class="keyword">Bluemix</span> 上的服务时，请使用此命令。</p>
+<pre class="pre codeblock" id="src_cli_win_analysis__queue_analysis_examples_codeblock1"><code>appscan queue_analysis -f my_<span class="keyword">irx</span><span class="keyword">.irx</span> -n my_scan</code></pre>
+<p class="p" id="src_cli_win_analysis__queue_analysis_p4">以将 <span class="ph filepath">my_<span class="keyword">irx</span><span class="keyword">.irx</span></span>（位于当前目录中）提交到云以进行扫描。使用云用户界面或 <samp class="ph codeph">list</samp> 命令来查看所有当前扫描时，<samp class="ph codeph">my_scan</samp> 将出现在列表中。</p>
+
+<p class="p" id="src_cli_win_analysis__queue_analysis_p5">连接到 <span class="keyword">IBM Cloud Marketplace</span> 上的服务时，请发出以上命令，但包含 <samp class="ph codeph">-a 12345</samp>，其中 <samp class="ph codeph">12345</samp> 是将扫描关联到的应用程序的标识（可以使用 <samp class="ph codeph">list_apps</samp> 命令来确定应用程序标识）。</p>
+</div>
+<div class="section" id="src_cli_win_analysis__info"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__info_command">appscan info</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__info_syntax"><code>appscan info<span class="ph" id="src_cli_win_analysis__info_command_options"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_analysis__info_p1">显示指定分析作业的信息。</p>
+<p class="p" id="src_cli_win_analysis__info_p2">提供的信息可以用于自动执行脚本。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul" id="src_cli_win_analysis__info_ul1"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_analysis__info_p4">要接收有关作业标识 12345 的信息，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_win_analysis__info_examples_codeblock1"><code>appscan info -i 12345</code></pre>
+<p class="p" id="src_cli_win_analysis__info_p5">返回的信息示例如下：</p>
+<pre class="pre codeblock" id="src_cli_win_analysis__info_codeblock"><code>NLowIssues=0
+ReadStatus=2
+NHighIssues=0
+Name=appscan.zip
+ScanEndTime=2014-11-20T13:56:04.497Z
+Progress=0
+RemainingFreeRescanMinutes=0
+ParentJobId=00000000-0000-0000-0000-000000000000
+EnableMailNotifications=false
+JobStatus=6
+NInfoIssues=0
+JobId=9b344fc7-bc70-e411-b922-005056924f9b
+NIssuesFound=0
+CreatedAt=2014-11-20T13:54:49.597Z
+UserMessage=Scan completed successfully. The report is ready.
+NMediumIssues=0
+Result=1</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_win_global"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">全局命令</span>
+<span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用全局命令可以显示 CLI 帮助和 <span class="keyword">Static Analyzer Client Utility</span> 版本信息。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_global__help">appscan help</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_global__version">appscan version</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_global__help"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_global__help_command">appscan help</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_global__help_syntax"><code>appscan help &lt;command&gt;</code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_global__help_p1">显示所有命令或单个命令的帮助。</p>
+<p class="p" id="src_cli_win_global__optional_options"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul" id="src_cli_win_global__help_ul1"><li class="li"><samp class="ph codeph">&lt;command&gt;</samp>：要显示单个命令的帮助，请在此指定该命令。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_global__help_p2">要查看 <samp class="ph codeph">prepare</samp> 命令的帮助，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_win_global__help_examples_codeblock1"><code>appscan help prepare</code></pre>
+</div>
+<div class="section" id="src_cli_win_global__version"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_global__version_command">appscan version</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_global__version_syntax"><code>appscan version</code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_global__version_p1">显示 <span class="keyword">Static Analyzer Client Utility</span> 版本。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_win_config"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">配置命令</span>
+<span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用配置命令可以准备文件进行扫描。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_config__prepare">appscan prepare</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_config__package">appscan package</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_config__get_pubkey">appscan get_pubkey</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_config__prepare"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_config__prepare_command">appscan prepare</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_config__prepare_syntax"><code>appscan prepare<span class="ph" id="src_cli_win_config__prepare_command_options"> -c &lt;configuration_file&gt; -d &lt;save_path&gt; -l &lt;log_path&gt; -n &lt;file_name&gt; -t,--thirdParty -v,--verbose -X,--debug</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_config__prepare_p1">生成 <span class="keyword">IRX</span> 文件。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul" id="src_cli_win_config__prepare_ul1"><li class="li"><samp class="ph codeph">-c</samp>：此选项用于配置扫描。</li>
+<li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;save_path&gt;</samp>，其中 <samp class="ph codeph">&lt;save_path&gt;</samp> 是用于保存 <span class="keyword">IRX</span> 文件的目录。</li>
+<li class="li"><samp class="ph codeph">-l</samp>：指定 <samp class="ph codeph">-l &lt;log_path&gt;</samp>，其中 <samp class="ph codeph">&lt;log_path&gt;</samp> 是要将日志文件保存到其中的目录。</li>
+<li class="li"><samp class="ph codeph">-n</samp>：指定 <samp class="ph codeph">-n &lt;file_name&gt;</samp>，其中 <samp class="ph codeph">&lt;file_name&gt;</samp> 为 <span class="keyword">IRX</span> 文件名。您可以指定带有或不带有 <span class="ph filepath"><span class="keyword">.irx</span></span> 文件扩展名的文件名。如果指定不带有扩展名的文件名，生成文件时将自动添加扩展名。</li>
+<li class="li"><samp class="ph codeph">-t,--thirdParty</samp>：<span class="ph" id="src_cli_win_config__thirdparty">缺省情况下，在 <span class="keyword">IRX</span> 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循<a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a>中的指示信息来修改第三方代码排除设置。要包含第三方代码，请在发出 <samp class="ph codeph">prepare</samp> 命令时指定 <samp class="ph codeph">-t</samp> 或 <samp class="ph codeph">--thirdParty</samp> 选项。</span><p class="p">如果您是通常包含在扫描中的第三方代码的开发人员，应使用该设置来包含第三方代码。</p>
+</li>
+<li class="li"><samp class="ph codeph">-v,--verbose</samp>：指定 <samp class="ph codeph">-v</samp> 或 <samp class="ph codeph">--verbose</samp> 以在生成 <span class="keyword">IRX</span> 文件期间显示更多参考输出。</li>
+<li class="li"><samp class="ph codeph">-X,--debug</samp>：指定 <samp class="ph codeph">-X</samp> 或 <samp class="ph codeph">--debug</samp> 可在调试方式下运行整个命令。以调试方式运行时，将生成更多日志文件用于故障诊断。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_config__prepare_examples_p1">要生成使用配置文件 <span class="ph filepath">c:\my_config_files\my_config.xml</span> 并将 <span class="keyword">IRX</span> 文件保存到 <span class="ph filepath">c:\my_<span class="keyword">irx</span>_files\my_scan<span class="keyword">.irx</span></span> 的 <span class="keyword">IRX</span> 文件，请发出以下命令：</p>
+<pre class="pre codeblock" id="src_cli_win_config__prepare_examples_codeblock"><code>appscan prepare -c c:\my_config_files\my_config.xml -d c:\my_<span class="keyword">irx</span>_files -n my_scan<span class="keyword">.irx</span></code></pre>
+</div>
+<div class="section" id="src_cli_win_config__package"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_config__package_command">appscan package</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_config__package_syntax"><code>appscan package<span class="ph" id="src_cli_win_config__package_command_options"> -d &lt;save_path&gt; -f &lt;assessment_file&gt; -n &lt;file_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_config__package_p1">生成一个 <span class="keyword">IRX</span> 文件，其中包含在 <span class="keyword">IBM Security AppScan® Source</span> V9.0 或更高产品版本中创建的评估 (<span class="ph filepath">.ozasmt</span>) 文件。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul" id="src_cli_win_config__package_ul1"><li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;save_path&gt;</samp>，其中 <samp class="ph codeph">&lt;save_path&gt;</samp> 是用于保存 <span class="keyword">IRX</span> 文件的目录。</li>
+<li class="li"><samp class="ph codeph">-f</samp>：指定 <samp class="ph codeph">-f &lt;assessment_file&gt;</samp>，其中 <samp class="ph codeph">&lt;assessment_file&gt;</samp> 是您希望打包以进行扫描的 <span class="ph filepath">.ozasmt</span> 文件。如果 <samp class="ph codeph">&lt;assessment_file&gt;</samp> 文件不在当前目录中，请使用此选项指定评估文件路径和文件名。<div class="note note"><span class="notetitle">注：</span> 仅当以下一个或两个语句都满足时，才需要该选项：
+<ul class="ul"><li class="li">您是从包含多个评估文件的目录发出的命令。如果该目录仅包含一个评估文件，那么未使用 <samp class="ph codeph">-f</samp> 选项时将对该文件打包。</li>
+<li class="li">您是从不包含评估文件的目录发出的命令。在此情况下，必须使用 <samp class="ph codeph">-f</samp> 选项来指定要打包的评估文件的路径和文件名。</li>
+</ul>
+</div>
+</li>
+<li class="li"><samp class="ph codeph">-n</samp>：指定 <samp class="ph codeph">-n &lt;file_name&gt;</samp>，其中 <samp class="ph codeph">&lt;file_name&gt;</samp> 为 <span class="keyword">IRX</span> 文件名。您可以指定带有或不带有 <span class="ph filepath"><span class="keyword">.irx</span></span> 文件扩展名的文件名。如果指定不带有扩展名的文件名，生成文件时将自动添加扩展名。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_config__package_examples_p1">在 <span class="ph filepath">c:\my_irx_files</span> 目录中，可以通过发出以下命令生成一个包含评估文件 <span class="ph filepath">c:\my_assessment_files\my_assessment.ozasmt</span> 的 <span class="keyword">IRX</span> 文件：</p>
+<pre class="pre codeblock" id="src_cli_win_config__package_examples_codeblock"><code>appscan package -f c:\my_assessment_files\my_assessment.ozasmt</code></pre>
+<p class="p" id="src_cli_win_config__package_examples_p2">生成的 <span class="keyword">IRX</span> 文件将保存在 <span class="ph filepath">c:\my_irx_files</span> 中。</p>
+</div>
+<div class="section" id="src_cli_win_config__get_pubkey"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_config__get_pubkey_command">appscan get_pubkey</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_config__get_pubkey_syntax"><code>appscan get_pubkey<span class="ph" id="src_cli_win_config__get_pubkey_command_options"> -d &lt;save_path&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_config__get_pubkey_p1">下载公用加密密钥以在未连接到因特网的计算机上使用。</p>
+<p class="p" id="src_cli_win_config__get_pubkey_p2">如果从连接到因特网的计算机生成 <span class="keyword">IRX</span> 文件，那么不需要执行此命令，因为发出 <samp class="ph codeph">prepare</samp> 命令时将自动下载加密密钥。如果加密密钥已存在于计算机上，发出 <samp class="ph codeph">prepare</samp> 命令时将根据需要更新该加密密钥。</p>
+<p class="p" id="src_cli_win_config__get_pubkey_p3">但是，如果从未连接到因特网的计算机生成 <span class="keyword">IRX</span> 文件，那么可使用此命令下载加密密钥。然后，可将加密密钥复制到未连接到因特网的计算机，以在生成 <span class="keyword">IRX</span> 文件时使用。
+要在此计算机上使用加密密钥，必须保存 <span class="ph filepath">rsa.pub</span> 文件名，并将此文件放到解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在的 <span class="ph filepath">config</span> 目录中（其中，<span class="ph filepath">&lt;version&gt;</span> 是 <span class="keyword">Client Utility</span> 的当前版本）。</p>
+<div class="note note" id="src_cli_win_config__get_pubkey_note1"><span class="notetitle">注：</span> 使用的加密密钥必须是最新的。
+如果使用过时加密密钥生成 <span class="keyword">IRX</span> 文件，那么在上传 <span class="keyword">IRX</span> 文件时会拒绝此文件。如果计算机已连接到因特网，请再次发出 <samp class="ph codeph">prepare</samp> 命令以自动更新加密密钥。如果计算机未连接到因特网，将需要使用 <samp class="ph codeph">get_pubkey</samp> 命令。</div>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul" id="src_cli_win_config__get_pubkey_ul1"><li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;save_path&gt;</samp>，其中 <samp class="ph codeph">&lt;save_path&gt;</samp> 是用于保存加密密钥的目录。如果未指定此选项，那么密钥将保存到解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在的 <span class="ph filepath">config</span> 目录。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_win_authenticate"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">认证命令</span>
+<span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用认证命令可登录到 <span class="keyword">ASoC</span> 服务。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate__api_login">appscan api_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate__scx_login">appscan scx_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate__login">appscan login</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_authenticate__api_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_authenticate__api_login_command">appscan api_login</samp></h3>
+<p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_win_authenticate__api_login_syntax"><code>appscan api_login<span class="ph" id="src_cli_win_authenticate__api_login_command_options"> -P &lt;key_secret&gt; -u &lt;key_id&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">描述：</strong></p>
+
+<p class="p" id="src_cli_win_authenticate__api_login_p1">使用生成的 API 密钥在 <span class="keyword">IBM Cloud Marketplace</span> 上登录 <span class="keyword">ASoC</span> 服务。</p>
+
+<div class="note important" id="src_cli_win_authenticate__api_login_type_note"><span class="importanttitle">要点：</span> <samp class="ph codeph">api_login</samp> 命令仅用于从 CLI 登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务。要登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务，请使用 <samp class="ph codeph">login</samp> 命令。</div>
+
+<p class="p">登录服务时，名为 <span class="ph filepath">cli.token</span> 的加密密钥文件将保存到 <span class="ph filepath">home</span> 目录的 <span class="ph filepath">.appscan</span> 文件夹。
+然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他命令和操作引用。此令牌文件将在创建 2 小时后到期。它到期之后，您将需要再次登录服务以继续进一步的命令或操作，或者您可以在登录时包含 <samp class="ph codeph">-persist</samp> 选项。使用该选项时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+
+<ul class="ul" id="src_cli_win_authenticate__api_login_ul1"><li class="li"><samp class="ph codeph">-P</samp>：指定 <samp class="ph codeph">-P &lt;key_secret&gt;</samp>，其中 <samp class="ph codeph">&lt;key_secret&gt;</samp> 是生成 API 密钥时创建的<span class="ph uicontrol">密钥机密</span>。</li>
+<li class="li"><samp class="ph codeph">-u</samp>：指定 <samp class="ph codeph">-u &lt;key_id&gt;</samp>，其中 <samp class="ph codeph">&lt;key_id&gt;</samp> 是生成 API 密钥时创建的<span class="ph uicontrol">密钥标识</span>。</li>
+</ul>
+
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>：在登录令牌文件过期后自动尝试重新向服务认证。</li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+</div>
+<div class="section" id="src_cli_win_authenticate__scx_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_authenticate__scx_login_command">appscan
+scx_login</samp></h3>
+<div class="note note"><span class="notetitle">注：</span> 虽然支持此命令，但建议您改为使用 <a class="xref" href="readme.html#src_cli_win_authenticate__api_login">appscan api_login</a> 命令。</div>
+
+<p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_win_authenticate__scx_login_syntax"><code>appscan scx_login<span class="ph" id="src_cli_win_authenticate__scx_login_command_options"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">描述：</strong></p>
+
+<p class="p" id="src_cli_win_authenticate__scx_login_p1">使用 <span class="keyword">ASoC</span> 凭证登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务</p>
+
+<div class="note important" id="src_cli_win_authenticate__scx_login_type_note"><span class="importanttitle">要点：</span> <samp class="ph codeph">scx_login</samp> 命令仅用于从 CLI 登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务。要登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务，请使用 <samp class="ph codeph">login</samp> 命令。</div>
+
+<p class="p" id="src_cli_win_authenticate__login_token">登录服务时，名为 <span class="ph filepath">cli.token</span> 的加密密钥文件将保存到 <span class="ph filepath">home</span> 目录的 <span class="ph filepath">.appscan</span> 文件夹。
+然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他命令和操作引用。此令牌文件将在创建 2 小时后到期。它到期之后，您将需要再次登录服务以继续进一步的命令或操作，或者您可以在登录时包含 <samp class="ph codeph">-persist</samp> 选项。使用该选项时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+
+<ul class="ul" id="src_cli_win_authenticate__scx_login_ul1"><li class="li"><samp class="ph codeph">-P</samp>：指定 <samp class="ph codeph">-P &lt;password&gt;</samp>，其中 <samp class="ph codeph">&lt;password&gt;</samp> 是注册 <span class="keyword">ASoC</span> 服务时指定的密码。</li>
+<li class="li"><samp class="ph codeph">-u</samp>：指定 <samp class="ph codeph">-u &lt;user_name&gt;</samp>，其中 <samp class="ph codeph">&lt;user_name&gt;</samp> 是注册 <span class="keyword">ASoC</span> 服务时指定的电子邮件地址。</li>
+</ul>
+
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+
+<ul class="ul" id="src_cli_win_authenticate__scx_login_ul2"><li class="li"><samp class="ph codeph">-persist</samp>：在登录令牌文件过期后自动尝试重新向服务认证。</li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+</div>
+<div class="section" id="src_cli_win_authenticate__login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_authenticate__login_command">appscan login</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_authenticate__login_syntax"><code>appscan login<span class="ph" id="src_cli_win_authenticate__login_command_options"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_authenticate__login_p1">登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务</p>
+<div class="note important" id="src_cli_win_authenticate__login_type_note"><span class="importanttitle">要点：</span> <samp class="ph codeph">login</samp> 命令仅用于从 CLI 登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务。要登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务，请使用 <samp class="ph codeph">scx_login</samp> 或 <samp class="ph codeph">api_login</samp> 命令。</div>
+
+<p class="p">登录服务时，名为 <span class="ph filepath">cli.token</span> 的加密密钥文件将保存到 <span class="ph filepath">home</span> 目录的 <span class="ph filepath">.appscan</span> 文件夹。
+然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他命令和操作引用。此令牌文件将在创建 2 小时后到期。它到期之后，您将需要再次登录服务以继续进一步的命令或操作，或者您可以在登录时包含 <samp class="ph codeph">-persist</samp> 选项。使用该选项时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul" id="src_cli_win_authenticate__login_ul1"><li class="li"><samp class="ph codeph">-P</samp>：指定 <samp class="ph codeph">-P &lt;password&gt;</samp>，其中 <samp class="ph codeph">&lt;password&gt;</samp> 是服务凭证中指定的密码。</li>
+<li class="li"><samp class="ph codeph">-u</samp>：指定 <samp class="ph codeph">-u &lt;user_name&gt;</samp>，其中 <samp class="ph codeph">&lt;user_name&gt;</samp> 是服务凭证中指定的绑定标识。</li>
+</ul>
+<p class="p" id="src_cli_win_authenticate__service_credentials">要确定 <span class="keyword">Bluemix</span> 服务凭证，在服务仪表板左边导航窗格中选择<span class="ph uicontrol">服务凭证</span>。请参阅<a class="xref" href="https://console.ng.bluemix.net/docs/services/reqnsi.html#accser_external">启用外部应用程序以使用 Bluemix 服务</a>。</p>
+
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>：在登录令牌文件过期后自动尝试重新向服务认证。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_win_authenticate__login_p5">要使用绑定标识 <samp class="ph codeph">123-mybindingid-456</samp> 和密码 <samp class="ph codeph">123-mypassword-456</samp> 登录到云，请发出以下命令：</p>
+<pre class="pre codeblock" id="src_cli_win_authenticate__login_examples_codeblock1"><code>appscan login -P 123-mypassword-456 -u 123-mybindingid-456</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_win_results"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">结果命令</span>
+<span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用结果命令可以从分析服务中检索扫描结果。</p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_results__get_result_command">appscan get_result</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_win_results__get_result_codeblock"><code>appscan get_result<span class="ph" id="src_cli_win_results__get_result_command_options"> -d &lt;file_path&gt; -i &lt;job_id&gt; -t &lt;type&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p" id="src_cli_win_results__get_result_p1">检索扫描结果。</p>
+<p class="p" id="src_cli_win_results__get_result_p3">使用这些命令之前，确保已登录到分析服务。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul" id="src_cli_win_results__get_result_ul1"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul" id="src_cli_win_results__get_result_ul2"><li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;file_path&gt;</samp>，其中 <samp class="ph codeph">&lt;file_path&gt;</samp> 是目标文件的标准路径和/或目标文件的文件名。
+如果未指定文件名，那么文件名基于扫描作业名。如果未指定路径，那么文件将保存到当前目录。如果未包含该选项，那么文件将以基于扫描作业名的文件名保存到当前目录。</li>
+<li class="li"><samp class="ph codeph">-t</samp>：指定 <samp class="ph codeph">-t &lt;type&gt;</samp>，其中 <samp class="ph codeph">&lt;type&gt;</samp> 是 <samp class="ph codeph">html</samp> 或 <samp class="ph codeph">zip</samp>。这使您能够将结果另存为 HTML 文件或包含 HTML 结果的 <span class="ph filepath">.zip</span> 文件。如果未包含该选项，结果将另存为 HTML 文件。<p class="p">如果扫描结果是针对 <samp class="ph codeph">package</samp> 命令所生成的 <span class="keyword">IRX</span> 文件，那么指定 <samp class="ph codeph">-t zip</samp> 会保存包含新 <span class="ph filepath">.ozasmt</span> 文件的结果，该文件可以装入到 <span class="keyword">AppScan Source</span> V9.0 或更高产品版本中。</p>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_linux_help"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">命令帮助</span>
+<span class="ph" id="os">（<span class="ph" id="os_nobracket">Linux 和 macOS</span>）</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用命令帮助可检索可用命令的列表，或检索有关单个命令的信息。</p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_help__help_command">appscan.sh help</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<p class="p" id="src_cli_linux_help__help_p1">要使用 CLI 来检索可用命令的列表，请发出以下命令：<samp class="ph codeph">appscan.sh help</samp></p>
+<p class="p" id="src_cli_linux_help__help_p2">要使用 CLI 来检索有关单个命令的信息，请发出命令 <samp class="ph codeph">appscan.sh help &lt;command&gt;</samp>，其中 <samp class="ph codeph">&lt;command&gt;</samp> 是希望显示其帮助的命令。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_linux_analysis"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">分析命令</span>
+<span class="ph" id="os">（<span class="ph" id="os_nobracket">Linux 和 macOS</span>）</span></span></h2>
+<div class="body refbody"><p class="shortdesc">分析命令用于向云提交扫描请求，或者用于处理已经提交给云的扫描请求。使用这些命令，还可以接收有关扫描的信息。这些信息对于自动执行脚本会非常有用。</p>
+<div class="section"><p class="p">使用这些命令之前，请确保已登录到分析服务（请参阅<a class="xref" href="readme.html#src_cli_linux_authenticate" title="使用认证命令可登录到 ASoC 服务。">认证命令</a>）。</p>
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__status">appscan.sh status</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__list">appscan.sh list</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__list_apps">appscan.sh list_apps</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__cancel">appscan.sh cancel</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__queue_analysis">appscan.sh queue_analysis</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__info">appscan.sh info</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_analysis__status"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__status_command">appscan.sh status</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__status_syntax"><code>appscan.sh status<span class="ph"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">对分析作业返回下列其中一个状态码：</p>
+<pre class="pre codeblock"><code>0 = Pending（暂挂）
+1 = Starting（正在启动）
+2 = Running（正在运行）
+3 = FinishedRunning（运行完成）
+4 = FinishedRunningWithErrors（运行完成，但有错误）
+5 = PendingSupport（暂挂支持）
+6 = Ready（就绪）
+7 = ReadyIncomplete（未完全就绪）
+8 = FailedToScan（无法扫描）
+9 = ManuallyStopped（已手动停止）
+10 = None（无）
+11 = Initiating（正在启动）
+12 = MissingConfiguration（缺少配置）
+13 = PossibleMissingConfiguration（可能缺少配置）</code></pre>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p">要查看作业标识 12345 的状态，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__status_examples_codeblock1"><code>appscan.sh status -i 12345</code></pre>
+<p class="p">如果返回码为 <samp class="ph codeph">0</samp>，说明该作业暂挂。如果返回码为 <samp class="ph codeph">1</samp>，那么作业正在启动，等等。</p>
+</div>
+<div class="section" id="src_cli_linux_analysis__list"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__list_command">appscan.sh list</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__list_syntax"><code>appscan.sh list</code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">列出所有分析作业，包括已排队、正在运行和已完成的作业。将返回每个作业的标识，以便您可以将这些标识用于其他命令。例如，可在命令提示符或脚本中将标识用于 <samp class="ph codeph">info</samp> 命令。</p>
+</div>
+<div class="section" id="src_cli_linux_analysis__list_apps"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__listapps_command">appscan.sh list_apps</samp></h3>
+<p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_analysis__list_apps_syntax"><code>appscan.sh list_apps</code></pre>
+
+<p class="p"><strong class="ph b">描述：</strong></p>
+
+<p class="p"><strong class="ph b">仅 <span class="keyword">IBM Cloud Marketplace</span>：</strong>如果您已连接至位于 <span class="keyword">IBM Cloud Marketplace</span> 的 <span class="keyword">Application Security on Cloud</span> 服务，那么您提交到云的 <span class="keyword">IRX</span> 文件必须与现有 <span class="keyword">Application Security on Cloud</span> 应用程序关联。</p>
+
+<p class="p">使用此命令可以查看您有权访问的 <span class="keyword">Application Security on Cloud</span> 应用程序。要使用此命令，必须向 <span class="keyword">IBM Cloud Marketplace</span> 上的服务进行认证。在发出此命令后，将显示 <span class="keyword">Application Security on Cloud</span> 应用程序的列表，并在后面的括号中显示应用程序的标识。在使用 <samp class="ph codeph">queue_analysis</samp> 命令的 <samp class="ph codeph">-a</samp> 选项时，请使用此列表中的标识值。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 当您已连接至位于 <span class="keyword">Bluemix</span> 的 <span class="keyword">ASoC</span> 服务时，应用程序关联不适用。</div>
+</div>
+<div class="section" id="src_cli_linux_analysis__cancel"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__cancel_command">appscan.sh cancel</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__cancel_syntax"><code>appscan.sh cancel<span class="ph"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">取消正在运行或已排队的分析作业。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p">要取消作业标识 12345，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__cancel_examples_codeblock1"><code>appscan.sh cancel -i 12345</code></pre>
+</div>
+<div class="section" id="src_cli_linux_analysis__queue_analysis"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__queue_analysis_command">appscan.sh queue_analysis</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__queue_analysis_syntax"><code>appscan.sh queue_analysis<span class="ph"> -a &lt;app_id&gt; -f &lt;<span class="keyword">irx</span>_file&gt; -n &lt;scan_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">将 <span class="keyword">IRX</span> 文件提交到云以进行分析。扫描完成后，将接收到电子邮件通知（邮件将发送到与登录分析服务时使用的帐户关联的电子邮件地址）。电子邮件包含云的链接，以便您可以登录来下载扫描。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul"><li class="li" id="src_cli_linux_analysis__d422e204"><samp class="ph codeph">-f</samp>：指定 <samp class="ph codeph">-f &lt;<span class="keyword">irx</span>_file&gt;</samp>，其中 <samp class="ph codeph">&lt;<span class="keyword">irx</span>_file&gt;</samp> 是您希望提交以进行扫描的 <span class="keyword">IRX</span> 文件。如果 <span class="keyword">IRX</span> 文件不在当前目录中，请使用此选项指定 <span class="keyword">IRX</span> 文件路径和文件名。<div class="note note"><span class="notetitle">注：</span> 仅当以下一个或两个语句都满足时，才需要该选项：
+<ul class="ul"><li class="li">您是从包含多个 <span class="keyword">IRX</span> 文件的目录发出的命令。如果目录仅包含一个 <span class="keyword">IRX</span> 文件，那么在未使用 <samp class="ph codeph">-f</samp> 选项的情况下将提交此文件。</li>
+<li class="li">您是从不包含 <span class="keyword">IRX</span> 文件的目录发出的命令。在此情况下，必须使用 <samp class="ph codeph">-f</samp> 选项指定要提交的 <span class="keyword">IRX</span> 文件的路径和文件名。</li>
+</ul>
+</div>
+</li>
+<li class="li" id="src_cli_linux_analysis__d422e246"><samp class="ph codeph">-n</samp>：指定 <samp class="ph codeph">-n &lt;scan_name&gt;</samp>，其中 <samp class="ph codeph">&lt;scan_name&gt;</samp> 是云上将发生的扫描的名称。</li>
+<li class="li"><samp class="ph codeph">-a</samp><strong class="ph b">（仅 <span class="keyword">IBM Cloud Marketplace</span>：）</strong>如果您已连接至位于 <span class="keyword">IBM Cloud Marketplace</span> 的 <span class="keyword">Application Security on Cloud</span> 服务，那么您提交到云的 <span class="keyword">IRX</span> 文件必须与现有 <span class="keyword">Application Security on Cloud</span> 应用程序关联。使用此选项，指定 <samp class="ph codeph">-a &lt;app_id&gt;</samp>，其中 <samp class="ph codeph">&lt;app_id&gt;</samp> 是要关联的应用程序的标识。要确定标识，请使用 <samp class="ph codeph">list_apps</samp> 命令。<div class="note note"><span class="notetitle">注：</span> 当您已连接至位于 <span class="keyword">Bluemix</span> 的 <span class="keyword">ASoC</span> 服务时，应用程序关联不适用。</div>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p">连接到 <span class="keyword">Bluemix</span> 上的服务时，请使用此命令。</p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__queue_analysis_examples_codeblock1"><code>appscan.sh queue_analysis -f my_<span class="keyword">irx</span><span class="keyword">.irx</span> -n my_scan</code></pre>
+<p class="p">以将 <span class="ph filepath">my_<span class="keyword">irx</span><span class="keyword">.irx</span></span>（位于当前目录中）提交到云以进行扫描。使用云用户界面或 <samp class="ph codeph">list</samp> 命令来查看所有当前扫描时，<samp class="ph codeph">my_scan</samp> 将出现在列表中。</p>
+
+<p class="p">连接到 <span class="keyword">IBM Cloud Marketplace</span> 上的服务时，请发出以上命令，但包含 <samp class="ph codeph">-a 12345</samp>，其中 <samp class="ph codeph">12345</samp> 是将扫描关联到的应用程序的标识（可以使用 <samp class="ph codeph">list_apps</samp> 命令来确定应用程序标识）。</p>
+</div>
+<div class="section" id="src_cli_linux_analysis__info"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__info_command">appscan.sh info</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__info_syntax"><code>appscan.sh info<span class="ph"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">显示指定分析作业的信息。</p>
+<p class="p">提供的信息可以用于自动执行脚本。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p">要接收有关作业标识 12345 的信息，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__info_examples_codeblock1"><code>appscan.sh info -i 12345</code></pre>
+<p class="p">返回的信息示例如下：</p>
+<pre class="pre codeblock"><code>NLowIssues=0
+ReadStatus=2
+NHighIssues=0
+Name=appscan.zip
+ScanEndTime=2014-11-20T13:56:04.497Z
+Progress=0
+RemainingFreeRescanMinutes=0
+ParentJobId=00000000-0000-0000-0000-000000000000
+EnableMailNotifications=false
+JobStatus=6
+NInfoIssues=0
+JobId=9b344fc7-bc70-e411-b922-005056924f9b
+NIssuesFound=0
+CreatedAt=2014-11-20T13:54:49.597Z
+UserMessage=Scan completed successfully. The report is ready.
+NMediumIssues=0
+Result=1</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_linux_global"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">全局命令</span>
+<span class="ph" id="os">（<span class="ph" id="os_nobracket">Linux 和 macOS</span>）</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用全局命令可以显示 CLI 帮助和 <span class="keyword">Static Analyzer Client Utility</span> 版本信息。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_global__help">appscan.sh help</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_global__version">appscan.sh version</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_global__help"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_global__help_command">appscan.sh help</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_global__help_syntax"><code>appscan.sh help &lt;command&gt;</code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">显示所有命令或单个命令的帮助。</p>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">&lt;command&gt;</samp>：要显示单个命令的帮助，请在此指定该命令。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p">要查看 <samp class="ph codeph">prepare</samp> 命令的帮助，请指定以下命令：</p>
+<pre class="pre codeblock" id="src_cli_linux_global__help_examples_codeblock1"><code>appscan.sh help prepare</code></pre>
+</div>
+<div class="section" id="src_cli_linux_global__version"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_global__version_command">appscan.sh version</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_global__version_syntax"><code>appscan.sh version</code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">显示 <span class="keyword">Static Analyzer Client Utility</span> 版本。</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_linux_config"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">配置命令</span>
+<span class="ph" id="os">（<span class="ph" id="os_nobracket">Linux 和 macOS</span>）</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用配置命令可以准备文件进行扫描。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_config__prepare">appscan.sh prepare</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_config__package">appscan.sh package</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_config__get_pubkey">appscan.sh get_pubkey</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_config__prepare"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_config__prepare_command">appscan.sh prepare</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_config__prepare_syntax"><code>appscan.sh prepare<span class="ph"> -c &lt;configuration_file&gt; -d &lt;save_path&gt; -l &lt;log_path&gt; -n &lt;file_name&gt; -t,--thirdParty -v,--verbose -X,--debug</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">生成 <span class="keyword">IRX</span> 文件。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-c</samp>：此选项用于配置扫描。</li>
+<li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;save_path&gt;</samp>，其中 <samp class="ph codeph">&lt;save_path&gt;</samp> 是用于保存 <span class="keyword">IRX</span> 文件的目录。</li>
+<li class="li"><samp class="ph codeph">-l</samp>：指定 <samp class="ph codeph">-l &lt;log_path&gt;</samp>，其中 <samp class="ph codeph">&lt;log_path&gt;</samp> 是要将日志文件保存到其中的目录。</li>
+<li class="li"><samp class="ph codeph">-n</samp>：指定 <samp class="ph codeph">-n &lt;file_name&gt;</samp>，其中 <samp class="ph codeph">&lt;file_name&gt;</samp> 为 <span class="keyword">IRX</span> 文件名。您可以指定带有或不带有 <span class="ph filepath"><span class="keyword">.irx</span></span> 文件扩展名的文件名。如果指定不带有扩展名的文件名，生成文件时将自动添加扩展名。</li>
+<li class="li"><samp class="ph codeph">-t,--thirdParty</samp>：<span class="ph" id="src_cli_linux_config__d1764e94">缺省情况下，在 <span class="keyword">IRX</span> 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循<a class="xref" href="readme.html#src_third_party" title="缺省情况下，在 IRX 文件生成期间不会扫描第三方 Java 和 .NET 代码。可通过遵循该主题中的以下主题来管理被排除的第三方代码。">管理第三方 Java and .NET 排除</a>中的指示信息来修改第三方代码排除设置。要包含第三方代码，请在发出 <samp class="ph codeph">prepare</samp> 命令时指定 <samp class="ph codeph">-t</samp> 或 <samp class="ph codeph">--thirdParty</samp> 选项。</span><p class="p">如果您是通常包含在扫描中的第三方代码的开发人员，应使用该设置来包含第三方代码。</p>
+</li>
+<li class="li"><samp class="ph codeph">-v,--verbose</samp>：指定 <samp class="ph codeph">-v</samp> 或 <samp class="ph codeph">--verbose</samp> 以在生成 <span class="keyword">IRX</span> 文件期间显示更多参考输出。</li>
+<li class="li"><samp class="ph codeph">-X,--debug</samp>：指定 <samp class="ph codeph">-X</samp> 或 <samp class="ph codeph">--debug</samp> 可在调试方式下运行整个命令。以调试方式运行时，将生成更多日志文件用于故障诊断。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_linux_config__prepare_examples_p1">要生成使用配置文件 <span class="ph filepath">/root/Desktop/my_config_files/my_config.xml</span> 并将 <span class="keyword">IRX</span> 文件保存到 <span class="ph filepath">/root/Desktop/my_<span class="keyword">irx</span>_files
+-n my_scan<span class="keyword">.irx</span></span> 的 <span class="keyword">IRX</span> 文件，请发出以下命令：</p>
+<pre class="pre codeblock" id="src_cli_linux_config__prepare_examples_codeblock1"><code>appscan.sh prepare -c /root/Desktop/my_config_files/my_config.xml -d /root/Desktop/my_<span class="keyword">irx</span>_files -n my_scan<span class="keyword">.irx</span></code></pre>
+</div>
+<div class="section" id="src_cli_linux_config__package"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_config__package_command">appscan.sh package</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_config__package_syntax"><code>appscan.sh package<span class="ph"> -d &lt;save_path&gt; -f &lt;assessment_file&gt; -n &lt;file_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">生成一个 <span class="keyword">IRX</span> 文件，其中包含在 <span class="keyword">IBM Security AppScan Source</span> V9.0 或更高产品版本中创建的评估 (<span class="ph filepath">.ozasmt</span>) 文件。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 扫描源代码或生成 <span class="keyword">IRX</span> 文件时，可能会收到有关更新到最新 <span class="keyword">Client Utility</span> 的消息。请参阅 <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 和云服务版本兼容性</a>。</div>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;save_path&gt;</samp>，其中 <samp class="ph codeph">&lt;save_path&gt;</samp> 是用于保存 <span class="keyword">IRX</span> 文件的目录。</li>
+<li class="li"><samp class="ph codeph">-f</samp>：指定 <samp class="ph codeph">-f &lt;assessment_file&gt;</samp>，其中 <samp class="ph codeph">&lt;assessment_file&gt;</samp> 是您希望打包以进行扫描的 <span class="ph filepath">.ozasmt</span> 文件。如果 <samp class="ph codeph">&lt;assessment_file&gt;</samp> 文件不在当前目录中，请使用此选项指定评估文件路径和文件名。<div class="note note"><span class="notetitle">注：</span> 仅当以下一个或两个语句都满足时，才需要该选项：
+<ul class="ul"><li class="li">您是从包含多个评估文件的目录发出的命令。如果该目录仅包含一个评估文件，那么未使用 <samp class="ph codeph">-f</samp> 选项时将对该文件打包。</li>
+<li class="li">您是从不包含评估文件的目录发出的命令。在此情况下，必须使用 <samp class="ph codeph">-f</samp> 选项来指定要打包的评估文件的路径和文件名。</li>
+</ul>
+</div>
+</li>
+<li class="li"><samp class="ph codeph">-n</samp>：指定 <samp class="ph codeph">-n &lt;file_name&gt;</samp>，其中 <samp class="ph codeph">&lt;file_name&gt;</samp> 为 <span class="keyword">IRX</span> 文件名。您可以指定带有或不带有 <span class="ph filepath"><span class="keyword">.irx</span></span> 文件扩展名的文件名。如果指定不带有扩展名的文件名，生成文件时将自动添加扩展名。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p" id="src_cli_linux_config__package_examples_p1">在 <span class="ph filepath">/root/Desktop/my_irx_files</span> 目录中，可以通过发出以下命令生成一个包含评估文件 <span class="ph filepath">/root/Desktop/my_assessment_files/my_assessment.ozasmt</span> 的 <span class="keyword">IRX</span> 文件：</p>
+<pre class="pre codeblock" id="src_cli_linux_config__package_examples_codeblock1"><code>appscan.sh package -f /root/Desktop/my_assessment_files/my_assessment.ozasmt</code></pre>
+<p class="p" id="src_cli_linux_config__package_examples_p2">生成的 <span class="keyword">IRX</span> 文件将保存在 <span class="ph filepath">/root/Desktop/my_irx_files</span> 中。</p>
+</div>
+<div class="section" id="src_cli_linux_config__get_pubkey"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_config__get_pubkey_command">appscan.sh get_pubkey</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_config__get_pubkey_syntax"><code>appscan.sh get_pubkey<span class="ph"> -d &lt;save_path&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">下载公用加密密钥以在未连接到因特网的计算机上使用。</p>
+<p class="p">如果从连接到因特网的计算机生成 <span class="keyword">IRX</span> 文件，那么不需要执行此命令，因为发出 <samp class="ph codeph">prepare</samp> 命令时将自动下载加密密钥。如果加密密钥已存在于计算机上，发出 <samp class="ph codeph">prepare</samp> 命令时将根据需要更新该加密密钥。</p>
+<p class="p">但是，如果从未连接到因特网的计算机生成 <span class="keyword">IRX</span> 文件，那么可使用此命令下载加密密钥。然后，可将加密密钥复制到未连接到因特网的计算机，以在生成 <span class="keyword">IRX</span> 文件时使用。
+要在此计算机上使用加密密钥，必须保存 <span class="ph filepath">rsa.pub</span> 文件名，并将此文件放到解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在的 <span class="ph filepath">config</span> 目录中（其中，<span class="ph filepath">&lt;version&gt;</span> 是 <span class="keyword">Client Utility</span> 的当前版本）。</p>
+<div class="note note"><span class="notetitle">注：</span> 使用的加密密钥必须是最新的。
+如果使用过时加密密钥生成 <span class="keyword">IRX</span> 文件，那么在上传 <span class="keyword">IRX</span> 文件时会拒绝此文件。如果计算机已连接到因特网，请再次发出 <samp class="ph codeph">prepare</samp> 命令以自动更新加密密钥。如果计算机未连接到因特网，将需要使用 <samp class="ph codeph">get_pubkey</samp> 命令。</div>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;save_path&gt;</samp>，其中 <samp class="ph codeph">&lt;save_path&gt;</samp> 是用于保存加密密钥的目录。如果未指定此选项，那么密钥将保存到解压缩的 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 文件所在的 <span class="ph filepath">config</span> 目录。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_linux_authenticate"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">认证命令</span>
+<span class="ph" id="os">（<span class="ph" id="os_nobracket">Linux 和 macOS</span>）</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用认证命令可登录到 <span class="keyword">ASoC</span> 服务。</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate__api_login">appscan.sh api_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate__scx_login">appscan.sh scx_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate__login">appscan.sh login</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_authenticate__api_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_authenticate__api_login_command">appscan.sh api_login</samp></h3>
+<p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_authenticate__api_login_syntax"><code>appscan.sh api_login<span class="ph"> -P &lt;key_secret&gt; -u &lt;key_id&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">描述：</strong></p>
+
+<p class="p">使用生成的 API 密钥在 <span class="keyword">IBM Cloud Marketplace</span> 上登录 <span class="keyword">ASoC</span> 服务。</p>
+
+<div class="note important"><span class="importanttitle">要点：</span> <samp class="ph codeph">api_login</samp> 命令仅用于从 CLI 登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务。要登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务，请使用 <samp class="ph codeph">login</samp> 命令。</div>
+
+<p class="p">登录服务时，名为 <span class="ph filepath">cli.token</span> 的加密密钥文件将保存到 <span class="ph filepath">home</span> 目录的 <span class="ph filepath">.appscan</span> 文件夹。
+然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他命令和操作引用。此令牌文件将在创建 2 小时后到期。它到期之后，您将需要再次登录服务以继续进一步的命令或操作，或者您可以在登录时包含 <samp class="ph codeph">-persist</samp> 选项。使用该选项时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-P</samp>：指定 <samp class="ph codeph">-P &lt;key_secret&gt;</samp>，其中 <samp class="ph codeph">&lt;key_secret&gt;</samp> 是生成 API 密钥时创建的<span class="ph uicontrol">密钥机密</span>。</li>
+<li class="li"><samp class="ph codeph">-u</samp>：指定 <samp class="ph codeph">-u &lt;key_id&gt;</samp>，其中 <samp class="ph codeph">&lt;key_id&gt;</samp> 是生成 API 密钥时创建的<span class="ph uicontrol">密钥标识</span>。</li>
+</ul>
+
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>：在登录令牌文件过期后自动尝试重新向服务认证。</li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+</div>
+<div class="section" id="src_cli_linux_authenticate__scx_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_authenticate__scx_login_command">appscan.sh
+scx_login</samp></h3>
+<div class="note note"><span class="notetitle">注：</span> 虽然支持此命令，但建议您改为使用 <a class="xref" href="readme.html#src_cli_linux_authenticate__api_login">appscan.sh api_login</a> 命令。</div>
+
+<p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_authenticate__scx_login_syntax"><code>appscan.sh scx_login<span class="ph"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">描述：</strong></p>
+
+<p class="p">使用 <span class="keyword">ASoC</span> 凭证登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务</p>
+
+<div class="note important"><span class="importanttitle">要点：</span> <samp class="ph codeph">scx_login</samp> 命令仅用于从 CLI 登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务。要登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务，请使用 <samp class="ph codeph">login</samp> 命令。</div>
+
+<p class="p">登录服务时，名为 <span class="ph filepath">cli.token</span> 的加密密钥文件将保存到 <span class="ph filepath">home</span> 目录的 <span class="ph filepath">.appscan</span> 文件夹。
+然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他命令和操作引用。此令牌文件将在创建 2 小时后到期。它到期之后，您将需要再次登录服务以继续进一步的命令或操作，或者您可以在登录时包含 <samp class="ph codeph">-persist</samp> 选项。使用该选项时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-P</samp>：指定 <samp class="ph codeph">-P &lt;password&gt;</samp>，其中 <samp class="ph codeph">&lt;password&gt;</samp> 是注册 <span class="keyword">ASoC</span> 服务时指定的密码。</li>
+<li class="li"><samp class="ph codeph">-u</samp>：指定 <samp class="ph codeph">-u &lt;user_name&gt;</samp>，其中 <samp class="ph codeph">&lt;user_name&gt;</samp> 是注册 <span class="keyword">ASoC</span> 服务时指定的电子邮件地址。</li>
+</ul>
+
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>：在登录令牌文件过期后自动尝试重新向服务认证。</li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+</div>
+<div class="section" id="src_cli_linux_authenticate__login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_authenticate__login_command">appscan.sh login</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_authenticate__login_syntax"><code>appscan.sh login<span class="ph"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务</p>
+<div class="note important"><span class="importanttitle">要点：</span> <samp class="ph codeph">login</samp> 命令仅用于从 CLI 登录到 <span class="keyword">Bluemix</span> 上的 <span class="keyword">ASoC</span> 服务。要登录到 <span class="keyword">IBM Cloud Marketplace</span> 上的 <span class="keyword">ASoC</span> 服务，请使用 <samp class="ph codeph">scx_login</samp> 或 <samp class="ph codeph">api_login</samp> 命令。</div>
+
+<p class="p">登录服务时，名为 <span class="ph filepath">cli.token</span> 的加密密钥文件将保存到 <span class="ph filepath">home</span> 目录的 <span class="ph filepath">.appscan</span> 文件夹。
+然后，在与 <span class="keyword">ASoC</span> 服务进行交互时，此令牌文件将由其他命令和操作引用。此令牌文件将在创建 2 小时后到期。它到期之后，您将需要再次登录服务以继续进一步的命令或操作，或者您可以在登录时包含 <samp class="ph codeph">-persist</samp> 选项。使用该选项时，<span class="keyword">Client Utility</span> 将在令牌到期时自动尝试重新认证到服务。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-P</samp>：指定 <samp class="ph codeph">-P &lt;password&gt;</samp>，其中 <samp class="ph codeph">&lt;password&gt;</samp> 是服务凭证中指定的密码。</li>
+<li class="li"><samp class="ph codeph">-u</samp>：指定 <samp class="ph codeph">-u &lt;user_name&gt;</samp>，其中 <samp class="ph codeph">&lt;user_name&gt;</samp> 是服务凭证中指定的绑定标识。</li>
+</ul>
+<p class="p">要确定 <span class="keyword">Bluemix</span> 服务凭证，在服务仪表板左边导航窗格中选择<span class="ph uicontrol">服务凭证</span>。请参阅<a class="xref" href="https://console.ng.bluemix.net/docs/services/reqnsi.html#accser_external">启用外部应用程序以使用 Bluemix 服务</a>。</p>
+
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>：在登录令牌文件过期后自动尝试重新向服务认证。</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+<p class="p"><strong class="ph b">示例：</strong></p>
+<p class="p">要使用绑定标识 <samp class="ph codeph">123-mybindingid-456</samp> 和密码 <samp class="ph codeph">123-mypassword-456</samp> 登录到云，请发出以下命令：</p>
+<pre class="pre codeblock" id="src_cli_linux_authenticate__login_examples_codeblock1"><code>appscan.sh login -P 123-mypassword-456 -u 123-mybindingid-456</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="zh-cn" id="src_cli_linux_results"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">结果命令</span>
+<span class="ph" id="os">（<span class="ph" id="os_nobracket">Linux 和 macOS</span>）</span></span></h2>
+<div class="body refbody"><p class="shortdesc">使用结果命令可以从分析服务中检索扫描结果。</p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_results__get_result_command">appscan.sh get_result</samp></h3><p class="p"><strong class="ph b">语法：</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_results__get_result_syntax"><code>appscan.sh get_result<span class="ph"> -d &lt;file_path&gt; -i &lt;job_id&gt; -t &lt;type&gt;</span></code></pre>
+<p class="p"><strong class="ph b">描述：</strong></p>
+<p class="p">检索扫描结果。</p>
+<p class="p">使用这些命令之前，确保已登录到分析服务。</p>
+<p class="p"><strong class="ph b">必需选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>：指定 <samp class="ph codeph">-i &lt;job_id&gt;</samp>，其中 <samp class="ph codeph">&lt;job_id&gt;</samp> 是分析作业的标识。</li>
+</ul>
+<p class="p"><strong class="ph b">可选选项：</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-d</samp>：指定 <samp class="ph codeph">-d &lt;file_path&gt;</samp>，其中 <samp class="ph codeph">&lt;file_path&gt;</samp> 是目标文件的标准路径和/或目标文件的文件名。
+如果未指定文件名，那么文件名基于扫描作业名。如果未指定路径，那么文件将保存到当前目录。如果未包含该选项，那么文件将以基于扫描作业名的文件名保存到当前目录。</li>
+<li class="li"><samp class="ph codeph">-t</samp>：指定 <samp class="ph codeph">-t &lt;type&gt;</samp>，其中 <samp class="ph codeph">&lt;type&gt;</samp> 是 <samp class="ph codeph">html</samp> 或 <samp class="ph codeph">zip</samp>。这使您能够将结果另存为 HTML 文件或包含 HTML 结果的 <span class="ph filepath">.zip</span> 文件。如果未包含该选项，结果将另存为 HTML 文件。<p class="p">如果扫描结果是针对 <samp class="ph codeph">package</samp> 命令所生成的 <span class="keyword">IRX</span> 文件，那么指定 <samp class="ph codeph">-t zip</samp> 会保存包含新 <span class="ph filepath">.ozasmt</span> 文件的结果，该文件可以装入到 <span class="keyword">AppScan Source</span> V9.0 或更高产品版本中。</p>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">提示：</span> 对于所有命令，选项都可以按任意顺序使用。</div>
+</div>
+</div>
+</div>
+</div>
+<div class="topic reference nested0" xml:lang="zh-cn" id="rellinks"><h1 class="title topictitle1">相关链接</h1>
+<div class="related-links">
+<div class="linklist linklist"><strong class="linklistlabel">API 参考</strong><br />
+
+<div><img src="./sout.gif" alt="" /><a class="link" href="https://appscan.bluemix.net/swagger/" target="_blank" title="（在新的选项卡或窗口中打开）">REST API 参考</a></div></div>
+</div></div>
+</div></body>
+</html>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="RecursiveIteratorIterator">
+      <method vuln_id="1089004">
+        <simple_name>___Php.RecursiveIteratorIterator.__construct</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.__construct(mixed;int;int):void</signature>
+        <comment>Creates a RecursiveIteratorIterator from a RecursiveIterator.</comment>
+      </method>
+      <method vuln_id="1088782">
+        <simple_name>___Php.RecursiveIteratorIterator.beginChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.beginChildren():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when recursing one level down</comment>
+      </method>
+      <method vuln_id="1088852">
+        <simple_name>___Php.RecursiveIteratorIterator.beginIteration</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.beginIteration():___Php.RecursiveIterator</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when iteration begins (after first rewind() call)</comment>
+      </method>
+      <method vuln_id="1088741">
+        <simple_name>___Php.RecursiveIteratorIterator.callGetChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.callGetChildren():___Php.RecursiveIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return children of current element</comment>
+      </method>
+      <method vuln_id="1089028">
+        <simple_name>___Php.RecursiveIteratorIterator.callHasChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.callHasChildren():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Called for each element to test whether it has children</comment>
+      </method>
+      <method vuln_id="1088723">
+        <simple_name>___Php.RecursiveIteratorIterator.current</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.current():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Access the current element value</comment>
+      </method>
+      <method vuln_id="1088756">
+        <simple_name>___Php.RecursiveIteratorIterator.endChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.endChildren():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when end recursing one level</comment>
+      </method>
+      <method vuln_id="1088699">
+        <simple_name>___Php.RecursiveIteratorIterator.endIteration</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.endIteration():___Php.RecursiveIterator</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when iteration ends (when valid() first returns false</comment>
+      </method>
+      <method vuln_id="1088768">
+        <simple_name>___Php.RecursiveIteratorIterator.getDepth</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getDepth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Get the current depth of the recursive iteration</comment>
+      </method>
+      <method vuln_id="1088809">
+        <simple_name>___Php.RecursiveIteratorIterator.getInnerIterator</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getInnerIterator():___Php.RecursiveIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>The current active sub iterator</comment>
+      </method>
+      <method vuln_id="1088870">
+        <simple_name>___Php.RecursiveIteratorIterator.getMaxDepth</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getMaxDepth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the maximum accepted depth or false if any depth is allowed</comment>
+      </method>
+      <method vuln_id="1088710">
+        <simple_name>___Php.RecursiveIteratorIterator.getSubIterator</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getSubIterator(int):___Php.RecursiveIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>The current active sub iterator or the iterator at specified level</comment>
+      </method>
+      <method vuln_id="1089032">
+        <simple_name>___Php.RecursiveIteratorIterator.key</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.key():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Access the current key</comment>
+      </method>
+      <method vuln_id="1088879">
+        <simple_name>___Php.RecursiveIteratorIterator.next</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Move forward to the next element</comment>
+      </method>
+      <method vuln_id="1088754">
+        <simple_name>___Php.RecursiveIteratorIterator.nextElement</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.nextElement():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when the next element is available</comment>
+      </method>
+      <method vuln_id="1088918">
+        <simple_name>___Php.RecursiveIteratorIterator.rewind</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.rewind():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Rewind the iterator to the first element of the top level inner iterator.</comment>
+      </method>
+      <method vuln_id="1088924">
+        <simple_name>___Php.RecursiveIteratorIterator.setMaxDepth</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.setMaxDepth(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <comment>Set the maximum allowed depth (or any depth if pmax_depth</comment>
+      </method>
+      <method vuln_id="1089023">
+        <simple_name>___Php.RecursiveIteratorIterator.valid</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.valid():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Check whether the current position is valid</comment>
+      </method>
+    </class>
+    <class name="RecursiveIteratorIterator">
+      <method vuln_id="1089004">
+        <simple_name>___Php.RecursiveIteratorIterator.__construct</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.__construct(mixed;int;int):void</signature>
+        <comment>Creates a RecursiveIteratorIterator from a RecursiveIterator.</comment>
+      </method>
+      <method vuln_id="1088782">
+        <simple_name>___Php.RecursiveIteratorIterator.beginChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.beginChildren():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when recursing one level down</comment>
+      </method>
+      <method vuln_id="1088852">
+        <simple_name>___Php.RecursiveIteratorIterator.beginIteration</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.beginIteration():___Php.RecursiveIterator</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when iteration begins (after first rewind() call)</comment>
+      </method>
+      <method vuln_id="1088741">
+        <simple_name>___Php.RecursiveIteratorIterator.callGetChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.callGetChildren():___Php.RecursiveIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return children of current element</comment>
+      </method>
+      <method vuln_id="1089028">
+        <simple_name>___Php.RecursiveIteratorIterator.callHasChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.callHasChildren():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Called for each element to test whether it has children</comment>
+      </method>
+      <method vuln_id="1088723">
+        <simple_name>___Php.RecursiveIteratorIterator.current</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.current():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Access the current element value</comment>
+      </method>
+      <method vuln_id="1088756">
+        <simple_name>___Php.RecursiveIteratorIterator.endChildren</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.endChildren():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when end recursing one level</comment>
+      </method>
+      <method vuln_id="1088699">
+        <simple_name>___Php.RecursiveIteratorIterator.endIteration</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.endIteration():___Php.RecursiveIterator</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when iteration ends (when valid() first returns false</comment>
+      </method>
+      <method vuln_id="1088768">
+        <simple_name>___Php.RecursiveIteratorIterator.getDepth</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getDepth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Get the current depth of the recursive iteration</comment>
+      </method>
+      <method vuln_id="1088809">
+        <simple_name>___Php.RecursiveIteratorIterator.getInnerIterator</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getInnerIterator():___Php.RecursiveIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>The current active sub iterator</comment>
+      </method>
+      <method vuln_id="1088870">
+        <simple_name>___Php.RecursiveIteratorIterator.getMaxDepth</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getMaxDepth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the maximum accepted depth or false if any depth is allowed</comment>
+      </method>
+      <method vuln_id="1088710">
+        <simple_name>___Php.RecursiveIteratorIterator.getSubIterator</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.getSubIterator(int):___Php.RecursiveIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>The current active sub iterator or the iterator at specified level</comment>
+      </method>
+      <method vuln_id="1089032">
+        <simple_name>___Php.RecursiveIteratorIterator.key</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.key():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Access the current key</comment>
+      </method>
+      <method vuln_id="1088879">
+        <simple_name>___Php.RecursiveIteratorIterator.next</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Move forward to the next element</comment>
+      </method>
+      <method vuln_id="1088754">
+        <simple_name>___Php.RecursiveIteratorIterator.nextElement</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.nextElement():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Called when the next element is available</comment>
+      </method>
+      <method vuln_id="1088918">
+        <simple_name>___Php.RecursiveIteratorIterator.rewind</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.rewind():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Rewind the iterator to the first element of the top level inner iterator.</comment>
+      </method>
+      <method vuln_id="1088924">
+        <simple_name>___Php.RecursiveIteratorIterator.setMaxDepth</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.setMaxDepth(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <comment>Set the maximum allowed depth (or any depth if pmax_depth</comment>
+      </method>
+      <method vuln_id="1089023">
+        <simple_name>___Php.RecursiveIteratorIterator.valid</simple_name>
+        <signature>___Php.RecursiveIteratorIterator.valid():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Check whether the current position is valid</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

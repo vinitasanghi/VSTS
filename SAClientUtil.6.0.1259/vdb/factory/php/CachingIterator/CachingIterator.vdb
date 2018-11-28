@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="CachingIterator">
+      <method vuln_id="1088783">
+        <simple_name>___Php.CachingIterator.__construct</simple_name>
+        <signature>___Php.CachingIterator.__construct(___Php.Iterator;int):void</signature>
+        <comment>Construct a CachingIterator from an Iterator</comment>
+      </method>
+      <method vuln_id="1088900">
+        <simple_name>___Php.CachingIterator.__toString</simple_name>
+        <signature>___Php.CachingIterator.__toString():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the string representation of the current element</comment>
+      </method>
+      <method vuln_id="1088822">
+        <simple_name>___Php.CachingIterator.count</simple_name>
+        <signature>___Php.CachingIterator.count():int</signature>
+        <does_not_propagate_taint/>
+        <comment>Number of cached elements</comment>
+      </method>
+      <method vuln_id="1088669">
+        <simple_name>___Php.CachingIterator.getCache</simple_name>
+        <signature>___Php.CachingIterator.getCache():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the cache</comment>
+      </method>
+      <method vuln_id="1088806">
+        <simple_name>___Php.CachingIterator.getFlags</simple_name>
+        <signature>___Php.CachingIterator.getFlags():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the internal flags</comment>
+      </method>
+      <method vuln_id="1088989">
+        <simple_name>___Php.CachingIterator.hasNext</simple_name>
+        <signature>___Php.CachingIterator.hasNext():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Check whether the inner iterator has a valid next element</comment>
+      </method>
+      <method vuln_id="1088794">
+        <simple_name>___Php.CachingIterator.next</simple_name>
+        <signature>___Php.CachingIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Move the iterator forward</comment>
+      </method>
+      <method vuln_id="1088825">
+        <simple_name>___Php.CachingIterator.offsetExists</simple_name>
+        <signature>___Php.CachingIterator.offsetExists(mixed):bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Return whether the requested index exists</comment>
+      </method>
+      <method vuln_id="1089000">
+        <simple_name>___Php.CachingIterator.offsetGet</simple_name>
+        <signature>___Php.CachingIterator.offsetGet(mixed):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the internal cache if used</comment>
+      </method>
+      <method vuln_id="1088690">
+        <simple_name>___Php.CachingIterator.offsetSet</simple_name>
+        <signature>___Php.CachingIterator.offsetSet(mixed;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <comment>Set given index in cache</comment>
+      </method>
+      <method vuln_id="1089008">
+        <simple_name>___Php.CachingIterator.offsetUnset</simple_name>
+        <signature>___Php.CachingIterator.offsetUnset(mixed):void</signature>
+        <does_not_propagate_taint/>
+        <comment>Unset given index in cache</comment>
+      </method>
+      <method vuln_id="1088743">
+        <simple_name>___Php.CachingIterator.rewind</simple_name>
+        <signature>___Php.CachingIterator.rewind():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Rewind the iterator</comment>
+      </method>
+      <method vuln_id="1088712">
+        <simple_name>___Php.CachingIterator.setFlags</simple_name>
+        <signature>___Php.CachingIterator.setFlags(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <comment>Set the internal flags</comment>
+      </method>
+      <method vuln_id="1088923">
+        <simple_name>___Php.CachingIterator.valid</simple_name>
+        <signature>___Php.CachingIterator.valid():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Check whether the current element is valid</comment>
+      </method>
+    </class>
+    <class name="CachingIterator">
+      <method vuln_id="1088783">
+        <simple_name>___Php.CachingIterator.__construct</simple_name>
+        <signature>___Php.CachingIterator.__construct(___Php.Iterator;int):void</signature>
+        <comment>Construct a CachingIterator from an Iterator</comment>
+      </method>
+      <method vuln_id="1088900">
+        <simple_name>___Php.CachingIterator.__toString</simple_name>
+        <signature>___Php.CachingIterator.__toString():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the string representation of the current element</comment>
+      </method>
+      <method vuln_id="1088822">
+        <simple_name>___Php.CachingIterator.count</simple_name>
+        <signature>___Php.CachingIterator.count():int</signature>
+        <does_not_propagate_taint/>
+        <comment>Number of cached elements</comment>
+      </method>
+      <method vuln_id="1088669">
+        <simple_name>___Php.CachingIterator.getCache</simple_name>
+        <signature>___Php.CachingIterator.getCache():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the cache</comment>
+      </method>
+      <method vuln_id="1088806">
+        <simple_name>___Php.CachingIterator.getFlags</simple_name>
+        <signature>___Php.CachingIterator.getFlags():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the internal flags</comment>
+      </method>
+      <method vuln_id="1088989">
+        <simple_name>___Php.CachingIterator.hasNext</simple_name>
+        <signature>___Php.CachingIterator.hasNext():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Check whether the inner iterator has a valid next element</comment>
+      </method>
+      <method vuln_id="1088794">
+        <simple_name>___Php.CachingIterator.next</simple_name>
+        <signature>___Php.CachingIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Move the iterator forward</comment>
+      </method>
+      <method vuln_id="1088825">
+        <simple_name>___Php.CachingIterator.offsetExists</simple_name>
+        <signature>___Php.CachingIterator.offsetExists(mixed):bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Return whether the requested index exists</comment>
+      </method>
+      <method vuln_id="1089000">
+        <simple_name>___Php.CachingIterator.offsetGet</simple_name>
+        <signature>___Php.CachingIterator.offsetGet(mixed):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return the internal cache if used</comment>
+      </method>
+      <method vuln_id="1088690">
+        <simple_name>___Php.CachingIterator.offsetSet</simple_name>
+        <signature>___Php.CachingIterator.offsetSet(mixed;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <comment>Set given index in cache</comment>
+      </method>
+      <method vuln_id="1089008">
+        <simple_name>___Php.CachingIterator.offsetUnset</simple_name>
+        <signature>___Php.CachingIterator.offsetUnset(mixed):void</signature>
+        <does_not_propagate_taint/>
+        <comment>Unset given index in cache</comment>
+      </method>
+      <method vuln_id="1088743">
+        <simple_name>___Php.CachingIterator.rewind</simple_name>
+        <signature>___Php.CachingIterator.rewind():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Rewind the iterator</comment>
+      </method>
+      <method vuln_id="1088712">
+        <simple_name>___Php.CachingIterator.setFlags</simple_name>
+        <signature>___Php.CachingIterator.setFlags(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <comment>Set the internal flags</comment>
+      </method>
+      <method vuln_id="1088923">
+        <simple_name>___Php.CachingIterator.valid</simple_name>
+        <signature>___Php.CachingIterator.valid():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Check whether the current element is valid</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

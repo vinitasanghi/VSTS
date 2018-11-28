@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SQLiteResult">
+      <method vuln_id="1089105">
+        <simple_name>___Php.SQLiteResult.column</simple_name>
+        <signature>___Php.SQLiteResult.column(mixed;bool):mixed</signature>
+        <info_rule id="456463"/>
+        <source_rule id="456462">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches a column from the current row of a result set.</comment>
+      </method>
+      <method vuln_id="1089121">
+        <simple_name>___Php.SQLiteResult.current</simple_name>
+        <signature>___Php.SQLiteResult.current(int;bool):___Php.Array</signature>
+        <info_rule id="456491"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the current row from a result set as an array.</comment>
+      </method>
+      <method vuln_id="1089074">
+        <simple_name>___Php.SQLiteResult.fetch</simple_name>
+        <signature>___Php.SQLiteResult.fetch(int;bool):___Php.Array</signature>
+        <info_rule id="456415"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row from a result set as an array.</comment>
+      </method>
+      <method vuln_id="1089059">
+        <simple_name>___Php.SQLiteResult.fetchAll</simple_name>
+        <signature>___Php.SQLiteResult.fetchAll(int;bool):___Php.Array</signature>
+        <info_rule id="456396"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches all rows from a result set as an array of arrays.</comment>
+      </method>
+      <method vuln_id="1089067">
+        <simple_name>___Php.SQLiteResult.fetchObject</simple_name>
+        <signature>___Php.SQLiteResult.fetchObject(___Php.String;___Php.Array;bool):object</signature>
+        <info_rule id="456408"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row from a result set as an object.</comment>
+      </method>
+      <method vuln_id="1089107">
+        <simple_name>___Php.SQLiteResult.fetchSingle</simple_name>
+        <signature>___Php.SQLiteResult.fetchSingle(bool):___Php.String</signature>
+        <info_rule id="456465"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the first column of a result set as a string.</comment>
+      </method>
+      <method vuln_id="1089080">
+        <simple_name>___Php.SQLiteResult.fieldName</simple_name>
+        <signature>___Php.SQLiteResult.fieldName(int):___Php.String</signature>
+        <info_rule id="456425"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the name of a particular field of a result set.</comment>
+      </method>
+      <method vuln_id="1089084">
+        <simple_name>___Php.SQLiteResult.hasPrev</simple_name>
+        <signature>___Php.SQLiteResult.hasPrev():bool</signature>
+        <info_rule id="456429"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Returns whether a previous row is available.</comment>
+      </method>
+      <method vuln_id="1089104">
+        <simple_name>___Php.SQLiteResult.key</simple_name>
+        <signature>___Php.SQLiteResult.key():int</signature>
+        <info_rule id="456461"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return the current row index of a buffered result.</comment>
+      </method>
+      <method vuln_id="1089094">
+        <simple_name>___Php.SQLiteResult.next</simple_name>
+        <signature>___Php.SQLiteResult.next():bool</signature>
+        <info_rule id="456446"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to the next row number of a result set.</comment>
+      </method>
+      <method vuln_id="1089057">
+        <simple_name>___Php.SQLiteResult.numFields</simple_name>
+        <signature>___Php.SQLiteResult.numFields():int</signature>
+        <info_rule id="456394"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of fields in a result set.</comment>
+      </method>
+      <method vuln_id="1089083">
+        <simple_name>___Php.SQLiteResult.numRows</simple_name>
+        <signature>___Php.SQLiteResult.numRows():int</signature>
+        <info_rule id="456428"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of rows in a buffered result set.</comment>
+      </method>
+      <method vuln_id="1089115">
+        <simple_name>___Php.SQLiteResult.prev</simple_name>
+        <signature>___Php.SQLiteResult.prev():bool</signature>
+        <info_rule id="456481"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to the previous row number of a result set.</comment>
+      </method>
+      <method vuln_id="1089069">
+        <simple_name>___Php.SQLiteResult.rewind</simple_name>
+        <signature>___Php.SQLiteResult.rewind():bool</signature>
+        <info_rule id="456410"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to the first row number of a buffered result set.</comment>
+      </method>
+      <method vuln_id="1089085">
+        <simple_name>___Php.SQLiteResult.seek</simple_name>
+        <signature>___Php.SQLiteResult.seek(int):bool</signature>
+        <info_rule id="456430"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to a particular row number of a buffered result set.</comment>
+      </method>
+      <method vuln_id="1089072">
+        <simple_name>___Php.SQLiteResult.valid</simple_name>
+        <signature>___Php.SQLiteResult.valid():bool</signature>
+        <info_rule id="456413"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Returns whether more rows are available.</comment>
+      </method>
+    </class>
+    <class name="SQLiteResult">
+      <method vuln_id="1089105">
+        <simple_name>___Php.SQLiteResult.column</simple_name>
+        <signature>___Php.SQLiteResult.column(mixed;bool):mixed</signature>
+        <info_rule id="456463"/>
+        <source_rule id="456462">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches a column from the current row of a result set.</comment>
+      </method>
+      <method vuln_id="1089121">
+        <simple_name>___Php.SQLiteResult.current</simple_name>
+        <signature>___Php.SQLiteResult.current(int;bool):___Php.Array</signature>
+        <info_rule id="456491"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the current row from a result set as an array.</comment>
+      </method>
+      <method vuln_id="1089074">
+        <simple_name>___Php.SQLiteResult.fetch</simple_name>
+        <signature>___Php.SQLiteResult.fetch(int;bool):___Php.Array</signature>
+        <info_rule id="456415"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row from a result set as an array.</comment>
+      </method>
+      <method vuln_id="1089059">
+        <simple_name>___Php.SQLiteResult.fetchAll</simple_name>
+        <signature>___Php.SQLiteResult.fetchAll(int;bool):___Php.Array</signature>
+        <info_rule id="456396"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches all rows from a result set as an array of arrays.</comment>
+      </method>
+      <method vuln_id="1089067">
+        <simple_name>___Php.SQLiteResult.fetchObject</simple_name>
+        <signature>___Php.SQLiteResult.fetchObject(___Php.String;___Php.Array;bool):object</signature>
+        <info_rule id="456408"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row from a result set as an object.</comment>
+      </method>
+      <method vuln_id="1089107">
+        <simple_name>___Php.SQLiteResult.fetchSingle</simple_name>
+        <signature>___Php.SQLiteResult.fetchSingle(bool):___Php.String</signature>
+        <info_rule id="456465"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the first column of a result set as a string.</comment>
+      </method>
+      <method vuln_id="1089080">
+        <simple_name>___Php.SQLiteResult.fieldName</simple_name>
+        <signature>___Php.SQLiteResult.fieldName(int):___Php.String</signature>
+        <info_rule id="456425"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the name of a particular field of a result set.</comment>
+      </method>
+      <method vuln_id="1089084">
+        <simple_name>___Php.SQLiteResult.hasPrev</simple_name>
+        <signature>___Php.SQLiteResult.hasPrev():bool</signature>
+        <info_rule id="456429"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Returns whether a previous row is available.</comment>
+      </method>
+      <method vuln_id="1089104">
+        <simple_name>___Php.SQLiteResult.key</simple_name>
+        <signature>___Php.SQLiteResult.key():int</signature>
+        <info_rule id="456461"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return the current row index of a buffered result.</comment>
+      </method>
+      <method vuln_id="1089094">
+        <simple_name>___Php.SQLiteResult.next</simple_name>
+        <signature>___Php.SQLiteResult.next():bool</signature>
+        <info_rule id="456446"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to the next row number of a result set.</comment>
+      </method>
+      <method vuln_id="1089057">
+        <simple_name>___Php.SQLiteResult.numFields</simple_name>
+        <signature>___Php.SQLiteResult.numFields():int</signature>
+        <info_rule id="456394"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of fields in a result set.</comment>
+      </method>
+      <method vuln_id="1089083">
+        <simple_name>___Php.SQLiteResult.numRows</simple_name>
+        <signature>___Php.SQLiteResult.numRows():int</signature>
+        <info_rule id="456428"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of rows in a buffered result set.</comment>
+      </method>
+      <method vuln_id="1089115">
+        <simple_name>___Php.SQLiteResult.prev</simple_name>
+        <signature>___Php.SQLiteResult.prev():bool</signature>
+        <info_rule id="456481"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to the previous row number of a result set.</comment>
+      </method>
+      <method vuln_id="1089069">
+        <simple_name>___Php.SQLiteResult.rewind</simple_name>
+        <signature>___Php.SQLiteResult.rewind():bool</signature>
+        <info_rule id="456410"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to the first row number of a buffered result set.</comment>
+      </method>
+      <method vuln_id="1089085">
+        <simple_name>___Php.SQLiteResult.seek</simple_name>
+        <signature>___Php.SQLiteResult.seek(int):bool</signature>
+        <info_rule id="456430"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Seek to a particular row number of a buffered result set.</comment>
+      </method>
+      <method vuln_id="1089072">
+        <simple_name>___Php.SQLiteResult.valid</simple_name>
+        <signature>___Php.SQLiteResult.valid():bool</signature>
+        <info_rule id="456413"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Returns whether more rows are available.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

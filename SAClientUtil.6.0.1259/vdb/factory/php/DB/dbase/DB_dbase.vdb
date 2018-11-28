@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_dbase">
+      <method vuln_id="-1">
+        <simple_name>DB_dbase.DB_common</simple_name>
+        <signature>DB_dbase.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase.DB_dbase</simple_name>
+        <signature>DB_dbase.DB_dbase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_dbase._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase._rtrimArrayValues</simple_name>
+        <signature>DB_dbase._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090603">
+        <simple_name>DB_dbase.connect</simple_name>
+        <signature>DB_dbase.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451043">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090602">
+        <simple_name>DB_dbase.disconnect</simple_name>
+        <signature>DB_dbase.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090599">
+        <simple_name>DB_dbase.fetchInto</simple_name>
+        <signature>DB_dbase.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480717"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090601">
+        <simple_name>DB_dbase.freeResult</simple_name>
+        <signature>DB_dbase.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090604">
+        <simple_name>DB_dbase.numCols</simple_name>
+        <signature>DB_dbase.numCols($foo):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090600">
+        <simple_name>DB_dbase.numRows</simple_name>
+        <signature>DB_dbase.numRows($foo):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090598">
+        <simple_name>DB_dbase.query</simple_name>
+        <signature>DB_dbase.query($query):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090597">
+        <simple_name>DB_dbase.quoteBoolean</simple_name>
+        <signature>DB_dbase.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase.raiseError</simple_name>
+        <signature>DB_dbase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090605">
+        <simple_name>DB_dbase.tableInfo</simple_name>
+        <signature>DB_dbase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_dbase">
+      <method vuln_id="-1">
+        <simple_name>DB_dbase.DB_common</simple_name>
+        <signature>DB_dbase.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase.DB_dbase</simple_name>
+        <signature>DB_dbase.DB_dbase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_dbase._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase._rtrimArrayValues</simple_name>
+        <signature>DB_dbase._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090603">
+        <simple_name>DB_dbase.connect</simple_name>
+        <signature>DB_dbase.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451043">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090602">
+        <simple_name>DB_dbase.disconnect</simple_name>
+        <signature>DB_dbase.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090599">
+        <simple_name>DB_dbase.fetchInto</simple_name>
+        <signature>DB_dbase.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480717"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090601">
+        <simple_name>DB_dbase.freeResult</simple_name>
+        <signature>DB_dbase.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090604">
+        <simple_name>DB_dbase.numCols</simple_name>
+        <signature>DB_dbase.numCols($foo):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090600">
+        <simple_name>DB_dbase.numRows</simple_name>
+        <signature>DB_dbase.numRows($foo):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090598">
+        <simple_name>DB_dbase.query</simple_name>
+        <signature>DB_dbase.query($query):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090597">
+        <simple_name>DB_dbase.quoteBoolean</simple_name>
+        <signature>DB_dbase.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_dbase.raiseError</simple_name>
+        <signature>DB_dbase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090605">
+        <simple_name>DB_dbase.tableInfo</simple_name>
+        <signature>DB_dbase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

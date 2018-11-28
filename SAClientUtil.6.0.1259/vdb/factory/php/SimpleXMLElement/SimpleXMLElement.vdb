@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SimpleXMLElement">
+      <method vuln_id="1122190">
+        <simple_name>SimpleXMLElement.addChild</simple_name>
+        <signature>SimpleXMLElement.addChild(Arg#0):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SimpleXMLElement.attributes</simple_name>
+        <signature>SimpleXMLElement.attributes(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SimpleXMLElement.children</simple_name>
+        <signature>SimpleXMLElement.children(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1122378">
+        <simple_name>SimpleXMLElement.getName</simple_name>
+        <signature>SimpleXMLElement.getName():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1088578">
+        <simple_name>___Php.SimpleXMLElement.__construct</simple_name>
+        <signature>___Php.SimpleXMLElement.__construct(___Php.String;int;bool;___Php.String;bool):void</signature>
+      </method>
+      <method vuln_id="1088583">
+        <simple_name>___Php.SimpleXMLElement.addAttribute</simple_name>
+        <signature>___Php.SimpleXMLElement.addAttribute(___Php.String;___Php.String;___Php.String):void</signature>
+        <info_rule id="456062"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088576">
+        <simple_name>___Php.SimpleXMLElement.addChild</simple_name>
+        <signature>___Php.SimpleXMLElement.addChild(___Php.String;___Php.String;___Php.String):void</signature>
+        <info_rule id="456053"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088574">
+        <simple_name>___Php.SimpleXMLElement.asXML</simple_name>
+        <signature>___Php.SimpleXMLElement.asXML(___Php.String):___Php.String</signature>
+        <info_rule id="456050"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088575">
+        <simple_name>___Php.SimpleXMLElement.attributes</simple_name>
+        <signature>___Php.SimpleXMLElement.attributes(___Php.String;bool):___Php.SimpleXMLElement</signature>
+        <info_rule id="456051"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088584">
+        <simple_name>___Php.SimpleXMLElement.children</simple_name>
+        <signature>___Php.SimpleXMLElement.children(___Php.String;bool):___Php.SimpleXMLElement</signature>
+        <info_rule id="456063"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088585">
+        <simple_name>___Php.SimpleXMLElement.getDocNamespaces</simple_name>
+        <signature>___Php.SimpleXMLElement.getDocNamespaces(bool):___Php.Array</signature>
+        <info_rule id="456064"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088586">
+        <simple_name>___Php.SimpleXMLElement.getName</simple_name>
+        <signature>___Php.SimpleXMLElement.getName():atring</signature>
+        <info_rule id="456065"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088582">
+        <simple_name>___Php.SimpleXMLElement.getNamespaces</simple_name>
+        <signature>___Php.SimpleXMLElement.getNamespaces(bool):___Php.Array</signature>
+        <info_rule id="456060"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088577">
+        <simple_name>___Php.SimpleXMLElement.registerXPathNamespace</simple_name>
+        <signature>___Php.SimpleXMLElement.registerXPathNamespace(___Php.String;___Php.String):bool</signature>
+        <info_rule id="456054"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088580">
+        <simple_name>___Php.SimpleXMLElement.xpath</simple_name>
+        <signature>___Php.SimpleXMLElement.xpath(___Php.String):___Php.Array</signature>
+        <info_rule id="456057"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XPath</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+    </class>
+    <class name="SimpleXMLElement">
+      <method vuln_id="1122190">
+        <simple_name>SimpleXMLElement.addChild</simple_name>
+        <signature>SimpleXMLElement.addChild(Arg#0):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SimpleXMLElement.attributes</simple_name>
+        <signature>SimpleXMLElement.attributes(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SimpleXMLElement.children</simple_name>
+        <signature>SimpleXMLElement.children(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1122378">
+        <simple_name>SimpleXMLElement.getName</simple_name>
+        <signature>SimpleXMLElement.getName():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1088578">
+        <simple_name>___Php.SimpleXMLElement.__construct</simple_name>
+        <signature>___Php.SimpleXMLElement.__construct(___Php.String;int;bool;___Php.String;bool):void</signature>
+      </method>
+      <method vuln_id="1088583">
+        <simple_name>___Php.SimpleXMLElement.addAttribute</simple_name>
+        <signature>___Php.SimpleXMLElement.addAttribute(___Php.String;___Php.String;___Php.String):void</signature>
+        <info_rule id="456062"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088576">
+        <simple_name>___Php.SimpleXMLElement.addChild</simple_name>
+        <signature>___Php.SimpleXMLElement.addChild(___Php.String;___Php.String;___Php.String):void</signature>
+        <info_rule id="456053"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088574">
+        <simple_name>___Php.SimpleXMLElement.asXML</simple_name>
+        <signature>___Php.SimpleXMLElement.asXML(___Php.String):___Php.String</signature>
+        <info_rule id="456050"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088575">
+        <simple_name>___Php.SimpleXMLElement.attributes</simple_name>
+        <signature>___Php.SimpleXMLElement.attributes(___Php.String;bool):___Php.SimpleXMLElement</signature>
+        <info_rule id="456051"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088584">
+        <simple_name>___Php.SimpleXMLElement.children</simple_name>
+        <signature>___Php.SimpleXMLElement.children(___Php.String;bool):___Php.SimpleXMLElement</signature>
+        <info_rule id="456063"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088585">
+        <simple_name>___Php.SimpleXMLElement.getDocNamespaces</simple_name>
+        <signature>___Php.SimpleXMLElement.getDocNamespaces(bool):___Php.Array</signature>
+        <info_rule id="456064"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088586">
+        <simple_name>___Php.SimpleXMLElement.getName</simple_name>
+        <signature>___Php.SimpleXMLElement.getName():atring</signature>
+        <info_rule id="456065"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088582">
+        <simple_name>___Php.SimpleXMLElement.getNamespaces</simple_name>
+        <signature>___Php.SimpleXMLElement.getNamespaces(bool):___Php.Array</signature>
+        <info_rule id="456060"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088577">
+        <simple_name>___Php.SimpleXMLElement.registerXPathNamespace</simple_name>
+        <signature>___Php.SimpleXMLElement.registerXPathNamespace(___Php.String;___Php.String):bool</signature>
+        <info_rule id="456054"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+      </method>
+      <method vuln_id="1088580">
+        <simple_name>___Php.SimpleXMLElement.xpath</simple_name>
+        <signature>___Php.SimpleXMLElement.xpath(___Php.String):___Php.Array</signature>
+        <info_rule id="456057"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XPath</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

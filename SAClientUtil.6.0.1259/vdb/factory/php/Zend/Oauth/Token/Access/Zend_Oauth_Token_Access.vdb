@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Oauth_Token_Access">
+      <method vuln_id="1116692">
+        <simple_name>Zend_Oauth_Token_Access.getHttpClient_@__Oauth_Token_Access_php_1</simple_name>
+        <signature>Zend_Oauth_Token_Access.getHttpClient_@__Oauth_Token_Access_php_1($oauthOptions;$uri;$config;$excludeCustomParamsFromHeader):Variant</signature>
+        <info_rule id="469719"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116672">
+        <simple_name>Zend_Oauth_Token_Access.toHeader_@__Oauth_Token_Access_php_1</simple_name>
+        <signature>Zend_Oauth_Token_Access.toHeader_@__Oauth_Token_Access_php_1($url;$config;$customParams;$realm):Variant</signature>
+        <info_rule id="469696"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116628">
+        <simple_name>Zend_Oauth_Token_Access.toQueryString_@__Oauth_Token_Access_php_1</simple_name>
+        <signature>Zend_Oauth_Token_Access.toQueryString_@__Oauth_Token_Access_php_1($url;$config;$params):Variant</signature>
+        <info_rule id="469650"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Oauth_Token_Access">
+      <method vuln_id="1116692">
+        <simple_name>Zend_Oauth_Token_Access.getHttpClient_@__Oauth_Token_Access_php_1</simple_name>
+        <signature>Zend_Oauth_Token_Access.getHttpClient_@__Oauth_Token_Access_php_1($oauthOptions;$uri;$config;$excludeCustomParamsFromHeader):Variant</signature>
+        <info_rule id="469719"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116672">
+        <simple_name>Zend_Oauth_Token_Access.toHeader_@__Oauth_Token_Access_php_1</simple_name>
+        <signature>Zend_Oauth_Token_Access.toHeader_@__Oauth_Token_Access_php_1($url;$config;$customParams;$realm):Variant</signature>
+        <info_rule id="469696"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116628">
+        <simple_name>Zend_Oauth_Token_Access.toQueryString_@__Oauth_Token_Access_php_1</simple_name>
+        <signature>Zend_Oauth_Token_Access.toQueryString_@__Oauth_Token_Access_php_1($url;$config;$params):Variant</signature>
+        <info_rule id="469650"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

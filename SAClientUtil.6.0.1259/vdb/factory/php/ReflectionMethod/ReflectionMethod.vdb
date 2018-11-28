@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="ReflectionMethod">
+      <method vuln_id="1122097">
+        <simple_name>ReflectionMethod.getDeclaringClass</simple_name>
+        <signature>ReflectionMethod.getDeclaringClass():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122689">
+        <simple_name>ReflectionMethod.getParameters</simple_name>
+        <signature>ReflectionMethod.getParameters():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122393">
+        <simple_name>ReflectionMethod.getStartLine</simple_name>
+        <signature>ReflectionMethod.getStartLine():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1088452">
+        <simple_name>___Php.ReflectionMethod.__construct</simple_name>
+        <signature>___Php.ReflectionMethod.__construct(mixed;___Php.String):void</signature>
+        <info_rule id="455885"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088418">
+        <simple_name>___Php.ReflectionMethod.__toString</simple_name>
+        <signature>___Php.ReflectionMethod.__toString():___Php.String</signature>
+        <info_rule id="455849"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088341">
+        <simple_name>___Php.ReflectionMethod.export</simple_name>
+        <signature>___Php.ReflectionMethod.export(mixed;___Php.String;bool):mixed</signature>
+        <info_rule id="455765"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088409">
+        <simple_name>___Php.ReflectionMethod.getDeclaringClass</simple_name>
+        <signature>___Php.ReflectionMethod.getDeclaringClass():___Php.ReflectionClass</signature>
+        <info_rule id="455838"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088438">
+        <simple_name>___Php.ReflectionMethod.getModifiers</simple_name>
+        <signature>___Php.ReflectionMethod.getModifiers():int</signature>
+        <info_rule id="455870"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088381">
+        <simple_name>___Php.ReflectionMethod.getPrototype</simple_name>
+        <signature>___Php.ReflectionMethod.getPrototype():___Php.ReflectionClass</signature>
+        <info_rule id="455807"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088427">
+        <simple_name>___Php.ReflectionMethod.invoke</simple_name>
+        <signature>___Php.ReflectionMethod.invoke(___Php.stdClass;mixed):mixed</signature>
+        <info_rule id="455859"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="all"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088439">
+        <simple_name>___Php.ReflectionMethod.invokeArgs</simple_name>
+        <signature>___Php.ReflectionMethod.invokeArgs(___Php.stdClass;___Php.Array):mixed</signature>
+        <info_rule id="455871"/>
+        <propagates_taint dst_param="none" return="true" source_param="2"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088445">
+        <simple_name>___Php.ReflectionMethod.isAbstract</simple_name>
+        <signature>___Php.ReflectionMethod.isAbstract():bool</signature>
+        <info_rule id="455878"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088371">
+        <simple_name>___Php.ReflectionMethod.isConstructor</simple_name>
+        <signature>___Php.ReflectionMethod.isConstructor():bool</signature>
+        <info_rule id="455797"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088346">
+        <simple_name>___Php.ReflectionMethod.isDestructor</simple_name>
+        <signature>___Php.ReflectionMethod.isDestructor():bool</signature>
+        <info_rule id="455770"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088460">
+        <simple_name>___Php.ReflectionMethod.isFinal</simple_name>
+        <signature>___Php.ReflectionMethod.isFinal():bool</signature>
+        <info_rule id="455895"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088370">
+        <simple_name>___Php.ReflectionMethod.isPrivate</simple_name>
+        <signature>___Php.ReflectionMethod.isPrivate():bool</signature>
+        <info_rule id="455796"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088462">
+        <simple_name>___Php.ReflectionMethod.isProtected</simple_name>
+        <signature>___Php.ReflectionMethod.isProtected():bool</signature>
+        <info_rule id="455897"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088378">
+        <simple_name>___Php.ReflectionMethod.isPublic</simple_name>
+        <signature>___Php.ReflectionMethod.isPublic():bool</signature>
+        <info_rule id="455804"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088353">
+        <simple_name>___Php.ReflectionMethod.isStatic</simple_name>
+        <signature>___Php.ReflectionMethod.isStatic():bool</signature>
+        <info_rule id="455778"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+    </class>
+    <class name="ReflectionMethod">
+      <method vuln_id="1122097">
+        <simple_name>ReflectionMethod.getDeclaringClass</simple_name>
+        <signature>ReflectionMethod.getDeclaringClass():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122689">
+        <simple_name>ReflectionMethod.getParameters</simple_name>
+        <signature>ReflectionMethod.getParameters():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1122393">
+        <simple_name>ReflectionMethod.getStartLine</simple_name>
+        <signature>ReflectionMethod.getStartLine():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1088452">
+        <simple_name>___Php.ReflectionMethod.__construct</simple_name>
+        <signature>___Php.ReflectionMethod.__construct(mixed;___Php.String):void</signature>
+        <info_rule id="455885"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088418">
+        <simple_name>___Php.ReflectionMethod.__toString</simple_name>
+        <signature>___Php.ReflectionMethod.__toString():___Php.String</signature>
+        <info_rule id="455849"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088341">
+        <simple_name>___Php.ReflectionMethod.export</simple_name>
+        <signature>___Php.ReflectionMethod.export(mixed;___Php.String;bool):mixed</signature>
+        <info_rule id="455765"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088409">
+        <simple_name>___Php.ReflectionMethod.getDeclaringClass</simple_name>
+        <signature>___Php.ReflectionMethod.getDeclaringClass():___Php.ReflectionClass</signature>
+        <info_rule id="455838"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088438">
+        <simple_name>___Php.ReflectionMethod.getModifiers</simple_name>
+        <signature>___Php.ReflectionMethod.getModifiers():int</signature>
+        <info_rule id="455870"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088381">
+        <simple_name>___Php.ReflectionMethod.getPrototype</simple_name>
+        <signature>___Php.ReflectionMethod.getPrototype():___Php.ReflectionClass</signature>
+        <info_rule id="455807"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088427">
+        <simple_name>___Php.ReflectionMethod.invoke</simple_name>
+        <signature>___Php.ReflectionMethod.invoke(___Php.stdClass;mixed):mixed</signature>
+        <info_rule id="455859"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="all"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088439">
+        <simple_name>___Php.ReflectionMethod.invokeArgs</simple_name>
+        <signature>___Php.ReflectionMethod.invokeArgs(___Php.stdClass;___Php.Array):mixed</signature>
+        <info_rule id="455871"/>
+        <propagates_taint dst_param="none" return="true" source_param="2"/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088445">
+        <simple_name>___Php.ReflectionMethod.isAbstract</simple_name>
+        <signature>___Php.ReflectionMethod.isAbstract():bool</signature>
+        <info_rule id="455878"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088371">
+        <simple_name>___Php.ReflectionMethod.isConstructor</simple_name>
+        <signature>___Php.ReflectionMethod.isConstructor():bool</signature>
+        <info_rule id="455797"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088346">
+        <simple_name>___Php.ReflectionMethod.isDestructor</simple_name>
+        <signature>___Php.ReflectionMethod.isDestructor():bool</signature>
+        <info_rule id="455770"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088460">
+        <simple_name>___Php.ReflectionMethod.isFinal</simple_name>
+        <signature>___Php.ReflectionMethod.isFinal():bool</signature>
+        <info_rule id="455895"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088370">
+        <simple_name>___Php.ReflectionMethod.isPrivate</simple_name>
+        <signature>___Php.ReflectionMethod.isPrivate():bool</signature>
+        <info_rule id="455796"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088462">
+        <simple_name>___Php.ReflectionMethod.isProtected</simple_name>
+        <signature>___Php.ReflectionMethod.isProtected():bool</signature>
+        <info_rule id="455897"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088378">
+        <simple_name>___Php.ReflectionMethod.isPublic</simple_name>
+        <signature>___Php.ReflectionMethod.isPublic():bool</signature>
+        <info_rule id="455804"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+      <method vuln_id="1088353">
+        <simple_name>___Php.ReflectionMethod.isStatic</simple_name>
+        <signature>___Php.ReflectionMethod.isStatic():bool</signature>
+        <info_rule id="455778"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.Reflection</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

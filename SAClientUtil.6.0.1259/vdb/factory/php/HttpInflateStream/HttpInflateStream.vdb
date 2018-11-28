@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpInflateStream">
+      <method vuln_id="1086715">
+        <simple_name>HttpInflateStream.__construct</simple_name>
+        <signature>HttpInflateStream.__construct(int):void</signature>
+        <comment>Creates a new HttpInflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086734">
+        <simple_name>HttpInflateStream.factory</simple_name>
+        <signature>HttpInflateStream.factory(int;___Php.String):HttpInflateStream</signature>
+        <info_rule id="453619"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Creates a new HttpInflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086730">
+        <simple_name>HttpInflateStream.finish</simple_name>
+        <signature>HttpInflateStream.finish(___Php.String):___Php.String</signature>
+        <info_rule id="453613"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Finalizes the inflate stream. The inflate stream can be reused after finalizing.</comment>
+      </method>
+      <method vuln_id="1086773">
+        <simple_name>HttpInflateStream.flush</simple_name>
+        <signature>HttpInflateStream.flush(___Php.String):___Php.String</signature>
+        <info_rule id="453674"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Flushes the inflate stream.</comment>
+      </method>
+      <method vuln_id="1086765">
+        <simple_name>HttpInflateStream.update</simple_name>
+        <signature>HttpInflateStream.update(___Php.String):___Php.String</signature>
+        <info_rule id="453665"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Passes more data through the inflate stream.</comment>
+      </method>
+    </class>
+    <class name="HttpInflateStream">
+      <method vuln_id="1086715">
+        <simple_name>HttpInflateStream.__construct</simple_name>
+        <signature>HttpInflateStream.__construct(int):void</signature>
+        <comment>Creates a new HttpInflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086734">
+        <simple_name>HttpInflateStream.factory</simple_name>
+        <signature>HttpInflateStream.factory(int;___Php.String):HttpInflateStream</signature>
+        <info_rule id="453619"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Creates a new HttpInflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086730">
+        <simple_name>HttpInflateStream.finish</simple_name>
+        <signature>HttpInflateStream.finish(___Php.String):___Php.String</signature>
+        <info_rule id="453613"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Finalizes the inflate stream. The inflate stream can be reused after finalizing.</comment>
+      </method>
+      <method vuln_id="1086773">
+        <simple_name>HttpInflateStream.flush</simple_name>
+        <signature>HttpInflateStream.flush(___Php.String):___Php.String</signature>
+        <info_rule id="453674"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Flushes the inflate stream.</comment>
+      </method>
+      <method vuln_id="1086765">
+        <simple_name>HttpInflateStream.update</simple_name>
+        <signature>HttpInflateStream.update(___Php.String):___Php.String</signature>
+        <info_rule id="453665"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Passes more data through the inflate stream.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

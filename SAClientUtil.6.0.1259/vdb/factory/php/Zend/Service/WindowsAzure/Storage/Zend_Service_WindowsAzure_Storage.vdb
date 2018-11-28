@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_WindowsAzure_Storage">
+      <method vuln_id="1119647">
+        <simple_name>Zend_Service_WindowsAzure_Storage.__construct_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.__construct_@__Service_WindowsAzure_Storage_php_1($host;$accountName;$accountKey;$usePathStyleUri;$retryPolicy):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119555">
+        <simple_name>Zend_Service_WindowsAzure_Storage._generateMetadataHeaders_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._generateMetadataHeaders_@__Service_WindowsAzure_Storage_php_1($metadata):Variant</signature>
+        <info_rule id="471954"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119349">
+        <simple_name>Zend_Service_WindowsAzure_Storage._parseMetadataHeaders_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._parseMetadataHeaders_@__Service_WindowsAzure_Storage_php_1($headers):Variant</signature>
+        <info_rule id="471755"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118812">
+        <simple_name>Zend_Service_WindowsAzure_Storage._parseResponse_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._parseResponse_@__Service_WindowsAzure_Storage_php_1($response):Variant</signature>
+        <info_rule id="471246"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119019">
+        <simple_name>Zend_Service_WindowsAzure_Storage._performRequest_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._performRequest_@__Service_WindowsAzure_Storage_php_1($path;$queryString;$httpVerb;$headers;$forTableStorage;$rawData;$resourceType;$requiredPermission):Variant</signature>
+        <info_rule id="471449"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="2,4,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120036">
+        <simple_name>Zend_Service_WindowsAzure_Storage.getAccountName_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.getAccountName_@__Service_WindowsAzure_Storage_php_1():Variant</signature>
+        <info_rule id="472407"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119933">
+        <simple_name>Zend_Service_WindowsAzure_Storage.getBaseUrl_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.getBaseUrl_@__Service_WindowsAzure_Storage_php_1():Variant</signature>
+        <info_rule id="472313"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119568">
+        <simple_name>Zend_Service_WindowsAzure_Storage.getCredentials_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.getCredentials_@__Service_WindowsAzure_Storage_php_1():Variant</signature>
+        <info_rule id="471963"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119460">
+        <simple_name>Zend_Service_WindowsAzure_Storage.isoDate_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.isoDate_@__Service_WindowsAzure_Storage_php_1($timestamp):Variant</signature>
+        <info_rule id="471857"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119999">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setCredentials_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setCredentials_@__Service_WindowsAzure_Storage_php_1($credentials):Variant</signature>
+        <info_rule id="472374"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119547">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setHttpClientChannel_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setHttpClientChannel_@__Service_WindowsAzure_Storage_php_1($adapterInstance):Variant</signature>
+        <info_rule id="471944"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119384">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setProxy_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setProxy_@__Service_WindowsAzure_Storage_php_1($useProxy;$proxyUrl;$proxyPort;$proxyCredentials):Variant</signature>
+        <info_rule id="471787"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120028">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setRetryPolicy_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setRetryPolicy_@__Service_WindowsAzure_Storage_php_1($retryPolicy):Variant</signature>
+        <info_rule id="472399"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119442">
+        <simple_name>Zend_Service_WindowsAzure_Storage.urlencode_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.urlencode_@__Service_WindowsAzure_Storage_php_1($value):Variant</signature>
+        <info_rule id="471839"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+    <class name="Zend_Service_WindowsAzure_Storage">
+      <method vuln_id="1119647">
+        <simple_name>Zend_Service_WindowsAzure_Storage.__construct_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.__construct_@__Service_WindowsAzure_Storage_php_1($host;$accountName;$accountKey;$usePathStyleUri;$retryPolicy):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119555">
+        <simple_name>Zend_Service_WindowsAzure_Storage._generateMetadataHeaders_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._generateMetadataHeaders_@__Service_WindowsAzure_Storage_php_1($metadata):Variant</signature>
+        <info_rule id="471954"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119349">
+        <simple_name>Zend_Service_WindowsAzure_Storage._parseMetadataHeaders_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._parseMetadataHeaders_@__Service_WindowsAzure_Storage_php_1($headers):Variant</signature>
+        <info_rule id="471755"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118812">
+        <simple_name>Zend_Service_WindowsAzure_Storage._parseResponse_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._parseResponse_@__Service_WindowsAzure_Storage_php_1($response):Variant</signature>
+        <info_rule id="471246"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119019">
+        <simple_name>Zend_Service_WindowsAzure_Storage._performRequest_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage._performRequest_@__Service_WindowsAzure_Storage_php_1($path;$queryString;$httpVerb;$headers;$forTableStorage;$rawData;$resourceType;$requiredPermission):Variant</signature>
+        <info_rule id="471449"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="2,4,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120036">
+        <simple_name>Zend_Service_WindowsAzure_Storage.getAccountName_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.getAccountName_@__Service_WindowsAzure_Storage_php_1():Variant</signature>
+        <info_rule id="472407"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119933">
+        <simple_name>Zend_Service_WindowsAzure_Storage.getBaseUrl_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.getBaseUrl_@__Service_WindowsAzure_Storage_php_1():Variant</signature>
+        <info_rule id="472313"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119568">
+        <simple_name>Zend_Service_WindowsAzure_Storage.getCredentials_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.getCredentials_@__Service_WindowsAzure_Storage_php_1():Variant</signature>
+        <info_rule id="471963"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119460">
+        <simple_name>Zend_Service_WindowsAzure_Storage.isoDate_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.isoDate_@__Service_WindowsAzure_Storage_php_1($timestamp):Variant</signature>
+        <info_rule id="471857"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119999">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setCredentials_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setCredentials_@__Service_WindowsAzure_Storage_php_1($credentials):Variant</signature>
+        <info_rule id="472374"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119547">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setHttpClientChannel_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setHttpClientChannel_@__Service_WindowsAzure_Storage_php_1($adapterInstance):Variant</signature>
+        <info_rule id="471944"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119384">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setProxy_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setProxy_@__Service_WindowsAzure_Storage_php_1($useProxy;$proxyUrl;$proxyPort;$proxyCredentials):Variant</signature>
+        <info_rule id="471787"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120028">
+        <simple_name>Zend_Service_WindowsAzure_Storage.setRetryPolicy_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.setRetryPolicy_@__Service_WindowsAzure_Storage_php_1($retryPolicy):Variant</signature>
+        <info_rule id="472399"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119442">
+        <simple_name>Zend_Service_WindowsAzure_Storage.urlencode_@__Service_WindowsAzure_Storage_php_1</simple_name>
+        <signature>Zend_Service_WindowsAzure_Storage.urlencode_@__Service_WindowsAzure_Storage_php_1($value):Variant</signature>
+        <info_rule id="471839"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

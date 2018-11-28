@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StatusHandlers description="AppScan Source Status Handlers" display_name="AppScan Source Status Handlers">
+  <!--There is a generic StatusHandler instantiated for each StatusHandler element in this config file.-->
+  <!--A StatusHandler can optionally have a "debug" attribute, defaults to false.-->
+  <!--If present, and set to "true", the corresponding StatusHandler will be active only if long option "debug" is passed on the command line.-->
+  <!--For each StatusHandler, there should be one MessageFormat element, followed by at least one OutHandler element, followed by zero or more Filter elements.-->
+  <!--Currently supported for MessageFormat types: "xml", "text" or "log_status".-->
+  <!--Currently supported for OutputHandler types: "stdout" or "file". If type=file, there should then be a file attribute with the name of the file.-->
+  <!--Each Filter element corresponds to a condition that the StatusHandler should check the additional attributes of an incoming log message for. -->
+  <!--If the value of all the attributes in the incoming message matched the value specified in the Filters here, the log message is output.-->
+  <!--If there is no filter for a given attribute, by default, the message will be output.-->
+  <!--For Filter with name "message_severity", the supported values are: "0"(unknown),"1"(info),"2"(debug),"3"(warning),"4"(error)-->
+  <!--All messages with severity equal to or more than the filter value will be output.-->
+  <StatusHandler>
+     <MessageFormat type="log_status"/>
+    <OutputHandler type="file" file="%SCAN_HOME_DIRECTORY%\logs\StaticAnalyzer-Errors.log"/>
+    <Filter name="message_severity" value="4"/>
+  </StatusHandler>
+  <StatusHandler type="IRGen">
+	 <MessageFormat type="xml" /> 
+     <OutputHandler type="file" file="%SCAN_HOME_DIRECTORY%\StaticAnalyzer-IRGen.xml"/>
+     <Filter name="message_type" value="IRGenError,IRGenProgress,IRGenSkippingMethod,IRGenMissingReference" /> 
+  </StatusHandler>
+  <StatusHandler type="IRGen">
+    <MessageFormat type="text" timestamp="false"/>
+    <OutputHandler type="stdout"/>
+    <Filter name="message_type" value="IRGenProgress" />
+  </StatusHandler>
+  <StatusHandler>
+    <MessageFormat type="log_status" />
+    <OutputHandler type="file" file="%PROCESS_LOG_DIRECTORY%\%PROCESS_NAME%.log" mode="auto" />
+	<Filter name="message_severity" value="3,4"/>
+  </StatusHandler>
+  <StatusHandler>
+    <MessageFormat type="log_status" />
+    <OutputHandler type="file" file="%SCAN_HOME_DIRECTORY%\logs\%PROCESS_NAME%.log" mode="auto" />
+	<Filter name="message_severity" value="3,4"/>
+  </StatusHandler>
+  <StatusHandler debug="true">
+    <MessageFormat type="text" />
+    <OutputHandler type="file" file="%PROCESS_LOG_DIRECTORY%\MemoryManager.log" />
+	<Filter name="message_type" value="MemoryManager"/>
+  </StatusHandler>
+  <StatusHandler debug="true">
+    <MessageFormat type="log_status" />
+    <OutputHandler type="file" file="%PROCESS_LOG_DIRECTORY%\Debug.log" mode="auto" />
+    <OutputHandler type="file" file="%SCAN_HOME_DIRECTORY%\logs\Debug.log" mode="auto" />
+    <Filter name="message_type" exclude="MemoryManager"/>
+  </StatusHandler>
+</StatusHandlers>
+

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTTP_Client">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client.HTTP_Client</simple_name>
+        <signature>HTTP_Client.HTTP_Client(___Php.Array;___Php.Array;HTTP_Client_CookieManager):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._createRequest</simple_name>
+        <signature>HTTP_Client._createRequest($url;$method;$headers):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._getMetaRedirect</simple_name>
+        <signature>HTTP_Client._getMetaRedirect($request):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._notify</simple_name>
+        <signature>HTTP_Client._notify($event;$data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._performRequest</simple_name>
+        <signature>HTTP_Client._performRequest($request):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._pushResponse</simple_name>
+        <signature>HTTP_Client._pushResponse($request):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._redirectUrl</simple_name>
+        <signature>HTTP_Client._redirectUrl($url;$location):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091555">
+        <simple_name>HTTP_Client.attach</simple_name>
+        <signature>HTTP_Client.attach(HTTP_Request_Listener;bool):boolean</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091559">
+        <simple_name>HTTP_Client.currentResponse</simple_name>
+        <signature>HTTP_Client.currentResponse():___Php.Array&amp;</signature>
+        <info_rule id="480771"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091552">
+        <simple_name>HTTP_Client.detach</simple_name>
+        <signature>HTTP_Client.detach(HTTP_Request_Listener):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091563">
+        <simple_name>HTTP_Client.enableHistory</simple_name>
+        <signature>HTTP_Client.enableHistory(bool):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091557">
+        <simple_name>HTTP_Client.get</simple_name>
+        <signature>HTTP_Client.get(___Php.String;mixed;bool;___Php.Array):integer</signature>
+        <info_rule id="480770"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091562">
+        <simple_name>HTTP_Client.getCookieManager</simple_name>
+        <signature>HTTP_Client.getCookieManager():HTTP_Client_CookieManager</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091556">
+        <simple_name>HTTP_Client.head</simple_name>
+        <signature>HTTP_Client.head(___Php.String;___Php.Array):integer</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091558">
+        <simple_name>HTTP_Client.post</simple_name>
+        <signature>HTTP_Client.post(___Php.String;mixed;bool;___Php.Array;___Php.Array):integer</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091553">
+        <simple_name>HTTP_Client.reset</simple_name>
+        <signature>HTTP_Client.reset():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091560">
+        <simple_name>HTTP_Client.setDefaultHeader</simple_name>
+        <signature>HTTP_Client.setDefaultHeader(mixed;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091561">
+        <simple_name>HTTP_Client.setMaxRedirects</simple_name>
+        <signature>HTTP_Client.setMaxRedirects(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091554">
+        <simple_name>HTTP_Client.setRequestParameter</simple_name>
+        <signature>HTTP_Client.setRequestParameter(mixed;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTTP_Client">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client.HTTP_Client</simple_name>
+        <signature>HTTP_Client.HTTP_Client(___Php.Array;___Php.Array;HTTP_Client_CookieManager):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._createRequest</simple_name>
+        <signature>HTTP_Client._createRequest($url;$method;$headers):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._getMetaRedirect</simple_name>
+        <signature>HTTP_Client._getMetaRedirect($request):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._notify</simple_name>
+        <signature>HTTP_Client._notify($event;$data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._performRequest</simple_name>
+        <signature>HTTP_Client._performRequest($request):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._pushResponse</simple_name>
+        <signature>HTTP_Client._pushResponse($request):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client._redirectUrl</simple_name>
+        <signature>HTTP_Client._redirectUrl($url;$location):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091555">
+        <simple_name>HTTP_Client.attach</simple_name>
+        <signature>HTTP_Client.attach(HTTP_Request_Listener;bool):boolean</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091559">
+        <simple_name>HTTP_Client.currentResponse</simple_name>
+        <signature>HTTP_Client.currentResponse():___Php.Array&amp;</signature>
+        <info_rule id="480771"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091552">
+        <simple_name>HTTP_Client.detach</simple_name>
+        <signature>HTTP_Client.detach(HTTP_Request_Listener):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091563">
+        <simple_name>HTTP_Client.enableHistory</simple_name>
+        <signature>HTTP_Client.enableHistory(bool):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091557">
+        <simple_name>HTTP_Client.get</simple_name>
+        <signature>HTTP_Client.get(___Php.String;mixed;bool;___Php.Array):integer</signature>
+        <info_rule id="480770"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091562">
+        <simple_name>HTTP_Client.getCookieManager</simple_name>
+        <signature>HTTP_Client.getCookieManager():HTTP_Client_CookieManager</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091556">
+        <simple_name>HTTP_Client.head</simple_name>
+        <signature>HTTP_Client.head(___Php.String;___Php.Array):integer</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091558">
+        <simple_name>HTTP_Client.post</simple_name>
+        <signature>HTTP_Client.post(___Php.String;mixed;bool;___Php.Array;___Php.Array):integer</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091553">
+        <simple_name>HTTP_Client.reset</simple_name>
+        <signature>HTTP_Client.reset():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091560">
+        <simple_name>HTTP_Client.setDefaultHeader</simple_name>
+        <signature>HTTP_Client.setDefaultHeader(mixed;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091561">
+        <simple_name>HTTP_Client.setMaxRedirects</simple_name>
+        <signature>HTTP_Client.setMaxRedirects(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091554">
+        <simple_name>HTTP_Client.setRequestParameter</simple_name>
+        <signature>HTTP_Client.setRequestParameter(mixed;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

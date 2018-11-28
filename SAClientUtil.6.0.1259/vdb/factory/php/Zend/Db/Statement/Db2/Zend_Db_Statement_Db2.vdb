@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Db_Statement_Db2">
+      <method vuln_id="1110963">
+        <simple_name>Zend_Db_Statement_Db2._bindParam_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2._bindParam_@__Db_Statement_Db2_php_1($parameter;$variable;$type;$length;$options):Variant</signature>
+        <info_rule id="466937"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110600">
+        <simple_name>Zend_Db_Statement_Db2._execute_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2._execute_@__Db_Statement_Db2_php_1($params):Variant</signature>
+        <info_rule id="466542"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110820">
+        <simple_name>Zend_Db_Statement_Db2._prepare_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2._prepare_@__Db_Statement_Db2_php_1($sql):Variant</signature>
+        <info_rule id="466781"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110631">
+        <simple_name>Zend_Db_Statement_Db2.closeCursor_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.closeCursor_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466576"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110687">
+        <simple_name>Zend_Db_Statement_Db2.columnCount_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.columnCount_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466638"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111038">
+        <simple_name>Zend_Db_Statement_Db2.errorCode_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.errorCode_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="467020"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110873">
+        <simple_name>Zend_Db_Statement_Db2.errorInfo_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.errorInfo_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466838"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110929">
+        <simple_name>Zend_Db_Statement_Db2.fetchAll_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.fetchAll_@__Db_Statement_Db2_php_1($style;$col):Variant</signature>
+        <info_rule id="466897"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110858">
+        <simple_name>Zend_Db_Statement_Db2.fetchObject_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.fetchObject_@__Db_Statement_Db2_php_1($class;$config):Variant</signature>
+        <info_rule id="466819"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110962">
+        <simple_name>Zend_Db_Statement_Db2.fetch_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.fetch_@__Db_Statement_Db2_php_1($style;$cursor;$offset):Variant</signature>
+        <info_rule id="466935"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110711">
+        <simple_name>Zend_Db_Statement_Db2.nextRowset_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.nextRowset_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466666"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111122">
+        <simple_name>Zend_Db_Statement_Db2.rowCount_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.rowCount_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="467115"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Db_Statement_Db2">
+      <method vuln_id="1110963">
+        <simple_name>Zend_Db_Statement_Db2._bindParam_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2._bindParam_@__Db_Statement_Db2_php_1($parameter;$variable;$type;$length;$options):Variant</signature>
+        <info_rule id="466937"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110600">
+        <simple_name>Zend_Db_Statement_Db2._execute_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2._execute_@__Db_Statement_Db2_php_1($params):Variant</signature>
+        <info_rule id="466542"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110820">
+        <simple_name>Zend_Db_Statement_Db2._prepare_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2._prepare_@__Db_Statement_Db2_php_1($sql):Variant</signature>
+        <info_rule id="466781"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110631">
+        <simple_name>Zend_Db_Statement_Db2.closeCursor_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.closeCursor_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466576"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110687">
+        <simple_name>Zend_Db_Statement_Db2.columnCount_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.columnCount_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466638"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111038">
+        <simple_name>Zend_Db_Statement_Db2.errorCode_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.errorCode_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="467020"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110873">
+        <simple_name>Zend_Db_Statement_Db2.errorInfo_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.errorInfo_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466838"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110929">
+        <simple_name>Zend_Db_Statement_Db2.fetchAll_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.fetchAll_@__Db_Statement_Db2_php_1($style;$col):Variant</signature>
+        <info_rule id="466897"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110858">
+        <simple_name>Zend_Db_Statement_Db2.fetchObject_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.fetchObject_@__Db_Statement_Db2_php_1($class;$config):Variant</signature>
+        <info_rule id="466819"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110962">
+        <simple_name>Zend_Db_Statement_Db2.fetch_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.fetch_@__Db_Statement_Db2_php_1($style;$cursor;$offset):Variant</signature>
+        <info_rule id="466935"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110711">
+        <simple_name>Zend_Db_Statement_Db2.nextRowset_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.nextRowset_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="466666"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111122">
+        <simple_name>Zend_Db_Statement_Db2.rowCount_@__Db_Statement_Db2_php_1</simple_name>
+        <signature>Zend_Db_Statement_Db2.rowCount_@__Db_Statement_Db2_php_1():Variant</signature>
+        <info_rule id="467115"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

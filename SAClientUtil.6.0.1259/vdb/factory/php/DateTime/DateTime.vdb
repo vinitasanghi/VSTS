@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DateTime">
+      <method vuln_id="1085935">
+        <simple_name>___Php.DateTime.__construct</simple_name>
+        <signature>___Php.DateTime.__construct(___Php.String;___Php.DateTimeZone):void</signature>
+        <comment>Creates new DateTime object</comment>
+      </method>
+      <method vuln_id="2015042">
+        <simple_name>___Php.DateTime.add</simple_name>
+        <signature>___Php.DateTime.add(___Php.DateInterval):___Php.DateTime</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="2015043">
+        <simple_name>___Php.DateTime.createFromFormat </simple_name>
+        <signature>___Php.DateTime.createFromFormat (___Php.String;___Php.String):___Php.DateTime</signature>
+        <propagates_taint dst_param="none" return="true" source_param="2"/>
+      </method>
+      <method vuln_id="2015044">
+        <simple_name>___Php.DateTime.diff</simple_name>
+        <signature>___Php.DateTime.diff(___Php.DateTimeInterface):___Php.DateInterval</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+      </method>
+      <method vuln_id="1085921">
+        <simple_name>___Php.DateTime.format</simple_name>
+        <signature>___Php.DateTime.format(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="2015045">
+        <simple_name>___Php.DateTime.getLastErrors</simple_name>
+        <signature>___Php.DateTime.getLastErrors():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1085946">
+        <simple_name>___Php.DateTime.getOffset</simple_name>
+        <signature>___Php.DateTime.getOffset():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1085922">
+        <simple_name>___Php.DateTime.getTimezone</simple_name>
+        <signature>___Php.DateTime.getTimezone():___Php.DateTimeZone</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1085956">
+        <simple_name>___Php.DateTime.modify</simple_name>
+        <signature>___Php.DateTime.modify(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="this"/>
+      </method>
+      <method vuln_id="1085932">
+        <simple_name>___Php.DateTime.setDate</simple_name>
+        <signature>___Php.DateTime.setDate(int;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+      <method vuln_id="1085927">
+        <simple_name>___Php.DateTime.setISODate</simple_name>
+        <signature>___Php.DateTime.setISODate(int;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+      <method vuln_id="1085917">
+        <simple_name>___Php.DateTime.setTime</simple_name>
+        <signature>___Php.DateTime.setTime(int;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+      <method vuln_id="1085955">
+        <simple_name>___Php.DateTime.setTimezone</simple_name>
+        <signature>___Php.DateTime.setTimezone():___Php.DateTimeZone</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="2015047">
+        <simple_name>___Php.DateTime.sub</simple_name>
+        <signature>___Php.DateTime.sub(___Php.DateInterval):___Php.DateTime</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+      </method>
+    </class>
+    <class name="DateTime">
+      <method vuln_id="1085935">
+        <simple_name>___Php.DateTime.__construct</simple_name>
+        <signature>___Php.DateTime.__construct(___Php.String;___Php.DateTimeZone):void</signature>
+        <comment>Creates new DateTime object</comment>
+      </method>
+      <method vuln_id="2015042">
+        <simple_name>___Php.DateTime.add</simple_name>
+        <signature>___Php.DateTime.add(___Php.DateInterval):___Php.DateTime</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="2015043">
+        <simple_name>___Php.DateTime.createFromFormat </simple_name>
+        <signature>___Php.DateTime.createFromFormat (___Php.String;___Php.String):___Php.DateTime</signature>
+        <propagates_taint dst_param="none" return="true" source_param="2"/>
+      </method>
+      <method vuln_id="2015044">
+        <simple_name>___Php.DateTime.diff</simple_name>
+        <signature>___Php.DateTime.diff(___Php.DateTimeInterface):___Php.DateInterval</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+      </method>
+      <method vuln_id="1085921">
+        <simple_name>___Php.DateTime.format</simple_name>
+        <signature>___Php.DateTime.format(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="2015045">
+        <simple_name>___Php.DateTime.getLastErrors</simple_name>
+        <signature>___Php.DateTime.getLastErrors():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1085946">
+        <simple_name>___Php.DateTime.getOffset</simple_name>
+        <signature>___Php.DateTime.getOffset():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1085922">
+        <simple_name>___Php.DateTime.getTimezone</simple_name>
+        <signature>___Php.DateTime.getTimezone():___Php.DateTimeZone</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1085956">
+        <simple_name>___Php.DateTime.modify</simple_name>
+        <signature>___Php.DateTime.modify(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="this"/>
+      </method>
+      <method vuln_id="1085932">
+        <simple_name>___Php.DateTime.setDate</simple_name>
+        <signature>___Php.DateTime.setDate(int;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+      <method vuln_id="1085927">
+        <simple_name>___Php.DateTime.setISODate</simple_name>
+        <signature>___Php.DateTime.setISODate(int;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+      <method vuln_id="1085917">
+        <simple_name>___Php.DateTime.setTime</simple_name>
+        <signature>___Php.DateTime.setTime(int;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+      <method vuln_id="1085955">
+        <simple_name>___Php.DateTime.setTimezone</simple_name>
+        <signature>___Php.DateTime.setTimezone():___Php.DateTimeZone</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="2015047">
+        <simple_name>___Php.DateTime.sub</simple_name>
+        <signature>___Php.DateTime.sub(___Php.DateInterval):___Php.DateTime</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

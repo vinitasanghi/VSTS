@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XML_Parser">
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.PEAR</simple_name>
+        <signature>XML_Parser.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.XML_Parser</simple_name>
+        <signature>XML_Parser.XML_Parser($srcenc;$mode;$tgtenc):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.__construct</simple_name>
+        <signature>XML_Parser.__construct($srcenc;$mode;$tgtenc):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser._create</simple_name>
+        <signature>XML_Parser._create():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser._initHandlers</simple_name>
+        <signature>XML_Parser._initHandlers():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser._parseString</simple_name>
+        <signature>XML_Parser._parseString($data;$eof):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092717">
+        <simple_name>XML_Parser.endHandler</simple_name>
+        <signature>XML_Parser.endHandler($xp;$elem):void</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="1092721">
+        <simple_name>XML_Parser.free</simple_name>
+        <signature>XML_Parser.free():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092725">
+        <simple_name>XML_Parser.funcEndHandler</simple_name>
+        <signature>XML_Parser.funcEndHandler($xp;$elem):void</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="1092715">
+        <simple_name>XML_Parser.funcStartHandler</simple_name>
+        <signature>XML_Parser.funcStartHandler($xp;$elem;$attribs):void</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.isError</simple_name>
+        <signature>XML_Parser.isError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092720">
+        <simple_name>XML_Parser.parse</simple_name>
+        <signature>XML_Parser.parse():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092726">
+        <simple_name>XML_Parser.parseString</simple_name>
+        <signature>XML_Parser.parseString($data;$eof):Pear</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.raiseError</simple_name>
+        <signature>XML_Parser.raiseError($msg;$ecode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092724">
+        <simple_name>XML_Parser.reset</simple_name>
+        <signature>XML_Parser.reset():boolean|object</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092719">
+        <simple_name>XML_Parser.setHandlerObj</simple_name>
+        <signature>XML_Parser.setHandlerObj($obj):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092723">
+        <simple_name>XML_Parser.setInput</simple_name>
+        <signature>XML_Parser.setInput($fp):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092722">
+        <simple_name>XML_Parser.setInputFile</simple_name>
+        <signature>XML_Parser.setInputFile($file):resource</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="452057">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092718">
+        <simple_name>XML_Parser.setInputString</simple_name>
+        <signature>XML_Parser.setInputString($data):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092716">
+        <simple_name>XML_Parser.setMode</simple_name>
+        <signature>XML_Parser.setMode($mode):boolean|object</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.startHandler</simple_name>
+        <signature>XML_Parser.startHandler($xp;$elem;$attribs):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="XML_Parser">
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.PEAR</simple_name>
+        <signature>XML_Parser.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.XML_Parser</simple_name>
+        <signature>XML_Parser.XML_Parser($srcenc;$mode;$tgtenc):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.__construct</simple_name>
+        <signature>XML_Parser.__construct($srcenc;$mode;$tgtenc):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser._create</simple_name>
+        <signature>XML_Parser._create():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser._initHandlers</simple_name>
+        <signature>XML_Parser._initHandlers():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser._parseString</simple_name>
+        <signature>XML_Parser._parseString($data;$eof):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092717">
+        <simple_name>XML_Parser.endHandler</simple_name>
+        <signature>XML_Parser.endHandler($xp;$elem):void</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="1092721">
+        <simple_name>XML_Parser.free</simple_name>
+        <signature>XML_Parser.free():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092725">
+        <simple_name>XML_Parser.funcEndHandler</simple_name>
+        <signature>XML_Parser.funcEndHandler($xp;$elem):void</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="1092715">
+        <simple_name>XML_Parser.funcStartHandler</simple_name>
+        <signature>XML_Parser.funcStartHandler($xp;$elem;$attribs):void</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.isError</simple_name>
+        <signature>XML_Parser.isError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092720">
+        <simple_name>XML_Parser.parse</simple_name>
+        <signature>XML_Parser.parse():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092726">
+        <simple_name>XML_Parser.parseString</simple_name>
+        <signature>XML_Parser.parseString($data;$eof):Pear</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.raiseError</simple_name>
+        <signature>XML_Parser.raiseError($msg;$ecode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092724">
+        <simple_name>XML_Parser.reset</simple_name>
+        <signature>XML_Parser.reset():boolean|object</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092719">
+        <simple_name>XML_Parser.setHandlerObj</simple_name>
+        <signature>XML_Parser.setHandlerObj($obj):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092723">
+        <simple_name>XML_Parser.setInput</simple_name>
+        <signature>XML_Parser.setInput($fp):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092722">
+        <simple_name>XML_Parser.setInputFile</simple_name>
+        <signature>XML_Parser.setInputFile($file):resource</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="452057">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092718">
+        <simple_name>XML_Parser.setInputString</simple_name>
+        <signature>XML_Parser.setInputString($data):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092716">
+        <simple_name>XML_Parser.setMode</simple_name>
+        <signature>XML_Parser.setMode($mode):boolean|object</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_Parser.startHandler</simple_name>
+        <signature>XML_Parser.startHandler($xp;$elem;$attribs):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

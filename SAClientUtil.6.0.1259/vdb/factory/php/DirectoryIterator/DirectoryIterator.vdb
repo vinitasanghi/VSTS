@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DirectoryIterator">
+      <method vuln_id="1088730">
+        <simple_name>___Php.DirectoryIterator.__construct</simple_name>
+        <signature>___Php.DirectoryIterator.__construct(___Php.String):void</signature>
+        <sink_rule id="474201">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <comment>Constructs a new dir iterator from a path.</comment>
+      </method>
+      <method vuln_id="1088804">
+        <simple_name>___Php.DirectoryIterator.count</simple_name>
+        <signature>___Php.DirectoryIterator.count():___Php.String</signature>
+        <info_rule id="456246"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return number of entries in directory,works only when USE_GLOB is in effect</comment>
+      </method>
+      <method vuln_id="1088955">
+        <simple_name>___Php.DirectoryIterator.current</simple_name>
+        <signature>___Php.DirectoryIterator.current():___Php.DirectoryIterator</signature>
+        <info_rule id="456323"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return this (needed for Iterator interface)</comment>
+      </method>
+      <method vuln_id="1088932">
+        <simple_name>___Php.DirectoryIterator.getATime</simple_name>
+        <signature>___Php.DirectoryIterator.getATime():int</signature>
+        <info_rule id="456309"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get last access time of file</comment>
+      </method>
+      <method vuln_id="1088998">
+        <simple_name>___Php.DirectoryIterator.getBasename</simple_name>
+        <signature>___Php.DirectoryIterator.getBasename(___Php.String):___Php.String</signature>
+        <info_rule id="456348"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Returns filename component of current dir entry</comment>
+      </method>
+      <method vuln_id="1088679">
+        <simple_name>___Php.DirectoryIterator.getCTime</simple_name>
+        <signature>___Php.DirectoryIterator.getCTime():int</signature>
+        <info_rule id="456189"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get inode modification time of file</comment>
+      </method>
+      <method vuln_id="1089037">
+        <simple_name>___Php.DirectoryIterator.getChildren</simple_name>
+        <signature>___Php.DirectoryIterator.getChildren():___Php.DirectoryIterator</signature>
+        <info_rule id="456365"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Returns an iterator for the current entry if it is a directory</comment>
+      </method>
+      <method>
+        <simple_name>___Php.DirectoryIterator.getExtension</simple_name>
+        <signature>___Php.DirectoryIterator.getExtension():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088859">
+        <simple_name>___Php.DirectoryIterator.getFilename</simple_name>
+        <signature>___Php.DirectoryIterator.getFilename():___Php.String</signature>
+        <info_rule id="456278"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return filename of current dir entry</comment>
+      </method>
+      <method vuln_id="1088755">
+        <simple_name>___Php.DirectoryIterator.getGroup</simple_name>
+        <signature>___Php.DirectoryIterator.getGroup():int</signature>
+        <info_rule id="456225"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file group</comment>
+      </method>
+      <method vuln_id="1088819">
+        <simple_name>___Php.DirectoryIterator.getInode</simple_name>
+        <signature>___Php.DirectoryIterator.getInode():int</signature>
+        <info_rule id="456253"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file inode</comment>
+      </method>
+      <method vuln_id="1088883">
+        <simple_name>___Php.DirectoryIterator.getMTime</simple_name>
+        <signature>___Php.DirectoryIterator.getMTime():int</signature>
+        <info_rule id="456291"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get last modification time of file</comment>
+      </method>
+      <method vuln_id="1088728">
+        <simple_name>___Php.DirectoryIterator.getOwner</simple_name>
+        <signature>___Php.DirectoryIterator.getOwner():int</signature>
+        <info_rule id="456210"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file owner</comment>
+      </method>
+      <method vuln_id="1088935">
+        <simple_name>___Php.DirectoryIterator.getPath</simple_name>
+        <signature>___Php.DirectoryIterator.getPath():___Php.String</signature>
+        <info_rule id="456311"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return directory path</comment>
+      </method>
+      <method vuln_id="1088945">
+        <simple_name>___Php.DirectoryIterator.getPathname</simple_name>
+        <signature>___Php.DirectoryIterator.getPathname():___Php.String</signature>
+        <info_rule id="456318"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return path and filename of current dir entry</comment>
+      </method>
+      <method vuln_id="1088866">
+        <simple_name>___Php.DirectoryIterator.getPerms</simple_name>
+        <signature>___Php.DirectoryIterator.getPerms():int</signature>
+        <info_rule id="456282"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file permissions</comment>
+      </method>
+      <method vuln_id="1088944">
+        <simple_name>___Php.DirectoryIterator.getSize</simple_name>
+        <signature>___Php.DirectoryIterator.getSize():int</signature>
+        <info_rule id="456317"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file size</comment>
+      </method>
+      <method vuln_id="1088719">
+        <simple_name>___Php.DirectoryIterator.getType</simple_name>
+        <signature>___Php.DirectoryIterator.getType():___Php.String</signature>
+        <info_rule id="456204"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file type</comment>
+      </method>
+      <method vuln_id="1088839">
+        <simple_name>___Php.DirectoryIterator.isDir</simple_name>
+        <signature>___Php.DirectoryIterator.isDir():bool</signature>
+        <info_rule id="456266"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is directory</comment>
+      </method>
+      <method vuln_id="1088976">
+        <simple_name>___Php.DirectoryIterator.isDot</simple_name>
+        <signature>___Php.DirectoryIterator.isDot():bool</signature>
+        <info_rule id="456338"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if current entry is '.' or '..'</comment>
+      </method>
+      <method vuln_id="1088963">
+        <simple_name>___Php.DirectoryIterator.isExecutable</simple_name>
+        <signature>___Php.DirectoryIterator.isExecutable():bool</signature>
+        <info_rule id="456329"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is executable</comment>
+      </method>
+      <method vuln_id="1088892">
+        <simple_name>___Php.DirectoryIterator.isFile</simple_name>
+        <signature>___Php.DirectoryIterator.isFile():bool</signature>
+        <info_rule id="456296"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is a regular file</comment>
+      </method>
+      <method vuln_id="1088686">
+        <simple_name>___Php.DirectoryIterator.isLink</simple_name>
+        <signature>___Php.DirectoryIterator.isLink():bool</signature>
+        <info_rule id="456192"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is symbolic link</comment>
+      </method>
+      <method vuln_id="1088827">
+        <simple_name>___Php.DirectoryIterator.isReadable</simple_name>
+        <signature>___Php.DirectoryIterator.isReadable():bool</signature>
+        <info_rule id="456259"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file can be read</comment>
+      </method>
+      <method vuln_id="1088707">
+        <simple_name>___Php.DirectoryIterator.isWritable</simple_name>
+        <signature>___Php.DirectoryIterator.isWritable():bool</signature>
+        <info_rule id="456200"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file can be written</comment>
+      </method>
+      <method vuln_id="1088773">
+        <simple_name>___Php.DirectoryIterator.key</simple_name>
+        <signature>___Php.DirectoryIterator.key():___Php.String</signature>
+        <info_rule id="456231"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return current dir entry</comment>
+      </method>
+      <method vuln_id="1088760">
+        <simple_name>___Php.DirectoryIterator.next</simple_name>
+        <signature>___Php.DirectoryIterator.next():void</signature>
+        <info_rule id="456228"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Move to next entry</comment>
+      </method>
+      <method vuln_id="1088802">
+        <simple_name>___Php.DirectoryIterator.rewind</simple_name>
+        <signature>___Php.DirectoryIterator.rewind():void</signature>
+        <info_rule id="456245"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Rewind dir back to the start</comment>
+      </method>
+      <method vuln_id="1088750">
+        <simple_name>___Php.DirectoryIterator.valid</simple_name>
+        <signature>___Php.DirectoryIterator.valid():___Php.String</signature>
+        <info_rule id="456224"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Check whether dir contains more entries</comment>
+      </method>
+    </class>
+    <class name="DirectoryIterator">
+      <method vuln_id="1088730">
+        <simple_name>___Php.DirectoryIterator.__construct</simple_name>
+        <signature>___Php.DirectoryIterator.__construct(___Php.String):void</signature>
+        <sink_rule id="474201">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <comment>Constructs a new dir iterator from a path.</comment>
+      </method>
+      <method vuln_id="1088804">
+        <simple_name>___Php.DirectoryIterator.count</simple_name>
+        <signature>___Php.DirectoryIterator.count():___Php.String</signature>
+        <info_rule id="456246"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return number of entries in directory,works only when USE_GLOB is in effect</comment>
+      </method>
+      <method vuln_id="1088955">
+        <simple_name>___Php.DirectoryIterator.current</simple_name>
+        <signature>___Php.DirectoryIterator.current():___Php.DirectoryIterator</signature>
+        <info_rule id="456323"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return this (needed for Iterator interface)</comment>
+      </method>
+      <method vuln_id="1088932">
+        <simple_name>___Php.DirectoryIterator.getATime</simple_name>
+        <signature>___Php.DirectoryIterator.getATime():int</signature>
+        <info_rule id="456309"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get last access time of file</comment>
+      </method>
+      <method vuln_id="1088998">
+        <simple_name>___Php.DirectoryIterator.getBasename</simple_name>
+        <signature>___Php.DirectoryIterator.getBasename(___Php.String):___Php.String</signature>
+        <info_rule id="456348"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Returns filename component of current dir entry</comment>
+      </method>
+      <method vuln_id="1088679">
+        <simple_name>___Php.DirectoryIterator.getCTime</simple_name>
+        <signature>___Php.DirectoryIterator.getCTime():int</signature>
+        <info_rule id="456189"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get inode modification time of file</comment>
+      </method>
+      <method vuln_id="1089037">
+        <simple_name>___Php.DirectoryIterator.getChildren</simple_name>
+        <signature>___Php.DirectoryIterator.getChildren():___Php.DirectoryIterator</signature>
+        <info_rule id="456365"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Returns an iterator for the current entry if it is a directory</comment>
+      </method>
+      <method>
+        <simple_name>___Php.DirectoryIterator.getExtension</simple_name>
+        <signature>___Php.DirectoryIterator.getExtension():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088859">
+        <simple_name>___Php.DirectoryIterator.getFilename</simple_name>
+        <signature>___Php.DirectoryIterator.getFilename():___Php.String</signature>
+        <info_rule id="456278"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return filename of current dir entry</comment>
+      </method>
+      <method vuln_id="1088755">
+        <simple_name>___Php.DirectoryIterator.getGroup</simple_name>
+        <signature>___Php.DirectoryIterator.getGroup():int</signature>
+        <info_rule id="456225"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file group</comment>
+      </method>
+      <method vuln_id="1088819">
+        <simple_name>___Php.DirectoryIterator.getInode</simple_name>
+        <signature>___Php.DirectoryIterator.getInode():int</signature>
+        <info_rule id="456253"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file inode</comment>
+      </method>
+      <method vuln_id="1088883">
+        <simple_name>___Php.DirectoryIterator.getMTime</simple_name>
+        <signature>___Php.DirectoryIterator.getMTime():int</signature>
+        <info_rule id="456291"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get last modification time of file</comment>
+      </method>
+      <method vuln_id="1088728">
+        <simple_name>___Php.DirectoryIterator.getOwner</simple_name>
+        <signature>___Php.DirectoryIterator.getOwner():int</signature>
+        <info_rule id="456210"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file owner</comment>
+      </method>
+      <method vuln_id="1088935">
+        <simple_name>___Php.DirectoryIterator.getPath</simple_name>
+        <signature>___Php.DirectoryIterator.getPath():___Php.String</signature>
+        <info_rule id="456311"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return directory path</comment>
+      </method>
+      <method vuln_id="1088945">
+        <simple_name>___Php.DirectoryIterator.getPathname</simple_name>
+        <signature>___Php.DirectoryIterator.getPathname():___Php.String</signature>
+        <info_rule id="456318"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return path and filename of current dir entry</comment>
+      </method>
+      <method vuln_id="1088866">
+        <simple_name>___Php.DirectoryIterator.getPerms</simple_name>
+        <signature>___Php.DirectoryIterator.getPerms():int</signature>
+        <info_rule id="456282"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file permissions</comment>
+      </method>
+      <method vuln_id="1088944">
+        <simple_name>___Php.DirectoryIterator.getSize</simple_name>
+        <signature>___Php.DirectoryIterator.getSize():int</signature>
+        <info_rule id="456317"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file size</comment>
+      </method>
+      <method vuln_id="1088719">
+        <simple_name>___Php.DirectoryIterator.getType</simple_name>
+        <signature>___Php.DirectoryIterator.getType():___Php.String</signature>
+        <info_rule id="456204"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get file type</comment>
+      </method>
+      <method vuln_id="1088839">
+        <simple_name>___Php.DirectoryIterator.isDir</simple_name>
+        <signature>___Php.DirectoryIterator.isDir():bool</signature>
+        <info_rule id="456266"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is directory</comment>
+      </method>
+      <method vuln_id="1088976">
+        <simple_name>___Php.DirectoryIterator.isDot</simple_name>
+        <signature>___Php.DirectoryIterator.isDot():bool</signature>
+        <info_rule id="456338"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if current entry is '.' or '..'</comment>
+      </method>
+      <method vuln_id="1088963">
+        <simple_name>___Php.DirectoryIterator.isExecutable</simple_name>
+        <signature>___Php.DirectoryIterator.isExecutable():bool</signature>
+        <info_rule id="456329"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is executable</comment>
+      </method>
+      <method vuln_id="1088892">
+        <simple_name>___Php.DirectoryIterator.isFile</simple_name>
+        <signature>___Php.DirectoryIterator.isFile():bool</signature>
+        <info_rule id="456296"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is a regular file</comment>
+      </method>
+      <method vuln_id="1088686">
+        <simple_name>___Php.DirectoryIterator.isLink</simple_name>
+        <signature>___Php.DirectoryIterator.isLink():bool</signature>
+        <info_rule id="456192"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file is symbolic link</comment>
+      </method>
+      <method vuln_id="1088827">
+        <simple_name>___Php.DirectoryIterator.isReadable</simple_name>
+        <signature>___Php.DirectoryIterator.isReadable():bool</signature>
+        <info_rule id="456259"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file can be read</comment>
+      </method>
+      <method vuln_id="1088707">
+        <simple_name>___Php.DirectoryIterator.isWritable</simple_name>
+        <signature>___Php.DirectoryIterator.isWritable():bool</signature>
+        <info_rule id="456200"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns true if file can be written</comment>
+      </method>
+      <method vuln_id="1088773">
+        <simple_name>___Php.DirectoryIterator.key</simple_name>
+        <signature>___Php.DirectoryIterator.key():___Php.String</signature>
+        <info_rule id="456231"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return current dir entry</comment>
+      </method>
+      <method vuln_id="1088760">
+        <simple_name>___Php.DirectoryIterator.next</simple_name>
+        <signature>___Php.DirectoryIterator.next():void</signature>
+        <info_rule id="456228"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Move to next entry</comment>
+      </method>
+      <method vuln_id="1088802">
+        <simple_name>___Php.DirectoryIterator.rewind</simple_name>
+        <signature>___Php.DirectoryIterator.rewind():void</signature>
+        <info_rule id="456245"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Rewind dir back to the start</comment>
+      </method>
+      <method vuln_id="1088750">
+        <simple_name>___Php.DirectoryIterator.valid</simple_name>
+        <signature>___Php.DirectoryIterator.valid():___Php.String</signature>
+        <info_rule id="456224"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Check whether dir contains more entries</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

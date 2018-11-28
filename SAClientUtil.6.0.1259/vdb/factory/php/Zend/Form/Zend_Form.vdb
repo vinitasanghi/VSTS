@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Form">
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.$method</simple_name>
+        <signature>Zend_Form.$method(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112846">
+        <simple_name>Zend_Form.__call_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__call_@__Form_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112626">
+        <simple_name>Zend_Form.__clone_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__clone_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112607">
+        <simple_name>Zend_Form.__construct</simple_name>
+        <signature>Zend_Form.__construct(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112978">
+        <simple_name>Zend_Form.__construct_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__construct_@__Form_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112791">
+        <simple_name>Zend_Form.__get_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__get_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112797">
+        <simple_name>Zend_Form.__isset_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__isset_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112842">
+        <simple_name>Zend_Form.__set_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__set_@__Form_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112619">
+        <simple_name>Zend_Form.__toString_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__toString_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.__unset_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__unset_@__Form_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._addDisplayGroupObject_@__Form_php_1</simple_name>
+        <signature>Zend_Form._addDisplayGroupObject_@__Form_php_1($group;$name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._attachToArray_@__Form_php_1</simple_name>
+        <signature>Zend_Form._attachToArray_@__Form_php_1($value;$arrayPath):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._dissolveArrayUnsetKey_@__Form_php_1</simple_name>
+        <signature>Zend_Form._dissolveArrayUnsetKey_@__Form_php_1($array;$arrayPath;$key):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._dissolveArrayValue_@__Form_php_1</simple_name>
+        <signature>Zend_Form._dissolveArrayValue_@__Form_php_1($value;$arrayPath):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._getArrayName_@__Form_php_1</simple_name>
+        <signature>Zend_Form._getArrayName_@__Form_php_1($value):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._getDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form._getDecorator_@__Form_php_1($name;$options):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._getErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form._getErrorMessages_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._loadDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form._loadDecorator_@__Form_php_1($decorator;$name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._setElementsBelongTo_@__Form_php_1</simple_name>
+        <signature>Zend_Form._setElementsBelongTo_@__Form_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._sort_@__Form_php_1</simple_name>
+        <signature>Zend_Form._sort_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112636">
+        <simple_name>Zend_Form.addAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addAttribs_@__Form_php_1($attribs):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112704">
+        <simple_name>Zend_Form.addDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDecorator_@__Form_php_1($decorator;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112786">
+        <simple_name>Zend_Form.addDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112760">
+        <simple_name>Zend_Form.addDisplayGroupPrefixPath_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroupPrefixPath_@__Form_php_1($prefix;$path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112831">
+        <simple_name>Zend_Form.addDisplayGroupPrefixPaths_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroupPrefixPaths_@__Form_php_1($spec):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112745">
+        <simple_name>Zend_Form.addDisplayGroup_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroup_@__Form_php_1($elements;$name;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112807">
+        <simple_name>Zend_Form.addDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroups_@__Form_php_1($groups):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112668">
+        <simple_name>Zend_Form.addElementPrefixPath_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElementPrefixPath_@__Form_php_1($prefix;$path;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112777">
+        <simple_name>Zend_Form.addElementPrefixPaths_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElementPrefixPaths_@__Form_php_1($spec):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112904">
+        <simple_name>Zend_Form.addElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElement_@__Form_php_1($element;$name;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112678">
+        <simple_name>Zend_Form.addElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElements_@__Form_php_1($elements):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112954">
+        <simple_name>Zend_Form.addErrorMessage_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addErrorMessage_@__Form_php_1($message):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112717">
+        <simple_name>Zend_Form.addErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addErrorMessages_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112910">
+        <simple_name>Zend_Form.addError_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addError_@__Form_php_1($message):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112838">
+        <simple_name>Zend_Form.addErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addErrors_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112869">
+        <simple_name>Zend_Form.addPrefixPath</simple_name>
+        <signature>Zend_Form.addPrefixPath(Arg#0;Arg#1;Arg#2):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112737">
+        <simple_name>Zend_Form.addPrefixPath_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addPrefixPath_@__Form_php_1($prefix;$path;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112685">
+        <simple_name>Zend_Form.addPrefixPaths_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addPrefixPaths_@__Form_php_1($spec):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112637">
+        <simple_name>Zend_Form.addSubForm_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addSubForm_@__Form_php_1($form;$name;$order):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112759">
+        <simple_name>Zend_Form.addSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addSubForms_@__Form_php_1($subForms):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112698">
+        <simple_name>Zend_Form.clearAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearAttribs_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112941">
+        <simple_name>Zend_Form.clearDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearDecorators_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112780">
+        <simple_name>Zend_Form.clearDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearDisplayGroups_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112813">
+        <simple_name>Zend_Form.clearElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearElements_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112799">
+        <simple_name>Zend_Form.clearErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearErrorMessages_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113012">
+        <simple_name>Zend_Form.clearSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearSubForms_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112662">
+        <simple_name>Zend_Form.count_@__Form_php_1</simple_name>
+        <signature>Zend_Form.count_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.createElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.createElement_@__Form_php_1($type;$name;$options):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.current_@__Form_php_1</simple_name>
+        <signature>Zend_Form.current_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112599">
+        <simple_name>Zend_Form.filterName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.filterName_@__Form_php_1($value;$allowBrackets):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113038">
+        <simple_name>Zend_Form.getAction_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getAction_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112721">
+        <simple_name>Zend_Form.getAttrib_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getAttrib_@__Form_php_1($key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112733">
+        <simple_name>Zend_Form.getAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getAttribs_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112961">
+        <simple_name>Zend_Form.getDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDecorator_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112775">
+        <simple_name>Zend_Form.getDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDecorators_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112906">
+        <simple_name>Zend_Form.getDefaultDisplayGroupClass_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDefaultDisplayGroupClass_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112749">
+        <simple_name>Zend_Form.getDefaultTranslator</simple_name>
+        <signature>Zend_Form.getDefaultTranslator():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112828">
+        <simple_name>Zend_Form.getDefaultTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDefaultTranslator_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112728">
+        <simple_name>Zend_Form.getDescription_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDescription_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112616">
+        <simple_name>Zend_Form.getDisplayGroup_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDisplayGroup_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112980">
+        <simple_name>Zend_Form.getDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDisplayGroups_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112597">
+        <simple_name>Zend_Form.getElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getElement_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112818">
+        <simple_name>Zend_Form.getElementsBelongTo</simple_name>
+        <signature>Zend_Form.getElementsBelongTo():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112879">
+        <simple_name>Zend_Form.getElementsBelongTo_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getElementsBelongTo_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112658">
+        <simple_name>Zend_Form.getElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getElements_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112895">
+        <simple_name>Zend_Form.getEnctype_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getEnctype_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112720">
+        <simple_name>Zend_Form.getErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getErrorMessages_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112969">
+        <simple_name>Zend_Form.getErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getErrors_@__Form_php_1($name;$suppressArrayNotation):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112683">
+        <simple_name>Zend_Form.getFullyQualifiedName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getFullyQualifiedName_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112933">
+        <simple_name>Zend_Form.getId_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getId_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112800">
+        <simple_name>Zend_Form.getLegend_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getLegend_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112888">
+        <simple_name>Zend_Form.getMessages</simple_name>
+        <signature>Zend_Form.getMessages():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112825">
+        <simple_name>Zend_Form.getMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getMessages_@__Form_php_1($name;$suppressArrayNotation):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112867">
+        <simple_name>Zend_Form.getMethod_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getMethod_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112835">
+        <simple_name>Zend_Form.getName</simple_name>
+        <signature>Zend_Form.getName():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112935">
+        <simple_name>Zend_Form.getName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getName_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112787">
+        <simple_name>Zend_Form.getOrder_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getOrder_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113007">
+        <simple_name>Zend_Form.getPluginLoader_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getPluginLoader_@__Form_php_1($type):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112723">
+        <simple_name>Zend_Form.getSubForm_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getSubForm_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112699">
+        <simple_name>Zend_Form.getSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getSubForms_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112718">
+        <simple_name>Zend_Form.getTranslator</simple_name>
+        <signature>Zend_Form.getTranslator():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112993">
+        <simple_name>Zend_Form.getTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getTranslator_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112953">
+        <simple_name>Zend_Form.getUnfilteredValue_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getUnfilteredValue_@__Form_php_1($name):Variant</signature>
+        <info_rule id="481204"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113026">
+        <simple_name>Zend_Form.getUnfilteredValues_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getUnfilteredValues_@__Form_php_1():Variant</signature>
+        <info_rule id="481202"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112817">
+        <simple_name>Zend_Form.getValidValues_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getValidValues_@__Form_php_1($data;$suppressArrayNotation):Variant</signature>
+        <info_rule id="481203"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112994">
+        <simple_name>Zend_Form.getValue_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getValue_@__Form_php_1($name):Variant</signature>
+        <info_rule id="481201"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112880">
+        <simple_name>Zend_Form.getValues_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getValues_@__Form_php_1($suppressArrayNotation):Variant</signature>
+        <info_rule id="481198"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112715">
+        <simple_name>Zend_Form.getView</simple_name>
+        <signature>Zend_Form.getView():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113019">
+        <simple_name>Zend_Form.getView_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getView_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112855">
+        <simple_name>Zend_Form.hasDefaultTranslator</simple_name>
+        <signature>Zend_Form.hasDefaultTranslator():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112804">
+        <simple_name>Zend_Form.hasDefaultTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.hasDefaultTranslator_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112709">
+        <simple_name>Zend_Form.hasTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.hasTranslator_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.init_@__Form_php_1</simple_name>
+        <signature>Zend_Form.init_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112809">
+        <simple_name>Zend_Form.isArray_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isArray_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112772">
+        <simple_name>Zend_Form.isErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isErrors_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112743">
+        <simple_name>Zend_Form.isValidPartial_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isValidPartial_@__Form_php_1($data):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113032">
+        <simple_name>Zend_Form.isValid_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isValid_@__Form_php_1($data):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.key_@__Form_php_1</simple_name>
+        <signature>Zend_Form.key_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.loadDefaultDecoratorsIsDisabled_@__Form_php_1</simple_name>
+        <signature>Zend_Form.loadDefaultDecoratorsIsDisabled_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.loadDefaultDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.loadDefaultDecorators_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.markAsError_@__Form_php_1</simple_name>
+        <signature>Zend_Form.markAsError_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.next_@__Form_php_1</simple_name>
+        <signature>Zend_Form.next_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.persistData_@__Form_php_1</simple_name>
+        <signature>Zend_Form.persistData_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.populate_@__Form_php_1</simple_name>
+        <signature>Zend_Form.populate_@__Form_php_1($values):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.processAjax_@__Form_php_1</simple_name>
+        <signature>Zend_Form.processAjax_@__Form_php_1($data):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112839">
+        <simple_name>Zend_Form.removeAttrib_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeAttrib_@__Form_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112958">
+        <simple_name>Zend_Form.removeDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeDecorator_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113008">
+        <simple_name>Zend_Form.removeDisplayGroup_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeDisplayGroup_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113010">
+        <simple_name>Zend_Form.removeElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeElement_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112661">
+        <simple_name>Zend_Form.removeSubForm_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeSubForm_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.render_@__Form_php_1</simple_name>
+        <signature>Zend_Form.render_@__Form_php_1($view):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.reset_@__Form_php_1</simple_name>
+        <signature>Zend_Form.reset_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.rewind_@__Form_php_1</simple_name>
+        <signature>Zend_Form.rewind_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112617">
+        <simple_name>Zend_Form.setAction_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setAction_@__Form_php_1($action):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112921">
+        <simple_name>Zend_Form.setAttrib_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setAttrib_@__Form_php_1($key;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112776">
+        <simple_name>Zend_Form.setAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setAttribs_@__Form_php_1($attribs):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112853">
+        <simple_name>Zend_Form.setConfig_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setConfig_@__Form_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112864">
+        <simple_name>Zend_Form.setDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112802">
+        <simple_name>Zend_Form.setDefaultDisplayGroupClass_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefaultDisplayGroupClass_@__Form_php_1($class):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112690">
+        <simple_name>Zend_Form.setDefaultTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefaultTranslator_@__Form_php_1($translator):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112929">
+        <simple_name>Zend_Form.setDefault_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefault_@__Form_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112834">
+        <simple_name>Zend_Form.setDefaults_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefaults_@__Form_php_1($defaults):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112754">
+        <simple_name>Zend_Form.setDescription_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDescription_@__Form_php_1($value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112840">
+        <simple_name>Zend_Form.setDisableLoadDefaultDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisableLoadDefaultDecorators_@__Form_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112897">
+        <simple_name>Zend_Form.setDisableTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisableTranslator_@__Form_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113039">
+        <simple_name>Zend_Form.setDisplayGroupDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisplayGroupDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112605">
+        <simple_name>Zend_Form.setDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisplayGroups_@__Form_php_1($groups):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112973">
+        <simple_name>Zend_Form.setElementDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElementDecorators_@__Form_php_1($decorators;$elements;$include):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112642">
+        <simple_name>Zend_Form.setElementFilters_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElementFilters_@__Form_php_1($filters):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112896">
+        <simple_name>Zend_Form.setElementsBelongTo_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElementsBelongTo_@__Form_php_1($array):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112991">
+        <simple_name>Zend_Form.setElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElements_@__Form_php_1($elements):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112950">
+        <simple_name>Zend_Form.setEnctype_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setEnctype_@__Form_php_1($value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112601">
+        <simple_name>Zend_Form.setErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setErrorMessages_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112761">
+        <simple_name>Zend_Form.setErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setErrors_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112859">
+        <simple_name>Zend_Form.setIsArray_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setIsArray_@__Form_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112920">
+        <simple_name>Zend_Form.setLegend_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setLegend_@__Form_php_1($value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112934">
+        <simple_name>Zend_Form.setMethod_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setMethod_@__Form_php_1($method):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112891">
+        <simple_name>Zend_Form.setName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setName_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112972">
+        <simple_name>Zend_Form.setOptions_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setOptions_@__Form_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112940">
+        <simple_name>Zend_Form.setOrder_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setOrder_@__Form_php_1($index):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112966">
+        <simple_name>Zend_Form.setPluginLoader_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setPluginLoader_@__Form_php_1($loader;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112677">
+        <simple_name>Zend_Form.setSubFormDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setSubFormDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112739">
+        <simple_name>Zend_Form.setSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setSubForms_@__Form_php_1($subForms):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112707">
+        <simple_name>Zend_Form.setTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setTranslator_@__Form_php_1($translator):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113000">
+        <simple_name>Zend_Form.setView</simple_name>
+        <signature>Zend_Form.setView(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113016">
+        <simple_name>Zend_Form.setView_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setView_@__Form_php_1($view):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.translatorIsDisabled_@__Form_php_1</simple_name>
+        <signature>Zend_Form.translatorIsDisabled_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112676">
+        <simple_name>Zend_Form.valid_@__Form_php_1</simple_name>
+        <signature>Zend_Form.valid_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Form">
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.$method</simple_name>
+        <signature>Zend_Form.$method(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112846">
+        <simple_name>Zend_Form.__call_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__call_@__Form_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112626">
+        <simple_name>Zend_Form.__clone_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__clone_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112607">
+        <simple_name>Zend_Form.__construct</simple_name>
+        <signature>Zend_Form.__construct(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112978">
+        <simple_name>Zend_Form.__construct_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__construct_@__Form_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112791">
+        <simple_name>Zend_Form.__get_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__get_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112797">
+        <simple_name>Zend_Form.__isset_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__isset_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112842">
+        <simple_name>Zend_Form.__set_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__set_@__Form_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112619">
+        <simple_name>Zend_Form.__toString_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__toString_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.__unset_@__Form_php_1</simple_name>
+        <signature>Zend_Form.__unset_@__Form_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._addDisplayGroupObject_@__Form_php_1</simple_name>
+        <signature>Zend_Form._addDisplayGroupObject_@__Form_php_1($group;$name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._attachToArray_@__Form_php_1</simple_name>
+        <signature>Zend_Form._attachToArray_@__Form_php_1($value;$arrayPath):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._dissolveArrayUnsetKey_@__Form_php_1</simple_name>
+        <signature>Zend_Form._dissolveArrayUnsetKey_@__Form_php_1($array;$arrayPath;$key):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._dissolveArrayValue_@__Form_php_1</simple_name>
+        <signature>Zend_Form._dissolveArrayValue_@__Form_php_1($value;$arrayPath):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._getArrayName_@__Form_php_1</simple_name>
+        <signature>Zend_Form._getArrayName_@__Form_php_1($value):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._getDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form._getDecorator_@__Form_php_1($name;$options):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._getErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form._getErrorMessages_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._loadDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form._loadDecorator_@__Form_php_1($decorator;$name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._setElementsBelongTo_@__Form_php_1</simple_name>
+        <signature>Zend_Form._setElementsBelongTo_@__Form_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form._sort_@__Form_php_1</simple_name>
+        <signature>Zend_Form._sort_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112636">
+        <simple_name>Zend_Form.addAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addAttribs_@__Form_php_1($attribs):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112704">
+        <simple_name>Zend_Form.addDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDecorator_@__Form_php_1($decorator;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112786">
+        <simple_name>Zend_Form.addDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112760">
+        <simple_name>Zend_Form.addDisplayGroupPrefixPath_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroupPrefixPath_@__Form_php_1($prefix;$path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112831">
+        <simple_name>Zend_Form.addDisplayGroupPrefixPaths_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroupPrefixPaths_@__Form_php_1($spec):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112745">
+        <simple_name>Zend_Form.addDisplayGroup_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroup_@__Form_php_1($elements;$name;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112807">
+        <simple_name>Zend_Form.addDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addDisplayGroups_@__Form_php_1($groups):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112668">
+        <simple_name>Zend_Form.addElementPrefixPath_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElementPrefixPath_@__Form_php_1($prefix;$path;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112777">
+        <simple_name>Zend_Form.addElementPrefixPaths_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElementPrefixPaths_@__Form_php_1($spec):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112904">
+        <simple_name>Zend_Form.addElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElement_@__Form_php_1($element;$name;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112678">
+        <simple_name>Zend_Form.addElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addElements_@__Form_php_1($elements):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112954">
+        <simple_name>Zend_Form.addErrorMessage_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addErrorMessage_@__Form_php_1($message):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112717">
+        <simple_name>Zend_Form.addErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addErrorMessages_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112910">
+        <simple_name>Zend_Form.addError_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addError_@__Form_php_1($message):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112838">
+        <simple_name>Zend_Form.addErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addErrors_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112869">
+        <simple_name>Zend_Form.addPrefixPath</simple_name>
+        <signature>Zend_Form.addPrefixPath(Arg#0;Arg#1;Arg#2):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112737">
+        <simple_name>Zend_Form.addPrefixPath_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addPrefixPath_@__Form_php_1($prefix;$path;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112685">
+        <simple_name>Zend_Form.addPrefixPaths_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addPrefixPaths_@__Form_php_1($spec):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112637">
+        <simple_name>Zend_Form.addSubForm_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addSubForm_@__Form_php_1($form;$name;$order):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112759">
+        <simple_name>Zend_Form.addSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.addSubForms_@__Form_php_1($subForms):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112698">
+        <simple_name>Zend_Form.clearAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearAttribs_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112941">
+        <simple_name>Zend_Form.clearDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearDecorators_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112780">
+        <simple_name>Zend_Form.clearDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearDisplayGroups_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112813">
+        <simple_name>Zend_Form.clearElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearElements_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112799">
+        <simple_name>Zend_Form.clearErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearErrorMessages_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113012">
+        <simple_name>Zend_Form.clearSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.clearSubForms_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112662">
+        <simple_name>Zend_Form.count_@__Form_php_1</simple_name>
+        <signature>Zend_Form.count_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.createElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.createElement_@__Form_php_1($type;$name;$options):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.current_@__Form_php_1</simple_name>
+        <signature>Zend_Form.current_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112599">
+        <simple_name>Zend_Form.filterName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.filterName_@__Form_php_1($value;$allowBrackets):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113038">
+        <simple_name>Zend_Form.getAction_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getAction_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112721">
+        <simple_name>Zend_Form.getAttrib_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getAttrib_@__Form_php_1($key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112733">
+        <simple_name>Zend_Form.getAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getAttribs_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112961">
+        <simple_name>Zend_Form.getDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDecorator_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112775">
+        <simple_name>Zend_Form.getDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDecorators_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112906">
+        <simple_name>Zend_Form.getDefaultDisplayGroupClass_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDefaultDisplayGroupClass_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112749">
+        <simple_name>Zend_Form.getDefaultTranslator</simple_name>
+        <signature>Zend_Form.getDefaultTranslator():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112828">
+        <simple_name>Zend_Form.getDefaultTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDefaultTranslator_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112728">
+        <simple_name>Zend_Form.getDescription_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDescription_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112616">
+        <simple_name>Zend_Form.getDisplayGroup_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDisplayGroup_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112980">
+        <simple_name>Zend_Form.getDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getDisplayGroups_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112597">
+        <simple_name>Zend_Form.getElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getElement_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112818">
+        <simple_name>Zend_Form.getElementsBelongTo</simple_name>
+        <signature>Zend_Form.getElementsBelongTo():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112879">
+        <simple_name>Zend_Form.getElementsBelongTo_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getElementsBelongTo_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112658">
+        <simple_name>Zend_Form.getElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getElements_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112895">
+        <simple_name>Zend_Form.getEnctype_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getEnctype_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112720">
+        <simple_name>Zend_Form.getErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getErrorMessages_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112969">
+        <simple_name>Zend_Form.getErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getErrors_@__Form_php_1($name;$suppressArrayNotation):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112683">
+        <simple_name>Zend_Form.getFullyQualifiedName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getFullyQualifiedName_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112933">
+        <simple_name>Zend_Form.getId_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getId_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112800">
+        <simple_name>Zend_Form.getLegend_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getLegend_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112888">
+        <simple_name>Zend_Form.getMessages</simple_name>
+        <signature>Zend_Form.getMessages():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112825">
+        <simple_name>Zend_Form.getMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getMessages_@__Form_php_1($name;$suppressArrayNotation):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112867">
+        <simple_name>Zend_Form.getMethod_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getMethod_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112835">
+        <simple_name>Zend_Form.getName</simple_name>
+        <signature>Zend_Form.getName():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112935">
+        <simple_name>Zend_Form.getName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getName_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112787">
+        <simple_name>Zend_Form.getOrder_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getOrder_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113007">
+        <simple_name>Zend_Form.getPluginLoader_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getPluginLoader_@__Form_php_1($type):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112723">
+        <simple_name>Zend_Form.getSubForm_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getSubForm_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112699">
+        <simple_name>Zend_Form.getSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getSubForms_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112718">
+        <simple_name>Zend_Form.getTranslator</simple_name>
+        <signature>Zend_Form.getTranslator():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112993">
+        <simple_name>Zend_Form.getTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getTranslator_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112953">
+        <simple_name>Zend_Form.getUnfilteredValue_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getUnfilteredValue_@__Form_php_1($name):Variant</signature>
+        <info_rule id="481204"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113026">
+        <simple_name>Zend_Form.getUnfilteredValues_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getUnfilteredValues_@__Form_php_1():Variant</signature>
+        <info_rule id="481202"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112817">
+        <simple_name>Zend_Form.getValidValues_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getValidValues_@__Form_php_1($data;$suppressArrayNotation):Variant</signature>
+        <info_rule id="481203"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112994">
+        <simple_name>Zend_Form.getValue_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getValue_@__Form_php_1($name):Variant</signature>
+        <info_rule id="481201"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112880">
+        <simple_name>Zend_Form.getValues_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getValues_@__Form_php_1($suppressArrayNotation):Variant</signature>
+        <info_rule id="481198"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112715">
+        <simple_name>Zend_Form.getView</simple_name>
+        <signature>Zend_Form.getView():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113019">
+        <simple_name>Zend_Form.getView_@__Form_php_1</simple_name>
+        <signature>Zend_Form.getView_@__Form_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112855">
+        <simple_name>Zend_Form.hasDefaultTranslator</simple_name>
+        <signature>Zend_Form.hasDefaultTranslator():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112804">
+        <simple_name>Zend_Form.hasDefaultTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.hasDefaultTranslator_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112709">
+        <simple_name>Zend_Form.hasTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.hasTranslator_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.init_@__Form_php_1</simple_name>
+        <signature>Zend_Form.init_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112809">
+        <simple_name>Zend_Form.isArray_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isArray_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112772">
+        <simple_name>Zend_Form.isErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isErrors_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112743">
+        <simple_name>Zend_Form.isValidPartial_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isValidPartial_@__Form_php_1($data):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113032">
+        <simple_name>Zend_Form.isValid_@__Form_php_1</simple_name>
+        <signature>Zend_Form.isValid_@__Form_php_1($data):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.key_@__Form_php_1</simple_name>
+        <signature>Zend_Form.key_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.loadDefaultDecoratorsIsDisabled_@__Form_php_1</simple_name>
+        <signature>Zend_Form.loadDefaultDecoratorsIsDisabled_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.loadDefaultDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.loadDefaultDecorators_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.markAsError_@__Form_php_1</simple_name>
+        <signature>Zend_Form.markAsError_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.next_@__Form_php_1</simple_name>
+        <signature>Zend_Form.next_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.persistData_@__Form_php_1</simple_name>
+        <signature>Zend_Form.persistData_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.populate_@__Form_php_1</simple_name>
+        <signature>Zend_Form.populate_@__Form_php_1($values):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.processAjax_@__Form_php_1</simple_name>
+        <signature>Zend_Form.processAjax_@__Form_php_1($data):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112839">
+        <simple_name>Zend_Form.removeAttrib_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeAttrib_@__Form_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112958">
+        <simple_name>Zend_Form.removeDecorator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeDecorator_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113008">
+        <simple_name>Zend_Form.removeDisplayGroup_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeDisplayGroup_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1113010">
+        <simple_name>Zend_Form.removeElement_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeElement_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112661">
+        <simple_name>Zend_Form.removeSubForm_@__Form_php_1</simple_name>
+        <signature>Zend_Form.removeSubForm_@__Form_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.render_@__Form_php_1</simple_name>
+        <signature>Zend_Form.render_@__Form_php_1($view):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.reset_@__Form_php_1</simple_name>
+        <signature>Zend_Form.reset_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.rewind_@__Form_php_1</simple_name>
+        <signature>Zend_Form.rewind_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112617">
+        <simple_name>Zend_Form.setAction_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setAction_@__Form_php_1($action):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112921">
+        <simple_name>Zend_Form.setAttrib_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setAttrib_@__Form_php_1($key;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112776">
+        <simple_name>Zend_Form.setAttribs_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setAttribs_@__Form_php_1($attribs):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112853">
+        <simple_name>Zend_Form.setConfig_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setConfig_@__Form_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112864">
+        <simple_name>Zend_Form.setDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112802">
+        <simple_name>Zend_Form.setDefaultDisplayGroupClass_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefaultDisplayGroupClass_@__Form_php_1($class):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112690">
+        <simple_name>Zend_Form.setDefaultTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefaultTranslator_@__Form_php_1($translator):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112929">
+        <simple_name>Zend_Form.setDefault_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefault_@__Form_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112834">
+        <simple_name>Zend_Form.setDefaults_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDefaults_@__Form_php_1($defaults):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112754">
+        <simple_name>Zend_Form.setDescription_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDescription_@__Form_php_1($value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112840">
+        <simple_name>Zend_Form.setDisableLoadDefaultDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisableLoadDefaultDecorators_@__Form_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112897">
+        <simple_name>Zend_Form.setDisableTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisableTranslator_@__Form_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113039">
+        <simple_name>Zend_Form.setDisplayGroupDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisplayGroupDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112605">
+        <simple_name>Zend_Form.setDisplayGroups_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setDisplayGroups_@__Form_php_1($groups):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112973">
+        <simple_name>Zend_Form.setElementDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElementDecorators_@__Form_php_1($decorators;$elements;$include):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112642">
+        <simple_name>Zend_Form.setElementFilters_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElementFilters_@__Form_php_1($filters):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112896">
+        <simple_name>Zend_Form.setElementsBelongTo_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElementsBelongTo_@__Form_php_1($array):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112991">
+        <simple_name>Zend_Form.setElements_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setElements_@__Form_php_1($elements):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112950">
+        <simple_name>Zend_Form.setEnctype_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setEnctype_@__Form_php_1($value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112601">
+        <simple_name>Zend_Form.setErrorMessages_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setErrorMessages_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112761">
+        <simple_name>Zend_Form.setErrors_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setErrors_@__Form_php_1($messages):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112859">
+        <simple_name>Zend_Form.setIsArray_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setIsArray_@__Form_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112920">
+        <simple_name>Zend_Form.setLegend_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setLegend_@__Form_php_1($value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112934">
+        <simple_name>Zend_Form.setMethod_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setMethod_@__Form_php_1($method):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112891">
+        <simple_name>Zend_Form.setName_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setName_@__Form_php_1($name):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112972">
+        <simple_name>Zend_Form.setOptions_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setOptions_@__Form_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112940">
+        <simple_name>Zend_Form.setOrder_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setOrder_@__Form_php_1($index):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112966">
+        <simple_name>Zend_Form.setPluginLoader_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setPluginLoader_@__Form_php_1($loader;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112677">
+        <simple_name>Zend_Form.setSubFormDecorators_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setSubFormDecorators_@__Form_php_1($decorators):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112739">
+        <simple_name>Zend_Form.setSubForms_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setSubForms_@__Form_php_1($subForms):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112707">
+        <simple_name>Zend_Form.setTranslator_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setTranslator_@__Form_php_1($translator):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113000">
+        <simple_name>Zend_Form.setView</simple_name>
+        <signature>Zend_Form.setView(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1113016">
+        <simple_name>Zend_Form.setView_@__Form_php_1</simple_name>
+        <signature>Zend_Form.setView_@__Form_php_1($view):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Form.translatorIsDisabled_@__Form_php_1</simple_name>
+        <signature>Zend_Form.translatorIsDisabled_@__Form_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112676">
+        <simple_name>Zend_Form.valid_@__Form_php_1</simple_name>
+        <signature>Zend_Form.valid_@__Form_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

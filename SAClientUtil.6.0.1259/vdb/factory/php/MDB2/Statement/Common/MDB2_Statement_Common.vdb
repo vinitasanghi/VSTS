@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_Statement_Common">
+      <method vuln_id="1091722">
+        <simple_name>MDB2_Statement_Common.MDB2_Statement_Common</simple_name>
+        <signature>MDB2_Statement_Common.MDB2_Statement_Common($db;$statement;$positions;$query;$types;$result_types;$is_manip;$limit;$offset):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091747">
+        <simple_name>MDB2_Statement_Common.__construct</simple_name>
+        <signature>MDB2_Statement_Common.__construct($db;$statement;$positions;$query;$types;$result_types;$is_manip;$limit;$offset):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Statement_Common._execute</simple_name>
+        <signature>MDB2_Statement_Common._execute($result_class;$result_wrap_class):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091719">
+        <simple_name>MDB2_Statement_Common.bindParam</simple_name>
+        <signature>MDB2_Statement_Common.bindParam($parameter;$value;$type):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091732">
+        <simple_name>MDB2_Statement_Common.bindParamArray</simple_name>
+        <signature>MDB2_Statement_Common.bindParamArray($values;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091716">
+        <simple_name>MDB2_Statement_Common.bindValue</simple_name>
+        <signature>MDB2_Statement_Common.bindValue($parameter;$value;$type):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091793">
+        <simple_name>MDB2_Statement_Common.bindValueArray</simple_name>
+        <signature>MDB2_Statement_Common.bindValueArray($values;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091715">
+        <simple_name>MDB2_Statement_Common.execute</simple_name>
+        <signature>MDB2_Statement_Common.execute($values;$result_class;$result_wrap_class):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091734">
+        <simple_name>MDB2_Statement_Common.free</simple_name>
+        <signature>MDB2_Statement_Common.free():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_Statement_Common">
+      <method vuln_id="1091722">
+        <simple_name>MDB2_Statement_Common.MDB2_Statement_Common</simple_name>
+        <signature>MDB2_Statement_Common.MDB2_Statement_Common($db;$statement;$positions;$query;$types;$result_types;$is_manip;$limit;$offset):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091747">
+        <simple_name>MDB2_Statement_Common.__construct</simple_name>
+        <signature>MDB2_Statement_Common.__construct($db;$statement;$positions;$query;$types;$result_types;$is_manip;$limit;$offset):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Statement_Common._execute</simple_name>
+        <signature>MDB2_Statement_Common._execute($result_class;$result_wrap_class):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091719">
+        <simple_name>MDB2_Statement_Common.bindParam</simple_name>
+        <signature>MDB2_Statement_Common.bindParam($parameter;$value;$type):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091732">
+        <simple_name>MDB2_Statement_Common.bindParamArray</simple_name>
+        <signature>MDB2_Statement_Common.bindParamArray($values;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091716">
+        <simple_name>MDB2_Statement_Common.bindValue</simple_name>
+        <signature>MDB2_Statement_Common.bindValue($parameter;$value;$type):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091793">
+        <simple_name>MDB2_Statement_Common.bindValueArray</simple_name>
+        <signature>MDB2_Statement_Common.bindValueArray($values;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091715">
+        <simple_name>MDB2_Statement_Common.execute</simple_name>
+        <signature>MDB2_Statement_Common.execute($values;$result_class;$result_wrap_class):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091734">
+        <simple_name>MDB2_Statement_Common.free</simple_name>
+        <signature>MDB2_Statement_Common.free():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

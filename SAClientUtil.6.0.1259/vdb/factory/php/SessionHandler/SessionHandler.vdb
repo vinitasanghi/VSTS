@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SessionHandler">
+      <method vuln_id="1350692">
+        <simple_name>___Php.SessionHandler.close</simple_name>
+        <signature>___Php.SessionHandler.close():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350693">
+        <simple_name>___Php.SessionHandler.create_sid</simple_name>
+        <signature>___Php.SessionHandler.create_sid():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350694">
+        <simple_name>___Php.SessionHandler.destroy</simple_name>
+        <signature>___Php.SessionHandler.destroy():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350695">
+        <simple_name>___Php.SessionHandler.gc</simple_name>
+        <signature>___Php.SessionHandler.gc(int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350696">
+        <simple_name>___Php.SessionHandler.open</simple_name>
+        <signature>___Php.SessionHandler.open(___Php.String;___Php.String):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350697">
+        <simple_name>___Php.SessionHandler.read</simple_name>
+        <signature>___Php.SessionHandler.read(__Php.String):__Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350698">
+        <simple_name>___Php.SessionHandler.write</simple_name>
+        <signature>___Php.SessionHandler.write(__Php.String;__Php.String):bool</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+    </class>
+    <class name="SessionHandler">
+      <method vuln_id="1350692">
+        <simple_name>___Php.SessionHandler.close</simple_name>
+        <signature>___Php.SessionHandler.close():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350693">
+        <simple_name>___Php.SessionHandler.create_sid</simple_name>
+        <signature>___Php.SessionHandler.create_sid():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350694">
+        <simple_name>___Php.SessionHandler.destroy</simple_name>
+        <signature>___Php.SessionHandler.destroy():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350695">
+        <simple_name>___Php.SessionHandler.gc</simple_name>
+        <signature>___Php.SessionHandler.gc(int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350696">
+        <simple_name>___Php.SessionHandler.open</simple_name>
+        <signature>___Php.SessionHandler.open(___Php.String;___Php.String):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350697">
+        <simple_name>___Php.SessionHandler.read</simple_name>
+        <signature>___Php.SessionHandler.read(__Php.String):__Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1350698">
+        <simple_name>___Php.SessionHandler.write</simple_name>
+        <signature>___Php.SessionHandler.write(__Php.String;__Php.String):bool</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

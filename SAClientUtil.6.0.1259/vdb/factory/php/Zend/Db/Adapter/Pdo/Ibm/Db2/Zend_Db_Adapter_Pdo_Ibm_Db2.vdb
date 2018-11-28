@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Db_Adapter_Pdo_Ibm_Db2">
+      <method vuln_id="1111091">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.__construct_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.__construct_@__Db_Adapter_Pdo_Ibm_Db2_php_1($adapter):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110715">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.describeTable_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.describeTable_@__Db_Adapter_Pdo_Ibm_Db2_php_1($tableName;$schemaName):Variant</signature>
+        <info_rule id="466670"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110685">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.lastSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.lastSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1($sequenceName):Variant</signature>
+        <info_rule id="466636"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111003">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.limit_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.limit_@__Db_Adapter_Pdo_Ibm_Db2_php_1($sql;$count;$offset):Variant</signature>
+        <info_rule id="466982"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111054">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.listTables_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.listTables_@__Db_Adapter_Pdo_Ibm_Db2_php_1():Variant</signature>
+        <info_rule id="467038"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110739">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.nextSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.nextSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1($sequenceName):Variant</signature>
+        <info_rule id="466695"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Db_Adapter_Pdo_Ibm_Db2">
+      <method vuln_id="1111091">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.__construct_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.__construct_@__Db_Adapter_Pdo_Ibm_Db2_php_1($adapter):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110715">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.describeTable_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.describeTable_@__Db_Adapter_Pdo_Ibm_Db2_php_1($tableName;$schemaName):Variant</signature>
+        <info_rule id="466670"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110685">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.lastSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.lastSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1($sequenceName):Variant</signature>
+        <info_rule id="466636"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111003">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.limit_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.limit_@__Db_Adapter_Pdo_Ibm_Db2_php_1($sql;$count;$offset):Variant</signature>
+        <info_rule id="466982"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111054">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.listTables_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.listTables_@__Db_Adapter_Pdo_Ibm_Db2_php_1():Variant</signature>
+        <info_rule id="467038"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110739">
+        <simple_name>Zend_Db_Adapter_Pdo_Ibm_Db2.nextSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Ibm_Db2.nextSequenceId_@__Db_Adapter_Pdo_Ibm_Db2_php_1($sequenceName):Variant</signature>
+        <info_rule id="466695"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

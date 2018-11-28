@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Directory">
+      <method vuln_id="-1">
+        <simple_name>Directory.__construct</simple_name>
+        <signature>Directory.__construct(___Php.String):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.close</simple_name>
+        <signature>Directory.close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.handle</simple_name>
+        <signature>Directory.handle():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.path</simple_name>
+        <signature>Directory.path():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.read</simple_name>
+        <signature>Directory.read():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.rewind</simple_name>
+        <signature>Directory.rewind():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1088747">
+        <simple_name>___Php.Directory.__construct</simple_name>
+        <signature>___Php.Directory.__construct(___Php.String):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+      </method>
+      <method vuln_id="1088996">
+        <simple_name>___Php.Directory.close</simple_name>
+        <signature>___Php.Directory.close():void</signature>
+        <info_rule id="456347"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1089031">
+        <simple_name>___Php.Directory.handle</simple_name>
+        <signature>___Php.Directory.handle():int</signature>
+        <info_rule id="456362"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1088855">
+        <simple_name>___Php.Directory.path</simple_name>
+        <signature>___Php.Directory.path():___Php.String</signature>
+        <info_rule id="456276"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1088742">
+        <simple_name>___Php.Directory.read</simple_name>
+        <signature>___Php.Directory.read():___Php.String</signature>
+        <info_rule id="456220"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1088961">
+        <simple_name>___Php.Directory.rewind</simple_name>
+        <signature>___Php.Directory.rewind():void</signature>
+        <info_rule id="456328"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+      </method>
+    </class>
+    <class name="Directory">
+      <method vuln_id="-1">
+        <simple_name>Directory.__construct</simple_name>
+        <signature>Directory.__construct(___Php.String):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.close</simple_name>
+        <signature>Directory.close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.handle</simple_name>
+        <signature>Directory.handle():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.path</simple_name>
+        <signature>Directory.path():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.read</simple_name>
+        <signature>Directory.read():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Directory.rewind</simple_name>
+        <signature>Directory.rewind():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1088747">
+        <simple_name>___Php.Directory.__construct</simple_name>
+        <signature>___Php.Directory.__construct(___Php.String):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+      </method>
+      <method vuln_id="1088996">
+        <simple_name>___Php.Directory.close</simple_name>
+        <signature>___Php.Directory.close():void</signature>
+        <info_rule id="456347"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1089031">
+        <simple_name>___Php.Directory.handle</simple_name>
+        <signature>___Php.Directory.handle():int</signature>
+        <info_rule id="456362"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1088855">
+        <simple_name>___Php.Directory.path</simple_name>
+        <signature>___Php.Directory.path():___Php.String</signature>
+        <info_rule id="456276"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1088742">
+        <simple_name>___Php.Directory.read</simple_name>
+        <signature>___Php.Directory.read():___Php.String</signature>
+        <info_rule id="456220"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+      </method>
+      <method vuln_id="1088961">
+        <simple_name>___Php.Directory.rewind</simple_name>
+        <signature>___Php.Directory.rewind():void</signature>
+        <info_rule id="456328"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

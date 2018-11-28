@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="mysqli_stmt">
+      <method vuln_id="1087685">
+        <simple_name>___Php.mysqli_stmt.affected_rows</simple_name>
+        <signature>___Php.mysqli_stmt.affected_rows():mixed</signature>
+        <info_rule id="454878"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Return the number of rows affected in the last query for the given link</comment>
+      </method>
+      <method vuln_id="1087719">
+        <simple_name>___Php.mysqli_stmt.bind_param</simple_name>
+        <signature>___Php.mysqli_stmt.bind_param(___Php.String;mixed):bool</signature>
+        <info_rule id="454923"/>
+        <property>Technology.Database</property>
+        <comment>Bind variables to a prepared statement as parameters</comment>
+      </method>
+      <method vuln_id="1087677">
+        <simple_name>___Php.mysqli_stmt.bind_result</simple_name>
+        <signature>___Php.mysqli_stmt.bind_result(mixed):bool</signature>
+        <info_rule id="454866"/>
+        <property>Technology.Database</property>
+        <comment>Bind variables to a prepared statement for result storage</comment>
+      </method>
+      <method vuln_id="1087796">
+        <simple_name>___Php.mysqli_stmt.close</simple_name>
+        <signature>___Php.mysqli_stmt.close():bool</signature>
+        <info_rule id="455044"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Close statement</comment>
+      </method>
+      <method vuln_id="1087797">
+        <simple_name>___Php.mysqli_stmt.data_seek</simple_name>
+        <signature>___Php.mysqli_stmt.data_seek(int):void</signature>
+        <info_rule id="455045"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Move internal result pointer</comment>
+      </method>
+      <method vuln_id="1087702">
+        <simple_name>___Php.mysqli_stmt.errno</simple_name>
+        <signature>___Php.mysqli_stmt.errno():int</signature>
+        <info_rule id="454898"/>
+        <rule>
+          <ActionObject id="474123">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461659">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454900">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087761">
+        <simple_name>___Php.mysqli_stmt.error</simple_name>
+        <signature>___Php.mysqli_stmt.error():___Php.String</signature>
+        <info_rule id="454995"/>
+        <rule>
+          <ActionObject id="474133">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461668">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454993">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="454992">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087688">
+        <simple_name>___Php.mysqli_stmt.execute</simple_name>
+        <signature>___Php.mysqli_stmt.execute():bool</signature>
+        <info_rule id="454881"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Execute a prepared statement</comment>
+      </method>
+      <method vuln_id="1087768">
+        <simple_name>___Php.mysqli_stmt.fetch</simple_name>
+        <signature>___Php.mysqli_stmt.fetch():bool</signature>
+        <info_rule id="455006"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Fetch results from a prepared statement into the bound variables</comment>
+      </method>
+      <method vuln_id="1087758">
+        <simple_name>___Php.mysqli_stmt.free_result</simple_name>
+        <signature>___Php.mysqli_stmt.free_result():void</signature>
+        <info_rule id="454986"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free stored result memory for the given statement handle</comment>
+      </method>
+      <method vuln_id="1087762">
+        <simple_name>___Php.mysqli_stmt.num_rows</simple_name>
+        <signature>___Php.mysqli_stmt.num_rows():int</signature>
+        <info_rule id="454996"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return the number of rows in statements result set</comment>
+      </method>
+      <method vuln_id="1087715">
+        <simple_name>___Php.mysqli_stmt.param_count</simple_name>
+        <signature>___Php.mysqli_stmt.param_count():int</signature>
+        <info_rule id="454917"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return the number of parameter for the given statement</comment>
+      </method>
+      <method vuln_id="1087826">
+        <simple_name>___Php.mysqli_stmt.prepare</simple_name>
+        <signature>___Php.mysqli_stmt.prepare(___Php.String):bool</signature>
+        <info_rule id="455087"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>prepare server side statement with query</comment>
+      </method>
+      <method vuln_id="1087839">
+        <simple_name>___Php.mysqli_stmt.reset</simple_name>
+        <signature>___Php.mysqli_stmt.reset():bool</signature>
+        <info_rule id="455104"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>reset a prepared statement</comment>
+      </method>
+      <method vuln_id="1087815">
+        <simple_name>___Php.mysqli_stmt.result_metadata</simple_name>
+        <signature>___Php.mysqli_stmt.result_metadata():mixed</signature>
+        <info_rule id="455072"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>return result set from statement</comment>
+      </method>
+      <method vuln_id="1087716">
+        <simple_name>___Php.mysqli_stmt.send_long_data</simple_name>
+        <signature>___Php.mysqli_stmt.send_long_data(int;___Php.String):bool</signature>
+        <info_rule id="454918"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087745">
+        <simple_name>___Php.mysqli_stmt.sqlstate</simple_name>
+        <signature>___Php.mysqli_stmt.sqlstate():___Php.String</signature>
+        <info_rule id="454970"/>
+        <rule>
+          <ActionObject id="474131">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461666">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454968">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="454967">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087824">
+        <simple_name>___Php.mysqli_stmt.store_result</simple_name>
+        <signature>___Php.mysqli_stmt.store_result():bool</signature>
+        <info_rule id="455085"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+    </class>
+    <class name="mysqli_stmt">
+      <method vuln_id="1087685">
+        <simple_name>___Php.mysqli_stmt.affected_rows</simple_name>
+        <signature>___Php.mysqli_stmt.affected_rows():mixed</signature>
+        <info_rule id="454878"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Return the number of rows affected in the last query for the given link</comment>
+      </method>
+      <method vuln_id="1087719">
+        <simple_name>___Php.mysqli_stmt.bind_param</simple_name>
+        <signature>___Php.mysqli_stmt.bind_param(___Php.String;mixed):bool</signature>
+        <info_rule id="454923"/>
+        <property>Technology.Database</property>
+        <comment>Bind variables to a prepared statement as parameters</comment>
+      </method>
+      <method vuln_id="1087677">
+        <simple_name>___Php.mysqli_stmt.bind_result</simple_name>
+        <signature>___Php.mysqli_stmt.bind_result(mixed):bool</signature>
+        <info_rule id="454866"/>
+        <property>Technology.Database</property>
+        <comment>Bind variables to a prepared statement for result storage</comment>
+      </method>
+      <method vuln_id="1087796">
+        <simple_name>___Php.mysqli_stmt.close</simple_name>
+        <signature>___Php.mysqli_stmt.close():bool</signature>
+        <info_rule id="455044"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Close statement</comment>
+      </method>
+      <method vuln_id="1087797">
+        <simple_name>___Php.mysqli_stmt.data_seek</simple_name>
+        <signature>___Php.mysqli_stmt.data_seek(int):void</signature>
+        <info_rule id="455045"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Move internal result pointer</comment>
+      </method>
+      <method vuln_id="1087702">
+        <simple_name>___Php.mysqli_stmt.errno</simple_name>
+        <signature>___Php.mysqli_stmt.errno():int</signature>
+        <info_rule id="454898"/>
+        <rule>
+          <ActionObject id="474123">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461659">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454900">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087761">
+        <simple_name>___Php.mysqli_stmt.error</simple_name>
+        <signature>___Php.mysqli_stmt.error():___Php.String</signature>
+        <info_rule id="454995"/>
+        <rule>
+          <ActionObject id="474133">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461668">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454993">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="454992">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087688">
+        <simple_name>___Php.mysqli_stmt.execute</simple_name>
+        <signature>___Php.mysqli_stmt.execute():bool</signature>
+        <info_rule id="454881"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Execute a prepared statement</comment>
+      </method>
+      <method vuln_id="1087768">
+        <simple_name>___Php.mysqli_stmt.fetch</simple_name>
+        <signature>___Php.mysqli_stmt.fetch():bool</signature>
+        <info_rule id="455006"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Fetch results from a prepared statement into the bound variables</comment>
+      </method>
+      <method vuln_id="1087758">
+        <simple_name>___Php.mysqli_stmt.free_result</simple_name>
+        <signature>___Php.mysqli_stmt.free_result():void</signature>
+        <info_rule id="454986"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free stored result memory for the given statement handle</comment>
+      </method>
+      <method vuln_id="1087762">
+        <simple_name>___Php.mysqli_stmt.num_rows</simple_name>
+        <signature>___Php.mysqli_stmt.num_rows():int</signature>
+        <info_rule id="454996"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return the number of rows in statements result set</comment>
+      </method>
+      <method vuln_id="1087715">
+        <simple_name>___Php.mysqli_stmt.param_count</simple_name>
+        <signature>___Php.mysqli_stmt.param_count():int</signature>
+        <info_rule id="454917"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return the number of parameter for the given statement</comment>
+      </method>
+      <method vuln_id="1087826">
+        <simple_name>___Php.mysqli_stmt.prepare</simple_name>
+        <signature>___Php.mysqli_stmt.prepare(___Php.String):bool</signature>
+        <info_rule id="455087"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>prepare server side statement with query</comment>
+      </method>
+      <method vuln_id="1087839">
+        <simple_name>___Php.mysqli_stmt.reset</simple_name>
+        <signature>___Php.mysqli_stmt.reset():bool</signature>
+        <info_rule id="455104"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>reset a prepared statement</comment>
+      </method>
+      <method vuln_id="1087815">
+        <simple_name>___Php.mysqli_stmt.result_metadata</simple_name>
+        <signature>___Php.mysqli_stmt.result_metadata():mixed</signature>
+        <info_rule id="455072"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>return result set from statement</comment>
+      </method>
+      <method vuln_id="1087716">
+        <simple_name>___Php.mysqli_stmt.send_long_data</simple_name>
+        <signature>___Php.mysqli_stmt.send_long_data(int;___Php.String):bool</signature>
+        <info_rule id="454918"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087745">
+        <simple_name>___Php.mysqli_stmt.sqlstate</simple_name>
+        <signature>___Php.mysqli_stmt.sqlstate():___Php.String</signature>
+        <info_rule id="454970"/>
+        <rule>
+          <ActionObject id="474131">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461666">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454968">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="454967">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087824">
+        <simple_name>___Php.mysqli_stmt.store_result</simple_name>
+        <signature>___Php.mysqli_stmt.store_result():bool</signature>
+        <info_rule id="455085"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

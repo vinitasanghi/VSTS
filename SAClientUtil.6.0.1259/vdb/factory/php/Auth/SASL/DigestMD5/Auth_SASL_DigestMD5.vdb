@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Auth_SASL_DigestMD5">
+      <method vuln_id="1107908">
+        <simple_name>Auth_SASL_DigestMD5._getCnonce</simple_name>
+        <signature>Auth_SASL_DigestMD5._getCnonce():___Php.String</signature>
+        <info_rule id="463490"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107909">
+        <simple_name>Auth_SASL_DigestMD5._getResponseValue</simple_name>
+        <signature>Auth_SASL_DigestMD5._getResponseValue(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="463491"/>
+        <rule>
+          <ActionObject id="450880">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107910">
+        <simple_name>Auth_SASL_DigestMD5._parseChallenge</simple_name>
+        <signature>Auth_SASL_DigestMD5._parseChallenge(___Php.String):___Php.Array</signature>
+        <info_rule id="463492"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107907">
+        <simple_name>Auth_SASL_DigestMD5.getResponse</simple_name>
+        <signature>Auth_SASL_DigestMD5.getResponse(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="463489"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="463487">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463488">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="450878">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5,6"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Auth_SASL_DigestMD5">
+      <method vuln_id="1107908">
+        <simple_name>Auth_SASL_DigestMD5._getCnonce</simple_name>
+        <signature>Auth_SASL_DigestMD5._getCnonce():___Php.String</signature>
+        <info_rule id="463490"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107909">
+        <simple_name>Auth_SASL_DigestMD5._getResponseValue</simple_name>
+        <signature>Auth_SASL_DigestMD5._getResponseValue(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="463491"/>
+        <rule>
+          <ActionObject id="450880">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107910">
+        <simple_name>Auth_SASL_DigestMD5._parseChallenge</simple_name>
+        <signature>Auth_SASL_DigestMD5._parseChallenge(___Php.String):___Php.Array</signature>
+        <info_rule id="463492"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107907">
+        <simple_name>Auth_SASL_DigestMD5.getResponse</simple_name>
+        <signature>Auth_SASL_DigestMD5.getResponse(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="463489"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="463487">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463488">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="450878">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5,6"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

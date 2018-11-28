@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Log_Writer_Abstract">
+      <method vuln_id="1115909">
+        <simple_name>Zend_Log_Writer_Abstract.__construct_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.__construct_@__Log_Writer_Abstract_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115910">
+        <simple_name>Zend_Log_Writer_Abstract._parseConfig_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract._parseConfig_@__Log_Writer_Abstract_php_1($config):Variant</signature>
+        <info_rule id="469149"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115870">
+        <simple_name>Zend_Log_Writer_Abstract._write_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract._write_@__Log_Writer_Abstract_php_1($event):Variant</signature>
+        <info_rule id="469112"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115923">
+        <simple_name>Zend_Log_Writer_Abstract.addFilter_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.addFilter_@__Log_Writer_Abstract_php_1($filter):Variant</signature>
+        <info_rule id="469160"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115929">
+        <simple_name>Zend_Log_Writer_Abstract.setFormatter_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.setFormatter_@__Log_Writer_Abstract_php_1($formatter):Variant</signature>
+        <info_rule id="469167"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115854">
+        <simple_name>Zend_Log_Writer_Abstract.shutdown_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.shutdown_@__Log_Writer_Abstract_php_1():Variant</signature>
+        <info_rule id="469099"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115896">
+        <simple_name>Zend_Log_Writer_Abstract.write_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.write_@__Log_Writer_Abstract_php_1($event):Variant</signature>
+        <info_rule id="469137"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Log_Writer_Abstract">
+      <method vuln_id="1115909">
+        <simple_name>Zend_Log_Writer_Abstract.__construct_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.__construct_@__Log_Writer_Abstract_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115910">
+        <simple_name>Zend_Log_Writer_Abstract._parseConfig_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract._parseConfig_@__Log_Writer_Abstract_php_1($config):Variant</signature>
+        <info_rule id="469149"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115870">
+        <simple_name>Zend_Log_Writer_Abstract._write_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract._write_@__Log_Writer_Abstract_php_1($event):Variant</signature>
+        <info_rule id="469112"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115923">
+        <simple_name>Zend_Log_Writer_Abstract.addFilter_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.addFilter_@__Log_Writer_Abstract_php_1($filter):Variant</signature>
+        <info_rule id="469160"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115929">
+        <simple_name>Zend_Log_Writer_Abstract.setFormatter_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.setFormatter_@__Log_Writer_Abstract_php_1($formatter):Variant</signature>
+        <info_rule id="469167"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115854">
+        <simple_name>Zend_Log_Writer_Abstract.shutdown_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.shutdown_@__Log_Writer_Abstract_php_1():Variant</signature>
+        <info_rule id="469099"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115896">
+        <simple_name>Zend_Log_Writer_Abstract.write_@__Log_Writer_Abstract_php_1</simple_name>
+        <signature>Zend_Log_Writer_Abstract.write_@__Log_Writer_Abstract_php_1($event):Variant</signature>
+        <info_rule id="469137"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

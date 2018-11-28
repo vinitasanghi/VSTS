@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="PEAR_Error">
+      <method vuln_id="-1">
+        <simple_name>PEAR_Error.PEAR_Error</simple_name>
+        <signature>PEAR_Error.PEAR_Error():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092589">
+        <simple_name>PEAR_Error.PEAR_Error</simple_name>
+        <signature>PEAR_Error.PEAR_Error(string;int;int;mixed;string):mixed</signature>
+        <info_rule id="480903"/>
+        <rule>
+          <ActionObject id="451939">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461767">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="1,5" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092600">
+        <simple_name>PEAR_Error.addUserInfo</simple_name>
+        <signature>PEAR_Error.addUserInfo(mixed):mixed</signature>
+        <info_rule id="451966"/>
+        <rule>
+          <ActionObject id="451965">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461774">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451964">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="1" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092616">
+        <simple_name>PEAR_Error.getBacktrace</simple_name>
+        <signature>PEAR_Error.getBacktrace(int):array</signature>
+        <info_rule id="451993"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092607">
+        <simple_name>PEAR_Error.getCallback</simple_name>
+        <signature>PEAR_Error.getCallback():mixed</signature>
+        <info_rule id="451981"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092592">
+        <simple_name>PEAR_Error.getCode</simple_name>
+        <signature>PEAR_Error.getCode():int</signature>
+        <info_rule id="451947"/>
+        <rule>
+          <ActionObject id="451948">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461770">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451949">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092617">
+        <simple_name>PEAR_Error.getDebugInfo</simple_name>
+        <signature>PEAR_Error.getDebugInfo():string</signature>
+        <info_rule id="451997"/>
+        <rule>
+          <ActionObject id="451996">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461780">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451995">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092590">
+        <simple_name>PEAR_Error.getMessage</simple_name>
+        <signature>PEAR_Error.getMessage():string</signature>
+        <info_rule id="451943"/>
+        <rule>
+          <ActionObject id="451942">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461768">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451941">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092614">
+        <simple_name>PEAR_Error.getMode</simple_name>
+        <signature>PEAR_Error.getMode():int</signature>
+        <info_rule id="451991"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092620">
+        <simple_name>PEAR_Error.getType</simple_name>
+        <signature>PEAR_Error.getType():string</signature>
+        <info_rule id="452000"/>
+        <rule>
+          <ActionObject id="452001">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461781">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="452002">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092608">
+        <simple_name>PEAR_Error.getUserInfo</simple_name>
+        <signature>PEAR_Error.getUserInfo():string</signature>
+        <info_rule id="451979"/>
+        <rule>
+          <ActionObject id="451978">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461777">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451977">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092593">
+        <simple_name>PEAR_Error.toString</simple_name>
+        <signature>PEAR_Error.toString():string</signature>
+        <info_rule id="451953"/>
+        <rule>
+          <ActionObject id="451952">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461771">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451951">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="PEAR_Error">
+      <method vuln_id="-1">
+        <simple_name>PEAR_Error.PEAR_Error</simple_name>
+        <signature>PEAR_Error.PEAR_Error():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092589">
+        <simple_name>PEAR_Error.PEAR_Error</simple_name>
+        <signature>PEAR_Error.PEAR_Error(string;int;int;mixed;string):mixed</signature>
+        <info_rule id="480903"/>
+        <rule>
+          <ActionObject id="451939">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461767">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="1,5" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092600">
+        <simple_name>PEAR_Error.addUserInfo</simple_name>
+        <signature>PEAR_Error.addUserInfo(mixed):mixed</signature>
+        <info_rule id="451966"/>
+        <rule>
+          <ActionObject id="451965">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461774">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451964">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="1" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092616">
+        <simple_name>PEAR_Error.getBacktrace</simple_name>
+        <signature>PEAR_Error.getBacktrace(int):array</signature>
+        <info_rule id="451993"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092607">
+        <simple_name>PEAR_Error.getCallback</simple_name>
+        <signature>PEAR_Error.getCallback():mixed</signature>
+        <info_rule id="451981"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092592">
+        <simple_name>PEAR_Error.getCode</simple_name>
+        <signature>PEAR_Error.getCode():int</signature>
+        <info_rule id="451947"/>
+        <rule>
+          <ActionObject id="451948">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461770">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451949">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092617">
+        <simple_name>PEAR_Error.getDebugInfo</simple_name>
+        <signature>PEAR_Error.getDebugInfo():string</signature>
+        <info_rule id="451997"/>
+        <rule>
+          <ActionObject id="451996">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461780">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451995">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092590">
+        <simple_name>PEAR_Error.getMessage</simple_name>
+        <signature>PEAR_Error.getMessage():string</signature>
+        <info_rule id="451943"/>
+        <rule>
+          <ActionObject id="451942">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461768">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451941">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092614">
+        <simple_name>PEAR_Error.getMode</simple_name>
+        <signature>PEAR_Error.getMode():int</signature>
+        <info_rule id="451991"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092620">
+        <simple_name>PEAR_Error.getType</simple_name>
+        <signature>PEAR_Error.getType():string</signature>
+        <info_rule id="452000"/>
+        <rule>
+          <ActionObject id="452001">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461781">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="452002">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092608">
+        <simple_name>PEAR_Error.getUserInfo</simple_name>
+        <signature>PEAR_Error.getUserInfo():string</signature>
+        <info_rule id="451979"/>
+        <rule>
+          <ActionObject id="451978">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461777">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451977">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092593">
+        <simple_name>PEAR_Error.toString</simple_name>
+        <signature>PEAR_Error.toString():string</signature>
+        <info_rule id="451953"/>
+        <rule>
+          <ActionObject id="451952">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461771">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451951">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

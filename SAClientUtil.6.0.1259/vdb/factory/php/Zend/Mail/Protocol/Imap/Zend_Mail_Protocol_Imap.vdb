@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Mail_Protocol_Imap">
+      <method vuln_id="1116050">
+        <simple_name>Zend_Mail_Protocol_Imap.__construct_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.__construct_@__Mail_Protocol_Imap_php_1($host;$port;$ssl):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116187">
+        <simple_name>Zend_Mail_Protocol_Imap.__destruct_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.__destruct_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469435"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116221">
+        <simple_name>Zend_Mail_Protocol_Imap._assumedNextLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._assumedNextLine_@__Mail_Protocol_Imap_php_1($start):Variant</signature>
+        <info_rule id="469470"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116070">
+        <simple_name>Zend_Mail_Protocol_Imap._decodeLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._decodeLine_@__Mail_Protocol_Imap_php_1($line):Variant</signature>
+        <info_rule id="469306"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116065">
+        <simple_name>Zend_Mail_Protocol_Imap._nextLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._nextLine_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469301"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116148">
+        <simple_name>Zend_Mail_Protocol_Imap._nextTaggedLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._nextTaggedLine_@__Mail_Protocol_Imap_php_1($tag):Variant</signature>
+        <info_rule id="469390"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116019">
+        <simple_name>Zend_Mail_Protocol_Imap.append_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.append_@__Mail_Protocol_Imap_php_1($folder;$message;$flags;$date):Variant</signature>
+        <info_rule id="469255"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116137">
+        <simple_name>Zend_Mail_Protocol_Imap.capability_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.capability_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469379"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116196">
+        <simple_name>Zend_Mail_Protocol_Imap.connect_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.connect_@__Mail_Protocol_Imap_php_1($host;$port;$ssl):Variant</signature>
+        <info_rule id="469445"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116185">
+        <simple_name>Zend_Mail_Protocol_Imap.copy_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.copy_@__Mail_Protocol_Imap_php_1($folder;$from;$to):Variant</signature>
+        <info_rule id="469430"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116238">
+        <simple_name>Zend_Mail_Protocol_Imap.create_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.create_@__Mail_Protocol_Imap_php_1($folder):Variant</signature>
+        <info_rule id="469483"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116164">
+        <simple_name>Zend_Mail_Protocol_Imap.delete_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.delete_@__Mail_Protocol_Imap_php_1($folder):Variant</signature>
+        <info_rule id="469408"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115945">
+        <simple_name>Zend_Mail_Protocol_Imap.escapeList_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.escapeList_@__Mail_Protocol_Imap_php_1($list):Variant</signature>
+        <info_rule id="469180"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116285">
+        <simple_name>Zend_Mail_Protocol_Imap.escapeString_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.escapeString_@__Mail_Protocol_Imap_php_1($string):Variant</signature>
+        <info_rule id="469530"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116248">
+        <simple_name>Zend_Mail_Protocol_Imap.examineOrSelect_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.examineOrSelect_@__Mail_Protocol_Imap_php_1($command;$box):Variant</signature>
+        <info_rule id="469494"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115959">
+        <simple_name>Zend_Mail_Protocol_Imap.examine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.examine_@__Mail_Protocol_Imap_php_1($box):Variant</signature>
+        <info_rule id="469191"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116108">
+        <simple_name>Zend_Mail_Protocol_Imap.expunge_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.expunge_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469348"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116132">
+        <simple_name>Zend_Mail_Protocol_Imap.fetch_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.fetch_@__Mail_Protocol_Imap_php_1($items;$from;$to):Variant</signature>
+        <info_rule id="469373"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116256">
+        <simple_name>Zend_Mail_Protocol_Imap.listMailbox_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.listMailbox_@__Mail_Protocol_Imap_php_1($reference;$mailbox):Variant</signature>
+        <info_rule id="469501"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115971">
+        <simple_name>Zend_Mail_Protocol_Imap.login_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.login_@__Mail_Protocol_Imap_php_1($user;$password):Variant</signature>
+        <info_rule id="469205"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469203">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469202">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115977">
+        <simple_name>Zend_Mail_Protocol_Imap.logout_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.logout_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469211"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116026">
+        <simple_name>Zend_Mail_Protocol_Imap.noop_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.noop_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469262"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115991">
+        <simple_name>Zend_Mail_Protocol_Imap.readLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.readLine_@__Mail_Protocol_Imap_php_1($tokens;$wantedTag;$dontParse):Variant</signature>
+        <info_rule id="469225"/>
+        <propagates_taint dst_param="1" return="false" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116255">
+        <simple_name>Zend_Mail_Protocol_Imap.readResponse_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.readResponse_@__Mail_Protocol_Imap_php_1($tag;$dontParse):Variant</signature>
+        <info_rule id="469500"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116156">
+        <simple_name>Zend_Mail_Protocol_Imap.rename_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.rename_@__Mail_Protocol_Imap_php_1($old;$new):Variant</signature>
+        <info_rule id="469399"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116283">
+        <simple_name>Zend_Mail_Protocol_Imap.requestAndResponse_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.requestAndResponse_@__Mail_Protocol_Imap_php_1($command;$tokens;$dontParse):Variant</signature>
+        <info_rule id="469528"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116106">
+        <simple_name>Zend_Mail_Protocol_Imap.search_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.search_@__Mail_Protocol_Imap_php_1($params):Variant</signature>
+        <info_rule id="469346"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116087">
+        <simple_name>Zend_Mail_Protocol_Imap.select_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.select_@__Mail_Protocol_Imap_php_1($box):Variant</signature>
+        <info_rule id="469323"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115962">
+        <simple_name>Zend_Mail_Protocol_Imap.sendRequest_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.sendRequest_@__Mail_Protocol_Imap_php_1($command;$tokens;$tag):Variant</signature>
+        <info_rule id="469194"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116161">
+        <simple_name>Zend_Mail_Protocol_Imap.store_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.store_@__Mail_Protocol_Imap_php_1($flags;$from;$to;$mode;$silent):Variant</signature>
+        <info_rule id="469404"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+    <class name="Zend_Mail_Protocol_Imap">
+      <method vuln_id="1116050">
+        <simple_name>Zend_Mail_Protocol_Imap.__construct_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.__construct_@__Mail_Protocol_Imap_php_1($host;$port;$ssl):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116187">
+        <simple_name>Zend_Mail_Protocol_Imap.__destruct_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.__destruct_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469435"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116221">
+        <simple_name>Zend_Mail_Protocol_Imap._assumedNextLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._assumedNextLine_@__Mail_Protocol_Imap_php_1($start):Variant</signature>
+        <info_rule id="469470"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116070">
+        <simple_name>Zend_Mail_Protocol_Imap._decodeLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._decodeLine_@__Mail_Protocol_Imap_php_1($line):Variant</signature>
+        <info_rule id="469306"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116065">
+        <simple_name>Zend_Mail_Protocol_Imap._nextLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._nextLine_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469301"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116148">
+        <simple_name>Zend_Mail_Protocol_Imap._nextTaggedLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap._nextTaggedLine_@__Mail_Protocol_Imap_php_1($tag):Variant</signature>
+        <info_rule id="469390"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116019">
+        <simple_name>Zend_Mail_Protocol_Imap.append_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.append_@__Mail_Protocol_Imap_php_1($folder;$message;$flags;$date):Variant</signature>
+        <info_rule id="469255"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116137">
+        <simple_name>Zend_Mail_Protocol_Imap.capability_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.capability_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469379"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116196">
+        <simple_name>Zend_Mail_Protocol_Imap.connect_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.connect_@__Mail_Protocol_Imap_php_1($host;$port;$ssl):Variant</signature>
+        <info_rule id="469445"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116185">
+        <simple_name>Zend_Mail_Protocol_Imap.copy_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.copy_@__Mail_Protocol_Imap_php_1($folder;$from;$to):Variant</signature>
+        <info_rule id="469430"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116238">
+        <simple_name>Zend_Mail_Protocol_Imap.create_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.create_@__Mail_Protocol_Imap_php_1($folder):Variant</signature>
+        <info_rule id="469483"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116164">
+        <simple_name>Zend_Mail_Protocol_Imap.delete_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.delete_@__Mail_Protocol_Imap_php_1($folder):Variant</signature>
+        <info_rule id="469408"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115945">
+        <simple_name>Zend_Mail_Protocol_Imap.escapeList_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.escapeList_@__Mail_Protocol_Imap_php_1($list):Variant</signature>
+        <info_rule id="469180"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116285">
+        <simple_name>Zend_Mail_Protocol_Imap.escapeString_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.escapeString_@__Mail_Protocol_Imap_php_1($string):Variant</signature>
+        <info_rule id="469530"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116248">
+        <simple_name>Zend_Mail_Protocol_Imap.examineOrSelect_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.examineOrSelect_@__Mail_Protocol_Imap_php_1($command;$box):Variant</signature>
+        <info_rule id="469494"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115959">
+        <simple_name>Zend_Mail_Protocol_Imap.examine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.examine_@__Mail_Protocol_Imap_php_1($box):Variant</signature>
+        <info_rule id="469191"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116108">
+        <simple_name>Zend_Mail_Protocol_Imap.expunge_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.expunge_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469348"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116132">
+        <simple_name>Zend_Mail_Protocol_Imap.fetch_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.fetch_@__Mail_Protocol_Imap_php_1($items;$from;$to):Variant</signature>
+        <info_rule id="469373"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116256">
+        <simple_name>Zend_Mail_Protocol_Imap.listMailbox_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.listMailbox_@__Mail_Protocol_Imap_php_1($reference;$mailbox):Variant</signature>
+        <info_rule id="469501"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115971">
+        <simple_name>Zend_Mail_Protocol_Imap.login_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.login_@__Mail_Protocol_Imap_php_1($user;$password):Variant</signature>
+        <info_rule id="469205"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469203">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469202">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115977">
+        <simple_name>Zend_Mail_Protocol_Imap.logout_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.logout_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469211"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116026">
+        <simple_name>Zend_Mail_Protocol_Imap.noop_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.noop_@__Mail_Protocol_Imap_php_1():Variant</signature>
+        <info_rule id="469262"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115991">
+        <simple_name>Zend_Mail_Protocol_Imap.readLine_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.readLine_@__Mail_Protocol_Imap_php_1($tokens;$wantedTag;$dontParse):Variant</signature>
+        <info_rule id="469225"/>
+        <propagates_taint dst_param="1" return="false" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116255">
+        <simple_name>Zend_Mail_Protocol_Imap.readResponse_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.readResponse_@__Mail_Protocol_Imap_php_1($tag;$dontParse):Variant</signature>
+        <info_rule id="469500"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116156">
+        <simple_name>Zend_Mail_Protocol_Imap.rename_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.rename_@__Mail_Protocol_Imap_php_1($old;$new):Variant</signature>
+        <info_rule id="469399"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116283">
+        <simple_name>Zend_Mail_Protocol_Imap.requestAndResponse_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.requestAndResponse_@__Mail_Protocol_Imap_php_1($command;$tokens;$dontParse):Variant</signature>
+        <info_rule id="469528"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116106">
+        <simple_name>Zend_Mail_Protocol_Imap.search_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.search_@__Mail_Protocol_Imap_php_1($params):Variant</signature>
+        <info_rule id="469346"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116087">
+        <simple_name>Zend_Mail_Protocol_Imap.select_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.select_@__Mail_Protocol_Imap_php_1($box):Variant</signature>
+        <info_rule id="469323"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115962">
+        <simple_name>Zend_Mail_Protocol_Imap.sendRequest_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.sendRequest_@__Mail_Protocol_Imap_php_1($command;$tokens;$tag):Variant</signature>
+        <info_rule id="469194"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116161">
+        <simple_name>Zend_Mail_Protocol_Imap.store_@__Mail_Protocol_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Imap.store_@__Mail_Protocol_Imap_php_1($flags;$from;$to;$mode;$silent):Variant</signature>
+        <info_rule id="469404"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

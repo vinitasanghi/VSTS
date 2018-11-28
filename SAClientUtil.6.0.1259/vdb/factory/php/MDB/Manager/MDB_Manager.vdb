@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Manager">
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._addDefinitionChange</simple_name>
+        <signature>MDB_Manager._addDefinitionChange($changes;$definition;$item;$change):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._alterDatabase</simple_name>
+        <signature>MDB_Manager._alterDatabase($previous_definition;$changes):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._compareDefinitions</simple_name>
+        <signature>MDB_Manager._compareDefinitions($previous_definition):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._createDatabase</simple_name>
+        <signature>MDB_Manager._createDatabase():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._createSequence</simple_name>
+        <signature>MDB_Manager._createSequence($sequence_name;$sequence;$created_on_table;$overwrite):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._createTable</simple_name>
+        <signature>MDB_Manager._createTable($table_name;$table;$overwrite):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._debugDatabaseChanges</simple_name>
+        <signature>MDB_Manager._debugDatabaseChanges($changes):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dropSequence</simple_name>
+        <signature>MDB_Manager._dropSequence($sequence_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dropTable</simple_name>
+        <signature>MDB_Manager._dropTable($table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dumpDatabaseContents</simple_name>
+        <signature>MDB_Manager._dumpDatabaseContents($schema_file;$setup_arguments;$dump_arguments;$variables):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dumpSequence</simple_name>
+        <signature>MDB_Manager._dumpSequence($sequence_name;$eol;$dump):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._escapeSpecialCharacters</simple_name>
+        <signature>MDB_Manager._escapeSpecialCharacters($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092039">
+        <simple_name>MDB_Manager.captureDebugOutput</simple_name>
+        <signature>MDB_Manager.captureDebugOutput($capture):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092032">
+        <simple_name>MDB_Manager.connect</simple_name>
+        <signature>MDB_Manager.connect($dbinfo;$options):mixed</signature>
+        <rule>
+          <ActionObject id="451687">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule id="451688">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1092035">
+        <simple_name>MDB_Manager.debugOutput</simple_name>
+        <signature>MDB_Manager.debugOutput():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092034">
+        <simple_name>MDB_Manager.disconnect</simple_name>
+        <signature>MDB_Manager.disconnect():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092030">
+        <simple_name>MDB_Manager.dumpDatabase</simple_name>
+        <signature>MDB_Manager.dumpDatabase($arguments;$dump):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.expectError</simple_name>
+        <signature>MDB_Manager.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.getDefinitionFromDatabase</simple_name>
+        <signature>MDB_Manager.getDefinitionFromDatabase():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092031">
+        <simple_name>MDB_Manager.getOption</simple_name>
+        <signature>MDB_Manager.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092028">
+        <simple_name>MDB_Manager.getWarnings</simple_name>
+        <signature>MDB_Manager.getWarnings():array</signature>
+        <rule>
+          <ActionObject id="451677">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092037">
+        <simple_name>MDB_Manager.parseDatabaseDefinitionFile</simple_name>
+        <signature>MDB_Manager.parseDatabaseDefinitionFile($input_file;$variables;$fail_on_invalid_names):mixed</signature>
+        <info_rule id="480840"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.popExpect</simple_name>
+        <signature>MDB_Manager.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.raiseError</simple_name>
+        <signature>MDB_Manager.raiseError($code;$mode;$options;$userinfo;$nativecode):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092038">
+        <simple_name>MDB_Manager.resetWarnings</simple_name>
+        <signature>MDB_Manager.resetWarnings():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092029">
+        <simple_name>MDB_Manager.setDatabase</simple_name>
+        <signature>MDB_Manager.setDatabase($name):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092036">
+        <simple_name>MDB_Manager.setOption</simple_name>
+        <signature>MDB_Manager.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092033">
+        <simple_name>MDB_Manager.updateDatabase</simple_name>
+        <signature>MDB_Manager.updateDatabase($current_schema_file;$previous_schema_file;$variables):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule id="451680">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Manager">
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._addDefinitionChange</simple_name>
+        <signature>MDB_Manager._addDefinitionChange($changes;$definition;$item;$change):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._alterDatabase</simple_name>
+        <signature>MDB_Manager._alterDatabase($previous_definition;$changes):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._compareDefinitions</simple_name>
+        <signature>MDB_Manager._compareDefinitions($previous_definition):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._createDatabase</simple_name>
+        <signature>MDB_Manager._createDatabase():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._createSequence</simple_name>
+        <signature>MDB_Manager._createSequence($sequence_name;$sequence;$created_on_table;$overwrite):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._createTable</simple_name>
+        <signature>MDB_Manager._createTable($table_name;$table;$overwrite):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._debugDatabaseChanges</simple_name>
+        <signature>MDB_Manager._debugDatabaseChanges($changes):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dropSequence</simple_name>
+        <signature>MDB_Manager._dropSequence($sequence_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dropTable</simple_name>
+        <signature>MDB_Manager._dropTable($table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dumpDatabaseContents</simple_name>
+        <signature>MDB_Manager._dumpDatabaseContents($schema_file;$setup_arguments;$dump_arguments;$variables):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._dumpSequence</simple_name>
+        <signature>MDB_Manager._dumpSequence($sequence_name;$eol;$dump):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager._escapeSpecialCharacters</simple_name>
+        <signature>MDB_Manager._escapeSpecialCharacters($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092039">
+        <simple_name>MDB_Manager.captureDebugOutput</simple_name>
+        <signature>MDB_Manager.captureDebugOutput($capture):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092032">
+        <simple_name>MDB_Manager.connect</simple_name>
+        <signature>MDB_Manager.connect($dbinfo;$options):mixed</signature>
+        <rule>
+          <ActionObject id="451687">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule id="451688">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1092035">
+        <simple_name>MDB_Manager.debugOutput</simple_name>
+        <signature>MDB_Manager.debugOutput():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092034">
+        <simple_name>MDB_Manager.disconnect</simple_name>
+        <signature>MDB_Manager.disconnect():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092030">
+        <simple_name>MDB_Manager.dumpDatabase</simple_name>
+        <signature>MDB_Manager.dumpDatabase($arguments;$dump):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.expectError</simple_name>
+        <signature>MDB_Manager.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.getDefinitionFromDatabase</simple_name>
+        <signature>MDB_Manager.getDefinitionFromDatabase():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092031">
+        <simple_name>MDB_Manager.getOption</simple_name>
+        <signature>MDB_Manager.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092028">
+        <simple_name>MDB_Manager.getWarnings</simple_name>
+        <signature>MDB_Manager.getWarnings():array</signature>
+        <rule>
+          <ActionObject id="451677">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092037">
+        <simple_name>MDB_Manager.parseDatabaseDefinitionFile</simple_name>
+        <signature>MDB_Manager.parseDatabaseDefinitionFile($input_file;$variables;$fail_on_invalid_names):mixed</signature>
+        <info_rule id="480840"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.popExpect</simple_name>
+        <signature>MDB_Manager.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager.raiseError</simple_name>
+        <signature>MDB_Manager.raiseError($code;$mode;$options;$userinfo;$nativecode):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092038">
+        <simple_name>MDB_Manager.resetWarnings</simple_name>
+        <signature>MDB_Manager.resetWarnings():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092029">
+        <simple_name>MDB_Manager.setDatabase</simple_name>
+        <signature>MDB_Manager.setDatabase($name):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092036">
+        <simple_name>MDB_Manager.setOption</simple_name>
+        <signature>MDB_Manager.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092033">
+        <simple_name>MDB_Manager.updateDatabase</simple_name>
+        <signature>MDB_Manager.updateDatabase($current_schema_file;$previous_schema_file;$variables):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule id="451680">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

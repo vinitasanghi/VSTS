@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_storage">
+      <method vuln_id="-1">
+        <simple_name>DB_storage.DB_storage</simple_name>
+        <signature>DB_storage.DB_storage($table;$keycolumn;$dbh;$validator):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage.PEAR</simple_name>
+        <signature>DB_storage.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage._DB_storage</simple_name>
+        <signature>DB_storage._DB_storage():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage._makeWhere</simple_name>
+        <signature>DB_storage._makeWhere($keyval):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090880">
+        <simple_name>DB_storage.create</simple_name>
+        <signature>DB_storage.create($table;$data):object a</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage.dump</simple_name>
+        <signature>DB_storage.dump():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090877">
+        <simple_name>DB_storage.get</simple_name>
+        <signature>DB_storage.get($property):attribute</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090879">
+        <simple_name>DB_storage.insert</simple_name>
+        <signature>DB_storage.insert($newpk):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage.raiseError</simple_name>
+        <signature>DB_storage.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090875">
+        <simple_name>DB_storage.remove</simple_name>
+        <signature>DB_storage.remove():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090878">
+        <simple_name>DB_storage.set</simple_name>
+        <signature>DB_storage.set($property;$newvalue):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090876">
+        <simple_name>DB_storage.setup</simple_name>
+        <signature>DB_storage.setup($keyval):int</signature>
+        <info_rule id="480732"/>
+        <source_rule id="451152">
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <comment>making this pointer a source isn't supported by IPVA</comment>
+      </method>
+      <method vuln_id="1090874">
+        <simple_name>DB_storage.store</simple_name>
+        <signature>DB_storage.store():DB_OK</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090881">
+        <simple_name>DB_storage.toString</simple_name>
+        <signature>DB_storage.toString():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_storage">
+      <method vuln_id="-1">
+        <simple_name>DB_storage.DB_storage</simple_name>
+        <signature>DB_storage.DB_storage($table;$keycolumn;$dbh;$validator):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage.PEAR</simple_name>
+        <signature>DB_storage.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage._DB_storage</simple_name>
+        <signature>DB_storage._DB_storage():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage._makeWhere</simple_name>
+        <signature>DB_storage._makeWhere($keyval):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090880">
+        <simple_name>DB_storage.create</simple_name>
+        <signature>DB_storage.create($table;$data):object a</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage.dump</simple_name>
+        <signature>DB_storage.dump():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090877">
+        <simple_name>DB_storage.get</simple_name>
+        <signature>DB_storage.get($property):attribute</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090879">
+        <simple_name>DB_storage.insert</simple_name>
+        <signature>DB_storage.insert($newpk):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_storage.raiseError</simple_name>
+        <signature>DB_storage.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090875">
+        <simple_name>DB_storage.remove</simple_name>
+        <signature>DB_storage.remove():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090878">
+        <simple_name>DB_storage.set</simple_name>
+        <signature>DB_storage.set($property;$newvalue):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090876">
+        <simple_name>DB_storage.setup</simple_name>
+        <signature>DB_storage.setup($keyval):int</signature>
+        <info_rule id="480732"/>
+        <source_rule id="451152">
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <comment>making this pointer a source isn't supported by IPVA</comment>
+      </method>
+      <method vuln_id="1090874">
+        <simple_name>DB_storage.store</simple_name>
+        <signature>DB_storage.store():DB_OK</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090881">
+        <simple_name>DB_storage.toString</simple_name>
+        <signature>DB_storage.toString():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

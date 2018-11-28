@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SOAP_Server">
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server.SOAP_Server</simple_name>
+        <signature>SOAP_Server.SOAP_Server($options):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server.SOAP_Server</simple_name>
+        <signature>SOAP_Server.SOAP_Server():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server.__decodeRequest</simple_name>
+        <signature>SOAP_Server.__decodeRequest($request;$shift):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._decode</simple_name>
+        <signature>SOAP_Server._decode():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._decodeDIMEMessage</simple_name>
+        <signature>SOAP_Server._decodeDIMEMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._decodeMimeMessage</simple_name>
+        <signature>SOAP_Server._decodeMimeMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._errorHandler</simple_name>
+        <signature>SOAP_Server._errorHandler($errno;$errmsg;$filename;$linenum):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._getContentEncoding</simple_name>
+        <signature>SOAP_Server._getContentEncoding($content_type):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._makeDIMEMessage</simple_name>
+        <signature>SOAP_Server._makeDIMEMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._makeMimeMessage</simple_name>
+        <signature>SOAP_Server._makeMimeMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._raiseSoapFault</simple_name>
+        <signature>SOAP_Server._raiseSoapFault():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._sendResponse</simple_name>
+        <signature>SOAP_Server._sendResponse($response):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._setSchemaVersion</simple_name>
+        <signature>SOAP_Server._setSchemaVersion():Variant</signature>
+      </method>
+      <method vuln_id="1092656">
+        <simple_name>SOAP_Server.addObjectMap</simple_name>
+        <signature>SOAP_Server.addObjectMap($obj;$namespace;$service_name;$service_desc):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092657">
+        <simple_name>SOAP_Server.addObjectWSDL</simple_name>
+        <signature>SOAP_Server.addObjectWSDL($wsdl_obj;$targetNamespace;$service_name;$service_desc):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092655">
+        <simple_name>SOAP_Server.addToMap</simple_name>
+        <signature>SOAP_Server.addToMap($methodname;$in;$out;$namespace;$alias):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092650">
+        <simple_name>SOAP_Server.bind</simple_name>
+        <signature>SOAP_Server.bind($wsdl_url):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092651">
+        <simple_name>SOAP_Server.bindWSDL</simple_name>
+        <signature>SOAP_Server.bindWSDL($wsdl_url):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092652">
+        <simple_name>SOAP_Server.buildResult</simple_name>
+        <signature>SOAP_Server.buildResult($method_response;$return_type;$return_name;$namespace):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092653">
+        <simple_name>SOAP_Server.callMethod</simple_name>
+        <signature>SOAP_Server.callMethod($methodname;$args):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092658">
+        <simple_name>SOAP_Server.makeEnvelope</simple_name>
+        <signature>SOAP_Server.makeEnvelope():Variant</signature>
+      </method>
+      <method vuln_id="1092659">
+        <simple_name>SOAP_Server.parseRequest</simple_name>
+        <signature>SOAP_Server.parseRequest($data;$attachments):void</signature>
+      </method>
+      <method vuln_id="1092660">
+        <simple_name>SOAP_Server.service</simple_name>
+        <signature>SOAP_Server.service($data;$endpoint;$test;$return):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092648">
+        <simple_name>SOAP_Server.setCallHandler</simple_name>
+        <signature>SOAP_Server.setCallHandler($callHandler;$validation):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092649">
+        <simple_name>SOAP_Server.validateMethod</simple_name>
+        <signature>SOAP_Server.validateMethod($methodname;$namespace):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092654">
+        <simple_name>SOAP_Server.verifyMethod</simple_name>
+        <signature>SOAP_Server.verifyMethod($request):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="SOAP_Server">
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server.SOAP_Server</simple_name>
+        <signature>SOAP_Server.SOAP_Server($options):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server.SOAP_Server</simple_name>
+        <signature>SOAP_Server.SOAP_Server():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server.__decodeRequest</simple_name>
+        <signature>SOAP_Server.__decodeRequest($request;$shift):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._decode</simple_name>
+        <signature>SOAP_Server._decode():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._decodeDIMEMessage</simple_name>
+        <signature>SOAP_Server._decodeDIMEMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._decodeMimeMessage</simple_name>
+        <signature>SOAP_Server._decodeMimeMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._errorHandler</simple_name>
+        <signature>SOAP_Server._errorHandler($errno;$errmsg;$filename;$linenum):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._getContentEncoding</simple_name>
+        <signature>SOAP_Server._getContentEncoding($content_type):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._makeDIMEMessage</simple_name>
+        <signature>SOAP_Server._makeDIMEMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._makeMimeMessage</simple_name>
+        <signature>SOAP_Server._makeMimeMessage():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._raiseSoapFault</simple_name>
+        <signature>SOAP_Server._raiseSoapFault():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._sendResponse</simple_name>
+        <signature>SOAP_Server._sendResponse($response):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Server._setSchemaVersion</simple_name>
+        <signature>SOAP_Server._setSchemaVersion():Variant</signature>
+      </method>
+      <method vuln_id="1092656">
+        <simple_name>SOAP_Server.addObjectMap</simple_name>
+        <signature>SOAP_Server.addObjectMap($obj;$namespace;$service_name;$service_desc):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092657">
+        <simple_name>SOAP_Server.addObjectWSDL</simple_name>
+        <signature>SOAP_Server.addObjectWSDL($wsdl_obj;$targetNamespace;$service_name;$service_desc):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092655">
+        <simple_name>SOAP_Server.addToMap</simple_name>
+        <signature>SOAP_Server.addToMap($methodname;$in;$out;$namespace;$alias):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092650">
+        <simple_name>SOAP_Server.bind</simple_name>
+        <signature>SOAP_Server.bind($wsdl_url):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092651">
+        <simple_name>SOAP_Server.bindWSDL</simple_name>
+        <signature>SOAP_Server.bindWSDL($wsdl_url):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092652">
+        <simple_name>SOAP_Server.buildResult</simple_name>
+        <signature>SOAP_Server.buildResult($method_response;$return_type;$return_name;$namespace):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092653">
+        <simple_name>SOAP_Server.callMethod</simple_name>
+        <signature>SOAP_Server.callMethod($methodname;$args):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092658">
+        <simple_name>SOAP_Server.makeEnvelope</simple_name>
+        <signature>SOAP_Server.makeEnvelope():Variant</signature>
+      </method>
+      <method vuln_id="1092659">
+        <simple_name>SOAP_Server.parseRequest</simple_name>
+        <signature>SOAP_Server.parseRequest($data;$attachments):void</signature>
+      </method>
+      <method vuln_id="1092660">
+        <simple_name>SOAP_Server.service</simple_name>
+        <signature>SOAP_Server.service($data;$endpoint;$test;$return):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092648">
+        <simple_name>SOAP_Server.setCallHandler</simple_name>
+        <signature>SOAP_Server.setCallHandler($callHandler;$validation):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092649">
+        <simple_name>SOAP_Server.validateMethod</simple_name>
+        <signature>SOAP_Server.validateMethod($methodname;$namespace):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092654">
+        <simple_name>SOAP_Server.verifyMethod</simple_name>
+        <signature>SOAP_Server.verifyMethod($request):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

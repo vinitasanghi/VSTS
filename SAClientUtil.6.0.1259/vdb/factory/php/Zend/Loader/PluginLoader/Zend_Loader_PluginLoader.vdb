@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Loader_PluginLoader">
+      <method vuln_id="1115709">
+        <simple_name>Zend_Loader_PluginLoader.___Class_Initializer_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.___Class_Initializer_@__Loader_PluginLoader_php_1():void</signature>
+        <info_rule id="468960"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115676">
+        <simple_name>Zend_Loader_PluginLoader.__construct_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.__construct_@__Loader_PluginLoader_php_1($prefixToPaths;$staticRegistryName):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115738">
+        <simple_name>Zend_Loader_PluginLoader._appendIncFile_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader._appendIncFile_@__Loader_PluginLoader_php_1($incFile):Variant</signature>
+        <info_rule id="468987"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115730">
+        <simple_name>Zend_Loader_PluginLoader._formatName_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader._formatName_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468980"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115729">
+        <simple_name>Zend_Loader_PluginLoader._formatPrefix_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader._formatPrefix_@__Loader_PluginLoader_php_1($prefix):Variant</signature>
+        <info_rule id="468979"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115670">
+        <simple_name>Zend_Loader_PluginLoader.addPrefixPath_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.addPrefixPath_@__Loader_PluginLoader_php_1($prefix;$path):Variant</signature>
+        <info_rule id="468922"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115736">
+        <simple_name>Zend_Loader_PluginLoader.clearPaths_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.clearPaths_@__Loader_PluginLoader_php_1($prefix):Variant</signature>
+        <info_rule id="468985"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115686">
+        <simple_name>Zend_Loader_PluginLoader.getClassName_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getClassName_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468937"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115690">
+        <simple_name>Zend_Loader_PluginLoader.getClassPath_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getClassPath_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468941"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115702">
+        <simple_name>Zend_Loader_PluginLoader.getIncludeFileCache_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getIncludeFileCache_@__Loader_PluginLoader_php_1():Variant</signature>
+        <info_rule id="468953"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115680">
+        <simple_name>Zend_Loader_PluginLoader.getPaths_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getPaths_@__Loader_PluginLoader_php_1($prefix):Variant</signature>
+        <info_rule id="468931"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115700">
+        <simple_name>Zend_Loader_PluginLoader.isLoaded_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.isLoaded_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468951"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115682">
+        <simple_name>Zend_Loader_PluginLoader.load_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.load_@__Loader_PluginLoader_php_1($name;$throwExceptions):Variant</signature>
+        <info_rule id="468933"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115679">
+        <simple_name>Zend_Loader_PluginLoader.removePrefixPath_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.removePrefixPath_@__Loader_PluginLoader_php_1($prefix;$path):Variant</signature>
+        <info_rule id="468930"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115743">
+        <simple_name>Zend_Loader_PluginLoader.setIncludeFileCache_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.setIncludeFileCache_@__Loader_PluginLoader_php_1($file):Variant</signature>
+        <info_rule id="468992"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Loader_PluginLoader">
+      <method vuln_id="1115709">
+        <simple_name>Zend_Loader_PluginLoader.___Class_Initializer_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.___Class_Initializer_@__Loader_PluginLoader_php_1():void</signature>
+        <info_rule id="468960"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115676">
+        <simple_name>Zend_Loader_PluginLoader.__construct_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.__construct_@__Loader_PluginLoader_php_1($prefixToPaths;$staticRegistryName):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115738">
+        <simple_name>Zend_Loader_PluginLoader._appendIncFile_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader._appendIncFile_@__Loader_PluginLoader_php_1($incFile):Variant</signature>
+        <info_rule id="468987"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115730">
+        <simple_name>Zend_Loader_PluginLoader._formatName_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader._formatName_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468980"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115729">
+        <simple_name>Zend_Loader_PluginLoader._formatPrefix_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader._formatPrefix_@__Loader_PluginLoader_php_1($prefix):Variant</signature>
+        <info_rule id="468979"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115670">
+        <simple_name>Zend_Loader_PluginLoader.addPrefixPath_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.addPrefixPath_@__Loader_PluginLoader_php_1($prefix;$path):Variant</signature>
+        <info_rule id="468922"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115736">
+        <simple_name>Zend_Loader_PluginLoader.clearPaths_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.clearPaths_@__Loader_PluginLoader_php_1($prefix):Variant</signature>
+        <info_rule id="468985"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115686">
+        <simple_name>Zend_Loader_PluginLoader.getClassName_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getClassName_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468937"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115690">
+        <simple_name>Zend_Loader_PluginLoader.getClassPath_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getClassPath_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468941"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115702">
+        <simple_name>Zend_Loader_PluginLoader.getIncludeFileCache_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getIncludeFileCache_@__Loader_PluginLoader_php_1():Variant</signature>
+        <info_rule id="468953"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115680">
+        <simple_name>Zend_Loader_PluginLoader.getPaths_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.getPaths_@__Loader_PluginLoader_php_1($prefix):Variant</signature>
+        <info_rule id="468931"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115700">
+        <simple_name>Zend_Loader_PluginLoader.isLoaded_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.isLoaded_@__Loader_PluginLoader_php_1($name):Variant</signature>
+        <info_rule id="468951"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115682">
+        <simple_name>Zend_Loader_PluginLoader.load_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.load_@__Loader_PluginLoader_php_1($name;$throwExceptions):Variant</signature>
+        <info_rule id="468933"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115679">
+        <simple_name>Zend_Loader_PluginLoader.removePrefixPath_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.removePrefixPath_@__Loader_PluginLoader_php_1($prefix;$path):Variant</signature>
+        <info_rule id="468930"/>
+        <does_not_propagate_taint/>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115743">
+        <simple_name>Zend_Loader_PluginLoader.setIncludeFileCache_@__Loader_PluginLoader_php_1</simple_name>
+        <signature>Zend_Loader_PluginLoader.setIncludeFileCache_@__Loader_PluginLoader_php_1($file):Variant</signature>
+        <info_rule id="468992"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.ClassLoader</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

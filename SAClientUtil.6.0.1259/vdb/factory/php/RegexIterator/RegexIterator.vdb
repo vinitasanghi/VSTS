@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="RegexIterator">
+      <method vuln_id="1088770">
+        <simple_name>___Php.RegexIterator.__construct</simple_name>
+        <signature>___Php.RegexIterator.__construct(___Php.Iterator;___Php.String;int;int;int):void</signature>
+        <comment>Create an RegexIterator from another iterator and a regular expression</comment>
+      </method>
+      <method vuln_id="1088896">
+        <simple_name>___Php.RegexIterator.accept</simple_name>
+        <signature>___Php.RegexIterator.accept():bool</signature>
+        <info_rule id="456298"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Match (___Php.String)current() against regular expression</comment>
+      </method>
+      <method vuln_id="1088972">
+        <simple_name>___Php.RegexIterator.getFlags</simple_name>
+        <signature>___Php.RegexIterator.getFlags():bool</signature>
+        <info_rule id="456336"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Returns current PREG flags (if in use or NULL)</comment>
+      </method>
+      <method vuln_id="1088793">
+        <simple_name>___Php.RegexIterator.getMode</simple_name>
+        <signature>___Php.RegexIterator.getMode():bool</signature>
+        <info_rule id="456242"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Returns current operation mode</comment>
+      </method>
+      <method>
+        <simple_name>___Php.RegexIterator.getRegex</simple_name>
+        <signature>___Php.RegexIterator.getRegex():___Php.String</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088951">
+        <simple_name>___Php.RegexIterator.setFlags</simple_name>
+        <signature>___Php.RegexIterator.setFlags(int):bool</signature>
+        <info_rule id="456320"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Set operation flags</comment>
+      </method>
+      <method vuln_id="1088778">
+        <simple_name>___Php.RegexIterator.setMode</simple_name>
+        <signature>___Php.RegexIterator.setMode(int):bool</signature>
+        <info_rule id="456234"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Set new operation mode</comment>
+      </method>
+      <method vuln_id="1088938">
+        <simple_name>___Php.RegexIterator.setPregFlags</simple_name>
+        <signature>___Php.RegexIterator.setPregFlags(int):bool</signature>
+        <info_rule id="456314"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Set PREG flags</comment>
+      </method>
+    </class>
+    <class name="RegexIterator">
+      <method vuln_id="1088770">
+        <simple_name>___Php.RegexIterator.__construct</simple_name>
+        <signature>___Php.RegexIterator.__construct(___Php.Iterator;___Php.String;int;int;int):void</signature>
+        <comment>Create an RegexIterator from another iterator and a regular expression</comment>
+      </method>
+      <method vuln_id="1088896">
+        <simple_name>___Php.RegexIterator.accept</simple_name>
+        <signature>___Php.RegexIterator.accept():bool</signature>
+        <info_rule id="456298"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Match (___Php.String)current() against regular expression</comment>
+      </method>
+      <method vuln_id="1088972">
+        <simple_name>___Php.RegexIterator.getFlags</simple_name>
+        <signature>___Php.RegexIterator.getFlags():bool</signature>
+        <info_rule id="456336"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Returns current PREG flags (if in use or NULL)</comment>
+      </method>
+      <method vuln_id="1088793">
+        <simple_name>___Php.RegexIterator.getMode</simple_name>
+        <signature>___Php.RegexIterator.getMode():bool</signature>
+        <info_rule id="456242"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Returns current operation mode</comment>
+      </method>
+      <method>
+        <simple_name>___Php.RegexIterator.getRegex</simple_name>
+        <signature>___Php.RegexIterator.getRegex():___Php.String</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088951">
+        <simple_name>___Php.RegexIterator.setFlags</simple_name>
+        <signature>___Php.RegexIterator.setFlags(int):bool</signature>
+        <info_rule id="456320"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Set operation flags</comment>
+      </method>
+      <method vuln_id="1088778">
+        <simple_name>___Php.RegexIterator.setMode</simple_name>
+        <signature>___Php.RegexIterator.setMode(int):bool</signature>
+        <info_rule id="456234"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Set new operation mode</comment>
+      </method>
+      <method vuln_id="1088938">
+        <simple_name>___Php.RegexIterator.setPregFlags</simple_name>
+        <signature>___Php.RegexIterator.setPregFlags(int):bool</signature>
+        <info_rule id="456314"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Set PREG flags</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

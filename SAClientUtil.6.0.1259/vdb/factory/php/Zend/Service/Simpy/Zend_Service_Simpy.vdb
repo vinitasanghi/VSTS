@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_Simpy">
+      <method vuln_id="1119755">
+        <simple_name>Zend_Service_Simpy.__construct_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.__construct_@__Service_Simpy_php_1($username;$password):Variant</signature>
+        <info_rule id="472146"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472144">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="472143">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119158">
+        <simple_name>Zend_Service_Simpy._makeRequest_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy._makeRequest_@__Service_Simpy_php_1($op;$query):Variant</signature>
+        <info_rule id="471580"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119951">
+        <simple_name>Zend_Service_Simpy.deleteLink_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.deleteLink_@__Service_Simpy_php_1($href):Variant</signature>
+        <info_rule id="472330"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119202">
+        <simple_name>Zend_Service_Simpy.deleteNote_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.deleteNote_@__Service_Simpy_php_1($noteId):Variant</signature>
+        <info_rule id="471623"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118731">
+        <simple_name>Zend_Service_Simpy.getHttpClient_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getHttpClient_@__Service_Simpy_php_1():Variant</signature>
+        <info_rule id="471166"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119953">
+        <simple_name>Zend_Service_Simpy.getLinks_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getLinks_@__Service_Simpy_php_1($q):Variant</signature>
+        <info_rule id="472333"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118800">
+        <simple_name>Zend_Service_Simpy.getNotes_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getNotes_@__Service_Simpy_php_1($q;$limit):Variant</signature>
+        <info_rule id="471236"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119964">
+        <simple_name>Zend_Service_Simpy.getTags_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getTags_@__Service_Simpy_php_1($limit):Variant</signature>
+        <info_rule id="472343"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119706">
+        <simple_name>Zend_Service_Simpy.getWatchlist_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getWatchlist_@__Service_Simpy_php_1($watchlistId):Variant</signature>
+        <info_rule id="472093"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118837">
+        <simple_name>Zend_Service_Simpy.getWatchlists_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getWatchlists_@__Service_Simpy_php_1():Variant</signature>
+        <info_rule id="471267"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118830">
+        <simple_name>Zend_Service_Simpy.mergeTags_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.mergeTags_@__Service_Simpy_php_1($fromTag1;$fromTag2;$toTag):Variant</signature>
+        <info_rule id="471262"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119135">
+        <simple_name>Zend_Service_Simpy.removeTag_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.removeTag_@__Service_Simpy_php_1($tag):Variant</signature>
+        <info_rule id="471558"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119490">
+        <simple_name>Zend_Service_Simpy.renameTag_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.renameTag_@__Service_Simpy_php_1($fromTag;$toTag):Variant</signature>
+        <info_rule id="471886"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119760">
+        <simple_name>Zend_Service_Simpy.saveLink_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.saveLink_@__Service_Simpy_php_1($title;$href;$accessType;$tags;$urlNickname;$note):Variant</signature>
+        <info_rule id="472150"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118947">
+        <simple_name>Zend_Service_Simpy.saveNote_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.saveNote_@__Service_Simpy_php_1($title;$tags;$description;$noteId):Variant</signature>
+        <info_rule id="471372"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119237">
+        <simple_name>Zend_Service_Simpy.splitTag_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.splitTag_@__Service_Simpy_php_1($tag;$toTag1;$toTag2):Variant</signature>
+        <info_rule id="471656"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+    <class name="Zend_Service_Simpy">
+      <method vuln_id="1119755">
+        <simple_name>Zend_Service_Simpy.__construct_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.__construct_@__Service_Simpy_php_1($username;$password):Variant</signature>
+        <info_rule id="472146"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472144">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="472143">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119158">
+        <simple_name>Zend_Service_Simpy._makeRequest_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy._makeRequest_@__Service_Simpy_php_1($op;$query):Variant</signature>
+        <info_rule id="471580"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119951">
+        <simple_name>Zend_Service_Simpy.deleteLink_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.deleteLink_@__Service_Simpy_php_1($href):Variant</signature>
+        <info_rule id="472330"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119202">
+        <simple_name>Zend_Service_Simpy.deleteNote_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.deleteNote_@__Service_Simpy_php_1($noteId):Variant</signature>
+        <info_rule id="471623"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118731">
+        <simple_name>Zend_Service_Simpy.getHttpClient_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getHttpClient_@__Service_Simpy_php_1():Variant</signature>
+        <info_rule id="471166"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119953">
+        <simple_name>Zend_Service_Simpy.getLinks_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getLinks_@__Service_Simpy_php_1($q):Variant</signature>
+        <info_rule id="472333"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118800">
+        <simple_name>Zend_Service_Simpy.getNotes_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getNotes_@__Service_Simpy_php_1($q;$limit):Variant</signature>
+        <info_rule id="471236"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119964">
+        <simple_name>Zend_Service_Simpy.getTags_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getTags_@__Service_Simpy_php_1($limit):Variant</signature>
+        <info_rule id="472343"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119706">
+        <simple_name>Zend_Service_Simpy.getWatchlist_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getWatchlist_@__Service_Simpy_php_1($watchlistId):Variant</signature>
+        <info_rule id="472093"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118837">
+        <simple_name>Zend_Service_Simpy.getWatchlists_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.getWatchlists_@__Service_Simpy_php_1():Variant</signature>
+        <info_rule id="471267"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118830">
+        <simple_name>Zend_Service_Simpy.mergeTags_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.mergeTags_@__Service_Simpy_php_1($fromTag1;$fromTag2;$toTag):Variant</signature>
+        <info_rule id="471262"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119135">
+        <simple_name>Zend_Service_Simpy.removeTag_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.removeTag_@__Service_Simpy_php_1($tag):Variant</signature>
+        <info_rule id="471558"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119490">
+        <simple_name>Zend_Service_Simpy.renameTag_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.renameTag_@__Service_Simpy_php_1($fromTag;$toTag):Variant</signature>
+        <info_rule id="471886"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119760">
+        <simple_name>Zend_Service_Simpy.saveLink_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.saveLink_@__Service_Simpy_php_1($title;$href;$accessType;$tags;$urlNickname;$note):Variant</signature>
+        <info_rule id="472150"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118947">
+        <simple_name>Zend_Service_Simpy.saveNote_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.saveNote_@__Service_Simpy_php_1($title;$tags;$description;$noteId):Variant</signature>
+        <info_rule id="471372"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119237">
+        <simple_name>Zend_Service_Simpy.splitTag_@__Service_Simpy_php_1</simple_name>
+        <signature>Zend_Service_Simpy.splitTag_@__Service_Simpy_php_1($tag;$toTag1;$toTag2):Variant</signature>
+        <info_rule id="471656"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

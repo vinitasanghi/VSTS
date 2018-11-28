@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_LiveDocx_MailMerge">
+      <method vuln_id="1119401">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.__construct_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.__construct_@__Service_LiveDocx_MailMerge_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119699">
+        <simple_name>Zend_Service_LiveDocx_MailMerge._backendListArrayToMultiAssocArray_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge._backendListArrayToMultiAssocArray_@__Service_LiveDocx_MailMerge_php_1($list):Variant</signature>
+        <info_rule id="472085"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119863">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.assign_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.assign_@__Service_LiveDocx_MailMerge_php_1($field;$value):Variant</signature>
+        <info_rule id="472251"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119089">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.assocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.assocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1($assoc):Variant</signature>
+        <info_rule id="471518"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119209">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.createDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.createDocument_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471630"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119295">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.deleteSharedDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.deleteSharedDocument_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471708"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118878">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.deleteTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.deleteTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471306"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119700">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.downloadSharedDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.downloadSharedDocument_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="472086"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118971">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.downloadTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.downloadTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471395"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119666">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getAllBitmaps_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getAllBitmaps_@__Service_LiveDocx_MailMerge_php_1($zoomFactor;$format):Variant</signature>
+        <info_rule id="472054"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119083">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getAllMetafiles_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getAllMetafiles_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471513"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118706">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getBitmaps_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getBitmaps_@__Service_LiveDocx_MailMerge_php_1($fromPage;$toPage;$zoomFactor;$format):Variant</signature>
+        <info_rule id="471143"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118645">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getBlockFieldNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getBlockFieldNames_@__Service_LiveDocx_MailMerge_php_1($blockName):Variant</signature>
+        <info_rule id="471090"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119830">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getBlockNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getBlockNames_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472218"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119531">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getDocumentAccessOptions_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getDocumentAccessOptions_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471930"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119945">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getDocumentFormats_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getDocumentFormats_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472325"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119582">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getFieldNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getFieldNames_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471976"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119446">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getFontNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getFontNames_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471842"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118906">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getImageFormats_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getImageFormats_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471331"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118711">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getMetafiles_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getMetafiles_@__Service_LiveDocx_MailMerge_php_1($fromPage;$toPage):Variant</signature>
+        <info_rule id="471148"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118697">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getTemplateFormats_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getTemplateFormats_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471134"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119968">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.listSharedDocuments_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.listSharedDocuments_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472348"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119672">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.listTemplates_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.listTemplates_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472058"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119970">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.multiAssocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.multiAssocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1($multi):Variant</signature>
+        <info_rule id="472350"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119877">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.retrieveDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.retrieveDocument_@__Service_LiveDocx_MailMerge_php_1($format):Variant</signature>
+        <info_rule id="472265"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119078">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setBlockFieldValues_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setBlockFieldValues_@__Service_LiveDocx_MailMerge_php_1($blockName;$blockFieldValues):Variant</signature>
+        <info_rule id="471508"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119622">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setDocumentAccessPermissions_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setDocumentAccessPermissions_@__Service_LiveDocx_MailMerge_php_1($permissions;$password):Variant</signature>
+        <info_rule id="472013"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472011">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119012">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setDocumentPassword_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setDocumentPassword_@__Service_LiveDocx_MailMerge_php_1($password):Variant</signature>
+        <info_rule id="471440"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="471439">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120015">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setFieldValue_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setFieldValue_@__Service_LiveDocx_MailMerge_php_1($field;$value):Variant</signature>
+        <info_rule id="472387"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119177">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setFieldValues_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setFieldValues_@__Service_LiveDocx_MailMerge_php_1($values):Variant</signature>
+        <info_rule id="471600"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119938">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setLocalTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setLocalTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="472317"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118705">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setRemoteTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setRemoteTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471141"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119507">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.shareDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.shareDocument_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471906"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119216">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.sharedDocumentExists_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.sharedDocumentExists_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471637"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120000">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.templateExists_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.templateExists_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="472375"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118975">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.uploadTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.uploadTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471401"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+    <class name="Zend_Service_LiveDocx_MailMerge">
+      <method vuln_id="1119401">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.__construct_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.__construct_@__Service_LiveDocx_MailMerge_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119699">
+        <simple_name>Zend_Service_LiveDocx_MailMerge._backendListArrayToMultiAssocArray_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge._backendListArrayToMultiAssocArray_@__Service_LiveDocx_MailMerge_php_1($list):Variant</signature>
+        <info_rule id="472085"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119863">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.assign_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.assign_@__Service_LiveDocx_MailMerge_php_1($field;$value):Variant</signature>
+        <info_rule id="472251"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119089">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.assocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.assocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1($assoc):Variant</signature>
+        <info_rule id="471518"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119209">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.createDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.createDocument_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471630"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119295">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.deleteSharedDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.deleteSharedDocument_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471708"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118878">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.deleteTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.deleteTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471306"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119700">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.downloadSharedDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.downloadSharedDocument_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="472086"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118971">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.downloadTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.downloadTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471395"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119666">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getAllBitmaps_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getAllBitmaps_@__Service_LiveDocx_MailMerge_php_1($zoomFactor;$format):Variant</signature>
+        <info_rule id="472054"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119083">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getAllMetafiles_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getAllMetafiles_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471513"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118706">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getBitmaps_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getBitmaps_@__Service_LiveDocx_MailMerge_php_1($fromPage;$toPage;$zoomFactor;$format):Variant</signature>
+        <info_rule id="471143"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118645">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getBlockFieldNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getBlockFieldNames_@__Service_LiveDocx_MailMerge_php_1($blockName):Variant</signature>
+        <info_rule id="471090"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119830">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getBlockNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getBlockNames_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472218"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119531">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getDocumentAccessOptions_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getDocumentAccessOptions_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471930"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119945">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getDocumentFormats_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getDocumentFormats_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472325"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119582">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getFieldNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getFieldNames_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471976"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119446">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getFontNames_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getFontNames_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471842"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118906">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getImageFormats_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getImageFormats_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471331"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118711">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getMetafiles_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getMetafiles_@__Service_LiveDocx_MailMerge_php_1($fromPage;$toPage):Variant</signature>
+        <info_rule id="471148"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118697">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.getTemplateFormats_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.getTemplateFormats_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471134"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119968">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.listSharedDocuments_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.listSharedDocuments_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472348"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119672">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.listTemplates_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.listTemplates_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="472058"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119970">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.multiAssocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.multiAssocArrayToArrayOfArrayOfString_@__Service_LiveDocx_MailMerge_php_1($multi):Variant</signature>
+        <info_rule id="472350"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119877">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.retrieveDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.retrieveDocument_@__Service_LiveDocx_MailMerge_php_1($format):Variant</signature>
+        <info_rule id="472265"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119078">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setBlockFieldValues_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setBlockFieldValues_@__Service_LiveDocx_MailMerge_php_1($blockName;$blockFieldValues):Variant</signature>
+        <info_rule id="471508"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119622">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setDocumentAccessPermissions_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setDocumentAccessPermissions_@__Service_LiveDocx_MailMerge_php_1($permissions;$password):Variant</signature>
+        <info_rule id="472013"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472011">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119012">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setDocumentPassword_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setDocumentPassword_@__Service_LiveDocx_MailMerge_php_1($password):Variant</signature>
+        <info_rule id="471440"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="471439">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120015">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setFieldValue_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setFieldValue_@__Service_LiveDocx_MailMerge_php_1($field;$value):Variant</signature>
+        <info_rule id="472387"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119177">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setFieldValues_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setFieldValues_@__Service_LiveDocx_MailMerge_php_1($values):Variant</signature>
+        <info_rule id="471600"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119938">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setLocalTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setLocalTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="472317"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118705">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.setRemoteTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.setRemoteTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471141"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119507">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.shareDocument_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.shareDocument_@__Service_LiveDocx_MailMerge_php_1():Variant</signature>
+        <info_rule id="471906"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119216">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.sharedDocumentExists_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.sharedDocumentExists_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471637"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120000">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.templateExists_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.templateExists_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="472375"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118975">
+        <simple_name>Zend_Service_LiveDocx_MailMerge.uploadTemplate_@__Service_LiveDocx_MailMerge_php_1</simple_name>
+        <signature>Zend_Service_LiveDocx_MailMerge.uploadTemplate_@__Service_LiveDocx_MailMerge_php_1($filename):Variant</signature>
+        <info_rule id="471401"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

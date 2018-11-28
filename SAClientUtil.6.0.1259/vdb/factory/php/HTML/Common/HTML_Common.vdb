@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_Common">
+      <method vuln_id="-1">
+        <simple_name>HTML_Common.HTML_Common</simple_name>
+        <signature>HTML_Common.HTML_Common($attributes;$tabOffset):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common.HTML_Common</simple_name>
+        <signature>HTML_Common.HTML_Common():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getAttrKey</simple_name>
+        <signature>HTML_Common._getAttrKey($attr;$attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getAttrString</simple_name>
+        <signature>HTML_Common._getAttrString($attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getLineEnd</simple_name>
+        <signature>HTML_Common._getLineEnd():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getTab</simple_name>
+        <signature>HTML_Common._getTab():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getTabs</simple_name>
+        <signature>HTML_Common._getTabs():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._parseAttributes</simple_name>
+        <signature>HTML_Common._parseAttributes($attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._removeAttr</simple_name>
+        <signature>HTML_Common._removeAttr($attr;$attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._updateAttrArray</simple_name>
+        <signature>HTML_Common._updateAttrArray($attr1;$attr2):mixed</signature>
+      </method>
+      <method vuln_id="1091151">
+        <simple_name>HTML_Common.apiVersion</simple_name>
+        <signature>HTML_Common.apiVersion():double</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091161">
+        <simple_name>HTML_Common.charset</simple_name>
+        <signature>HTML_Common.charset($newCharset):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091150">
+        <simple_name>HTML_Common.display</simple_name>
+        <signature>HTML_Common.display():void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091162">
+        <simple_name>HTML_Common.getAttribute</simple_name>
+        <signature>HTML_Common.getAttribute($attr):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091160">
+        <simple_name>HTML_Common.getAttributes</simple_name>
+        <signature>HTML_Common.getAttributes($asString):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091156">
+        <simple_name>HTML_Common.getComment</simple_name>
+        <signature>HTML_Common.getComment():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091159">
+        <simple_name>HTML_Common.getTabOffset</simple_name>
+        <signature>HTML_Common.getTabOffset():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091148">
+        <simple_name>HTML_Common.removeAttribute</simple_name>
+        <signature>HTML_Common.removeAttribute($attr):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091152">
+        <simple_name>HTML_Common.setAttribute</simple_name>
+        <signature>HTML_Common.setAttribute($name;$value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091149">
+        <simple_name>HTML_Common.setAttributes</simple_name>
+        <signature>HTML_Common.setAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091155">
+        <simple_name>HTML_Common.setComment</simple_name>
+        <signature>HTML_Common.setComment($comment):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091157">
+        <simple_name>HTML_Common.setLineEnd</simple_name>
+        <signature>HTML_Common.setLineEnd($style):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091163">
+        <simple_name>HTML_Common.setTab</simple_name>
+        <signature>HTML_Common.setTab($string):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091154">
+        <simple_name>HTML_Common.setTabOffset</simple_name>
+        <signature>HTML_Common.setTabOffset($offset):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091153">
+        <simple_name>HTML_Common.toHtml</simple_name>
+        <signature>HTML_Common.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091158">
+        <simple_name>HTML_Common.updateAttributes</simple_name>
+        <signature>HTML_Common.updateAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_Common">
+      <method vuln_id="-1">
+        <simple_name>HTML_Common.HTML_Common</simple_name>
+        <signature>HTML_Common.HTML_Common($attributes;$tabOffset):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common.HTML_Common</simple_name>
+        <signature>HTML_Common.HTML_Common():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getAttrKey</simple_name>
+        <signature>HTML_Common._getAttrKey($attr;$attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getAttrString</simple_name>
+        <signature>HTML_Common._getAttrString($attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getLineEnd</simple_name>
+        <signature>HTML_Common._getLineEnd():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getTab</simple_name>
+        <signature>HTML_Common._getTab():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._getTabs</simple_name>
+        <signature>HTML_Common._getTabs():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._parseAttributes</simple_name>
+        <signature>HTML_Common._parseAttributes($attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._removeAttr</simple_name>
+        <signature>HTML_Common._removeAttr($attr;$attributes):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Common._updateAttrArray</simple_name>
+        <signature>HTML_Common._updateAttrArray($attr1;$attr2):mixed</signature>
+      </method>
+      <method vuln_id="1091151">
+        <simple_name>HTML_Common.apiVersion</simple_name>
+        <signature>HTML_Common.apiVersion():double</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091161">
+        <simple_name>HTML_Common.charset</simple_name>
+        <signature>HTML_Common.charset($newCharset):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091150">
+        <simple_name>HTML_Common.display</simple_name>
+        <signature>HTML_Common.display():void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091162">
+        <simple_name>HTML_Common.getAttribute</simple_name>
+        <signature>HTML_Common.getAttribute($attr):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091160">
+        <simple_name>HTML_Common.getAttributes</simple_name>
+        <signature>HTML_Common.getAttributes($asString):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091156">
+        <simple_name>HTML_Common.getComment</simple_name>
+        <signature>HTML_Common.getComment():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091159">
+        <simple_name>HTML_Common.getTabOffset</simple_name>
+        <signature>HTML_Common.getTabOffset():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091148">
+        <simple_name>HTML_Common.removeAttribute</simple_name>
+        <signature>HTML_Common.removeAttribute($attr):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091152">
+        <simple_name>HTML_Common.setAttribute</simple_name>
+        <signature>HTML_Common.setAttribute($name;$value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091149">
+        <simple_name>HTML_Common.setAttributes</simple_name>
+        <signature>HTML_Common.setAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091155">
+        <simple_name>HTML_Common.setComment</simple_name>
+        <signature>HTML_Common.setComment($comment):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091157">
+        <simple_name>HTML_Common.setLineEnd</simple_name>
+        <signature>HTML_Common.setLineEnd($style):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091163">
+        <simple_name>HTML_Common.setTab</simple_name>
+        <signature>HTML_Common.setTab($string):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091154">
+        <simple_name>HTML_Common.setTabOffset</simple_name>
+        <signature>HTML_Common.setTabOffset($offset):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091153">
+        <simple_name>HTML_Common.toHtml</simple_name>
+        <signature>HTML_Common.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091158">
+        <simple_name>HTML_Common.updateAttributes</simple_name>
+        <signature>HTML_Common.updateAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

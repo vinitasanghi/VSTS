@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="PEAR">
+      <method vuln_id="-1">
+        <simple_name>PEAR.PEAR</simple_name>
+        <signature>PEAR.PEAR(string):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>PEAR._PEAR</simple_name>
+        <signature>PEAR._PEAR():void</signature>
+      </method>
+      <method vuln_id="1092599">
+        <simple_name>PEAR._checkDelExpect</simple_name>
+        <signature>PEAR._checkDelExpect(mixed):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092582">
+        <simple_name>PEAR.delExpect</simple_name>
+        <signature>PEAR.delExpect(mixed):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092613">
+        <simple_name>PEAR.expectError</simple_name>
+        <signature>PEAR.expectError(mixed):int</signature>
+        <info_rule id="451990"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092604">
+        <simple_name>PEAR.getStaticProperty</simple_name>
+        <signature>PEAR.getStaticProperty(string;string):mixed&amp;</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092610">
+        <simple_name>PEAR.isError</simple_name>
+        <signature>PEAR.isError(mixed;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092587">
+        <simple_name>PEAR.loadExtension</simple_name>
+        <signature>PEAR.loadExtension(string):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092605">
+        <simple_name>PEAR.popErrorHandling</simple_name>
+        <signature>PEAR.popErrorHandling():bool</signature>
+        <info_rule id="451975"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092596">
+        <simple_name>PEAR.popExpect</simple_name>
+        <signature>PEAR.popExpect():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092619">
+        <simple_name>PEAR.pushErrorHandling</simple_name>
+        <signature>PEAR.pushErrorHandling(mixed;mixed):bool</signature>
+        <info_rule id="451999"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092588">
+        <simple_name>PEAR.raiseError</simple_name>
+        <signature>PEAR.raiseError(mixed;int;int;mixed;string;string;bool):PEAR_Error</signature>
+        <info_rule id="451937"/>
+        <rule>
+          <ActionObject id="451935">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461766">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451934">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,4,5,6"/>
+        </sink_rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092609">
+        <simple_name>PEAR.registerShutdownFunc</simple_name>
+        <signature>PEAR.registerShutdownFunc(mixed;mixed):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092606">
+        <simple_name>PEAR.setErrorHandling</simple_name>
+        <signature>PEAR.setErrorHandling(int;mixed):void</signature>
+        <info_rule id="451980"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092595">
+        <simple_name>PEAR.staticPopErrorHandling</simple_name>
+        <signature>PEAR.staticPopErrorHandling():void</signature>
+        <info_rule id="451957"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092601">
+        <simple_name>PEAR.staticPushErrorHandling</simple_name>
+        <signature>PEAR.staticPushErrorHandling(int;mixed):void</signature>
+        <info_rule id="451967"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092584">
+        <simple_name>PEAR.throwError</simple_name>
+        <signature>PEAR.throwError(string;mixed;mixed):void</signature>
+        <info_rule id="451927"/>
+        <rule>
+          <ActionObject id="451925">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461764">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451924">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="PEAR">
+      <method vuln_id="-1">
+        <simple_name>PEAR.PEAR</simple_name>
+        <signature>PEAR.PEAR(string):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>PEAR._PEAR</simple_name>
+        <signature>PEAR._PEAR():void</signature>
+      </method>
+      <method vuln_id="1092599">
+        <simple_name>PEAR._checkDelExpect</simple_name>
+        <signature>PEAR._checkDelExpect(mixed):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092582">
+        <simple_name>PEAR.delExpect</simple_name>
+        <signature>PEAR.delExpect(mixed):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092613">
+        <simple_name>PEAR.expectError</simple_name>
+        <signature>PEAR.expectError(mixed):int</signature>
+        <info_rule id="451990"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092604">
+        <simple_name>PEAR.getStaticProperty</simple_name>
+        <signature>PEAR.getStaticProperty(string;string):mixed&amp;</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092610">
+        <simple_name>PEAR.isError</simple_name>
+        <signature>PEAR.isError(mixed;int):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092587">
+        <simple_name>PEAR.loadExtension</simple_name>
+        <signature>PEAR.loadExtension(string):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092605">
+        <simple_name>PEAR.popErrorHandling</simple_name>
+        <signature>PEAR.popErrorHandling():bool</signature>
+        <info_rule id="451975"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092596">
+        <simple_name>PEAR.popExpect</simple_name>
+        <signature>PEAR.popExpect():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092619">
+        <simple_name>PEAR.pushErrorHandling</simple_name>
+        <signature>PEAR.pushErrorHandling(mixed;mixed):bool</signature>
+        <info_rule id="451999"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092588">
+        <simple_name>PEAR.raiseError</simple_name>
+        <signature>PEAR.raiseError(mixed;int;int;mixed;string;string;bool):PEAR_Error</signature>
+        <info_rule id="451937"/>
+        <rule>
+          <ActionObject id="451935">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461766">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451934">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,4,5,6"/>
+        </sink_rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092609">
+        <simple_name>PEAR.registerShutdownFunc</simple_name>
+        <signature>PEAR.registerShutdownFunc(mixed;mixed):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092606">
+        <simple_name>PEAR.setErrorHandling</simple_name>
+        <signature>PEAR.setErrorHandling(int;mixed):void</signature>
+        <info_rule id="451980"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092595">
+        <simple_name>PEAR.staticPopErrorHandling</simple_name>
+        <signature>PEAR.staticPopErrorHandling():void</signature>
+        <info_rule id="451957"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092601">
+        <simple_name>PEAR.staticPushErrorHandling</simple_name>
+        <signature>PEAR.staticPushErrorHandling(int;mixed):void</signature>
+        <info_rule id="451967"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092584">
+        <simple_name>PEAR.throwError</simple_name>
+        <signature>PEAR.throwError(string;mixed;mixed):void</signature>
+        <info_rule id="451927"/>
+        <rule>
+          <ActionObject id="451925">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461764">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451924">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Pear">
+      <method vuln_id="-1">
+        <simple_name>Pear.raiseError</simple_name>
+        <signature>Pear.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Pear">
+      <method vuln_id="-1">
+        <simple_name>Pear.raiseError</simple_name>
+        <signature>Pear.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

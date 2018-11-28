@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="NoRewindIterator">
+      <method vuln_id="1088867">
+        <simple_name>___Php.NoRewindIterator.__construct</simple_name>
+        <signature>___Php.NoRewindIterator.__construct(___Php.Iterator):void</signature>
+        <comment>Create an iterator from another iterator</comment>
+      </method>
+      <method vuln_id="1088856">
+        <simple_name>___Php.NoRewindIterator.current</simple_name>
+        <signature>___Php.NoRewindIterator.current():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return inner iterators current()</comment>
+      </method>
+      <method vuln_id="1088812">
+        <simple_name>___Php.NoRewindIterator.key</simple_name>
+        <signature>___Php.NoRewindIterator.key():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return inner iterators key()</comment>
+      </method>
+      <method vuln_id="1088751">
+        <simple_name>___Php.NoRewindIterator.next</simple_name>
+        <signature>___Php.NoRewindIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Return inner iterators next()</comment>
+      </method>
+      <method vuln_id="1088767">
+        <simple_name>___Php.NoRewindIterator.rewind</simple_name>
+        <signature>___Php.NoRewindIterator.rewind():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Prevent a call to inner iterators rewind()</comment>
+      </method>
+      <method vuln_id="1088828">
+        <simple_name>___Php.NoRewindIterator.valid</simple_name>
+        <signature>___Php.NoRewindIterator.valid():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Return inner iterators valid()</comment>
+      </method>
+    </class>
+    <class name="NoRewindIterator">
+      <method vuln_id="1088867">
+        <simple_name>___Php.NoRewindIterator.__construct</simple_name>
+        <signature>___Php.NoRewindIterator.__construct(___Php.Iterator):void</signature>
+        <comment>Create an iterator from another iterator</comment>
+      </method>
+      <method vuln_id="1088856">
+        <simple_name>___Php.NoRewindIterator.current</simple_name>
+        <signature>___Php.NoRewindIterator.current():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return inner iterators current()</comment>
+      </method>
+      <method vuln_id="1088812">
+        <simple_name>___Php.NoRewindIterator.key</simple_name>
+        <signature>___Php.NoRewindIterator.key():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <comment>Return inner iterators key()</comment>
+      </method>
+      <method vuln_id="1088751">
+        <simple_name>___Php.NoRewindIterator.next</simple_name>
+        <signature>___Php.NoRewindIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Return inner iterators next()</comment>
+      </method>
+      <method vuln_id="1088767">
+        <simple_name>___Php.NoRewindIterator.rewind</simple_name>
+        <signature>___Php.NoRewindIterator.rewind():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Prevent a call to inner iterators rewind()</comment>
+      </method>
+      <method vuln_id="1088828">
+        <simple_name>___Php.NoRewindIterator.valid</simple_name>
+        <signature>___Php.NoRewindIterator.valid():bool</signature>
+        <does_not_propagate_taint/>
+        <comment>Return inner iterators valid()</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

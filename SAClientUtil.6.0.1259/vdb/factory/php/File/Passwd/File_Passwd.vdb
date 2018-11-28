@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="File_Passwd">
+      <method vuln_id="-1">
+        <simple_name>File_Passwd._64</simple_name>
+        <signature>File_Passwd._64($value;$count):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd._hexbin</simple_name>
+        <signature>File_Passwd._hexbin($hex):mixed</signature>
+      </method>
+      <method vuln_id="1091085">
+        <simple_name>File_Passwd.apiVersion</simple_name>
+        <signature>File_Passwd.apiVersion():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091079">
+        <simple_name>File_Passwd.crypt_apr_md5</simple_name>
+        <signature>File_Passwd.crypt_apr_md5($plain;$salt):mixed</signature>
+        <rule>
+          <ActionObject id="451201">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd.crypt_apr_md5</simple_name>
+        <signature>File_Passwd.crypt_apr_md5():Variant</signature>
+      </method>
+      <method vuln_id="1091082">
+        <simple_name>File_Passwd.crypt_des</simple_name>
+        <signature>File_Passwd.crypt_des($plain;$salt):string</signature>
+        <rule>
+          <ActionObject id="451204">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd.crypt_des</simple_name>
+        <signature>File_Passwd.crypt_des():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091077">
+        <simple_name>File_Passwd.crypt_md5</simple_name>
+        <signature>File_Passwd.crypt_md5($plain;$salt):string</signature>
+        <rule>
+          <ActionObject id="451199">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091083">
+        <simple_name>File_Passwd.crypt_plain</simple_name>
+        <signature>File_Passwd.crypt_plain($plain):string</signature>
+        <rule>
+          <ActionObject id="451205">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.NonStandard</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091084">
+        <simple_name>File_Passwd.crypt_sha</simple_name>
+        <signature>File_Passwd.crypt_sha($plain):mixed</signature>
+        <rule>
+          <ActionObject id="451206">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd.crypt_sha</simple_name>
+        <signature>File_Passwd.crypt_sha():Variant</signature>
+      </method>
+      <method vuln_id="1091078">
+        <simple_name>File_Passwd.factory</simple_name>
+        <signature>File_Passwd.factory($class):object File_Passwd_$class</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091081">
+        <simple_name>File_Passwd.salt</simple_name>
+        <signature>File_Passwd.salt($length):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091080">
+        <simple_name>File_Passwd.staticAuth</simple_name>
+        <signature>File_Passwd.staticAuth($type;$file;$user;$pass;$opt):return</signature>
+        <rule>
+          <ActionObject id="462939">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462940">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451203">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3,4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="File_Passwd">
+      <method vuln_id="-1">
+        <simple_name>File_Passwd._64</simple_name>
+        <signature>File_Passwd._64($value;$count):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd._hexbin</simple_name>
+        <signature>File_Passwd._hexbin($hex):mixed</signature>
+      </method>
+      <method vuln_id="1091085">
+        <simple_name>File_Passwd.apiVersion</simple_name>
+        <signature>File_Passwd.apiVersion():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091079">
+        <simple_name>File_Passwd.crypt_apr_md5</simple_name>
+        <signature>File_Passwd.crypt_apr_md5($plain;$salt):mixed</signature>
+        <rule>
+          <ActionObject id="451201">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd.crypt_apr_md5</simple_name>
+        <signature>File_Passwd.crypt_apr_md5():Variant</signature>
+      </method>
+      <method vuln_id="1091082">
+        <simple_name>File_Passwd.crypt_des</simple_name>
+        <signature>File_Passwd.crypt_des($plain;$salt):string</signature>
+        <rule>
+          <ActionObject id="451204">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd.crypt_des</simple_name>
+        <signature>File_Passwd.crypt_des():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091077">
+        <simple_name>File_Passwd.crypt_md5</simple_name>
+        <signature>File_Passwd.crypt_md5($plain;$salt):string</signature>
+        <rule>
+          <ActionObject id="451199">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091083">
+        <simple_name>File_Passwd.crypt_plain</simple_name>
+        <signature>File_Passwd.crypt_plain($plain):string</signature>
+        <rule>
+          <ActionObject id="451205">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Cryptography.NonStandard</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091084">
+        <simple_name>File_Passwd.crypt_sha</simple_name>
+        <signature>File_Passwd.crypt_sha($plain):mixed</signature>
+        <rule>
+          <ActionObject id="451206">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Cryptography.InsecureAlgorithm</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd.crypt_sha</simple_name>
+        <signature>File_Passwd.crypt_sha():Variant</signature>
+      </method>
+      <method vuln_id="1091078">
+        <simple_name>File_Passwd.factory</simple_name>
+        <signature>File_Passwd.factory($class):object File_Passwd_$class</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091081">
+        <simple_name>File_Passwd.salt</simple_name>
+        <signature>File_Passwd.salt($length):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091080">
+        <simple_name>File_Passwd.staticAuth</simple_name>
+        <signature>File_Passwd.staticAuth($type;$file;$user;$pass;$opt):return</signature>
+        <rule>
+          <ActionObject id="462939">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462940">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451203">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3,4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

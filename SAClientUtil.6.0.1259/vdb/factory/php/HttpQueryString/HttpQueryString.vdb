@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpQueryString">
+      <method vuln_id="1086767">
+        <simple_name>HttpQueryString.__construct</simple_name>
+        <signature>HttpQueryString.__construct(bool;mixed):void</signature>
+        <comment>Creates a new HttpQueryString object instance.</comment>
+      </method>
+      <method vuln_id="1086751">
+        <simple_name>HttpQueryString.get</simple_name>
+        <signature>HttpQueryString.get(___Php.String;mixed;mixed;bool):mixed</signature>
+        <info_rule id="453643"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get(part of):the query string.</comment>
+      </method>
+      <method vuln_id="1086700">
+        <simple_name>HttpQueryString.mod</simple_name>
+        <signature>HttpQueryString.mod(mixed):HttpQueryString</signature>
+        <info_rule id="453571"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Copies the query string object and sets provided params at the clone.</comment>
+      </method>
+      <method vuln_id="1086848">
+        <simple_name>HttpQueryString.set</simple_name>
+        <signature>HttpQueryString.set(mixed):___Php.String</signature>
+        <info_rule id="453783"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set query string entry/entries. NULL values will unset the variable</comment>
+      </method>
+      <method vuln_id="1086802">
+        <simple_name>HttpQueryString.singleton</simple_name>
+        <signature>HttpQueryString.singleton(bool):HttpQueryString</signature>
+        <info_rule id="453713"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get a single instance(differentiates between the global setting).</comment>
+      </method>
+      <method vuln_id="1086843">
+        <simple_name>HttpQueryString.toArray</simple_name>
+        <signature>HttpQueryString.toArray():___Php.Array</signature>
+        <info_rule id="453776"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the query string represented as associative array</comment>
+      </method>
+      <method vuln_id="1086849">
+        <simple_name>HttpQueryString.toString</simple_name>
+        <signature>HttpQueryString.toString():___Php.String</signature>
+        <info_rule id="453784"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the query string</comment>
+      </method>
+      <method vuln_id="1086688">
+        <simple_name>HttpQueryString.xlate</simple_name>
+        <signature>HttpQueryString.xlate(___Php.String;___Php.String):bool</signature>
+        <info_rule id="453550"/>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Converts the query string from the source encoding ie to the target encoding oe.</comment>
+      </method>
+    </class>
+    <class name="HttpQueryString">
+      <method vuln_id="1086767">
+        <simple_name>HttpQueryString.__construct</simple_name>
+        <signature>HttpQueryString.__construct(bool;mixed):void</signature>
+        <comment>Creates a new HttpQueryString object instance.</comment>
+      </method>
+      <method vuln_id="1086751">
+        <simple_name>HttpQueryString.get</simple_name>
+        <signature>HttpQueryString.get(___Php.String;mixed;mixed;bool):mixed</signature>
+        <info_rule id="453643"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get(part of):the query string.</comment>
+      </method>
+      <method vuln_id="1086700">
+        <simple_name>HttpQueryString.mod</simple_name>
+        <signature>HttpQueryString.mod(mixed):HttpQueryString</signature>
+        <info_rule id="453571"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Copies the query string object and sets provided params at the clone.</comment>
+      </method>
+      <method vuln_id="1086848">
+        <simple_name>HttpQueryString.set</simple_name>
+        <signature>HttpQueryString.set(mixed):___Php.String</signature>
+        <info_rule id="453783"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set query string entry/entries. NULL values will unset the variable</comment>
+      </method>
+      <method vuln_id="1086802">
+        <simple_name>HttpQueryString.singleton</simple_name>
+        <signature>HttpQueryString.singleton(bool):HttpQueryString</signature>
+        <info_rule id="453713"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get a single instance(differentiates between the global setting).</comment>
+      </method>
+      <method vuln_id="1086843">
+        <simple_name>HttpQueryString.toArray</simple_name>
+        <signature>HttpQueryString.toArray():___Php.Array</signature>
+        <info_rule id="453776"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the query string represented as associative array</comment>
+      </method>
+      <method vuln_id="1086849">
+        <simple_name>HttpQueryString.toString</simple_name>
+        <signature>HttpQueryString.toString():___Php.String</signature>
+        <info_rule id="453784"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the query string</comment>
+      </method>
+      <method vuln_id="1086688">
+        <simple_name>HttpQueryString.xlate</simple_name>
+        <signature>HttpQueryString.xlate(___Php.String;___Php.String):bool</signature>
+        <info_rule id="453550"/>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Converts the query string from the source encoding ie to the target encoding oe.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

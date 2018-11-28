@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Soap_AutoDiscover">
+      <method vuln_id="1120166">
+        <simple_name>Zend_Soap_AutoDiscover.__construct_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.__construct_@__Soap_AutoDiscover_php_1($strategy;$uri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1120228">
+        <simple_name>Zend_Soap_AutoDiscover._addFunctionToWsdl_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover._addFunctionToWsdl_@__Soap_AutoDiscover_php_1($function;$wsdl;$port;$binding):Variant</signature>
+        <info_rule id="472602"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120240">
+        <simple_name>Zend_Soap_AutoDiscover.addFunction_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.addFunction_@__Soap_AutoDiscover_php_1($function;$namespace):Variant</signature>
+        <info_rule id="472615"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120186">
+        <simple_name>Zend_Soap_AutoDiscover.dump_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.dump_@__Soap_AutoDiscover_php_1($filename):Variant</signature>
+        <info_rule id="472555"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120310">
+        <simple_name>Zend_Soap_AutoDiscover.fault_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.fault_@__Soap_AutoDiscover_php_1($fault;$code):Variant</signature>
+        <info_rule id="472691"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120312">
+        <simple_name>Zend_Soap_AutoDiscover.getFunctions_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getFunctions_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472693"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120266">
+        <simple_name>Zend_Soap_AutoDiscover.getHostName_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getHostName_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472641"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120227">
+        <simple_name>Zend_Soap_AutoDiscover.getRequestUriWithoutParameters_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getRequestUriWithoutParameters_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472601"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120194">
+        <simple_name>Zend_Soap_AutoDiscover.getSchema_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getSchema_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472564"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120273">
+        <simple_name>Zend_Soap_AutoDiscover.getType_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getType_@__Soap_AutoDiscover_php_1($type):Variant</signature>
+        <info_rule id="472648"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120208">
+        <simple_name>Zend_Soap_AutoDiscover.getUri_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getUri_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472580"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120314">
+        <simple_name>Zend_Soap_AutoDiscover.handle_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.handle_@__Soap_AutoDiscover_php_1($request):Variant</signature>
+        <info_rule id="472695"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120159">
+        <simple_name>Zend_Soap_AutoDiscover.loadFunctions_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.loadFunctions_@__Soap_AutoDiscover_php_1($definition):Variant</signature>
+        <info_rule id="472528"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120278">
+        <simple_name>Zend_Soap_AutoDiscover.setBindingStyle_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setBindingStyle_@__Soap_AutoDiscover_php_1($bindingStyle):Variant</signature>
+        <info_rule id="472653"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120322">
+        <simple_name>Zend_Soap_AutoDiscover.setClass_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setClass_@__Soap_AutoDiscover_php_1($class;$namespace;$argv):Variant</signature>
+        <info_rule id="472703"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120301">
+        <simple_name>Zend_Soap_AutoDiscover.setComplexTypeStrategy_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setComplexTypeStrategy_@__Soap_AutoDiscover_php_1($strategy):Variant</signature>
+        <info_rule id="472677"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120251">
+        <simple_name>Zend_Soap_AutoDiscover.setOperationBodyStyle_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setOperationBodyStyle_@__Soap_AutoDiscover_php_1($operationStyle):Variant</signature>
+        <info_rule id="472626"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120308">
+        <simple_name>Zend_Soap_AutoDiscover.setPersistence_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setPersistence_@__Soap_AutoDiscover_php_1($mode):Variant</signature>
+        <info_rule id="472688"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120284">
+        <simple_name>Zend_Soap_AutoDiscover.setUri_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setUri_@__Soap_AutoDiscover_php_1($uri):Variant</signature>
+        <info_rule id="472661"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120298">
+        <simple_name>Zend_Soap_AutoDiscover.toXml_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.toXml_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472674"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+    </class>
+    <class name="Zend_Soap_AutoDiscover">
+      <method vuln_id="1120166">
+        <simple_name>Zend_Soap_AutoDiscover.__construct_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.__construct_@__Soap_AutoDiscover_php_1($strategy;$uri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1120228">
+        <simple_name>Zend_Soap_AutoDiscover._addFunctionToWsdl_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover._addFunctionToWsdl_@__Soap_AutoDiscover_php_1($function;$wsdl;$port;$binding):Variant</signature>
+        <info_rule id="472602"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120240">
+        <simple_name>Zend_Soap_AutoDiscover.addFunction_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.addFunction_@__Soap_AutoDiscover_php_1($function;$namespace):Variant</signature>
+        <info_rule id="472615"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120186">
+        <simple_name>Zend_Soap_AutoDiscover.dump_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.dump_@__Soap_AutoDiscover_php_1($filename):Variant</signature>
+        <info_rule id="472555"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120310">
+        <simple_name>Zend_Soap_AutoDiscover.fault_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.fault_@__Soap_AutoDiscover_php_1($fault;$code):Variant</signature>
+        <info_rule id="472691"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120312">
+        <simple_name>Zend_Soap_AutoDiscover.getFunctions_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getFunctions_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472693"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120266">
+        <simple_name>Zend_Soap_AutoDiscover.getHostName_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getHostName_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472641"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120227">
+        <simple_name>Zend_Soap_AutoDiscover.getRequestUriWithoutParameters_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getRequestUriWithoutParameters_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472601"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120194">
+        <simple_name>Zend_Soap_AutoDiscover.getSchema_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getSchema_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472564"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120273">
+        <simple_name>Zend_Soap_AutoDiscover.getType_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getType_@__Soap_AutoDiscover_php_1($type):Variant</signature>
+        <info_rule id="472648"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120208">
+        <simple_name>Zend_Soap_AutoDiscover.getUri_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.getUri_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472580"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120314">
+        <simple_name>Zend_Soap_AutoDiscover.handle_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.handle_@__Soap_AutoDiscover_php_1($request):Variant</signature>
+        <info_rule id="472695"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120159">
+        <simple_name>Zend_Soap_AutoDiscover.loadFunctions_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.loadFunctions_@__Soap_AutoDiscover_php_1($definition):Variant</signature>
+        <info_rule id="472528"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1120278">
+        <simple_name>Zend_Soap_AutoDiscover.setBindingStyle_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setBindingStyle_@__Soap_AutoDiscover_php_1($bindingStyle):Variant</signature>
+        <info_rule id="472653"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120322">
+        <simple_name>Zend_Soap_AutoDiscover.setClass_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setClass_@__Soap_AutoDiscover_php_1($class;$namespace;$argv):Variant</signature>
+        <info_rule id="472703"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120301">
+        <simple_name>Zend_Soap_AutoDiscover.setComplexTypeStrategy_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setComplexTypeStrategy_@__Soap_AutoDiscover_php_1($strategy):Variant</signature>
+        <info_rule id="472677"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120251">
+        <simple_name>Zend_Soap_AutoDiscover.setOperationBodyStyle_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setOperationBodyStyle_@__Soap_AutoDiscover_php_1($operationStyle):Variant</signature>
+        <info_rule id="472626"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120308">
+        <simple_name>Zend_Soap_AutoDiscover.setPersistence_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setPersistence_@__Soap_AutoDiscover_php_1($mode):Variant</signature>
+        <info_rule id="472688"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120284">
+        <simple_name>Zend_Soap_AutoDiscover.setUri_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.setUri_@__Soap_AutoDiscover_php_1($uri):Variant</signature>
+        <info_rule id="472661"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120298">
+        <simple_name>Zend_Soap_AutoDiscover.toXml_@__Soap_AutoDiscover_php_1</simple_name>
+        <signature>Zend_Soap_AutoDiscover.toXml_@__Soap_AutoDiscover_php_1():Variant</signature>
+        <info_rule id="472674"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

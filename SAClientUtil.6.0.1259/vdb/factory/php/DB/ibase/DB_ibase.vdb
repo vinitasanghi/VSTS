@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_ibase">
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.DB_common</simple_name>
+        <signature>DB_ibase.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.DB_ibase</simple_name>
+        <signature>DB_ibase.DB_ibase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._checkManip</simple_name>
+        <signature>DB_ibase._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_ibase._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._ibaseFieldFlags</simple_name>
+        <signature>DB_ibase._ibaseFieldFlags($field_name;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._rtrimArrayValues</simple_name>
+        <signature>DB_ibase._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090651">
+        <simple_name>DB_ibase.affectedRows</simple_name>
+        <signature>DB_ibase.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090645">
+        <simple_name>DB_ibase.autoCommit</simple_name>
+        <signature>DB_ibase.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090635">
+        <simple_name>DB_ibase.commit</simple_name>
+        <signature>DB_ibase.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090638">
+        <simple_name>DB_ibase.connect</simple_name>
+        <signature>DB_ibase.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451055">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090632">
+        <simple_name>DB_ibase.createSequence</simple_name>
+        <signature>DB_ibase.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090637">
+        <simple_name>DB_ibase.disconnect</simple_name>
+        <signature>DB_ibase.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090634">
+        <simple_name>DB_ibase.dropSequence</simple_name>
+        <signature>DB_ibase.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090654">
+        <simple_name>DB_ibase.errorCode</simple_name>
+        <signature>DB_ibase.errorCode($nativecode):int</signature>
+        <rule>
+          <ActionObject id="451062">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090642">
+        <simple_name>DB_ibase.errorNative</simple_name>
+        <signature>DB_ibase.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451058">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090641">
+        <simple_name>DB_ibase.execute</simple_name>
+        <signature>DB_ibase.execute($stmt;$data):object a</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090647">
+        <simple_name>DB_ibase.fetchInto</simple_name>
+        <signature>DB_ibase.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480719"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090650">
+        <simple_name>DB_ibase.freePrepared</simple_name>
+        <signature>DB_ibase.freePrepared($stmt;$free_resource):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090646">
+        <simple_name>DB_ibase.freeQuery</simple_name>
+        <signature>DB_ibase.freeQuery($query):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090639">
+        <simple_name>DB_ibase.freeResult</simple_name>
+        <signature>DB_ibase.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090644">
+        <simple_name>DB_ibase.getSequenceName</simple_name>
+        <signature>DB_ibase.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090636">
+        <simple_name>DB_ibase.getSpecialQuery</simple_name>
+        <signature>DB_ibase.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.ibaseRaiseError</simple_name>
+        <signature>DB_ibase.ibaseRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090652">
+        <simple_name>DB_ibase.modifyLimitQuery</simple_name>
+        <signature>DB_ibase.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090643">
+        <simple_name>DB_ibase.modifyQuery</simple_name>
+        <signature>DB_ibase.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090633">
+        <simple_name>DB_ibase.nextId</simple_name>
+        <signature>DB_ibase.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090630">
+        <simple_name>DB_ibase.nextResult</simple_name>
+        <signature>DB_ibase.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090649">
+        <simple_name>DB_ibase.numCols</simple_name>
+        <signature>DB_ibase.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.popErrorHandling</simple_name>
+        <signature>DB_ibase.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090631">
+        <simple_name>DB_ibase.prepare</simple_name>
+        <signature>DB_ibase.prepare($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.pushErrorHandling</simple_name>
+        <signature>DB_ibase.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090648">
+        <simple_name>DB_ibase.query</simple_name>
+        <signature>DB_ibase.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.raiseError</simple_name>
+        <signature>DB_ibase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090655">
+        <simple_name>DB_ibase.rollback</simple_name>
+        <signature>DB_ibase.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090640">
+        <simple_name>DB_ibase.simpleQuery</simple_name>
+        <signature>DB_ibase.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090653">
+        <simple_name>DB_ibase.tableInfo</simple_name>
+        <signature>DB_ibase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.transactionInit</simple_name>
+        <signature>DB_ibase.transactionInit($trans_args):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_ibase">
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.DB_common</simple_name>
+        <signature>DB_ibase.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.DB_ibase</simple_name>
+        <signature>DB_ibase.DB_ibase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._checkManip</simple_name>
+        <signature>DB_ibase._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_ibase._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._ibaseFieldFlags</simple_name>
+        <signature>DB_ibase._ibaseFieldFlags($field_name;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase._rtrimArrayValues</simple_name>
+        <signature>DB_ibase._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090651">
+        <simple_name>DB_ibase.affectedRows</simple_name>
+        <signature>DB_ibase.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090645">
+        <simple_name>DB_ibase.autoCommit</simple_name>
+        <signature>DB_ibase.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090635">
+        <simple_name>DB_ibase.commit</simple_name>
+        <signature>DB_ibase.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090638">
+        <simple_name>DB_ibase.connect</simple_name>
+        <signature>DB_ibase.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451055">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090632">
+        <simple_name>DB_ibase.createSequence</simple_name>
+        <signature>DB_ibase.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090637">
+        <simple_name>DB_ibase.disconnect</simple_name>
+        <signature>DB_ibase.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090634">
+        <simple_name>DB_ibase.dropSequence</simple_name>
+        <signature>DB_ibase.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090654">
+        <simple_name>DB_ibase.errorCode</simple_name>
+        <signature>DB_ibase.errorCode($nativecode):int</signature>
+        <rule>
+          <ActionObject id="451062">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090642">
+        <simple_name>DB_ibase.errorNative</simple_name>
+        <signature>DB_ibase.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451058">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090641">
+        <simple_name>DB_ibase.execute</simple_name>
+        <signature>DB_ibase.execute($stmt;$data):object a</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090647">
+        <simple_name>DB_ibase.fetchInto</simple_name>
+        <signature>DB_ibase.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480719"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090650">
+        <simple_name>DB_ibase.freePrepared</simple_name>
+        <signature>DB_ibase.freePrepared($stmt;$free_resource):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090646">
+        <simple_name>DB_ibase.freeQuery</simple_name>
+        <signature>DB_ibase.freeQuery($query):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090639">
+        <simple_name>DB_ibase.freeResult</simple_name>
+        <signature>DB_ibase.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090644">
+        <simple_name>DB_ibase.getSequenceName</simple_name>
+        <signature>DB_ibase.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090636">
+        <simple_name>DB_ibase.getSpecialQuery</simple_name>
+        <signature>DB_ibase.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.ibaseRaiseError</simple_name>
+        <signature>DB_ibase.ibaseRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090652">
+        <simple_name>DB_ibase.modifyLimitQuery</simple_name>
+        <signature>DB_ibase.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090643">
+        <simple_name>DB_ibase.modifyQuery</simple_name>
+        <signature>DB_ibase.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090633">
+        <simple_name>DB_ibase.nextId</simple_name>
+        <signature>DB_ibase.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090630">
+        <simple_name>DB_ibase.nextResult</simple_name>
+        <signature>DB_ibase.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090649">
+        <simple_name>DB_ibase.numCols</simple_name>
+        <signature>DB_ibase.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.popErrorHandling</simple_name>
+        <signature>DB_ibase.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090631">
+        <simple_name>DB_ibase.prepare</simple_name>
+        <signature>DB_ibase.prepare($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.pushErrorHandling</simple_name>
+        <signature>DB_ibase.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090648">
+        <simple_name>DB_ibase.query</simple_name>
+        <signature>DB_ibase.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.raiseError</simple_name>
+        <signature>DB_ibase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090655">
+        <simple_name>DB_ibase.rollback</simple_name>
+        <signature>DB_ibase.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090640">
+        <simple_name>DB_ibase.simpleQuery</simple_name>
+        <signature>DB_ibase.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090653">
+        <simple_name>DB_ibase.tableInfo</simple_name>
+        <signature>DB_ibase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ibase.transactionInit</simple_name>
+        <signature>DB_ibase.transactionInit($trans_args):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Manager_pgsql">
+      <method vuln_id="1092125">
+        <simple_name>MDB_Manager_pgsql.alterTable</simple_name>
+        <signature>MDB_Manager_pgsql.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092123">
+        <simple_name>MDB_Manager_pgsql.createDatabase</simple_name>
+        <signature>MDB_Manager_pgsql.createDatabase($db;$name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092124">
+        <simple_name>MDB_Manager_pgsql.createSequence</simple_name>
+        <signature>MDB_Manager_pgsql.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092133">
+        <simple_name>MDB_Manager_pgsql.createTable</simple_name>
+        <signature>MDB_Manager_pgsql.createTable($db;$name;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092129">
+        <simple_name>MDB_Manager_pgsql.dropDatabase</simple_name>
+        <signature>MDB_Manager_pgsql.dropDatabase($db;$name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092136">
+        <simple_name>MDB_Manager_pgsql.dropSequence</simple_name>
+        <signature>MDB_Manager_pgsql.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092122">
+        <simple_name>MDB_Manager_pgsql.getTableFieldDefinition</simple_name>
+        <signature>MDB_Manager_pgsql.getTableFieldDefinition($db;$table;$field_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092126">
+        <simple_name>MDB_Manager_pgsql.getTableIndexDefinition</simple_name>
+        <signature>MDB_Manager_pgsql.getTableIndexDefinition($db;$table;$index_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092127">
+        <simple_name>MDB_Manager_pgsql.listDatabases</simple_name>
+        <signature>MDB_Manager_pgsql.listDatabases($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092128">
+        <simple_name>MDB_Manager_pgsql.listSequences</simple_name>
+        <signature>MDB_Manager_pgsql.listSequences($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092130">
+        <simple_name>MDB_Manager_pgsql.listTableFields</simple_name>
+        <signature>MDB_Manager_pgsql.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092134">
+        <simple_name>MDB_Manager_pgsql.listTableIndexes</simple_name>
+        <signature>MDB_Manager_pgsql.listTableIndexes($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092131">
+        <simple_name>MDB_Manager_pgsql.listTables</simple_name>
+        <signature>MDB_Manager_pgsql.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092135">
+        <simple_name>MDB_Manager_pgsql.listUsers</simple_name>
+        <signature>MDB_Manager_pgsql.listUsers($db):mixed</signature>
+        <info_rule id="480844"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092132">
+        <simple_name>MDB_Manager_pgsql.listViews</simple_name>
+        <signature>MDB_Manager_pgsql.listViews($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Manager_pgsql">
+      <method vuln_id="1092125">
+        <simple_name>MDB_Manager_pgsql.alterTable</simple_name>
+        <signature>MDB_Manager_pgsql.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092123">
+        <simple_name>MDB_Manager_pgsql.createDatabase</simple_name>
+        <signature>MDB_Manager_pgsql.createDatabase($db;$name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092124">
+        <simple_name>MDB_Manager_pgsql.createSequence</simple_name>
+        <signature>MDB_Manager_pgsql.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092133">
+        <simple_name>MDB_Manager_pgsql.createTable</simple_name>
+        <signature>MDB_Manager_pgsql.createTable($db;$name;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092129">
+        <simple_name>MDB_Manager_pgsql.dropDatabase</simple_name>
+        <signature>MDB_Manager_pgsql.dropDatabase($db;$name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092136">
+        <simple_name>MDB_Manager_pgsql.dropSequence</simple_name>
+        <signature>MDB_Manager_pgsql.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092122">
+        <simple_name>MDB_Manager_pgsql.getTableFieldDefinition</simple_name>
+        <signature>MDB_Manager_pgsql.getTableFieldDefinition($db;$table;$field_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092126">
+        <simple_name>MDB_Manager_pgsql.getTableIndexDefinition</simple_name>
+        <signature>MDB_Manager_pgsql.getTableIndexDefinition($db;$table;$index_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092127">
+        <simple_name>MDB_Manager_pgsql.listDatabases</simple_name>
+        <signature>MDB_Manager_pgsql.listDatabases($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092128">
+        <simple_name>MDB_Manager_pgsql.listSequences</simple_name>
+        <signature>MDB_Manager_pgsql.listSequences($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092130">
+        <simple_name>MDB_Manager_pgsql.listTableFields</simple_name>
+        <signature>MDB_Manager_pgsql.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092134">
+        <simple_name>MDB_Manager_pgsql.listTableIndexes</simple_name>
+        <signature>MDB_Manager_pgsql.listTableIndexes($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092131">
+        <simple_name>MDB_Manager_pgsql.listTables</simple_name>
+        <signature>MDB_Manager_pgsql.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092135">
+        <simple_name>MDB_Manager_pgsql.listUsers</simple_name>
+        <signature>MDB_Manager_pgsql.listUsers($db):mixed</signature>
+        <info_rule id="480844"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092132">
+        <simple_name>MDB_Manager_pgsql.listViews</simple_name>
+        <signature>MDB_Manager_pgsql.listViews($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

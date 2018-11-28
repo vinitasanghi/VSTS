@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Amf_Value_MessageBody">
+      <method vuln_id="1108861">
+        <simple_name>Zend_Amf_Value_MessageBody.__construct_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.__construct_@__Amf_Value_MessageBody_php_1($targetUri;$responseUri;$data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108777">
+        <simple_name>Zend_Amf_Value_MessageBody.getData_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.getData_@__Amf_Value_MessageBody_php_1():Variant</signature>
+        <info_rule id="480970"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108723">
+        <simple_name>Zend_Amf_Value_MessageBody.getResponseUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.getResponseUri_@__Amf_Value_MessageBody_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108872">
+        <simple_name>Zend_Amf_Value_MessageBody.getTargetUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.getTargetUri_@__Amf_Value_MessageBody_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108789">
+        <simple_name>Zend_Amf_Value_MessageBody.setData_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setData_@__Amf_Value_MessageBody_php_1($data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108824">
+        <simple_name>Zend_Amf_Value_MessageBody.setReplyMethod_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setReplyMethod_@__Amf_Value_MessageBody_php_1($methodName):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108747">
+        <simple_name>Zend_Amf_Value_MessageBody.setResponseUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setResponseUri_@__Amf_Value_MessageBody_php_1($responseUri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108769">
+        <simple_name>Zend_Amf_Value_MessageBody.setTargetUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setTargetUri_@__Amf_Value_MessageBody_php_1($targetUri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Amf_Value_MessageBody">
+      <method vuln_id="1108861">
+        <simple_name>Zend_Amf_Value_MessageBody.__construct_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.__construct_@__Amf_Value_MessageBody_php_1($targetUri;$responseUri;$data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108777">
+        <simple_name>Zend_Amf_Value_MessageBody.getData_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.getData_@__Amf_Value_MessageBody_php_1():Variant</signature>
+        <info_rule id="480970"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108723">
+        <simple_name>Zend_Amf_Value_MessageBody.getResponseUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.getResponseUri_@__Amf_Value_MessageBody_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108872">
+        <simple_name>Zend_Amf_Value_MessageBody.getTargetUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.getTargetUri_@__Amf_Value_MessageBody_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108789">
+        <simple_name>Zend_Amf_Value_MessageBody.setData_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setData_@__Amf_Value_MessageBody_php_1($data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108824">
+        <simple_name>Zend_Amf_Value_MessageBody.setReplyMethod_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setReplyMethod_@__Amf_Value_MessageBody_php_1($methodName):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108747">
+        <simple_name>Zend_Amf_Value_MessageBody.setResponseUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setResponseUri_@__Amf_Value_MessageBody_php_1($responseUri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108769">
+        <simple_name>Zend_Amf_Value_MessageBody.setTargetUri_@__Amf_Value_MessageBody_php_1</simple_name>
+        <signature>Zend_Amf_Value_MessageBody.setTargetUri_@__Amf_Value_MessageBody_php_1($targetUri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

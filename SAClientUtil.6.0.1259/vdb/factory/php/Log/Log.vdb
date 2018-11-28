@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Log">
+      <method vuln_id="1091633">
+        <simple_name>Log.MASK</simple_name>
+        <signature>Log.MASK($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091632">
+        <simple_name>Log.MAX</simple_name>
+        <signature>Log.MAX($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091638">
+        <simple_name>Log.MIN</simple_name>
+        <signature>Log.MIN($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091630">
+        <simple_name>Log.UPTO</simple_name>
+        <signature>Log.UPTO($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.UPTO</simple_name>
+        <signature>Log.UPTO():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._announce</simple_name>
+        <signature>Log._announce($event):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._classExists</simple_name>
+        <signature>Log._classExists($class):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._extractMessage</simple_name>
+        <signature>Log._extractMessage($message):string</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._format</simple_name>
+        <signature>Log._format($format;$timestamp;$priority;$message):string</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._getBacktraceVars</simple_name>
+        <signature>Log._getBacktraceVars($depth):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._isMasked</simple_name>
+        <signature>Log._isMasked($priority):boolean</signature>
+      </method>
+      <method vuln_id="1091627">
+        <simple_name>Log.alert</simple_name>
+        <signature>Log.alert($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091616">
+        <simple_name>Log.attach</simple_name>
+        <signature>Log.attach($observer):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091637">
+        <simple_name>Log.close</simple_name>
+        <signature>Log.close():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091621">
+        <simple_name>Log.crit</simple_name>
+        <signature>Log.crit($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091620">
+        <simple_name>Log.debug</simple_name>
+        <signature>Log.debug($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091629">
+        <simple_name>Log.detach</simple_name>
+        <signature>Log.detach($observer):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091626">
+        <simple_name>Log.emerg</simple_name>
+        <signature>Log.emerg($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091628">
+        <simple_name>Log.err</simple_name>
+        <signature>Log.err($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091623">
+        <simple_name>Log.factory</simple_name>
+        <signature>Log.factory($handler;$name;$ident;$conf;$level):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091635">
+        <simple_name>Log.flush</simple_name>
+        <signature>Log.flush():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091617">
+        <simple_name>Log.getIdent</simple_name>
+        <signature>Log.getIdent():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091631">
+        <simple_name>Log.getMask</simple_name>
+        <signature>Log.getMask():interger</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091618">
+        <simple_name>Log.getPriority</simple_name>
+        <signature>Log.getPriority():integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091614">
+        <simple_name>Log.info</simple_name>
+        <signature>Log.info($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091624">
+        <simple_name>Log.isComposite</simple_name>
+        <signature>Log.isComposite():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091639">
+        <simple_name>Log.log</simple_name>
+        <signature>Log.log($message;$priority):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091619">
+        <simple_name>Log.notice</simple_name>
+        <signature>Log.notice($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091636">
+        <simple_name>Log.open</simple_name>
+        <signature>Log.open():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091640">
+        <simple_name>Log.priorityToString</simple_name>
+        <signature>Log.priorityToString($priority):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.setIdent</simple_name>
+        <signature>Log.setIdent($ident):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.setIdent</simple_name>
+        <signature>Log.setIdent():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.setMask</simple_name>
+        <signature>Log.setMask($mask):integer</signature>
+      </method>
+      <method vuln_id="1091634">
+        <simple_name>Log.setPriority</simple_name>
+        <signature>Log.setPriority($priority):void</signature>
+      </method>
+      <method vuln_id="1091625">
+        <simple_name>Log.singleton</simple_name>
+        <signature>Log.singleton($handler;$name;$ident;$conf;$level):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107514">
+        <simple_name>Log.singleton</simple_name>
+        <signature>Log.singleton(___Php.String;___Php.String;___Php.String;___Php.Array;int):object</signature>
+        <info_rule id="462791"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091622">
+        <simple_name>Log.stringToPriority</simple_name>
+        <signature>Log.stringToPriority($name):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091615">
+        <simple_name>Log.warning</simple_name>
+        <signature>Log.warning($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Log">
+      <method vuln_id="1091633">
+        <simple_name>Log.MASK</simple_name>
+        <signature>Log.MASK($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091632">
+        <simple_name>Log.MAX</simple_name>
+        <signature>Log.MAX($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091638">
+        <simple_name>Log.MIN</simple_name>
+        <signature>Log.MIN($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091630">
+        <simple_name>Log.UPTO</simple_name>
+        <signature>Log.UPTO($priority):integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.UPTO</simple_name>
+        <signature>Log.UPTO():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._announce</simple_name>
+        <signature>Log._announce($event):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._classExists</simple_name>
+        <signature>Log._classExists($class):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._extractMessage</simple_name>
+        <signature>Log._extractMessage($message):string</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._format</simple_name>
+        <signature>Log._format($format;$timestamp;$priority;$message):string</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._getBacktraceVars</simple_name>
+        <signature>Log._getBacktraceVars($depth):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log._isMasked</simple_name>
+        <signature>Log._isMasked($priority):boolean</signature>
+      </method>
+      <method vuln_id="1091627">
+        <simple_name>Log.alert</simple_name>
+        <signature>Log.alert($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091616">
+        <simple_name>Log.attach</simple_name>
+        <signature>Log.attach($observer):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091637">
+        <simple_name>Log.close</simple_name>
+        <signature>Log.close():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091621">
+        <simple_name>Log.crit</simple_name>
+        <signature>Log.crit($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091620">
+        <simple_name>Log.debug</simple_name>
+        <signature>Log.debug($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091629">
+        <simple_name>Log.detach</simple_name>
+        <signature>Log.detach($observer):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091626">
+        <simple_name>Log.emerg</simple_name>
+        <signature>Log.emerg($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091628">
+        <simple_name>Log.err</simple_name>
+        <signature>Log.err($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091623">
+        <simple_name>Log.factory</simple_name>
+        <signature>Log.factory($handler;$name;$ident;$conf;$level):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091635">
+        <simple_name>Log.flush</simple_name>
+        <signature>Log.flush():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091617">
+        <simple_name>Log.getIdent</simple_name>
+        <signature>Log.getIdent():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091631">
+        <simple_name>Log.getMask</simple_name>
+        <signature>Log.getMask():interger</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091618">
+        <simple_name>Log.getPriority</simple_name>
+        <signature>Log.getPriority():integer</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091614">
+        <simple_name>Log.info</simple_name>
+        <signature>Log.info($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091624">
+        <simple_name>Log.isComposite</simple_name>
+        <signature>Log.isComposite():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091639">
+        <simple_name>Log.log</simple_name>
+        <signature>Log.log($message;$priority):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091619">
+        <simple_name>Log.notice</simple_name>
+        <signature>Log.notice($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091636">
+        <simple_name>Log.open</simple_name>
+        <signature>Log.open():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091640">
+        <simple_name>Log.priorityToString</simple_name>
+        <signature>Log.priorityToString($priority):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.setIdent</simple_name>
+        <signature>Log.setIdent($ident):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.setIdent</simple_name>
+        <signature>Log.setIdent():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Log.setMask</simple_name>
+        <signature>Log.setMask($mask):integer</signature>
+      </method>
+      <method vuln_id="1091634">
+        <simple_name>Log.setPriority</simple_name>
+        <signature>Log.setPriority($priority):void</signature>
+      </method>
+      <method vuln_id="1091625">
+        <simple_name>Log.singleton</simple_name>
+        <signature>Log.singleton($handler;$name;$ident;$conf;$level):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107514">
+        <simple_name>Log.singleton</simple_name>
+        <signature>Log.singleton(___Php.String;___Php.String;___Php.String;___Php.Array;int):object</signature>
+        <info_rule id="462791"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091622">
+        <simple_name>Log.stringToPriority</simple_name>
+        <signature>Log.stringToPriority($name):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091615">
+        <simple_name>Log.warning</simple_name>
+        <signature>Log.warning($message):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Forge</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

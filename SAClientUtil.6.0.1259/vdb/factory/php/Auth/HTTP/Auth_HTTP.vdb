@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Auth_HTTP">
+      <method vuln_id="1107865">
+        <simple_name>Auth_HTTP.Auth</simple_name>
+        <signature>Auth_HTTP.Auth():Variant</signature>
+        <info_rule id="463438"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107850">
+        <simple_name>Auth_HTTP.Auth_HTTP</simple_name>
+        <signature>Auth_HTTP.Auth_HTTP($storageDriver;$options):void</signature>
+        <info_rule id="463423"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107854">
+        <simple_name>Auth_HTTP._decodeNonce</simple_name>
+        <signature>Auth_HTTP._decodeNonce(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="463427"/>
+        <propagates_taint dst_param="2,3" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107857">
+        <simple_name>Auth_HTTP._getNonce</simple_name>
+        <signature>Auth_HTTP._getNonce():___Php.String</signature>
+        <info_rule id="463430"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107864">
+        <simple_name>Auth_HTTP._importGlobalVariable</simple_name>
+        <signature>Auth_HTTP._importGlobalVariable(__Php.String):___Php.Array</signature>
+        <info_rule id="463437"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107861">
+        <simple_name>Auth_HTTP._judgeStale</simple_name>
+        <signature>Auth_HTTP._judgeStale(__Php.String):mixed</signature>
+        <info_rule id="463434"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107851">
+        <simple_name>Auth_HTTP._loadStorage</simple_name>
+        <signature>Auth_HTTP._loadStorage():void</signature>
+        <info_rule id="463424"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107847">
+        <simple_name>Auth_HTTP.assignData</simple_name>
+        <signature>Auth_HTTP.assignData():void</signature>
+        <info_rule id="463420"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107848">
+        <simple_name>Auth_HTTP.authenticationInfo</simple_name>
+        <signature>Auth_HTTP.authenticationInfo(___Php.String):void</signature>
+        <info_rule id="463421"/>
+        <sink_rule id="450872">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107866">
+        <simple_name>Auth_HTTP.drawLogin</simple_name>
+        <signature>Auth_HTTP.drawLogin(___Php.String):void</signature>
+        <info_rule id="463439"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107852">
+        <simple_name>Auth_HTTP.getAuth</simple_name>
+        <signature>Auth_HTTP.getAuth():bool</signature>
+        <info_rule id="463425"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107855">
+        <simple_name>Auth_HTTP.getAuthData</simple_name>
+        <signature>Auth_HTTP.getAuthData(___Php.String):___Php.String</signature>
+        <info_rule id="463428"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107856">
+        <simple_name>Auth_HTTP.getOption</simple_name>
+        <signature>Auth_HTTP.getOption(___Php.String):mixed</signature>
+        <info_rule id="463429"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107867">
+        <simple_name>Auth_HTTP.login</simple_name>
+        <signature>Auth_HTTP.login():void</signature>
+        <info_rule id="463440"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107863">
+        <simple_name>Auth_HTTP.selfURI</simple_name>
+        <signature>Auth_HTTP.selfURI():___Php.String</signature>
+        <info_rule id="463436"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107862">
+        <simple_name>Auth_HTTP.setAuth</simple_name>
+        <signature>Auth_HTTP.setAuth(___Php.String):void</signature>
+        <info_rule id="463435"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107860">
+        <simple_name>Auth_HTTP.setAuthData</simple_name>
+        <signature>Auth_HTTP.setAuthData(___Php.String;___Php.String;bool):void</signature>
+        <info_rule id="463433"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107849">
+        <simple_name>Auth_HTTP.setCancelText</simple_name>
+        <signature>Auth_HTTP.setCancelText(___Php.String):void</signature>
+        <info_rule id="463422"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107859">
+        <simple_name>Auth_HTTP.setOption</simple_name>
+        <signature>Auth_HTTP.setOption(mixed;mixed):void</signature>
+        <info_rule id="463432"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107853">
+        <simple_name>Auth_HTTP.setRealm</simple_name>
+        <signature>Auth_HTTP.setRealm(___Php.String;___Php.String):void</signature>
+        <info_rule id="463426"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107858">
+        <simple_name>Auth_HTTP.validateDigest</simple_name>
+        <signature>Auth_HTTP.validateDigest(___Php.String;___Php.String):bool</signature>
+        <info_rule id="463431"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Auth_HTTP">
+      <method vuln_id="1107865">
+        <simple_name>Auth_HTTP.Auth</simple_name>
+        <signature>Auth_HTTP.Auth():Variant</signature>
+        <info_rule id="463438"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107850">
+        <simple_name>Auth_HTTP.Auth_HTTP</simple_name>
+        <signature>Auth_HTTP.Auth_HTTP($storageDriver;$options):void</signature>
+        <info_rule id="463423"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107854">
+        <simple_name>Auth_HTTP._decodeNonce</simple_name>
+        <signature>Auth_HTTP._decodeNonce(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="463427"/>
+        <propagates_taint dst_param="2,3" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107857">
+        <simple_name>Auth_HTTP._getNonce</simple_name>
+        <signature>Auth_HTTP._getNonce():___Php.String</signature>
+        <info_rule id="463430"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107864">
+        <simple_name>Auth_HTTP._importGlobalVariable</simple_name>
+        <signature>Auth_HTTP._importGlobalVariable(__Php.String):___Php.Array</signature>
+        <info_rule id="463437"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107861">
+        <simple_name>Auth_HTTP._judgeStale</simple_name>
+        <signature>Auth_HTTP._judgeStale(__Php.String):mixed</signature>
+        <info_rule id="463434"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107851">
+        <simple_name>Auth_HTTP._loadStorage</simple_name>
+        <signature>Auth_HTTP._loadStorage():void</signature>
+        <info_rule id="463424"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107847">
+        <simple_name>Auth_HTTP.assignData</simple_name>
+        <signature>Auth_HTTP.assignData():void</signature>
+        <info_rule id="463420"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107848">
+        <simple_name>Auth_HTTP.authenticationInfo</simple_name>
+        <signature>Auth_HTTP.authenticationInfo(___Php.String):void</signature>
+        <info_rule id="463421"/>
+        <sink_rule id="450872">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107866">
+        <simple_name>Auth_HTTP.drawLogin</simple_name>
+        <signature>Auth_HTTP.drawLogin(___Php.String):void</signature>
+        <info_rule id="463439"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107852">
+        <simple_name>Auth_HTTP.getAuth</simple_name>
+        <signature>Auth_HTTP.getAuth():bool</signature>
+        <info_rule id="463425"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107855">
+        <simple_name>Auth_HTTP.getAuthData</simple_name>
+        <signature>Auth_HTTP.getAuthData(___Php.String):___Php.String</signature>
+        <info_rule id="463428"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107856">
+        <simple_name>Auth_HTTP.getOption</simple_name>
+        <signature>Auth_HTTP.getOption(___Php.String):mixed</signature>
+        <info_rule id="463429"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107867">
+        <simple_name>Auth_HTTP.login</simple_name>
+        <signature>Auth_HTTP.login():void</signature>
+        <info_rule id="463440"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107863">
+        <simple_name>Auth_HTTP.selfURI</simple_name>
+        <signature>Auth_HTTP.selfURI():___Php.String</signature>
+        <info_rule id="463436"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107862">
+        <simple_name>Auth_HTTP.setAuth</simple_name>
+        <signature>Auth_HTTP.setAuth(___Php.String):void</signature>
+        <info_rule id="463435"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107860">
+        <simple_name>Auth_HTTP.setAuthData</simple_name>
+        <signature>Auth_HTTP.setAuthData(___Php.String;___Php.String;bool):void</signature>
+        <info_rule id="463433"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107849">
+        <simple_name>Auth_HTTP.setCancelText</simple_name>
+        <signature>Auth_HTTP.setCancelText(___Php.String):void</signature>
+        <info_rule id="463422"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107859">
+        <simple_name>Auth_HTTP.setOption</simple_name>
+        <signature>Auth_HTTP.setOption(mixed;mixed):void</signature>
+        <info_rule id="463432"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107853">
+        <simple_name>Auth_HTTP.setRealm</simple_name>
+        <signature>Auth_HTTP.setRealm(___Php.String;___Php.String):void</signature>
+        <info_rule id="463426"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107858">
+        <simple_name>Auth_HTTP.validateDigest</simple_name>
+        <signature>Auth_HTTP.validateDigest(___Php.String;___Php.String):bool</signature>
+        <info_rule id="463431"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

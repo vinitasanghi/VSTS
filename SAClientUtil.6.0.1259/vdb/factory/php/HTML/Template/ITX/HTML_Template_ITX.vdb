@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_Template_ITX">
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.BlockvariableExists</simple_name>
+        <signature>HTML_Template_ITX.BlockvariableExists($block;$variable):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091527">
+        <simple_name>HTML_Template_ITX.HTML_Template_IT</simple_name>
+        <signature>HTML_Template_ITX.HTML_Template_IT():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091543">
+        <simple_name>HTML_Template_ITX.HTML_Template_ITX</simple_name>
+        <signature>HTML_Template_ITX.HTML_Template_ITX($root):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091533">
+        <simple_name>HTML_Template_ITX.addBlock</simple_name>
+        <signature>HTML_Template_ITX.addBlock($placeholder;$blockname;$template):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091538">
+        <simple_name>HTML_Template_ITX.addBlockfile</simple_name>
+        <signature>HTML_Template_ITX.addBlockfile($placeholder;$blockname;$filename):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091539">
+        <simple_name>HTML_Template_ITX.blockExists</simple_name>
+        <signature>HTML_Template_ITX.blockExists($blockname):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091544">
+        <simple_name>HTML_Template_ITX.buildBlockvariablelist</simple_name>
+        <signature>HTML_Template_ITX.buildBlockvariablelist():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.buildFunctionlist</simple_name>
+        <signature>HTML_Template_ITX.buildFunctionlist():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.deleteFromBlockvariablelist</simple_name>
+        <signature>HTML_Template_ITX.deleteFromBlockvariablelist($block;$variables):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.findBlocks</simple_name>
+        <signature>HTML_Template_ITX.findBlocks():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091545">
+        <simple_name>HTML_Template_ITX.findPlaceholderBlocks</simple_name>
+        <signature>HTML_Template_ITX.findPlaceholderBlocks($variable):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091542">
+        <simple_name>HTML_Template_ITX.free</simple_name>
+        <signature>HTML_Template_ITX.free():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091534">
+        <simple_name>HTML_Template_ITX.getBlocklist</simple_name>
+        <signature>HTML_Template_ITX.getBlocklist():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091531">
+        <simple_name>HTML_Template_ITX.getBlockvariables</simple_name>
+        <signature>HTML_Template_ITX.getBlockvariables($block):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091530">
+        <simple_name>HTML_Template_ITX.getFile</simple_name>
+        <signature>HTML_Template_ITX.getFile():Variant</signature>
+        <info_rule id="480768"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091541">
+        <simple_name>HTML_Template_ITX.getFunctioncalls</simple_name>
+        <signature>HTML_Template_ITX.getFunctioncalls():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.getValue</simple_name>
+        <signature>HTML_Template_ITX.getValue($code;$delimiter):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091540">
+        <simple_name>HTML_Template_ITX.init</simple_name>
+        <signature>HTML_Template_ITX.init():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091526">
+        <simple_name>HTML_Template_ITX.performCallback</simple_name>
+        <signature>HTML_Template_ITX.performCallback():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091529">
+        <simple_name>HTML_Template_ITX.placeholderExists</simple_name>
+        <signature>HTML_Template_ITX.placeholderExists($placeholder;$block):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.removeBlockData</simple_name>
+        <signature>HTML_Template_ITX.removeBlockData($block):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091528">
+        <simple_name>HTML_Template_ITX.replaceBlock</simple_name>
+        <signature>HTML_Template_ITX.replaceBlock($block;$template;$keep_content):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091532">
+        <simple_name>HTML_Template_ITX.replaceBlockfile</simple_name>
+        <signature>HTML_Template_ITX.replaceBlockfile($block;$filename;$keep_content):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091535">
+        <simple_name>HTML_Template_ITX.setCallbackFunction</simple_name>
+        <signature>HTML_Template_ITX.setCallbackFunction($tplfunction;$callbackfunction;$callbackobject;$expandCallbackParameters):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091536">
+        <simple_name>HTML_Template_ITX.setCallbackFuntiontable</simple_name>
+        <signature>HTML_Template_ITX.setCallbackFuntiontable($functions):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091537">
+        <simple_name>HTML_Template_ITX.setFunctioncontent</simple_name>
+        <signature>HTML_Template_ITX.setFunctioncontent($functionID;$replacement):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.updateBlockvariablelist</simple_name>
+        <signature>HTML_Template_ITX.updateBlockvariablelist($block):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.warning</simple_name>
+        <signature>HTML_Template_ITX.warning($message;$file;$line):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_Template_ITX">
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.BlockvariableExists</simple_name>
+        <signature>HTML_Template_ITX.BlockvariableExists($block;$variable):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091527">
+        <simple_name>HTML_Template_ITX.HTML_Template_IT</simple_name>
+        <signature>HTML_Template_ITX.HTML_Template_IT():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091543">
+        <simple_name>HTML_Template_ITX.HTML_Template_ITX</simple_name>
+        <signature>HTML_Template_ITX.HTML_Template_ITX($root):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091533">
+        <simple_name>HTML_Template_ITX.addBlock</simple_name>
+        <signature>HTML_Template_ITX.addBlock($placeholder;$blockname;$template):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091538">
+        <simple_name>HTML_Template_ITX.addBlockfile</simple_name>
+        <signature>HTML_Template_ITX.addBlockfile($placeholder;$blockname;$filename):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091539">
+        <simple_name>HTML_Template_ITX.blockExists</simple_name>
+        <signature>HTML_Template_ITX.blockExists($blockname):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091544">
+        <simple_name>HTML_Template_ITX.buildBlockvariablelist</simple_name>
+        <signature>HTML_Template_ITX.buildBlockvariablelist():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.buildFunctionlist</simple_name>
+        <signature>HTML_Template_ITX.buildFunctionlist():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.deleteFromBlockvariablelist</simple_name>
+        <signature>HTML_Template_ITX.deleteFromBlockvariablelist($block;$variables):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.findBlocks</simple_name>
+        <signature>HTML_Template_ITX.findBlocks():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091545">
+        <simple_name>HTML_Template_ITX.findPlaceholderBlocks</simple_name>
+        <signature>HTML_Template_ITX.findPlaceholderBlocks($variable):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091542">
+        <simple_name>HTML_Template_ITX.free</simple_name>
+        <signature>HTML_Template_ITX.free():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091534">
+        <simple_name>HTML_Template_ITX.getBlocklist</simple_name>
+        <signature>HTML_Template_ITX.getBlocklist():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091531">
+        <simple_name>HTML_Template_ITX.getBlockvariables</simple_name>
+        <signature>HTML_Template_ITX.getBlockvariables($block):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091530">
+        <simple_name>HTML_Template_ITX.getFile</simple_name>
+        <signature>HTML_Template_ITX.getFile():Variant</signature>
+        <info_rule id="480768"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091541">
+        <simple_name>HTML_Template_ITX.getFunctioncalls</simple_name>
+        <signature>HTML_Template_ITX.getFunctioncalls():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.getValue</simple_name>
+        <signature>HTML_Template_ITX.getValue($code;$delimiter):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091540">
+        <simple_name>HTML_Template_ITX.init</simple_name>
+        <signature>HTML_Template_ITX.init():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091526">
+        <simple_name>HTML_Template_ITX.performCallback</simple_name>
+        <signature>HTML_Template_ITX.performCallback():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091529">
+        <simple_name>HTML_Template_ITX.placeholderExists</simple_name>
+        <signature>HTML_Template_ITX.placeholderExists($placeholder;$block):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.removeBlockData</simple_name>
+        <signature>HTML_Template_ITX.removeBlockData($block):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091528">
+        <simple_name>HTML_Template_ITX.replaceBlock</simple_name>
+        <signature>HTML_Template_ITX.replaceBlock($block;$template;$keep_content):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091532">
+        <simple_name>HTML_Template_ITX.replaceBlockfile</simple_name>
+        <signature>HTML_Template_ITX.replaceBlockfile($block;$filename;$keep_content):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091535">
+        <simple_name>HTML_Template_ITX.setCallbackFunction</simple_name>
+        <signature>HTML_Template_ITX.setCallbackFunction($tplfunction;$callbackfunction;$callbackobject;$expandCallbackParameters):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091536">
+        <simple_name>HTML_Template_ITX.setCallbackFuntiontable</simple_name>
+        <signature>HTML_Template_ITX.setCallbackFuntiontable($functions):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091537">
+        <simple_name>HTML_Template_ITX.setFunctioncontent</simple_name>
+        <signature>HTML_Template_ITX.setFunctioncontent($functionID;$replacement):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.updateBlockvariablelist</simple_name>
+        <signature>HTML_Template_ITX.updateBlockvariablelist($block):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_ITX.warning</simple_name>
+        <signature>HTML_Template_ITX.warning($message;$file;$line):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

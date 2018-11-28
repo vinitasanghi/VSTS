@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Rest_Client">
+      <method vuln_id="1117953">
+        <simple_name>Zend_Rest_Client.__call_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.__call_@__Rest_Client_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117963">
+        <simple_name>Zend_Rest_Client.__construct_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.__construct_@__Rest_Client_php_1($uri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Client._performPost_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client._performPost_@__Rest_Client_php_1($method;$data):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117964">
+        <simple_name>Zend_Rest_Client.getUri_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.getUri_@__Rest_Client_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117937">
+        <simple_name>Zend_Rest_Client.restDelete_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restDelete_@__Rest_Client_php_1($path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117936">
+        <simple_name>Zend_Rest_Client.restGet_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restGet_@__Rest_Client_php_1($path;$query):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117961">
+        <simple_name>Zend_Rest_Client.restPost_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restPost_@__Rest_Client_php_1($path;$data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117947">
+        <simple_name>Zend_Rest_Client.restPut_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restPut_@__Rest_Client_php_1($path;$data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117946">
+        <simple_name>Zend_Rest_Client.setUri_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.setUri_@__Rest_Client_php_1($uri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Rest_Client">
+      <method vuln_id="1117953">
+        <simple_name>Zend_Rest_Client.__call_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.__call_@__Rest_Client_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117963">
+        <simple_name>Zend_Rest_Client.__construct_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.__construct_@__Rest_Client_php_1($uri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Client._performPost_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client._performPost_@__Rest_Client_php_1($method;$data):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117964">
+        <simple_name>Zend_Rest_Client.getUri_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.getUri_@__Rest_Client_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117937">
+        <simple_name>Zend_Rest_Client.restDelete_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restDelete_@__Rest_Client_php_1($path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117936">
+        <simple_name>Zend_Rest_Client.restGet_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restGet_@__Rest_Client_php_1($path;$query):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117961">
+        <simple_name>Zend_Rest_Client.restPost_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restPost_@__Rest_Client_php_1($path;$data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117947">
+        <simple_name>Zend_Rest_Client.restPut_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.restPut_@__Rest_Client_php_1($path;$data):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117946">
+        <simple_name>Zend_Rest_Client.setUri_@__Rest_Client_php_1</simple_name>
+        <signature>Zend_Rest_Client.setUri_@__Rest_Client_php_1($uri):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

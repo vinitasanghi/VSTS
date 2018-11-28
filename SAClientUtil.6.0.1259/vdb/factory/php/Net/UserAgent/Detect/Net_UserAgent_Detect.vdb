@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Net_UserAgent_Detect">
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect.Net_UserAgent_Detect</simple_name>
+        <signature>Net_UserAgent_Detect.Net_UserAgent_Detect($in_userAgent;$in_detect):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect._getStaticProperty</simple_name>
+        <signature>Net_UserAgent_Detect._getStaticProperty($var):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect._getStaticProperty</simple_name>
+        <signature>Net_UserAgent_Detect._getStaticProperty():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092576">
+        <simple_name>Net_UserAgent_Detect.detect</simple_name>
+        <signature>Net_UserAgent_Detect.detect($in_userAgent;$in_detect):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092564">
+        <simple_name>Net_UserAgent_Detect.getAcceptType</simple_name>
+        <signature>Net_UserAgent_Detect.getAcceptType($in_expectList;$in_type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092577">
+        <simple_name>Net_UserAgent_Detect.getBrowser</simple_name>
+        <signature>Net_UserAgent_Detect.getBrowser($in_expectList):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092573">
+        <simple_name>Net_UserAgent_Detect.getBrowserString</simple_name>
+        <signature>Net_UserAgent_Detect.getBrowserString($in_vendorStrings):string</signature>
+        <info_rule id="480900"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092574">
+        <simple_name>Net_UserAgent_Detect.getFeature</simple_name>
+        <signature>Net_UserAgent_Detect.getFeature($in_feature):string</signature>
+        <info_rule id="480902"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092568">
+        <simple_name>Net_UserAgent_Detect.getOS</simple_name>
+        <signature>Net_UserAgent_Detect.getOS($in_expectList):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092562">
+        <simple_name>Net_UserAgent_Detect.getOSString</simple_name>
+        <signature>Net_UserAgent_Detect.getOSString($in_osStrings):string</signature>
+        <info_rule id="480901"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092575">
+        <simple_name>Net_UserAgent_Detect.getQuirk</simple_name>
+        <signature>Net_UserAgent_Detect.getQuirk($in_quirk):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092565">
+        <simple_name>Net_UserAgent_Detect.getUserAgent</simple_name>
+        <signature>Net_UserAgent_Detect.getUserAgent():string</signature>
+        <info_rule id="480899"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect.hasAcceptType</simple_name>
+        <signature>Net_UserAgent_Detect.hasAcceptType($in_value;$in_type):bool</signature>
+      </method>
+      <method vuln_id="1092578">
+        <simple_name>Net_UserAgent_Detect.hasFeature</simple_name>
+        <signature>Net_UserAgent_Detect.hasFeature($in_feature):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092570">
+        <simple_name>Net_UserAgent_Detect.hasQuirk</simple_name>
+        <signature>Net_UserAgent_Detect.hasQuirk($in_quirk):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092572">
+        <simple_name>Net_UserAgent_Detect.isBrowser</simple_name>
+        <signature>Net_UserAgent_Detect.isBrowser($in_match):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092567">
+        <simple_name>Net_UserAgent_Detect.isIE</simple_name>
+        <signature>Net_UserAgent_Detect.isIE():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092561">
+        <simple_name>Net_UserAgent_Detect.isNavigator</simple_name>
+        <signature>Net_UserAgent_Detect.isNavigator():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092563">
+        <simple_name>Net_UserAgent_Detect.isNetscape</simple_name>
+        <signature>Net_UserAgent_Detect.isNetscape():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092569">
+        <simple_name>Net_UserAgent_Detect.isOS</simple_name>
+        <signature>Net_UserAgent_Detect.isOS($in_match):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092580">
+        <simple_name>Net_UserAgent_Detect.setAcceptType</simple_name>
+        <signature>Net_UserAgent_Detect.setAcceptType($in_values;$in_type):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092571">
+        <simple_name>Net_UserAgent_Detect.setFeature</simple_name>
+        <signature>Net_UserAgent_Detect.setFeature($in_feature;$in_hasFeature):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092579">
+        <simple_name>Net_UserAgent_Detect.setOption</simple_name>
+        <signature>Net_UserAgent_Detect.setOption($in_field;$in_value):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092581">
+        <simple_name>Net_UserAgent_Detect.setQuirk</simple_name>
+        <signature>Net_UserAgent_Detect.setQuirk($in_quirk;$in_hasQuirk):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092566">
+        <simple_name>Net_UserAgent_Detect.singleton</simple_name>
+        <signature>Net_UserAgent_Detect.singleton($in_userAgent;$in_detect):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Net_UserAgent_Detect">
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect.Net_UserAgent_Detect</simple_name>
+        <signature>Net_UserAgent_Detect.Net_UserAgent_Detect($in_userAgent;$in_detect):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect._getStaticProperty</simple_name>
+        <signature>Net_UserAgent_Detect._getStaticProperty($var):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect._getStaticProperty</simple_name>
+        <signature>Net_UserAgent_Detect._getStaticProperty():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092576">
+        <simple_name>Net_UserAgent_Detect.detect</simple_name>
+        <signature>Net_UserAgent_Detect.detect($in_userAgent;$in_detect):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092564">
+        <simple_name>Net_UserAgent_Detect.getAcceptType</simple_name>
+        <signature>Net_UserAgent_Detect.getAcceptType($in_expectList;$in_type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092577">
+        <simple_name>Net_UserAgent_Detect.getBrowser</simple_name>
+        <signature>Net_UserAgent_Detect.getBrowser($in_expectList):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092573">
+        <simple_name>Net_UserAgent_Detect.getBrowserString</simple_name>
+        <signature>Net_UserAgent_Detect.getBrowserString($in_vendorStrings):string</signature>
+        <info_rule id="480900"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092574">
+        <simple_name>Net_UserAgent_Detect.getFeature</simple_name>
+        <signature>Net_UserAgent_Detect.getFeature($in_feature):string</signature>
+        <info_rule id="480902"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092568">
+        <simple_name>Net_UserAgent_Detect.getOS</simple_name>
+        <signature>Net_UserAgent_Detect.getOS($in_expectList):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092562">
+        <simple_name>Net_UserAgent_Detect.getOSString</simple_name>
+        <signature>Net_UserAgent_Detect.getOSString($in_osStrings):string</signature>
+        <info_rule id="480901"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092575">
+        <simple_name>Net_UserAgent_Detect.getQuirk</simple_name>
+        <signature>Net_UserAgent_Detect.getQuirk($in_quirk):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092565">
+        <simple_name>Net_UserAgent_Detect.getUserAgent</simple_name>
+        <signature>Net_UserAgent_Detect.getUserAgent():string</signature>
+        <info_rule id="480899"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_UserAgent_Detect.hasAcceptType</simple_name>
+        <signature>Net_UserAgent_Detect.hasAcceptType($in_value;$in_type):bool</signature>
+      </method>
+      <method vuln_id="1092578">
+        <simple_name>Net_UserAgent_Detect.hasFeature</simple_name>
+        <signature>Net_UserAgent_Detect.hasFeature($in_feature):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092570">
+        <simple_name>Net_UserAgent_Detect.hasQuirk</simple_name>
+        <signature>Net_UserAgent_Detect.hasQuirk($in_quirk):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092572">
+        <simple_name>Net_UserAgent_Detect.isBrowser</simple_name>
+        <signature>Net_UserAgent_Detect.isBrowser($in_match):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092567">
+        <simple_name>Net_UserAgent_Detect.isIE</simple_name>
+        <signature>Net_UserAgent_Detect.isIE():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092561">
+        <simple_name>Net_UserAgent_Detect.isNavigator</simple_name>
+        <signature>Net_UserAgent_Detect.isNavigator():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092563">
+        <simple_name>Net_UserAgent_Detect.isNetscape</simple_name>
+        <signature>Net_UserAgent_Detect.isNetscape():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092569">
+        <simple_name>Net_UserAgent_Detect.isOS</simple_name>
+        <signature>Net_UserAgent_Detect.isOS($in_match):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092580">
+        <simple_name>Net_UserAgent_Detect.setAcceptType</simple_name>
+        <signature>Net_UserAgent_Detect.setAcceptType($in_values;$in_type):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092571">
+        <simple_name>Net_UserAgent_Detect.setFeature</simple_name>
+        <signature>Net_UserAgent_Detect.setFeature($in_feature;$in_hasFeature):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092579">
+        <simple_name>Net_UserAgent_Detect.setOption</simple_name>
+        <signature>Net_UserAgent_Detect.setOption($in_field;$in_value):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092581">
+        <simple_name>Net_UserAgent_Detect.setQuirk</simple_name>
+        <signature>Net_UserAgent_Detect.setQuirk($in_quirk;$in_hasQuirk):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092566">
+        <simple_name>Net_UserAgent_Detect.singleton</simple_name>
+        <signature>Net_UserAgent_Detect.singleton($in_userAgent;$in_detect):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

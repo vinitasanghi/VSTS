@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="RecursiveRegexIterator">
+      <method vuln_id="1088765">
+        <simple_name>___Php.RecursiveRegexIterator.__construct</simple_name>
+        <signature>___Php.RecursiveRegexIterator.__construct(___Php.RecursiveIterator;___Php.String;int;int;int):void</signature>
+        <comment>Create an RecursiveRegexIterator from another recursive iterator and a regular expression</comment>
+      </method>
+      <method vuln_id="1088675">
+        <simple_name>___Php.RecursiveRegexIterator.getChildren</simple_name>
+        <signature>___Php.RecursiveRegexIterator.getChildren():___Php.RecursiveRegexIterator</signature>
+        <info_rule id="456187"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Return the inner iterator's children contained in a RecursiveRegexIterator</comment>
+      </method>
+    </class>
+    <class name="RecursiveRegexIterator">
+      <method vuln_id="1088765">
+        <simple_name>___Php.RecursiveRegexIterator.__construct</simple_name>
+        <signature>___Php.RecursiveRegexIterator.__construct(___Php.RecursiveIterator;___Php.String;int;int;int):void</signature>
+        <comment>Create an RecursiveRegexIterator from another recursive iterator and a regular expression</comment>
+      </method>
+      <method vuln_id="1088675">
+        <simple_name>___Php.RecursiveRegexIterator.getChildren</simple_name>
+        <signature>___Php.RecursiveRegexIterator.getChildren():___Php.RecursiveRegexIterator</signature>
+        <info_rule id="456187"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Validation.Regex</property>
+        <comment>Return the inner iterator's children contained in a RecursiveRegexIterator</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

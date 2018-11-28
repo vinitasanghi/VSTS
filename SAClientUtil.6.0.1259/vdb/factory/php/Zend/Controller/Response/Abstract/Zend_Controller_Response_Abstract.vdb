@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Controller_Response_Abstract">
+      <method vuln_id="1110300">
+        <simple_name>Zend_Controller_Response_Abstract.__construct_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.__construct_@__Controller_Response_Abstract_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110301">
+        <simple_name>Zend_Controller_Response_Abstract.__toString_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.__toString_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Response_Abstract._normalizeHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract._normalizeHeader_@__Controller_Response_Abstract_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110246">
+        <simple_name>Zend_Controller_Response_Abstract.appendBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.appendBody_@__Controller_Response_Abstract_php_1($content;$name):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110152">
+        <simple_name>Zend_Controller_Response_Abstract.append_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.append_@__Controller_Response_Abstract_php_1($name;$content):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Response_Abstract.canSendHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.canSendHeaders_@__Controller_Response_Abstract_php_1($throw):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109960">
+        <simple_name>Zend_Controller_Response_Abstract.clearAllHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearAllHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110253">
+        <simple_name>Zend_Controller_Response_Abstract.clearBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearBody_@__Controller_Response_Abstract_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110171">
+        <simple_name>Zend_Controller_Response_Abstract.clearHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearHeader_@__Controller_Response_Abstract_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109861">
+        <simple_name>Zend_Controller_Response_Abstract.clearHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110323">
+        <simple_name>Zend_Controller_Response_Abstract.clearRawHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearRawHeader_@__Controller_Response_Abstract_php_1($headerRaw):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110073">
+        <simple_name>Zend_Controller_Response_Abstract.clearRawHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearRawHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109962">
+        <simple_name>Zend_Controller_Response_Abstract.getBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getBody_@__Controller_Response_Abstract_php_1($spec):Variant</signature>
+        <info_rule id="480982"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110077">
+        <simple_name>Zend_Controller_Response_Abstract.getExceptionByCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getExceptionByCode_@__Controller_Response_Abstract_php_1($code):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110097">
+        <simple_name>Zend_Controller_Response_Abstract.getExceptionByMessage_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getExceptionByMessage_@__Controller_Response_Abstract_php_1($message):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110173">
+        <simple_name>Zend_Controller_Response_Abstract.getExceptionByType_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getExceptionByType_@__Controller_Response_Abstract_php_1($type):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110193">
+        <simple_name>Zend_Controller_Response_Abstract.getException_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getException_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109930">
+        <simple_name>Zend_Controller_Response_Abstract.getHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <info_rule id="480984"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110002">
+        <simple_name>Zend_Controller_Response_Abstract.getHttpResponseCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getHttpResponseCode_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110131">
+        <simple_name>Zend_Controller_Response_Abstract.getRawHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getRawHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <info_rule id="480978"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110032">
+        <simple_name>Zend_Controller_Response_Abstract.hasExceptionOfCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.hasExceptionOfCode_@__Controller_Response_Abstract_php_1($code):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110230">
+        <simple_name>Zend_Controller_Response_Abstract.hasExceptionOfMessage_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.hasExceptionOfMessage_@__Controller_Response_Abstract_php_1($message):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110132">
+        <simple_name>Zend_Controller_Response_Abstract.hasExceptionOfType_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.hasExceptionOfType_@__Controller_Response_Abstract_php_1($type):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109939">
+        <simple_name>Zend_Controller_Response_Abstract.insert_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.insert_@__Controller_Response_Abstract_php_1($name;$content;$parent;$before):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110065">
+        <simple_name>Zend_Controller_Response_Abstract.isException_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.isException_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110118">
+        <simple_name>Zend_Controller_Response_Abstract.isRedirect_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.isRedirect_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110296">
+        <simple_name>Zend_Controller_Response_Abstract.outputBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.outputBody_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110267">
+        <simple_name>Zend_Controller_Response_Abstract.prepend_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.prepend_@__Controller_Response_Abstract_php_1($name;$content):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Response_Abstract.renderExceptions_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.renderExceptions_@__Controller_Response_Abstract_php_1($flag):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110217">
+        <simple_name>Zend_Controller_Response_Abstract.sendHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.sendHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110314">
+        <simple_name>Zend_Controller_Response_Abstract.sendResponse_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.sendResponse_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110107">
+        <simple_name>Zend_Controller_Response_Abstract.setBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setBody_@__Controller_Response_Abstract_php_1($content;$name):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110151">
+        <simple_name>Zend_Controller_Response_Abstract.setException_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setException_@__Controller_Response_Abstract_php_1($e):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110124">
+        <simple_name>Zend_Controller_Response_Abstract.setHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setHeader_@__Controller_Response_Abstract_php_1($name;$value;$replace):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109959">
+        <simple_name>Zend_Controller_Response_Abstract.setHttpResponseCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setHttpResponseCode_@__Controller_Response_Abstract_php_1($code):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109937">
+        <simple_name>Zend_Controller_Response_Abstract.setRawHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setRawHeader_@__Controller_Response_Abstract_php_1($value):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109936">
+        <simple_name>Zend_Controller_Response_Abstract.setRedirect_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setRedirect_@__Controller_Response_Abstract_php_1($url;$code):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL.Redirect</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Controller_Response_Abstract">
+      <method vuln_id="1110300">
+        <simple_name>Zend_Controller_Response_Abstract.__construct_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.__construct_@__Controller_Response_Abstract_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110301">
+        <simple_name>Zend_Controller_Response_Abstract.__toString_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.__toString_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Response_Abstract._normalizeHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract._normalizeHeader_@__Controller_Response_Abstract_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110246">
+        <simple_name>Zend_Controller_Response_Abstract.appendBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.appendBody_@__Controller_Response_Abstract_php_1($content;$name):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110152">
+        <simple_name>Zend_Controller_Response_Abstract.append_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.append_@__Controller_Response_Abstract_php_1($name;$content):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Response_Abstract.canSendHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.canSendHeaders_@__Controller_Response_Abstract_php_1($throw):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109960">
+        <simple_name>Zend_Controller_Response_Abstract.clearAllHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearAllHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110253">
+        <simple_name>Zend_Controller_Response_Abstract.clearBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearBody_@__Controller_Response_Abstract_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110171">
+        <simple_name>Zend_Controller_Response_Abstract.clearHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearHeader_@__Controller_Response_Abstract_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109861">
+        <simple_name>Zend_Controller_Response_Abstract.clearHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110323">
+        <simple_name>Zend_Controller_Response_Abstract.clearRawHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearRawHeader_@__Controller_Response_Abstract_php_1($headerRaw):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110073">
+        <simple_name>Zend_Controller_Response_Abstract.clearRawHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.clearRawHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109962">
+        <simple_name>Zend_Controller_Response_Abstract.getBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getBody_@__Controller_Response_Abstract_php_1($spec):Variant</signature>
+        <info_rule id="480982"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110077">
+        <simple_name>Zend_Controller_Response_Abstract.getExceptionByCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getExceptionByCode_@__Controller_Response_Abstract_php_1($code):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110097">
+        <simple_name>Zend_Controller_Response_Abstract.getExceptionByMessage_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getExceptionByMessage_@__Controller_Response_Abstract_php_1($message):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110173">
+        <simple_name>Zend_Controller_Response_Abstract.getExceptionByType_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getExceptionByType_@__Controller_Response_Abstract_php_1($type):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110193">
+        <simple_name>Zend_Controller_Response_Abstract.getException_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getException_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109930">
+        <simple_name>Zend_Controller_Response_Abstract.getHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <info_rule id="480984"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110002">
+        <simple_name>Zend_Controller_Response_Abstract.getHttpResponseCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getHttpResponseCode_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110131">
+        <simple_name>Zend_Controller_Response_Abstract.getRawHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.getRawHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <info_rule id="480978"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110032">
+        <simple_name>Zend_Controller_Response_Abstract.hasExceptionOfCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.hasExceptionOfCode_@__Controller_Response_Abstract_php_1($code):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110230">
+        <simple_name>Zend_Controller_Response_Abstract.hasExceptionOfMessage_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.hasExceptionOfMessage_@__Controller_Response_Abstract_php_1($message):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110132">
+        <simple_name>Zend_Controller_Response_Abstract.hasExceptionOfType_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.hasExceptionOfType_@__Controller_Response_Abstract_php_1($type):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109939">
+        <simple_name>Zend_Controller_Response_Abstract.insert_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.insert_@__Controller_Response_Abstract_php_1($name;$content;$parent;$before):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110065">
+        <simple_name>Zend_Controller_Response_Abstract.isException_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.isException_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110118">
+        <simple_name>Zend_Controller_Response_Abstract.isRedirect_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.isRedirect_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110296">
+        <simple_name>Zend_Controller_Response_Abstract.outputBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.outputBody_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110267">
+        <simple_name>Zend_Controller_Response_Abstract.prepend_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.prepend_@__Controller_Response_Abstract_php_1($name;$content):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Response_Abstract.renderExceptions_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.renderExceptions_@__Controller_Response_Abstract_php_1($flag):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110217">
+        <simple_name>Zend_Controller_Response_Abstract.sendHeaders_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.sendHeaders_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110314">
+        <simple_name>Zend_Controller_Response_Abstract.sendResponse_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.sendResponse_@__Controller_Response_Abstract_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110107">
+        <simple_name>Zend_Controller_Response_Abstract.setBody_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setBody_@__Controller_Response_Abstract_php_1($content;$name):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110151">
+        <simple_name>Zend_Controller_Response_Abstract.setException_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setException_@__Controller_Response_Abstract_php_1($e):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110124">
+        <simple_name>Zend_Controller_Response_Abstract.setHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setHeader_@__Controller_Response_Abstract_php_1($name;$value;$replace):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109959">
+        <simple_name>Zend_Controller_Response_Abstract.setHttpResponseCode_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setHttpResponseCode_@__Controller_Response_Abstract_php_1($code):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109937">
+        <simple_name>Zend_Controller_Response_Abstract.setRawHeader_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setRawHeader_@__Controller_Response_Abstract_php_1($value):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109936">
+        <simple_name>Zend_Controller_Response_Abstract.setRedirect_@__Controller_Response_Abstract_php_1</simple_name>
+        <signature>Zend_Controller_Response_Abstract.setRedirect_@__Controller_Response_Abstract_php_1($url;$code):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL.Redirect</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

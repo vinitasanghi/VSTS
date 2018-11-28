@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="ArrayAccess">
+      <method vuln_id="1088844">
+        <simple_name>___Php.ArrayAccess.offsetExists</simple_name>
+        <signature>___Php.ArrayAccess.offsetExists(int):bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1089036">
+        <simple_name>___Php.ArrayAccess.offsetGet</simple_name>
+        <signature>___Php.ArrayAccess.offsetGet(int):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088796">
+        <simple_name>___Php.ArrayAccess.offsetSet</simple_name>
+        <signature>___Php.ArrayAccess.offsetSet(int;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+      </method>
+      <method vuln_id="1088928">
+        <simple_name>___Php.ArrayAccess.offsetUnset</simple_name>
+        <signature>___Php.ArrayAccess.offsetUnset(int):void</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+    <class name="ArrayAccess">
+      <method vuln_id="1088844">
+        <simple_name>___Php.ArrayAccess.offsetExists</simple_name>
+        <signature>___Php.ArrayAccess.offsetExists(int):bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1089036">
+        <simple_name>___Php.ArrayAccess.offsetGet</simple_name>
+        <signature>___Php.ArrayAccess.offsetGet(int):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088796">
+        <simple_name>___Php.ArrayAccess.offsetSet</simple_name>
+        <signature>___Php.ArrayAccess.offsetSet(int;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+      </method>
+      <method vuln_id="1088928">
+        <simple_name>___Php.ArrayAccess.offsetUnset</simple_name>
+        <signature>___Php.ArrayAccess.offsetUnset(int):void</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

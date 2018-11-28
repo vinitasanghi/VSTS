@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Rest_Server">
+      <method vuln_id="1117945">
+        <simple_name>Zend_Rest_Server.___Class_Initializer_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.___Class_Initializer_@__Rest_Server_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117959">
+        <simple_name>Zend_Rest_Server.__construct_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.__construct_@__Rest_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._callObjectMethod_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._callObjectMethod_@__Rest_Server_php_1($class;$args):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._callStaticMethod_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._callStaticMethod_@__Rest_Server_php_1($class;$args):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._handleScalar_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._handleScalar_@__Rest_Server_php_1($value):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._handleStruct_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._handleStruct_@__Rest_Server_php_1($struct):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._structValue_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._structValue_@__Rest_Server_php_1($struct;$dom;$parent):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117929">
+        <simple_name>Zend_Rest_Server.addFunction_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.addFunction_@__Rest_Server_php_1($function;$namespace):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117935">
+        <simple_name>Zend_Rest_Server.fault_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.fault_@__Rest_Server_php_1($exception;$code):Variant</signature>
+        <info_rule id="481218"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117934">
+        <simple_name>Zend_Rest_Server.getEncoding_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.getEncoding_@__Rest_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117938">
+        <simple_name>Zend_Rest_Server.getFunctions_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.getFunctions_@__Rest_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117932">
+        <simple_name>Zend_Rest_Server.getHeaders_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.getHeaders_@__Rest_Server_php_1():Variant</signature>
+        <info_rule id="481216"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117940">
+        <simple_name>Zend_Rest_Server.handle_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.handle_@__Rest_Server_php_1($request):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117955">
+        <simple_name>Zend_Rest_Server.loadFunctions_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.loadFunctions_@__Rest_Server_php_1($functions):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117962">
+        <simple_name>Zend_Rest_Server.lowerCase_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.lowerCase_@__Rest_Server_php_1($value;$key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117965">
+        <simple_name>Zend_Rest_Server.returnResponse_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.returnResponse_@__Rest_Server_php_1($flag):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117949">
+        <simple_name>Zend_Rest_Server.setClass_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.setClass_@__Rest_Server_php_1($classname;$namespace;$argv):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117944">
+        <simple_name>Zend_Rest_Server.setEncoding_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.setEncoding_@__Rest_Server_php_1($encoding):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117957">
+        <simple_name>Zend_Rest_Server.setPersistence_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.setPersistence_@__Rest_Server_php_1($mode):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Rest_Server">
+      <method vuln_id="1117945">
+        <simple_name>Zend_Rest_Server.___Class_Initializer_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.___Class_Initializer_@__Rest_Server_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117959">
+        <simple_name>Zend_Rest_Server.__construct_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.__construct_@__Rest_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._callObjectMethod_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._callObjectMethod_@__Rest_Server_php_1($class;$args):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._callStaticMethod_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._callStaticMethod_@__Rest_Server_php_1($class;$args):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._handleScalar_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._handleScalar_@__Rest_Server_php_1($value):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._handleStruct_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._handleStruct_@__Rest_Server_php_1($struct):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Rest_Server._structValue_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server._structValue_@__Rest_Server_php_1($struct;$dom;$parent):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117929">
+        <simple_name>Zend_Rest_Server.addFunction_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.addFunction_@__Rest_Server_php_1($function;$namespace):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117935">
+        <simple_name>Zend_Rest_Server.fault_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.fault_@__Rest_Server_php_1($exception;$code):Variant</signature>
+        <info_rule id="481218"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117934">
+        <simple_name>Zend_Rest_Server.getEncoding_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.getEncoding_@__Rest_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117938">
+        <simple_name>Zend_Rest_Server.getFunctions_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.getFunctions_@__Rest_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117932">
+        <simple_name>Zend_Rest_Server.getHeaders_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.getHeaders_@__Rest_Server_php_1():Variant</signature>
+        <info_rule id="481216"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117940">
+        <simple_name>Zend_Rest_Server.handle_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.handle_@__Rest_Server_php_1($request):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117955">
+        <simple_name>Zend_Rest_Server.loadFunctions_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.loadFunctions_@__Rest_Server_php_1($functions):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117962">
+        <simple_name>Zend_Rest_Server.lowerCase_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.lowerCase_@__Rest_Server_php_1($value;$key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117965">
+        <simple_name>Zend_Rest_Server.returnResponse_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.returnResponse_@__Rest_Server_php_1($flag):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117949">
+        <simple_name>Zend_Rest_Server.setClass_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.setClass_@__Rest_Server_php_1($classname;$namespace;$argv):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117944">
+        <simple_name>Zend_Rest_Server.setEncoding_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.setEncoding_@__Rest_Server_php_1($encoding):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117957">
+        <simple_name>Zend_Rest_Server.setPersistence_@__Rest_Server_php_1</simple_name>
+        <signature>Zend_Rest_Server.setPersistence_@__Rest_Server_php_1($mode):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

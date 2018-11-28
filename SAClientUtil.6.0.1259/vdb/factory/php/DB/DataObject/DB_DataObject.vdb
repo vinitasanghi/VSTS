@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_DataObject">
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.$method</simple_name>
+        <signature>DB_DataObject.$method():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._autoloadClass</simple_name>
+        <signature>DB_DataObject._autoloadClass($class):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._build_condition</simple_name>
+        <signature>DB_DataObject._build_condition($keys;$filter;$negative_filter):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090504">
+        <simple_name>DB_DataObject._call</simple_name>
+        <signature>DB_DataObject._call($method;$params;$return):true?</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._clear_cache</simple_name>
+        <signature>DB_DataObject._clear_cache():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._connect</simple_name>
+        <signature>DB_DataObject._connect():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._get_keys</simple_name>
+        <signature>DB_DataObject._get_keys():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._get_table</simple_name>
+        <signature>DB_DataObject._get_table():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._loadConfig</simple_name>
+        <signature>DB_DataObject._loadConfig():object an</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._query</simple_name>
+        <signature>DB_DataObject._query($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._quote</simple_name>
+        <signature>DB_DataObject._quote($str):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090507">
+        <simple_name>DB_DataObject.count</simple_name>
+        <signature>DB_DataObject.count($countWhat;$whereAddOnly):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090484">
+        <simple_name>DB_DataObject.database</simple_name>
+        <signature>DB_DataObject.database():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090500">
+        <simple_name>DB_DataObject.databaseStructure</simple_name>
+        <signature>DB_DataObject.databaseStructure():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090491">
+        <simple_name>DB_DataObject.debug</simple_name>
+        <signature>DB_DataObject.debug($message;$logtype;$level):none</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090493">
+        <simple_name>DB_DataObject.debugLevel</simple_name>
+        <signature>DB_DataObject.debugLevel($v):none</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090514">
+        <simple_name>DB_DataObject.delete</simple_name>
+        <signature>DB_DataObject.delete($useWhere):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090513">
+        <simple_name>DB_DataObject.escape</simple_name>
+        <signature>DB_DataObject.escape($string;$likeEscape):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.factory</simple_name>
+        <signature>DB_DataObject.factory($table):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090497">
+        <simple_name>DB_DataObject.fetch</simple_name>
+        <signature>DB_DataObject.fetch():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090511">
+        <simple_name>DB_DataObject.fetchRow</simple_name>
+        <signature>DB_DataObject.fetchRow($row):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090516">
+        <simple_name>DB_DataObject.find</simple_name>
+        <signature>DB_DataObject.find($n):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090515">
+        <simple_name>DB_DataObject.free</simple_name>
+        <signature>DB_DataObject.free():none</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090483">
+        <simple_name>DB_DataObject.fromValue</simple_name>
+        <signature>DB_DataObject.fromValue($col;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090509">
+        <simple_name>DB_DataObject.get</simple_name>
+        <signature>DB_DataObject.get($k;$v):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090485">
+        <simple_name>DB_DataObject.getDatabaseConnection</simple_name>
+        <signature>DB_DataObject.getDatabaseConnection():object The</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090517">
+        <simple_name>DB_DataObject.getDatabaseResult</simple_name>
+        <signature>DB_DataObject.getDatabaseResult():object The</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090505">
+        <simple_name>DB_DataObject.getLink</simple_name>
+        <signature>DB_DataObject.getLink($row;$table;$link):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090519">
+        <simple_name>DB_DataObject.getLinkArray</simple_name>
+        <signature>DB_DataObject.getLinkArray($row;$table):array</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090499">
+        <simple_name>DB_DataObject.getLinks</simple_name>
+        <signature>DB_DataObject.getLinks($format):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090503">
+        <simple_name>DB_DataObject.groupBy</simple_name>
+        <signature>DB_DataObject.groupBy($group):none|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090489">
+        <simple_name>DB_DataObject.having</simple_name>
+        <signature>DB_DataObject.having($having):none|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090512">
+        <simple_name>DB_DataObject.insert</simple_name>
+        <signature>DB_DataObject.insert():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We are marking sinks and sources when the items are added or read from this* so API is not marked as sink</comment>
+      </method>
+      <method vuln_id="1090490">
+        <simple_name>DB_DataObject.joinAdd</simple_name>
+        <signature>DB_DataObject.joinAdd($obj;$joinType;$joinAs;$joinCol):none</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.keys</simple_name>
+        <signature>DB_DataObject.keys():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090521">
+        <simple_name>DB_DataObject.limit</simple_name>
+        <signature>DB_DataObject.limit($a;$b):none|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090508">
+        <simple_name>DB_DataObject.links</simple_name>
+        <signature>DB_DataObject.links():mixed</signature>
+        <info_rule id="480715"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090492">
+        <simple_name>DB_DataObject.orderBy</simple_name>
+        <signature>DB_DataObject.orderBy($order):none|PEAR::Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090520">
+        <simple_name>DB_DataObject.query</simple_name>
+        <signature>DB_DataObject.query($string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.raiseError</simple_name>
+        <signature>DB_DataObject.raiseError($message;$type;$behaviour):error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090495">
+        <simple_name>DB_DataObject.selectAdd</simple_name>
+        <signature>DB_DataObject.selectAdd($k):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090488">
+        <simple_name>DB_DataObject.selectAs</simple_name>
+        <signature>DB_DataObject.selectAs($from;$format;$tableName):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.sequenceKey</simple_name>
+        <signature>DB_DataObject.sequenceKey():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090487">
+        <simple_name>DB_DataObject.setFrom</simple_name>
+        <signature>DB_DataObject.setFrom($from;$format;$skipEmpty):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.staticAutoloadTable</simple_name>
+        <signature>DB_DataObject.staticAutoloadTable($table):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090502">
+        <simple_name>DB_DataObject.staticGet</simple_name>
+        <signature>DB_DataObject.staticGet($class;$k;$v):object</signature>
+        <info_rule id="480716"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090510">
+        <simple_name>DB_DataObject.table</simple_name>
+        <signature>DB_DataObject.table():array</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090518">
+        <simple_name>DB_DataObject.tableName</simple_name>
+        <signature>DB_DataObject.tableName():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090494">
+        <simple_name>DB_DataObject.toArray</simple_name>
+        <signature>DB_DataObject.toArray($format;$hideEmpty):array</signature>
+        <info_rule id="480714"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090486">
+        <simple_name>DB_DataObject.toValue</simple_name>
+        <signature>DB_DataObject.toValue($col;$format):mixed</signature>
+        <info_rule id="480713"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090496">
+        <simple_name>DB_DataObject.update</simple_name>
+        <signature>DB_DataObject.update($dataObject):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090506">
+        <simple_name>DB_DataObject.validate</simple_name>
+        <signature>DB_DataObject.validate():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090498">
+        <simple_name>DB_DataObject.whereAdd</simple_name>
+        <signature>DB_DataObject.whereAdd($cond;$logic):string|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_DataObject">
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.$method</simple_name>
+        <signature>DB_DataObject.$method():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._autoloadClass</simple_name>
+        <signature>DB_DataObject._autoloadClass($class):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._build_condition</simple_name>
+        <signature>DB_DataObject._build_condition($keys;$filter;$negative_filter):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090504">
+        <simple_name>DB_DataObject._call</simple_name>
+        <signature>DB_DataObject._call($method;$params;$return):true?</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._clear_cache</simple_name>
+        <signature>DB_DataObject._clear_cache():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._connect</simple_name>
+        <signature>DB_DataObject._connect():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._get_keys</simple_name>
+        <signature>DB_DataObject._get_keys():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._get_table</simple_name>
+        <signature>DB_DataObject._get_table():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._loadConfig</simple_name>
+        <signature>DB_DataObject._loadConfig():object an</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._query</simple_name>
+        <signature>DB_DataObject._query($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject._quote</simple_name>
+        <signature>DB_DataObject._quote($str):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090507">
+        <simple_name>DB_DataObject.count</simple_name>
+        <signature>DB_DataObject.count($countWhat;$whereAddOnly):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090484">
+        <simple_name>DB_DataObject.database</simple_name>
+        <signature>DB_DataObject.database():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090500">
+        <simple_name>DB_DataObject.databaseStructure</simple_name>
+        <signature>DB_DataObject.databaseStructure():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090491">
+        <simple_name>DB_DataObject.debug</simple_name>
+        <signature>DB_DataObject.debug($message;$logtype;$level):none</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090493">
+        <simple_name>DB_DataObject.debugLevel</simple_name>
+        <signature>DB_DataObject.debugLevel($v):none</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090514">
+        <simple_name>DB_DataObject.delete</simple_name>
+        <signature>DB_DataObject.delete($useWhere):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090513">
+        <simple_name>DB_DataObject.escape</simple_name>
+        <signature>DB_DataObject.escape($string;$likeEscape):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.factory</simple_name>
+        <signature>DB_DataObject.factory($table):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090497">
+        <simple_name>DB_DataObject.fetch</simple_name>
+        <signature>DB_DataObject.fetch():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090511">
+        <simple_name>DB_DataObject.fetchRow</simple_name>
+        <signature>DB_DataObject.fetchRow($row):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090516">
+        <simple_name>DB_DataObject.find</simple_name>
+        <signature>DB_DataObject.find($n):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090515">
+        <simple_name>DB_DataObject.free</simple_name>
+        <signature>DB_DataObject.free():none</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090483">
+        <simple_name>DB_DataObject.fromValue</simple_name>
+        <signature>DB_DataObject.fromValue($col;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090509">
+        <simple_name>DB_DataObject.get</simple_name>
+        <signature>DB_DataObject.get($k;$v):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090485">
+        <simple_name>DB_DataObject.getDatabaseConnection</simple_name>
+        <signature>DB_DataObject.getDatabaseConnection():object The</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090517">
+        <simple_name>DB_DataObject.getDatabaseResult</simple_name>
+        <signature>DB_DataObject.getDatabaseResult():object The</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090505">
+        <simple_name>DB_DataObject.getLink</simple_name>
+        <signature>DB_DataObject.getLink($row;$table;$link):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090519">
+        <simple_name>DB_DataObject.getLinkArray</simple_name>
+        <signature>DB_DataObject.getLinkArray($row;$table):array</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090499">
+        <simple_name>DB_DataObject.getLinks</simple_name>
+        <signature>DB_DataObject.getLinks($format):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090503">
+        <simple_name>DB_DataObject.groupBy</simple_name>
+        <signature>DB_DataObject.groupBy($group):none|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090489">
+        <simple_name>DB_DataObject.having</simple_name>
+        <signature>DB_DataObject.having($having):none|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090512">
+        <simple_name>DB_DataObject.insert</simple_name>
+        <signature>DB_DataObject.insert():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We are marking sinks and sources when the items are added or read from this* so API is not marked as sink</comment>
+      </method>
+      <method vuln_id="1090490">
+        <simple_name>DB_DataObject.joinAdd</simple_name>
+        <signature>DB_DataObject.joinAdd($obj;$joinType;$joinAs;$joinCol):none</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.keys</simple_name>
+        <signature>DB_DataObject.keys():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090521">
+        <simple_name>DB_DataObject.limit</simple_name>
+        <signature>DB_DataObject.limit($a;$b):none|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090508">
+        <simple_name>DB_DataObject.links</simple_name>
+        <signature>DB_DataObject.links():mixed</signature>
+        <info_rule id="480715"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090492">
+        <simple_name>DB_DataObject.orderBy</simple_name>
+        <signature>DB_DataObject.orderBy($order):none|PEAR::Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090520">
+        <simple_name>DB_DataObject.query</simple_name>
+        <signature>DB_DataObject.query($string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.raiseError</simple_name>
+        <signature>DB_DataObject.raiseError($message;$type;$behaviour):error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090495">
+        <simple_name>DB_DataObject.selectAdd</simple_name>
+        <signature>DB_DataObject.selectAdd($k):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090488">
+        <simple_name>DB_DataObject.selectAs</simple_name>
+        <signature>DB_DataObject.selectAs($from;$format;$tableName):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.sequenceKey</simple_name>
+        <signature>DB_DataObject.sequenceKey():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090487">
+        <simple_name>DB_DataObject.setFrom</simple_name>
+        <signature>DB_DataObject.setFrom($from;$format;$skipEmpty):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_DataObject.staticAutoloadTable</simple_name>
+        <signature>DB_DataObject.staticAutoloadTable($table):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090502">
+        <simple_name>DB_DataObject.staticGet</simple_name>
+        <signature>DB_DataObject.staticGet($class;$k;$v):object</signature>
+        <info_rule id="480716"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090510">
+        <simple_name>DB_DataObject.table</simple_name>
+        <signature>DB_DataObject.table():array</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090518">
+        <simple_name>DB_DataObject.tableName</simple_name>
+        <signature>DB_DataObject.tableName():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090494">
+        <simple_name>DB_DataObject.toArray</simple_name>
+        <signature>DB_DataObject.toArray($format;$hideEmpty):array</signature>
+        <info_rule id="480714"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090486">
+        <simple_name>DB_DataObject.toValue</simple_name>
+        <signature>DB_DataObject.toValue($col;$format):mixed</signature>
+        <info_rule id="480713"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090496">
+        <simple_name>DB_DataObject.update</simple_name>
+        <signature>DB_DataObject.update($dataObject):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090506">
+        <simple_name>DB_DataObject.validate</simple_name>
+        <signature>DB_DataObject.validate():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090498">
+        <simple_name>DB_DataObject.whereAdd</simple_name>
+        <signature>DB_DataObject.whereAdd($cond;$logic):string|PEAR::Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

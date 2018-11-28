@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_Table">
+      <method vuln_id="-1">
+        <simple_name>HTML_Table.HTML_Table</simple_name>
+        <signature>HTML_Table.HTML_Table($attributes;$tabOffset;$useTGroups):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._adjustTbodyCount</simple_name>
+        <signature>HTML_Table._adjustTbodyCount($body;$method):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getAttrString</simple_name>
+        <signature>HTML_Table._getAttrString():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getLineEnd</simple_name>
+        <signature>HTML_Table._getLineEnd():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getTab</simple_name>
+        <signature>HTML_Table._getTab():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getTabs</simple_name>
+        <signature>HTML_Table._getTabs():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._parseAttributes</simple_name>
+        <signature>HTML_Table._parseAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091448">
+        <simple_name>HTML_Table.addBody</simple_name>
+        <signature>HTML_Table.addBody($attributes):int</signature>
+        <sink_rule id="451323">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091480">
+        <simple_name>HTML_Table.addCol</simple_name>
+        <signature>HTML_Table.addCol($contents;$attributes;$type;$body):int</signature>
+        <sink_rule id="451338">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091461">
+        <simple_name>HTML_Table.addRow</simple_name>
+        <signature>HTML_Table.addRow($contents;$attributes;$type;$inTR;$body):int</signature>
+        <sink_rule id="451328">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091458">
+        <simple_name>HTML_Table.altRowAttributes</simple_name>
+        <signature>HTML_Table.altRowAttributes($start;$attributes1;$attributes2;$inTR;$firstAttributes;$body):void</signature>
+        <sink_rule id="451326">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091468">
+        <simple_name>HTML_Table.apiVersion</simple_name>
+        <signature>HTML_Table.apiVersion():double</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091473">
+        <simple_name>HTML_Table.getAutoFill</simple_name>
+        <signature>HTML_Table.getAutoFill($body):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091453">
+        <simple_name>HTML_Table.getAutoGrow</simple_name>
+        <signature>HTML_Table.getAutoGrow($body):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091456">
+        <simple_name>HTML_Table.getBody</simple_name>
+        <signature>HTML_Table.getBody($body):object</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091450">
+        <simple_name>HTML_Table.getCellAttributes</simple_name>
+        <signature>HTML_Table.getCellAttributes($row;$col;$body):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091464">
+        <simple_name>HTML_Table.getCellContents</simple_name>
+        <signature>HTML_Table.getCellContents($row;$col;$body):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091472">
+        <simple_name>HTML_Table.getColCount</simple_name>
+        <signature>HTML_Table.getColCount($row;$body):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091471">
+        <simple_name>HTML_Table.getFooter</simple_name>
+        <signature>HTML_Table.getFooter():object</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091475">
+        <simple_name>HTML_Table.getHeader</simple_name>
+        <signature>HTML_Table.getHeader():object</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091467">
+        <simple_name>HTML_Table.getRowAttributes</simple_name>
+        <signature>HTML_Table.getRowAttributes($row;$body):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091459">
+        <simple_name>HTML_Table.getRowCount</simple_name>
+        <signature>HTML_Table.getRowCount($body):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091478">
+        <simple_name>HTML_Table.setAllAttributes</simple_name>
+        <signature>HTML_Table.setAllAttributes($attributes;$body):void</signature>
+        <sink_rule id="451336">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091447">
+        <simple_name>HTML_Table.setAutoFill</simple_name>
+        <signature>HTML_Table.setAutoFill($fill;$body):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091451">
+        <simple_name>HTML_Table.setAutoGrow</simple_name>
+        <signature>HTML_Table.setAutoGrow($grow;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091469">
+        <simple_name>HTML_Table.setCaption</simple_name>
+        <signature>HTML_Table.setCaption($caption;$attributes):void</signature>
+        <sink_rule id="451333">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091462">
+        <simple_name>HTML_Table.setCellAttributes</simple_name>
+        <signature>HTML_Table.setCellAttributes($row;$col;$attributes;$body):void</signature>
+        <sink_rule id="451329">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091479">
+        <simple_name>HTML_Table.setCellContents</simple_name>
+        <signature>HTML_Table.setCellContents($row;$col;$contents;$type;$body):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091474">
+        <simple_name>HTML_Table.setColAttributes</simple_name>
+        <signature>HTML_Table.setColAttributes($col;$attributes;$body):void</signature>
+        <sink_rule id="451335">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091455">
+        <simple_name>HTML_Table.setColCount</simple_name>
+        <signature>HTML_Table.setColCount($cols;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091465">
+        <simple_name>HTML_Table.setColGroup</simple_name>
+        <signature>HTML_Table.setColGroup($colgroup;$attributes):void</signature>
+        <sink_rule id="451331">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091452">
+        <simple_name>HTML_Table.setColType</simple_name>
+        <signature>HTML_Table.setColType($col;$type;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091470">
+        <simple_name>HTML_Table.setHeaderContents</simple_name>
+        <signature>HTML_Table.setHeaderContents($row;$col;$contents;$attributes;$body):void</signature>
+        <sink_rule id="451334">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091463">
+        <simple_name>HTML_Table.setRowAttributes</simple_name>
+        <signature>HTML_Table.setRowAttributes($row;$attributes;$inTR;$body):void</signature>
+        <sink_rule id="451330">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091454">
+        <simple_name>HTML_Table.setRowCount</simple_name>
+        <signature>HTML_Table.setRowCount($rows;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091477">
+        <simple_name>HTML_Table.setRowType</simple_name>
+        <signature>HTML_Table.setRowType($row;$type;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091476">
+        <simple_name>HTML_Table.toHtml</simple_name>
+        <signature>HTML_Table.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091466">
+        <simple_name>HTML_Table.updateAllAttributes</simple_name>
+        <signature>HTML_Table.updateAllAttributes($attributes;$body):void</signature>
+        <sink_rule id="451332">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091449">
+        <simple_name>HTML_Table.updateCellAttributes</simple_name>
+        <signature>HTML_Table.updateCellAttributes($row;$col;$attributes;$body):void</signature>
+        <sink_rule id="451324">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091460">
+        <simple_name>HTML_Table.updateColAttributes</simple_name>
+        <signature>HTML_Table.updateColAttributes($col;$attributes;$body):void</signature>
+        <sink_rule id="451327">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091457">
+        <simple_name>HTML_Table.updateRowAttributes</simple_name>
+        <signature>HTML_Table.updateRowAttributes($row;$attributes;$inTR;$body):void</signature>
+        <sink_rule id="451325">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+    </class>
+    <class name="HTML_Table">
+      <method vuln_id="-1">
+        <simple_name>HTML_Table.HTML_Table</simple_name>
+        <signature>HTML_Table.HTML_Table($attributes;$tabOffset;$useTGroups):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._adjustTbodyCount</simple_name>
+        <signature>HTML_Table._adjustTbodyCount($body;$method):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getAttrString</simple_name>
+        <signature>HTML_Table._getAttrString():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getLineEnd</simple_name>
+        <signature>HTML_Table._getLineEnd():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getTab</simple_name>
+        <signature>HTML_Table._getTab():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._getTabs</simple_name>
+        <signature>HTML_Table._getTabs():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Table._parseAttributes</simple_name>
+        <signature>HTML_Table._parseAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091448">
+        <simple_name>HTML_Table.addBody</simple_name>
+        <signature>HTML_Table.addBody($attributes):int</signature>
+        <sink_rule id="451323">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091480">
+        <simple_name>HTML_Table.addCol</simple_name>
+        <signature>HTML_Table.addCol($contents;$attributes;$type;$body):int</signature>
+        <sink_rule id="451338">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091461">
+        <simple_name>HTML_Table.addRow</simple_name>
+        <signature>HTML_Table.addRow($contents;$attributes;$type;$inTR;$body):int</signature>
+        <sink_rule id="451328">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091458">
+        <simple_name>HTML_Table.altRowAttributes</simple_name>
+        <signature>HTML_Table.altRowAttributes($start;$attributes1;$attributes2;$inTR;$firstAttributes;$body):void</signature>
+        <sink_rule id="451326">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091468">
+        <simple_name>HTML_Table.apiVersion</simple_name>
+        <signature>HTML_Table.apiVersion():double</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091473">
+        <simple_name>HTML_Table.getAutoFill</simple_name>
+        <signature>HTML_Table.getAutoFill($body):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091453">
+        <simple_name>HTML_Table.getAutoGrow</simple_name>
+        <signature>HTML_Table.getAutoGrow($body):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091456">
+        <simple_name>HTML_Table.getBody</simple_name>
+        <signature>HTML_Table.getBody($body):object</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091450">
+        <simple_name>HTML_Table.getCellAttributes</simple_name>
+        <signature>HTML_Table.getCellAttributes($row;$col;$body):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091464">
+        <simple_name>HTML_Table.getCellContents</simple_name>
+        <signature>HTML_Table.getCellContents($row;$col;$body):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091472">
+        <simple_name>HTML_Table.getColCount</simple_name>
+        <signature>HTML_Table.getColCount($row;$body):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091471">
+        <simple_name>HTML_Table.getFooter</simple_name>
+        <signature>HTML_Table.getFooter():object</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091475">
+        <simple_name>HTML_Table.getHeader</simple_name>
+        <signature>HTML_Table.getHeader():object</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091467">
+        <simple_name>HTML_Table.getRowAttributes</simple_name>
+        <signature>HTML_Table.getRowAttributes($row;$body):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091459">
+        <simple_name>HTML_Table.getRowCount</simple_name>
+        <signature>HTML_Table.getRowCount($body):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091478">
+        <simple_name>HTML_Table.setAllAttributes</simple_name>
+        <signature>HTML_Table.setAllAttributes($attributes;$body):void</signature>
+        <sink_rule id="451336">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091447">
+        <simple_name>HTML_Table.setAutoFill</simple_name>
+        <signature>HTML_Table.setAutoFill($fill;$body):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091451">
+        <simple_name>HTML_Table.setAutoGrow</simple_name>
+        <signature>HTML_Table.setAutoGrow($grow;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091469">
+        <simple_name>HTML_Table.setCaption</simple_name>
+        <signature>HTML_Table.setCaption($caption;$attributes):void</signature>
+        <sink_rule id="451333">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091462">
+        <simple_name>HTML_Table.setCellAttributes</simple_name>
+        <signature>HTML_Table.setCellAttributes($row;$col;$attributes;$body):void</signature>
+        <sink_rule id="451329">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091479">
+        <simple_name>HTML_Table.setCellContents</simple_name>
+        <signature>HTML_Table.setCellContents($row;$col;$contents;$type;$body):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091474">
+        <simple_name>HTML_Table.setColAttributes</simple_name>
+        <signature>HTML_Table.setColAttributes($col;$attributes;$body):void</signature>
+        <sink_rule id="451335">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091455">
+        <simple_name>HTML_Table.setColCount</simple_name>
+        <signature>HTML_Table.setColCount($cols;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091465">
+        <simple_name>HTML_Table.setColGroup</simple_name>
+        <signature>HTML_Table.setColGroup($colgroup;$attributes):void</signature>
+        <sink_rule id="451331">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091452">
+        <simple_name>HTML_Table.setColType</simple_name>
+        <signature>HTML_Table.setColType($col;$type;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091470">
+        <simple_name>HTML_Table.setHeaderContents</simple_name>
+        <signature>HTML_Table.setHeaderContents($row;$col;$contents;$attributes;$body):void</signature>
+        <sink_rule id="451334">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091463">
+        <simple_name>HTML_Table.setRowAttributes</simple_name>
+        <signature>HTML_Table.setRowAttributes($row;$attributes;$inTR;$body):void</signature>
+        <sink_rule id="451330">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091454">
+        <simple_name>HTML_Table.setRowCount</simple_name>
+        <signature>HTML_Table.setRowCount($rows;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091477">
+        <simple_name>HTML_Table.setRowType</simple_name>
+        <signature>HTML_Table.setRowType($row;$type;$body):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091476">
+        <simple_name>HTML_Table.toHtml</simple_name>
+        <signature>HTML_Table.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091466">
+        <simple_name>HTML_Table.updateAllAttributes</simple_name>
+        <signature>HTML_Table.updateAllAttributes($attributes;$body):void</signature>
+        <sink_rule id="451332">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091449">
+        <simple_name>HTML_Table.updateCellAttributes</simple_name>
+        <signature>HTML_Table.updateCellAttributes($row;$col;$attributes;$body):void</signature>
+        <sink_rule id="451324">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091460">
+        <simple_name>HTML_Table.updateColAttributes</simple_name>
+        <signature>HTML_Table.updateColAttributes($col;$attributes;$body):void</signature>
+        <sink_rule id="451327">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+      <method vuln_id="1091457">
+        <simple_name>HTML_Table.updateRowAttributes</simple_name>
+        <signature>HTML_Table.updateRowAttributes($row;$attributes;$inTR;$body):void</signature>
+        <sink_rule id="451325">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Attribute names are not html encoded</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

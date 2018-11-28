@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="StreamWrapper">
+      <method>
+        <simple_name>___Php.StreamWrapper.stream_metadata</simple_name>
+        <signature>___Php.StreamWrapper.stream_metadata(___Php.String;int;mixed):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+      </method>
+      <method>
+        <simple_name>___Php.StreamWrapper.stream_truncate</simple_name>
+        <signature>___Php.StreamWrapper.stream_truncate(int):bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+    <class name="StreamWrapper">
+      <method>
+        <simple_name>___Php.StreamWrapper.stream_metadata</simple_name>
+        <signature>___Php.StreamWrapper.stream_metadata(___Php.String;int;mixed):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="3"/>
+      </method>
+      <method>
+        <simple_name>___Php.StreamWrapper.stream_truncate</simple_name>
+        <signature>___Php.StreamWrapper.stream_truncate(int):bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+    <class name="streamWrapper">
+      <method vuln_id="2015020">
+        <simple_name>___Php.streamWrapper.stream_cast</simple_name>
+        <signature>___Php.streamWrapper.stream_cast(int):resource</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="2015021">
+        <simple_name>___Php.streamWrapper.stream_set_option</simple_name>
+        <signature>___Php.streamWrapper.stream_set_option(int;int;int):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+    </class>
+    <class name="streamWrapper">
+      <method vuln_id="2015020">
+        <simple_name>___Php.streamWrapper.stream_cast</simple_name>
+        <signature>___Php.streamWrapper.stream_cast(int):resource</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="2015021">
+        <simple_name>___Php.streamWrapper.stream_set_option</simple_name>
+        <signature>___Php.streamWrapper.stream_set_option(int;int;int):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

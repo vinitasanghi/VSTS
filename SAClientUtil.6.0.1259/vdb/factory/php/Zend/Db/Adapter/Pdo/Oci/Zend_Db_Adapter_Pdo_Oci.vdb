@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Db_Adapter_Pdo_Oci">
+      <method vuln_id="1110972">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci._dsn_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci._dsn_@__Db_Adapter_Pdo_Oci_php_1():Variant</signature>
+        <info_rule id="466946"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110763">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci._quote_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci._quote_@__Db_Adapter_Pdo_Oci_php_1($value):Variant</signature>
+        <info_rule id="466720"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111119">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.describeTable_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.describeTable_@__Db_Adapter_Pdo_Oci_php_1($tableName;$schemaName):Variant</signature>
+        <info_rule id="467110"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110918">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.lastInsertId_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.lastInsertId_@__Db_Adapter_Pdo_Oci_php_1($tableName;$primaryKey):Variant</signature>
+        <info_rule id="466887"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111046">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.lastSequenceId_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.lastSequenceId_@__Db_Adapter_Pdo_Oci_php_1($sequenceName):Variant</signature>
+        <info_rule id="467029"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110638">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.limit_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.limit_@__Db_Adapter_Pdo_Oci_php_1($sql;$count;$offset):Variant</signature>
+        <info_rule id="466584"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110840">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.listTables_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.listTables_@__Db_Adapter_Pdo_Oci_php_1():Variant</signature>
+        <info_rule id="466803"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111135">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.nextSequenceId_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.nextSequenceId_@__Db_Adapter_Pdo_Oci_php_1($sequenceName):Variant</signature>
+        <info_rule id="467130"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110759">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.quoteTableAs_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.quoteTableAs_@__Db_Adapter_Pdo_Oci_php_1($ident;$alias;$auto):Variant</signature>
+        <info_rule id="466715"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Db_Adapter_Pdo_Oci">
+      <method vuln_id="1110972">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci._dsn_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci._dsn_@__Db_Adapter_Pdo_Oci_php_1():Variant</signature>
+        <info_rule id="466946"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1110763">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci._quote_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci._quote_@__Db_Adapter_Pdo_Oci_php_1($value):Variant</signature>
+        <info_rule id="466720"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111119">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.describeTable_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.describeTable_@__Db_Adapter_Pdo_Oci_php_1($tableName;$schemaName):Variant</signature>
+        <info_rule id="467110"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110918">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.lastInsertId_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.lastInsertId_@__Db_Adapter_Pdo_Oci_php_1($tableName;$primaryKey):Variant</signature>
+        <info_rule id="466887"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111046">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.lastSequenceId_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.lastSequenceId_@__Db_Adapter_Pdo_Oci_php_1($sequenceName):Variant</signature>
+        <info_rule id="467029"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110638">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.limit_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.limit_@__Db_Adapter_Pdo_Oci_php_1($sql;$count;$offset):Variant</signature>
+        <info_rule id="466584"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110840">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.listTables_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.listTables_@__Db_Adapter_Pdo_Oci_php_1():Variant</signature>
+        <info_rule id="466803"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111135">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.nextSequenceId_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.nextSequenceId_@__Db_Adapter_Pdo_Oci_php_1($sequenceName):Variant</signature>
+        <info_rule id="467130"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110759">
+        <simple_name>Zend_Db_Adapter_Pdo_Oci.quoteTableAs_@__Db_Adapter_Pdo_Oci_php_1</simple_name>
+        <signature>Zend_Db_Adapter_Pdo_Oci.quoteTableAs_@__Db_Adapter_Pdo_Oci_php_1($ident;$alias;$auto):Variant</signature>
+        <info_rule id="466715"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

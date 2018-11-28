@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_querysim">
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.MDB_Common</simple_name>
+        <signature>MDB_querysim.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.MDB_querysim</simple_name>
+        <signature>MDB_querysim.MDB_querysim():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._buildResult</simple_name>
+        <signature>MDB_querysim._buildResult($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._close</simple_name>
+        <signature>MDB_querysim._close():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._parseOnDelim</simple_name>
+        <signature>MDB_querysim._parseOnDelim($thisLine;$delim):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._querySimSignature</simple_name>
+        <signature>MDB_querysim._querySimSignature($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._readFile</simple_name>
+        <signature>MDB_querysim._readFile():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.connect</simple_name>
+        <signature>MDB_querysim.connect():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092470">
+        <simple_name>MDB_querysim.debug</simple_name>
+        <signature>MDB_querysim.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092460">
+        <simple_name>MDB_querysim.endOfResult</simple_name>
+        <signature>MDB_querysim.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092467">
+        <simple_name>MDB_querysim.fetch</simple_name>
+        <signature>MDB_querysim.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480884"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092469">
+        <simple_name>MDB_querysim.fetchInto</simple_name>
+        <signature>MDB_querysim.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480882"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092463">
+        <simple_name>MDB_querysim.freeResult</simple_name>
+        <signature>MDB_querysim.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092464">
+        <simple_name>MDB_querysim.getColumnNames</simple_name>
+        <signature>MDB_querysim.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092465">
+        <simple_name>MDB_querysim.nextResult</simple_name>
+        <signature>MDB_querysim.nextResult($result):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092468">
+        <simple_name>MDB_querysim.numCols</simple_name>
+        <signature>MDB_querysim.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092466">
+        <simple_name>MDB_querysim.numRows</simple_name>
+        <signature>MDB_querysim.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092459">
+        <simple_name>MDB_querysim.query</simple_name>
+        <signature>MDB_querysim.query($query;$types):mixed</signature>
+        <info_rule id="480883"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.raiseError</simple_name>
+        <signature>MDB_querysim.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092462">
+        <simple_name>MDB_querysim.setOption</simple_name>
+        <signature>MDB_querysim.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092461">
+        <simple_name>MDB_querysim.setResultTypes</simple_name>
+        <signature>MDB_querysim.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_querysim">
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.MDB_Common</simple_name>
+        <signature>MDB_querysim.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.MDB_querysim</simple_name>
+        <signature>MDB_querysim.MDB_querysim():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._buildResult</simple_name>
+        <signature>MDB_querysim._buildResult($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._close</simple_name>
+        <signature>MDB_querysim._close():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._parseOnDelim</simple_name>
+        <signature>MDB_querysim._parseOnDelim($thisLine;$delim):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._querySimSignature</simple_name>
+        <signature>MDB_querysim._querySimSignature($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim._readFile</simple_name>
+        <signature>MDB_querysim._readFile():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.connect</simple_name>
+        <signature>MDB_querysim.connect():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092470">
+        <simple_name>MDB_querysim.debug</simple_name>
+        <signature>MDB_querysim.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092460">
+        <simple_name>MDB_querysim.endOfResult</simple_name>
+        <signature>MDB_querysim.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092467">
+        <simple_name>MDB_querysim.fetch</simple_name>
+        <signature>MDB_querysim.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480884"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092469">
+        <simple_name>MDB_querysim.fetchInto</simple_name>
+        <signature>MDB_querysim.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480882"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092463">
+        <simple_name>MDB_querysim.freeResult</simple_name>
+        <signature>MDB_querysim.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092464">
+        <simple_name>MDB_querysim.getColumnNames</simple_name>
+        <signature>MDB_querysim.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092465">
+        <simple_name>MDB_querysim.nextResult</simple_name>
+        <signature>MDB_querysim.nextResult($result):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092468">
+        <simple_name>MDB_querysim.numCols</simple_name>
+        <signature>MDB_querysim.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092466">
+        <simple_name>MDB_querysim.numRows</simple_name>
+        <signature>MDB_querysim.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092459">
+        <simple_name>MDB_querysim.query</simple_name>
+        <signature>MDB_querysim.query($query;$types):mixed</signature>
+        <info_rule id="480883"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_querysim.raiseError</simple_name>
+        <signature>MDB_querysim.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092462">
+        <simple_name>MDB_querysim.setOption</simple_name>
+        <signature>MDB_querysim.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092461">
+        <simple_name>MDB_querysim.setResultTypes</simple_name>
+        <signature>MDB_querysim.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

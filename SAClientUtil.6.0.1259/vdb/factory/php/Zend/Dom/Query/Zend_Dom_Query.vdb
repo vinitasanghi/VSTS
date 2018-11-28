@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Dom_Query">
+      <method vuln_id="1111599">
+        <simple_name>Zend_Dom_Query.__construct_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.__construct_@__Dom_Query_php_1($document):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111583">
+        <simple_name>Zend_Dom_Query._getNodeList_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query._getNodeList_@__Dom_Query_php_1($document;$xpathQuery):Variant</signature>
+        <info_rule id="467580"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111579">
+        <simple_name>Zend_Dom_Query.getDocumentErrors_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.getDocumentErrors_@__Dom_Query_php_1():Variant</signature>
+        <info_rule id="467576"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111596">
+        <simple_name>Zend_Dom_Query.getDocumentType_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.getDocumentType_@__Dom_Query_php_1():Variant</signature>
+        <info_rule id="467593"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111592">
+        <simple_name>Zend_Dom_Query.getDocument_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.getDocument_@__Dom_Query_php_1():Variant</signature>
+        <info_rule id="467589"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111598">
+        <simple_name>Zend_Dom_Query.queryXpath_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.queryXpath_@__Dom_Query_php_1($xpathQuery;$query):Variant</signature>
+        <info_rule id="467595"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XPath</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111577">
+        <simple_name>Zend_Dom_Query.query_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.query_@__Dom_Query_php_1($query):Variant</signature>
+        <info_rule id="467574"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111580">
+        <simple_name>Zend_Dom_Query.setDocumentHtml_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocumentHtml_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467577"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111597">
+        <simple_name>Zend_Dom_Query.setDocumentXhtml_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocumentXhtml_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467594"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111590">
+        <simple_name>Zend_Dom_Query.setDocumentXml_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocumentXml_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467587"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111589">
+        <simple_name>Zend_Dom_Query.setDocument_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocument_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467586"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+    </class>
+    <class name="Zend_Dom_Query">
+      <method vuln_id="1111599">
+        <simple_name>Zend_Dom_Query.__construct_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.__construct_@__Dom_Query_php_1($document):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111583">
+        <simple_name>Zend_Dom_Query._getNodeList_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query._getNodeList_@__Dom_Query_php_1($document;$xpathQuery):Variant</signature>
+        <info_rule id="467580"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111579">
+        <simple_name>Zend_Dom_Query.getDocumentErrors_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.getDocumentErrors_@__Dom_Query_php_1():Variant</signature>
+        <info_rule id="467576"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111596">
+        <simple_name>Zend_Dom_Query.getDocumentType_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.getDocumentType_@__Dom_Query_php_1():Variant</signature>
+        <info_rule id="467593"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111592">
+        <simple_name>Zend_Dom_Query.getDocument_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.getDocument_@__Dom_Query_php_1():Variant</signature>
+        <info_rule id="467589"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111598">
+        <simple_name>Zend_Dom_Query.queryXpath_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.queryXpath_@__Dom_Query_php_1($xpathQuery;$query):Variant</signature>
+        <info_rule id="467595"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XPath</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111577">
+        <simple_name>Zend_Dom_Query.query_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.query_@__Dom_Query_php_1($query):Variant</signature>
+        <info_rule id="467574"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111580">
+        <simple_name>Zend_Dom_Query.setDocumentHtml_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocumentHtml_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467577"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111597">
+        <simple_name>Zend_Dom_Query.setDocumentXhtml_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocumentXhtml_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467594"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111590">
+        <simple_name>Zend_Dom_Query.setDocumentXml_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocumentXml_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467587"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+      <method vuln_id="1111589">
+        <simple_name>Zend_Dom_Query.setDocument_@__Dom_Query_php_1</simple_name>
+        <signature>Zend_Dom_Query.setDocument_@__Dom_Query_php_1($document):Variant</signature>
+        <info_rule id="467586"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Client.Browser.DOM</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

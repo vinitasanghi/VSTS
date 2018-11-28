@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="tidy">
+      <method vuln_id="1089744">
+        <simple_name>___Php.tidy.__construct</simple_name>
+        <signature>___Php.tidy.__construct(___Php.String;mixed;___Php.String;bool):void</signature>
+        <info_rule id="456998"/>
+        <sink_rule id="474278">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.Client.GUI</property>
+        <comment>Constructs a new tidy object</comment>
+      </method>
+      <method vuln_id="1089760">
+        <simple_name>___Php.tidy.body</simple_name>
+        <signature>___Php.tidy.body():___Php.tidyNode</signature>
+        <info_rule id="457015"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object starting from the &lt;BODY&gt; tag of the tidy parse tree</comment>
+      </method>
+      <method vuln_id="1089798">
+        <simple_name>___Php.tidy.cleanRepair</simple_name>
+        <signature>___Php.tidy.cleanRepair():bool</signature>
+        <info_rule id="457062"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Execute configured cleanup and repair operations on parsed markup</comment>
+      </method>
+      <method vuln_id="1089792">
+        <simple_name>___Php.tidy.diagnose</simple_name>
+        <signature>___Php.tidy.diagnose():bool</signature>
+        <info_rule id="457056"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Run configured diagnostics on parsed and repaired markup.</comment>
+      </method>
+      <method vuln_id="1089793">
+        <simple_name>___Php.tidy.getConfig</simple_name>
+        <signature>___Php.tidy.getConfig():___Php.Array</signature>
+        <info_rule id="457057"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get current Tidy configuration</comment>
+      </method>
+      <method vuln_id="1089799">
+        <simple_name>___Php.tidy.getHtmlVer</simple_name>
+        <signature>___Php.tidy.getHtmlVer():int</signature>
+        <info_rule id="457063"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get the Detected HTML version for the specified document.</comment>
+      </method>
+      <method vuln_id="1089750">
+        <simple_name>___Php.tidy.getOptDoc</simple_name>
+        <signature>___Php.tidy.getOptDoc(___Php.String):___Php.String</signature>
+        <info_rule id="457004"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns the documentation for the given option name</comment>
+      </method>
+      <method vuln_id="1089746">
+        <simple_name>___Php.tidy.getRelease</simple_name>
+        <signature>___Php.tidy.getRelease():___Php.String</signature>
+        <info_rule id="457000"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get release date (version) for Tidy library</comment>
+      </method>
+      <method vuln_id="1089795">
+        <simple_name>___Php.tidy.getStatus</simple_name>
+        <signature>___Php.tidy.getStatus():int</signature>
+        <info_rule id="457059"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get status of specfied document.</comment>
+      </method>
+      <method vuln_id="1089764">
+        <simple_name>___Php.tidy.getopt</simple_name>
+        <signature>___Php.tidy.getopt(___Php.String):mixed</signature>
+        <info_rule id="457021"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns the value of the specified configuration option for the tidy document.</comment>
+      </method>
+      <method vuln_id="1089755">
+        <simple_name>___Php.tidy.head</simple_name>
+        <signature>___Php.tidy.head():TidyNode</signature>
+        <info_rule id="457010"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object starting from the &lt;HEAD&gt; tag of the tidy parse tree</comment>
+      </method>
+      <method vuln_id="1089745">
+        <simple_name>___Php.tidy.html</simple_name>
+        <signature>___Php.tidy.html():TidyNode</signature>
+        <info_rule id="456999"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object starting from the &lt;HTML&gt; tag of the tidy parse tree</comment>
+      </method>
+      <method vuln_id="1089790">
+        <simple_name>___Php.tidy.isXhtml</simple_name>
+        <signature>___Php.tidy.isXhtml():bool</signature>
+        <info_rule id="457054"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Indicates if the document is a XHTML document.</comment>
+      </method>
+      <method vuln_id="1089787">
+        <simple_name>___Php.tidy.isXml</simple_name>
+        <signature>___Php.tidy.isXml():bool</signature>
+        <info_rule id="457574"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Indicates if the document is a generic (non HTML/XHTML) XML document.</comment>
+      </method>
+      <method vuln_id="1089800">
+        <simple_name>___Php.tidy.parseFile</simple_name>
+        <signature>___Php.tidy.parseFile(___Php.String;mixed;___Php.String;bool):bool</signature>
+        <info_rule id="457065"/>
+        <sink_rule id="474284">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Parse markup in file or URI</comment>
+      </method>
+      <method vuln_id="1107513">
+        <simple_name>___Php.tidy.parse_string</simple_name>
+        <signature>___Php.tidy.parse_string(___Php.String;mixed;___Php.String):bool</signature>
+        <info_rule id="462771"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Parse a document stored in a string</comment>
+      </method>
+      <method vuln_id="1089757">
+        <simple_name>___Php.tidy.root</simple_name>
+        <signature>___Php.tidy.root():___Php.tidyNode</signature>
+        <info_rule id="457012"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object representing the root of the tidy parse tree</comment>
+      </method>
+    </class>
+    <class name="tidy">
+      <method vuln_id="1089744">
+        <simple_name>___Php.tidy.__construct</simple_name>
+        <signature>___Php.tidy.__construct(___Php.String;mixed;___Php.String;bool):void</signature>
+        <info_rule id="456998"/>
+        <sink_rule id="474278">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.Client.GUI</property>
+        <comment>Constructs a new tidy object</comment>
+      </method>
+      <method vuln_id="1089760">
+        <simple_name>___Php.tidy.body</simple_name>
+        <signature>___Php.tidy.body():___Php.tidyNode</signature>
+        <info_rule id="457015"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object starting from the &lt;BODY&gt; tag of the tidy parse tree</comment>
+      </method>
+      <method vuln_id="1089798">
+        <simple_name>___Php.tidy.cleanRepair</simple_name>
+        <signature>___Php.tidy.cleanRepair():bool</signature>
+        <info_rule id="457062"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Execute configured cleanup and repair operations on parsed markup</comment>
+      </method>
+      <method vuln_id="1089792">
+        <simple_name>___Php.tidy.diagnose</simple_name>
+        <signature>___Php.tidy.diagnose():bool</signature>
+        <info_rule id="457056"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Run configured diagnostics on parsed and repaired markup.</comment>
+      </method>
+      <method vuln_id="1089793">
+        <simple_name>___Php.tidy.getConfig</simple_name>
+        <signature>___Php.tidy.getConfig():___Php.Array</signature>
+        <info_rule id="457057"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get current Tidy configuration</comment>
+      </method>
+      <method vuln_id="1089799">
+        <simple_name>___Php.tidy.getHtmlVer</simple_name>
+        <signature>___Php.tidy.getHtmlVer():int</signature>
+        <info_rule id="457063"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get the Detected HTML version for the specified document.</comment>
+      </method>
+      <method vuln_id="1089750">
+        <simple_name>___Php.tidy.getOptDoc</simple_name>
+        <signature>___Php.tidy.getOptDoc(___Php.String):___Php.String</signature>
+        <info_rule id="457004"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns the documentation for the given option name</comment>
+      </method>
+      <method vuln_id="1089746">
+        <simple_name>___Php.tidy.getRelease</simple_name>
+        <signature>___Php.tidy.getRelease():___Php.String</signature>
+        <info_rule id="457000"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get release date (version) for Tidy library</comment>
+      </method>
+      <method vuln_id="1089795">
+        <simple_name>___Php.tidy.getStatus</simple_name>
+        <signature>___Php.tidy.getStatus():int</signature>
+        <info_rule id="457059"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Get status of specfied document.</comment>
+      </method>
+      <method vuln_id="1089764">
+        <simple_name>___Php.tidy.getopt</simple_name>
+        <signature>___Php.tidy.getopt(___Php.String):mixed</signature>
+        <info_rule id="457021"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns the value of the specified configuration option for the tidy document.</comment>
+      </method>
+      <method vuln_id="1089755">
+        <simple_name>___Php.tidy.head</simple_name>
+        <signature>___Php.tidy.head():TidyNode</signature>
+        <info_rule id="457010"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object starting from the &lt;HEAD&gt; tag of the tidy parse tree</comment>
+      </method>
+      <method vuln_id="1089745">
+        <simple_name>___Php.tidy.html</simple_name>
+        <signature>___Php.tidy.html():TidyNode</signature>
+        <info_rule id="456999"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object starting from the &lt;HTML&gt; tag of the tidy parse tree</comment>
+      </method>
+      <method vuln_id="1089790">
+        <simple_name>___Php.tidy.isXhtml</simple_name>
+        <signature>___Php.tidy.isXhtml():bool</signature>
+        <info_rule id="457054"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Indicates if the document is a XHTML document.</comment>
+      </method>
+      <method vuln_id="1089787">
+        <simple_name>___Php.tidy.isXml</simple_name>
+        <signature>___Php.tidy.isXml():bool</signature>
+        <info_rule id="457574"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Indicates if the document is a generic (non HTML/XHTML) XML document.</comment>
+      </method>
+      <method vuln_id="1089800">
+        <simple_name>___Php.tidy.parseFile</simple_name>
+        <signature>___Php.tidy.parseFile(___Php.String;mixed;___Php.String;bool):bool</signature>
+        <info_rule id="457065"/>
+        <sink_rule id="474284">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Parse markup in file or URI</comment>
+      </method>
+      <method vuln_id="1107513">
+        <simple_name>___Php.tidy.parse_string</simple_name>
+        <signature>___Php.tidy.parse_string(___Php.String;mixed;___Php.String):bool</signature>
+        <info_rule id="462771"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Client.GUI</property>
+        <comment>Parse a document stored in a string</comment>
+      </method>
+      <method vuln_id="1089757">
+        <simple_name>___Php.tidy.root</simple_name>
+        <signature>___Php.tidy.root():___Php.tidyNode</signature>
+        <info_rule id="457012"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Client.GUI</property>
+        <comment>Returns a TidyNode Object representing the root of the tidy parse tree</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

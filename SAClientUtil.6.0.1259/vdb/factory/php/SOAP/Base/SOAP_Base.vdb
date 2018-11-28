@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SOAP_Base">
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base.SOAP_Base</simple_name>
+        <signature>SOAP_Base.SOAP_Base($faultcode):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base.SOAP_Base</simple_name>
+        <signature>SOAP_Base.SOAP_Base():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092623">
+        <simple_name>SOAP_Base.__set_type_translation</simple_name>
+        <signature>SOAP_Base.__set_type_translation($type;$class):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._decode</simple_name>
+        <signature>SOAP_Base._decode($soapval):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._decodeDIMEMessage</simple_name>
+        <signature>SOAP_Base._decodeDIMEMessage($data;$headers;$attachments):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._decodeMimeMessage</simple_name>
+        <signature>SOAP_Base._decodeMimeMessage($data;$headers;$attachments):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._getNamespaceForPrefix</simple_name>
+        <signature>SOAP_Base._getNamespaceForPrefix($prefix):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._getNamespacePrefix</simple_name>
+        <signature>SOAP_Base._getNamespacePrefix($ns):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._getType</simple_name>
+        <signature>SOAP_Base._getType($value):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._isBase64Type</simple_name>
+        <signature>SOAP_Base._isBase64Type($type):boolean</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._isHash</simple_name>
+        <signature>SOAP_Base._isHash($a):boolean</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._isSoapValue</simple_name>
+        <signature>SOAP_Base._isSoapValue($value):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._makeDIMEMessage</simple_name>
+        <signature>SOAP_Base._makeDIMEMessage($xml):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._makeMimeMessage</simple_name>
+        <signature>SOAP_Base._makeMimeMessage($xml;$encoding):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._multiArrayType</simple_name>
+        <signature>SOAP_Base._multiArrayType($value;$type;$size;$xml):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._resetNamespaces</simple_name>
+        <signature>SOAP_Base._resetNamespaces():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._serializeValue</simple_name>
+        <signature>SOAP_Base._serializeValue($value;$name;$type;$elNamespace;$typeNamespace;$options;$attributes;$artype):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._setSchemaVersion</simple_name>
+        <signature>SOAP_Base._setSchemaVersion($schemaVersion):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._un_htmlentities</simple_name>
+        <signature>SOAP_Base._un_htmlentities($string):mixed</signature>
+      </method>
+      <method vuln_id="1092624">
+        <simple_name>SOAP_Base.makeEnvelope</simple_name>
+        <signature>SOAP_Base.makeEnvelope($method;$headers;$encoding;$options):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092622">
+        <simple_name>SOAP_Base.setDefaultNamespace</simple_name>
+        <signature>SOAP_Base.setDefaultNamespace($namespace):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092621">
+        <simple_name>SOAP_Base.setTypeTranslation</simple_name>
+        <signature>SOAP_Base.setTypeTranslation($type;$class):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="SOAP_Base">
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base.SOAP_Base</simple_name>
+        <signature>SOAP_Base.SOAP_Base($faultcode):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base.SOAP_Base</simple_name>
+        <signature>SOAP_Base.SOAP_Base():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092623">
+        <simple_name>SOAP_Base.__set_type_translation</simple_name>
+        <signature>SOAP_Base.__set_type_translation($type;$class):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._decode</simple_name>
+        <signature>SOAP_Base._decode($soapval):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._decodeDIMEMessage</simple_name>
+        <signature>SOAP_Base._decodeDIMEMessage($data;$headers;$attachments):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._decodeMimeMessage</simple_name>
+        <signature>SOAP_Base._decodeMimeMessage($data;$headers;$attachments):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._getNamespaceForPrefix</simple_name>
+        <signature>SOAP_Base._getNamespaceForPrefix($prefix):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._getNamespacePrefix</simple_name>
+        <signature>SOAP_Base._getNamespacePrefix($ns):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._getType</simple_name>
+        <signature>SOAP_Base._getType($value):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._isBase64Type</simple_name>
+        <signature>SOAP_Base._isBase64Type($type):boolean</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._isHash</simple_name>
+        <signature>SOAP_Base._isHash($a):boolean</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._isSoapValue</simple_name>
+        <signature>SOAP_Base._isSoapValue($value):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._makeDIMEMessage</simple_name>
+        <signature>SOAP_Base._makeDIMEMessage($xml):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._makeMimeMessage</simple_name>
+        <signature>SOAP_Base._makeMimeMessage($xml;$encoding):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._multiArrayType</simple_name>
+        <signature>SOAP_Base._multiArrayType($value;$type;$size;$xml):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._resetNamespaces</simple_name>
+        <signature>SOAP_Base._resetNamespaces():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._serializeValue</simple_name>
+        <signature>SOAP_Base._serializeValue($value;$name;$type;$elNamespace;$typeNamespace;$options;$attributes;$artype):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._setSchemaVersion</simple_name>
+        <signature>SOAP_Base._setSchemaVersion($schemaVersion):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Base._un_htmlentities</simple_name>
+        <signature>SOAP_Base._un_htmlentities($string):mixed</signature>
+      </method>
+      <method vuln_id="1092624">
+        <simple_name>SOAP_Base.makeEnvelope</simple_name>
+        <signature>SOAP_Base.makeEnvelope($method;$headers;$encoding;$options):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092622">
+        <simple_name>SOAP_Base.setDefaultNamespace</simple_name>
+        <signature>SOAP_Base.setDefaultNamespace($namespace):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092621">
+        <simple_name>SOAP_Base.setTypeTranslation</simple_name>
+        <signature>SOAP_Base.setTypeTranslation($type;$class):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Manager_mssql">
+      <method vuln_id="1092093">
+        <simple_name>MDB_Manager_mssql._isSequenceName</simple_name>
+        <signature>MDB_Manager_mssql._isSequenceName():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092095">
+        <simple_name>MDB_Manager_mssql.alterTable</simple_name>
+        <signature>MDB_Manager_mssql.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092091">
+        <simple_name>MDB_Manager_mssql.createDatabase</simple_name>
+        <signature>MDB_Manager_mssql.createDatabase($db;$name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092096">
+        <simple_name>MDB_Manager_mssql.createSequence</simple_name>
+        <signature>MDB_Manager_mssql.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092092">
+        <simple_name>MDB_Manager_mssql.dropDatabase</simple_name>
+        <signature>MDB_Manager_mssql.dropDatabase($db;$name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092094">
+        <simple_name>MDB_Manager_mssql.dropSequence</simple_name>
+        <signature>MDB_Manager_mssql.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092090">
+        <simple_name>MDB_Manager_mssql.getTableFieldDefinition</simple_name>
+        <signature>MDB_Manager_mssql.getTableFieldDefinition($db;$table;$field_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092097">
+        <simple_name>MDB_Manager_mssql.listTableFields</simple_name>
+        <signature>MDB_Manager_mssql.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092098">
+        <simple_name>MDB_Manager_mssql.listTables</simple_name>
+        <signature>MDB_Manager_mssql.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Manager_mssql">
+      <method vuln_id="1092093">
+        <simple_name>MDB_Manager_mssql._isSequenceName</simple_name>
+        <signature>MDB_Manager_mssql._isSequenceName():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092095">
+        <simple_name>MDB_Manager_mssql.alterTable</simple_name>
+        <signature>MDB_Manager_mssql.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092091">
+        <simple_name>MDB_Manager_mssql.createDatabase</simple_name>
+        <signature>MDB_Manager_mssql.createDatabase($db;$name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092096">
+        <simple_name>MDB_Manager_mssql.createSequence</simple_name>
+        <signature>MDB_Manager_mssql.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092092">
+        <simple_name>MDB_Manager_mssql.dropDatabase</simple_name>
+        <signature>MDB_Manager_mssql.dropDatabase($db;$name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092094">
+        <simple_name>MDB_Manager_mssql.dropSequence</simple_name>
+        <signature>MDB_Manager_mssql.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092090">
+        <simple_name>MDB_Manager_mssql.getTableFieldDefinition</simple_name>
+        <signature>MDB_Manager_mssql.getTableFieldDefinition($db;$table;$field_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092097">
+        <simple_name>MDB_Manager_mssql.listTableFields</simple_name>
+        <signature>MDB_Manager_mssql.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092098">
+        <simple_name>MDB_Manager_mssql.listTables</simple_name>
+        <signature>MDB_Manager_mssql.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_OpenId_Consumer_Storage_File">
+      <method vuln_id="1116823">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.__construct_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.__construct_@__OpenId_Consumer_Storage_File_php_1($dir):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116782">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.addAssociation_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.addAssociation_@__OpenId_Consumer_Storage_File_php_1($url;$handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469817"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116758">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.addDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.addDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1($id;$realId;$server;$version;$expires):Variant</signature>
+        <info_rule id="469794"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116828">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.delAssociation_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.delAssociation_@__OpenId_Consumer_Storage_File_php_1($url):Variant</signature>
+        <info_rule id="469873"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116777">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.delDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.delDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469812"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116751">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.getAssociationByHandle_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.getAssociationByHandle_@__OpenId_Consumer_Storage_File_php_1($handle;$url;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469785"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116746">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.getAssociation_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.getAssociation_@__OpenId_Consumer_Storage_File_php_1($url;$handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469780"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116781">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.getDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.getDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1($id;$realId;$server;$version;$expires):Variant</signature>
+        <info_rule id="469816"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116795">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.isUniqueNonce_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.isUniqueNonce_@__OpenId_Consumer_Storage_File_php_1($provider;$nonce):Variant</signature>
+        <info_rule id="469838"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116742">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.purgeNonces_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.purgeNonces_@__OpenId_Consumer_Storage_File_php_1($date):Variant</signature>
+        <info_rule id="469776"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_OpenId_Consumer_Storage_File">
+      <method vuln_id="1116823">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.__construct_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.__construct_@__OpenId_Consumer_Storage_File_php_1($dir):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116782">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.addAssociation_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.addAssociation_@__OpenId_Consumer_Storage_File_php_1($url;$handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469817"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116758">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.addDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.addDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1($id;$realId;$server;$version;$expires):Variant</signature>
+        <info_rule id="469794"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116828">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.delAssociation_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.delAssociation_@__OpenId_Consumer_Storage_File_php_1($url):Variant</signature>
+        <info_rule id="469873"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116777">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.delDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.delDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469812"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116751">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.getAssociationByHandle_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.getAssociationByHandle_@__OpenId_Consumer_Storage_File_php_1($handle;$url;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469785"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116746">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.getAssociation_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.getAssociation_@__OpenId_Consumer_Storage_File_php_1($url;$handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469780"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116781">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.getDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.getDiscoveryInfo_@__OpenId_Consumer_Storage_File_php_1($id;$realId;$server;$version;$expires):Variant</signature>
+        <info_rule id="469816"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116795">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.isUniqueNonce_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.isUniqueNonce_@__OpenId_Consumer_Storage_File_php_1($provider;$nonce):Variant</signature>
+        <info_rule id="469838"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116742">
+        <simple_name>Zend_OpenId_Consumer_Storage_File.purgeNonces_@__OpenId_Consumer_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Consumer_Storage_File.purgeNonces_@__OpenId_Consumer_Storage_File_php_1($date):Variant</signature>
+        <info_rule id="469776"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

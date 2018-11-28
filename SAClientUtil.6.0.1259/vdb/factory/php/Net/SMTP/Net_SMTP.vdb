@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Net_SMTP">
+      <method vuln_id="1092526">
+        <simple_name>Net_SMTP.Net_SMTP</simple_name>
+        <signature>Net_SMTP.Net_SMTP($host;$port;$localhost;$pipelining):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authCRAM_MD5</simple_name>
+        <signature>Net_SMTP._authCRAM_MD5($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authDigest_MD5</simple_name>
+        <signature>Net_SMTP._authDigest_MD5($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authLogin</simple_name>
+        <signature>Net_SMTP._authLogin($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authPlain</simple_name>
+        <signature>Net_SMTP._authPlain($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._getBestAuthMethod</simple_name>
+        <signature>Net_SMTP._getBestAuthMethod():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._negotiate</simple_name>
+        <signature>Net_SMTP._negotiate():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._parseResponse</simple_name>
+        <signature>Net_SMTP._parseResponse($valid;$later):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._put</simple_name>
+        <signature>Net_SMTP._put($command;$args):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._send</simple_name>
+        <signature>Net_SMTP._send($data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092523">
+        <simple_name>Net_SMTP.auth</simple_name>
+        <signature>Net_SMTP.auth($uid;$pwd;$method):mixed</signature>
+        <rule>
+          <ActionObject id="451893">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment> todo add bad crypto rule</comment>
+      </method>
+      <method vuln_id="1092519">
+        <simple_name>Net_SMTP.connect</simple_name>
+        <signature>Net_SMTP.connect($timeout;$persistent):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092524">
+        <simple_name>Net_SMTP.data</simple_name>
+        <signature>Net_SMTP.data($data):mixed</signature>
+        <sink_rule id="451894">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092531">
+        <simple_name>Net_SMTP.disconnect</simple_name>
+        <signature>Net_SMTP.disconnect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092528">
+        <simple_name>Net_SMTP.getResponse</simple_name>
+        <signature>Net_SMTP.getResponse():array</signature>
+        <info_rule id="480889"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1092520">
+        <simple_name>Net_SMTP.helo</simple_name>
+        <signature>Net_SMTP.helo($domain):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092521">
+        <simple_name>Net_SMTP.identifySender</simple_name>
+        <signature>Net_SMTP.identifySender():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092517">
+        <simple_name>Net_SMTP.mailFrom</simple_name>
+        <signature>Net_SMTP.mailFrom($sender;$params):mixed</signature>
+        <sink_rule id="451885">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092513">
+        <simple_name>Net_SMTP.noop</simple_name>
+        <signature>Net_SMTP.noop():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092516">
+        <simple_name>Net_SMTP.quotedata</simple_name>
+        <signature>Net_SMTP.quotedata($data):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092529">
+        <simple_name>Net_SMTP.rcptTo</simple_name>
+        <signature>Net_SMTP.rcptTo($recipient;$params):mixed</signature>
+        <sink_rule id="451896">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092518">
+        <simple_name>Net_SMTP.rset</simple_name>
+        <signature>Net_SMTP.rset():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092514">
+        <simple_name>Net_SMTP.samlFrom</simple_name>
+        <signature>Net_SMTP.samlFrom($path):mixed</signature>
+        <sink_rule id="451884">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092522">
+        <simple_name>Net_SMTP.saml_from</simple_name>
+        <signature>Net_SMTP.saml_from($path):mixed</signature>
+        <sink_rule id="451892">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108582">
+        <simple_name>Net_SMTP.sendFrom</simple_name>
+        <signature>Net_SMTP.sendFrom($path):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092527">
+        <simple_name>Net_SMTP.send_from</simple_name>
+        <signature>Net_SMTP.send_from($path):mixed</signature>
+        <sink_rule id="451888">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092515">
+        <simple_name>Net_SMTP.setDebug</simple_name>
+        <signature>Net_SMTP.setDebug($debug):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092525">
+        <simple_name>Net_SMTP.somlFrom</simple_name>
+        <signature>Net_SMTP.somlFrom($path):mixed</signature>
+        <sink_rule id="451895">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108581">
+        <simple_name>Net_SMTP.soml_from</simple_name>
+        <signature>Net_SMTP.soml_from($path):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092530">
+        <simple_name>Net_SMTP.vrfy</simple_name>
+        <signature>Net_SMTP.vrfy($string):mixed</signature>
+        <sink_rule id="451890">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Net_SMTP">
+      <method vuln_id="1092526">
+        <simple_name>Net_SMTP.Net_SMTP</simple_name>
+        <signature>Net_SMTP.Net_SMTP($host;$port;$localhost;$pipelining):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authCRAM_MD5</simple_name>
+        <signature>Net_SMTP._authCRAM_MD5($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authDigest_MD5</simple_name>
+        <signature>Net_SMTP._authDigest_MD5($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authLogin</simple_name>
+        <signature>Net_SMTP._authLogin($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._authPlain</simple_name>
+        <signature>Net_SMTP._authPlain($uid;$pwd):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._getBestAuthMethod</simple_name>
+        <signature>Net_SMTP._getBestAuthMethod():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._negotiate</simple_name>
+        <signature>Net_SMTP._negotiate():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._parseResponse</simple_name>
+        <signature>Net_SMTP._parseResponse($valid;$later):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._put</simple_name>
+        <signature>Net_SMTP._put($command;$args):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_SMTP._send</simple_name>
+        <signature>Net_SMTP._send($data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092523">
+        <simple_name>Net_SMTP.auth</simple_name>
+        <signature>Net_SMTP.auth($uid;$pwd;$method):mixed</signature>
+        <rule>
+          <ActionObject id="451893">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment> todo add bad crypto rule</comment>
+      </method>
+      <method vuln_id="1092519">
+        <simple_name>Net_SMTP.connect</simple_name>
+        <signature>Net_SMTP.connect($timeout;$persistent):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092524">
+        <simple_name>Net_SMTP.data</simple_name>
+        <signature>Net_SMTP.data($data):mixed</signature>
+        <sink_rule id="451894">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092531">
+        <simple_name>Net_SMTP.disconnect</simple_name>
+        <signature>Net_SMTP.disconnect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092528">
+        <simple_name>Net_SMTP.getResponse</simple_name>
+        <signature>Net_SMTP.getResponse():array</signature>
+        <info_rule id="480889"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1092520">
+        <simple_name>Net_SMTP.helo</simple_name>
+        <signature>Net_SMTP.helo($domain):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092521">
+        <simple_name>Net_SMTP.identifySender</simple_name>
+        <signature>Net_SMTP.identifySender():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092517">
+        <simple_name>Net_SMTP.mailFrom</simple_name>
+        <signature>Net_SMTP.mailFrom($sender;$params):mixed</signature>
+        <sink_rule id="451885">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092513">
+        <simple_name>Net_SMTP.noop</simple_name>
+        <signature>Net_SMTP.noop():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092516">
+        <simple_name>Net_SMTP.quotedata</simple_name>
+        <signature>Net_SMTP.quotedata($data):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092529">
+        <simple_name>Net_SMTP.rcptTo</simple_name>
+        <signature>Net_SMTP.rcptTo($recipient;$params):mixed</signature>
+        <sink_rule id="451896">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092518">
+        <simple_name>Net_SMTP.rset</simple_name>
+        <signature>Net_SMTP.rset():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092514">
+        <simple_name>Net_SMTP.samlFrom</simple_name>
+        <signature>Net_SMTP.samlFrom($path):mixed</signature>
+        <sink_rule id="451884">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092522">
+        <simple_name>Net_SMTP.saml_from</simple_name>
+        <signature>Net_SMTP.saml_from($path):mixed</signature>
+        <sink_rule id="451892">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108582">
+        <simple_name>Net_SMTP.sendFrom</simple_name>
+        <signature>Net_SMTP.sendFrom($path):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092527">
+        <simple_name>Net_SMTP.send_from</simple_name>
+        <signature>Net_SMTP.send_from($path):mixed</signature>
+        <sink_rule id="451888">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092515">
+        <simple_name>Net_SMTP.setDebug</simple_name>
+        <signature>Net_SMTP.setDebug($debug):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092525">
+        <simple_name>Net_SMTP.somlFrom</simple_name>
+        <signature>Net_SMTP.somlFrom($path):mixed</signature>
+        <sink_rule id="451895">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108581">
+        <simple_name>Net_SMTP.soml_from</simple_name>
+        <signature>Net_SMTP.soml_from($path):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092530">
+        <simple_name>Net_SMTP.vrfy</simple_name>
+        <signature>Net_SMTP.vrfy($string):mixed</signature>
+        <sink_rule id="451890">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

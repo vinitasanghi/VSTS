@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_common">
+      <method vuln_id="-1">
+        <simple_name>DB_common.DB_common</simple_name>
+        <signature>DB_common.DB_common():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.PEAR</simple_name>
+        <signature>DB_common.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.__sleep</simple_name>
+        <signature>DB_common.__sleep():array</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.__toString</simple_name>
+        <signature>DB_common.__toString():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.__wakeup</simple_name>
+        <signature>DB_common.__wakeup():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common._checkManip</simple_name>
+        <signature>DB_common._checkManip($query):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_common._convertNullArrayValuesToEmpty($array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common._rtrimArrayValues</simple_name>
+        <signature>DB_common._rtrimArrayValues($array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090562">
+        <simple_name>DB_common.affectedRows</simple_name>
+        <signature>DB_common.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090590">
+        <simple_name>DB_common.autoCommit</simple_name>
+        <signature>DB_common.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090586">
+        <simple_name>DB_common.autoExecute</simple_name>
+        <signature>DB_common.autoExecute($table;$fields_values;$mode;$where):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090568">
+        <simple_name>DB_common.autoPrepare</simple_name>
+        <signature>DB_common.autoPrepare($table;$table_fields;$mode;$where):resource</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090556">
+        <simple_name>DB_common.buildManipSQL</simple_name>
+        <signature>DB_common.buildManipSQL($table;$table_fields;$mode;$where):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090574">
+        <simple_name>DB_common.commit</simple_name>
+        <signature>DB_common.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090576">
+        <simple_name>DB_common.connect</simple_name>
+        <signature>DB_common.connect():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090570">
+        <simple_name>DB_common.createSequence</simple_name>
+        <signature>DB_common.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090579">
+        <simple_name>DB_common.dropSequence</simple_name>
+        <signature>DB_common.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090553">
+        <simple_name>DB_common.errorCode</simple_name>
+        <signature>DB_common.errorCode($nativecode):int</signature>
+        <rule>
+          <ActionObject id="451004">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090558">
+        <simple_name>DB_common.errorMessage</simple_name>
+        <signature>DB_common.errorMessage($dbcode):string</signature>
+        <rule>
+          <ActionObject id="451010">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090567">
+        <simple_name>DB_common.errorNative</simple_name>
+        <signature>DB_common.errorNative():mixed</signature>
+        <rule>
+          <ActionObject id="451011">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090585">
+        <simple_name>DB_common.escapeSimple</simple_name>
+        <signature>DB_common.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090587">
+        <simple_name>DB_common.execute</simple_name>
+        <signature>DB_common.execute($stmt;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090595">
+        <simple_name>DB_common.executeEmulateQuery</simple_name>
+        <signature>DB_common.executeEmulateQuery($stmt;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090551">
+        <simple_name>DB_common.executeMultiple</simple_name>
+        <signature>DB_common.executeMultiple($stmt;$data):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090596">
+        <simple_name>DB_common.freePrepared</simple_name>
+        <signature>DB_common.freePrepared($stmt;$free_resource):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090594">
+        <simple_name>DB_common.getAll</simple_name>
+        <signature>DB_common.getAll($query;$params;$fetchmode):array</signature>
+        <info_rule id="480712"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090552">
+        <simple_name>DB_common.getAssoc</simple_name>
+        <signature>DB_common.getAssoc($query;$force_array;$params;$fetchmode;$group):array</signature>
+        <info_rule id="480709"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090572">
+        <simple_name>DB_common.getCol</simple_name>
+        <signature>DB_common.getCol($query;$col;$params):array</signature>
+        <info_rule id="480708"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090591">
+        <simple_name>DB_common.getListOf</simple_name>
+        <signature>DB_common.getListOf($type):array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090580">
+        <simple_name>DB_common.getOne</simple_name>
+        <signature>DB_common.getOne($query;$params):mixed</signature>
+        <info_rule id="480707"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090575">
+        <simple_name>DB_common.getOption</simple_name>
+        <signature>DB_common.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090577">
+        <simple_name>DB_common.getRow</simple_name>
+        <signature>DB_common.getRow($query;$params;$fetchmode):array</signature>
+        <info_rule id="480710"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090566">
+        <simple_name>DB_common.getSequenceName</simple_name>
+        <signature>DB_common.getSequenceName($sqn):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090561">
+        <simple_name>DB_common.getSpecialQuery</simple_name>
+        <signature>DB_common.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090560">
+        <simple_name>DB_common.getTables</simple_name>
+        <signature>DB_common.getTables():array</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090555">
+        <simple_name>DB_common.limitQuery</simple_name>
+        <signature>DB_common.limitQuery($query;$from;$count;$params):mixed</signature>
+        <info_rule id="480711"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090593">
+        <simple_name>DB_common.modifyLimitQuery</simple_name>
+        <signature>DB_common.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090565">
+        <simple_name>DB_common.modifyQuery</simple_name>
+        <signature>DB_common.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090592">
+        <simple_name>DB_common.nextId</simple_name>
+        <signature>DB_common.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090550">
+        <simple_name>DB_common.nextQueryIsManip</simple_name>
+        <signature>DB_common.nextQueryIsManip($manip):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090554">
+        <simple_name>DB_common.numRows</simple_name>
+        <signature>DB_common.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090582">
+        <simple_name>DB_common.prepare</simple_name>
+        <signature>DB_common.prepare($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090557">
+        <simple_name>DB_common.provides</simple_name>
+        <signature>DB_common.provides($feature):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090564">
+        <simple_name>DB_common.query</simple_name>
+        <signature>DB_common.query($query;$params):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090559">
+        <simple_name>DB_common.quote</simple_name>
+        <signature>DB_common.quote($string):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090589">
+        <simple_name>DB_common.quoteBoolean</simple_name>
+        <signature>DB_common.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090571">
+        <simple_name>DB_common.quoteFloat</simple_name>
+        <signature>DB_common.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090569">
+        <simple_name>DB_common.quoteIdentifier</simple_name>
+        <signature>DB_common.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090581">
+        <simple_name>DB_common.quoteSmart</simple_name>
+        <signature>DB_common.quoteSmart($in):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090563">
+        <simple_name>DB_common.quoteString</simple_name>
+        <signature>DB_common.quoteString($string):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.raiseError</simple_name>
+        <signature>DB_common.raiseError($code;$mode;$options;$userinfo;$nativecode):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090584">
+        <simple_name>DB_common.rollback</simple_name>
+        <signature>DB_common.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090588">
+        <simple_name>DB_common.setFetchMode</simple_name>
+        <signature>DB_common.setFetchMode($fetchmode;$object_class):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090573">
+        <simple_name>DB_common.setOption</simple_name>
+        <signature>DB_common.setOption($option;$value):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.simpleQuery</simple_name>
+        <signature>DB_common.simpleQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090578">
+        <simple_name>DB_common.tableInfo</simple_name>
+        <signature>DB_common.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090583">
+        <simple_name>DB_common.toString</simple_name>
+        <signature>DB_common.toString():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_common">
+      <method vuln_id="-1">
+        <simple_name>DB_common.DB_common</simple_name>
+        <signature>DB_common.DB_common():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.PEAR</simple_name>
+        <signature>DB_common.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.__sleep</simple_name>
+        <signature>DB_common.__sleep():array</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.__toString</simple_name>
+        <signature>DB_common.__toString():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.__wakeup</simple_name>
+        <signature>DB_common.__wakeup():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common._checkManip</simple_name>
+        <signature>DB_common._checkManip($query):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_common._convertNullArrayValuesToEmpty($array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common._rtrimArrayValues</simple_name>
+        <signature>DB_common._rtrimArrayValues($array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090562">
+        <simple_name>DB_common.affectedRows</simple_name>
+        <signature>DB_common.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090590">
+        <simple_name>DB_common.autoCommit</simple_name>
+        <signature>DB_common.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090586">
+        <simple_name>DB_common.autoExecute</simple_name>
+        <signature>DB_common.autoExecute($table;$fields_values;$mode;$where):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090568">
+        <simple_name>DB_common.autoPrepare</simple_name>
+        <signature>DB_common.autoPrepare($table;$table_fields;$mode;$where):resource</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090556">
+        <simple_name>DB_common.buildManipSQL</simple_name>
+        <signature>DB_common.buildManipSQL($table;$table_fields;$mode;$where):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090574">
+        <simple_name>DB_common.commit</simple_name>
+        <signature>DB_common.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090576">
+        <simple_name>DB_common.connect</simple_name>
+        <signature>DB_common.connect():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090570">
+        <simple_name>DB_common.createSequence</simple_name>
+        <signature>DB_common.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090579">
+        <simple_name>DB_common.dropSequence</simple_name>
+        <signature>DB_common.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090553">
+        <simple_name>DB_common.errorCode</simple_name>
+        <signature>DB_common.errorCode($nativecode):int</signature>
+        <rule>
+          <ActionObject id="451004">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090558">
+        <simple_name>DB_common.errorMessage</simple_name>
+        <signature>DB_common.errorMessage($dbcode):string</signature>
+        <rule>
+          <ActionObject id="451010">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090567">
+        <simple_name>DB_common.errorNative</simple_name>
+        <signature>DB_common.errorNative():mixed</signature>
+        <rule>
+          <ActionObject id="451011">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090585">
+        <simple_name>DB_common.escapeSimple</simple_name>
+        <signature>DB_common.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090587">
+        <simple_name>DB_common.execute</simple_name>
+        <signature>DB_common.execute($stmt;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090595">
+        <simple_name>DB_common.executeEmulateQuery</simple_name>
+        <signature>DB_common.executeEmulateQuery($stmt;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090551">
+        <simple_name>DB_common.executeMultiple</simple_name>
+        <signature>DB_common.executeMultiple($stmt;$data):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="1090596">
+        <simple_name>DB_common.freePrepared</simple_name>
+        <signature>DB_common.freePrepared($stmt;$free_resource):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090594">
+        <simple_name>DB_common.getAll</simple_name>
+        <signature>DB_common.getAll($query;$params;$fetchmode):array</signature>
+        <info_rule id="480712"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090552">
+        <simple_name>DB_common.getAssoc</simple_name>
+        <signature>DB_common.getAssoc($query;$force_array;$params;$fetchmode;$group):array</signature>
+        <info_rule id="480709"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090572">
+        <simple_name>DB_common.getCol</simple_name>
+        <signature>DB_common.getCol($query;$col;$params):array</signature>
+        <info_rule id="480708"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090591">
+        <simple_name>DB_common.getListOf</simple_name>
+        <signature>DB_common.getListOf($type):array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090580">
+        <simple_name>DB_common.getOne</simple_name>
+        <signature>DB_common.getOne($query;$params):mixed</signature>
+        <info_rule id="480707"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090575">
+        <simple_name>DB_common.getOption</simple_name>
+        <signature>DB_common.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090577">
+        <simple_name>DB_common.getRow</simple_name>
+        <signature>DB_common.getRow($query;$params;$fetchmode):array</signature>
+        <info_rule id="480710"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090566">
+        <simple_name>DB_common.getSequenceName</simple_name>
+        <signature>DB_common.getSequenceName($sqn):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090561">
+        <simple_name>DB_common.getSpecialQuery</simple_name>
+        <signature>DB_common.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090560">
+        <simple_name>DB_common.getTables</simple_name>
+        <signature>DB_common.getTables():array</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090555">
+        <simple_name>DB_common.limitQuery</simple_name>
+        <signature>DB_common.limitQuery($query;$from;$count;$params):mixed</signature>
+        <info_rule id="480711"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090593">
+        <simple_name>DB_common.modifyLimitQuery</simple_name>
+        <signature>DB_common.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090565">
+        <simple_name>DB_common.modifyQuery</simple_name>
+        <signature>DB_common.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090592">
+        <simple_name>DB_common.nextId</simple_name>
+        <signature>DB_common.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090550">
+        <simple_name>DB_common.nextQueryIsManip</simple_name>
+        <signature>DB_common.nextQueryIsManip($manip):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090554">
+        <simple_name>DB_common.numRows</simple_name>
+        <signature>DB_common.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090582">
+        <simple_name>DB_common.prepare</simple_name>
+        <signature>DB_common.prepare($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090557">
+        <simple_name>DB_common.provides</simple_name>
+        <signature>DB_common.provides($feature):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090564">
+        <simple_name>DB_common.query</simple_name>
+        <signature>DB_common.query($query;$params):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090559">
+        <simple_name>DB_common.quote</simple_name>
+        <signature>DB_common.quote($string):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090589">
+        <simple_name>DB_common.quoteBoolean</simple_name>
+        <signature>DB_common.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090571">
+        <simple_name>DB_common.quoteFloat</simple_name>
+        <signature>DB_common.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090569">
+        <simple_name>DB_common.quoteIdentifier</simple_name>
+        <signature>DB_common.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090581">
+        <simple_name>DB_common.quoteSmart</simple_name>
+        <signature>DB_common.quoteSmart($in):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090563">
+        <simple_name>DB_common.quoteString</simple_name>
+        <signature>DB_common.quoteString($string):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.raiseError</simple_name>
+        <signature>DB_common.raiseError($code;$mode;$options;$userinfo;$nativecode):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090584">
+        <simple_name>DB_common.rollback</simple_name>
+        <signature>DB_common.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090588">
+        <simple_name>DB_common.setFetchMode</simple_name>
+        <signature>DB_common.setFetchMode($fetchmode;$object_class):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090573">
+        <simple_name>DB_common.setOption</simple_name>
+        <signature>DB_common.setOption($option;$value):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_common.simpleQuery</simple_name>
+        <signature>DB_common.simpleQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090578">
+        <simple_name>DB_common.tableInfo</simple_name>
+        <signature>DB_common.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090583">
+        <simple_name>DB_common.toString</simple_name>
+        <signature>DB_common.toString():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

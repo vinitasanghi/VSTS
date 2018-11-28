@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MongoCollection">
+      <method>
+        <simple_name>MongoCollection.__construct</simple_name>
+        <signature>MongoCollection.__construct(MongoDB;___Php.String):void</signature>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.__get</simple_name>
+        <signature>MongoCollection.__get(___Php.String):MongoCollection</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.__toString</simple_name>
+        <signature>MongoCollection.__toString():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.aggregate</simple_name>
+        <signature>MongoCollection.aggregate(___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.aggregate</simple_name>
+        <signature>MongoCollection.aggregate(___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.aggregateCursor</simple_name>
+        <signature>MongoCollection.aggregateCursor(___Php.Array;___Php.Array):MongoCommandCursor</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.batchInsert</simple_name>
+        <signature>MongoCollection.batchInsert(___Php.Array;___Php.Array):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.count</simple_name>
+        <signature>MongoCollection.count(___Php.Array):int</signature>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.count</simple_name>
+        <signature>MongoCollection.count(___Php.Array;___Php.Array):int</signature>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.createDBRef</simple_name>
+        <signature>MongoCollection.createDBRef(mixed):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.createIndex</simple_name>
+        <signature>MongoCollection.createIndex(___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.createIndex</simple_name>
+        <signature>MongoCollection.createIndex(___Php.Array;___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.deleteIndex</simple_name>
+        <signature>MongoCollection.deleteIndex(___Php.Array):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.deleteIndex</simple_name>
+        <signature>MongoCollection.deleteIndex(___Php.String):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.deleteIndexes</simple_name>
+        <signature>MongoCollection.deleteIndexes():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.distinct</simple_name>
+        <signature>MongoCollection.distinct(___Php.String;___Php.Array):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.drop</simple_name>
+        <signature>MongoCollection.drop():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.ensureIndex</simple_name>
+        <signature>MongoCollection.ensureIndex(___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.ensureIndex</simple_name>
+        <signature>MongoCollection.ensureIndex(___Php.Array;___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.ensureIndex</simple_name>
+        <signature>MongoCollection.ensureIndex(___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.find</simple_name>
+        <signature>MongoCollection.find(___Php.Array):MongoCursor</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.find</simple_name>
+        <signature>MongoCollection.find(___Php.Array;___Php.Array):MongoCursor</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array;___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findOne</simple_name>
+        <signature>MongoCollection.findOne(___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getDBRef</simple_name>
+        <signature>MongoCollection.getDBRef(___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getIndexInfo</simple_name>
+        <signature>MongoCollection.getIndexInfo():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getName</simple_name>
+        <signature>MongoCollection.getName():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getReadPreference</simple_name>
+        <signature>MongoCollection.getReadPreference():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getSlaveOkay</simple_name>
+        <signature>MongoCollection.getSlaveOkay():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getWriteConcern</simple_name>
+        <signature>MongoCollection.getWriteConcern():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.group</simple_name>
+        <signature>MongoCollection.group(mixed;___Php.Array;MongoCode):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.group</simple_name>
+        <signature>MongoCollection.group(mixed;___Php.Array;MongoCode;___Php.Array):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.insert</simple_name>
+        <signature>MongoCollection.insert(___Php.Array;___Php.Array):___Php.Array</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.parallelCollectionScan</simple_name>
+        <signature>MongoCollection.parallelCollectionScan(int):___Php.Array[MongoCommandCursor]</signature>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.remove</simple_name>
+        <signature>MongoCollection.remove(___Php.Array;___Php.Array):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.save</simple_name>
+        <signature>MongoCollection.save(___Php.Array;___Php.Array):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setReadPreference</simple_name>
+        <signature>MongoCollection.setReadPreference(___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setReadPreference</simple_name>
+        <signature>MongoCollection.setReadPreference(___Php.String, ___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setSlaveOkay</simple_name>
+        <signature>MongoCollection.setSlaveOkay():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setSlaveOkay</simple_name>
+        <signature>MongoCollection.setSlaveOkay(bool):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setWriteConcern</simple_name>
+        <signature>MongoCollection.setWriteConcern(mixed):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setWriteConcern</simple_name>
+        <signature>MongoCollection.setWriteConcern(mixed;int):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.toIndexString</simple_name>
+        <signature>MongoCollection.toIndexString(mixed):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.update</simple_name>
+        <signature>MongoCollection.update(___Php.Array;___Php.Array):___Php.Array</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.update</simple_name>
+        <signature>MongoCollection.update(___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.validate</simple_name>
+        <signature>MongoCollection.validate():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.validate</simple_name>
+        <signature>MongoCollection.validate(bool):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+    </class>
+    <class name="MongoCollection">
+      <method>
+        <simple_name>MongoCollection.__construct</simple_name>
+        <signature>MongoCollection.__construct(MongoDB;___Php.String):void</signature>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.__get</simple_name>
+        <signature>MongoCollection.__get(___Php.String):MongoCollection</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.__toString</simple_name>
+        <signature>MongoCollection.__toString():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.aggregate</simple_name>
+        <signature>MongoCollection.aggregate(___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.aggregate</simple_name>
+        <signature>MongoCollection.aggregate(___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.aggregateCursor</simple_name>
+        <signature>MongoCollection.aggregateCursor(___Php.Array;___Php.Array):MongoCommandCursor</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.batchInsert</simple_name>
+        <signature>MongoCollection.batchInsert(___Php.Array;___Php.Array):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.count</simple_name>
+        <signature>MongoCollection.count(___Php.Array):int</signature>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.count</simple_name>
+        <signature>MongoCollection.count(___Php.Array;___Php.Array):int</signature>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.createDBRef</simple_name>
+        <signature>MongoCollection.createDBRef(mixed):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.createIndex</simple_name>
+        <signature>MongoCollection.createIndex(___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.createIndex</simple_name>
+        <signature>MongoCollection.createIndex(___Php.Array;___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.deleteIndex</simple_name>
+        <signature>MongoCollection.deleteIndex(___Php.Array):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.deleteIndex</simple_name>
+        <signature>MongoCollection.deleteIndex(___Php.String):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.deleteIndexes</simple_name>
+        <signature>MongoCollection.deleteIndexes():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.distinct</simple_name>
+        <signature>MongoCollection.distinct(___Php.String;___Php.Array):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.drop</simple_name>
+        <signature>MongoCollection.drop():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.ensureIndex</simple_name>
+        <signature>MongoCollection.ensureIndex(___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.ensureIndex</simple_name>
+        <signature>MongoCollection.ensureIndex(___Php.Array;___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.ensureIndex</simple_name>
+        <signature>MongoCollection.ensureIndex(___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.find</simple_name>
+        <signature>MongoCollection.find(___Php.Array):MongoCursor</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.find</simple_name>
+        <signature>MongoCollection.find(___Php.Array;___Php.Array):MongoCursor</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findAndModify</simple_name>
+        <signature>MongoCollection.findAndModify(___Php.Array;___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.findOne</simple_name>
+        <signature>MongoCollection.findOne(___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getDBRef</simple_name>
+        <signature>MongoCollection.getDBRef(___Php.Array):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getIndexInfo</simple_name>
+        <signature>MongoCollection.getIndexInfo():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getName</simple_name>
+        <signature>MongoCollection.getName():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getReadPreference</simple_name>
+        <signature>MongoCollection.getReadPreference():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getSlaveOkay</simple_name>
+        <signature>MongoCollection.getSlaveOkay():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.getWriteConcern</simple_name>
+        <signature>MongoCollection.getWriteConcern():___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.group</simple_name>
+        <signature>MongoCollection.group(mixed;___Php.Array;MongoCode):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.group</simple_name>
+        <signature>MongoCollection.group(mixed;___Php.Array;MongoCode;___Php.Array):___Php.Array</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.insert</simple_name>
+        <signature>MongoCollection.insert(___Php.Array;___Php.Array):___Php.Array</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.parallelCollectionScan</simple_name>
+        <signature>MongoCollection.parallelCollectionScan(int):___Php.Array[MongoCommandCursor]</signature>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.remove</simple_name>
+        <signature>MongoCollection.remove(___Php.Array;___Php.Array):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.save</simple_name>
+        <signature>MongoCollection.save(___Php.Array;___Php.Array):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setReadPreference</simple_name>
+        <signature>MongoCollection.setReadPreference(___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setReadPreference</simple_name>
+        <signature>MongoCollection.setReadPreference(___Php.String, ___Php.Array):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setSlaveOkay</simple_name>
+        <signature>MongoCollection.setSlaveOkay():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setSlaveOkay</simple_name>
+        <signature>MongoCollection.setSlaveOkay(bool):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setWriteConcern</simple_name>
+        <signature>MongoCollection.setWriteConcern(mixed):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.setWriteConcern</simple_name>
+        <signature>MongoCollection.setWriteConcern(mixed;int):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.toIndexString</simple_name>
+        <signature>MongoCollection.toIndexString(mixed):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.update</simple_name>
+        <signature>MongoCollection.update(___Php.Array;___Php.Array):___Php.Array</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.update</simple_name>
+        <signature>MongoCollection.update(___Php.Array;___Php.Array;___Php.Array):___Php.Array</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.validate</simple_name>
+        <signature>MongoCollection.validate():___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+      <method>
+        <simple_name>MongoCollection.validate</simple_name>
+        <signature>MongoCollection.validate(bool):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Modifier.Member</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

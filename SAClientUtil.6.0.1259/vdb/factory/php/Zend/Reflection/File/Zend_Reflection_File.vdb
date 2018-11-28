@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Reflection_File">
+      <method vuln_id="1117907">
+        <simple_name>Zend_Reflection_File.__construct_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.__construct_@__Reflection_File_php_1($file):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117837">
+        <simple_name>Zend_Reflection_File.__toString_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.__toString_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470780"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117904">
+        <simple_name>Zend_Reflection_File._checkFileDocBlock_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File._checkFileDocBlock_@__Reflection_File_php_1($tokens):Variant</signature>
+        <info_rule id="470847"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117835">
+        <simple_name>Zend_Reflection_File._reflect_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File._reflect_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470778"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117863">
+        <simple_name>Zend_Reflection_File.export_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.export_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470803"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117839">
+        <simple_name>Zend_Reflection_File.findRealpathInIncludePath_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.findRealpathInIncludePath_@__Reflection_File_php_1($fileName):Variant</signature>
+        <info_rule id="470782"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117891">
+        <simple_name>Zend_Reflection_File.getClass_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getClass_@__Reflection_File_php_1($name;$reflectionClass):Variant</signature>
+        <info_rule id="470833"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117887">
+        <simple_name>Zend_Reflection_File.getClasses_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getClasses_@__Reflection_File_php_1($reflectionClass):Variant</signature>
+        <info_rule id="470828"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117906">
+        <simple_name>Zend_Reflection_File.getContents_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getContents_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470849"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117877">
+        <simple_name>Zend_Reflection_File.getDocComment_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getDocComment_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470817"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117910">
+        <simple_name>Zend_Reflection_File.getDocblock_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getDocblock_@__Reflection_File_php_1($reflectionClass):Variant</signature>
+        <info_rule id="470854"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117832">
+        <simple_name>Zend_Reflection_File.getEndLine_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getEndLine_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470774"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117853">
+        <simple_name>Zend_Reflection_File.getFileName_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getFileName_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470795"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117840">
+        <simple_name>Zend_Reflection_File.getFunctions_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getFunctions_@__Reflection_File_php_1($reflectionClass):Variant</signature>
+        <info_rule id="470783"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117864">
+        <simple_name>Zend_Reflection_File.getStartLine_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getStartLine_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470804"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Reflection_File">
+      <method vuln_id="1117907">
+        <simple_name>Zend_Reflection_File.__construct_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.__construct_@__Reflection_File_php_1($file):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117837">
+        <simple_name>Zend_Reflection_File.__toString_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.__toString_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470780"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117904">
+        <simple_name>Zend_Reflection_File._checkFileDocBlock_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File._checkFileDocBlock_@__Reflection_File_php_1($tokens):Variant</signature>
+        <info_rule id="470847"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117835">
+        <simple_name>Zend_Reflection_File._reflect_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File._reflect_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470778"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1117863">
+        <simple_name>Zend_Reflection_File.export_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.export_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470803"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117839">
+        <simple_name>Zend_Reflection_File.findRealpathInIncludePath_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.findRealpathInIncludePath_@__Reflection_File_php_1($fileName):Variant</signature>
+        <info_rule id="470782"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117891">
+        <simple_name>Zend_Reflection_File.getClass_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getClass_@__Reflection_File_php_1($name;$reflectionClass):Variant</signature>
+        <info_rule id="470833"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117887">
+        <simple_name>Zend_Reflection_File.getClasses_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getClasses_@__Reflection_File_php_1($reflectionClass):Variant</signature>
+        <info_rule id="470828"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117906">
+        <simple_name>Zend_Reflection_File.getContents_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getContents_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470849"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117877">
+        <simple_name>Zend_Reflection_File.getDocComment_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getDocComment_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470817"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117910">
+        <simple_name>Zend_Reflection_File.getDocblock_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getDocblock_@__Reflection_File_php_1($reflectionClass):Variant</signature>
+        <info_rule id="470854"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117832">
+        <simple_name>Zend_Reflection_File.getEndLine_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getEndLine_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470774"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117853">
+        <simple_name>Zend_Reflection_File.getFileName_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getFileName_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470795"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117840">
+        <simple_name>Zend_Reflection_File.getFunctions_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getFunctions_@__Reflection_File_php_1($reflectionClass):Variant</signature>
+        <info_rule id="470783"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117864">
+        <simple_name>Zend_Reflection_File.getStartLine_@__Reflection_File_php_1</simple_name>
+        <signature>Zend_Reflection_File.getStartLine_@__Reflection_File_php_1():Variant</signature>
+        <info_rule id="470804"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.DynamicCode.Reflection</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

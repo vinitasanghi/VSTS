@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="RecursiveDirectoryIterator">
+      <method vuln_id="1089012">
+        <simple_name>___Php.RecursiveDirectoryIterator.__construct</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.__construct(___Php.String;int):void</signature>
+        <comment>Cronstructs a new dir iterator from a path.</comment>
+      </method>
+      <method vuln_id="1088910">
+        <simple_name>___Php.RecursiveDirectoryIterator.current</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.current():___Php.String</signature>
+        <info_rule id="456302"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return getFilename(),getFileInfo() or $this depending on flags</comment>
+      </method>
+      <method vuln_id="1088708">
+        <simple_name>___Php.RecursiveDirectoryIterator.getSubPath</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.getSubPath():___Php.String</signature>
+        <info_rule id="456201"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get sub path</comment>
+      </method>
+      <method vuln_id="1088776">
+        <simple_name>___Php.RecursiveDirectoryIterator.getSubPathname</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.getSubPathname():___Php.String</signature>
+        <info_rule id="456232"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get sub path and file name</comment>
+      </method>
+      <method vuln_id="1088898">
+        <simple_name>___Php.RecursiveDirectoryIterator.hasChildren</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.hasChildren(bool):bool</signature>
+        <info_rule id="456299"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns whether current entry is a directory and not '.' or '..'</comment>
+      </method>
+      <method vuln_id="1088921">
+        <simple_name>___Php.RecursiveDirectoryIterator.key</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.key():___Php.String</signature>
+        <info_rule id="456305"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return getPathname() or getFilename() depending on flags</comment>
+      </method>
+      <method vuln_id="1088872">
+        <simple_name>___Php.RecursiveDirectoryIterator.next</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.next():void</signature>
+        <info_rule id="456286"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Move to next entry</comment>
+      </method>
+      <method vuln_id="1088788">
+        <simple_name>___Php.RecursiveDirectoryIterator.rewind</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.rewind():void</signature>
+        <info_rule id="456237"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Rewind dir back to the start</comment>
+      </method>
+    </class>
+    <class name="RecursiveDirectoryIterator">
+      <method vuln_id="1089012">
+        <simple_name>___Php.RecursiveDirectoryIterator.__construct</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.__construct(___Php.String;int):void</signature>
+        <comment>Cronstructs a new dir iterator from a path.</comment>
+      </method>
+      <method vuln_id="1088910">
+        <simple_name>___Php.RecursiveDirectoryIterator.current</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.current():___Php.String</signature>
+        <info_rule id="456302"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return getFilename(),getFileInfo() or $this depending on flags</comment>
+      </method>
+      <method vuln_id="1088708">
+        <simple_name>___Php.RecursiveDirectoryIterator.getSubPath</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.getSubPath():___Php.String</signature>
+        <info_rule id="456201"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get sub path</comment>
+      </method>
+      <method vuln_id="1088776">
+        <simple_name>___Php.RecursiveDirectoryIterator.getSubPathname</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.getSubPathname():___Php.String</signature>
+        <info_rule id="456232"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Get sub path and file name</comment>
+      </method>
+      <method vuln_id="1088898">
+        <simple_name>___Php.RecursiveDirectoryIterator.hasChildren</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.hasChildren(bool):bool</signature>
+        <info_rule id="456299"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Returns whether current entry is a directory and not '.' or '..'</comment>
+      </method>
+      <method vuln_id="1088921">
+        <simple_name>___Php.RecursiveDirectoryIterator.key</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.key():___Php.String</signature>
+        <info_rule id="456305"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Directory</property>
+        <comment>Return getPathname() or getFilename() depending on flags</comment>
+      </method>
+      <method vuln_id="1088872">
+        <simple_name>___Php.RecursiveDirectoryIterator.next</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.next():void</signature>
+        <info_rule id="456286"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Move to next entry</comment>
+      </method>
+      <method vuln_id="1088788">
+        <simple_name>___Php.RecursiveDirectoryIterator.rewind</simple_name>
+        <signature>___Php.RecursiveDirectoryIterator.rewind():void</signature>
+        <info_rule id="456237"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Directory</property>
+        <comment>Rewind dir back to the start</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

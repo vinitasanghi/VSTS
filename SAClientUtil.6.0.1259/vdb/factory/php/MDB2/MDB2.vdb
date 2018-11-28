@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2">
+      <method vuln_id="1091763">
+        <simple_name>MDB2.apiVersion</simple_name>
+        <signature>MDB2.apiVersion():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091721">
+        <simple_name>MDB2.classExists</simple_name>
+        <signature>MDB2.classExists($classname):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091731">
+        <simple_name>MDB2.connect</simple_name>
+        <signature>MDB2.connect($dsn;$options):mixed</signature>
+        <rule>
+          <ActionObject id="451497">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.connect</simple_name>
+        <signature>MDB2.connect():Variant</signature>
+      </method>
+      <method vuln_id="1091792">
+        <simple_name>MDB2.errorMessage</simple_name>
+        <signature>MDB2.errorMessage($value):string</signature>
+        <rule>
+          <ActionObject id="451513">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091774">
+        <simple_name>MDB2.factory</simple_name>
+        <signature>MDB2.factory($dsn;$options):mixed</signature>
+        <rule>
+          <ActionObject id="451508">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091765">
+        <simple_name>MDB2.fileExists</simple_name>
+        <signature>MDB2.fileExists($file):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091742">
+        <simple_name>MDB2.isConnection</simple_name>
+        <signature>MDB2.isConnection($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091729">
+        <simple_name>MDB2.isError</simple_name>
+        <signature>MDB2.isError($data;$code):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091723">
+        <simple_name>MDB2.isResult</simple_name>
+        <signature>MDB2.isResult($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091745">
+        <simple_name>MDB2.isResultCommon</simple_name>
+        <signature>MDB2.isResultCommon($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.isResultCommon</simple_name>
+        <signature>MDB2.isResultCommon():Variant</signature>
+      </method>
+      <method vuln_id="1091770">
+        <simple_name>MDB2.isStatement</simple_name>
+        <signature>MDB2.isStatement($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091778">
+        <simple_name>MDB2.loadClass</simple_name>
+        <signature>MDB2.loadClass($class_name;$debug):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091789">
+        <simple_name>MDB2.loadFile</simple_name>
+        <signature>MDB2.loadFile($file):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.loadFile</simple_name>
+        <signature>MDB2.loadFile():Variant</signature>
+      </method>
+      <method vuln_id="1091794">
+        <simple_name>MDB2.parseDSN</simple_name>
+        <signature>MDB2.parseDSN($dsn):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.raiseError</simple_name>
+        <signature>MDB2.raiseError($code;$mode;$options;$userinfo):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.raiseError</simple_name>
+        <signature>MDB2.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091738">
+        <simple_name>MDB2.setOptions</simple_name>
+        <signature>MDB2.setOptions($db;$options):mixed</signature>
+        <propagates_taint dst_param="1" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.singleton</simple_name>
+        <signature>MDB2.singleton($dsn;$options):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.singleton</simple_name>
+        <signature>MDB2.singleton():Variant</signature>
+      </method>
+    </class>
+    <class name="MDB2">
+      <method vuln_id="1091763">
+        <simple_name>MDB2.apiVersion</simple_name>
+        <signature>MDB2.apiVersion():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091721">
+        <simple_name>MDB2.classExists</simple_name>
+        <signature>MDB2.classExists($classname):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091731">
+        <simple_name>MDB2.connect</simple_name>
+        <signature>MDB2.connect($dsn;$options):mixed</signature>
+        <rule>
+          <ActionObject id="451497">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.connect</simple_name>
+        <signature>MDB2.connect():Variant</signature>
+      </method>
+      <method vuln_id="1091792">
+        <simple_name>MDB2.errorMessage</simple_name>
+        <signature>MDB2.errorMessage($value):string</signature>
+        <rule>
+          <ActionObject id="451513">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091774">
+        <simple_name>MDB2.factory</simple_name>
+        <signature>MDB2.factory($dsn;$options):mixed</signature>
+        <rule>
+          <ActionObject id="451508">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091765">
+        <simple_name>MDB2.fileExists</simple_name>
+        <signature>MDB2.fileExists($file):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091742">
+        <simple_name>MDB2.isConnection</simple_name>
+        <signature>MDB2.isConnection($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091729">
+        <simple_name>MDB2.isError</simple_name>
+        <signature>MDB2.isError($data;$code):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091723">
+        <simple_name>MDB2.isResult</simple_name>
+        <signature>MDB2.isResult($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091745">
+        <simple_name>MDB2.isResultCommon</simple_name>
+        <signature>MDB2.isResultCommon($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.isResultCommon</simple_name>
+        <signature>MDB2.isResultCommon():Variant</signature>
+      </method>
+      <method vuln_id="1091770">
+        <simple_name>MDB2.isStatement</simple_name>
+        <signature>MDB2.isStatement($value):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091778">
+        <simple_name>MDB2.loadClass</simple_name>
+        <signature>MDB2.loadClass($class_name;$debug):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091789">
+        <simple_name>MDB2.loadFile</simple_name>
+        <signature>MDB2.loadFile($file):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.loadFile</simple_name>
+        <signature>MDB2.loadFile():Variant</signature>
+      </method>
+      <method vuln_id="1091794">
+        <simple_name>MDB2.parseDSN</simple_name>
+        <signature>MDB2.parseDSN($dsn):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.raiseError</simple_name>
+        <signature>MDB2.raiseError($code;$mode;$options;$userinfo):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.raiseError</simple_name>
+        <signature>MDB2.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091738">
+        <simple_name>MDB2.setOptions</simple_name>
+        <signature>MDB2.setOptions($db;$options):mixed</signature>
+        <propagates_taint dst_param="1" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.singleton</simple_name>
+        <signature>MDB2.singleton($dsn;$options):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2.singleton</simple_name>
+        <signature>MDB2.singleton():Variant</signature>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpResponse">
+      <method vuln_id="1086811">
+        <simple_name>HttpResponse.capture</simple_name>
+        <signature>HttpResponse.capture():void</signature>
+        <info_rule id="453726"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Capture script output.</comment>
+      </method>
+      <method vuln_id="1086725">
+        <simple_name>HttpResponse.getBufferSize</simple_name>
+        <signature>HttpResponse.getBufferSize():int</signature>
+        <info_rule id="453607"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current buffer size</comment>
+      </method>
+      <method vuln_id="1086814">
+        <simple_name>HttpResponse.getCache</simple_name>
+        <signature>HttpResponse.getCache():bool</signature>
+        <info_rule id="453731"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current caching setting</comment>
+      </method>
+      <method vuln_id="1086801">
+        <simple_name>HttpResponse.getCacheControl</simple_name>
+        <signature>HttpResponse.getCacheControl():___Php.String</signature>
+        <info_rule id="453711"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current Cache-Control header setting</comment>
+      </method>
+      <method vuln_id="1086833">
+        <simple_name>HttpResponse.getContentDisposition</simple_name>
+        <signature>HttpResponse.getContentDisposition():___Php.String</signature>
+        <info_rule id="453761"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current Content-Disposition setting.</comment>
+      </method>
+      <method vuln_id="1086706">
+        <simple_name>HttpResponse.getContentType</simple_name>
+        <signature>HttpResponse.getContentType():___Php.String</signature>
+        <info_rule id="453581"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current Content-Type header setting</comment>
+      </method>
+      <method vuln_id="1086698">
+        <simple_name>HttpResponse.getData</simple_name>
+        <signature>HttpResponse.getData():___Php.String</signature>
+        <info_rule id="453567"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set data to be sent</comment>
+      </method>
+      <method vuln_id="1086851">
+        <simple_name>HttpResponse.getETag</simple_name>
+        <signature>HttpResponse.getETag():___Php.String</signature>
+        <info_rule id="453787"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get calculated or previously set custom ETag.</comment>
+      </method>
+      <method vuln_id="1086701">
+        <simple_name>HttpResponse.getFile</simple_name>
+        <signature>HttpResponse.getFile():___Php.String</signature>
+        <info_rule id="453572"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Get the previously set file to be sent.</comment>
+      </method>
+      <method vuln_id="1086722">
+        <simple_name>HttpResponse.getGzip</simple_name>
+        <signature>HttpResponse.getGzip():bool</signature>
+        <info_rule id="453603"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current gziping setting</comment>
+      </method>
+      <method vuln_id="1086762">
+        <simple_name>HttpResponse.getHeader</simple_name>
+        <signature>HttpResponse.getHeader(___Php.String):mixed</signature>
+        <info_rule id="453660"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get header(s):about to be sent</comment>
+      </method>
+      <method vuln_id="1086846">
+        <simple_name>HttpResponse.getLastModified</simple_name>
+        <signature>HttpResponse.getLastModified():int</signature>
+        <info_rule id="453780"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get calculated or previously set custom Last-Modified date.</comment>
+      </method>
+      <method vuln_id="1086768">
+        <simple_name>HttpResponse.getRequestBody</simple_name>
+        <signature>HttpResponse.getRequestBody():___Php.String</signature>
+        <info_rule id="453668"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_get_request_body().</comment>
+      </method>
+      <method vuln_id="1086763">
+        <simple_name>HttpResponse.getRequestBodyStream</simple_name>
+        <signature>HttpResponse.getRequestBodyStream():int</signature>
+        <info_rule id="453662"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_get_request_body_stream().</comment>
+      </method>
+      <method vuln_id="1086707">
+        <simple_name>HttpResponse.getRequestHeaders</simple_name>
+        <signature>HttpResponse.getRequestHeaders():___Php.Array</signature>
+        <info_rule id="453583"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_get_request_headers().</comment>
+      </method>
+      <method vuln_id="1086832">
+        <simple_name>HttpResponse.getStream</simple_name>
+        <signature>HttpResponse.getStream():int</signature>
+        <info_rule id="453760"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set resource to be sent.</comment>
+      </method>
+      <method vuln_id="1086733">
+        <simple_name>HttpResponse.getThrottleDelay</simple_name>
+        <signature>HttpResponse.getThrottleDelay():float</signature>
+        <info_rule id="453618"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the current throttle delay</comment>
+      </method>
+      <method vuln_id="1086769">
+        <simple_name>HttpResponse.guessContentType</simple_name>
+        <signature>HttpResponse.guessContentType(___Php.String;int):___Php.String</signature>
+        <info_rule id="453670"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Attempts to guess the content type of supplied payload through libmagic.</comment>
+      </method>
+      <method vuln_id="1086731">
+        <simple_name>HttpResponse.redirect</simple_name>
+        <signature>HttpResponse.redirect(___Php.String;___Php.Array;bool;int):void</signature>
+        <info_rule id="453616"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP.Redirect</property>
+        <comment>This function is an alias of: http_redirect().</comment>
+      </method>
+      <method vuln_id="1086799">
+        <simple_name>HttpResponse.send</simple_name>
+        <signature>HttpResponse.send(bool):bool</signature>
+        <info_rule id="453708"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Finally send the entity.</comment>
+      </method>
+      <method vuln_id="1086867">
+        <simple_name>HttpResponse.setBufferSize</simple_name>
+        <signature>HttpResponse.setBufferSize(int):bool</signature>
+        <info_rule id="453808"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Sets the send buffer size of the throttling mechanism</comment>
+      </method>
+      <method vuln_id="1086793">
+        <simple_name>HttpResponse.setCache</simple_name>
+        <signature>HttpResponse.setCache(bool):bool</signature>
+        <info_rule id="453700"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Whether it should be attempted to cache the entity</comment>
+      </method>
+      <method vuln_id="1086709">
+        <simple_name>HttpResponse.setCacheControl</simple_name>
+        <signature>HttpResponse.setCacheControl(___Php.String;int;bool):bool</signature>
+        <info_rule id="453586"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Define a custom Cache-Control header;usually being private or public;</comment>
+      </method>
+      <method vuln_id="1086711">
+        <simple_name>HttpResponse.setContentDisposition</simple_name>
+        <signature>HttpResponse.setContentDisposition(___Php.String;bool):bool</signature>
+        <info_rule id="453589"/>
+        <sink_rule id="474063">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Content-Disposition. The Content-Disposition header is very useful if the data actually sent came from a file or something similar;that should be "saved" by the client/user(i.e. by browsers "Save as.." popup window).</comment>
+      </method>
+      <method vuln_id="1086797">
+        <simple_name>HttpResponse.setContentType</simple_name>
+        <signature>HttpResponse.setContentType(___Php.String):bool</signature>
+        <info_rule id="453706"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Content-Type of the sent entity</comment>
+      </method>
+      <method vuln_id="1086741">
+        <simple_name>HttpResponse.setData</simple_name>
+        <signature>HttpResponse.setData(mixed):bool</signature>
+        <info_rule id="453631"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the data to be sent.</comment>
+      </method>
+      <method vuln_id="1086872">
+        <simple_name>HttpResponse.setETag</simple_name>
+        <signature>HttpResponse.setETag(___Php.String):bool</signature>
+        <info_rule id="453816"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set a custom ETag. Use this only if you know what youre doing.</comment>
+      </method>
+      <method vuln_id="1086723">
+        <simple_name>HttpResponse.setFile</simple_name>
+        <signature>HttpResponse.setFile(___Php.String):bool</signature>
+        <info_rule id="453605"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Set the file to be sent</comment>
+      </method>
+      <method vuln_id="1086863">
+        <simple_name>HttpResponse.setGzip</simple_name>
+        <signature>HttpResponse.setGzip(bool):bool</signature>
+        <info_rule id="453804"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Enable on-thy-fly gziping of the sent entity.</comment>
+      </method>
+      <method vuln_id="1086850">
+        <simple_name>HttpResponse.setHeader</simple_name>
+        <signature>HttpResponse.setHeader(___Php.String;mixed;bool):bool</signature>
+        <info_rule id="453786"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send an HTTP header</comment>
+      </method>
+      <method vuln_id="1086836">
+        <simple_name>HttpResponse.setLastModified</simple_name>
+        <signature>HttpResponse.setLastModified(int):bool</signature>
+        <info_rule id="453766"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set a custom Last-Modified date</comment>
+      </method>
+      <method vuln_id="1086761">
+        <simple_name>HttpResponse.setStream</simple_name>
+        <signature>HttpResponse.setStream(int):bool</signature>
+        <info_rule id="453659"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the resource to be sent</comment>
+      </method>
+      <method vuln_id="1086873">
+        <simple_name>HttpResponse.setThrottleDelay</simple_name>
+        <signature>HttpResponse.setThrottleDelay(float):bool</signature>
+        <info_rule id="453818"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Sets the throttle delay.</comment>
+      </method>
+      <method vuln_id="1086776">
+        <simple_name>HttpResponse.status</simple_name>
+        <signature>HttpResponse.status(int):bool</signature>
+        <info_rule id="453679"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_send_status().</comment>
+      </method>
+    </class>
+    <class name="HttpResponse">
+      <method vuln_id="1086811">
+        <simple_name>HttpResponse.capture</simple_name>
+        <signature>HttpResponse.capture():void</signature>
+        <info_rule id="453726"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Capture script output.</comment>
+      </method>
+      <method vuln_id="1086725">
+        <simple_name>HttpResponse.getBufferSize</simple_name>
+        <signature>HttpResponse.getBufferSize():int</signature>
+        <info_rule id="453607"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current buffer size</comment>
+      </method>
+      <method vuln_id="1086814">
+        <simple_name>HttpResponse.getCache</simple_name>
+        <signature>HttpResponse.getCache():bool</signature>
+        <info_rule id="453731"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current caching setting</comment>
+      </method>
+      <method vuln_id="1086801">
+        <simple_name>HttpResponse.getCacheControl</simple_name>
+        <signature>HttpResponse.getCacheControl():___Php.String</signature>
+        <info_rule id="453711"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current Cache-Control header setting</comment>
+      </method>
+      <method vuln_id="1086833">
+        <simple_name>HttpResponse.getContentDisposition</simple_name>
+        <signature>HttpResponse.getContentDisposition():___Php.String</signature>
+        <info_rule id="453761"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current Content-Disposition setting.</comment>
+      </method>
+      <method vuln_id="1086706">
+        <simple_name>HttpResponse.getContentType</simple_name>
+        <signature>HttpResponse.getContentType():___Php.String</signature>
+        <info_rule id="453581"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current Content-Type header setting</comment>
+      </method>
+      <method vuln_id="1086698">
+        <simple_name>HttpResponse.getData</simple_name>
+        <signature>HttpResponse.getData():___Php.String</signature>
+        <info_rule id="453567"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set data to be sent</comment>
+      </method>
+      <method vuln_id="1086851">
+        <simple_name>HttpResponse.getETag</simple_name>
+        <signature>HttpResponse.getETag():___Php.String</signature>
+        <info_rule id="453787"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get calculated or previously set custom ETag.</comment>
+      </method>
+      <method vuln_id="1086701">
+        <simple_name>HttpResponse.getFile</simple_name>
+        <signature>HttpResponse.getFile():___Php.String</signature>
+        <info_rule id="453572"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Get the previously set file to be sent.</comment>
+      </method>
+      <method vuln_id="1086722">
+        <simple_name>HttpResponse.getGzip</simple_name>
+        <signature>HttpResponse.getGzip():bool</signature>
+        <info_rule id="453603"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get current gziping setting</comment>
+      </method>
+      <method vuln_id="1086762">
+        <simple_name>HttpResponse.getHeader</simple_name>
+        <signature>HttpResponse.getHeader(___Php.String):mixed</signature>
+        <info_rule id="453660"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get header(s):about to be sent</comment>
+      </method>
+      <method vuln_id="1086846">
+        <simple_name>HttpResponse.getLastModified</simple_name>
+        <signature>HttpResponse.getLastModified():int</signature>
+        <info_rule id="453780"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get calculated or previously set custom Last-Modified date.</comment>
+      </method>
+      <method vuln_id="1086768">
+        <simple_name>HttpResponse.getRequestBody</simple_name>
+        <signature>HttpResponse.getRequestBody():___Php.String</signature>
+        <info_rule id="453668"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_get_request_body().</comment>
+      </method>
+      <method vuln_id="1086763">
+        <simple_name>HttpResponse.getRequestBodyStream</simple_name>
+        <signature>HttpResponse.getRequestBodyStream():int</signature>
+        <info_rule id="453662"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_get_request_body_stream().</comment>
+      </method>
+      <method vuln_id="1086707">
+        <simple_name>HttpResponse.getRequestHeaders</simple_name>
+        <signature>HttpResponse.getRequestHeaders():___Php.Array</signature>
+        <info_rule id="453583"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_get_request_headers().</comment>
+      </method>
+      <method vuln_id="1086832">
+        <simple_name>HttpResponse.getStream</simple_name>
+        <signature>HttpResponse.getStream():int</signature>
+        <info_rule id="453760"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set resource to be sent.</comment>
+      </method>
+      <method vuln_id="1086733">
+        <simple_name>HttpResponse.getThrottleDelay</simple_name>
+        <signature>HttpResponse.getThrottleDelay():float</signature>
+        <info_rule id="453618"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the current throttle delay</comment>
+      </method>
+      <method vuln_id="1086769">
+        <simple_name>HttpResponse.guessContentType</simple_name>
+        <signature>HttpResponse.guessContentType(___Php.String;int):___Php.String</signature>
+        <info_rule id="453670"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Attempts to guess the content type of supplied payload through libmagic.</comment>
+      </method>
+      <method vuln_id="1086731">
+        <simple_name>HttpResponse.redirect</simple_name>
+        <signature>HttpResponse.redirect(___Php.String;___Php.Array;bool;int):void</signature>
+        <info_rule id="453616"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP.Redirect</property>
+        <comment>This function is an alias of: http_redirect().</comment>
+      </method>
+      <method vuln_id="1086799">
+        <simple_name>HttpResponse.send</simple_name>
+        <signature>HttpResponse.send(bool):bool</signature>
+        <info_rule id="453708"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Finally send the entity.</comment>
+      </method>
+      <method vuln_id="1086867">
+        <simple_name>HttpResponse.setBufferSize</simple_name>
+        <signature>HttpResponse.setBufferSize(int):bool</signature>
+        <info_rule id="453808"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Sets the send buffer size of the throttling mechanism</comment>
+      </method>
+      <method vuln_id="1086793">
+        <simple_name>HttpResponse.setCache</simple_name>
+        <signature>HttpResponse.setCache(bool):bool</signature>
+        <info_rule id="453700"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Whether it should be attempted to cache the entity</comment>
+      </method>
+      <method vuln_id="1086709">
+        <simple_name>HttpResponse.setCacheControl</simple_name>
+        <signature>HttpResponse.setCacheControl(___Php.String;int;bool):bool</signature>
+        <info_rule id="453586"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Define a custom Cache-Control header;usually being private or public;</comment>
+      </method>
+      <method vuln_id="1086711">
+        <simple_name>HttpResponse.setContentDisposition</simple_name>
+        <signature>HttpResponse.setContentDisposition(___Php.String;bool):bool</signature>
+        <info_rule id="453589"/>
+        <sink_rule id="474063">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Content-Disposition. The Content-Disposition header is very useful if the data actually sent came from a file or something similar;that should be "saved" by the client/user(i.e. by browsers "Save as.." popup window).</comment>
+      </method>
+      <method vuln_id="1086797">
+        <simple_name>HttpResponse.setContentType</simple_name>
+        <signature>HttpResponse.setContentType(___Php.String):bool</signature>
+        <info_rule id="453706"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Content-Type of the sent entity</comment>
+      </method>
+      <method vuln_id="1086741">
+        <simple_name>HttpResponse.setData</simple_name>
+        <signature>HttpResponse.setData(mixed):bool</signature>
+        <info_rule id="453631"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the data to be sent.</comment>
+      </method>
+      <method vuln_id="1086872">
+        <simple_name>HttpResponse.setETag</simple_name>
+        <signature>HttpResponse.setETag(___Php.String):bool</signature>
+        <info_rule id="453816"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set a custom ETag. Use this only if you know what youre doing.</comment>
+      </method>
+      <method vuln_id="1086723">
+        <simple_name>HttpResponse.setFile</simple_name>
+        <signature>HttpResponse.setFile(___Php.String):bool</signature>
+        <info_rule id="453605"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Set the file to be sent</comment>
+      </method>
+      <method vuln_id="1086863">
+        <simple_name>HttpResponse.setGzip</simple_name>
+        <signature>HttpResponse.setGzip(bool):bool</signature>
+        <info_rule id="453804"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Enable on-thy-fly gziping of the sent entity.</comment>
+      </method>
+      <method vuln_id="1086850">
+        <simple_name>HttpResponse.setHeader</simple_name>
+        <signature>HttpResponse.setHeader(___Php.String;mixed;bool):bool</signature>
+        <info_rule id="453786"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send an HTTP header</comment>
+      </method>
+      <method vuln_id="1086836">
+        <simple_name>HttpResponse.setLastModified</simple_name>
+        <signature>HttpResponse.setLastModified(int):bool</signature>
+        <info_rule id="453766"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set a custom Last-Modified date</comment>
+      </method>
+      <method vuln_id="1086761">
+        <simple_name>HttpResponse.setStream</simple_name>
+        <signature>HttpResponse.setStream(int):bool</signature>
+        <info_rule id="453659"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the resource to be sent</comment>
+      </method>
+      <method vuln_id="1086873">
+        <simple_name>HttpResponse.setThrottleDelay</simple_name>
+        <signature>HttpResponse.setThrottleDelay(float):bool</signature>
+        <info_rule id="453818"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Sets the throttle delay.</comment>
+      </method>
+      <method vuln_id="1086776">
+        <simple_name>HttpResponse.status</simple_name>
+        <signature>HttpResponse.status(int):bool</signature>
+        <info_rule id="453679"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>This function is an alias of: http_send_status().</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

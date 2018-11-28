@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Registry">
+      <method vuln_id="1117915">
+        <simple_name>Zend_Registry.___Class_Initializer_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.___Class_Initializer_@__Registry_php_1():void</signature>
+        <info_rule id="470859"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117921">
+        <simple_name>Zend_Registry.__construct_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.__construct_@__Registry_php_1($array;$flags):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117923">
+        <simple_name>Zend_Registry._unsetInstance_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry._unsetInstance_@__Registry_php_1():Variant</signature>
+        <info_rule id="470868"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117922">
+        <simple_name>Zend_Registry.get</simple_name>
+        <signature>Zend_Registry.get(Arg#0):Variant</signature>
+        <info_rule id="470867"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117917">
+        <simple_name>Zend_Registry.getInstance</simple_name>
+        <signature>Zend_Registry.getInstance():Variant</signature>
+        <info_rule id="470861"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117919">
+        <simple_name>Zend_Registry.getInstance_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.getInstance_@__Registry_php_1():Variant</signature>
+        <info_rule id="470864"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117925">
+        <simple_name>Zend_Registry.get_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.get_@__Registry_php_1($index):Variant</signature>
+        <info_rule id="470871"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117928">
+        <simple_name>Zend_Registry.init_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.init_@__Registry_php_1():Variant</signature>
+        <info_rule id="470874"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117926">
+        <simple_name>Zend_Registry.isRegistered</simple_name>
+        <signature>Zend_Registry.isRegistered(Arg#0):Variant</signature>
+        <info_rule id="470872"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117927">
+        <simple_name>Zend_Registry.isRegistered_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.isRegistered_@__Registry_php_1($index):Variant</signature>
+        <info_rule id="470873"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117916">
+        <simple_name>Zend_Registry.offsetExists_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.offsetExists_@__Registry_php_1($index):Variant</signature>
+        <info_rule id="470860"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117920">
+        <simple_name>Zend_Registry.set</simple_name>
+        <signature>Zend_Registry.set(Arg#0;Arg#1):Variant</signature>
+        <info_rule id="470866"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.RegistryManipulation</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117918">
+        <simple_name>Zend_Registry.setClassName_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.setClassName_@__Registry_php_1($registryClassName):Variant</signature>
+        <info_rule id="470862"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.RegistryManipulation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117914">
+        <simple_name>Zend_Registry.setInstance_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.setInstance_@__Registry_php_1($registry):Variant</signature>
+        <info_rule id="470858"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117924">
+        <simple_name>Zend_Registry.set_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.set_@__Registry_php_1($index;$value):Variant</signature>
+        <info_rule id="470870"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.RegistryManipulation</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Registry">
+      <method vuln_id="1117915">
+        <simple_name>Zend_Registry.___Class_Initializer_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.___Class_Initializer_@__Registry_php_1():void</signature>
+        <info_rule id="470859"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117921">
+        <simple_name>Zend_Registry.__construct_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.__construct_@__Registry_php_1($array;$flags):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117923">
+        <simple_name>Zend_Registry._unsetInstance_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry._unsetInstance_@__Registry_php_1():Variant</signature>
+        <info_rule id="470868"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117922">
+        <simple_name>Zend_Registry.get</simple_name>
+        <signature>Zend_Registry.get(Arg#0):Variant</signature>
+        <info_rule id="470867"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117917">
+        <simple_name>Zend_Registry.getInstance</simple_name>
+        <signature>Zend_Registry.getInstance():Variant</signature>
+        <info_rule id="470861"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117919">
+        <simple_name>Zend_Registry.getInstance_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.getInstance_@__Registry_php_1():Variant</signature>
+        <info_rule id="470864"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117925">
+        <simple_name>Zend_Registry.get_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.get_@__Registry_php_1($index):Variant</signature>
+        <info_rule id="470871"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117928">
+        <simple_name>Zend_Registry.init_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.init_@__Registry_php_1():Variant</signature>
+        <info_rule id="470874"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117926">
+        <simple_name>Zend_Registry.isRegistered</simple_name>
+        <signature>Zend_Registry.isRegistered(Arg#0):Variant</signature>
+        <info_rule id="470872"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117927">
+        <simple_name>Zend_Registry.isRegistered_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.isRegistered_@__Registry_php_1($index):Variant</signature>
+        <info_rule id="470873"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117916">
+        <simple_name>Zend_Registry.offsetExists_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.offsetExists_@__Registry_php_1($index):Variant</signature>
+        <info_rule id="470860"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+      </method>
+      <method vuln_id="1117920">
+        <simple_name>Zend_Registry.set</simple_name>
+        <signature>Zend_Registry.set(Arg#0;Arg#1):Variant</signature>
+        <info_rule id="470866"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.RegistryManipulation</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117918">
+        <simple_name>Zend_Registry.setClassName_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.setClassName_@__Registry_php_1($registryClassName):Variant</signature>
+        <info_rule id="470862"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.RegistryManipulation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117914">
+        <simple_name>Zend_Registry.setInstance_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.setInstance_@__Registry_php_1($registry):Variant</signature>
+        <info_rule id="470858"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117924">
+        <simple_name>Zend_Registry.set_@__Registry_php_1</simple_name>
+        <signature>Zend_Registry.set_@__Registry_php_1($index;$value):Variant</signature>
+        <info_rule id="470870"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.RegistryManipulation</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.OperatingSystem.Registry</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

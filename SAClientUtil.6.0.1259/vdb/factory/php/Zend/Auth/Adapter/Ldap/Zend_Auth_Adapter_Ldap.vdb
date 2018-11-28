@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Auth_Adapter_Ldap">
+      <method vuln_id="1109061">
+        <simple_name>Zend_Auth_Adapter_Ldap.__construct_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.__construct_@__Auth_Adapter_Ldap_php_1($options;$username;$password):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109076">
+        <simple_name>Zend_Auth_Adapter_Ldap._checkGroupMembership_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap._checkGroupMembership_@__Auth_Adapter_Ldap_php_1($ldap;$canonicalName;$dn;$adapterOptions):Variant</signature>
+        <info_rule id="465744"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109035">
+        <simple_name>Zend_Auth_Adapter_Ldap._getAuthorityName_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap._getAuthorityName_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465699"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109106">
+        <simple_name>Zend_Auth_Adapter_Ldap._prepareOptions_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap._prepareOptions_@__Auth_Adapter_Ldap_php_1($ldap;$options):Variant</signature>
+        <info_rule id="465774"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109111">
+        <simple_name>Zend_Auth_Adapter_Ldap.authenticate_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.authenticate_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465780"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109023">
+        <simple_name>Zend_Auth_Adapter_Ldap.getAccountObject_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getAccountObject_@__Auth_Adapter_Ldap_php_1($returnAttribs;$omitAttribs):Variant</signature>
+        <info_rule id="465684"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109065">
+        <simple_name>Zend_Auth_Adapter_Ldap.getLdap_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getLdap_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465732"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109121">
+        <simple_name>Zend_Auth_Adapter_Ldap.getOptions_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getOptions_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465791"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109066">
+        <simple_name>Zend_Auth_Adapter_Ldap.getPassword_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getPassword_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465733"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109037">
+        <simple_name>Zend_Auth_Adapter_Ldap.getUsername_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getUsername_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465701"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109127">
+        <simple_name>Zend_Auth_Adapter_Ldap.setCredential_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setCredential_@__Auth_Adapter_Ldap_php_1($credential):Variant</signature>
+        <info_rule id="465798"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109125">
+        <simple_name>Zend_Auth_Adapter_Ldap.setIdentity_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setIdentity_@__Auth_Adapter_Ldap_php_1($identity):Variant</signature>
+        <info_rule id="465796"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109021">
+        <simple_name>Zend_Auth_Adapter_Ldap.setLdap_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setLdap_@__Auth_Adapter_Ldap_php_1($ldap):Variant</signature>
+        <info_rule id="465681"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109044">
+        <simple_name>Zend_Auth_Adapter_Ldap.setOptions_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setOptions_@__Auth_Adapter_Ldap_php_1($options):Variant</signature>
+        <info_rule id="465711"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109059">
+        <simple_name>Zend_Auth_Adapter_Ldap.setPassword_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setPassword_@__Auth_Adapter_Ldap_php_1($password):Variant</signature>
+        <info_rule id="465725"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109116">
+        <simple_name>Zend_Auth_Adapter_Ldap.setUsername_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setUsername_@__Auth_Adapter_Ldap_php_1($username):Variant</signature>
+        <info_rule id="465785"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Auth_Adapter_Ldap">
+      <method vuln_id="1109061">
+        <simple_name>Zend_Auth_Adapter_Ldap.__construct_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.__construct_@__Auth_Adapter_Ldap_php_1($options;$username;$password):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109076">
+        <simple_name>Zend_Auth_Adapter_Ldap._checkGroupMembership_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap._checkGroupMembership_@__Auth_Adapter_Ldap_php_1($ldap;$canonicalName;$dn;$adapterOptions):Variant</signature>
+        <info_rule id="465744"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109035">
+        <simple_name>Zend_Auth_Adapter_Ldap._getAuthorityName_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap._getAuthorityName_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465699"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109106">
+        <simple_name>Zend_Auth_Adapter_Ldap._prepareOptions_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap._prepareOptions_@__Auth_Adapter_Ldap_php_1($ldap;$options):Variant</signature>
+        <info_rule id="465774"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109111">
+        <simple_name>Zend_Auth_Adapter_Ldap.authenticate_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.authenticate_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465780"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+      </method>
+      <method vuln_id="1109023">
+        <simple_name>Zend_Auth_Adapter_Ldap.getAccountObject_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getAccountObject_@__Auth_Adapter_Ldap_php_1($returnAttribs;$omitAttribs):Variant</signature>
+        <info_rule id="465684"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109065">
+        <simple_name>Zend_Auth_Adapter_Ldap.getLdap_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getLdap_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465732"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109121">
+        <simple_name>Zend_Auth_Adapter_Ldap.getOptions_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getOptions_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465791"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109066">
+        <simple_name>Zend_Auth_Adapter_Ldap.getPassword_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getPassword_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465733"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109037">
+        <simple_name>Zend_Auth_Adapter_Ldap.getUsername_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.getUsername_@__Auth_Adapter_Ldap_php_1():Variant</signature>
+        <info_rule id="465701"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109127">
+        <simple_name>Zend_Auth_Adapter_Ldap.setCredential_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setCredential_@__Auth_Adapter_Ldap_php_1($credential):Variant</signature>
+        <info_rule id="465798"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109125">
+        <simple_name>Zend_Auth_Adapter_Ldap.setIdentity_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setIdentity_@__Auth_Adapter_Ldap_php_1($identity):Variant</signature>
+        <info_rule id="465796"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109021">
+        <simple_name>Zend_Auth_Adapter_Ldap.setLdap_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setLdap_@__Auth_Adapter_Ldap_php_1($ldap):Variant</signature>
+        <info_rule id="465681"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109044">
+        <simple_name>Zend_Auth_Adapter_Ldap.setOptions_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setOptions_@__Auth_Adapter_Ldap_php_1($options):Variant</signature>
+        <info_rule id="465711"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109059">
+        <simple_name>Zend_Auth_Adapter_Ldap.setPassword_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setPassword_@__Auth_Adapter_Ldap_php_1($password):Variant</signature>
+        <info_rule id="465725"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109116">
+        <simple_name>Zend_Auth_Adapter_Ldap.setUsername_@__Auth_Adapter_Ldap_php_1</simple_name>
+        <signature>Zend_Auth_Adapter_Ldap.setUsername_@__Auth_Adapter_Ldap_php_1($username):Variant</signature>
+        <info_rule id="465785"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.LDAP</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

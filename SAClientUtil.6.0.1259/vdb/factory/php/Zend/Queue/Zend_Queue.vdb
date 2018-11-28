@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Queue">
+      <method vuln_id="1117786">
+        <simple_name>Zend_Queue.__construct_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.__construct_@__Queue_php_1($spec;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117766">
+        <simple_name>Zend_Queue._setName_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue._setName_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470706"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117795">
+        <simple_name>Zend_Queue.count_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.count_@__Queue_php_1():Variant</signature>
+        <info_rule id="470738"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117688">
+        <simple_name>Zend_Queue.createQueue_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.createQueue_@__Queue_php_1($name;$timeout):Variant</signature>
+        <info_rule id="470620"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117746">
+        <simple_name>Zend_Queue.debugInfo_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.debugInfo_@__Queue_php_1():Variant</signature>
+        <info_rule id="470682"/>
+        <rule>
+          <ActionObject id="470681">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117774">
+        <simple_name>Zend_Queue.deleteMessage_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.deleteMessage_@__Queue_php_1($message):Variant</signature>
+        <info_rule id="470718"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117667">
+        <simple_name>Zend_Queue.deleteQueue_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.deleteQueue_@__Queue_php_1():Variant</signature>
+        <info_rule id="470595"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117633">
+        <simple_name>Zend_Queue.getAdapter_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getAdapter_@__Queue_php_1():Variant</signature>
+        <info_rule id="470558"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117720">
+        <simple_name>Zend_Queue.getCapabilities_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getCapabilities_@__Queue_php_1():Variant</signature>
+        <info_rule id="470650"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117636">
+        <simple_name>Zend_Queue.getMessageClass</simple_name>
+        <signature>Zend_Queue.getMessageClass():Variant</signature>
+        <info_rule id="470561"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117735">
+        <simple_name>Zend_Queue.getMessageClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getMessageClass_@__Queue_php_1():Variant</signature>
+        <info_rule id="470669"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117726">
+        <simple_name>Zend_Queue.getMessageSetClass</simple_name>
+        <signature>Zend_Queue.getMessageSetClass():Variant</signature>
+        <info_rule id="470658"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117659">
+        <simple_name>Zend_Queue.getMessageSetClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getMessageSetClass_@__Queue_php_1():Variant</signature>
+        <info_rule id="470586"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117674">
+        <simple_name>Zend_Queue.getName</simple_name>
+        <signature>Zend_Queue.getName():Variant</signature>
+        <info_rule id="470605"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117789">
+        <simple_name>Zend_Queue.getName_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getName_@__Queue_php_1():Variant</signature>
+        <info_rule id="470732"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117700">
+        <simple_name>Zend_Queue.getOption_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getOption_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470631"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117722">
+        <simple_name>Zend_Queue.getOptions_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getOptions_@__Queue_php_1():Variant</signature>
+        <info_rule id="470653"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117759">
+        <simple_name>Zend_Queue.getQueues_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getQueues_@__Queue_php_1():Variant</signature>
+        <info_rule id="470699"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117799">
+        <simple_name>Zend_Queue.hasOption_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.hasOption_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470742"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117828">
+        <simple_name>Zend_Queue.isSupported_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.isSupported_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470770"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117809">
+        <simple_name>Zend_Queue.receive_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.receive_@__Queue_php_1($maxMessages;$timeout):Variant</signature>
+        <info_rule id="470750"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117743">
+        <simple_name>Zend_Queue.send_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.send_@__Queue_php_1($message):Variant</signature>
+        <info_rule id="470677"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117813">
+        <simple_name>Zend_Queue.setAdapter_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setAdapter_@__Queue_php_1($adapter):Variant</signature>
+        <info_rule id="470756"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117705">
+        <simple_name>Zend_Queue.setMessageClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setMessageClass_@__Queue_php_1($className):Variant</signature>
+        <info_rule id="470637"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117661">
+        <simple_name>Zend_Queue.setMessageSetClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setMessageSetClass_@__Queue_php_1($className):Variant</signature>
+        <info_rule id="470588"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117806">
+        <simple_name>Zend_Queue.setOption_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setOption_@__Queue_php_1($name;$value):Variant</signature>
+        <info_rule id="470747"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117728">
+        <simple_name>Zend_Queue.setOptions_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setOptions_@__Queue_php_1($options):Variant</signature>
+        <info_rule id="470661"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Queue">
+      <method vuln_id="1117786">
+        <simple_name>Zend_Queue.__construct_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.__construct_@__Queue_php_1($spec;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117766">
+        <simple_name>Zend_Queue._setName_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue._setName_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470706"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117795">
+        <simple_name>Zend_Queue.count_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.count_@__Queue_php_1():Variant</signature>
+        <info_rule id="470738"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117688">
+        <simple_name>Zend_Queue.createQueue_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.createQueue_@__Queue_php_1($name;$timeout):Variant</signature>
+        <info_rule id="470620"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117746">
+        <simple_name>Zend_Queue.debugInfo_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.debugInfo_@__Queue_php_1():Variant</signature>
+        <info_rule id="470682"/>
+        <rule>
+          <ActionObject id="470681">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117774">
+        <simple_name>Zend_Queue.deleteMessage_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.deleteMessage_@__Queue_php_1($message):Variant</signature>
+        <info_rule id="470718"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117667">
+        <simple_name>Zend_Queue.deleteQueue_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.deleteQueue_@__Queue_php_1():Variant</signature>
+        <info_rule id="470595"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117633">
+        <simple_name>Zend_Queue.getAdapter_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getAdapter_@__Queue_php_1():Variant</signature>
+        <info_rule id="470558"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117720">
+        <simple_name>Zend_Queue.getCapabilities_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getCapabilities_@__Queue_php_1():Variant</signature>
+        <info_rule id="470650"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117636">
+        <simple_name>Zend_Queue.getMessageClass</simple_name>
+        <signature>Zend_Queue.getMessageClass():Variant</signature>
+        <info_rule id="470561"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117735">
+        <simple_name>Zend_Queue.getMessageClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getMessageClass_@__Queue_php_1():Variant</signature>
+        <info_rule id="470669"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117726">
+        <simple_name>Zend_Queue.getMessageSetClass</simple_name>
+        <signature>Zend_Queue.getMessageSetClass():Variant</signature>
+        <info_rule id="470658"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117659">
+        <simple_name>Zend_Queue.getMessageSetClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getMessageSetClass_@__Queue_php_1():Variant</signature>
+        <info_rule id="470586"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117674">
+        <simple_name>Zend_Queue.getName</simple_name>
+        <signature>Zend_Queue.getName():Variant</signature>
+        <info_rule id="470605"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117789">
+        <simple_name>Zend_Queue.getName_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getName_@__Queue_php_1():Variant</signature>
+        <info_rule id="470732"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117700">
+        <simple_name>Zend_Queue.getOption_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getOption_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470631"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117722">
+        <simple_name>Zend_Queue.getOptions_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getOptions_@__Queue_php_1():Variant</signature>
+        <info_rule id="470653"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117759">
+        <simple_name>Zend_Queue.getQueues_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.getQueues_@__Queue_php_1():Variant</signature>
+        <info_rule id="470699"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117799">
+        <simple_name>Zend_Queue.hasOption_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.hasOption_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470742"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117828">
+        <simple_name>Zend_Queue.isSupported_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.isSupported_@__Queue_php_1($name):Variant</signature>
+        <info_rule id="470770"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117809">
+        <simple_name>Zend_Queue.receive_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.receive_@__Queue_php_1($maxMessages;$timeout):Variant</signature>
+        <info_rule id="470750"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117743">
+        <simple_name>Zend_Queue.send_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.send_@__Queue_php_1($message):Variant</signature>
+        <info_rule id="470677"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117813">
+        <simple_name>Zend_Queue.setAdapter_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setAdapter_@__Queue_php_1($adapter):Variant</signature>
+        <info_rule id="470756"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117705">
+        <simple_name>Zend_Queue.setMessageClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setMessageClass_@__Queue_php_1($className):Variant</signature>
+        <info_rule id="470637"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117661">
+        <simple_name>Zend_Queue.setMessageSetClass_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setMessageSetClass_@__Queue_php_1($className):Variant</signature>
+        <info_rule id="470588"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117806">
+        <simple_name>Zend_Queue.setOption_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setOption_@__Queue_php_1($name;$value):Variant</signature>
+        <info_rule id="470747"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117728">
+        <simple_name>Zend_Queue.setOptions_@__Queue_php_1</simple_name>
+        <signature>Zend_Queue.setOptions_@__Queue_php_1($options):Variant</signature>
+        <info_rule id="470661"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

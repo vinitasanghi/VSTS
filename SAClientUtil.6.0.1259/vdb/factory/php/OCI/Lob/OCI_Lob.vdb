@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="OCI_Lob">
+      <method vuln_id="1087850">
+        <simple_name>___Php.OCI_Lob.append</simple_name>
+        <signature>___Php.OCI_Lob.append(___Php.OCI-Lob):bool</signature>
+        <info_rule id="455120"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Appends data from a LOB to another LOB</comment>
+      </method>
+      <method vuln_id="1087967">
+        <simple_name>___Php.OCI_Lob.close</simple_name>
+        <signature>___Php.OCI_Lob.close():bool</signature>
+        <info_rule id="455274"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Closes lob descriptor</comment>
+      </method>
+      <method vuln_id="1087981">
+        <simple_name>___Php.OCI_Lob.copy</simple_name>
+        <signature>___Php.OCI_Lob.copy(___Php.OCI-Lob;___Php.OCI-Lob;int):bool</signature>
+        <info_rule id="455291"/>
+        <propagates_taint dst_param="1" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>Copies data from a LOB to another LOB</comment>
+      </method>
+      <method vuln_id="1087977">
+        <simple_name>___Php.OCI_Lob.eof</simple_name>
+        <signature>___Php.OCI_Lob.eof():bool</signature>
+        <info_rule id="455286"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Checks if EOF is reached</comment>
+      </method>
+      <method vuln_id="1087937">
+        <simple_name>___Php.OCI_Lob.erase</simple_name>
+        <signature>___Php.OCI_Lob.erase(int;int):int</signature>
+        <info_rule id="455237"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Erases a specified portion of the internal LOB,starting at a specified offset</comment>
+      </method>
+      <method vuln_id="1087866">
+        <simple_name>___Php.OCI_Lob.export</simple_name>
+        <signature>___Php.OCI_Lob.export(___Php.String;int;int):bool</signature>
+        <info_rule id="455142"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Writes a large object into a file</comment>
+      </method>
+      <method vuln_id="1087971">
+        <simple_name>___Php.OCI_Lob.flush</simple_name>
+        <signature>___Php.OCI_Lob.flush(int):bool</signature>
+        <info_rule id="455278"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Flushes the LOB buffer</comment>
+      </method>
+      <method vuln_id="1087934">
+        <simple_name>___Php.OCI_Lob.free</simple_name>
+        <signature>___Php.OCI_Lob.free():bool</signature>
+        <info_rule id="455234"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Flushes the LOB buffer</comment>
+      </method>
+      <method vuln_id="1087939">
+        <simple_name>___Php.OCI_Lob.getBuffering</simple_name>
+        <signature>___Php.OCI_Lob.getBuffering():bool</signature>
+        <info_rule id="455239"/>
+        <property>Technology.Database</property>
+        <comment>Flushes the LOB buffer</comment>
+      </method>
+      <method vuln_id="1087869">
+        <simple_name>___Php.OCI_Lob.import</simple_name>
+        <signature>___Php.OCI_Lob.import(___Php.String):bool</signature>
+        <info_rule id="455146"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Loads file into a LOB</comment>
+      </method>
+      <method vuln_id="1087974">
+        <simple_name>___Php.OCI_Lob.is_equal</simple_name>
+        <signature>___Php.OCI_Lob.is_equal(object;object):bool</signature>
+        <info_rule id="455283"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Tests to see if two LOB/FILE locators are equal</comment>
+      </method>
+      <method vuln_id="1087970">
+        <simple_name>___Php.OCI_Lob.load</simple_name>
+        <signature>___Php.OCI_Lob.load():___Php.String</signature>
+        <info_rule id="455277"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Loads a large object</comment>
+      </method>
+      <method vuln_id="1087948">
+        <simple_name>___Php.OCI_Lob.read</simple_name>
+        <signature>___Php.OCI_Lob.read(int):___Php.String</signature>
+        <info_rule id="455248"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Reads particular part of a large object</comment>
+      </method>
+      <method vuln_id="1087943">
+        <simple_name>___Php.OCI_Lob.rewind</simple_name>
+        <signature>___Php.OCI_Lob.rewind():bool</signature>
+        <info_rule id="455243"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Rewind pointer of a LOB</comment>
+      </method>
+      <method vuln_id="1087940">
+        <simple_name>___Php.OCI_Lob.save</simple_name>
+        <signature>___Php.OCI_Lob.save(___Php.String;int):bool</signature>
+        <info_rule id="455240"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Saves a large object</comment>
+      </method>
+      <method vuln_id="1087893">
+        <simple_name>___Php.OCI_Lob.saveFile</simple_name>
+        <signature>___Php.OCI_Lob.saveFile(___Php.String):bool</signature>
+        <info_rule id="455175"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Alias of oci_lob_import()</comment>
+      </method>
+      <method vuln_id="1087964">
+        <simple_name>___Php.OCI_Lob.seek</simple_name>
+        <signature>___Php.OCI_Lob.seek(int;int):bool</signature>
+        <info_rule id="455271"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Moves the pointer of a LOB</comment>
+      </method>
+      <method vuln_id="1087859">
+        <simple_name>___Php.OCI_Lob.setBuffering</simple_name>
+        <signature>___Php.OCI_Lob.setBuffering(bool):bool</signature>
+        <info_rule id="455132"/>
+        <property>Technology.Database</property>
+        <comment>Moves the pointer of a LOB</comment>
+      </method>
+      <method vuln_id="1087927">
+        <simple_name>___Php.OCI_Lob.size</simple_name>
+        <signature>___Php.OCI_Lob.size():int</signature>
+        <info_rule id="455222"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns size of a large object</comment>
+      </method>
+      <method vuln_id="1087853">
+        <simple_name>___Php.OCI_Lob.tell</simple_name>
+        <signature>___Php.OCI_Lob.tell():int</signature>
+        <info_rule id="455123"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Tells LOB pointer position</comment>
+      </method>
+      <method vuln_id="1087860">
+        <simple_name>___Php.OCI_Lob.truncate</simple_name>
+        <signature>___Php.OCI_Lob.truncate(int):bool</signature>
+        <info_rule id="455133"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Truncates a LOB</comment>
+      </method>
+      <method vuln_id="1087919">
+        <simple_name>___Php.OCI_Lob.write</simple_name>
+        <signature>___Php.OCI_Lob.write(___Php.String;int):int</signature>
+        <info_rule id="455212"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Writes data to current position of a LOB</comment>
+      </method>
+      <method vuln_id="1087990">
+        <simple_name>___Php.OCI_Lob.writeToFile</simple_name>
+        <signature>___Php.OCI_Lob.writeToFile(___Php.String;int;int):bool</signature>
+        <info_rule id="455302"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Alias of OCI-Lob_export()</comment>
+      </method>
+      <method vuln_id="1087983">
+        <simple_name>___Php.OCI_Lob.write_temporary</simple_name>
+        <signature>___Php.OCI_Lob.write_temporary(___Php.String;int):bool</signature>
+        <info_rule id="455293"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Writes temporary blob</comment>
+      </method>
+    </class>
+    <class name="OCI_Lob">
+      <method vuln_id="1087850">
+        <simple_name>___Php.OCI_Lob.append</simple_name>
+        <signature>___Php.OCI_Lob.append(___Php.OCI-Lob):bool</signature>
+        <info_rule id="455120"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Appends data from a LOB to another LOB</comment>
+      </method>
+      <method vuln_id="1087967">
+        <simple_name>___Php.OCI_Lob.close</simple_name>
+        <signature>___Php.OCI_Lob.close():bool</signature>
+        <info_rule id="455274"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Closes lob descriptor</comment>
+      </method>
+      <method vuln_id="1087981">
+        <simple_name>___Php.OCI_Lob.copy</simple_name>
+        <signature>___Php.OCI_Lob.copy(___Php.OCI-Lob;___Php.OCI-Lob;int):bool</signature>
+        <info_rule id="455291"/>
+        <propagates_taint dst_param="1" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>Copies data from a LOB to another LOB</comment>
+      </method>
+      <method vuln_id="1087977">
+        <simple_name>___Php.OCI_Lob.eof</simple_name>
+        <signature>___Php.OCI_Lob.eof():bool</signature>
+        <info_rule id="455286"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Checks if EOF is reached</comment>
+      </method>
+      <method vuln_id="1087937">
+        <simple_name>___Php.OCI_Lob.erase</simple_name>
+        <signature>___Php.OCI_Lob.erase(int;int):int</signature>
+        <info_rule id="455237"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Erases a specified portion of the internal LOB,starting at a specified offset</comment>
+      </method>
+      <method vuln_id="1087866">
+        <simple_name>___Php.OCI_Lob.export</simple_name>
+        <signature>___Php.OCI_Lob.export(___Php.String;int;int):bool</signature>
+        <info_rule id="455142"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Writes a large object into a file</comment>
+      </method>
+      <method vuln_id="1087971">
+        <simple_name>___Php.OCI_Lob.flush</simple_name>
+        <signature>___Php.OCI_Lob.flush(int):bool</signature>
+        <info_rule id="455278"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Flushes the LOB buffer</comment>
+      </method>
+      <method vuln_id="1087934">
+        <simple_name>___Php.OCI_Lob.free</simple_name>
+        <signature>___Php.OCI_Lob.free():bool</signature>
+        <info_rule id="455234"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Flushes the LOB buffer</comment>
+      </method>
+      <method vuln_id="1087939">
+        <simple_name>___Php.OCI_Lob.getBuffering</simple_name>
+        <signature>___Php.OCI_Lob.getBuffering():bool</signature>
+        <info_rule id="455239"/>
+        <property>Technology.Database</property>
+        <comment>Flushes the LOB buffer</comment>
+      </method>
+      <method vuln_id="1087869">
+        <simple_name>___Php.OCI_Lob.import</simple_name>
+        <signature>___Php.OCI_Lob.import(___Php.String):bool</signature>
+        <info_rule id="455146"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Loads file into a LOB</comment>
+      </method>
+      <method vuln_id="1087974">
+        <simple_name>___Php.OCI_Lob.is_equal</simple_name>
+        <signature>___Php.OCI_Lob.is_equal(object;object):bool</signature>
+        <info_rule id="455283"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Tests to see if two LOB/FILE locators are equal</comment>
+      </method>
+      <method vuln_id="1087970">
+        <simple_name>___Php.OCI_Lob.load</simple_name>
+        <signature>___Php.OCI_Lob.load():___Php.String</signature>
+        <info_rule id="455277"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Loads a large object</comment>
+      </method>
+      <method vuln_id="1087948">
+        <simple_name>___Php.OCI_Lob.read</simple_name>
+        <signature>___Php.OCI_Lob.read(int):___Php.String</signature>
+        <info_rule id="455248"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Reads particular part of a large object</comment>
+      </method>
+      <method vuln_id="1087943">
+        <simple_name>___Php.OCI_Lob.rewind</simple_name>
+        <signature>___Php.OCI_Lob.rewind():bool</signature>
+        <info_rule id="455243"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Rewind pointer of a LOB</comment>
+      </method>
+      <method vuln_id="1087940">
+        <simple_name>___Php.OCI_Lob.save</simple_name>
+        <signature>___Php.OCI_Lob.save(___Php.String;int):bool</signature>
+        <info_rule id="455240"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Saves a large object</comment>
+      </method>
+      <method vuln_id="1087893">
+        <simple_name>___Php.OCI_Lob.saveFile</simple_name>
+        <signature>___Php.OCI_Lob.saveFile(___Php.String):bool</signature>
+        <info_rule id="455175"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Alias of oci_lob_import()</comment>
+      </method>
+      <method vuln_id="1087964">
+        <simple_name>___Php.OCI_Lob.seek</simple_name>
+        <signature>___Php.OCI_Lob.seek(int;int):bool</signature>
+        <info_rule id="455271"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Moves the pointer of a LOB</comment>
+      </method>
+      <method vuln_id="1087859">
+        <simple_name>___Php.OCI_Lob.setBuffering</simple_name>
+        <signature>___Php.OCI_Lob.setBuffering(bool):bool</signature>
+        <info_rule id="455132"/>
+        <property>Technology.Database</property>
+        <comment>Moves the pointer of a LOB</comment>
+      </method>
+      <method vuln_id="1087927">
+        <simple_name>___Php.OCI_Lob.size</simple_name>
+        <signature>___Php.OCI_Lob.size():int</signature>
+        <info_rule id="455222"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns size of a large object</comment>
+      </method>
+      <method vuln_id="1087853">
+        <simple_name>___Php.OCI_Lob.tell</simple_name>
+        <signature>___Php.OCI_Lob.tell():int</signature>
+        <info_rule id="455123"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Tells LOB pointer position</comment>
+      </method>
+      <method vuln_id="1087860">
+        <simple_name>___Php.OCI_Lob.truncate</simple_name>
+        <signature>___Php.OCI_Lob.truncate(int):bool</signature>
+        <info_rule id="455133"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Truncates a LOB</comment>
+      </method>
+      <method vuln_id="1087919">
+        <simple_name>___Php.OCI_Lob.write</simple_name>
+        <signature>___Php.OCI_Lob.write(___Php.String;int):int</signature>
+        <info_rule id="455212"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Writes data to current position of a LOB</comment>
+      </method>
+      <method vuln_id="1087990">
+        <simple_name>___Php.OCI_Lob.writeToFile</simple_name>
+        <signature>___Php.OCI_Lob.writeToFile(___Php.String;int;int):bool</signature>
+        <info_rule id="455302"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Alias of OCI-Lob_export()</comment>
+      </method>
+      <method vuln_id="1087983">
+        <simple_name>___Php.OCI_Lob.write_temporary</simple_name>
+        <signature>___Php.OCI_Lob.write_temporary(___Php.String;int):bool</signature>
+        <info_rule id="455293"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Writes temporary blob</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Uri_Http">
+      <method vuln_id="1121221">
+        <simple_name>Zend_Uri_Http.__construct_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.__construct_@__Uri_Http_php_1($scheme;$schemeSpecific):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1121200">
+        <simple_name>Zend_Uri_Http._parseUri_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http._parseUri_@__Uri_Http_php_1($schemeSpecific):Variant</signature>
+        <info_rule id="472886"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1121220">
+        <simple_name>Zend_Uri_Http.addReplaceQueryParameters_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.addReplaceQueryParameters_@__Uri_Http_php_1($queryParams):Variant</signature>
+        <info_rule id="472912"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121198">
+        <simple_name>Zend_Uri_Http.fromString_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.fromString_@__Uri_Http_php_1($uri):Variant</signature>
+        <info_rule id="472883"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121196">
+        <simple_name>Zend_Uri_Http.getFragment_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getFragment_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472880"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121218">
+        <simple_name>Zend_Uri_Http.getHost_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getHost_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472909"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121219">
+        <simple_name>Zend_Uri_Http.getPassword_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getPassword_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472910"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121213">
+        <simple_name>Zend_Uri_Http.getPath_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getPath_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472904"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121188">
+        <simple_name>Zend_Uri_Http.getPort_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getPort_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472871"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121192">
+        <simple_name>Zend_Uri_Http.getQueryAsArray_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getQueryAsArray_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472875"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121199">
+        <simple_name>Zend_Uri_Http.getQuery_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getQuery_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472884"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121208">
+        <simple_name>Zend_Uri_Http.getUri_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getUri_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472897"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121223">
+        <simple_name>Zend_Uri_Http.getUsername_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getUsername_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472915"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121189">
+        <simple_name>Zend_Uri_Http.removeQueryParameters_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.removeQueryParameters_@__Uri_Http_php_1($queryParamKeys):Variant</signature>
+        <info_rule id="472872"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121210">
+        <simple_name>Zend_Uri_Http.setFragment_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setFragment_@__Uri_Http_php_1($fragment):Variant</signature>
+        <info_rule id="472900"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121201">
+        <simple_name>Zend_Uri_Http.setHost_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setHost_@__Uri_Http_php_1($host):Variant</signature>
+        <info_rule id="472887"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121203">
+        <simple_name>Zend_Uri_Http.setPassword_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setPassword_@__Uri_Http_php_1($password):Variant</signature>
+        <info_rule id="472892"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472891">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121217">
+        <simple_name>Zend_Uri_Http.setPath_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setPath_@__Uri_Http_php_1($path):Variant</signature>
+        <info_rule id="472908"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121205">
+        <simple_name>Zend_Uri_Http.setPort_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setPort_@__Uri_Http_php_1($port):Variant</signature>
+        <info_rule id="472894"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121202">
+        <simple_name>Zend_Uri_Http.setQuery_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setQuery_@__Uri_Http_php_1($query):Variant</signature>
+        <info_rule id="472888"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121186">
+        <simple_name>Zend_Uri_Http.setUsername_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setUsername_@__Uri_Http_php_1($username):Variant</signature>
+        <info_rule id="472869"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472868">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121194">
+        <simple_name>Zend_Uri_Http.valid_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.valid_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472878"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121197">
+        <simple_name>Zend_Uri_Http.validateFragment_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateFragment_@__Uri_Http_php_1($fragment):Variant</signature>
+        <info_rule id="472882"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121191">
+        <simple_name>Zend_Uri_Http.validateHost_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateHost_@__Uri_Http_php_1($host):Variant</signature>
+        <info_rule id="472874"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121195">
+        <simple_name>Zend_Uri_Http.validatePassword_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validatePassword_@__Uri_Http_php_1($password):Variant</signature>
+        <info_rule id="472879"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121204">
+        <simple_name>Zend_Uri_Http.validatePath_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validatePath_@__Uri_Http_php_1($path):Variant</signature>
+        <info_rule id="472893"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121214">
+        <simple_name>Zend_Uri_Http.validatePort_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validatePort_@__Uri_Http_php_1($port):Variant</signature>
+        <info_rule id="472905"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121190">
+        <simple_name>Zend_Uri_Http.validateQuery_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateQuery_@__Uri_Http_php_1($query):Variant</signature>
+        <info_rule id="472873"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121193">
+        <simple_name>Zend_Uri_Http.validateUsername_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateUsername_@__Uri_Http_php_1($username):Variant</signature>
+        <info_rule id="472877"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Uri_Http">
+      <method vuln_id="1121221">
+        <simple_name>Zend_Uri_Http.__construct_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.__construct_@__Uri_Http_php_1($scheme;$schemeSpecific):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1121200">
+        <simple_name>Zend_Uri_Http._parseUri_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http._parseUri_@__Uri_Http_php_1($schemeSpecific):Variant</signature>
+        <info_rule id="472886"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1121220">
+        <simple_name>Zend_Uri_Http.addReplaceQueryParameters_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.addReplaceQueryParameters_@__Uri_Http_php_1($queryParams):Variant</signature>
+        <info_rule id="472912"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121198">
+        <simple_name>Zend_Uri_Http.fromString_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.fromString_@__Uri_Http_php_1($uri):Variant</signature>
+        <info_rule id="472883"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121196">
+        <simple_name>Zend_Uri_Http.getFragment_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getFragment_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472880"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121218">
+        <simple_name>Zend_Uri_Http.getHost_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getHost_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472909"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121219">
+        <simple_name>Zend_Uri_Http.getPassword_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getPassword_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472910"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121213">
+        <simple_name>Zend_Uri_Http.getPath_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getPath_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472904"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121188">
+        <simple_name>Zend_Uri_Http.getPort_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getPort_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472871"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121192">
+        <simple_name>Zend_Uri_Http.getQueryAsArray_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getQueryAsArray_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472875"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121199">
+        <simple_name>Zend_Uri_Http.getQuery_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getQuery_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472884"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121208">
+        <simple_name>Zend_Uri_Http.getUri_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getUri_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472897"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121223">
+        <simple_name>Zend_Uri_Http.getUsername_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.getUsername_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472915"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121189">
+        <simple_name>Zend_Uri_Http.removeQueryParameters_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.removeQueryParameters_@__Uri_Http_php_1($queryParamKeys):Variant</signature>
+        <info_rule id="472872"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121210">
+        <simple_name>Zend_Uri_Http.setFragment_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setFragment_@__Uri_Http_php_1($fragment):Variant</signature>
+        <info_rule id="472900"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121201">
+        <simple_name>Zend_Uri_Http.setHost_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setHost_@__Uri_Http_php_1($host):Variant</signature>
+        <info_rule id="472887"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121203">
+        <simple_name>Zend_Uri_Http.setPassword_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setPassword_@__Uri_Http_php_1($password):Variant</signature>
+        <info_rule id="472892"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472891">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121217">
+        <simple_name>Zend_Uri_Http.setPath_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setPath_@__Uri_Http_php_1($path):Variant</signature>
+        <info_rule id="472908"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121205">
+        <simple_name>Zend_Uri_Http.setPort_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setPort_@__Uri_Http_php_1($port):Variant</signature>
+        <info_rule id="472894"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121202">
+        <simple_name>Zend_Uri_Http.setQuery_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setQuery_@__Uri_Http_php_1($query):Variant</signature>
+        <info_rule id="472888"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121186">
+        <simple_name>Zend_Uri_Http.setUsername_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.setUsername_@__Uri_Http_php_1($username):Variant</signature>
+        <info_rule id="472869"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472868">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1121194">
+        <simple_name>Zend_Uri_Http.valid_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.valid_@__Uri_Http_php_1():Variant</signature>
+        <info_rule id="472878"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121197">
+        <simple_name>Zend_Uri_Http.validateFragment_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateFragment_@__Uri_Http_php_1($fragment):Variant</signature>
+        <info_rule id="472882"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121191">
+        <simple_name>Zend_Uri_Http.validateHost_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateHost_@__Uri_Http_php_1($host):Variant</signature>
+        <info_rule id="472874"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121195">
+        <simple_name>Zend_Uri_Http.validatePassword_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validatePassword_@__Uri_Http_php_1($password):Variant</signature>
+        <info_rule id="472879"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121204">
+        <simple_name>Zend_Uri_Http.validatePath_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validatePath_@__Uri_Http_php_1($path):Variant</signature>
+        <info_rule id="472893"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121214">
+        <simple_name>Zend_Uri_Http.validatePort_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validatePort_@__Uri_Http_php_1($port):Variant</signature>
+        <info_rule id="472905"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121190">
+        <simple_name>Zend_Uri_Http.validateQuery_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateQuery_@__Uri_Http_php_1($query):Variant</signature>
+        <info_rule id="472873"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1121193">
+        <simple_name>Zend_Uri_Http.validateUsername_@__Uri_Http_php_1</simple_name>
+        <signature>Zend_Uri_Http.validateUsername_@__Uri_Http_php_1($username):Variant</signature>
+        <info_rule id="472877"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_oci8">
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.DB_common</simple_name>
+        <signature>DB_oci8.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.DB_oci8</simple_name>
+        <signature>DB_oci8.DB_oci8():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8._checkManip</simple_name>
+        <signature>DB_oci8._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_oci8._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8._rtrimArrayValues</simple_name>
+        <signature>DB_oci8._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090799">
+        <simple_name>DB_oci8.affectedRows</simple_name>
+        <signature>DB_oci8.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090780">
+        <simple_name>DB_oci8.autoCommit</simple_name>
+        <signature>DB_oci8.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090784">
+        <simple_name>DB_oci8.commit</simple_name>
+        <signature>DB_oci8.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090795">
+        <simple_name>DB_oci8.connect</simple_name>
+        <signature>DB_oci8.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451123">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090777">
+        <simple_name>DB_oci8.createSequence</simple_name>
+        <signature>DB_oci8.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090774">
+        <simple_name>DB_oci8.disconnect</simple_name>
+        <signature>DB_oci8.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090791">
+        <simple_name>DB_oci8.dropSequence</simple_name>
+        <signature>DB_oci8.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090772">
+        <simple_name>DB_oci8.errorCode</simple_name>
+        <signature>DB_oci8.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451113">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090787">
+        <simple_name>DB_oci8.errorNative</simple_name>
+        <signature>DB_oci8.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451119">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090785">
+        <simple_name>DB_oci8.escapeSimple</simple_name>
+        <signature>DB_oci8.escapeSimple():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090790">
+        <simple_name>DB_oci8.execute</simple_name>
+        <signature>DB_oci8.execute($stmt;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.expectError</simple_name>
+        <signature>DB_oci8.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090793">
+        <simple_name>DB_oci8.fetchInto</simple_name>
+        <signature>DB_oci8.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480728"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090783">
+        <simple_name>DB_oci8.freePrepared</simple_name>
+        <signature>DB_oci8.freePrepared($stmt;$free_resource):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090788">
+        <simple_name>DB_oci8.freeResult</simple_name>
+        <signature>DB_oci8.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090779">
+        <simple_name>DB_oci8.getSequenceName</simple_name>
+        <signature>DB_oci8.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090800">
+        <simple_name>DB_oci8.getSpecialQuery</simple_name>
+        <signature>DB_oci8.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090775">
+        <simple_name>DB_oci8.modifyLimitQuery</simple_name>
+        <signature>DB_oci8.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090794">
+        <simple_name>DB_oci8.modifyQuery</simple_name>
+        <signature>DB_oci8.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090792">
+        <simple_name>DB_oci8.nextId</simple_name>
+        <signature>DB_oci8.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090789">
+        <simple_name>DB_oci8.nextResult</simple_name>
+        <signature>DB_oci8.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090776">
+        <simple_name>DB_oci8.numCols</simple_name>
+        <signature>DB_oci8.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090796">
+        <simple_name>DB_oci8.numRows</simple_name>
+        <signature>DB_oci8.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.oci8RaiseError</simple_name>
+        <signature>DB_oci8.oci8RaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.popExpect</simple_name>
+        <signature>DB_oci8.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090781">
+        <simple_name>DB_oci8.prepare</simple_name>
+        <signature>DB_oci8.prepare($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090773">
+        <simple_name>DB_oci8.query</simple_name>
+        <signature>DB_oci8.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090782">
+        <simple_name>DB_oci8.quoteFloat</simple_name>
+        <signature>DB_oci8.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090778">
+        <simple_name>DB_oci8.quoteSmart</simple_name>
+        <signature>DB_oci8.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.raiseError</simple_name>
+        <signature>DB_oci8.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090798">
+        <simple_name>DB_oci8.rollback</simple_name>
+        <signature>DB_oci8.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090786">
+        <simple_name>DB_oci8.simpleQuery</simple_name>
+        <signature>DB_oci8.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090797">
+        <simple_name>DB_oci8.tableInfo</simple_name>
+        <signature>DB_oci8.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_oci8">
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.DB_common</simple_name>
+        <signature>DB_oci8.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.DB_oci8</simple_name>
+        <signature>DB_oci8.DB_oci8():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8._checkManip</simple_name>
+        <signature>DB_oci8._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_oci8._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8._rtrimArrayValues</simple_name>
+        <signature>DB_oci8._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090799">
+        <simple_name>DB_oci8.affectedRows</simple_name>
+        <signature>DB_oci8.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090780">
+        <simple_name>DB_oci8.autoCommit</simple_name>
+        <signature>DB_oci8.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090784">
+        <simple_name>DB_oci8.commit</simple_name>
+        <signature>DB_oci8.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090795">
+        <simple_name>DB_oci8.connect</simple_name>
+        <signature>DB_oci8.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451123">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090777">
+        <simple_name>DB_oci8.createSequence</simple_name>
+        <signature>DB_oci8.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090774">
+        <simple_name>DB_oci8.disconnect</simple_name>
+        <signature>DB_oci8.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090791">
+        <simple_name>DB_oci8.dropSequence</simple_name>
+        <signature>DB_oci8.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090772">
+        <simple_name>DB_oci8.errorCode</simple_name>
+        <signature>DB_oci8.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451113">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090787">
+        <simple_name>DB_oci8.errorNative</simple_name>
+        <signature>DB_oci8.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451119">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090785">
+        <simple_name>DB_oci8.escapeSimple</simple_name>
+        <signature>DB_oci8.escapeSimple():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090790">
+        <simple_name>DB_oci8.execute</simple_name>
+        <signature>DB_oci8.execute($stmt;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We will have reported a sql injection when stmt got tainted so we don't do so here. We do want to flag tainted data being put into the VDB</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.expectError</simple_name>
+        <signature>DB_oci8.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090793">
+        <simple_name>DB_oci8.fetchInto</simple_name>
+        <signature>DB_oci8.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480728"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090783">
+        <simple_name>DB_oci8.freePrepared</simple_name>
+        <signature>DB_oci8.freePrepared($stmt;$free_resource):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090788">
+        <simple_name>DB_oci8.freeResult</simple_name>
+        <signature>DB_oci8.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090779">
+        <simple_name>DB_oci8.getSequenceName</simple_name>
+        <signature>DB_oci8.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090800">
+        <simple_name>DB_oci8.getSpecialQuery</simple_name>
+        <signature>DB_oci8.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090775">
+        <simple_name>DB_oci8.modifyLimitQuery</simple_name>
+        <signature>DB_oci8.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090794">
+        <simple_name>DB_oci8.modifyQuery</simple_name>
+        <signature>DB_oci8.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090792">
+        <simple_name>DB_oci8.nextId</simple_name>
+        <signature>DB_oci8.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090789">
+        <simple_name>DB_oci8.nextResult</simple_name>
+        <signature>DB_oci8.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090776">
+        <simple_name>DB_oci8.numCols</simple_name>
+        <signature>DB_oci8.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090796">
+        <simple_name>DB_oci8.numRows</simple_name>
+        <signature>DB_oci8.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.oci8RaiseError</simple_name>
+        <signature>DB_oci8.oci8RaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.popExpect</simple_name>
+        <signature>DB_oci8.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090781">
+        <simple_name>DB_oci8.prepare</simple_name>
+        <signature>DB_oci8.prepare($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090773">
+        <simple_name>DB_oci8.query</simple_name>
+        <signature>DB_oci8.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090782">
+        <simple_name>DB_oci8.quoteFloat</simple_name>
+        <signature>DB_oci8.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090778">
+        <simple_name>DB_oci8.quoteSmart</simple_name>
+        <signature>DB_oci8.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_oci8.raiseError</simple_name>
+        <signature>DB_oci8.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090798">
+        <simple_name>DB_oci8.rollback</simple_name>
+        <signature>DB_oci8.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090786">
+        <simple_name>DB_oci8.simpleQuery</simple_name>
+        <signature>DB_oci8.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090797">
+        <simple_name>DB_oci8.tableInfo</simple_name>
+        <signature>DB_oci8.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

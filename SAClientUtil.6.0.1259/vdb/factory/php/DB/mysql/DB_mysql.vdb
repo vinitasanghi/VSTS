@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_mysql">
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.DB_common</simple_name>
+        <signature>DB_mysql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.DB_mysql</simple_name>
+        <signature>DB_mysql.DB_mysql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._BCsequence</simple_name>
+        <signature>DB_mysql._BCsequence($seqname):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._checkManip</simple_name>
+        <signature>DB_mysql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_mysql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._rtrimArrayValues</simple_name>
+        <signature>DB_mysql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090720">
+        <simple_name>DB_mysql.affectedRows</simple_name>
+        <signature>DB_mysql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090741">
+        <simple_name>DB_mysql.autoCommit</simple_name>
+        <signature>DB_mysql.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090732">
+        <simple_name>DB_mysql.commit</simple_name>
+        <signature>DB_mysql.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090719">
+        <simple_name>DB_mysql.connect</simple_name>
+        <signature>DB_mysql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451090">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090718">
+        <simple_name>DB_mysql.createSequence</simple_name>
+        <signature>DB_mysql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090740">
+        <simple_name>DB_mysql.disconnect</simple_name>
+        <signature>DB_mysql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090743">
+        <simple_name>DB_mysql.dropSequence</simple_name>
+        <signature>DB_mysql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090722">
+        <simple_name>DB_mysql.errorCode</simple_name>
+        <signature>DB_mysql.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451091">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090723">
+        <simple_name>DB_mysql.errorNative</simple_name>
+        <signature>DB_mysql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451092">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090730">
+        <simple_name>DB_mysql.escapeSimple</simple_name>
+        <signature>DB_mysql.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090725">
+        <simple_name>DB_mysql.fetchInto</simple_name>
+        <signature>DB_mysql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480725"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090733">
+        <simple_name>DB_mysql.freeResult</simple_name>
+        <signature>DB_mysql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090728">
+        <simple_name>DB_mysql.getOne</simple_name>
+        <signature>DB_mysql.getOne():Variant</signature>
+        <info_rule id="480724"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090735">
+        <simple_name>DB_mysql.getSequenceName</simple_name>
+        <signature>DB_mysql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090724">
+        <simple_name>DB_mysql.getSpecialQuery</simple_name>
+        <signature>DB_mysql.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090726">
+        <simple_name>DB_mysql.modifyLimitQuery</simple_name>
+        <signature>DB_mysql.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090721">
+        <simple_name>DB_mysql.modifyQuery</simple_name>
+        <signature>DB_mysql.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.mysqlRaiseError</simple_name>
+        <signature>DB_mysql.mysqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090736">
+        <simple_name>DB_mysql.nextId</simple_name>
+        <signature>DB_mysql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090738">
+        <simple_name>DB_mysql.nextResult</simple_name>
+        <signature>DB_mysql.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090742">
+        <simple_name>DB_mysql.numCols</simple_name>
+        <signature>DB_mysql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090729">
+        <simple_name>DB_mysql.numRows</simple_name>
+        <signature>DB_mysql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.popErrorHandling</simple_name>
+        <signature>DB_mysql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.pushErrorHandling</simple_name>
+        <signature>DB_mysql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090739">
+        <simple_name>DB_mysql.query</simple_name>
+        <signature>DB_mysql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090731">
+        <simple_name>DB_mysql.quote</simple_name>
+        <signature>DB_mysql.quote($str):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090734">
+        <simple_name>DB_mysql.quoteIdentifier</simple_name>
+        <signature>DB_mysql.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090717">
+        <simple_name>DB_mysql.quoteSmart</simple_name>
+        <signature>DB_mysql.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.raiseError</simple_name>
+        <signature>DB_mysql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090727">
+        <simple_name>DB_mysql.rollback</simple_name>
+        <signature>DB_mysql.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090737">
+        <simple_name>DB_mysql.simpleQuery</simple_name>
+        <signature>DB_mysql.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090744">
+        <simple_name>DB_mysql.tableInfo</simple_name>
+        <signature>DB_mysql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_mysql">
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.DB_common</simple_name>
+        <signature>DB_mysql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.DB_mysql</simple_name>
+        <signature>DB_mysql.DB_mysql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._BCsequence</simple_name>
+        <signature>DB_mysql._BCsequence($seqname):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._checkManip</simple_name>
+        <signature>DB_mysql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_mysql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql._rtrimArrayValues</simple_name>
+        <signature>DB_mysql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090720">
+        <simple_name>DB_mysql.affectedRows</simple_name>
+        <signature>DB_mysql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090741">
+        <simple_name>DB_mysql.autoCommit</simple_name>
+        <signature>DB_mysql.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090732">
+        <simple_name>DB_mysql.commit</simple_name>
+        <signature>DB_mysql.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090719">
+        <simple_name>DB_mysql.connect</simple_name>
+        <signature>DB_mysql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451090">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090718">
+        <simple_name>DB_mysql.createSequence</simple_name>
+        <signature>DB_mysql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090740">
+        <simple_name>DB_mysql.disconnect</simple_name>
+        <signature>DB_mysql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090743">
+        <simple_name>DB_mysql.dropSequence</simple_name>
+        <signature>DB_mysql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090722">
+        <simple_name>DB_mysql.errorCode</simple_name>
+        <signature>DB_mysql.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451091">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090723">
+        <simple_name>DB_mysql.errorNative</simple_name>
+        <signature>DB_mysql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451092">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090730">
+        <simple_name>DB_mysql.escapeSimple</simple_name>
+        <signature>DB_mysql.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090725">
+        <simple_name>DB_mysql.fetchInto</simple_name>
+        <signature>DB_mysql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480725"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090733">
+        <simple_name>DB_mysql.freeResult</simple_name>
+        <signature>DB_mysql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090728">
+        <simple_name>DB_mysql.getOne</simple_name>
+        <signature>DB_mysql.getOne():Variant</signature>
+        <info_rule id="480724"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090735">
+        <simple_name>DB_mysql.getSequenceName</simple_name>
+        <signature>DB_mysql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090724">
+        <simple_name>DB_mysql.getSpecialQuery</simple_name>
+        <signature>DB_mysql.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090726">
+        <simple_name>DB_mysql.modifyLimitQuery</simple_name>
+        <signature>DB_mysql.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090721">
+        <simple_name>DB_mysql.modifyQuery</simple_name>
+        <signature>DB_mysql.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.mysqlRaiseError</simple_name>
+        <signature>DB_mysql.mysqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090736">
+        <simple_name>DB_mysql.nextId</simple_name>
+        <signature>DB_mysql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090738">
+        <simple_name>DB_mysql.nextResult</simple_name>
+        <signature>DB_mysql.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090742">
+        <simple_name>DB_mysql.numCols</simple_name>
+        <signature>DB_mysql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090729">
+        <simple_name>DB_mysql.numRows</simple_name>
+        <signature>DB_mysql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.popErrorHandling</simple_name>
+        <signature>DB_mysql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.pushErrorHandling</simple_name>
+        <signature>DB_mysql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090739">
+        <simple_name>DB_mysql.query</simple_name>
+        <signature>DB_mysql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090731">
+        <simple_name>DB_mysql.quote</simple_name>
+        <signature>DB_mysql.quote($str):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090734">
+        <simple_name>DB_mysql.quoteIdentifier</simple_name>
+        <signature>DB_mysql.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090717">
+        <simple_name>DB_mysql.quoteSmart</simple_name>
+        <signature>DB_mysql.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_mysql.raiseError</simple_name>
+        <signature>DB_mysql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090727">
+        <simple_name>DB_mysql.rollback</simple_name>
+        <signature>DB_mysql.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090737">
+        <simple_name>DB_mysql.simpleQuery</simple_name>
+        <signature>DB_mysql.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090744">
+        <simple_name>DB_mysql.tableInfo</simple_name>
+        <signature>DB_mysql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

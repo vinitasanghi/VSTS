@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Amf_Server">
+      <method vuln_id="1108846">
+        <simple_name>Zend_Amf_Server.__construct_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.__construct_@__Amf_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._buildDispatchTable_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._buildDispatchTable_@__Amf_Server_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._checkAcl_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._checkAcl_@__Amf_Server_php_1($object;$function):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._dispatch_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._dispatch_@__Amf_Server_php_1($method;$params;$source):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._errorMessage_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._errorMessage_@__Amf_Server_php_1($objectEncoding;$message;$description;$detail;$code;$line):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._handleAuth_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._handleAuth_@__Amf_Server_php_1($userid;$password):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._handle_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._handle_@__Amf_Server_php_1($request):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._loadCommandMessage_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._loadCommandMessage_@__Amf_Server_php_1($message):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108734">
+        <simple_name>Zend_Amf_Server.addDirectory_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.addDirectory_@__Amf_Server_php_1($dir):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108864">
+        <simple_name>Zend_Amf_Server.addFunction_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.addFunction_@__Amf_Server_php_1($function;$namespace):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108814">
+        <simple_name>Zend_Amf_Server.fault_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.fault_@__Amf_Server_php_1($fault;$code):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108768">
+        <simple_name>Zend_Amf_Server.getAcl_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getAcl_@__Amf_Server_php_1():Variant</signature>
+        <info_rule id="465582"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108819">
+        <simple_name>Zend_Amf_Server.getAuth_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getAuth_@__Amf_Server_php_1():Variant</signature>
+        <info_rule id="465606"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108823">
+        <simple_name>Zend_Amf_Server.getDirectory_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getDirectory_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108816">
+        <simple_name>Zend_Amf_Server.getFunctions_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getFunctions_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108868">
+        <simple_name>Zend_Amf_Server.getLoader_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getLoader_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108867">
+        <simple_name>Zend_Amf_Server.getRequest_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getRequest_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108751">
+        <simple_name>Zend_Amf_Server.getResponse_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getResponse_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108871">
+        <simple_name>Zend_Amf_Server.handle_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.handle_@__Amf_Server_php_1($request):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108740">
+        <simple_name>Zend_Amf_Server.isProduction_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.isProduction_@__Amf_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108815">
+        <simple_name>Zend_Amf_Server.isSession_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.isSession_@__Amf_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108727">
+        <simple_name>Zend_Amf_Server.listMethods_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.listMethods_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108821">
+        <simple_name>Zend_Amf_Server.loadFunctions_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.loadFunctions_@__Amf_Server_php_1($definition):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108874">
+        <simple_name>Zend_Amf_Server.setAcl_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setAcl_@__Amf_Server_php_1($acl):Variant</signature>
+        <info_rule id="465638"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108809">
+        <simple_name>Zend_Amf_Server.setAuth_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setAuth_@__Amf_Server_php_1($auth):Variant</signature>
+        <info_rule id="465602"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108857">
+        <simple_name>Zend_Amf_Server.setClassMap_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setClassMap_@__Amf_Server_php_1($asClass;$phpClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108739">
+        <simple_name>Zend_Amf_Server.setClass_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setClass_@__Amf_Server_php_1($class;$namespace;$argv):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108803">
+        <simple_name>Zend_Amf_Server.setPersistence_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setPersistence_@__Amf_Server_php_1($mode):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108755">
+        <simple_name>Zend_Amf_Server.setProduction_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setProduction_@__Amf_Server_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108818">
+        <simple_name>Zend_Amf_Server.setRequest_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setRequest_@__Amf_Server_php_1($request):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108780">
+        <simple_name>Zend_Amf_Server.setResponse_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setResponse_@__Amf_Server_php_1($response):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108800">
+        <simple_name>Zend_Amf_Server.setSession_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setSession_@__Amf_Server_php_1($namespace):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Amf_Server">
+      <method vuln_id="1108846">
+        <simple_name>Zend_Amf_Server.__construct_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.__construct_@__Amf_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._buildDispatchTable_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._buildDispatchTable_@__Amf_Server_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._checkAcl_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._checkAcl_@__Amf_Server_php_1($object;$function):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._dispatch_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._dispatch_@__Amf_Server_php_1($method;$params;$source):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._errorMessage_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._errorMessage_@__Amf_Server_php_1($objectEncoding;$message;$description;$detail;$code;$line):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._handleAuth_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._handleAuth_@__Amf_Server_php_1($userid;$password):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._handle_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._handle_@__Amf_Server_php_1($request):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Amf_Server._loadCommandMessage_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server._loadCommandMessage_@__Amf_Server_php_1($message):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108734">
+        <simple_name>Zend_Amf_Server.addDirectory_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.addDirectory_@__Amf_Server_php_1($dir):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108864">
+        <simple_name>Zend_Amf_Server.addFunction_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.addFunction_@__Amf_Server_php_1($function;$namespace):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108814">
+        <simple_name>Zend_Amf_Server.fault_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.fault_@__Amf_Server_php_1($fault;$code):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108768">
+        <simple_name>Zend_Amf_Server.getAcl_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getAcl_@__Amf_Server_php_1():Variant</signature>
+        <info_rule id="465582"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108819">
+        <simple_name>Zend_Amf_Server.getAuth_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getAuth_@__Amf_Server_php_1():Variant</signature>
+        <info_rule id="465606"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108823">
+        <simple_name>Zend_Amf_Server.getDirectory_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getDirectory_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108816">
+        <simple_name>Zend_Amf_Server.getFunctions_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getFunctions_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108868">
+        <simple_name>Zend_Amf_Server.getLoader_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getLoader_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108867">
+        <simple_name>Zend_Amf_Server.getRequest_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getRequest_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108751">
+        <simple_name>Zend_Amf_Server.getResponse_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.getResponse_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108871">
+        <simple_name>Zend_Amf_Server.handle_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.handle_@__Amf_Server_php_1($request):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108740">
+        <simple_name>Zend_Amf_Server.isProduction_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.isProduction_@__Amf_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108815">
+        <simple_name>Zend_Amf_Server.isSession_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.isSession_@__Amf_Server_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108727">
+        <simple_name>Zend_Amf_Server.listMethods_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.listMethods_@__Amf_Server_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108821">
+        <simple_name>Zend_Amf_Server.loadFunctions_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.loadFunctions_@__Amf_Server_php_1($definition):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108874">
+        <simple_name>Zend_Amf_Server.setAcl_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setAcl_@__Amf_Server_php_1($acl):Variant</signature>
+        <info_rule id="465638"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108809">
+        <simple_name>Zend_Amf_Server.setAuth_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setAuth_@__Amf_Server_php_1($auth):Variant</signature>
+        <info_rule id="465602"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108857">
+        <simple_name>Zend_Amf_Server.setClassMap_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setClassMap_@__Amf_Server_php_1($asClass;$phpClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108739">
+        <simple_name>Zend_Amf_Server.setClass_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setClass_@__Amf_Server_php_1($class;$namespace;$argv):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108803">
+        <simple_name>Zend_Amf_Server.setPersistence_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setPersistence_@__Amf_Server_php_1($mode):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108755">
+        <simple_name>Zend_Amf_Server.setProduction_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setProduction_@__Amf_Server_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108818">
+        <simple_name>Zend_Amf_Server.setRequest_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setRequest_@__Amf_Server_php_1($request):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108780">
+        <simple_name>Zend_Amf_Server.setResponse_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setResponse_@__Amf_Server_php_1($response):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108800">
+        <simple_name>Zend_Amf_Server.setSession_@__Amf_Server_php_1</simple_name>
+        <signature>Zend_Amf_Server.setSession_@__Amf_Server_php_1($namespace):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

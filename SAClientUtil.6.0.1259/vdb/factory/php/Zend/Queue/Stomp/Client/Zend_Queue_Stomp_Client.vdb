@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Queue_Stomp_Client">
+      <method vuln_id="1117650">
+        <simple_name>Zend_Queue_Stomp_Client.__construct_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.__construct_@__Queue_Stomp_Client_php_1($scheme;$host;$port;$connectionClass;$frameClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117699">
+        <simple_name>Zend_Queue_Stomp_Client.__destruct_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.__destruct_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470630"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117691">
+        <simple_name>Zend_Queue_Stomp_Client.addConnection_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.addConnection_@__Queue_Stomp_Client_php_1($scheme;$host;$port;$class):Variant</signature>
+        <info_rule id="470623"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117775">
+        <simple_name>Zend_Queue_Stomp_Client.canRead_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.canRead_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470719"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117825">
+        <simple_name>Zend_Queue_Stomp_Client.createFrame_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.createFrame_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470768"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117804">
+        <simple_name>Zend_Queue_Stomp_Client.getConnection_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.getConnection_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470745"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117677">
+        <simple_name>Zend_Queue_Stomp_Client.receive_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.receive_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470608"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117771">
+        <simple_name>Zend_Queue_Stomp_Client.send_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.send_@__Queue_Stomp_Client_php_1($frame):Variant</signature>
+        <info_rule id="470714"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117729">
+        <simple_name>Zend_Queue_Stomp_Client.setConnection_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.setConnection_@__Queue_Stomp_Client_php_1($connection):Variant</signature>
+        <info_rule id="470662"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Queue_Stomp_Client">
+      <method vuln_id="1117650">
+        <simple_name>Zend_Queue_Stomp_Client.__construct_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.__construct_@__Queue_Stomp_Client_php_1($scheme;$host;$port;$connectionClass;$frameClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117699">
+        <simple_name>Zend_Queue_Stomp_Client.__destruct_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.__destruct_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470630"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117691">
+        <simple_name>Zend_Queue_Stomp_Client.addConnection_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.addConnection_@__Queue_Stomp_Client_php_1($scheme;$host;$port;$class):Variant</signature>
+        <info_rule id="470623"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117775">
+        <simple_name>Zend_Queue_Stomp_Client.canRead_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.canRead_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470719"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117825">
+        <simple_name>Zend_Queue_Stomp_Client.createFrame_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.createFrame_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470768"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117804">
+        <simple_name>Zend_Queue_Stomp_Client.getConnection_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.getConnection_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470745"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1117677">
+        <simple_name>Zend_Queue_Stomp_Client.receive_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.receive_@__Queue_Stomp_Client_php_1():Variant</signature>
+        <info_rule id="470608"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117771">
+        <simple_name>Zend_Queue_Stomp_Client.send_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.send_@__Queue_Stomp_Client_php_1($frame):Variant</signature>
+        <info_rule id="470714"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1117729">
+        <simple_name>Zend_Queue_Stomp_Client.setConnection_@__Queue_Stomp_Client_php_1</simple_name>
+        <signature>Zend_Queue_Stomp_Client.setConnection_@__Queue_Stomp_Client_php_1($connection):Variant</signature>
+        <info_rule id="470662"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

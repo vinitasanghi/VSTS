@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SQLiteDatabase">
+      <method vuln_id="1089111">
+        <simple_name>___Php.SQLiteDatabase.__construct</simple_name>
+        <signature>___Php.SQLiteDatabase.__construct(___Php.String;int;___Php.String):void</signature>
+        <info_rule id="456473"/>
+        <rule>
+          <ActionObject id="474209">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461716">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474210">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456470">
+          <tainted_output param="3" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Opens a SQLite database. Will create the database if it does not exist.</comment>
+      </method>
+      <method vuln_id="1089089">
+        <simple_name>___Php.SQLiteDatabase.arrayQuery</simple_name>
+        <signature>___Php.SQLiteDatabase.arrayQuery(___Php.String;int;bool):___Php.Array</signature>
+        <info_rule id="456439"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Executes a query against a given database and returns an array of arrays.</comment>
+      </method>
+      <method vuln_id="1089101">
+        <simple_name>___Php.SQLiteDatabase.busyTimeout</simple_name>
+        <signature>___Php.SQLiteDatabase.busyTimeout(int):void</signature>
+        <info_rule id="456457"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Set busy timeout duration. If ms &lt;= 0,all busy handlers are disabled.</comment>
+      </method>
+      <method vuln_id="1089108">
+        <simple_name>___Php.SQLiteDatabase.changes</simple_name>
+        <signature>___Php.SQLiteDatabase.changes():int</signature>
+        <info_rule id="456466"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of rows that were changed by the most recent SQL statement.</comment>
+      </method>
+      <method vuln_id="1089106">
+        <simple_name>___Php.SQLiteDatabase.fetchColumnTypes</simple_name>
+        <signature>___Php.SQLiteDatabase.fetchColumnTypes(___Php.String;int):___Php.Array</signature>
+        <info_rule id="456464"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return an array of column types from a particular table.</comment>
+      </method>
+      <method vuln_id="1089046">
+        <simple_name>___Php.SQLiteDatabase.lastError</simple_name>
+        <signature>___Php.SQLiteDatabase.lastError():int</signature>
+        <info_rule id="456370"/>
+        <rule>
+          <ActionObject id="474203">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461708">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456369">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Returns the error code of the last error for a database.</comment>
+      </method>
+      <method vuln_id="1089047">
+        <simple_name>___Php.SQLiteDatabase.lastInsertRowid</simple_name>
+        <signature>___Php.SQLiteDatabase.lastInsertRowid():int</signature>
+        <info_rule id="456372"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Returns the rowid of the most recently inserted row.</comment>
+      </method>
+      <method vuln_id="1089056">
+        <simple_name>___Php.SQLiteDatabase.query</simple_name>
+        <signature>___Php.SQLiteDatabase.query(___Php.String;int;___Php.String):___Php.SQLiteResult</signature>
+        <info_rule id="456392"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="474204">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461711">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456390">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456389">
+          <tainted_output param="3" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Executes a query against a given database and returns a result handle.</comment>
+      </method>
+      <method vuln_id="1089118">
+        <simple_name>___Php.SQLiteDatabase.queryExec</simple_name>
+        <signature>___Php.SQLiteDatabase.queryExec(___Php.String;___Php.String):bool</signature>
+        <info_rule id="456487"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="474212">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461718">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456485">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456484">
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Executes a result-less query against a given database</comment>
+      </method>
+      <method vuln_id="1089061">
+        <simple_name>___Php.SQLiteDatabase.singleQuery</simple_name>
+        <signature>___Php.SQLiteDatabase.singleQuery(___Php.String;bool;bool):___Php.Array</signature>
+        <info_rule id="456398"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Executes a query and returns either an array for one single column or the value of the first row.</comment>
+      </method>
+      <method vuln_id="1089112">
+        <simple_name>___Php.SQLiteDatabase.unbufferedQuery</simple_name>
+        <signature>___Php.SQLiteDatabase.unbufferedQuery(___Php.String;int;___Php.String):___Php.SQLiteUnbuffered</signature>
+        <info_rule id="456477"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="474211">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461717">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456475">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456474">
+          <tainted_output param="3" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Executes a query that does not prefetch and buffer all data.</comment>
+      </method>
+    </class>
+    <class name="SQLiteDatabase">
+      <method vuln_id="1089111">
+        <simple_name>___Php.SQLiteDatabase.__construct</simple_name>
+        <signature>___Php.SQLiteDatabase.__construct(___Php.String;int;___Php.String):void</signature>
+        <info_rule id="456473"/>
+        <rule>
+          <ActionObject id="474209">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461716">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474210">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456470">
+          <tainted_output param="3" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Opens a SQLite database. Will create the database if it does not exist.</comment>
+      </method>
+      <method vuln_id="1089089">
+        <simple_name>___Php.SQLiteDatabase.arrayQuery</simple_name>
+        <signature>___Php.SQLiteDatabase.arrayQuery(___Php.String;int;bool):___Php.Array</signature>
+        <info_rule id="456439"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Executes a query against a given database and returns an array of arrays.</comment>
+      </method>
+      <method vuln_id="1089101">
+        <simple_name>___Php.SQLiteDatabase.busyTimeout</simple_name>
+        <signature>___Php.SQLiteDatabase.busyTimeout(int):void</signature>
+        <info_rule id="456457"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Set busy timeout duration. If ms &lt;= 0,all busy handlers are disabled.</comment>
+      </method>
+      <method vuln_id="1089108">
+        <simple_name>___Php.SQLiteDatabase.changes</simple_name>
+        <signature>___Php.SQLiteDatabase.changes():int</signature>
+        <info_rule id="456466"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of rows that were changed by the most recent SQL statement.</comment>
+      </method>
+      <method vuln_id="1089106">
+        <simple_name>___Php.SQLiteDatabase.fetchColumnTypes</simple_name>
+        <signature>___Php.SQLiteDatabase.fetchColumnTypes(___Php.String;int):___Php.Array</signature>
+        <info_rule id="456464"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return an array of column types from a particular table.</comment>
+      </method>
+      <method vuln_id="1089046">
+        <simple_name>___Php.SQLiteDatabase.lastError</simple_name>
+        <signature>___Php.SQLiteDatabase.lastError():int</signature>
+        <info_rule id="456370"/>
+        <rule>
+          <ActionObject id="474203">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461708">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456369">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Returns the error code of the last error for a database.</comment>
+      </method>
+      <method vuln_id="1089047">
+        <simple_name>___Php.SQLiteDatabase.lastInsertRowid</simple_name>
+        <signature>___Php.SQLiteDatabase.lastInsertRowid():int</signature>
+        <info_rule id="456372"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Returns the rowid of the most recently inserted row.</comment>
+      </method>
+      <method vuln_id="1089056">
+        <simple_name>___Php.SQLiteDatabase.query</simple_name>
+        <signature>___Php.SQLiteDatabase.query(___Php.String;int;___Php.String):___Php.SQLiteResult</signature>
+        <info_rule id="456392"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="474204">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461711">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456390">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456389">
+          <tainted_output param="3" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Executes a query against a given database and returns a result handle.</comment>
+      </method>
+      <method vuln_id="1089118">
+        <simple_name>___Php.SQLiteDatabase.queryExec</simple_name>
+        <signature>___Php.SQLiteDatabase.queryExec(___Php.String;___Php.String):bool</signature>
+        <info_rule id="456487"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="474212">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461718">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456485">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456484">
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Executes a result-less query against a given database</comment>
+      </method>
+      <method vuln_id="1089061">
+        <simple_name>___Php.SQLiteDatabase.singleQuery</simple_name>
+        <signature>___Php.SQLiteDatabase.singleQuery(___Php.String;bool;bool):___Php.Array</signature>
+        <info_rule id="456398"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Executes a query and returns either an array for one single column or the value of the first row.</comment>
+      </method>
+      <method vuln_id="1089112">
+        <simple_name>___Php.SQLiteDatabase.unbufferedQuery</simple_name>
+        <signature>___Php.SQLiteDatabase.unbufferedQuery(___Php.String;int;___Php.String):___Php.SQLiteUnbuffered</signature>
+        <info_rule id="456477"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="474211">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461717">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="456475">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="456474">
+          <tainted_output param="3" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Executes a query that does not prefetch and buffer all data.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

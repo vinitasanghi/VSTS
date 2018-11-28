@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Http_Client">
+      <method vuln_id="1114838">
+        <simple_name>Zend_Http_Client.___Class_Initializer_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.___Class_Initializer_@__Http_Client_php_1():void</signature>
+        <info_rule id="468123"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114890">
+        <simple_name>Zend_Http_Client.__construct_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.__construct_@__Http_Client_php_1($uri;$config):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114773">
+        <simple_name>Zend_Http_Client._detectFileMimeType_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._detectFileMimeType_@__Http_Client_php_1($file):Variant</signature>
+        <info_rule id="468035"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114813">
+        <simple_name>Zend_Http_Client._flattenParametersArray_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._flattenParametersArray_@__Http_Client_php_1($parray;$prefix):Variant</signature>
+        <info_rule id="468092"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114790">
+        <simple_name>Zend_Http_Client._getParametersRecursive_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._getParametersRecursive_@__Http_Client_php_1($parray;$urlencode):Variant</signature>
+        <info_rule id="468057"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114857">
+        <simple_name>Zend_Http_Client._openTempStream_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._openTempStream_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468148"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114786">
+        <simple_name>Zend_Http_Client._prepareBody_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._prepareBody_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468053"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114844">
+        <simple_name>Zend_Http_Client._prepareHeaders_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._prepareHeaders_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468132"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114783">
+        <simple_name>Zend_Http_Client._setParameter_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._setParameter_@__Http_Client_php_1($type;$name;$value):Variant</signature>
+        <info_rule id="468050"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114805">
+        <simple_name>Zend_Http_Client.encodeAuthHeader_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.encodeAuthHeader_@__Http_Client_php_1($user;$password;$type):Variant</signature>
+        <info_rule id="468082"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="468080">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="468079">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114860">
+        <simple_name>Zend_Http_Client.encodeFormData_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.encodeFormData_@__Http_Client_php_1($boundary;$name;$value;$filename;$headers):Variant</signature>
+        <info_rule id="468151"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114908">
+        <simple_name>Zend_Http_Client.getAdapter_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getAdapter_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468226"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114854">
+        <simple_name>Zend_Http_Client.getCookieJar_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getCookieJar_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468145"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114826">
+        <simple_name>Zend_Http_Client.getHeader_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getHeader_@__Http_Client_php_1($key):Variant</signature>
+        <info_rule id="468109"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114886">
+        <simple_name>Zend_Http_Client.getLastRequest_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getLastRequest_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468191"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114768">
+        <simple_name>Zend_Http_Client.getLastResponse_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getLastResponse_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468028"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114784">
+        <simple_name>Zend_Http_Client.getRedirectionsCount_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getRedirectionsCount_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468051"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114881">
+        <simple_name>Zend_Http_Client.getStream_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getStream_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468180"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114884">
+        <simple_name>Zend_Http_Client.getUri_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getUri_@__Http_Client_php_1($as_string):Variant</signature>
+        <info_rule id="468185"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114861">
+        <simple_name>Zend_Http_Client.request_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.request_@__Http_Client_php_1($method):Variant</signature>
+        <info_rule id="468152"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114897">
+        <simple_name>Zend_Http_Client.resetParameters_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.resetParameters_@__Http_Client_php_1($clearAll):Variant</signature>
+        <info_rule id="468209"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114835">
+        <simple_name>Zend_Http_Client.setAdapter_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setAdapter_@__Http_Client_php_1($adapter):Variant</signature>
+        <info_rule id="468120"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114841">
+        <simple_name>Zend_Http_Client.setAuth_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setAuth_@__Http_Client_php_1($user;$password;$type):Variant</signature>
+        <info_rule id="468129"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="468127">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="468126">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114889">
+        <simple_name>Zend_Http_Client.setConfig_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setConfig_@__Http_Client_php_1($config):Variant</signature>
+        <info_rule id="468196"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114832">
+        <simple_name>Zend_Http_Client.setCookieJar_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setCookieJar_@__Http_Client_php_1($cookiejar):Variant</signature>
+        <info_rule id="468115"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114792">
+        <simple_name>Zend_Http_Client.setCookie_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setCookie_@__Http_Client_php_1($cookie;$value):Variant</signature>
+        <info_rule id="468060"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114808">
+        <simple_name>Zend_Http_Client.setEncType_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setEncType_@__Http_Client_php_1($enctype):Variant</signature>
+        <info_rule id="468085"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114903">
+        <simple_name>Zend_Http_Client.setFileUpload_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setFileUpload_@__Http_Client_php_1($filename;$formname;$data;$ctype):Variant</signature>
+        <info_rule id="468219"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114775">
+        <simple_name>Zend_Http_Client.setHeaders_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setHeaders_@__Http_Client_php_1($name;$value):Variant</signature>
+        <info_rule id="468039"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114825">
+        <simple_name>Zend_Http_Client.setMethod_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setMethod_@__Http_Client_php_1($method):Variant</signature>
+        <info_rule id="468108"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114917">
+        <simple_name>Zend_Http_Client.setParameterGet_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setParameterGet_@__Http_Client_php_1($name;$value):Variant</signature>
+        <info_rule id="468240"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114774">
+        <simple_name>Zend_Http_Client.setParameterPost_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setParameterPost_@__Http_Client_php_1($name;$value):Variant</signature>
+        <info_rule id="468036"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114809">
+        <simple_name>Zend_Http_Client.setRawData_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setRawData_@__Http_Client_php_1($data;$enctype):Variant</signature>
+        <info_rule id="468086"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114914">
+        <simple_name>Zend_Http_Client.setStream_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setStream_@__Http_Client_php_1($streamfile):Variant</signature>
+        <info_rule id="468236"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114814">
+        <simple_name>Zend_Http_Client.setUri_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setUri_@__Http_Client_php_1($uri):Variant</signature>
+        <info_rule id="468093"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Http_Client">
+      <method vuln_id="1114838">
+        <simple_name>Zend_Http_Client.___Class_Initializer_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.___Class_Initializer_@__Http_Client_php_1():void</signature>
+        <info_rule id="468123"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114890">
+        <simple_name>Zend_Http_Client.__construct_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.__construct_@__Http_Client_php_1($uri;$config):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114773">
+        <simple_name>Zend_Http_Client._detectFileMimeType_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._detectFileMimeType_@__Http_Client_php_1($file):Variant</signature>
+        <info_rule id="468035"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114813">
+        <simple_name>Zend_Http_Client._flattenParametersArray_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._flattenParametersArray_@__Http_Client_php_1($parray;$prefix):Variant</signature>
+        <info_rule id="468092"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114790">
+        <simple_name>Zend_Http_Client._getParametersRecursive_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._getParametersRecursive_@__Http_Client_php_1($parray;$urlencode):Variant</signature>
+        <info_rule id="468057"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114857">
+        <simple_name>Zend_Http_Client._openTempStream_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._openTempStream_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468148"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114786">
+        <simple_name>Zend_Http_Client._prepareBody_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._prepareBody_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468053"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114844">
+        <simple_name>Zend_Http_Client._prepareHeaders_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._prepareHeaders_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468132"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114783">
+        <simple_name>Zend_Http_Client._setParameter_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client._setParameter_@__Http_Client_php_1($type;$name;$value):Variant</signature>
+        <info_rule id="468050"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114805">
+        <simple_name>Zend_Http_Client.encodeAuthHeader_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.encodeAuthHeader_@__Http_Client_php_1($user;$password;$type):Variant</signature>
+        <info_rule id="468082"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="468080">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="468079">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114860">
+        <simple_name>Zend_Http_Client.encodeFormData_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.encodeFormData_@__Http_Client_php_1($boundary;$name;$value;$filename;$headers):Variant</signature>
+        <info_rule id="468151"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114908">
+        <simple_name>Zend_Http_Client.getAdapter_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getAdapter_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468226"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114854">
+        <simple_name>Zend_Http_Client.getCookieJar_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getCookieJar_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468145"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114826">
+        <simple_name>Zend_Http_Client.getHeader_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getHeader_@__Http_Client_php_1($key):Variant</signature>
+        <info_rule id="468109"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114886">
+        <simple_name>Zend_Http_Client.getLastRequest_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getLastRequest_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468191"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114768">
+        <simple_name>Zend_Http_Client.getLastResponse_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getLastResponse_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468028"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114784">
+        <simple_name>Zend_Http_Client.getRedirectionsCount_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getRedirectionsCount_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468051"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114881">
+        <simple_name>Zend_Http_Client.getStream_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getStream_@__Http_Client_php_1():Variant</signature>
+        <info_rule id="468180"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114884">
+        <simple_name>Zend_Http_Client.getUri_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.getUri_@__Http_Client_php_1($as_string):Variant</signature>
+        <info_rule id="468185"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114861">
+        <simple_name>Zend_Http_Client.request_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.request_@__Http_Client_php_1($method):Variant</signature>
+        <info_rule id="468152"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114897">
+        <simple_name>Zend_Http_Client.resetParameters_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.resetParameters_@__Http_Client_php_1($clearAll):Variant</signature>
+        <info_rule id="468209"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114835">
+        <simple_name>Zend_Http_Client.setAdapter_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setAdapter_@__Http_Client_php_1($adapter):Variant</signature>
+        <info_rule id="468120"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114841">
+        <simple_name>Zend_Http_Client.setAuth_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setAuth_@__Http_Client_php_1($user;$password;$type):Variant</signature>
+        <info_rule id="468129"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="468127">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="468126">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114889">
+        <simple_name>Zend_Http_Client.setConfig_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setConfig_@__Http_Client_php_1($config):Variant</signature>
+        <info_rule id="468196"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114832">
+        <simple_name>Zend_Http_Client.setCookieJar_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setCookieJar_@__Http_Client_php_1($cookiejar):Variant</signature>
+        <info_rule id="468115"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114792">
+        <simple_name>Zend_Http_Client.setCookie_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setCookie_@__Http_Client_php_1($cookie;$value):Variant</signature>
+        <info_rule id="468060"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114808">
+        <simple_name>Zend_Http_Client.setEncType_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setEncType_@__Http_Client_php_1($enctype):Variant</signature>
+        <info_rule id="468085"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114903">
+        <simple_name>Zend_Http_Client.setFileUpload_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setFileUpload_@__Http_Client_php_1($filename;$formname;$data;$ctype):Variant</signature>
+        <info_rule id="468219"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114775">
+        <simple_name>Zend_Http_Client.setHeaders_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setHeaders_@__Http_Client_php_1($name;$value):Variant</signature>
+        <info_rule id="468039"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114825">
+        <simple_name>Zend_Http_Client.setMethod_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setMethod_@__Http_Client_php_1($method):Variant</signature>
+        <info_rule id="468108"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114917">
+        <simple_name>Zend_Http_Client.setParameterGet_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setParameterGet_@__Http_Client_php_1($name;$value):Variant</signature>
+        <info_rule id="468240"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114774">
+        <simple_name>Zend_Http_Client.setParameterPost_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setParameterPost_@__Http_Client_php_1($name;$value):Variant</signature>
+        <info_rule id="468036"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114809">
+        <simple_name>Zend_Http_Client.setRawData_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setRawData_@__Http_Client_php_1($data;$enctype):Variant</signature>
+        <info_rule id="468086"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114914">
+        <simple_name>Zend_Http_Client.setStream_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setStream_@__Http_Client_php_1($streamfile):Variant</signature>
+        <info_rule id="468236"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114814">
+        <simple_name>Zend_Http_Client.setUri_@__Http_Client_php_1</simple_name>
+        <signature>Zend_Http_Client.setUri_@__Http_Client_php_1($uri):Variant</signature>
+        <info_rule id="468093"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

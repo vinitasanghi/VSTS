@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Parser">
+      <method vuln_id="-1">
+        <simple_name>MDB_Parser.MDB_Parser</simple_name>
+        <signature>MDB_Parser.MDB_Parser($variables;$fail_on_invalid_names):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Parser.XML_Parser</simple_name>
+        <signature>MDB_Parser.XML_Parser():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092157">
+        <simple_name>MDB_Parser.cdataHandler</simple_name>
+        <signature>MDB_Parser.cdataHandler($xp;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092154">
+        <simple_name>MDB_Parser.endHandler</simple_name>
+        <signature>MDB_Parser.endHandler($xp;$element):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="1092153">
+        <simple_name>MDB_Parser.is_boolean</simple_name>
+        <signature>MDB_Parser.is_boolean($value):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Parser.raiseError</simple_name>
+        <signature>MDB_Parser.raiseError($msg;$xp):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092155">
+        <simple_name>MDB_Parser.startHandler</simple_name>
+        <signature>MDB_Parser.startHandler($xp;$element;$attribs):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092156">
+        <simple_name>MDB_Parser.validateFieldValue</simple_name>
+        <signature>MDB_Parser.validateFieldValue($field_name;$field_value;$xp):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Parser">
+      <method vuln_id="-1">
+        <simple_name>MDB_Parser.MDB_Parser</simple_name>
+        <signature>MDB_Parser.MDB_Parser($variables;$fail_on_invalid_names):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Parser.XML_Parser</simple_name>
+        <signature>MDB_Parser.XML_Parser():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092157">
+        <simple_name>MDB_Parser.cdataHandler</simple_name>
+        <signature>MDB_Parser.cdataHandler($xp;$data):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092154">
+        <simple_name>MDB_Parser.endHandler</simple_name>
+        <signature>MDB_Parser.endHandler($xp;$element):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+        <call_back/>
+      </method>
+      <method vuln_id="1092153">
+        <simple_name>MDB_Parser.is_boolean</simple_name>
+        <signature>MDB_Parser.is_boolean($value):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Parser.raiseError</simple_name>
+        <signature>MDB_Parser.raiseError($msg;$xp):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092155">
+        <simple_name>MDB_Parser.startHandler</simple_name>
+        <signature>MDB_Parser.startHandler($xp;$element;$attribs):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092156">
+        <simple_name>MDB_Parser.validateFieldValue</simple_name>
+        <signature>MDB_Parser.validateFieldValue($field_name;$field_value;$xp):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fSession">
+      <method vuln_id="1107151">
+        <simple_name>fSession.___Class_Initializer_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.___Class_Initializer_@__inc_flourish_fSession_php_1():void</signature>
+      </method>
+      <method vuln_id="1106731">
+        <simple_name>fSession.__construct_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.__construct_@__inc_flourish_fSession_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106726">
+        <simple_name>fSession.clear_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.clear_@__inc_flourish_fSession_php_1($key;$prefix):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106302">
+        <simple_name>fSession.close_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.close_@__inc_flourish_fSession_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107367">
+        <simple_name>fSession.destroy_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.destroy_@__inc_flourish_fSession_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106919">
+        <simple_name>fSession.get_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.get_@__inc_flourish_fSession_php_1($key;$default_value;$prefix):Variant</signature>
+        <info_rule id="480663"/>
+        <source_rule id="462329">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107460">
+        <simple_name>fSession.ignoreSubdomain_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.ignoreSubdomain_@__inc_flourish_fSession_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106759">
+        <simple_name>fSession.open_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.open_@__inc_flourish_fSession_php_1($cookie_only_session_id):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106850">
+        <simple_name>fSession.reset_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.reset_@__inc_flourish_fSession_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106526">
+        <simple_name>fSession.setLength_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.setLength_@__inc_flourish_fSession_php_1($timespan):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106574">
+        <simple_name>fSession.setPath_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.setPath_@__inc_flourish_fSession_php_1($directory):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106687">
+        <simple_name>fSession.set_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.set_@__inc_flourish_fSession_php_1($key;$value;$prefix):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fSession">
+      <method vuln_id="1107151">
+        <simple_name>fSession.___Class_Initializer_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.___Class_Initializer_@__inc_flourish_fSession_php_1():void</signature>
+      </method>
+      <method vuln_id="1106731">
+        <simple_name>fSession.__construct_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.__construct_@__inc_flourish_fSession_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106726">
+        <simple_name>fSession.clear_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.clear_@__inc_flourish_fSession_php_1($key;$prefix):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106302">
+        <simple_name>fSession.close_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.close_@__inc_flourish_fSession_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107367">
+        <simple_name>fSession.destroy_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.destroy_@__inc_flourish_fSession_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106919">
+        <simple_name>fSession.get_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.get_@__inc_flourish_fSession_php_1($key;$default_value;$prefix):Variant</signature>
+        <info_rule id="480663"/>
+        <source_rule id="462329">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107460">
+        <simple_name>fSession.ignoreSubdomain_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.ignoreSubdomain_@__inc_flourish_fSession_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106759">
+        <simple_name>fSession.open_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.open_@__inc_flourish_fSession_php_1($cookie_only_session_id):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106850">
+        <simple_name>fSession.reset_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.reset_@__inc_flourish_fSession_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106526">
+        <simple_name>fSession.setLength_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.setLength_@__inc_flourish_fSession_php_1($timespan):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106574">
+        <simple_name>fSession.setPath_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.setPath_@__inc_flourish_fSession_php_1($directory):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106687">
+        <simple_name>fSession.set_@__inc_flourish_fSession_php_1</simple_name>
+        <signature>fSession.set_@__inc_flourish_fSession_php_1($key;$value;$prefix):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Oauth_Http">
+      <method vuln_id="1116706">
+        <simple_name>Zend_Oauth_Http.__construct_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.__construct_@__Oauth_Http_php_1($consumer;$parameters;$utility):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116592">
+        <simple_name>Zend_Oauth_Http._assessRequestAttempt_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http._assessRequestAttempt_@__Oauth_Http_php_1($response):Variant</signature>
+        <info_rule id="469612"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116621">
+        <simple_name>Zend_Oauth_Http._attemptRequest</simple_name>
+        <signature>Zend_Oauth_Http._attemptRequest(Arg#0):Variant</signature>
+        <info_rule id="469642"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116737">
+        <simple_name>Zend_Oauth_Http._toAuthorizationHeader_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http._toAuthorizationHeader_@__Oauth_Http_php_1($params;$realm):Variant</signature>
+        <info_rule id="469768"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116594">
+        <simple_name>Zend_Oauth_Http.getConsumer_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getConsumer_@__Oauth_Http_php_1():Variant</signature>
+        <info_rule id="469614"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116678">
+        <simple_name>Zend_Oauth_Http.getMethod_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getMethod_@__Oauth_Http_php_1():Variant</signature>
+        <info_rule id="469704"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116738">
+        <simple_name>Zend_Oauth_Http.getParameters_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getParameters_@__Oauth_Http_php_1():Variant</signature>
+        <info_rule id="469769"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116643">
+        <simple_name>Zend_Oauth_Http.getRequestSchemeQueryStringClient_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getRequestSchemeQueryStringClient_@__Oauth_Http_php_1($params;$url):Variant</signature>
+        <info_rule id="469666"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116715">
+        <simple_name>Zend_Oauth_Http.setMethod_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.setMethod_@__Oauth_Http_php_1($method):Variant</signature>
+        <info_rule id="469747"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116626">
+        <simple_name>Zend_Oauth_Http.setParameters_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.setParameters_@__Oauth_Http_php_1($customServiceParameters):Variant</signature>
+        <info_rule id="469647"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116584">
+        <simple_name>Zend_Oauth_Http.startRequestCycle_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.startRequestCycle_@__Oauth_Http_php_1($params):Variant</signature>
+        <info_rule id="469603"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Oauth_Http">
+      <method vuln_id="1116706">
+        <simple_name>Zend_Oauth_Http.__construct_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.__construct_@__Oauth_Http_php_1($consumer;$parameters;$utility):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116592">
+        <simple_name>Zend_Oauth_Http._assessRequestAttempt_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http._assessRequestAttempt_@__Oauth_Http_php_1($response):Variant</signature>
+        <info_rule id="469612"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116621">
+        <simple_name>Zend_Oauth_Http._attemptRequest</simple_name>
+        <signature>Zend_Oauth_Http._attemptRequest(Arg#0):Variant</signature>
+        <info_rule id="469642"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116737">
+        <simple_name>Zend_Oauth_Http._toAuthorizationHeader_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http._toAuthorizationHeader_@__Oauth_Http_php_1($params;$realm):Variant</signature>
+        <info_rule id="469768"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116594">
+        <simple_name>Zend_Oauth_Http.getConsumer_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getConsumer_@__Oauth_Http_php_1():Variant</signature>
+        <info_rule id="469614"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116678">
+        <simple_name>Zend_Oauth_Http.getMethod_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getMethod_@__Oauth_Http_php_1():Variant</signature>
+        <info_rule id="469704"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116738">
+        <simple_name>Zend_Oauth_Http.getParameters_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getParameters_@__Oauth_Http_php_1():Variant</signature>
+        <info_rule id="469769"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116643">
+        <simple_name>Zend_Oauth_Http.getRequestSchemeQueryStringClient_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.getRequestSchemeQueryStringClient_@__Oauth_Http_php_1($params;$url):Variant</signature>
+        <info_rule id="469666"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116715">
+        <simple_name>Zend_Oauth_Http.setMethod_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.setMethod_@__Oauth_Http_php_1($method):Variant</signature>
+        <info_rule id="469747"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116626">
+        <simple_name>Zend_Oauth_Http.setParameters_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.setParameters_@__Oauth_Http_php_1($customServiceParameters):Variant</signature>
+        <info_rule id="469647"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116584">
+        <simple_name>Zend_Oauth_Http.startRequestCycle_@__Oauth_Http_php_1</simple_name>
+        <signature>Zend_Oauth_Http.startRequestCycle_@__Oauth_Http_php_1($params):Variant</signature>
+        <info_rule id="469603"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

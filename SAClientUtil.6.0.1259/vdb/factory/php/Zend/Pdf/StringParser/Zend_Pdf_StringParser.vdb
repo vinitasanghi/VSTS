@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Pdf_StringParser">
+      <method vuln_id="1117316">
+        <simple_name>Zend_Pdf_StringParser.__construct_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.__construct_@__Pdf_StringParser_php_1($source;$factory):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117307">
+        <simple_name>Zend_Pdf_StringParser.cleanUp_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.cleanUp_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470275"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117195">
+        <simple_name>Zend_Pdf_StringParser.getLength_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.getLength_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470170"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117382">
+        <simple_name>Zend_Pdf_StringParser.getObject_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.getObject_@__Pdf_StringParser_php_1($offset;$context):Variant</signature>
+        <info_rule id="470343"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117023">
+        <simple_name>Zend_Pdf_StringParser.getString_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.getString_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470002"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117390">
+        <simple_name>Zend_Pdf_StringParser.isDelimiter_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.isDelimiter_@__Pdf_StringParser_php_1($chCode):Variant</signature>
+        <info_rule id="470350"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117144">
+        <simple_name>Zend_Pdf_StringParser.isWhiteSpace_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.isWhiteSpace_@__Pdf_StringParser_php_1($chCode):Variant</signature>
+        <info_rule id="470119"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117452">
+        <simple_name>Zend_Pdf_StringParser.parseIntFromStream_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.parseIntFromStream_@__Pdf_StringParser_php_1($stream;$offset;$size):Variant</signature>
+        <info_rule id="470409"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117236">
+        <simple_name>Zend_Pdf_StringParser.readComment_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.readComment_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470208"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117527">
+        <simple_name>Zend_Pdf_StringParser.readElement_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.readElement_@__Pdf_StringParser_php_1($nextLexeme):Variant</signature>
+        <info_rule id="470482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116959">
+        <simple_name>Zend_Pdf_StringParser.readLexeme_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.readLexeme_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="469944"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116964">
+        <simple_name>Zend_Pdf_StringParser.setContext_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.setContext_@__Pdf_StringParser_php_1($context):Variant</signature>
+        <info_rule id="469948"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116983">
+        <simple_name>Zend_Pdf_StringParser.skipComment_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.skipComment_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="469965"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117211">
+        <simple_name>Zend_Pdf_StringParser.skipWhiteSpace_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.skipWhiteSpace_@__Pdf_StringParser_php_1($skipComment):Variant</signature>
+        <info_rule id="470185"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+    </class>
+    <class name="Zend_Pdf_StringParser">
+      <method vuln_id="1117316">
+        <simple_name>Zend_Pdf_StringParser.__construct_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.__construct_@__Pdf_StringParser_php_1($source;$factory):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117307">
+        <simple_name>Zend_Pdf_StringParser.cleanUp_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.cleanUp_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470275"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117195">
+        <simple_name>Zend_Pdf_StringParser.getLength_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.getLength_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470170"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117382">
+        <simple_name>Zend_Pdf_StringParser.getObject_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.getObject_@__Pdf_StringParser_php_1($offset;$context):Variant</signature>
+        <info_rule id="470343"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117023">
+        <simple_name>Zend_Pdf_StringParser.getString_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.getString_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470002"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117390">
+        <simple_name>Zend_Pdf_StringParser.isDelimiter_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.isDelimiter_@__Pdf_StringParser_php_1($chCode):Variant</signature>
+        <info_rule id="470350"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117144">
+        <simple_name>Zend_Pdf_StringParser.isWhiteSpace_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.isWhiteSpace_@__Pdf_StringParser_php_1($chCode):Variant</signature>
+        <info_rule id="470119"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117452">
+        <simple_name>Zend_Pdf_StringParser.parseIntFromStream_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.parseIntFromStream_@__Pdf_StringParser_php_1($stream;$offset;$size):Variant</signature>
+        <info_rule id="470409"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117236">
+        <simple_name>Zend_Pdf_StringParser.readComment_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.readComment_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="470208"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117527">
+        <simple_name>Zend_Pdf_StringParser.readElement_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.readElement_@__Pdf_StringParser_php_1($nextLexeme):Variant</signature>
+        <info_rule id="470482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116959">
+        <simple_name>Zend_Pdf_StringParser.readLexeme_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.readLexeme_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="469944"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116964">
+        <simple_name>Zend_Pdf_StringParser.setContext_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.setContext_@__Pdf_StringParser_php_1($context):Variant</signature>
+        <info_rule id="469948"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116983">
+        <simple_name>Zend_Pdf_StringParser.skipComment_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.skipComment_@__Pdf_StringParser_php_1():Variant</signature>
+        <info_rule id="469965"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117211">
+        <simple_name>Zend_Pdf_StringParser.skipWhiteSpace_@__Pdf_StringParser_php_1</simple_name>
+        <signature>Zend_Pdf_StringParser.skipWhiteSpace_@__Pdf_StringParser_php_1($skipComment):Variant</signature>
+        <info_rule id="470185"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

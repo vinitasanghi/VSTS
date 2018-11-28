@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Array">
+      <method vuln_id="-1">
+        <simple_name>Array.toArray</simple_name>
+        <signature>Array.toArray():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Array.__construct</simple_name>
+        <signature>___Php.Array.__construct():void</signature>
+      </method>
+      <method vuln_id="1089223">
+        <simple_name>___Php.Array.add</simple_name>
+        <signature>___Php.Array.add(mixed;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+      </method>
+      <method vuln_id="1089621">
+        <simple_name>___Php.Array.clear</simple_name>
+        <signature>___Php.Array.clear():void</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1089562">
+        <simple_name>___Php.Array.count</simple_name>
+        <signature>___Php.Array.count():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1089253">
+        <simple_name>___Php.Array.item</simple_name>
+        <signature>___Php.Array.item(mixed):mixed</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="1089146">
+        <simple_name>___Php.Array.remove</simple_name>
+        <signature>___Php.Array.remove(mixed):void</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+    <class name="Array">
+      <method vuln_id="-1">
+        <simple_name>Array.toArray</simple_name>
+        <signature>Array.toArray():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Array.__construct</simple_name>
+        <signature>___Php.Array.__construct():void</signature>
+      </method>
+      <method vuln_id="1089223">
+        <simple_name>___Php.Array.add</simple_name>
+        <signature>___Php.Array.add(mixed;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+      </method>
+      <method vuln_id="1089621">
+        <simple_name>___Php.Array.clear</simple_name>
+        <signature>___Php.Array.clear():void</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1089562">
+        <simple_name>___Php.Array.count</simple_name>
+        <signature>___Php.Array.count():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1089253">
+        <simple_name>___Php.Array.item</simple_name>
+        <signature>___Php.Array.item(mixed):mixed</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="1089146">
+        <simple_name>___Php.Array.remove</simple_name>
+        <signature>___Php.Array.remove(mixed):void</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

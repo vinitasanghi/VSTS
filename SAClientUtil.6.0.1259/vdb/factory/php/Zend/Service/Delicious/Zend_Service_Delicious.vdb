@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_Delicious">
+      <method vuln_id="1118653">
+        <simple_name>Zend_Service_Delicious.___Class_Initializer_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.___Class_Initializer_@__Service_Delicious_php_1():void</signature>
+        <info_rule id="471098"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119577">
+        <simple_name>Zend_Service_Delicious.__construct_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.__construct_@__Service_Delicious_php_1($uname;$pass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119470">
+        <simple_name>Zend_Service_Delicious.addBundle_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.addBundle_@__Service_Delicious_php_1($bundle;$tags):Variant</signature>
+        <info_rule id="471867"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119443">
+        <simple_name>Zend_Service_Delicious.createNewPost_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.createNewPost_@__Service_Delicious_php_1($title;$url):Variant</signature>
+        <info_rule id="471840"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120019">
+        <simple_name>Zend_Service_Delicious.deleteBundle_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.deleteBundle_@__Service_Delicious_php_1($bundle):Variant</signature>
+        <info_rule id="472390"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119348">
+        <simple_name>Zend_Service_Delicious.deletePost_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.deletePost_@__Service_Delicious_php_1($url):Variant</signature>
+        <info_rule id="471753"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118889">
+        <simple_name>Zend_Service_Delicious.getAllPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getAllPosts_@__Service_Delicious_php_1($tag):Variant</signature>
+        <info_rule id="471317"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119920">
+        <simple_name>Zend_Service_Delicious.getBundles_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getBundles_@__Service_Delicious_php_1():Variant</signature>
+        <info_rule id="472301"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119637">
+        <simple_name>Zend_Service_Delicious.getDates_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getDates_@__Service_Delicious_php_1($tag):Variant</signature>
+        <info_rule id="472029"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119032">
+        <simple_name>Zend_Service_Delicious.getLastUpdate_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getLastUpdate_@__Service_Delicious_php_1():Variant</signature>
+        <info_rule id="471467"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119260">
+        <simple_name>Zend_Service_Delicious.getPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getPosts_@__Service_Delicious_php_1($tag;$dt;$url):Variant</signature>
+        <info_rule id="471675"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119719">
+        <simple_name>Zend_Service_Delicious.getRecentPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getRecentPosts_@__Service_Delicious_php_1($tag;$count):Variant</signature>
+        <info_rule id="472106"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118961">
+        <simple_name>Zend_Service_Delicious.getTags_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getTags_@__Service_Delicious_php_1():Variant</signature>
+        <info_rule id="471386"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118891">
+        <simple_name>Zend_Service_Delicious.getUrlDetails_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUrlDetails_@__Service_Delicious_php_1($url):Variant</signature>
+        <info_rule id="471319"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119341">
+        <simple_name>Zend_Service_Delicious.getUserFans_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserFans_@__Service_Delicious_php_1($user):Variant</signature>
+        <info_rule id="471747"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118922">
+        <simple_name>Zend_Service_Delicious.getUserNetwork_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserNetwork_@__Service_Delicious_php_1($user):Variant</signature>
+        <info_rule id="471346"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118955">
+        <simple_name>Zend_Service_Delicious.getUserPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserPosts_@__Service_Delicious_php_1($user;$count;$tag):Variant</signature>
+        <info_rule id="471380"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119451">
+        <simple_name>Zend_Service_Delicious.getUserTags_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserTags_@__Service_Delicious_php_1($user;$atleast;$count;$sort):Variant</signature>
+        <info_rule id="471847"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118690">
+        <simple_name>Zend_Service_Delicious.makeRequest_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.makeRequest_@__Service_Delicious_php_1($path;$parms;$type):Variant</signature>
+        <info_rule id="471128"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119199">
+        <simple_name>Zend_Service_Delicious.renameTag_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.renameTag_@__Service_Delicious_php_1($old;$new):Variant</signature>
+        <info_rule id="471620"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118751">
+        <simple_name>Zend_Service_Delicious.setAuth_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.setAuth_@__Service_Delicious_php_1($uname;$pass):Variant</signature>
+        <info_rule id="471191"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="471189">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="471188">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Service_Delicious">
+      <method vuln_id="1118653">
+        <simple_name>Zend_Service_Delicious.___Class_Initializer_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.___Class_Initializer_@__Service_Delicious_php_1():void</signature>
+        <info_rule id="471098"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119577">
+        <simple_name>Zend_Service_Delicious.__construct_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.__construct_@__Service_Delicious_php_1($uname;$pass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119470">
+        <simple_name>Zend_Service_Delicious.addBundle_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.addBundle_@__Service_Delicious_php_1($bundle;$tags):Variant</signature>
+        <info_rule id="471867"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119443">
+        <simple_name>Zend_Service_Delicious.createNewPost_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.createNewPost_@__Service_Delicious_php_1($title;$url):Variant</signature>
+        <info_rule id="471840"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120019">
+        <simple_name>Zend_Service_Delicious.deleteBundle_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.deleteBundle_@__Service_Delicious_php_1($bundle):Variant</signature>
+        <info_rule id="472390"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119348">
+        <simple_name>Zend_Service_Delicious.deletePost_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.deletePost_@__Service_Delicious_php_1($url):Variant</signature>
+        <info_rule id="471753"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118889">
+        <simple_name>Zend_Service_Delicious.getAllPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getAllPosts_@__Service_Delicious_php_1($tag):Variant</signature>
+        <info_rule id="471317"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119920">
+        <simple_name>Zend_Service_Delicious.getBundles_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getBundles_@__Service_Delicious_php_1():Variant</signature>
+        <info_rule id="472301"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119637">
+        <simple_name>Zend_Service_Delicious.getDates_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getDates_@__Service_Delicious_php_1($tag):Variant</signature>
+        <info_rule id="472029"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119032">
+        <simple_name>Zend_Service_Delicious.getLastUpdate_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getLastUpdate_@__Service_Delicious_php_1():Variant</signature>
+        <info_rule id="471467"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119260">
+        <simple_name>Zend_Service_Delicious.getPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getPosts_@__Service_Delicious_php_1($tag;$dt;$url):Variant</signature>
+        <info_rule id="471675"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119719">
+        <simple_name>Zend_Service_Delicious.getRecentPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getRecentPosts_@__Service_Delicious_php_1($tag;$count):Variant</signature>
+        <info_rule id="472106"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118961">
+        <simple_name>Zend_Service_Delicious.getTags_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getTags_@__Service_Delicious_php_1():Variant</signature>
+        <info_rule id="471386"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118891">
+        <simple_name>Zend_Service_Delicious.getUrlDetails_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUrlDetails_@__Service_Delicious_php_1($url):Variant</signature>
+        <info_rule id="471319"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119341">
+        <simple_name>Zend_Service_Delicious.getUserFans_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserFans_@__Service_Delicious_php_1($user):Variant</signature>
+        <info_rule id="471747"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118922">
+        <simple_name>Zend_Service_Delicious.getUserNetwork_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserNetwork_@__Service_Delicious_php_1($user):Variant</signature>
+        <info_rule id="471346"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118955">
+        <simple_name>Zend_Service_Delicious.getUserPosts_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserPosts_@__Service_Delicious_php_1($user;$count;$tag):Variant</signature>
+        <info_rule id="471380"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119451">
+        <simple_name>Zend_Service_Delicious.getUserTags_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.getUserTags_@__Service_Delicious_php_1($user;$atleast;$count;$sort):Variant</signature>
+        <info_rule id="471847"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118690">
+        <simple_name>Zend_Service_Delicious.makeRequest_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.makeRequest_@__Service_Delicious_php_1($path;$parms;$type):Variant</signature>
+        <info_rule id="471128"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119199">
+        <simple_name>Zend_Service_Delicious.renameTag_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.renameTag_@__Service_Delicious_php_1($old;$new):Variant</signature>
+        <info_rule id="471620"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118751">
+        <simple_name>Zend_Service_Delicious.setAuth_@__Service_Delicious_php_1</simple_name>
+        <signature>Zend_Service_Delicious.setAuth_@__Service_Delicious_php_1($uname;$pass):Variant</signature>
+        <info_rule id="471191"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="471189">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="471188">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

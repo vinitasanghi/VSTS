@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_Extended">
+      <method vuln_id="1091858">
+        <simple_name>MDB2_Extended.autoExecute</simple_name>
+        <signature>MDB2_Extended.autoExecute($table;$fields_values;$mode;$where;$types;$result_class;$result_types):bool|MDB2_Error</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2,4,5,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091864">
+        <simple_name>MDB2_Extended.autoPrepare</simple_name>
+        <signature>MDB2_Extended.autoPrepare($table;$table_fields;$mode;$where;$types;$result_types):resource</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,5,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091860">
+        <simple_name>MDB2_Extended.buildManipSQL</simple_name>
+        <signature>MDB2_Extended.buildManipSQL($table;$table_fields;$mode;$where):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091867">
+        <simple_name>MDB2_Extended.execParam</simple_name>
+        <signature>MDB2_Extended.execParam($query;$params;$param_types):int|MDB2_Error</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091861">
+        <simple_name>MDB2_Extended.executeMultiple</simple_name>
+        <signature>MDB2_Extended.executeMultiple($stmt;$params):bool|MDB2_Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091863">
+        <simple_name>MDB2_Extended.getAfterID</simple_name>
+        <signature>MDB2_Extended.getAfterID($id;$table;$field):int|MDB2_Error</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091862">
+        <simple_name>MDB2_Extended.getAll</simple_name>
+        <signature>MDB2_Extended.getAll($query;$types;$params;$param_types;$fetchmode;$rekey;$force_array;$group):array|MDB2_Error</signature>
+        <info_rule id="480792"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091857">
+        <simple_name>MDB2_Extended.getAssoc</simple_name>
+        <signature>MDB2_Extended.getAssoc($query;$types;$params;$param_types;$fetchmode;$force_array;$group):array|MDB2_Error</signature>
+        <info_rule id="480791"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091868">
+        <simple_name>MDB2_Extended.getBeforeID</simple_name>
+        <signature>MDB2_Extended.getBeforeID($table;$field;$ondemand;$quote):int|MDB2_Error</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091856">
+        <simple_name>MDB2_Extended.getCol</simple_name>
+        <signature>MDB2_Extended.getCol($query;$type;$params;$param_types;$colnum):array|MDB2_Error</signature>
+        <info_rule id="480793"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Extended.getDBInstance</simple_name>
+        <signature>MDB2_Extended.getDBInstance():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091866">
+        <simple_name>MDB2_Extended.getOne</simple_name>
+        <signature>MDB2_Extended.getOne($query;$type;$params;$param_types;$colnum):scalar|MDB2_Error</signature>
+        <info_rule id="480790"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091865">
+        <simple_name>MDB2_Extended.getRow</simple_name>
+        <signature>MDB2_Extended.getRow($query;$types;$params;$param_types;$fetchmode):array|MDB2_Error</signature>
+        <info_rule id="480789"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091859">
+        <simple_name>MDB2_Extended.limitQuery</simple_name>
+        <signature>MDB2_Extended.limitQuery($query;$types;$limit;$offset;$result_class;$result_wrap_class):MDB2_Result|MDB2_Error</signature>
+        <info_rule id="480794"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_Extended">
+      <method vuln_id="1091858">
+        <simple_name>MDB2_Extended.autoExecute</simple_name>
+        <signature>MDB2_Extended.autoExecute($table;$fields_values;$mode;$where;$types;$result_class;$result_types):bool|MDB2_Error</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2,4,5,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091864">
+        <simple_name>MDB2_Extended.autoPrepare</simple_name>
+        <signature>MDB2_Extended.autoPrepare($table;$table_fields;$mode;$where;$types;$result_types):resource</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,5,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091860">
+        <simple_name>MDB2_Extended.buildManipSQL</simple_name>
+        <signature>MDB2_Extended.buildManipSQL($table;$table_fields;$mode;$where):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091867">
+        <simple_name>MDB2_Extended.execParam</simple_name>
+        <signature>MDB2_Extended.execParam($query;$params;$param_types):int|MDB2_Error</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091861">
+        <simple_name>MDB2_Extended.executeMultiple</simple_name>
+        <signature>MDB2_Extended.executeMultiple($stmt;$params):bool|MDB2_Error</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091863">
+        <simple_name>MDB2_Extended.getAfterID</simple_name>
+        <signature>MDB2_Extended.getAfterID($id;$table;$field):int|MDB2_Error</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091862">
+        <simple_name>MDB2_Extended.getAll</simple_name>
+        <signature>MDB2_Extended.getAll($query;$types;$params;$param_types;$fetchmode;$rekey;$force_array;$group):array|MDB2_Error</signature>
+        <info_rule id="480792"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4,5,6"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091857">
+        <simple_name>MDB2_Extended.getAssoc</simple_name>
+        <signature>MDB2_Extended.getAssoc($query;$types;$params;$param_types;$fetchmode;$force_array;$group):array|MDB2_Error</signature>
+        <info_rule id="480791"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091868">
+        <simple_name>MDB2_Extended.getBeforeID</simple_name>
+        <signature>MDB2_Extended.getBeforeID($table;$field;$ondemand;$quote):int|MDB2_Error</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091856">
+        <simple_name>MDB2_Extended.getCol</simple_name>
+        <signature>MDB2_Extended.getCol($query;$type;$params;$param_types;$colnum):array|MDB2_Error</signature>
+        <info_rule id="480793"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Extended.getDBInstance</simple_name>
+        <signature>MDB2_Extended.getDBInstance():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091866">
+        <simple_name>MDB2_Extended.getOne</simple_name>
+        <signature>MDB2_Extended.getOne($query;$type;$params;$param_types;$colnum):scalar|MDB2_Error</signature>
+        <info_rule id="480790"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091865">
+        <simple_name>MDB2_Extended.getRow</simple_name>
+        <signature>MDB2_Extended.getRow($query;$types;$params;$param_types;$fetchmode):array|MDB2_Error</signature>
+        <info_rule id="480789"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091859">
+        <simple_name>MDB2_Extended.limitQuery</simple_name>
+        <signature>MDB2_Extended.limitQuery($query;$types;$limit;$offset;$result_class;$result_wrap_class):MDB2_Result|MDB2_Error</signature>
+        <info_rule id="480794"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

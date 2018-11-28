@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Crypt_DiffieHellman">
+      <method vuln_id="1110397">
+        <simple_name>Zend_Crypt_DiffieHellman.___Class_Initializer_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.___Class_Initializer_@__Crypt_DiffieHellman_php_1():void</signature>
+        <info_rule id="466492"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110371">
+        <simple_name>Zend_Crypt_DiffieHellman.__construct_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.__construct_@__Crypt_DiffieHellman_php_1($prime;$generator;$privateKey;$privateKeyType):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110369">
+        <simple_name>Zend_Crypt_DiffieHellman._generatePrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman._generatePrivateKey_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466467"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110359">
+        <simple_name>Zend_Crypt_DiffieHellman.computeSecretKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.computeSecretKey_@__Crypt_DiffieHellman_php_1($publicKey;$type;$output):Variant</signature>
+        <info_rule id="466456"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110385">
+        <simple_name>Zend_Crypt_DiffieHellman.generateKeys_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.generateKeys_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466480"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110387">
+        <simple_name>Zend_Crypt_DiffieHellman.getGenerator_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getGenerator_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110342">
+        <simple_name>Zend_Crypt_DiffieHellman.getPrime_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getPrime_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466441"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110364">
+        <simple_name>Zend_Crypt_DiffieHellman.getPrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getPrivateKey_@__Crypt_DiffieHellman_php_1($type):Variant</signature>
+        <info_rule id="466462"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110437">
+        <simple_name>Zend_Crypt_DiffieHellman.getPublicKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getPublicKey_@__Crypt_DiffieHellman_php_1($type):Variant</signature>
+        <info_rule id="466527"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110438">
+        <simple_name>Zend_Crypt_DiffieHellman.getSharedSecretKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getSharedSecretKey_@__Crypt_DiffieHellman_php_1($type):Variant</signature>
+        <info_rule id="466528"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110377">
+        <simple_name>Zend_Crypt_DiffieHellman.hasPrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.hasPrivateKey_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466473"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110419">
+        <simple_name>Zend_Crypt_DiffieHellman.setBigIntegerMath_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setBigIntegerMath_@__Crypt_DiffieHellman_php_1($extension):Variant</signature>
+        <info_rule id="466512"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110410">
+        <simple_name>Zend_Crypt_DiffieHellman.setGenerator_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setGenerator_@__Crypt_DiffieHellman_php_1($number):Variant</signature>
+        <info_rule id="466504"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110381">
+        <simple_name>Zend_Crypt_DiffieHellman.setPrime_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setPrime_@__Crypt_DiffieHellman_php_1($number):Variant</signature>
+        <info_rule id="466476"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110343">
+        <simple_name>Zend_Crypt_DiffieHellman.setPrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setPrivateKey_@__Crypt_DiffieHellman_php_1($number;$type):Variant</signature>
+        <info_rule id="466442"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110436">
+        <simple_name>Zend_Crypt_DiffieHellman.setPublicKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setPublicKey_@__Crypt_DiffieHellman_php_1($number;$type):Variant</signature>
+        <info_rule id="466526"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Crypt_DiffieHellman">
+      <method vuln_id="1110397">
+        <simple_name>Zend_Crypt_DiffieHellman.___Class_Initializer_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.___Class_Initializer_@__Crypt_DiffieHellman_php_1():void</signature>
+        <info_rule id="466492"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110371">
+        <simple_name>Zend_Crypt_DiffieHellman.__construct_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.__construct_@__Crypt_DiffieHellman_php_1($prime;$generator;$privateKey;$privateKeyType):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110369">
+        <simple_name>Zend_Crypt_DiffieHellman._generatePrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman._generatePrivateKey_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466467"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110359">
+        <simple_name>Zend_Crypt_DiffieHellman.computeSecretKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.computeSecretKey_@__Crypt_DiffieHellman_php_1($publicKey;$type;$output):Variant</signature>
+        <info_rule id="466456"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110385">
+        <simple_name>Zend_Crypt_DiffieHellman.generateKeys_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.generateKeys_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466480"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110387">
+        <simple_name>Zend_Crypt_DiffieHellman.getGenerator_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getGenerator_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110342">
+        <simple_name>Zend_Crypt_DiffieHellman.getPrime_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getPrime_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466441"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110364">
+        <simple_name>Zend_Crypt_DiffieHellman.getPrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getPrivateKey_@__Crypt_DiffieHellman_php_1($type):Variant</signature>
+        <info_rule id="466462"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110437">
+        <simple_name>Zend_Crypt_DiffieHellman.getPublicKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getPublicKey_@__Crypt_DiffieHellman_php_1($type):Variant</signature>
+        <info_rule id="466527"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110438">
+        <simple_name>Zend_Crypt_DiffieHellman.getSharedSecretKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.getSharedSecretKey_@__Crypt_DiffieHellman_php_1($type):Variant</signature>
+        <info_rule id="466528"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110377">
+        <simple_name>Zend_Crypt_DiffieHellman.hasPrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.hasPrivateKey_@__Crypt_DiffieHellman_php_1():Variant</signature>
+        <info_rule id="466473"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110419">
+        <simple_name>Zend_Crypt_DiffieHellman.setBigIntegerMath_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setBigIntegerMath_@__Crypt_DiffieHellman_php_1($extension):Variant</signature>
+        <info_rule id="466512"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110410">
+        <simple_name>Zend_Crypt_DiffieHellman.setGenerator_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setGenerator_@__Crypt_DiffieHellman_php_1($number):Variant</signature>
+        <info_rule id="466504"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110381">
+        <simple_name>Zend_Crypt_DiffieHellman.setPrime_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setPrime_@__Crypt_DiffieHellman_php_1($number):Variant</signature>
+        <info_rule id="466476"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110343">
+        <simple_name>Zend_Crypt_DiffieHellman.setPrivateKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setPrivateKey_@__Crypt_DiffieHellman_php_1($number;$type):Variant</signature>
+        <info_rule id="466442"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110436">
+        <simple_name>Zend_Crypt_DiffieHellman.setPublicKey_@__Crypt_DiffieHellman_php_1</simple_name>
+        <signature>Zend_Crypt_DiffieHellman.setPublicKey_@__Crypt_DiffieHellman_php_1($number;$type):Variant</signature>
+        <info_rule id="466526"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

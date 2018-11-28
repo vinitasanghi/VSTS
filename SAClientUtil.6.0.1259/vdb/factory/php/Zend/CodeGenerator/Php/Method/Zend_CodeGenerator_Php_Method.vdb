@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_CodeGenerator_Php_Method">
+      <method vuln_id="1109706">
+        <simple_name>Zend_CodeGenerator_Php_Method.__construct_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.__construct_@__CodeGenerator_Php_Method_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109750">
+        <simple_name>Zend_CodeGenerator_Php_Method.fromReflection_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.fromReflection_@__CodeGenerator_Php_Method_php_1($reflectionMethod):Variant</signature>
+        <info_rule id="466307"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109649">
+        <simple_name>Zend_CodeGenerator_Php_Method.generate_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.generate_@__CodeGenerator_Php_Method_php_1():Variant</signature>
+        <info_rule id="466201"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109647">
+        <simple_name>Zend_CodeGenerator_Php_Method.getBody_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.getBody_@__CodeGenerator_Php_Method_php_1():Variant</signature>
+        <info_rule id="466198"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109700">
+        <simple_name>Zend_CodeGenerator_Php_Method.getParameters_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.getParameters_@__CodeGenerator_Php_Method_php_1():Variant</signature>
+        <info_rule id="466251"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109716">
+        <simple_name>Zend_CodeGenerator_Php_Method.setBody_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setBody_@__CodeGenerator_Php_Method_php_1($body):Variant</signature>
+        <info_rule id="466268"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Malicious.DynamicCode</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109761">
+        <simple_name>Zend_CodeGenerator_Php_Method.setFinal_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setFinal_@__CodeGenerator_Php_Method_php_1($isFinal):Variant</signature>
+        <info_rule id="466322"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109740">
+        <simple_name>Zend_CodeGenerator_Php_Method.setParameter_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setParameter_@__CodeGenerator_Php_Method_php_1($parameter):Variant</signature>
+        <info_rule id="466294"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109667">
+        <simple_name>Zend_CodeGenerator_Php_Method.setParameters_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setParameters_@__CodeGenerator_Php_Method_php_1($parameters):Variant</signature>
+        <info_rule id="466219"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_CodeGenerator_Php_Method">
+      <method vuln_id="1109706">
+        <simple_name>Zend_CodeGenerator_Php_Method.__construct_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.__construct_@__CodeGenerator_Php_Method_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109750">
+        <simple_name>Zend_CodeGenerator_Php_Method.fromReflection_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.fromReflection_@__CodeGenerator_Php_Method_php_1($reflectionMethod):Variant</signature>
+        <info_rule id="466307"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109649">
+        <simple_name>Zend_CodeGenerator_Php_Method.generate_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.generate_@__CodeGenerator_Php_Method_php_1():Variant</signature>
+        <info_rule id="466201"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109647">
+        <simple_name>Zend_CodeGenerator_Php_Method.getBody_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.getBody_@__CodeGenerator_Php_Method_php_1():Variant</signature>
+        <info_rule id="466198"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109700">
+        <simple_name>Zend_CodeGenerator_Php_Method.getParameters_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.getParameters_@__CodeGenerator_Php_Method_php_1():Variant</signature>
+        <info_rule id="466251"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109716">
+        <simple_name>Zend_CodeGenerator_Php_Method.setBody_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setBody_@__CodeGenerator_Php_Method_php_1($body):Variant</signature>
+        <info_rule id="466268"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Malicious.DynamicCode</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109761">
+        <simple_name>Zend_CodeGenerator_Php_Method.setFinal_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setFinal_@__CodeGenerator_Php_Method_php_1($isFinal):Variant</signature>
+        <info_rule id="466322"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109740">
+        <simple_name>Zend_CodeGenerator_Php_Method.setParameter_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setParameter_@__CodeGenerator_Php_Method_php_1($parameter):Variant</signature>
+        <info_rule id="466294"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109667">
+        <simple_name>Zend_CodeGenerator_Php_Method.setParameters_@__CodeGenerator_Php_Method_php_1</simple_name>
+        <signature>Zend_CodeGenerator_Php_Method.setParameters_@__CodeGenerator_Php_Method_php_1($parameters):Variant</signature>
+        <info_rule id="466219"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Developer.Compile</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

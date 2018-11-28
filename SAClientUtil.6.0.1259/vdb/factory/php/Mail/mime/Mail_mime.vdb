@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Mail_mime">
+      <method vuln_id="-1">
+        <simple_name>Mail_mime.Mail_mime</simple_name>
+        <signature>Mail_mime.Mail_mime($crlf):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime.__wakeup</simple_name>
+        <signature>Mail_mime.__wakeup():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addAlternativePart</simple_name>
+        <signature>Mail_mime._addAlternativePart($obj):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addAttachmentPart</simple_name>
+        <signature>Mail_mime._addAttachmentPart($obj;$value):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addHtmlImagePart</simple_name>
+        <signature>Mail_mime._addHtmlImagePart($obj;$value):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addHtmlPart</simple_name>
+        <signature>Mail_mime._addHtmlPart($obj):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addMixedPart</simple_name>
+        <signature>Mail_mime._addMixedPart():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addRelatedPart</simple_name>
+        <signature>Mail_mime._addRelatedPart($obj):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addTextPart</simple_name>
+        <signature>Mail_mime._addTextPart($obj;$text):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._encodeHeaders</simple_name>
+        <signature>Mail_mime._encodeHeaders($input;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._file2str</simple_name>
+        <signature>Mail_mime._file2str($file_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._setEOL</simple_name>
+        <signature>Mail_mime._setEOL($eol):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092482">
+        <simple_name>Mail_mime.addAttachment</simple_name>
+        <signature>Mail_mime.addAttachment($file;$c_type;$name;$isfile;$encoding;$disposition;$charset;$language;$location):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451867">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,5,6,7,8,9"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092487">
+        <simple_name>Mail_mime.addBcc</simple_name>
+        <signature>Mail_mime.addBcc($email):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092488">
+        <simple_name>Mail_mime.addCc</simple_name>
+        <signature>Mail_mime.addCc($email):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092485">
+        <simple_name>Mail_mime.addHTMLImage</simple_name>
+        <signature>Mail_mime.addHTMLImage($file;$c_type;$name;$isfile):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451869">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092489">
+        <simple_name>Mail_mime.encodeRecipients</simple_name>
+        <signature>Mail_mime.encodeRecipients($recipients):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092483">
+        <simple_name>Mail_mime.get</simple_name>
+        <signature>Mail_mime.get($build_params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092486">
+        <simple_name>Mail_mime.getMessage</simple_name>
+        <signature>Mail_mime.getMessage($separation;$build_params;$xtra_headers;$overwrite):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092479">
+        <simple_name>Mail_mime.headers</simple_name>
+        <signature>Mail_mime.headers($xtra_headers;$overwrite):array</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092484">
+        <simple_name>Mail_mime.setFrom</simple_name>
+        <signature>Mail_mime.setFrom($email):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092491">
+        <simple_name>Mail_mime.setHTMLBody</simple_name>
+        <signature>Mail_mime.setHTMLBody($data;$isfile):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451870">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092481">
+        <simple_name>Mail_mime.setSubject</simple_name>
+        <signature>Mail_mime.setSubject($subject):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092480">
+        <simple_name>Mail_mime.setTXTBody</simple_name>
+        <signature>Mail_mime.setTXTBody($data;$isfile;$append):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451868">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092490">
+        <simple_name>Mail_mime.txtHeaders</simple_name>
+        <signature>Mail_mime.txtHeaders($xtra_headers;$overwrite):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Mail_mime">
+      <method vuln_id="-1">
+        <simple_name>Mail_mime.Mail_mime</simple_name>
+        <signature>Mail_mime.Mail_mime($crlf):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime.__wakeup</simple_name>
+        <signature>Mail_mime.__wakeup():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addAlternativePart</simple_name>
+        <signature>Mail_mime._addAlternativePart($obj):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addAttachmentPart</simple_name>
+        <signature>Mail_mime._addAttachmentPart($obj;$value):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addHtmlImagePart</simple_name>
+        <signature>Mail_mime._addHtmlImagePart($obj;$value):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addHtmlPart</simple_name>
+        <signature>Mail_mime._addHtmlPart($obj):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addMixedPart</simple_name>
+        <signature>Mail_mime._addMixedPart():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addRelatedPart</simple_name>
+        <signature>Mail_mime._addRelatedPart($obj):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._addTextPart</simple_name>
+        <signature>Mail_mime._addTextPart($obj;$text):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._encodeHeaders</simple_name>
+        <signature>Mail_mime._encodeHeaders($input;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._file2str</simple_name>
+        <signature>Mail_mime._file2str($file_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_mime._setEOL</simple_name>
+        <signature>Mail_mime._setEOL($eol):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092482">
+        <simple_name>Mail_mime.addAttachment</simple_name>
+        <signature>Mail_mime.addAttachment($file;$c_type;$name;$isfile;$encoding;$disposition;$charset;$language;$location):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451867">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,5,6,7,8,9"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092487">
+        <simple_name>Mail_mime.addBcc</simple_name>
+        <signature>Mail_mime.addBcc($email):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092488">
+        <simple_name>Mail_mime.addCc</simple_name>
+        <signature>Mail_mime.addCc($email):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092485">
+        <simple_name>Mail_mime.addHTMLImage</simple_name>
+        <signature>Mail_mime.addHTMLImage($file;$c_type;$name;$isfile):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451869">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092489">
+        <simple_name>Mail_mime.encodeRecipients</simple_name>
+        <signature>Mail_mime.encodeRecipients($recipients):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092483">
+        <simple_name>Mail_mime.get</simple_name>
+        <signature>Mail_mime.get($build_params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092486">
+        <simple_name>Mail_mime.getMessage</simple_name>
+        <signature>Mail_mime.getMessage($separation;$build_params;$xtra_headers;$overwrite):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092479">
+        <simple_name>Mail_mime.headers</simple_name>
+        <signature>Mail_mime.headers($xtra_headers;$overwrite):array</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092484">
+        <simple_name>Mail_mime.setFrom</simple_name>
+        <signature>Mail_mime.setFrom($email):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092491">
+        <simple_name>Mail_mime.setHTMLBody</simple_name>
+        <signature>Mail_mime.setHTMLBody($data;$isfile):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451870">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092481">
+        <simple_name>Mail_mime.setSubject</simple_name>
+        <signature>Mail_mime.setSubject($subject):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092480">
+        <simple_name>Mail_mime.setTXTBody</simple_name>
+        <signature>Mail_mime.setTXTBody($data;$isfile;$append):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Phishing.Email</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451868">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>TODO Ideally we would check isfile and only report find if it's true </comment>
+      </method>
+      <method vuln_id="1092490">
+        <simple_name>Mail_mime.txtHeaders</simple_name>
+        <signature>Mail_mime.txtHeaders($xtra_headers;$overwrite):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

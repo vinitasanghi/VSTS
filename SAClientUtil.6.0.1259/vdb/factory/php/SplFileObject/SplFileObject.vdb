@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SplFileObject">
+      <method vuln_id="1088837">
+        <simple_name>___Php.SplFileObject.__construct</simple_name>
+        <signature>___Php.SplFileObject.__construct(___Php.String;___Php.String;bool;int):void</signature>
+        <comment>Construct a new file object</comment>
+      </method>
+      <method vuln_id="1088678">
+        <simple_name>___Php.SplFileObject.current</simple_name>
+        <signature>___Php.SplFileObject.current():___Php.String</signature>
+        <info_rule id="456188"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current line from file</comment>
+      </method>
+      <method vuln_id="1088727">
+        <simple_name>___Php.SplFileObject.eof</simple_name>
+        <signature>___Php.SplFileObject.eof():void</signature>
+        <info_rule id="456209"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return whether end of file is reached</comment>
+      </method>
+      <method vuln_id="1088930">
+        <simple_name>___Php.SplFileObject.fflush</simple_name>
+        <signature>___Php.SplFileObject.fflush():bool</signature>
+        <info_rule id="456308"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Flush the file</comment>
+      </method>
+      <method vuln_id="1088942">
+        <simple_name>___Php.SplFileObject.fgetc</simple_name>
+        <signature>___Php.SplFileObject.fgetc():int</signature>
+        <info_rule id="456316"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get a character from the file</comment>
+      </method>
+      <method vuln_id="1088792">
+        <simple_name>___Php.SplFileObject.fgetcsv</simple_name>
+        <signature>___Php.SplFileObject.fgetcsv(___Php.String;___Php.String):___Php.Array</signature>
+        <info_rule id="456241"/>
+        <source_rule id="456240">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current line as csv</comment>
+      </method>
+      <method vuln_id="1088843">
+        <simple_name>___Php.SplFileObject.fgets</simple_name>
+        <signature>___Php.SplFileObject.fgets():___Php.String</signature>
+        <info_rule id="456269"/>
+        <source_rule id="456268">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Rturn next line from file</comment>
+      </method>
+      <method vuln_id="1088729">
+        <simple_name>___Php.SplFileObject.fgetss</simple_name>
+        <signature>___Php.SplFileObject.fgetss(___Php.String):___Php.String</signature>
+        <info_rule id="456212"/>
+        <source_rule id="456211">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get a line from file pointer and strip HTML tags</comment>
+      </method>
+      <method vuln_id="1088863">
+        <simple_name>___Php.SplFileObject.flock</simple_name>
+        <signature>___Php.SplFileObject.flock(int;int):bool</signature>
+        <info_rule id="456280"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Portable file locking</comment>
+      </method>
+      <method vuln_id="1088746">
+        <simple_name>___Php.SplFileObject.fpassthru</simple_name>
+        <signature>___Php.SplFileObject.fpassthru():int</signature>
+        <info_rule id="456221"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Output all remaining data from a file pointer</comment>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array;___Php.String):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array;___Php.String;___Php.String):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array;___Php.String;___Php.String;___Php.String):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="1088829">
+        <simple_name>___Php.SplFileObject.fscanf</simple_name>
+        <signature>___Php.SplFileObject.fscanf(int;___Php.String):bool</signature>
+        <info_rule id="456260"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Implements a mostly ANSI compatible fscanf()</comment>
+      </method>
+      <method vuln_id="1088785">
+        <simple_name>___Php.SplFileObject.fseek</simple_name>
+        <signature>___Php.SplFileObject.fseek(int;int):int</signature>
+        <info_rule id="456236"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current file position</comment>
+      </method>
+      <method vuln_id="1088887">
+        <simple_name>___Php.SplFileObject.fstat</simple_name>
+        <signature>___Php.SplFileObject.fstat():bool</signature>
+        <info_rule id="456293"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Stat() on a filehandle</comment>
+      </method>
+      <method vuln_id="1088851">
+        <simple_name>___Php.SplFileObject.ftell</simple_name>
+        <signature>___Php.SplFileObject.ftell():int</signature>
+        <info_rule id="456274"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current file position</comment>
+      </method>
+      <method vuln_id="1088975">
+        <simple_name>___Php.SplFileObject.ftruncate</simple_name>
+        <signature>___Php.SplFileObject.ftruncate(int):bool</signature>
+        <info_rule id="456337"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Truncate file to 'size' length</comment>
+      </method>
+      <method vuln_id="1088956">
+        <simple_name>___Php.SplFileObject.fwrite</simple_name>
+        <signature>___Php.SplFileObject.fwrite(___Php.String;int):mixed</signature>
+        <info_rule id="456325"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Binary-safe file write</comment>
+      </method>
+      <method vuln_id="1088823">
+        <simple_name>___Php.SplFileObject.getChildren</simple_name>
+        <signature>___Php.SplFileObject.getChildren():bool</signature>
+        <info_rule id="456256"/>
+        <property>Technology.FileSystem</property>
+        <comment>Read NULL</comment>
+      </method>
+      <method vuln_id="1088771">
+        <simple_name>___Php.SplFileObject.getCsvControl</simple_name>
+        <signature>___Php.SplFileObject.getCsvControl():___Php.Array</signature>
+        <info_rule id="456230"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get the delimiter and enclosure character used in fgetcsv</comment>
+      </method>
+      <method vuln_id="1088696">
+        <simple_name>___Php.SplFileObject.getFlags</simple_name>
+        <signature>___Php.SplFileObject.getFlags():int</signature>
+        <info_rule id="456195"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file handling flags</comment>
+      </method>
+      <method vuln_id="1088835">
+        <simple_name>___Php.SplFileObject.getMaxLineLen</simple_name>
+        <signature>___Php.SplFileObject.getMaxLineLen():int</signature>
+        <info_rule id="456264"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get maximum line length</comment>
+      </method>
+      <method vuln_id="1088933">
+        <simple_name>___Php.SplFileObject.hasChildren</simple_name>
+        <signature>___Php.SplFileObject.hasChildren():bool</signature>
+        <info_rule id="456310"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return false</comment>
+      </method>
+      <method vuln_id="1088735">
+        <simple_name>___Php.SplFileObject.key</simple_name>
+        <signature>___Php.SplFileObject.key():int</signature>
+        <info_rule id="456216"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return line number</comment>
+      </method>
+      <method vuln_id="1088815">
+        <simple_name>___Php.SplFileObject.next</simple_name>
+        <signature>___Php.SplFileObject.next():void</signature>
+        <info_rule id="456251"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Read next line</comment>
+      </method>
+      <method vuln_id="1088988">
+        <simple_name>___Php.SplFileObject.rewind</simple_name>
+        <signature>___Php.SplFileObject.rewind():void</signature>
+        <info_rule id="456343"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Rewind the file and read the first line</comment>
+      </method>
+      <method vuln_id="1089003">
+        <simple_name>___Php.SplFileObject.seek</simple_name>
+        <signature>___Php.SplFileObject.seek(int):void</signature>
+        <info_rule id="456351"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Seek to specified line</comment>
+      </method>
+      <method vuln_id="1089017">
+        <simple_name>___Php.SplFileObject.setCsvControl</simple_name>
+        <signature>___Php.SplFileObject.setCsvControl(___Php.String;___Php.String):void</signature>
+        <info_rule id="456358"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.FileSystem</property>
+        <comment>Set the delimiter and enclosure character used in fgetcsv</comment>
+      </method>
+      <method vuln_id="1089027">
+        <simple_name>___Php.SplFileObject.setFlags</simple_name>
+        <signature>___Php.SplFileObject.setFlags(int):void</signature>
+        <info_rule id="456361"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Set file handling flags</comment>
+      </method>
+      <method vuln_id="1088738">
+        <simple_name>___Php.SplFileObject.setMaxLineLen</simple_name>
+        <signature>___Php.SplFileObject.setMaxLineLen(int):void</signature>
+        <info_rule id="456217"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Set maximum line length</comment>
+      </method>
+      <method vuln_id="1088959">
+        <simple_name>___Php.SplFileObject.valid</simple_name>
+        <signature>___Php.SplFileObject.valid():void</signature>
+        <info_rule id="456326"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return !eof()</comment>
+      </method>
+    </class>
+    <class name="SplFileObject">
+      <method vuln_id="1088837">
+        <simple_name>___Php.SplFileObject.__construct</simple_name>
+        <signature>___Php.SplFileObject.__construct(___Php.String;___Php.String;bool;int):void</signature>
+        <comment>Construct a new file object</comment>
+      </method>
+      <method vuln_id="1088678">
+        <simple_name>___Php.SplFileObject.current</simple_name>
+        <signature>___Php.SplFileObject.current():___Php.String</signature>
+        <info_rule id="456188"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current line from file</comment>
+      </method>
+      <method vuln_id="1088727">
+        <simple_name>___Php.SplFileObject.eof</simple_name>
+        <signature>___Php.SplFileObject.eof():void</signature>
+        <info_rule id="456209"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return whether end of file is reached</comment>
+      </method>
+      <method vuln_id="1088930">
+        <simple_name>___Php.SplFileObject.fflush</simple_name>
+        <signature>___Php.SplFileObject.fflush():bool</signature>
+        <info_rule id="456308"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Flush the file</comment>
+      </method>
+      <method vuln_id="1088942">
+        <simple_name>___Php.SplFileObject.fgetc</simple_name>
+        <signature>___Php.SplFileObject.fgetc():int</signature>
+        <info_rule id="456316"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get a character from the file</comment>
+      </method>
+      <method vuln_id="1088792">
+        <simple_name>___Php.SplFileObject.fgetcsv</simple_name>
+        <signature>___Php.SplFileObject.fgetcsv(___Php.String;___Php.String):___Php.Array</signature>
+        <info_rule id="456241"/>
+        <source_rule id="456240">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current line as csv</comment>
+      </method>
+      <method vuln_id="1088843">
+        <simple_name>___Php.SplFileObject.fgets</simple_name>
+        <signature>___Php.SplFileObject.fgets():___Php.String</signature>
+        <info_rule id="456269"/>
+        <source_rule id="456268">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Rturn next line from file</comment>
+      </method>
+      <method vuln_id="1088729">
+        <simple_name>___Php.SplFileObject.fgetss</simple_name>
+        <signature>___Php.SplFileObject.fgetss(___Php.String):___Php.String</signature>
+        <info_rule id="456212"/>
+        <source_rule id="456211">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get a line from file pointer and strip HTML tags</comment>
+      </method>
+      <method vuln_id="1088863">
+        <simple_name>___Php.SplFileObject.flock</simple_name>
+        <signature>___Php.SplFileObject.flock(int;int):bool</signature>
+        <info_rule id="456280"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Portable file locking</comment>
+      </method>
+      <method vuln_id="1088746">
+        <simple_name>___Php.SplFileObject.fpassthru</simple_name>
+        <signature>___Php.SplFileObject.fpassthru():int</signature>
+        <info_rule id="456221"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Output all remaining data from a file pointer</comment>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array;___Php.String):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array;___Php.String;___Php.String):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileObject.fputcsv</simple_name>
+        <signature>___Php.SplFileObject.fputcsv(___Php.Array;___Php.String;___Php.String;___Php.String):int</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="1088829">
+        <simple_name>___Php.SplFileObject.fscanf</simple_name>
+        <signature>___Php.SplFileObject.fscanf(int;___Php.String):bool</signature>
+        <info_rule id="456260"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Implements a mostly ANSI compatible fscanf()</comment>
+      </method>
+      <method vuln_id="1088785">
+        <simple_name>___Php.SplFileObject.fseek</simple_name>
+        <signature>___Php.SplFileObject.fseek(int;int):int</signature>
+        <info_rule id="456236"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current file position</comment>
+      </method>
+      <method vuln_id="1088887">
+        <simple_name>___Php.SplFileObject.fstat</simple_name>
+        <signature>___Php.SplFileObject.fstat():bool</signature>
+        <info_rule id="456293"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Stat() on a filehandle</comment>
+      </method>
+      <method vuln_id="1088851">
+        <simple_name>___Php.SplFileObject.ftell</simple_name>
+        <signature>___Php.SplFileObject.ftell():int</signature>
+        <info_rule id="456274"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return current file position</comment>
+      </method>
+      <method vuln_id="1088975">
+        <simple_name>___Php.SplFileObject.ftruncate</simple_name>
+        <signature>___Php.SplFileObject.ftruncate(int):bool</signature>
+        <info_rule id="456337"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Truncate file to 'size' length</comment>
+      </method>
+      <method vuln_id="1088956">
+        <simple_name>___Php.SplFileObject.fwrite</simple_name>
+        <signature>___Php.SplFileObject.fwrite(___Php.String;int):mixed</signature>
+        <info_rule id="456325"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Binary-safe file write</comment>
+      </method>
+      <method vuln_id="1088823">
+        <simple_name>___Php.SplFileObject.getChildren</simple_name>
+        <signature>___Php.SplFileObject.getChildren():bool</signature>
+        <info_rule id="456256"/>
+        <property>Technology.FileSystem</property>
+        <comment>Read NULL</comment>
+      </method>
+      <method vuln_id="1088771">
+        <simple_name>___Php.SplFileObject.getCsvControl</simple_name>
+        <signature>___Php.SplFileObject.getCsvControl():___Php.Array</signature>
+        <info_rule id="456230"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get the delimiter and enclosure character used in fgetcsv</comment>
+      </method>
+      <method vuln_id="1088696">
+        <simple_name>___Php.SplFileObject.getFlags</simple_name>
+        <signature>___Php.SplFileObject.getFlags():int</signature>
+        <info_rule id="456195"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file handling flags</comment>
+      </method>
+      <method vuln_id="1088835">
+        <simple_name>___Php.SplFileObject.getMaxLineLen</simple_name>
+        <signature>___Php.SplFileObject.getMaxLineLen():int</signature>
+        <info_rule id="456264"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get maximum line length</comment>
+      </method>
+      <method vuln_id="1088933">
+        <simple_name>___Php.SplFileObject.hasChildren</simple_name>
+        <signature>___Php.SplFileObject.hasChildren():bool</signature>
+        <info_rule id="456310"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return false</comment>
+      </method>
+      <method vuln_id="1088735">
+        <simple_name>___Php.SplFileObject.key</simple_name>
+        <signature>___Php.SplFileObject.key():int</signature>
+        <info_rule id="456216"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return line number</comment>
+      </method>
+      <method vuln_id="1088815">
+        <simple_name>___Php.SplFileObject.next</simple_name>
+        <signature>___Php.SplFileObject.next():void</signature>
+        <info_rule id="456251"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Read next line</comment>
+      </method>
+      <method vuln_id="1088988">
+        <simple_name>___Php.SplFileObject.rewind</simple_name>
+        <signature>___Php.SplFileObject.rewind():void</signature>
+        <info_rule id="456343"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Rewind the file and read the first line</comment>
+      </method>
+      <method vuln_id="1089003">
+        <simple_name>___Php.SplFileObject.seek</simple_name>
+        <signature>___Php.SplFileObject.seek(int):void</signature>
+        <info_rule id="456351"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Seek to specified line</comment>
+      </method>
+      <method vuln_id="1089017">
+        <simple_name>___Php.SplFileObject.setCsvControl</simple_name>
+        <signature>___Php.SplFileObject.setCsvControl(___Php.String;___Php.String):void</signature>
+        <info_rule id="456358"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.FileSystem</property>
+        <comment>Set the delimiter and enclosure character used in fgetcsv</comment>
+      </method>
+      <method vuln_id="1089027">
+        <simple_name>___Php.SplFileObject.setFlags</simple_name>
+        <signature>___Php.SplFileObject.setFlags(int):void</signature>
+        <info_rule id="456361"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Set file handling flags</comment>
+      </method>
+      <method vuln_id="1088738">
+        <simple_name>___Php.SplFileObject.setMaxLineLen</simple_name>
+        <signature>___Php.SplFileObject.setMaxLineLen(int):void</signature>
+        <info_rule id="456217"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Set maximum line length</comment>
+      </method>
+      <method vuln_id="1088959">
+        <simple_name>___Php.SplFileObject.valid</simple_name>
+        <signature>___Php.SplFileObject.valid():void</signature>
+        <info_rule id="456326"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Return !eof()</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

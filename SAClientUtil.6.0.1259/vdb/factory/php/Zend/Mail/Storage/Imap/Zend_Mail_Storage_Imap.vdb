@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Mail_Storage_Imap">
+      <method vuln_id="1116113">
+        <simple_name>Zend_Mail_Storage_Imap.___Class_Initializer_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.___Class_Initializer_@__Mail_Storage_Imap_php_1():void</signature>
+        <info_rule id="469353"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116277">
+        <simple_name>Zend_Mail_Storage_Imap.__construct_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.__construct_@__Mail_Storage_Imap_php_1($params):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116278">
+        <simple_name>Zend_Mail_Storage_Imap.appendMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.appendMessage_@__Mail_Storage_Imap_php_1($message;$folder;$flags):Variant</signature>
+        <info_rule id="469522"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116109">
+        <simple_name>Zend_Mail_Storage_Imap.close_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.close_@__Mail_Storage_Imap_php_1():Variant</signature>
+        <info_rule id="469349"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116146">
+        <simple_name>Zend_Mail_Storage_Imap.copyMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.copyMessage_@__Mail_Storage_Imap_php_1($id;$folder):Variant</signature>
+        <info_rule id="469388"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115954">
+        <simple_name>Zend_Mail_Storage_Imap.countMessages_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.countMessages_@__Mail_Storage_Imap_php_1($flags):Variant</signature>
+        <info_rule id="469186"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116028">
+        <simple_name>Zend_Mail_Storage_Imap.createFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.createFolder_@__Mail_Storage_Imap_php_1($name;$parentFolder):Variant</signature>
+        <info_rule id="469265"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116220">
+        <simple_name>Zend_Mail_Storage_Imap.getCurrentFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getCurrentFolder_@__Mail_Storage_Imap_php_1():Variant</signature>
+        <info_rule id="469469"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116265">
+        <simple_name>Zend_Mail_Storage_Imap.getFolders_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getFolders_@__Mail_Storage_Imap_php_1($rootFolder):Variant</signature>
+        <info_rule id="469510"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116083">
+        <simple_name>Zend_Mail_Storage_Imap.getMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getMessage_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469318"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116136">
+        <simple_name>Zend_Mail_Storage_Imap.getNumberByUniqueId_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getNumberByUniqueId_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469378"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116142">
+        <simple_name>Zend_Mail_Storage_Imap.getRawContent_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getRawContent_@__Mail_Storage_Imap_php_1($id;$part):Variant</signature>
+        <info_rule id="469383"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116244">
+        <simple_name>Zend_Mail_Storage_Imap.getRawHeader_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getRawHeader_@__Mail_Storage_Imap_php_1($id;$part;$topLines):Variant</signature>
+        <info_rule id="469489"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116010">
+        <simple_name>Zend_Mail_Storage_Imap.getSize_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getSize_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469245"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115997">
+        <simple_name>Zend_Mail_Storage_Imap.getUniqueId_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getUniqueId_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469231"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115987">
+        <simple_name>Zend_Mail_Storage_Imap.moveMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.moveMessage_@__Mail_Storage_Imap_php_1($id;$folder):Variant</signature>
+        <info_rule id="469221"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116268">
+        <simple_name>Zend_Mail_Storage_Imap.noop_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.noop_@__Mail_Storage_Imap_php_1():Variant</signature>
+        <info_rule id="469513"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116139">
+        <simple_name>Zend_Mail_Storage_Imap.removeFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.removeFolder_@__Mail_Storage_Imap_php_1($name):Variant</signature>
+        <info_rule id="469381"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116272">
+        <simple_name>Zend_Mail_Storage_Imap.removeMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.removeMessage_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469517"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116088">
+        <simple_name>Zend_Mail_Storage_Imap.renameFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.renameFolder_@__Mail_Storage_Imap_php_1($oldName;$newName):Variant</signature>
+        <info_rule id="469324"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116110">
+        <simple_name>Zend_Mail_Storage_Imap.selectFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.selectFolder_@__Mail_Storage_Imap_php_1($globalName):Variant</signature>
+        <info_rule id="469350"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115969">
+        <simple_name>Zend_Mail_Storage_Imap.setFlags_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.setFlags_@__Mail_Storage_Imap_php_1($id;$flags):Variant</signature>
+        <info_rule id="469200"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Mail_Storage_Imap">
+      <method vuln_id="1116113">
+        <simple_name>Zend_Mail_Storage_Imap.___Class_Initializer_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.___Class_Initializer_@__Mail_Storage_Imap_php_1():void</signature>
+        <info_rule id="469353"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116277">
+        <simple_name>Zend_Mail_Storage_Imap.__construct_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.__construct_@__Mail_Storage_Imap_php_1($params):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116278">
+        <simple_name>Zend_Mail_Storage_Imap.appendMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.appendMessage_@__Mail_Storage_Imap_php_1($message;$folder;$flags):Variant</signature>
+        <info_rule id="469522"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116109">
+        <simple_name>Zend_Mail_Storage_Imap.close_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.close_@__Mail_Storage_Imap_php_1():Variant</signature>
+        <info_rule id="469349"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116146">
+        <simple_name>Zend_Mail_Storage_Imap.copyMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.copyMessage_@__Mail_Storage_Imap_php_1($id;$folder):Variant</signature>
+        <info_rule id="469388"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115954">
+        <simple_name>Zend_Mail_Storage_Imap.countMessages_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.countMessages_@__Mail_Storage_Imap_php_1($flags):Variant</signature>
+        <info_rule id="469186"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116028">
+        <simple_name>Zend_Mail_Storage_Imap.createFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.createFolder_@__Mail_Storage_Imap_php_1($name;$parentFolder):Variant</signature>
+        <info_rule id="469265"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116220">
+        <simple_name>Zend_Mail_Storage_Imap.getCurrentFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getCurrentFolder_@__Mail_Storage_Imap_php_1():Variant</signature>
+        <info_rule id="469469"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116265">
+        <simple_name>Zend_Mail_Storage_Imap.getFolders_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getFolders_@__Mail_Storage_Imap_php_1($rootFolder):Variant</signature>
+        <info_rule id="469510"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116083">
+        <simple_name>Zend_Mail_Storage_Imap.getMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getMessage_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469318"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116136">
+        <simple_name>Zend_Mail_Storage_Imap.getNumberByUniqueId_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getNumberByUniqueId_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469378"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116142">
+        <simple_name>Zend_Mail_Storage_Imap.getRawContent_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getRawContent_@__Mail_Storage_Imap_php_1($id;$part):Variant</signature>
+        <info_rule id="469383"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116244">
+        <simple_name>Zend_Mail_Storage_Imap.getRawHeader_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getRawHeader_@__Mail_Storage_Imap_php_1($id;$part;$topLines):Variant</signature>
+        <info_rule id="469489"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116010">
+        <simple_name>Zend_Mail_Storage_Imap.getSize_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getSize_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469245"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115997">
+        <simple_name>Zend_Mail_Storage_Imap.getUniqueId_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.getUniqueId_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469231"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115987">
+        <simple_name>Zend_Mail_Storage_Imap.moveMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.moveMessage_@__Mail_Storage_Imap_php_1($id;$folder):Variant</signature>
+        <info_rule id="469221"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116268">
+        <simple_name>Zend_Mail_Storage_Imap.noop_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.noop_@__Mail_Storage_Imap_php_1():Variant</signature>
+        <info_rule id="469513"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116139">
+        <simple_name>Zend_Mail_Storage_Imap.removeFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.removeFolder_@__Mail_Storage_Imap_php_1($name):Variant</signature>
+        <info_rule id="469381"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116272">
+        <simple_name>Zend_Mail_Storage_Imap.removeMessage_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.removeMessage_@__Mail_Storage_Imap_php_1($id):Variant</signature>
+        <info_rule id="469517"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116088">
+        <simple_name>Zend_Mail_Storage_Imap.renameFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.renameFolder_@__Mail_Storage_Imap_php_1($oldName;$newName):Variant</signature>
+        <info_rule id="469324"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116110">
+        <simple_name>Zend_Mail_Storage_Imap.selectFolder_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.selectFolder_@__Mail_Storage_Imap_php_1($globalName):Variant</signature>
+        <info_rule id="469350"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115969">
+        <simple_name>Zend_Mail_Storage_Imap.setFlags_@__Mail_Storage_Imap_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Imap.setFlags_@__Mail_Storage_Imap_php_1($id;$flags):Variant</signature>
+        <info_rule id="469200"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

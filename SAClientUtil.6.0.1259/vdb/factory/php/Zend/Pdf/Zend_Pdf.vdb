@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Pdf">
+      <method vuln_id="1117493">
+        <simple_name>Zend_Pdf.___Class_Initializer_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.___Class_Initializer_@__Pdf_php_1():void</signature>
+        <info_rule id="470449"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117071">
+        <simple_name>Zend_Pdf.__construct_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.__construct_@__Pdf_php_1($source;$revision;$load):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117038">
+        <simple_name>Zend_Pdf._cleanUpAction_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._cleanUpAction_@__Pdf_php_1($action;$refreshPageCollectionHashes):Variant</signature>
+        <info_rule id="470017"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117270">
+        <simple_name>Zend_Pdf._dumpNamedDestinations_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._dumpNamedDestinations_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470238"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117348">
+        <simple_name>Zend_Pdf._dumpOutlines_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._dumpOutlines_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470311"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117358">
+        <simple_name>Zend_Pdf._dumpPages_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._dumpPages_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470320"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117031">
+        <simple_name>Zend_Pdf._loadNamedDestinations_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._loadNamedDestinations_@__Pdf_php_1($root;$pdfHeaderVersion):Variant</signature>
+        <info_rule id="470010"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116921">
+        <simple_name>Zend_Pdf._loadOutlines_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._loadOutlines_@__Pdf_php_1($root):Variant</signature>
+        <info_rule id="469905"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117285">
+        <simple_name>Zend_Pdf._loadPages_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._loadPages_@__Pdf_php_1($pages;$attributes):Variant</signature>
+        <info_rule id="470253"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117255">
+        <simple_name>Zend_Pdf._refreshPagesHash_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._refreshPagesHash_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470223"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117479">
+        <simple_name>Zend_Pdf.extractFont_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.extractFont_@__Pdf_php_1($fontName):Variant</signature>
+        <info_rule id="470434"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117213">
+        <simple_name>Zend_Pdf.extractFonts_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.extractFonts_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470187"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117006">
+        <simple_name>Zend_Pdf.getJavaScript_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getJavaScript_@__Pdf_php_1():Variant</signature>
+        <info_rule id="469984"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117480">
+        <simple_name>Zend_Pdf.getMemoryManager</simple_name>
+        <signature>Zend_Pdf.getMemoryManager():Variant</signature>
+        <info_rule id="470435"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117477">
+        <simple_name>Zend_Pdf.getMemoryManager_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getMemoryManager_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470432"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117466">
+        <simple_name>Zend_Pdf.getMetadata_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getMetadata_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470423"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117256">
+        <simple_name>Zend_Pdf.getNamedDestination_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getNamedDestination_@__Pdf_php_1($name):Variant</signature>
+        <info_rule id="470224"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117081">
+        <simple_name>Zend_Pdf.getNamedDestinations_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getNamedDestinations_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470056"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117349">
+        <simple_name>Zend_Pdf.getOpenAction_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getOpenAction_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470312"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117113">
+        <simple_name>Zend_Pdf.load_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.load_@__Pdf_php_1($source;$revision):Variant</signature>
+        <info_rule id="470090"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116967">
+        <simple_name>Zend_Pdf.newPage_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.newPage_@__Pdf_php_1($param1;$param2):Variant</signature>
+        <info_rule id="469952"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117121">
+        <simple_name>Zend_Pdf.parse_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.parse_@__Pdf_php_1($source;$revision):Variant</signature>
+        <info_rule id="470098"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117218">
+        <simple_name>Zend_Pdf.pdfDate</simple_name>
+        <signature>Zend_Pdf.pdfDate():Variant</signature>
+        <info_rule id="470192"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117389">
+        <simple_name>Zend_Pdf.pdfDate_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.pdfDate_@__Pdf_php_1($timestamp):Variant</signature>
+        <info_rule id="470349"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117434">
+        <simple_name>Zend_Pdf.render_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.render_@__Pdf_php_1($newSegmentOnly;$outputStream):Variant</signature>
+        <info_rule id="470391"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="1" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117574">
+        <simple_name>Zend_Pdf.resolveDestination_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.resolveDestination_@__Pdf_php_1($destination;$refreshPageCollectionHashes):Variant</signature>
+        <info_rule id="470527"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117115">
+        <simple_name>Zend_Pdf.revisions_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.revisions_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470093"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117593">
+        <simple_name>Zend_Pdf.rollback_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.rollback_@__Pdf_php_1($steps):Variant</signature>
+        <info_rule id="470544"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117177">
+        <simple_name>Zend_Pdf.save_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.save_@__Pdf_php_1($filename;$updateOnly):Variant</signature>
+        <info_rule id="470152"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117441">
+        <simple_name>Zend_Pdf.setJavaScript_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setJavaScript_@__Pdf_php_1($javascript):Variant</signature>
+        <info_rule id="470398"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116939">
+        <simple_name>Zend_Pdf.setMemoryManager_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setMemoryManager_@__Pdf_php_1($memoryManager):Variant</signature>
+        <info_rule id="469924"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117170">
+        <simple_name>Zend_Pdf.setMetadata_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setMetadata_@__Pdf_php_1($metadata):Variant</signature>
+        <info_rule id="470145"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117522">
+        <simple_name>Zend_Pdf.setNamedDestination_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setNamedDestination_@__Pdf_php_1($name;$destination):Variant</signature>
+        <info_rule id="470477"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117523">
+        <simple_name>Zend_Pdf.setOpenAction_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setOpenAction_@__Pdf_php_1($openAction):Variant</signature>
+        <info_rule id="470478"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+    </class>
+    <class name="Zend_Pdf">
+      <method vuln_id="1117493">
+        <simple_name>Zend_Pdf.___Class_Initializer_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.___Class_Initializer_@__Pdf_php_1():void</signature>
+        <info_rule id="470449"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117071">
+        <simple_name>Zend_Pdf.__construct_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.__construct_@__Pdf_php_1($source;$revision;$load):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1117038">
+        <simple_name>Zend_Pdf._cleanUpAction_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._cleanUpAction_@__Pdf_php_1($action;$refreshPageCollectionHashes):Variant</signature>
+        <info_rule id="470017"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117270">
+        <simple_name>Zend_Pdf._dumpNamedDestinations_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._dumpNamedDestinations_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470238"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117348">
+        <simple_name>Zend_Pdf._dumpOutlines_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._dumpOutlines_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470311"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117358">
+        <simple_name>Zend_Pdf._dumpPages_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._dumpPages_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470320"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117031">
+        <simple_name>Zend_Pdf._loadNamedDestinations_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._loadNamedDestinations_@__Pdf_php_1($root;$pdfHeaderVersion):Variant</signature>
+        <info_rule id="470010"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116921">
+        <simple_name>Zend_Pdf._loadOutlines_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._loadOutlines_@__Pdf_php_1($root):Variant</signature>
+        <info_rule id="469905"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117285">
+        <simple_name>Zend_Pdf._loadPages_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._loadPages_@__Pdf_php_1($pages;$attributes):Variant</signature>
+        <info_rule id="470253"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117255">
+        <simple_name>Zend_Pdf._refreshPagesHash_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf._refreshPagesHash_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470223"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117479">
+        <simple_name>Zend_Pdf.extractFont_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.extractFont_@__Pdf_php_1($fontName):Variant</signature>
+        <info_rule id="470434"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117213">
+        <simple_name>Zend_Pdf.extractFonts_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.extractFonts_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470187"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117006">
+        <simple_name>Zend_Pdf.getJavaScript_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getJavaScript_@__Pdf_php_1():Variant</signature>
+        <info_rule id="469984"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117480">
+        <simple_name>Zend_Pdf.getMemoryManager</simple_name>
+        <signature>Zend_Pdf.getMemoryManager():Variant</signature>
+        <info_rule id="470435"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117477">
+        <simple_name>Zend_Pdf.getMemoryManager_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getMemoryManager_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470432"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117466">
+        <simple_name>Zend_Pdf.getMetadata_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getMetadata_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470423"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117256">
+        <simple_name>Zend_Pdf.getNamedDestination_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getNamedDestination_@__Pdf_php_1($name):Variant</signature>
+        <info_rule id="470224"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117081">
+        <simple_name>Zend_Pdf.getNamedDestinations_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getNamedDestinations_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470056"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117349">
+        <simple_name>Zend_Pdf.getOpenAction_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.getOpenAction_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470312"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117113">
+        <simple_name>Zend_Pdf.load_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.load_@__Pdf_php_1($source;$revision):Variant</signature>
+        <info_rule id="470090"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116967">
+        <simple_name>Zend_Pdf.newPage_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.newPage_@__Pdf_php_1($param1;$param2):Variant</signature>
+        <info_rule id="469952"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117121">
+        <simple_name>Zend_Pdf.parse_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.parse_@__Pdf_php_1($source;$revision):Variant</signature>
+        <info_rule id="470098"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117218">
+        <simple_name>Zend_Pdf.pdfDate</simple_name>
+        <signature>Zend_Pdf.pdfDate():Variant</signature>
+        <info_rule id="470192"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117389">
+        <simple_name>Zend_Pdf.pdfDate_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.pdfDate_@__Pdf_php_1($timestamp):Variant</signature>
+        <info_rule id="470349"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117434">
+        <simple_name>Zend_Pdf.render_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.render_@__Pdf_php_1($newSegmentOnly;$outputStream):Variant</signature>
+        <info_rule id="470391"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="1" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117574">
+        <simple_name>Zend_Pdf.resolveDestination_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.resolveDestination_@__Pdf_php_1($destination;$refreshPageCollectionHashes):Variant</signature>
+        <info_rule id="470527"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117115">
+        <simple_name>Zend_Pdf.revisions_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.revisions_@__Pdf_php_1():Variant</signature>
+        <info_rule id="470093"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117593">
+        <simple_name>Zend_Pdf.rollback_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.rollback_@__Pdf_php_1($steps):Variant</signature>
+        <info_rule id="470544"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117177">
+        <simple_name>Zend_Pdf.save_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.save_@__Pdf_php_1($filename;$updateOnly):Variant</signature>
+        <info_rule id="470152"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117441">
+        <simple_name>Zend_Pdf.setJavaScript_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setJavaScript_@__Pdf_php_1($javascript):Variant</signature>
+        <info_rule id="470398"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1116939">
+        <simple_name>Zend_Pdf.setMemoryManager_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setMemoryManager_@__Pdf_php_1($memoryManager):Variant</signature>
+        <info_rule id="469924"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117170">
+        <simple_name>Zend_Pdf.setMetadata_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setMetadata_@__Pdf_php_1($metadata):Variant</signature>
+        <info_rule id="470145"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117522">
+        <simple_name>Zend_Pdf.setNamedDestination_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setNamedDestination_@__Pdf_php_1($name;$destination):Variant</signature>
+        <info_rule id="470477"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+      <method vuln_id="1117523">
+        <simple_name>Zend_Pdf.setOpenAction_@__Pdf_php_1</simple_name>
+        <signature>Zend_Pdf.setOpenAction_@__Pdf_php_1($openAction):Variant</signature>
+        <info_rule id="470478"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.PDF</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

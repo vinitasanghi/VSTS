@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings 
+    display_name="Php Settings" 
+    description="Settings that affect scanning PHP projects"
+>
+<Setting
+		  name="php_use_include_resolver"
+		  value="false"
+		  default_value="false"
+		  type="bool"
+		  display_name="Prefer PHP include auto-resolver"
+		  description="Prefer include paths derived from the auto-resolver to paths based on configuration settings"
+	    />
+
+<Setting
+        name="php_use_class_resolver"
+	    value="true"
+	    default_value="true"
+	    type="bool"
+        display_name="Prefer PHP class auto-resolver"
+	    description="Prefer Class filenames derived from the auto-resolver to filenames based on configuration settings"
+	    />
+
+<Setting
+        name="php_class_search_path_level"
+	    value="4"
+	    default_value="2"
+	    type="text"
+        display_name="PHP class search level"
+	    description="1=search specified class path only\n2=search class path and project content root\n3=search class path, project content root and project include paths\n4=search class path, project content root, project include paths and all project source files"
+	    />
+
+<Setting
+        name="php_class_keywords"
+	    value="class;interface;trait"
+	    default_value="class;interface;trait"
+	    type="text"
+        display_name="PHP Class Keywords"
+	    description="List of recognized PHP class keywords"
+	    />
+
+<Setting
+        name="php_include_path_delimiters"
+	    value="&apos;&quot;}"
+	    default_value="&apos;&quot;}"
+	    type="text"
+        display_name="PHP Include Path Delimiters"
+	    description="List of characters to be treated as delimiters when parsing a PHP include path"
+	    />
+
+<Setting
+        name="php_enable_asp_tags"
+	    value="true"
+	    default_value="true"
+	    type="bool"
+        display_name="Enable ASP tags"
+	    description="Allow ASP tag syntax in PHP files. ('&lt;% ... %>' and '&lt;%= ... %>')"
+	    />
+<Setting
+        name="php_enable_short_tags"
+	    value="false"
+	    default_value="false"
+	    type="bool"
+        display_name="Enable PHP short tags"
+	    description="Allow short tag syntax in PHP files. ('&lt;? ... ?>' and '&lt;?= ... ?>')"
+	    />
+
+<Setting
+        name="asp_php_javascript_version"
+	    value="150"
+	    default_value="150"
+	    type="text"
+        display_name="Version of Javascript inside ASP Classic and PHP files"
+	    description="default: 150 = Javascript 1.5 = ECMA-262 3rd edition
+           170 = Javascript 1.7 allows Mozilla keywords let and yield"
+	    />
+<Setting
+        name="php_instance_methods_lost_sinks_resolver"
+	    value="false"
+	    default_value="false"
+	    type="bool"
+        display_name="Resolve lost sinks at PHP instance methods"
+	    description="Turn on to resolve lost sinks at PHP instance methods.  
+	       \n If true, try to resolve lost sinks when taints are propagated 
+	       \n to instance methods. Recommended usage is, turn on the setting, 
+	       \n rescan the single file that contains the lost sinks of interest.
+	       \n For example, $m->someFunction(taint) can be resolved if the setting is ON."
+	    />
+
+</Settings>

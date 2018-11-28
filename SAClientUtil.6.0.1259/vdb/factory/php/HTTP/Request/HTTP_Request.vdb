@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTTP_Request">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Request.HTTP_Request</simple_name>
+        <signature>HTTP_Request.HTTP_Request(___Php.String;___Php.Array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091588">
+        <simple_name>HTTP_Request.addCookie</simple_name>
+        <signature>HTTP_Request.addCookie(string,string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091577">
+        <simple_name>HTTP_Request.addFile</simple_name>
+        <signature>HTTP_Request.addFile(___Php.String;mixed;mixed):bool</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091573">
+        <simple_name>HTTP_Request.addHeader</simple_name>
+        <signature>HTTP_Request.addHeader(___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091595">
+        <simple_name>HTTP_Request.addPostData</simple_name>
+        <signature>HTTP_Request.addPostData(___Php.String;___Php.String;bool):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091586">
+        <simple_name>HTTP_Request.addQueryString</simple_name>
+        <signature>HTTP_Request.addQueryString(___Php.String;___Php.String;bool):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091582">
+        <simple_name>HTTP_Request.addRawPostData</simple_name>
+        <signature>HTTP_Request.addRawPostData(___Php.String;bool):void</signature>
+        <info_rule id="451410"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091590">
+        <simple_name>HTTP_Request.addRawQueryString</simple_name>
+        <signature>HTTP_Request.addRawQueryString(___Php.String;bool):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091579">
+        <simple_name>HTTP_Request.attach</simple_name>
+        <signature>HTTP_Request.attach(HTTP_Request_Listener&amp;):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091583">
+        <simple_name>HTTP_Request.clearCookies</simple_name>
+        <signature>HTTP_Request.clearCookies():void</signature>
+        <info_rule id="451411"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091592">
+        <simple_name>HTTP_Request.clearPostData</simple_name>
+        <signature>HTTP_Request.clearPostData():void</signature>
+        <info_rule id="451420"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091584">
+        <simple_name>HTTP_Request.detach</simple_name>
+        <signature>HTTP_Request.detach(HTTP_Request_Listener&amp;):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091581">
+        <simple_name>HTTP_Request.disconnect</simple_name>
+        <signature>HTTP_Request.disconnect():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091587">
+        <simple_name>HTTP_Request.getResponseBody</simple_name>
+        <signature>HTTP_Request.getResponseBody():___Php.String</signature>
+        <info_rule id="480776"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091572">
+        <simple_name>HTTP_Request.getResponseCode</simple_name>
+        <signature>HTTP_Request.getResponseCode():mixed</signature>
+        <info_rule id="480775"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091585">
+        <simple_name>HTTP_Request.getResponseCookies</simple_name>
+        <signature>HTTP_Request.getResponseCookies():___Php.Array</signature>
+        <info_rule id="480774"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091591">
+        <simple_name>HTTP_Request.getResponseHeader</simple_name>
+        <signature>HTTP_Request.getResponseHeader(___Php.String):mixed</signature>
+        <info_rule id="480773"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091596">
+        <simple_name>HTTP_Request.getUrl</simple_name>
+        <signature>HTTP_Request.getUrl():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091578">
+        <simple_name>HTTP_Request.removeHeader</simple_name>
+        <signature>HTTP_Request.removeHeader(___Php.String):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091593">
+        <simple_name>HTTP_Request.reset</simple_name>
+        <signature>HTTP_Request.reset(___Php.String;___Php.Array):void</signature>
+        <info_rule id="451423"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091575">
+        <simple_name>HTTP_Request.sendRequest</simple_name>
+        <signature>HTTP_Request.sendRequest(bool):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091589">
+        <simple_name>HTTP_Request.setBasicAuth</simple_name>
+        <signature>HTTP_Request.setBasicAuth(___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462995">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462996">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451416">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091571">
+        <simple_name>HTTP_Request.setBody</simple_name>
+        <signature>HTTP_Request.setBody(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091594">
+        <simple_name>HTTP_Request.setHttpVer</simple_name>
+        <signature>HTTP_Request.setHttpVer(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091597">
+        <simple_name>HTTP_Request.setMethod</simple_name>
+        <signature>HTTP_Request.setMethod(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091574">
+        <simple_name>HTTP_Request.setProxy</simple_name>
+        <signature>HTTP_Request.setProxy(___Php.String;int;___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462993">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462994">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451405">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3,4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091580">
+        <simple_name>HTTP_Request.setURL</simple_name>
+        <signature>HTTP_Request.setURL(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTTP_Request">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Request.HTTP_Request</simple_name>
+        <signature>HTTP_Request.HTTP_Request(___Php.String;___Php.Array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091588">
+        <simple_name>HTTP_Request.addCookie</simple_name>
+        <signature>HTTP_Request.addCookie(string,string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091577">
+        <simple_name>HTTP_Request.addFile</simple_name>
+        <signature>HTTP_Request.addFile(___Php.String;mixed;mixed):bool</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091573">
+        <simple_name>HTTP_Request.addHeader</simple_name>
+        <signature>HTTP_Request.addHeader(___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091595">
+        <simple_name>HTTP_Request.addPostData</simple_name>
+        <signature>HTTP_Request.addPostData(___Php.String;___Php.String;bool):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091586">
+        <simple_name>HTTP_Request.addQueryString</simple_name>
+        <signature>HTTP_Request.addQueryString(___Php.String;___Php.String;bool):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091582">
+        <simple_name>HTTP_Request.addRawPostData</simple_name>
+        <signature>HTTP_Request.addRawPostData(___Php.String;bool):void</signature>
+        <info_rule id="451410"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091590">
+        <simple_name>HTTP_Request.addRawQueryString</simple_name>
+        <signature>HTTP_Request.addRawQueryString(___Php.String;bool):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091579">
+        <simple_name>HTTP_Request.attach</simple_name>
+        <signature>HTTP_Request.attach(HTTP_Request_Listener&amp;):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091583">
+        <simple_name>HTTP_Request.clearCookies</simple_name>
+        <signature>HTTP_Request.clearCookies():void</signature>
+        <info_rule id="451411"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091592">
+        <simple_name>HTTP_Request.clearPostData</simple_name>
+        <signature>HTTP_Request.clearPostData():void</signature>
+        <info_rule id="451420"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091584">
+        <simple_name>HTTP_Request.detach</simple_name>
+        <signature>HTTP_Request.detach(HTTP_Request_Listener&amp;):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091581">
+        <simple_name>HTTP_Request.disconnect</simple_name>
+        <signature>HTTP_Request.disconnect():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091587">
+        <simple_name>HTTP_Request.getResponseBody</simple_name>
+        <signature>HTTP_Request.getResponseBody():___Php.String</signature>
+        <info_rule id="480776"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091572">
+        <simple_name>HTTP_Request.getResponseCode</simple_name>
+        <signature>HTTP_Request.getResponseCode():mixed</signature>
+        <info_rule id="480775"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091585">
+        <simple_name>HTTP_Request.getResponseCookies</simple_name>
+        <signature>HTTP_Request.getResponseCookies():___Php.Array</signature>
+        <info_rule id="480774"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091591">
+        <simple_name>HTTP_Request.getResponseHeader</simple_name>
+        <signature>HTTP_Request.getResponseHeader(___Php.String):mixed</signature>
+        <info_rule id="480773"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091596">
+        <simple_name>HTTP_Request.getUrl</simple_name>
+        <signature>HTTP_Request.getUrl():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091578">
+        <simple_name>HTTP_Request.removeHeader</simple_name>
+        <signature>HTTP_Request.removeHeader(___Php.String):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091593">
+        <simple_name>HTTP_Request.reset</simple_name>
+        <signature>HTTP_Request.reset(___Php.String;___Php.Array):void</signature>
+        <info_rule id="451423"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="1091575">
+        <simple_name>HTTP_Request.sendRequest</simple_name>
+        <signature>HTTP_Request.sendRequest(bool):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091589">
+        <simple_name>HTTP_Request.setBasicAuth</simple_name>
+        <signature>HTTP_Request.setBasicAuth(___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462995">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462996">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451416">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091571">
+        <simple_name>HTTP_Request.setBody</simple_name>
+        <signature>HTTP_Request.setBody(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091594">
+        <simple_name>HTTP_Request.setHttpVer</simple_name>
+        <signature>HTTP_Request.setHttpVer(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091597">
+        <simple_name>HTTP_Request.setMethod</simple_name>
+        <signature>HTTP_Request.setMethod(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091574">
+        <simple_name>HTTP_Request.setProxy</simple_name>
+        <signature>HTTP_Request.setProxy(___Php.String;int;___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462993">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462994">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451405">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3,4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091580">
+        <simple_name>HTTP_Request.setURL</simple_name>
+        <signature>HTTP_Request.setURL(___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

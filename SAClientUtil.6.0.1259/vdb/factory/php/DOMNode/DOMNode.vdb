@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DOMNode">
+      <method vuln_id="1122326">
+        <simple_name>DOMNode.hasChildNodes</simple_name>
+        <signature>DOMNode.hasChildNodes():Variant</signature>
+        <info_rule id="473424"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086250">
+        <simple_name>___Php.DOMNode.C14N</simple_name>
+        <signature>___Php.DOMNode.C14N(bool;bool;___Php.Array;___Php.Array):___Php.String</signature>
+        <info_rule id="453015"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086161">
+        <simple_name>___Php.DOMNode.C14NFile</simple_name>
+        <signature>___Php.DOMNode.C14NFile(___Php.String;bool;bool;___Php.Array;___Php.Array):int</signature>
+        <info_rule id="452902"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086194">
+        <simple_name>___Php.DOMNode.add_namespace</simple_name>
+        <signature>___Php.DOMNode.add_namespace(___Php.String;___Php.String):bool</signature>
+        <info_rule id="452943"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086196">
+        <simple_name>___Php.DOMNode.appendChild</simple_name>
+        <signature>___Php.DOMNode.appendChild(___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="452945"/>
+        <propagates_taint dst_param="1" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086213">
+        <simple_name>___Php.DOMNode.append_child</simple_name>
+        <signature>___Php.DOMNode.append_child(___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="452965"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Attribute.Deprecated</property>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086306">
+        <simple_name>___Php.DOMNode.append_sibling</simple_name>
+        <signature>___Php.DOMNode.append_sibling(___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="453078"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086317">
+        <simple_name>___Php.DOMNode.attributes</simple_name>
+        <signature>___Php.DOMNode.attributes():___Php.Array</signature>
+        <info_rule id="453090"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086141">
+        <simple_name>___Php.DOMNode.child_nodes</simple_name>
+        <signature>___Php.DOMNode.child_nodes():array</signature>
+        <info_rule id="452874"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086366">
+        <simple_name>___Php.DOMNode.cloneNode</simple_name>
+        <signature>___Php.DOMNode.cloneNode(bool):___Php.DOMNode</signature>
+        <info_rule id="453146"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086183">
+        <simple_name>___Php.DOMNode.clone_node</simple_name>
+        <signature>___Php.DOMNode.clone_node():___Php.DOMElement</signature>
+        <info_rule id="452931"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086139">
+        <simple_name>___Php.DOMNode.dump_node</simple_name>
+        <signature>___Php.DOMNode.dump_node():___Php.String</signature>
+        <info_rule id="452872"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086146">
+        <simple_name>___Php.DOMNode.first_child</simple_name>
+        <signature>___Php.DOMNode.first_child():___Php.DOMElement</signature>
+        <info_rule id="452881"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="2015049">
+        <simple_name>___Php.DOMNode.getLineNo</simple_name>
+        <signature>___Php.DOMNode.getLineNo():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1086351">
+        <simple_name>___Php.DOMNode.getNodePath</simple_name>
+        <signature>___Php.DOMNode.getNodePath():int</signature>
+        <info_rule id="453131"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.XPath</property>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086300">
+        <simple_name>___Php.DOMNode.get_content</simple_name>
+        <signature>___Php.DOMNode.get_content():___Php.String</signature>
+        <info_rule id="453071"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086339">
+        <simple_name>___Php.DOMNode.hasAttributes</simple_name>
+        <signature>___Php.DOMNode.hasAttributes():bool</signature>
+        <info_rule id="453116"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086371">
+        <simple_name>___Php.DOMNode.hasChildNodes</simple_name>
+        <signature>___Php.DOMNode.hasChildNodes():bool</signature>
+        <info_rule id="453151"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086234">
+        <simple_name>___Php.DOMNode.has_attributes</simple_name>
+        <signature>___Php.DOMNode.has_attributes():bool</signature>
+        <info_rule id="452995"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086216">
+        <simple_name>___Php.DOMNode.has_child_nodes</simple_name>
+        <signature>___Php.DOMNode.has_child_nodes():bool</signature>
+        <info_rule id="452970"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086177">
+        <simple_name>___Php.DOMNode.insertBefore</simple_name>
+        <signature>___Php.DOMNode.insertBefore(___Php.DOMNode;___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="452923"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086121">
+        <simple_name>___Php.DOMNode.insert_before</simple_name>
+        <signature>___Php.DOMNode.insert_before(___Php.DOMElement;___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="452849"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086364">
+        <simple_name>___Php.DOMNode.isDefaultNamespace</simple_name>
+        <signature>___Php.DOMNode.isDefaultNamespace(___Php.String):bool</signature>
+        <info_rule id="453144"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086374">
+        <simple_name>___Php.DOMNode.isSameNode</simple_name>
+        <signature>___Php.DOMNode.isSameNode(___Php.DOMNode):bool</signature>
+        <info_rule id="453154"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086360">
+        <simple_name>___Php.DOMNode.isSupported</simple_name>
+        <signature>___Php.DOMNode.isSupported(___Php.String;___Php.String):bool</signature>
+        <info_rule id="453141"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086180">
+        <simple_name>___Php.DOMNode.is_blank_node</simple_name>
+        <signature>___Php.DOMNode.is_blank_node():bool</signature>
+        <info_rule id="452927"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086367">
+        <simple_name>___Php.DOMNode.item</simple_name>
+        <signature>___Php.DOMNode.item(int):___Php.DOMNode</signature>
+        <info_rule id="453147"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086171">
+        <simple_name>___Php.DOMNode.last_child</simple_name>
+        <signature>___Php.DOMNode.last_child():___Php.DOMElement</signature>
+        <info_rule id="452915"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086237">
+        <simple_name>___Php.DOMNode.lookupNamespaceURI</simple_name>
+        <signature>___Php.DOMNode.lookupNamespaceURI(___Php.String):___Php.String</signature>
+        <info_rule id="452999"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086285">
+        <simple_name>___Php.DOMNode.lookupPrefix</simple_name>
+        <signature>___Php.DOMNode.lookupPrefix(___Php.String):___Php.String</signature>
+        <info_rule id="453052"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086240">
+        <simple_name>___Php.DOMNode.next_sibling</simple_name>
+        <signature>___Php.DOMNode.next_sibling():___Php.DOMElement</signature>
+        <info_rule id="453003"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086375">
+        <simple_name>___Php.DOMNode.node_name</simple_name>
+        <signature>___Php.DOMNode.node_name():___Php.String</signature>
+        <info_rule id="453155"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086338">
+        <simple_name>___Php.DOMNode.node_type</simple_name>
+        <signature>___Php.DOMNode.node_type():int</signature>
+        <info_rule id="453115"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086251">
+        <simple_name>___Php.DOMNode.node_value</simple_name>
+        <signature>___Php.DOMNode.node_value():___Php.String</signature>
+        <info_rule id="453016"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086242">
+        <simple_name>___Php.DOMNode.normalize</simple_name>
+        <signature>___Php.DOMNode.normalize():void</signature>
+        <info_rule id="453005"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086369">
+        <simple_name>___Php.DOMNode.owner_document</simple_name>
+        <signature>___Php.DOMNode.owner_document():___Php.DOMDocument</signature>
+        <info_rule id="453149"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086377">
+        <simple_name>___Php.DOMNode.parent_node</simple_name>
+        <signature>___Php.DOMNode.parent_node():___Php.DOMNode</signature>
+        <info_rule id="453158"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086312">
+        <simple_name>___Php.DOMNode.prefix</simple_name>
+        <signature>___Php.DOMNode.prefix():___Php.String</signature>
+        <info_rule id="453086"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086128">
+        <simple_name>___Php.DOMNode.previous_sibling</simple_name>
+        <signature>___Php.DOMNode.previous_sibling():___Php.DOMElement</signature>
+        <info_rule id="452858"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086323">
+        <simple_name>___Php.DOMNode.removeChild</simple_name>
+        <signature>___Php.DOMNode.removeChild(___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="453097"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086318">
+        <simple_name>___Php.DOMNode.remove_child</simple_name>
+        <signature>___Php.DOMNode.remove_child(___Php.DOMText):___Php.DOMText</signature>
+        <info_rule id="453091"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086311">
+        <simple_name>___Php.DOMNode.replaceChild</simple_name>
+        <signature>___Php.DOMNode.replaceChild(___Php.DOMNode;___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="453085"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086358">
+        <simple_name>___Php.DOMNode.replace_child</simple_name>
+        <signature>___Php.DOMNode.replace_child(___Php.DOMElement;___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="453139"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086328">
+        <simple_name>___Php.DOMNode.replace_node</simple_name>
+        <signature>___Php.DOMNode.replace_node(___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="453102"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086193">
+        <simple_name>___Php.DOMNode.set_content</simple_name>
+        <signature>___Php.DOMNode.set_content(___Php.String):bool</signature>
+        <info_rule id="452942"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086179">
+        <simple_name>___Php.DOMNode.set_name</simple_name>
+        <signature>___Php.DOMNode.set_name(___Php.String):bool</signature>
+        <info_rule id="452926"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086261">
+        <simple_name>___Php.DOMNode.set_namespace</simple_name>
+        <signature>___Php.DOMNode.set_namespace(___Php.String;___Php.String):void</signature>
+        <info_rule id="453025"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086222">
+        <simple_name>___Php.DOMNode.unlink_node</simple_name>
+        <signature>___Php.DOMNode.unlink_node():void</signature>
+        <info_rule id="452978"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+    </class>
+    <class name="DOMNode">
+      <method vuln_id="1122326">
+        <simple_name>DOMNode.hasChildNodes</simple_name>
+        <signature>DOMNode.hasChildNodes():Variant</signature>
+        <info_rule id="473424"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086250">
+        <simple_name>___Php.DOMNode.C14N</simple_name>
+        <signature>___Php.DOMNode.C14N(bool;bool;___Php.Array;___Php.Array):___Php.String</signature>
+        <info_rule id="453015"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086161">
+        <simple_name>___Php.DOMNode.C14NFile</simple_name>
+        <signature>___Php.DOMNode.C14NFile(___Php.String;bool;bool;___Php.Array;___Php.Array):int</signature>
+        <info_rule id="452902"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086194">
+        <simple_name>___Php.DOMNode.add_namespace</simple_name>
+        <signature>___Php.DOMNode.add_namespace(___Php.String;___Php.String):bool</signature>
+        <info_rule id="452943"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086196">
+        <simple_name>___Php.DOMNode.appendChild</simple_name>
+        <signature>___Php.DOMNode.appendChild(___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="452945"/>
+        <propagates_taint dst_param="1" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086213">
+        <simple_name>___Php.DOMNode.append_child</simple_name>
+        <signature>___Php.DOMNode.append_child(___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="452965"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Attribute.Deprecated</property>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086306">
+        <simple_name>___Php.DOMNode.append_sibling</simple_name>
+        <signature>___Php.DOMNode.append_sibling(___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="453078"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086317">
+        <simple_name>___Php.DOMNode.attributes</simple_name>
+        <signature>___Php.DOMNode.attributes():___Php.Array</signature>
+        <info_rule id="453090"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086141">
+        <simple_name>___Php.DOMNode.child_nodes</simple_name>
+        <signature>___Php.DOMNode.child_nodes():array</signature>
+        <info_rule id="452874"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086366">
+        <simple_name>___Php.DOMNode.cloneNode</simple_name>
+        <signature>___Php.DOMNode.cloneNode(bool):___Php.DOMNode</signature>
+        <info_rule id="453146"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086183">
+        <simple_name>___Php.DOMNode.clone_node</simple_name>
+        <signature>___Php.DOMNode.clone_node():___Php.DOMElement</signature>
+        <info_rule id="452931"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086139">
+        <simple_name>___Php.DOMNode.dump_node</simple_name>
+        <signature>___Php.DOMNode.dump_node():___Php.String</signature>
+        <info_rule id="452872"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086146">
+        <simple_name>___Php.DOMNode.first_child</simple_name>
+        <signature>___Php.DOMNode.first_child():___Php.DOMElement</signature>
+        <info_rule id="452881"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="2015049">
+        <simple_name>___Php.DOMNode.getLineNo</simple_name>
+        <signature>___Php.DOMNode.getLineNo():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1086351">
+        <simple_name>___Php.DOMNode.getNodePath</simple_name>
+        <signature>___Php.DOMNode.getNodePath():int</signature>
+        <info_rule id="453131"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.XPath</property>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086300">
+        <simple_name>___Php.DOMNode.get_content</simple_name>
+        <signature>___Php.DOMNode.get_content():___Php.String</signature>
+        <info_rule id="453071"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086339">
+        <simple_name>___Php.DOMNode.hasAttributes</simple_name>
+        <signature>___Php.DOMNode.hasAttributes():bool</signature>
+        <info_rule id="453116"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086371">
+        <simple_name>___Php.DOMNode.hasChildNodes</simple_name>
+        <signature>___Php.DOMNode.hasChildNodes():bool</signature>
+        <info_rule id="453151"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086234">
+        <simple_name>___Php.DOMNode.has_attributes</simple_name>
+        <signature>___Php.DOMNode.has_attributes():bool</signature>
+        <info_rule id="452995"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086216">
+        <simple_name>___Php.DOMNode.has_child_nodes</simple_name>
+        <signature>___Php.DOMNode.has_child_nodes():bool</signature>
+        <info_rule id="452970"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086177">
+        <simple_name>___Php.DOMNode.insertBefore</simple_name>
+        <signature>___Php.DOMNode.insertBefore(___Php.DOMNode;___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="452923"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086121">
+        <simple_name>___Php.DOMNode.insert_before</simple_name>
+        <signature>___Php.DOMNode.insert_before(___Php.DOMElement;___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="452849"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086364">
+        <simple_name>___Php.DOMNode.isDefaultNamespace</simple_name>
+        <signature>___Php.DOMNode.isDefaultNamespace(___Php.String):bool</signature>
+        <info_rule id="453144"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086374">
+        <simple_name>___Php.DOMNode.isSameNode</simple_name>
+        <signature>___Php.DOMNode.isSameNode(___Php.DOMNode):bool</signature>
+        <info_rule id="453154"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086360">
+        <simple_name>___Php.DOMNode.isSupported</simple_name>
+        <signature>___Php.DOMNode.isSupported(___Php.String;___Php.String):bool</signature>
+        <info_rule id="453141"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086180">
+        <simple_name>___Php.DOMNode.is_blank_node</simple_name>
+        <signature>___Php.DOMNode.is_blank_node():bool</signature>
+        <info_rule id="452927"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086367">
+        <simple_name>___Php.DOMNode.item</simple_name>
+        <signature>___Php.DOMNode.item(int):___Php.DOMNode</signature>
+        <info_rule id="453147"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086171">
+        <simple_name>___Php.DOMNode.last_child</simple_name>
+        <signature>___Php.DOMNode.last_child():___Php.DOMElement</signature>
+        <info_rule id="452915"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086237">
+        <simple_name>___Php.DOMNode.lookupNamespaceURI</simple_name>
+        <signature>___Php.DOMNode.lookupNamespaceURI(___Php.String):___Php.String</signature>
+        <info_rule id="452999"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086285">
+        <simple_name>___Php.DOMNode.lookupPrefix</simple_name>
+        <signature>___Php.DOMNode.lookupPrefix(___Php.String):___Php.String</signature>
+        <info_rule id="453052"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086240">
+        <simple_name>___Php.DOMNode.next_sibling</simple_name>
+        <signature>___Php.DOMNode.next_sibling():___Php.DOMElement</signature>
+        <info_rule id="453003"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086375">
+        <simple_name>___Php.DOMNode.node_name</simple_name>
+        <signature>___Php.DOMNode.node_name():___Php.String</signature>
+        <info_rule id="453155"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086338">
+        <simple_name>___Php.DOMNode.node_type</simple_name>
+        <signature>___Php.DOMNode.node_type():int</signature>
+        <info_rule id="453115"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086251">
+        <simple_name>___Php.DOMNode.node_value</simple_name>
+        <signature>___Php.DOMNode.node_value():___Php.String</signature>
+        <info_rule id="453016"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086242">
+        <simple_name>___Php.DOMNode.normalize</simple_name>
+        <signature>___Php.DOMNode.normalize():void</signature>
+        <info_rule id="453005"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086369">
+        <simple_name>___Php.DOMNode.owner_document</simple_name>
+        <signature>___Php.DOMNode.owner_document():___Php.DOMDocument</signature>
+        <info_rule id="453149"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086377">
+        <simple_name>___Php.DOMNode.parent_node</simple_name>
+        <signature>___Php.DOMNode.parent_node():___Php.DOMNode</signature>
+        <info_rule id="453158"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086312">
+        <simple_name>___Php.DOMNode.prefix</simple_name>
+        <signature>___Php.DOMNode.prefix():___Php.String</signature>
+        <info_rule id="453086"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086128">
+        <simple_name>___Php.DOMNode.previous_sibling</simple_name>
+        <signature>___Php.DOMNode.previous_sibling():___Php.DOMElement</signature>
+        <info_rule id="452858"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086323">
+        <simple_name>___Php.DOMNode.removeChild</simple_name>
+        <signature>___Php.DOMNode.removeChild(___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="453097"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086318">
+        <simple_name>___Php.DOMNode.remove_child</simple_name>
+        <signature>___Php.DOMNode.remove_child(___Php.DOMText):___Php.DOMText</signature>
+        <info_rule id="453091"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086311">
+        <simple_name>___Php.DOMNode.replaceChild</simple_name>
+        <signature>___Php.DOMNode.replaceChild(___Php.DOMNode;___Php.DOMNode):___Php.DOMNode</signature>
+        <info_rule id="453085"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086358">
+        <simple_name>___Php.DOMNode.replace_child</simple_name>
+        <signature>___Php.DOMNode.replace_child(___Php.DOMElement;___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="453139"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086328">
+        <simple_name>___Php.DOMNode.replace_node</simple_name>
+        <signature>___Php.DOMNode.replace_node(___Php.DOMElement):___Php.DOMElement</signature>
+        <info_rule id="453102"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086193">
+        <simple_name>___Php.DOMNode.set_content</simple_name>
+        <signature>___Php.DOMNode.set_content(___Php.String):bool</signature>
+        <info_rule id="452942"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086179">
+        <simple_name>___Php.DOMNode.set_name</simple_name>
+        <signature>___Php.DOMNode.set_name(___Php.String):bool</signature>
+        <info_rule id="452926"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086261">
+        <simple_name>___Php.DOMNode.set_namespace</simple_name>
+        <signature>___Php.DOMNode.set_namespace(___Php.String;___Php.String):void</signature>
+        <info_rule id="453025"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086222">
+        <simple_name>___Php.DOMNode.unlink_node</simple_name>
+        <signature>___Php.DOMNode.unlink_node():void</signature>
+        <info_rule id="452978"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

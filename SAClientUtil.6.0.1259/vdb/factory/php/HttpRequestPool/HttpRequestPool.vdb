@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpRequestPool">
+      <method vuln_id="1086855">
+        <simple_name>HttpRequestPool.__construct</simple_name>
+        <signature>HttpRequestPool.__construct(HttpRequest):void</signature>
+        <comment>Instantiate a new HttpRequestPool object. An HttpRequestPool is able to send several HttpRequests in parallel.</comment>
+      </method>
+      <method vuln_id="1086826">
+        <simple_name>HttpRequestPool.__destruct</simple_name>
+        <signature>HttpRequestPool.__destruct():void</signature>
+        <info_rule id="453751"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Clean up HttpRequestPool object.</comment>
+      </method>
+      <method vuln_id="1086782">
+        <simple_name>HttpRequestPool.attach</simple_name>
+        <signature>HttpRequestPool.attach(HttpRequest):bool</signature>
+        <info_rule id="453686"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Attach an HttpRequest object to this HttpRequestPool.</comment>
+      </method>
+      <method vuln_id="1086830">
+        <simple_name>HttpRequestPool.detach</simple_name>
+        <signature>HttpRequestPool.detach(HttpRequest):bool</signature>
+        <info_rule id="453757"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Detach an HttpRequest object from this HttpRequestPool.</comment>
+      </method>
+      <method vuln_id="1086854">
+        <simple_name>HttpRequestPool.getAttachedRequests</simple_name>
+        <signature>HttpRequestPool.getAttachedRequests():___Php.Array</signature>
+        <info_rule id="453793"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get attached HttpRequest objects.</comment>
+      </method>
+      <method vuln_id="1086721">
+        <simple_name>HttpRequestPool.getFinishedRequests</simple_name>
+        <signature>HttpRequestPool.getFinishedRequests():___Php.Array</signature>
+        <info_rule id="453602"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get attached HttpRequest objects that already have finished their work.</comment>
+      </method>
+      <method vuln_id="1086852">
+        <simple_name>HttpRequestPool.reset</simple_name>
+        <signature>HttpRequestPool.reset():void</signature>
+        <info_rule id="453789"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Detach all attached HttpRequest objects.</comment>
+      </method>
+      <method vuln_id="1086749">
+        <simple_name>HttpRequestPool.send</simple_name>
+        <signature>HttpRequestPool.send():bool</signature>
+        <info_rule id="453641"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send all attached HttpRequest objects in parallel.</comment>
+      </method>
+      <method vuln_id="1086810">
+        <simple_name>HttpRequestPool.socketPerform</simple_name>
+        <signature>HttpRequestPool.socketPerform():bool</signature>
+        <info_rule id="453725"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Returns TRUE until each request has finished its transaction.</comment>
+      </method>
+      <method vuln_id="1086689">
+        <simple_name>HttpRequestPool.socketSelect</simple_name>
+        <signature>HttpRequestPool.socketSelect():bool</signature>
+        <info_rule id="453551"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Perform socket select</comment>
+      </method>
+    </class>
+    <class name="HttpRequestPool">
+      <method vuln_id="1086855">
+        <simple_name>HttpRequestPool.__construct</simple_name>
+        <signature>HttpRequestPool.__construct(HttpRequest):void</signature>
+        <comment>Instantiate a new HttpRequestPool object. An HttpRequestPool is able to send several HttpRequests in parallel.</comment>
+      </method>
+      <method vuln_id="1086826">
+        <simple_name>HttpRequestPool.__destruct</simple_name>
+        <signature>HttpRequestPool.__destruct():void</signature>
+        <info_rule id="453751"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Clean up HttpRequestPool object.</comment>
+      </method>
+      <method vuln_id="1086782">
+        <simple_name>HttpRequestPool.attach</simple_name>
+        <signature>HttpRequestPool.attach(HttpRequest):bool</signature>
+        <info_rule id="453686"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Attach an HttpRequest object to this HttpRequestPool.</comment>
+      </method>
+      <method vuln_id="1086830">
+        <simple_name>HttpRequestPool.detach</simple_name>
+        <signature>HttpRequestPool.detach(HttpRequest):bool</signature>
+        <info_rule id="453757"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Detach an HttpRequest object from this HttpRequestPool.</comment>
+      </method>
+      <method vuln_id="1086854">
+        <simple_name>HttpRequestPool.getAttachedRequests</simple_name>
+        <signature>HttpRequestPool.getAttachedRequests():___Php.Array</signature>
+        <info_rule id="453793"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get attached HttpRequest objects.</comment>
+      </method>
+      <method vuln_id="1086721">
+        <simple_name>HttpRequestPool.getFinishedRequests</simple_name>
+        <signature>HttpRequestPool.getFinishedRequests():___Php.Array</signature>
+        <info_rule id="453602"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get attached HttpRequest objects that already have finished their work.</comment>
+      </method>
+      <method vuln_id="1086852">
+        <simple_name>HttpRequestPool.reset</simple_name>
+        <signature>HttpRequestPool.reset():void</signature>
+        <info_rule id="453789"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Detach all attached HttpRequest objects.</comment>
+      </method>
+      <method vuln_id="1086749">
+        <simple_name>HttpRequestPool.send</simple_name>
+        <signature>HttpRequestPool.send():bool</signature>
+        <info_rule id="453641"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send all attached HttpRequest objects in parallel.</comment>
+      </method>
+      <method vuln_id="1086810">
+        <simple_name>HttpRequestPool.socketPerform</simple_name>
+        <signature>HttpRequestPool.socketPerform():bool</signature>
+        <info_rule id="453725"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Returns TRUE until each request has finished its transaction.</comment>
+      </method>
+      <method vuln_id="1086689">
+        <simple_name>HttpRequestPool.socketSelect</simple_name>
+        <signature>HttpRequestPool.socketSelect():bool</signature>
+        <info_rule id="453551"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Perform socket select</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

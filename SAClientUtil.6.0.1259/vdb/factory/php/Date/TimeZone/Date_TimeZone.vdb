@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Date_TimeZone">
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.Date_TimeZone</simple_name>
+        <signature>Date_TimeZone.Date_TimeZone($id):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091042">
+        <simple_name>Date_TimeZone.getAvailableIDs</simple_name>
+        <signature>Date_TimeZone.getAvailableIDs():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091037">
+        <simple_name>Date_TimeZone.getDSTLongName</simple_name>
+        <signature>Date_TimeZone.getDSTLongName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091038">
+        <simple_name>Date_TimeZone.getDSTSavings</simple_name>
+        <signature>Date_TimeZone.getDSTSavings():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091044">
+        <simple_name>Date_TimeZone.getDSTShortName</simple_name>
+        <signature>Date_TimeZone.getDSTShortName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.getDefault</simple_name>
+        <signature>Date_TimeZone.getDefault():Variant</signature>
+      </method>
+      <method vuln_id="1091035">
+        <simple_name>Date_TimeZone.getDefault</simple_name>
+        <signature>Date_TimeZone.getDefault():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091046">
+        <simple_name>Date_TimeZone.getID</simple_name>
+        <signature>Date_TimeZone.getID():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091039">
+        <simple_name>Date_TimeZone.getLongName</simple_name>
+        <signature>Date_TimeZone.getLongName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.getOffset</simple_name>
+        <signature>Date_TimeZone.getOffset($date):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091047">
+        <simple_name>Date_TimeZone.getRawOffset</simple_name>
+        <signature>Date_TimeZone.getRawOffset():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091048">
+        <simple_name>Date_TimeZone.getShortName</simple_name>
+        <signature>Date_TimeZone.getShortName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091041">
+        <simple_name>Date_TimeZone.hasDaylightTime</simple_name>
+        <signature>Date_TimeZone.hasDaylightTime():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091049">
+        <simple_name>Date_TimeZone.inDaylightTime</simple_name>
+        <signature>Date_TimeZone.inDaylightTime($date):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091043">
+        <simple_name>Date_TimeZone.isEqual</simple_name>
+        <signature>Date_TimeZone.isEqual($tz):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091045">
+        <simple_name>Date_TimeZone.isEquivalent</simple_name>
+        <signature>Date_TimeZone.isEquivalent($tz):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091036">
+        <simple_name>Date_TimeZone.isValidID</simple_name>
+        <signature>Date_TimeZone.isValidID($id):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.isValidID</simple_name>
+        <signature>Date_TimeZone.isValidID():Variant</signature>
+      </method>
+      <method vuln_id="1091040">
+        <simple_name>Date_TimeZone.setDefault</simple_name>
+        <signature>Date_TimeZone.setDefault($id):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Date_TimeZone">
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.Date_TimeZone</simple_name>
+        <signature>Date_TimeZone.Date_TimeZone($id):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091042">
+        <simple_name>Date_TimeZone.getAvailableIDs</simple_name>
+        <signature>Date_TimeZone.getAvailableIDs():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091037">
+        <simple_name>Date_TimeZone.getDSTLongName</simple_name>
+        <signature>Date_TimeZone.getDSTLongName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091038">
+        <simple_name>Date_TimeZone.getDSTSavings</simple_name>
+        <signature>Date_TimeZone.getDSTSavings():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091044">
+        <simple_name>Date_TimeZone.getDSTShortName</simple_name>
+        <signature>Date_TimeZone.getDSTShortName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.getDefault</simple_name>
+        <signature>Date_TimeZone.getDefault():Variant</signature>
+      </method>
+      <method vuln_id="1091035">
+        <simple_name>Date_TimeZone.getDefault</simple_name>
+        <signature>Date_TimeZone.getDefault():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091046">
+        <simple_name>Date_TimeZone.getID</simple_name>
+        <signature>Date_TimeZone.getID():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091039">
+        <simple_name>Date_TimeZone.getLongName</simple_name>
+        <signature>Date_TimeZone.getLongName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.getOffset</simple_name>
+        <signature>Date_TimeZone.getOffset($date):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091047">
+        <simple_name>Date_TimeZone.getRawOffset</simple_name>
+        <signature>Date_TimeZone.getRawOffset():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091048">
+        <simple_name>Date_TimeZone.getShortName</simple_name>
+        <signature>Date_TimeZone.getShortName():___Php.String</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091041">
+        <simple_name>Date_TimeZone.hasDaylightTime</simple_name>
+        <signature>Date_TimeZone.hasDaylightTime():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091049">
+        <simple_name>Date_TimeZone.inDaylightTime</simple_name>
+        <signature>Date_TimeZone.inDaylightTime($date):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091043">
+        <simple_name>Date_TimeZone.isEqual</simple_name>
+        <signature>Date_TimeZone.isEqual($tz):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091045">
+        <simple_name>Date_TimeZone.isEquivalent</simple_name>
+        <signature>Date_TimeZone.isEquivalent($tz):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091036">
+        <simple_name>Date_TimeZone.isValidID</simple_name>
+        <signature>Date_TimeZone.isValidID($id):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_TimeZone.isValidID</simple_name>
+        <signature>Date_TimeZone.isValidID():Variant</signature>
+      </method>
+      <method vuln_id="1091040">
+        <simple_name>Date_TimeZone.setDefault</simple_name>
+        <signature>Date_TimeZone.setDefault($id):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

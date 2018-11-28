@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_SlideShare">
+      <method vuln_id="1119826">
+        <simple_name>Zend_Service_SlideShare.__construct_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.__construct_@__Service_SlideShare_php_1($apikey;$sharedSecret;$username;$password):Variant</signature>
+        <info_rule id="472215"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="3,4"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472213">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="472212">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119530">
+        <simple_name>Zend_Service_SlideShare._getSlideShowsByType_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare._getSlideShowsByType_@__Service_SlideShare_php_1($key;$value;$offset;$limit):Variant</signature>
+        <info_rule id="471929"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118649">
+        <simple_name>Zend_Service_SlideShare._slideShowNodeToObject_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare._slideShowNodeToObject_@__Service_SlideShare_php_1($node):Variant</signature>
+        <info_rule id="471094"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119315">
+        <simple_name>Zend_Service_SlideShare.getApiKey_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getApiKey_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="471726"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119420">
+        <simple_name>Zend_Service_SlideShare.getCacheObject_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getCacheObject_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="471821"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119905">
+        <simple_name>Zend_Service_SlideShare.getHttpClient_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getHttpClient_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="472288"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119628">
+        <simple_name>Zend_Service_SlideShare.getPassword_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getPassword_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="472020"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118982">
+        <simple_name>Zend_Service_SlideShare.getSharedSecret_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSharedSecret_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="471407"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119583">
+        <simple_name>Zend_Service_SlideShare.getSlideShow_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShow_@__Service_SlideShare_php_1($ss_id):Variant</signature>
+        <info_rule id="471977"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119115">
+        <simple_name>Zend_Service_SlideShare.getSlideShowsByGroup_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShowsByGroup_@__Service_SlideShare_php_1($group;$offset;$limit):Variant</signature>
+        <info_rule id="471542"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118970">
+        <simple_name>Zend_Service_SlideShare.getSlideShowsByTag_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShowsByTag_@__Service_SlideShare_php_1($tag;$offset;$limit):Variant</signature>
+        <info_rule id="471394"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119717">
+        <simple_name>Zend_Service_SlideShare.getSlideShowsByUsername_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShowsByUsername_@__Service_SlideShare_php_1($username;$offset;$limit):Variant</signature>
+        <info_rule id="472104"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119639">
+        <simple_name>Zend_Service_SlideShare.getUserName_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getUserName_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="472030"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119569">
+        <simple_name>Zend_Service_SlideShare.setApiKey_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setApiKey_@__Service_SlideShare_php_1($key):Variant</signature>
+        <info_rule id="471964"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119833">
+        <simple_name>Zend_Service_SlideShare.setCacheObject_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setCacheObject_@__Service_SlideShare_php_1($cacheobject):Variant</signature>
+        <info_rule id="472221"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119952">
+        <simple_name>Zend_Service_SlideShare.setHttpClient_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setHttpClient_@__Service_SlideShare_php_1($client):Variant</signature>
+        <info_rule id="472332"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119206">
+        <simple_name>Zend_Service_SlideShare.setPassword_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setPassword_@__Service_SlideShare_php_1($pw):Variant</signature>
+        <info_rule id="471627"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119601">
+        <simple_name>Zend_Service_SlideShare.setSharedSecret_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setSharedSecret_@__Service_SlideShare_php_1($secret):Variant</signature>
+        <info_rule id="471993"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119232">
+        <simple_name>Zend_Service_SlideShare.setUserName_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setUserName_@__Service_SlideShare_php_1($un):Variant</signature>
+        <info_rule id="471651"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119231">
+        <simple_name>Zend_Service_SlideShare.uploadSlideShow_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.uploadSlideShow_@__Service_SlideShare_php_1($ss;$make_src_public):Variant</signature>
+        <info_rule id="471650"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+    <class name="Zend_Service_SlideShare">
+      <method vuln_id="1119826">
+        <simple_name>Zend_Service_SlideShare.__construct_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.__construct_@__Service_SlideShare_php_1($apikey;$sharedSecret;$username;$password):Variant</signature>
+        <info_rule id="472215"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="3,4"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="472213">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="472212">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="4" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119530">
+        <simple_name>Zend_Service_SlideShare._getSlideShowsByType_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare._getSlideShowsByType_@__Service_SlideShare_php_1($key;$value;$offset;$limit):Variant</signature>
+        <info_rule id="471929"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118649">
+        <simple_name>Zend_Service_SlideShare._slideShowNodeToObject_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare._slideShowNodeToObject_@__Service_SlideShare_php_1($node):Variant</signature>
+        <info_rule id="471094"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119315">
+        <simple_name>Zend_Service_SlideShare.getApiKey_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getApiKey_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="471726"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119420">
+        <simple_name>Zend_Service_SlideShare.getCacheObject_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getCacheObject_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="471821"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119905">
+        <simple_name>Zend_Service_SlideShare.getHttpClient_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getHttpClient_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="472288"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119628">
+        <simple_name>Zend_Service_SlideShare.getPassword_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getPassword_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="472020"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118982">
+        <simple_name>Zend_Service_SlideShare.getSharedSecret_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSharedSecret_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="471407"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119583">
+        <simple_name>Zend_Service_SlideShare.getSlideShow_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShow_@__Service_SlideShare_php_1($ss_id):Variant</signature>
+        <info_rule id="471977"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119115">
+        <simple_name>Zend_Service_SlideShare.getSlideShowsByGroup_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShowsByGroup_@__Service_SlideShare_php_1($group;$offset;$limit):Variant</signature>
+        <info_rule id="471542"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118970">
+        <simple_name>Zend_Service_SlideShare.getSlideShowsByTag_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShowsByTag_@__Service_SlideShare_php_1($tag;$offset;$limit):Variant</signature>
+        <info_rule id="471394"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119717">
+        <simple_name>Zend_Service_SlideShare.getSlideShowsByUsername_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getSlideShowsByUsername_@__Service_SlideShare_php_1($username;$offset;$limit):Variant</signature>
+        <info_rule id="472104"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119639">
+        <simple_name>Zend_Service_SlideShare.getUserName_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.getUserName_@__Service_SlideShare_php_1():Variant</signature>
+        <info_rule id="472030"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119569">
+        <simple_name>Zend_Service_SlideShare.setApiKey_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setApiKey_@__Service_SlideShare_php_1($key):Variant</signature>
+        <info_rule id="471964"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119833">
+        <simple_name>Zend_Service_SlideShare.setCacheObject_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setCacheObject_@__Service_SlideShare_php_1($cacheobject):Variant</signature>
+        <info_rule id="472221"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119952">
+        <simple_name>Zend_Service_SlideShare.setHttpClient_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setHttpClient_@__Service_SlideShare_php_1($client):Variant</signature>
+        <info_rule id="472332"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119206">
+        <simple_name>Zend_Service_SlideShare.setPassword_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setPassword_@__Service_SlideShare_php_1($pw):Variant</signature>
+        <info_rule id="471627"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119601">
+        <simple_name>Zend_Service_SlideShare.setSharedSecret_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setSharedSecret_@__Service_SlideShare_php_1($secret):Variant</signature>
+        <info_rule id="471993"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119232">
+        <simple_name>Zend_Service_SlideShare.setUserName_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.setUserName_@__Service_SlideShare_php_1($un):Variant</signature>
+        <info_rule id="471651"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119231">
+        <simple_name>Zend_Service_SlideShare.uploadSlideShow_@__Service_SlideShare_php_1</simple_name>
+        <signature>Zend_Service_SlideShare.uploadSlideShow_@__Service_SlideShare_php_1($ss;$make_src_public):Variant</signature>
+        <info_rule id="471650"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

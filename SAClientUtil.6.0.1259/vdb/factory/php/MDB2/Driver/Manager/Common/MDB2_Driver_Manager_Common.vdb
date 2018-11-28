@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_Driver_Manager_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._fixIndexName</simple_name>
+        <signature>MDB2_Driver_Manager_Common._fixIndexName($idx):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._fixSequenceName</simple_name>
+        <signature>MDB2_Driver_Manager_Common._fixSequenceName($sqn;$check):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._getCreateTableQuery</simple_name>
+        <signature>MDB2_Driver_Manager_Common._getCreateTableQuery($name;$fields;$options):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._getTemporaryTableQuery</simple_name>
+        <signature>MDB2_Driver_Manager_Common._getTemporaryTableQuery():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091842">
+        <simple_name>MDB2_Driver_Manager_Common.alterTable</simple_name>
+        <signature>MDB2_Driver_Manager_Common.alterTable($name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091847">
+        <simple_name>MDB2_Driver_Manager_Common.createConstraint</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createConstraint($table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091845">
+        <simple_name>MDB2_Driver_Manager_Common.createDatabase</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createDatabase($database):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091827">
+        <simple_name>MDB2_Driver_Manager_Common.createIndex</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createIndex($table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091841">
+        <simple_name>MDB2_Driver_Manager_Common.createSequence</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createSequence($seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091837">
+        <simple_name>MDB2_Driver_Manager_Common.createTable</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createTable($name;$fields;$options):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091833">
+        <simple_name>MDB2_Driver_Manager_Common.dropConstraint</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropConstraint($table;$name;$primary):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091830">
+        <simple_name>MDB2_Driver_Manager_Common.dropDatabase</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropDatabase($database):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091829">
+        <simple_name>MDB2_Driver_Manager_Common.dropIndex</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropIndex($table;$name):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091831">
+        <simple_name>MDB2_Driver_Manager_Common.dropSequence</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropSequence($name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091839">
+        <simple_name>MDB2_Driver_Manager_Common.dropTable</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropTable($name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common.getDBInstance</simple_name>
+        <signature>MDB2_Driver_Manager_Common.getDBInstance():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091846">
+        <simple_name>MDB2_Driver_Manager_Common.getFieldDeclarationList</simple_name>
+        <signature>MDB2_Driver_Manager_Common.getFieldDeclarationList($fields):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091848">
+        <simple_name>MDB2_Driver_Manager_Common.listDatabases</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listDatabases():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091832">
+        <simple_name>MDB2_Driver_Manager_Common.listFunctions</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listFunctions():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091835">
+        <simple_name>MDB2_Driver_Manager_Common.listSequences</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listSequences($database):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091844">
+        <simple_name>MDB2_Driver_Manager_Common.listTableConstraints</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableConstraints($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091826">
+        <simple_name>MDB2_Driver_Manager_Common.listTableFields</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableFields($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091838">
+        <simple_name>MDB2_Driver_Manager_Common.listTableIndexes</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableIndexes($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091834">
+        <simple_name>MDB2_Driver_Manager_Common.listTableTriggers</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableTriggers($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091836">
+        <simple_name>MDB2_Driver_Manager_Common.listTableViews</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableViews($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091843">
+        <simple_name>MDB2_Driver_Manager_Common.listTables</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTables($database):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091828">
+        <simple_name>MDB2_Driver_Manager_Common.listUsers</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listUsers():mixed</signature>
+        <info_rule id="480788"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091840">
+        <simple_name>MDB2_Driver_Manager_Common.listViews</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listViews($database):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_Driver_Manager_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._fixIndexName</simple_name>
+        <signature>MDB2_Driver_Manager_Common._fixIndexName($idx):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._fixSequenceName</simple_name>
+        <signature>MDB2_Driver_Manager_Common._fixSequenceName($sqn;$check):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._getCreateTableQuery</simple_name>
+        <signature>MDB2_Driver_Manager_Common._getCreateTableQuery($name;$fields;$options):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common._getTemporaryTableQuery</simple_name>
+        <signature>MDB2_Driver_Manager_Common._getTemporaryTableQuery():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091842">
+        <simple_name>MDB2_Driver_Manager_Common.alterTable</simple_name>
+        <signature>MDB2_Driver_Manager_Common.alterTable($name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091847">
+        <simple_name>MDB2_Driver_Manager_Common.createConstraint</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createConstraint($table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091845">
+        <simple_name>MDB2_Driver_Manager_Common.createDatabase</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createDatabase($database):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091827">
+        <simple_name>MDB2_Driver_Manager_Common.createIndex</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createIndex($table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091841">
+        <simple_name>MDB2_Driver_Manager_Common.createSequence</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createSequence($seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091837">
+        <simple_name>MDB2_Driver_Manager_Common.createTable</simple_name>
+        <signature>MDB2_Driver_Manager_Common.createTable($name;$fields;$options):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091833">
+        <simple_name>MDB2_Driver_Manager_Common.dropConstraint</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropConstraint($table;$name;$primary):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091830">
+        <simple_name>MDB2_Driver_Manager_Common.dropDatabase</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropDatabase($database):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091829">
+        <simple_name>MDB2_Driver_Manager_Common.dropIndex</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropIndex($table;$name):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091831">
+        <simple_name>MDB2_Driver_Manager_Common.dropSequence</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropSequence($name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091839">
+        <simple_name>MDB2_Driver_Manager_Common.dropTable</simple_name>
+        <signature>MDB2_Driver_Manager_Common.dropTable($name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Manager_Common.getDBInstance</simple_name>
+        <signature>MDB2_Driver_Manager_Common.getDBInstance():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091846">
+        <simple_name>MDB2_Driver_Manager_Common.getFieldDeclarationList</simple_name>
+        <signature>MDB2_Driver_Manager_Common.getFieldDeclarationList($fields):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091848">
+        <simple_name>MDB2_Driver_Manager_Common.listDatabases</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listDatabases():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091832">
+        <simple_name>MDB2_Driver_Manager_Common.listFunctions</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listFunctions():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091835">
+        <simple_name>MDB2_Driver_Manager_Common.listSequences</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listSequences($database):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091844">
+        <simple_name>MDB2_Driver_Manager_Common.listTableConstraints</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableConstraints($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091826">
+        <simple_name>MDB2_Driver_Manager_Common.listTableFields</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableFields($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091838">
+        <simple_name>MDB2_Driver_Manager_Common.listTableIndexes</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableIndexes($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091834">
+        <simple_name>MDB2_Driver_Manager_Common.listTableTriggers</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableTriggers($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091836">
+        <simple_name>MDB2_Driver_Manager_Common.listTableViews</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTableViews($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091843">
+        <simple_name>MDB2_Driver_Manager_Common.listTables</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listTables($database):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091828">
+        <simple_name>MDB2_Driver_Manager_Common.listUsers</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listUsers():mixed</signature>
+        <info_rule id="480788"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091840">
+        <simple_name>MDB2_Driver_Manager_Common.listViews</simple_name>
+        <signature>MDB2_Driver_Manager_Common.listViews($database):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

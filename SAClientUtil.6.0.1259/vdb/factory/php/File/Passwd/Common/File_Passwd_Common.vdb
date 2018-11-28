@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="File_Passwd_Common">
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.__construct</simple_name>
+        <signature>File_Passwd_Common.__construct($file):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.__construct</simple_name>
+        <signature>File_Passwd_Common.__construct():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._auth</simple_name>
+        <signature>File_Passwd_Common._auth($file;$id;$sep):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._auth</simple_name>
+        <signature>File_Passwd_Common._auth():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._close</simple_name>
+        <signature>File_Passwd_Common._close($file_handle):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._open</simple_name>
+        <signature>File_Passwd_Common._open($mode;$file):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._save</simple_name>
+        <signature>File_Passwd_Common._save($content):mixed</signature>
+      </method>
+      <method vuln_id="1091105">
+        <simple_name>File_Passwd_Common.delUser</simple_name>
+        <signature>File_Passwd_Common.delUser($user):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091104">
+        <simple_name>File_Passwd_Common.getFile</simple_name>
+        <signature>File_Passwd_Common.getFile():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091103">
+        <simple_name>File_Passwd_Common.listUser</simple_name>
+        <signature>File_Passwd_Common.listUser($user):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091106">
+        <simple_name>File_Passwd_Common.load</simple_name>
+        <signature>File_Passwd_Common.load():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.parse</simple_name>
+        <signature>File_Passwd_Common.parse():object PEAR_Error</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.save</simple_name>
+        <signature>File_Passwd_Common.save():object PEAR_Error</signature>
+      </method>
+      <method vuln_id="1091101">
+        <simple_name>File_Passwd_Common.setFile</simple_name>
+        <signature>File_Passwd_Common.setFile($file):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091102">
+        <simple_name>File_Passwd_Common.userExists</simple_name>
+        <signature>File_Passwd_Common.userExists($user):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="File_Passwd_Common">
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.__construct</simple_name>
+        <signature>File_Passwd_Common.__construct($file):void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.__construct</simple_name>
+        <signature>File_Passwd_Common.__construct():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._auth</simple_name>
+        <signature>File_Passwd_Common._auth($file;$id;$sep):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._auth</simple_name>
+        <signature>File_Passwd_Common._auth():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._close</simple_name>
+        <signature>File_Passwd_Common._close($file_handle):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._open</simple_name>
+        <signature>File_Passwd_Common._open($mode;$file):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common._save</simple_name>
+        <signature>File_Passwd_Common._save($content):mixed</signature>
+      </method>
+      <method vuln_id="1091105">
+        <simple_name>File_Passwd_Common.delUser</simple_name>
+        <signature>File_Passwd_Common.delUser($user):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091104">
+        <simple_name>File_Passwd_Common.getFile</simple_name>
+        <signature>File_Passwd_Common.getFile():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091103">
+        <simple_name>File_Passwd_Common.listUser</simple_name>
+        <signature>File_Passwd_Common.listUser($user):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091106">
+        <simple_name>File_Passwd_Common.load</simple_name>
+        <signature>File_Passwd_Common.load():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.parse</simple_name>
+        <signature>File_Passwd_Common.parse():object PEAR_Error</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_Passwd_Common.save</simple_name>
+        <signature>File_Passwd_Common.save():object PEAR_Error</signature>
+      </method>
+      <method vuln_id="1091101">
+        <simple_name>File_Passwd_Common.setFile</simple_name>
+        <signature>File_Passwd_Common.setFile($file):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091102">
+        <simple_name>File_Passwd_Common.userExists</simple_name>
+        <signature>File_Passwd_Common.userExists($user):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

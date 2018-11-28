@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache">
+      <method vuln_id="-1">
+        <simple_name>Cache.Cache</simple_name>
+        <signature>Cache.Cache(___Php.String;___Php.Array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache.PEAR</simple_name>
+        <signature>Cache.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107920">
+        <simple_name>Cache._Cache</simple_name>
+        <signature>Cache._Cache():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107915">
+        <simple_name>Cache.extSave</simple_name>
+        <signature>Cache.extSave(___Php.String;mixed;___Php.String;mixed;___Php.String):bool</signature>
+        <info_rule id="450885"/>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107925">
+        <simple_name>Cache.flush</simple_name>
+        <signature>Cache.flush(___Php.String):int</signature>
+        <info_rule id="450895"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107924">
+        <simple_name>Cache.garbageCollection</simple_name>
+        <signature>Cache.garbageCollection(bool):void</signature>
+        <info_rule id="450894"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107921">
+        <simple_name>Cache.generateID</simple_name>
+        <signature>Cache.generateID(mixed):___Php.String</signature>
+        <info_rule id="450890"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107926">
+        <simple_name>Cache.get</simple_name>
+        <signature>Cache.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450896"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107913">
+        <simple_name>Cache.getCaching</simple_name>
+        <signature>Cache.getCaching():bool</signature>
+        <info_rule id="450883"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107916">
+        <simple_name>Cache.getUserdata</simple_name>
+        <signature>Cache.getUserdata(___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="450886"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107922">
+        <simple_name>Cache.isCached</simple_name>
+        <signature>Cache.isCached(___Php.String;___Php.String):bool</signature>
+        <info_rule id="450891"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107914">
+        <simple_name>Cache.isExpired</simple_name>
+        <signature>Cache.isExpired(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="450884"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107917">
+        <simple_name>Cache.load</simple_name>
+        <signature>Cache.load(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450887"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107923">
+        <simple_name>Cache.remove</simple_name>
+        <signature>Cache.remove(___Php.String;___Php.String):bool</signature>
+        <info_rule id="450893"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107918">
+        <simple_name>Cache.save</simple_name>
+        <signature>Cache.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450888"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107919">
+        <simple_name>Cache.setCaching</simple_name>
+        <signature>Cache.setCaching(bool):void</signature>
+        <info_rule id="450889"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+    </class>
+    <class name="Cache">
+      <method vuln_id="-1">
+        <simple_name>Cache.Cache</simple_name>
+        <signature>Cache.Cache(___Php.String;___Php.Array):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache.PEAR</simple_name>
+        <signature>Cache.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107920">
+        <simple_name>Cache._Cache</simple_name>
+        <signature>Cache._Cache():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107915">
+        <simple_name>Cache.extSave</simple_name>
+        <signature>Cache.extSave(___Php.String;mixed;___Php.String;mixed;___Php.String):bool</signature>
+        <info_rule id="450885"/>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107925">
+        <simple_name>Cache.flush</simple_name>
+        <signature>Cache.flush(___Php.String):int</signature>
+        <info_rule id="450895"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107924">
+        <simple_name>Cache.garbageCollection</simple_name>
+        <signature>Cache.garbageCollection(bool):void</signature>
+        <info_rule id="450894"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107921">
+        <simple_name>Cache.generateID</simple_name>
+        <signature>Cache.generateID(mixed):___Php.String</signature>
+        <info_rule id="450890"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107926">
+        <simple_name>Cache.get</simple_name>
+        <signature>Cache.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450896"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107913">
+        <simple_name>Cache.getCaching</simple_name>
+        <signature>Cache.getCaching():bool</signature>
+        <info_rule id="450883"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107916">
+        <simple_name>Cache.getUserdata</simple_name>
+        <signature>Cache.getUserdata(___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="450886"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107922">
+        <simple_name>Cache.isCached</simple_name>
+        <signature>Cache.isCached(___Php.String;___Php.String):bool</signature>
+        <info_rule id="450891"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107914">
+        <simple_name>Cache.isExpired</simple_name>
+        <signature>Cache.isExpired(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="450884"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107917">
+        <simple_name>Cache.load</simple_name>
+        <signature>Cache.load(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450887"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107923">
+        <simple_name>Cache.remove</simple_name>
+        <signature>Cache.remove(___Php.String;___Php.String):bool</signature>
+        <info_rule id="450893"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107918">
+        <simple_name>Cache.save</simple_name>
+        <signature>Cache.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450888"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1107919">
+        <simple_name>Cache.setCaching</simple_name>
+        <signature>Cache.setCaching(bool):void</signature>
+        <info_rule id="450889"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

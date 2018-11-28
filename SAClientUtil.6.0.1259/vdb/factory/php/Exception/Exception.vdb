@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Exception">
+      <method vuln_id="1122189">
+        <simple_name>Exception.__construct</simple_name>
+        <signature>Exception.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="2015999">
+        <simple_name>Exception.__construct</simple_name>
+        <signature>Exception.__construct(Arg#0;Arg#1;Arg#2):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.__construct</simple_name>
+        <signature>Exception.__construct(___Php.String;int):mixed</signature>
+      </method>
+      <method vuln_id="1122416">
+        <simple_name>Exception.__toString</simple_name>
+        <signature>Exception.__toString():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.__toString</simple_name>
+        <signature>Exception.__toString():___Php.String</signature>
+      </method>
+      <method vuln_id="1122300">
+        <simple_name>Exception.getCode</simple_name>
+        <signature>Exception.getCode():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getCode</simple_name>
+        <signature>Exception.getCode():int</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getFile</simple_name>
+        <signature>Exception.getFile():int</signature>
+      </method>
+      <method vuln_id="1122572">
+        <simple_name>Exception.getLine</simple_name>
+        <signature>Exception.getLine():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getLine</simple_name>
+        <signature>Exception.getLine():int</signature>
+      </method>
+      <method vuln_id="1122205">
+        <simple_name>Exception.getMessage</simple_name>
+        <signature>Exception.getMessage():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getMessage</simple_name>
+        <signature>Exception.getMessage():___Php.String</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getTrace</simple_name>
+        <signature>Exception.getTrace():___Php.Array</signature>
+      </method>
+      <method vuln_id="1122630">
+        <simple_name>Exception.getTraceAsString</simple_name>
+        <signature>Exception.getTraceAsString():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getTraceAsString</simple_name>
+        <signature>Exception.getTraceAsString():___Php.String</signature>
+      </method>
+      <method vuln_id="1090069">
+        <simple_name>___Php.Exception.__construct</simple_name>
+        <signature>___Php.Exception.__construct(___Php.String;int):void</signature>
+      </method>
+      <method vuln_id="1090057">
+        <simple_name>___Php.Exception.__toString</simple_name>
+        <signature>___Php.Exception.__toString():___Php.String</signature>
+        <info_rule id="457394"/>
+        <rule>
+          <ActionObject id="474288">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461751">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457393">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090077">
+        <simple_name>___Php.Exception.getCode</simple_name>
+        <signature>___Php.Exception.getCode():int</signature>
+        <info_rule id="457423"/>
+        <rule>
+          <ActionObject id="474293">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461756">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457422">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1190516">
+        <simple_name>___Php.Exception.getFile</simple_name>
+        <signature>___Php.Exception.getFile():___Php.String</signature>
+        <info_rule id="475109"/>
+        <rule>
+          <ActionObject id="475108">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="475107">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090064">
+        <simple_name>___Php.Exception.getFile</simple_name>
+        <signature>___Php.Exception.getFile():int</signature>
+        <info_rule id="457405"/>
+        <rule>
+          <ActionObject id="474290">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461753">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457407">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090084">
+        <simple_name>___Php.Exception.getLine</simple_name>
+        <signature>___Php.Exception.getLine():int</signature>
+        <info_rule id="457433"/>
+        <rule>
+          <ActionObject id="474294">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461757">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457435">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090090">
+        <simple_name>___Php.Exception.getMessage</simple_name>
+        <signature>___Php.Exception.getMessage():___Php.String</signature>
+        <info_rule id="457443"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="2015048">
+        <simple_name>___Php.Exception.getPrevious</simple_name>
+        <signature>___Php.Exception.getPrevious():___Php.Exception</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+      </method>
+      <method vuln_id="1090087">
+        <simple_name>___Php.Exception.getTrace</simple_name>
+        <signature>___Php.Exception.getTrace():___Php.Array</signature>
+        <info_rule id="457438"/>
+        <rule>
+          <ActionObject id="474295">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461758">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457440">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090067">
+        <simple_name>___Php.Exception.getTraceAsString</simple_name>
+        <signature>___Php.Exception.getTraceAsString():___Php.String</signature>
+        <info_rule id="457410"/>
+        <rule>
+          <ActionObject id="474291">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461754">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457412">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+    </class>
+    <class name="Exception">
+      <method vuln_id="1122189">
+        <simple_name>Exception.__construct</simple_name>
+        <signature>Exception.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="2015999">
+        <simple_name>Exception.__construct</simple_name>
+        <signature>Exception.__construct(Arg#0;Arg#1;Arg#2):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.__construct</simple_name>
+        <signature>Exception.__construct(___Php.String;int):mixed</signature>
+      </method>
+      <method vuln_id="1122416">
+        <simple_name>Exception.__toString</simple_name>
+        <signature>Exception.__toString():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.__toString</simple_name>
+        <signature>Exception.__toString():___Php.String</signature>
+      </method>
+      <method vuln_id="1122300">
+        <simple_name>Exception.getCode</simple_name>
+        <signature>Exception.getCode():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getCode</simple_name>
+        <signature>Exception.getCode():int</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getFile</simple_name>
+        <signature>Exception.getFile():int</signature>
+      </method>
+      <method vuln_id="1122572">
+        <simple_name>Exception.getLine</simple_name>
+        <signature>Exception.getLine():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getLine</simple_name>
+        <signature>Exception.getLine():int</signature>
+      </method>
+      <method vuln_id="1122205">
+        <simple_name>Exception.getMessage</simple_name>
+        <signature>Exception.getMessage():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getMessage</simple_name>
+        <signature>Exception.getMessage():___Php.String</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getTrace</simple_name>
+        <signature>Exception.getTrace():___Php.Array</signature>
+      </method>
+      <method vuln_id="1122630">
+        <simple_name>Exception.getTraceAsString</simple_name>
+        <signature>Exception.getTraceAsString():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Exception.getTraceAsString</simple_name>
+        <signature>Exception.getTraceAsString():___Php.String</signature>
+      </method>
+      <method vuln_id="1090069">
+        <simple_name>___Php.Exception.__construct</simple_name>
+        <signature>___Php.Exception.__construct(___Php.String;int):void</signature>
+      </method>
+      <method vuln_id="1090057">
+        <simple_name>___Php.Exception.__toString</simple_name>
+        <signature>___Php.Exception.__toString():___Php.String</signature>
+        <info_rule id="457394"/>
+        <rule>
+          <ActionObject id="474288">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461751">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457393">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090077">
+        <simple_name>___Php.Exception.getCode</simple_name>
+        <signature>___Php.Exception.getCode():int</signature>
+        <info_rule id="457423"/>
+        <rule>
+          <ActionObject id="474293">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461756">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457422">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1190516">
+        <simple_name>___Php.Exception.getFile</simple_name>
+        <signature>___Php.Exception.getFile():___Php.String</signature>
+        <info_rule id="475109"/>
+        <rule>
+          <ActionObject id="475108">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="475107">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090064">
+        <simple_name>___Php.Exception.getFile</simple_name>
+        <signature>___Php.Exception.getFile():int</signature>
+        <info_rule id="457405"/>
+        <rule>
+          <ActionObject id="474290">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461753">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457407">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090084">
+        <simple_name>___Php.Exception.getLine</simple_name>
+        <signature>___Php.Exception.getLine():int</signature>
+        <info_rule id="457433"/>
+        <rule>
+          <ActionObject id="474294">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461757">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457435">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090090">
+        <simple_name>___Php.Exception.getMessage</simple_name>
+        <signature>___Php.Exception.getMessage():___Php.String</signature>
+        <info_rule id="457443"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="2015048">
+        <simple_name>___Php.Exception.getPrevious</simple_name>
+        <signature>___Php.Exception.getPrevious():___Php.Exception</signature>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+      </method>
+      <method vuln_id="1090087">
+        <simple_name>___Php.Exception.getTrace</simple_name>
+        <signature>___Php.Exception.getTrace():___Php.Array</signature>
+        <info_rule id="457438"/>
+        <rule>
+          <ActionObject id="474295">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461758">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457440">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1090067">
+        <simple_name>___Php.Exception.getTraceAsString</simple_name>
+        <signature>___Php.Exception.getTraceAsString():___Php.String</signature>
+        <info_rule id="457410"/>
+        <rule>
+          <ActionObject id="474291">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461754">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="457412">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

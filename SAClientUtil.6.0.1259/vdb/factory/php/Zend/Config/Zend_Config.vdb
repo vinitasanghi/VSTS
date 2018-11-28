@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Config">
+      <method vuln_id="1109820">
+        <simple_name>Zend_Config.__clone_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__clone_@__Config_php_1():Variant</signature>
+        <info_rule id="466380"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109813">
+        <simple_name>Zend_Config.__construct</simple_name>
+        <signature>Zend_Config.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109817">
+        <simple_name>Zend_Config.__construct_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__construct_@__Config_php_1($array;$allowModifications):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109827">
+        <simple_name>Zend_Config.__get_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__get_@__Config_php_1($name):Variant</signature>
+        <info_rule id="466387"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109779">
+        <simple_name>Zend_Config.__isset_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__isset_@__Config_php_1($name):Variant</signature>
+        <info_rule id="466340"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109790">
+        <simple_name>Zend_Config.__set_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__set_@__Config_php_1($name;$value):Variant</signature>
+        <info_rule id="466352"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109791">
+        <simple_name>Zend_Config.__unset_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__unset_@__Config_php_1($name):Variant</signature>
+        <info_rule id="466353"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109807">
+        <simple_name>Zend_Config._arrayMergeRecursive_@__Config_php_1</simple_name>
+        <signature>Zend_Config._arrayMergeRecursive_@__Config_php_1($firstArray;$secondArray):Variant</signature>
+        <info_rule id="466370"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1109798">
+        <simple_name>Zend_Config._assertValidExtend_@__Config_php_1</simple_name>
+        <signature>Zend_Config._assertValidExtend_@__Config_php_1($extendingSection;$extendedSection):Variant</signature>
+        <info_rule id="466361"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1109777">
+        <simple_name>Zend_Config._loadFileErrorHandler_@__Config_php_1</simple_name>
+        <signature>Zend_Config._loadFileErrorHandler_@__Config_php_1($errno;$errstr;$errfile;$errline):Variant</signature>
+        <info_rule id="466338"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1109804">
+        <simple_name>Zend_Config.areAllSectionsLoaded_@__Config_php_1</simple_name>
+        <signature>Zend_Config.areAllSectionsLoaded_@__Config_php_1():Variant</signature>
+        <info_rule id="466367"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109802">
+        <simple_name>Zend_Config.count_@__Config_php_1</simple_name>
+        <signature>Zend_Config.count_@__Config_php_1():Variant</signature>
+        <info_rule id="466365"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109785">
+        <simple_name>Zend_Config.current_@__Config_php_1</simple_name>
+        <signature>Zend_Config.current_@__Config_php_1():Variant</signature>
+        <info_rule id="466345"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109821">
+        <simple_name>Zend_Config.getExtends_@__Config_php_1</simple_name>
+        <signature>Zend_Config.getExtends_@__Config_php_1():Variant</signature>
+        <info_rule id="466381"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109797">
+        <simple_name>Zend_Config.getSectionName_@__Config_php_1</simple_name>
+        <signature>Zend_Config.getSectionName_@__Config_php_1():Variant</signature>
+        <info_rule id="466360"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109787">
+        <simple_name>Zend_Config.get_@__Config_php_1</simple_name>
+        <signature>Zend_Config.get_@__Config_php_1($name;$default):Variant</signature>
+        <info_rule id="466347"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109789">
+        <simple_name>Zend_Config.key_@__Config_php_1</simple_name>
+        <signature>Zend_Config.key_@__Config_php_1():Variant</signature>
+        <info_rule id="466350"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109824">
+        <simple_name>Zend_Config.merge_@__Config_php_1</simple_name>
+        <signature>Zend_Config.merge_@__Config_php_1($merge):Variant</signature>
+        <info_rule id="466384"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109803">
+        <simple_name>Zend_Config.next_@__Config_php_1</simple_name>
+        <signature>Zend_Config.next_@__Config_php_1():Variant</signature>
+        <info_rule id="466366"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109823">
+        <simple_name>Zend_Config.readOnly_@__Config_php_1</simple_name>
+        <signature>Zend_Config.readOnly_@__Config_php_1():Variant</signature>
+        <info_rule id="466383"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109829">
+        <simple_name>Zend_Config.rewind_@__Config_php_1</simple_name>
+        <signature>Zend_Config.rewind_@__Config_php_1():Variant</signature>
+        <info_rule id="466389"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109806">
+        <simple_name>Zend_Config.setExtend_@__Config_php_1</simple_name>
+        <signature>Zend_Config.setExtend_@__Config_php_1($extendingSection;$extendedSection):Variant</signature>
+        <info_rule id="466369"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109776">
+        <simple_name>Zend_Config.setReadOnly_@__Config_php_1</simple_name>
+        <signature>Zend_Config.setReadOnly_@__Config_php_1():Variant</signature>
+        <info_rule id="466335"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109810">
+        <simple_name>Zend_Config.toArray</simple_name>
+        <signature>Zend_Config.toArray():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109812">
+        <simple_name>Zend_Config.toArray_@__Config_php_1</simple_name>
+        <signature>Zend_Config.toArray_@__Config_php_1():Variant</signature>
+        <info_rule id="466374"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109783">
+        <simple_name>Zend_Config.valid_@__Config_php_1</simple_name>
+        <signature>Zend_Config.valid_@__Config_php_1():Variant</signature>
+        <info_rule id="466343"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Config">
+      <method vuln_id="1109820">
+        <simple_name>Zend_Config.__clone_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__clone_@__Config_php_1():Variant</signature>
+        <info_rule id="466380"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109813">
+        <simple_name>Zend_Config.__construct</simple_name>
+        <signature>Zend_Config.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109817">
+        <simple_name>Zend_Config.__construct_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__construct_@__Config_php_1($array;$allowModifications):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109827">
+        <simple_name>Zend_Config.__get_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__get_@__Config_php_1($name):Variant</signature>
+        <info_rule id="466387"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109779">
+        <simple_name>Zend_Config.__isset_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__isset_@__Config_php_1($name):Variant</signature>
+        <info_rule id="466340"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109790">
+        <simple_name>Zend_Config.__set_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__set_@__Config_php_1($name;$value):Variant</signature>
+        <info_rule id="466352"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109791">
+        <simple_name>Zend_Config.__unset_@__Config_php_1</simple_name>
+        <signature>Zend_Config.__unset_@__Config_php_1($name):Variant</signature>
+        <info_rule id="466353"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109807">
+        <simple_name>Zend_Config._arrayMergeRecursive_@__Config_php_1</simple_name>
+        <signature>Zend_Config._arrayMergeRecursive_@__Config_php_1($firstArray;$secondArray):Variant</signature>
+        <info_rule id="466370"/>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1109798">
+        <simple_name>Zend_Config._assertValidExtend_@__Config_php_1</simple_name>
+        <signature>Zend_Config._assertValidExtend_@__Config_php_1($extendingSection;$extendedSection):Variant</signature>
+        <info_rule id="466361"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1109777">
+        <simple_name>Zend_Config._loadFileErrorHandler_@__Config_php_1</simple_name>
+        <signature>Zend_Config._loadFileErrorHandler_@__Config_php_1($errno;$errstr;$errfile;$errline):Variant</signature>
+        <info_rule id="466338"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1109804">
+        <simple_name>Zend_Config.areAllSectionsLoaded_@__Config_php_1</simple_name>
+        <signature>Zend_Config.areAllSectionsLoaded_@__Config_php_1():Variant</signature>
+        <info_rule id="466367"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109802">
+        <simple_name>Zend_Config.count_@__Config_php_1</simple_name>
+        <signature>Zend_Config.count_@__Config_php_1():Variant</signature>
+        <info_rule id="466365"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109785">
+        <simple_name>Zend_Config.current_@__Config_php_1</simple_name>
+        <signature>Zend_Config.current_@__Config_php_1():Variant</signature>
+        <info_rule id="466345"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109821">
+        <simple_name>Zend_Config.getExtends_@__Config_php_1</simple_name>
+        <signature>Zend_Config.getExtends_@__Config_php_1():Variant</signature>
+        <info_rule id="466381"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109797">
+        <simple_name>Zend_Config.getSectionName_@__Config_php_1</simple_name>
+        <signature>Zend_Config.getSectionName_@__Config_php_1():Variant</signature>
+        <info_rule id="466360"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109787">
+        <simple_name>Zend_Config.get_@__Config_php_1</simple_name>
+        <signature>Zend_Config.get_@__Config_php_1($name;$default):Variant</signature>
+        <info_rule id="466347"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109789">
+        <simple_name>Zend_Config.key_@__Config_php_1</simple_name>
+        <signature>Zend_Config.key_@__Config_php_1():Variant</signature>
+        <info_rule id="466350"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109824">
+        <simple_name>Zend_Config.merge_@__Config_php_1</simple_name>
+        <signature>Zend_Config.merge_@__Config_php_1($merge):Variant</signature>
+        <info_rule id="466384"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109803">
+        <simple_name>Zend_Config.next_@__Config_php_1</simple_name>
+        <signature>Zend_Config.next_@__Config_php_1():Variant</signature>
+        <info_rule id="466366"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109823">
+        <simple_name>Zend_Config.readOnly_@__Config_php_1</simple_name>
+        <signature>Zend_Config.readOnly_@__Config_php_1():Variant</signature>
+        <info_rule id="466383"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109829">
+        <simple_name>Zend_Config.rewind_@__Config_php_1</simple_name>
+        <signature>Zend_Config.rewind_@__Config_php_1():Variant</signature>
+        <info_rule id="466389"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109806">
+        <simple_name>Zend_Config.setExtend_@__Config_php_1</simple_name>
+        <signature>Zend_Config.setExtend_@__Config_php_1($extendingSection;$extendedSection):Variant</signature>
+        <info_rule id="466369"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109776">
+        <simple_name>Zend_Config.setReadOnly_@__Config_php_1</simple_name>
+        <signature>Zend_Config.setReadOnly_@__Config_php_1():Variant</signature>
+        <info_rule id="466335"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109810">
+        <simple_name>Zend_Config.toArray</simple_name>
+        <signature>Zend_Config.toArray():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109812">
+        <simple_name>Zend_Config.toArray_@__Config_php_1</simple_name>
+        <signature>Zend_Config.toArray_@__Config_php_1():Variant</signature>
+        <info_rule id="466374"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109783">
+        <simple_name>Zend_Config.valid_@__Config_php_1</simple_name>
+        <signature>Zend_Config.valid_@__Config_php_1():Variant</signature>
+        <info_rule id="466343"/>
+        <does_not_propagate_taint/>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

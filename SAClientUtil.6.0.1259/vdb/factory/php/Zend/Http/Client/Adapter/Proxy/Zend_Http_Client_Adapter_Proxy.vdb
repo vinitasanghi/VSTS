@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Http_Client_Adapter_Proxy">
+      <method vuln_id="1114796">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.__construct_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.__construct_@__Http_Client_Adapter_Proxy_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114785">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.__destruct_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.__destruct_@__Http_Client_Adapter_Proxy_php_1():Variant</signature>
+        <info_rule id="468052"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114771">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.close_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.close_@__Http_Client_Adapter_Proxy_php_1():Variant</signature>
+        <info_rule id="468033"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114901">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.connectHandshake_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.connectHandshake_@__Http_Client_Adapter_Proxy_php_1($host;$port;$http_ver;$headers):Variant</signature>
+        <info_rule id="468215"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="4"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114767">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.connect_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.connect_@__Http_Client_Adapter_Proxy_php_1($host;$port;$secure):Variant</signature>
+        <info_rule id="468027"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114896">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.write_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.write_@__Http_Client_Adapter_Proxy_php_1($method;$uri;$http_ver;$headers;$body):Variant</signature>
+        <info_rule id="468208"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4,5"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Http_Client_Adapter_Proxy">
+      <method vuln_id="1114796">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.__construct_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.__construct_@__Http_Client_Adapter_Proxy_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114785">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.__destruct_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.__destruct_@__Http_Client_Adapter_Proxy_php_1():Variant</signature>
+        <info_rule id="468052"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114771">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.close_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.close_@__Http_Client_Adapter_Proxy_php_1():Variant</signature>
+        <info_rule id="468033"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114901">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.connectHandshake_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.connectHandshake_@__Http_Client_Adapter_Proxy_php_1($host;$port;$http_ver;$headers):Variant</signature>
+        <info_rule id="468215"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.HttpResponseSplitting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="4"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114767">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.connect_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.connect_@__Http_Client_Adapter_Proxy_php_1($host;$port;$secure):Variant</signature>
+        <info_rule id="468027"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114896">
+        <simple_name>Zend_Http_Client_Adapter_Proxy.write_@__Http_Client_Adapter_Proxy_php_1</simple_name>
+        <signature>Zend_Http_Client_Adapter_Proxy.write_@__Http_Client_Adapter_Proxy_php_1($method;$uri;$http_ver;$headers;$body):Variant</signature>
+        <info_rule id="468208"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4,5"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_pgsql">
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.MDB_Common</simple_name>
+        <signature>MDB_pgsql.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.MDB_pgsql</simple_name>
+        <signature>MDB_pgsql.MDB_pgsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._baseConvertResult</simple_name>
+        <signature>MDB_pgsql._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._close</simple_name>
+        <signature>MDB_pgsql._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._destroyResultLob</simple_name>
+        <signature>MDB_pgsql._destroyResultLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._doConnect</simple_name>
+        <signature>MDB_pgsql._doConnect($database_name;$persistent):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._doQuery</simple_name>
+        <signature>MDB_pgsql._doQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._getLobValue</simple_name>
+        <signature>MDB_pgsql._getLobValue($prepared_query;$parameter;$lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._pgFieldFlags</simple_name>
+        <signature>MDB_pgsql._pgFieldFlags($resource;$num_field;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._readResultLob</simple_name>
+        <signature>MDB_pgsql._readResultLob($lob;$data;$length):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._retrieveLob</simple_name>
+        <signature>MDB_pgsql._retrieveLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._standaloneQuery</simple_name>
+        <signature>MDB_pgsql._standaloneQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092429">
+        <simple_name>MDB_pgsql.autoCommit</simple_name>
+        <signature>MDB_pgsql.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092416">
+        <simple_name>MDB_pgsql.commit</simple_name>
+        <signature>MDB_pgsql.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.connect</simple_name>
+        <signature>MDB_pgsql.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092428">
+        <simple_name>MDB_pgsql.convertResult</simple_name>
+        <signature>MDB_pgsql.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092427">
+        <simple_name>MDB_pgsql.convertResultRow</simple_name>
+        <signature>MDB_pgsql.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092454">
+        <simple_name>MDB_pgsql.createSequence</simple_name>
+        <signature>MDB_pgsql.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092417">
+        <simple_name>MDB_pgsql.currId</simple_name>
+        <signature>MDB_pgsql.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092457">
+        <simple_name>MDB_pgsql.debug</simple_name>
+        <signature>MDB_pgsql.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092419">
+        <simple_name>MDB_pgsql.endOfLob</simple_name>
+        <signature>MDB_pgsql.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092451">
+        <simple_name>MDB_pgsql.endOfResult</simple_name>
+        <signature>MDB_pgsql.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092444">
+        <simple_name>MDB_pgsql.endOfResultLob</simple_name>
+        <signature>MDB_pgsql.endOfResultLob($lob):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092443">
+        <simple_name>MDB_pgsql.errorCode</simple_name>
+        <signature>MDB_pgsql.errorCode($errormsg):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092423">
+        <simple_name>MDB_pgsql.errorNative</simple_name>
+        <signature>MDB_pgsql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451845">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092430">
+        <simple_name>MDB_pgsql.fetch</simple_name>
+        <signature>MDB_pgsql.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480875"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092445">
+        <simple_name>MDB_pgsql.fetchBlob</simple_name>
+        <signature>MDB_pgsql.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480876"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092435">
+        <simple_name>MDB_pgsql.fetchClob</simple_name>
+        <signature>MDB_pgsql.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480879"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092441">
+        <simple_name>MDB_pgsql.fetchInto</simple_name>
+        <signature>MDB_pgsql.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480877"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092420">
+        <simple_name>MDB_pgsql.fetchLob</simple_name>
+        <signature>MDB_pgsql.fetchLob():Variant</signature>
+        <info_rule id="480881"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092458">
+        <simple_name>MDB_pgsql.fetchOne</simple_name>
+        <signature>MDB_pgsql.fetchOne():Variant</signature>
+        <info_rule id="480873"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092432">
+        <simple_name>MDB_pgsql.freeResult</simple_name>
+        <signature>MDB_pgsql.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092456">
+        <simple_name>MDB_pgsql.getBlobDeclaration</simple_name>
+        <signature>MDB_pgsql.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092449">
+        <simple_name>MDB_pgsql.getBlobValue</simple_name>
+        <signature>MDB_pgsql.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092431">
+        <simple_name>MDB_pgsql.getClobDeclaration</simple_name>
+        <signature>MDB_pgsql.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092448">
+        <simple_name>MDB_pgsql.getClobValue</simple_name>
+        <signature>MDB_pgsql.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092425">
+        <simple_name>MDB_pgsql.getColumnNames</simple_name>
+        <signature>MDB_pgsql.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092434">
+        <simple_name>MDB_pgsql.getDateDeclaration</simple_name>
+        <signature>MDB_pgsql.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092437">
+        <simple_name>MDB_pgsql.getDecimalDeclaration</simple_name>
+        <signature>MDB_pgsql.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092455">
+        <simple_name>MDB_pgsql.getDecimalValue</simple_name>
+        <signature>MDB_pgsql.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092440">
+        <simple_name>MDB_pgsql.getFloatDeclaration</simple_name>
+        <signature>MDB_pgsql.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092438">
+        <simple_name>MDB_pgsql.getFloatValue</simple_name>
+        <signature>MDB_pgsql.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092422">
+        <simple_name>MDB_pgsql.getSequenceName</simple_name>
+        <signature>MDB_pgsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092450">
+        <simple_name>MDB_pgsql.getTextDeclaration</simple_name>
+        <signature>MDB_pgsql.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092426">
+        <simple_name>MDB_pgsql.getTimeDeclaration</simple_name>
+        <signature>MDB_pgsql.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092447">
+        <simple_name>MDB_pgsql.nextId</simple_name>
+        <signature>MDB_pgsql.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092452">
+        <simple_name>MDB_pgsql.nextResult</simple_name>
+        <signature>MDB_pgsql.nextResult($result):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092439">
+        <simple_name>MDB_pgsql.numCols</simple_name>
+        <signature>MDB_pgsql.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092442">
+        <simple_name>MDB_pgsql.numRows</simple_name>
+        <signature>MDB_pgsql.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.pgsqlRaiseError</simple_name>
+        <signature>MDB_pgsql.pgsqlRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.popErrorHandling</simple_name>
+        <signature>MDB_pgsql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.pushErrorHandling</simple_name>
+        <signature>MDB_pgsql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092446">
+        <simple_name>MDB_pgsql.query</simple_name>
+        <signature>MDB_pgsql.query($query;$types):mixed</signature>
+        <info_rule id="480874"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092436">
+        <simple_name>MDB_pgsql.queryOne</simple_name>
+        <signature>MDB_pgsql.queryOne():Variant</signature>
+        <info_rule id="480878"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.raiseError</simple_name>
+        <signature>MDB_pgsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092421">
+        <simple_name>MDB_pgsql.readLob</simple_name>
+        <signature>MDB_pgsql.readLob():Variant</signature>
+        <info_rule id="480880"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092418">
+        <simple_name>MDB_pgsql.resultIsNull</simple_name>
+        <signature>MDB_pgsql.resultIsNull($result;$row;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092453">
+        <simple_name>MDB_pgsql.rollback</simple_name>
+        <signature>MDB_pgsql.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092424">
+        <simple_name>MDB_pgsql.setResultTypes</simple_name>
+        <signature>MDB_pgsql.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092433">
+        <simple_name>MDB_pgsql.tableInfo</simple_name>
+        <signature>MDB_pgsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_pgsql">
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.MDB_Common</simple_name>
+        <signature>MDB_pgsql.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.MDB_pgsql</simple_name>
+        <signature>MDB_pgsql.MDB_pgsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._baseConvertResult</simple_name>
+        <signature>MDB_pgsql._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._close</simple_name>
+        <signature>MDB_pgsql._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._destroyResultLob</simple_name>
+        <signature>MDB_pgsql._destroyResultLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._doConnect</simple_name>
+        <signature>MDB_pgsql._doConnect($database_name;$persistent):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._doQuery</simple_name>
+        <signature>MDB_pgsql._doQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._getLobValue</simple_name>
+        <signature>MDB_pgsql._getLobValue($prepared_query;$parameter;$lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._pgFieldFlags</simple_name>
+        <signature>MDB_pgsql._pgFieldFlags($resource;$num_field;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._readResultLob</simple_name>
+        <signature>MDB_pgsql._readResultLob($lob;$data;$length):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._retrieveLob</simple_name>
+        <signature>MDB_pgsql._retrieveLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql._standaloneQuery</simple_name>
+        <signature>MDB_pgsql._standaloneQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092429">
+        <simple_name>MDB_pgsql.autoCommit</simple_name>
+        <signature>MDB_pgsql.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092416">
+        <simple_name>MDB_pgsql.commit</simple_name>
+        <signature>MDB_pgsql.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.connect</simple_name>
+        <signature>MDB_pgsql.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092428">
+        <simple_name>MDB_pgsql.convertResult</simple_name>
+        <signature>MDB_pgsql.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092427">
+        <simple_name>MDB_pgsql.convertResultRow</simple_name>
+        <signature>MDB_pgsql.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092454">
+        <simple_name>MDB_pgsql.createSequence</simple_name>
+        <signature>MDB_pgsql.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092417">
+        <simple_name>MDB_pgsql.currId</simple_name>
+        <signature>MDB_pgsql.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092457">
+        <simple_name>MDB_pgsql.debug</simple_name>
+        <signature>MDB_pgsql.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092419">
+        <simple_name>MDB_pgsql.endOfLob</simple_name>
+        <signature>MDB_pgsql.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092451">
+        <simple_name>MDB_pgsql.endOfResult</simple_name>
+        <signature>MDB_pgsql.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092444">
+        <simple_name>MDB_pgsql.endOfResultLob</simple_name>
+        <signature>MDB_pgsql.endOfResultLob($lob):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092443">
+        <simple_name>MDB_pgsql.errorCode</simple_name>
+        <signature>MDB_pgsql.errorCode($errormsg):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092423">
+        <simple_name>MDB_pgsql.errorNative</simple_name>
+        <signature>MDB_pgsql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451845">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092430">
+        <simple_name>MDB_pgsql.fetch</simple_name>
+        <signature>MDB_pgsql.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480875"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092445">
+        <simple_name>MDB_pgsql.fetchBlob</simple_name>
+        <signature>MDB_pgsql.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480876"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092435">
+        <simple_name>MDB_pgsql.fetchClob</simple_name>
+        <signature>MDB_pgsql.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480879"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092441">
+        <simple_name>MDB_pgsql.fetchInto</simple_name>
+        <signature>MDB_pgsql.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480877"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092420">
+        <simple_name>MDB_pgsql.fetchLob</simple_name>
+        <signature>MDB_pgsql.fetchLob():Variant</signature>
+        <info_rule id="480881"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092458">
+        <simple_name>MDB_pgsql.fetchOne</simple_name>
+        <signature>MDB_pgsql.fetchOne():Variant</signature>
+        <info_rule id="480873"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092432">
+        <simple_name>MDB_pgsql.freeResult</simple_name>
+        <signature>MDB_pgsql.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092456">
+        <simple_name>MDB_pgsql.getBlobDeclaration</simple_name>
+        <signature>MDB_pgsql.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092449">
+        <simple_name>MDB_pgsql.getBlobValue</simple_name>
+        <signature>MDB_pgsql.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092431">
+        <simple_name>MDB_pgsql.getClobDeclaration</simple_name>
+        <signature>MDB_pgsql.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092448">
+        <simple_name>MDB_pgsql.getClobValue</simple_name>
+        <signature>MDB_pgsql.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092425">
+        <simple_name>MDB_pgsql.getColumnNames</simple_name>
+        <signature>MDB_pgsql.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092434">
+        <simple_name>MDB_pgsql.getDateDeclaration</simple_name>
+        <signature>MDB_pgsql.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092437">
+        <simple_name>MDB_pgsql.getDecimalDeclaration</simple_name>
+        <signature>MDB_pgsql.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092455">
+        <simple_name>MDB_pgsql.getDecimalValue</simple_name>
+        <signature>MDB_pgsql.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092440">
+        <simple_name>MDB_pgsql.getFloatDeclaration</simple_name>
+        <signature>MDB_pgsql.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092438">
+        <simple_name>MDB_pgsql.getFloatValue</simple_name>
+        <signature>MDB_pgsql.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092422">
+        <simple_name>MDB_pgsql.getSequenceName</simple_name>
+        <signature>MDB_pgsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092450">
+        <simple_name>MDB_pgsql.getTextDeclaration</simple_name>
+        <signature>MDB_pgsql.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092426">
+        <simple_name>MDB_pgsql.getTimeDeclaration</simple_name>
+        <signature>MDB_pgsql.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092447">
+        <simple_name>MDB_pgsql.nextId</simple_name>
+        <signature>MDB_pgsql.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092452">
+        <simple_name>MDB_pgsql.nextResult</simple_name>
+        <signature>MDB_pgsql.nextResult($result):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092439">
+        <simple_name>MDB_pgsql.numCols</simple_name>
+        <signature>MDB_pgsql.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092442">
+        <simple_name>MDB_pgsql.numRows</simple_name>
+        <signature>MDB_pgsql.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.pgsqlRaiseError</simple_name>
+        <signature>MDB_pgsql.pgsqlRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.popErrorHandling</simple_name>
+        <signature>MDB_pgsql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.pushErrorHandling</simple_name>
+        <signature>MDB_pgsql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092446">
+        <simple_name>MDB_pgsql.query</simple_name>
+        <signature>MDB_pgsql.query($query;$types):mixed</signature>
+        <info_rule id="480874"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092436">
+        <simple_name>MDB_pgsql.queryOne</simple_name>
+        <signature>MDB_pgsql.queryOne():Variant</signature>
+        <info_rule id="480878"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_pgsql.raiseError</simple_name>
+        <signature>MDB_pgsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092421">
+        <simple_name>MDB_pgsql.readLob</simple_name>
+        <signature>MDB_pgsql.readLob():Variant</signature>
+        <info_rule id="480880"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092418">
+        <simple_name>MDB_pgsql.resultIsNull</simple_name>
+        <signature>MDB_pgsql.resultIsNull($result;$row;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092453">
+        <simple_name>MDB_pgsql.rollback</simple_name>
+        <signature>MDB_pgsql.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092424">
+        <simple_name>MDB_pgsql.setResultTypes</simple_name>
+        <signature>MDB_pgsql.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092433">
+        <simple_name>MDB_pgsql.tableInfo</simple_name>
+        <signature>MDB_pgsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

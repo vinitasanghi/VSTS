@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="TextIterator">
+      <method vuln_id="1089883">
+        <simple_name>___Php.TextIterator.__construct</simple_name>
+        <signature>___Php.TextIterator.__construct(___Php.String;int;___Php.String):void</signature>
+        <comment>TextIterator constructor</comment>
+      </method>
+      <method vuln_id="1089878">
+        <simple_name>___Php.TextIterator.current</simple_name>
+        <signature>___Php.TextIterator.current():___Php.String</signature>
+        <info_rule id="457144"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns the element at the current boundary</comment>
+      </method>
+      <method vuln_id="1089879">
+        <simple_name>___Php.TextIterator.first</simple_name>
+        <signature>___Php.TextIterator.first():int</signature>
+        <info_rule id="457145"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Positions iterator at the first character in the text and returns the offset</comment>
+      </method>
+      <method vuln_id="1089826">
+        <simple_name>___Php.TextIterator.following</simple_name>
+        <signature>___Php.TextIterator.following(int):int</signature>
+        <info_rule id="457091"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the text boundary following the specified offset and returns its offset</comment>
+      </method>
+      <method vuln_id="1089827">
+        <simple_name>___Php.TextIterator.getAll</simple_name>
+        <signature>___Php.TextIterator.getAll():___Php.Array</signature>
+        <info_rule id="457092"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Return all text pieces determined by the text boundaries</comment>
+      </method>
+      <method vuln_id="1089880">
+        <simple_name>___Php.TextIterator.getAvailableLocales</simple_name>
+        <signature>___Php.TextIterator.getAvailableLocales():___Php.Array</signature>
+        <info_rule id="457146"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Internationalization</property>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns locales for which text boundary information is available</comment>
+      </method>
+      <method vuln_id="1089875">
+        <simple_name>___Php.TextIterator.getRuleStatus</simple_name>
+        <signature>___Php.TextIterator.getRuleStatus():int</signature>
+        <info_rule id="457141"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Return the status from the break rule that determined the most recent boundary</comment>
+      </method>
+      <method vuln_id="1089854">
+        <simple_name>___Php.TextIterator.getRuleStatusArray</simple_name>
+        <signature>___Php.TextIterator.getRuleStatusArray():___Php.Array</signature>
+        <info_rule id="457120"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Return the statuses from the break rules that determined the most recent boundary</comment>
+      </method>
+      <method vuln_id="1089876">
+        <simple_name>___Php.TextIterator.isBoundary</simple_name>
+        <signature>___Php.TextIterator.isBoundary(int):bool</signature>
+        <info_rule id="457142"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Determines whether specified offset is a text boundary</comment>
+      </method>
+      <method vuln_id="1089817">
+        <simple_name>___Php.TextIterator.key</simple_name>
+        <signature>___Php.TextIterator.key():int</signature>
+        <info_rule id="457082"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns the number boundaries iterated through</comment>
+      </method>
+      <method vuln_id="1089829">
+        <simple_name>___Php.TextIterator.last</simple_name>
+        <signature>___Php.TextIterator.last():int</signature>
+        <info_rule id="457094"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Positions iterator beyond the last character in the text and returns the offset</comment>
+      </method>
+      <method vuln_id="1089869">
+        <simple_name>___Php.TextIterator.next</simple_name>
+        <signature>___Php.TextIterator.next(int):int</signature>
+        <info_rule id="457135"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the n'th text boundary following the current one and returns its offset</comment>
+      </method>
+      <method vuln_id="1089891">
+        <simple_name>___Php.TextIterator.offset</simple_name>
+        <signature>___Php.TextIterator.offset():int</signature>
+        <info_rule id="457155"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns the offset of the current text boundary</comment>
+      </method>
+      <method vuln_id="1089861">
+        <simple_name>___Php.TextIterator.preceding</simple_name>
+        <signature>___Php.TextIterator.preceding(int):int</signature>
+        <info_rule id="457127"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the text boundary preceding the specified offset and returns its offset</comment>
+      </method>
+      <method vuln_id="1089873">
+        <simple_name>___Php.TextIterator.previous</simple_name>
+        <signature>___Php.TextIterator.previous(int):int</signature>
+        <info_rule id="457139"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the n'th text boundary preceding the current one and returns its offset</comment>
+      </method>
+      <method vuln_id="1089830">
+        <simple_name>___Php.TextIterator.valid</simple_name>
+        <signature>___Php.TextIterator.valid():bool</signature>
+        <info_rule id="457095"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Determines validity of the iterator</comment>
+      </method>
+    </class>
+    <class name="TextIterator">
+      <method vuln_id="1089883">
+        <simple_name>___Php.TextIterator.__construct</simple_name>
+        <signature>___Php.TextIterator.__construct(___Php.String;int;___Php.String):void</signature>
+        <comment>TextIterator constructor</comment>
+      </method>
+      <method vuln_id="1089878">
+        <simple_name>___Php.TextIterator.current</simple_name>
+        <signature>___Php.TextIterator.current():___Php.String</signature>
+        <info_rule id="457144"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns the element at the current boundary</comment>
+      </method>
+      <method vuln_id="1089879">
+        <simple_name>___Php.TextIterator.first</simple_name>
+        <signature>___Php.TextIterator.first():int</signature>
+        <info_rule id="457145"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Positions iterator at the first character in the text and returns the offset</comment>
+      </method>
+      <method vuln_id="1089826">
+        <simple_name>___Php.TextIterator.following</simple_name>
+        <signature>___Php.TextIterator.following(int):int</signature>
+        <info_rule id="457091"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the text boundary following the specified offset and returns its offset</comment>
+      </method>
+      <method vuln_id="1089827">
+        <simple_name>___Php.TextIterator.getAll</simple_name>
+        <signature>___Php.TextIterator.getAll():___Php.Array</signature>
+        <info_rule id="457092"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Return all text pieces determined by the text boundaries</comment>
+      </method>
+      <method vuln_id="1089880">
+        <simple_name>___Php.TextIterator.getAvailableLocales</simple_name>
+        <signature>___Php.TextIterator.getAvailableLocales():___Php.Array</signature>
+        <info_rule id="457146"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Internationalization</property>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns locales for which text boundary information is available</comment>
+      </method>
+      <method vuln_id="1089875">
+        <simple_name>___Php.TextIterator.getRuleStatus</simple_name>
+        <signature>___Php.TextIterator.getRuleStatus():int</signature>
+        <info_rule id="457141"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Return the status from the break rule that determined the most recent boundary</comment>
+      </method>
+      <method vuln_id="1089854">
+        <simple_name>___Php.TextIterator.getRuleStatusArray</simple_name>
+        <signature>___Php.TextIterator.getRuleStatusArray():___Php.Array</signature>
+        <info_rule id="457120"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Return the statuses from the break rules that determined the most recent boundary</comment>
+      </method>
+      <method vuln_id="1089876">
+        <simple_name>___Php.TextIterator.isBoundary</simple_name>
+        <signature>___Php.TextIterator.isBoundary(int):bool</signature>
+        <info_rule id="457142"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Determines whether specified offset is a text boundary</comment>
+      </method>
+      <method vuln_id="1089817">
+        <simple_name>___Php.TextIterator.key</simple_name>
+        <signature>___Php.TextIterator.key():int</signature>
+        <info_rule id="457082"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns the number boundaries iterated through</comment>
+      </method>
+      <method vuln_id="1089829">
+        <simple_name>___Php.TextIterator.last</simple_name>
+        <signature>___Php.TextIterator.last():int</signature>
+        <info_rule id="457094"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Positions iterator beyond the last character in the text and returns the offset</comment>
+      </method>
+      <method vuln_id="1089869">
+        <simple_name>___Php.TextIterator.next</simple_name>
+        <signature>___Php.TextIterator.next(int):int</signature>
+        <info_rule id="457135"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the n'th text boundary following the current one and returns its offset</comment>
+      </method>
+      <method vuln_id="1089891">
+        <simple_name>___Php.TextIterator.offset</simple_name>
+        <signature>___Php.TextIterator.offset():int</signature>
+        <info_rule id="457155"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Returns the offset of the current text boundary</comment>
+      </method>
+      <method vuln_id="1089861">
+        <simple_name>___Php.TextIterator.preceding</simple_name>
+        <signature>___Php.TextIterator.preceding(int):int</signature>
+        <info_rule id="457127"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the text boundary preceding the specified offset and returns its offset</comment>
+      </method>
+      <method vuln_id="1089873">
+        <simple_name>___Php.TextIterator.previous</simple_name>
+        <signature>___Php.TextIterator.previous(int):int</signature>
+        <info_rule id="457139"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Advances to the n'th text boundary preceding the current one and returns its offset</comment>
+      </method>
+      <method vuln_id="1089830">
+        <simple_name>___Php.TextIterator.valid</simple_name>
+        <signature>___Php.TextIterator.valid():bool</signature>
+        <info_rule id="457095"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Strings.Unicode</property>
+        <comment>Determines validity of the iterator</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

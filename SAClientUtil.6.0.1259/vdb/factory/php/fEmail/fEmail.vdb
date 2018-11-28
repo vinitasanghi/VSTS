@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fEmail">
+      <method vuln_id="1106344">
+        <simple_name>fEmail.___Class_Initializer_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.___Class_Initializer_@__inc_flourish_fEmail_php_1():void</signature>
+      </method>
+      <method vuln_id="1106708">
+        <simple_name>fEmail.__get_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.__get_@__inc_flourish_fEmail_php_1($method):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106299">
+        <simple_name>fEmail.addAttachment_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addAttachment_@__inc_flourish_fEmail_php_1($filename;$mime_type;$contents):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106441">
+        <simple_name>fEmail.addBCCRecipient_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addBCCRecipient_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106797">
+        <simple_name>fEmail.addCCRecipient_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addCCRecipient_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106963">
+        <simple_name>fEmail.addRecipient_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addRecipient_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106378">
+        <simple_name>fEmail.buildMultiAddressHeader_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.buildMultiAddressHeader_@__inc_flourish_fEmail_php_1($header;$emails):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106693">
+        <simple_name>fEmail.combineNameEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.combineNameEmail_@__inc_flourish_fEmail_php_1($name;$email):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106679">
+        <simple_name>fEmail.compose_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.compose_@__inc_flourish_fEmail_php_1($message):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107237">
+        <simple_name>fEmail.createBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createBody_@__inc_flourish_fEmail_php_1($boundary):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106390">
+        <simple_name>fEmail.createBoundary_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createBoundary_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106499">
+        <simple_name>fEmail.createHeaders_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createHeaders_@__inc_flourish_fEmail_php_1($boundary):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107336">
+        <simple_name>fEmail.createSMIMEBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createSMIMEBody_@__inc_flourish_fEmail_php_1($to;$subject;$headers;$body):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106587">
+        <simple_name>fEmail.encrypt_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.encrypt_@__inc_flourish_fEmail_php_1($recipients_smime_cert_file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107382">
+        <simple_name>fEmail.fixQmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.fixQmail_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107260">
+        <simple_name>fEmail.makeBase64_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.makeBase64_@__inc_flourish_fEmail_php_1($content):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107366">
+        <simple_name>fEmail.makeEncodedWord_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.makeEncodedWord_@__inc_flourish_fEmail_php_1($content):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107261">
+        <simple_name>fEmail.makeQuotedPrintable_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.makeQuotedPrintable_@__inc_flourish_fEmail_php_1($content):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106360">
+        <simple_name>fEmail.reset_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.reset_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106431">
+        <simple_name>fEmail.send_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.send_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106781">
+        <simple_name>fEmail.setBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setBody_@__inc_flourish_fEmail_php_1($plaintext):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106606">
+        <simple_name>fEmail.setBounceToEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setBounceToEmail_@__inc_flourish_fEmail_php_1($email):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106745">
+        <simple_name>fEmail.setFromEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setFromEmail_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106904">
+        <simple_name>fEmail.setHTMLBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setHTMLBody_@__inc_flourish_fEmail_php_1($html):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107091">
+        <simple_name>fEmail.setReplyToEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setReplyToEmail_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107284">
+        <simple_name>fEmail.setSenderEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setSenderEmail_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107317">
+        <simple_name>fEmail.setSubject_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setSubject_@__inc_flourish_fEmail_php_1($subject):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106401">
+        <simple_name>fEmail.sign_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.sign_@__inc_flourish_fEmail_php_1($senders_smime_cert_file;$senders_smime_pk_file;$senders_smime_pk_password):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106740">
+        <simple_name>fEmail.stringlike_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.stringlike_@__inc_flourish_fEmail_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107222">
+        <simple_name>fEmail.validate_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.validate_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fEmail">
+      <method vuln_id="1106344">
+        <simple_name>fEmail.___Class_Initializer_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.___Class_Initializer_@__inc_flourish_fEmail_php_1():void</signature>
+      </method>
+      <method vuln_id="1106708">
+        <simple_name>fEmail.__get_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.__get_@__inc_flourish_fEmail_php_1($method):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106299">
+        <simple_name>fEmail.addAttachment_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addAttachment_@__inc_flourish_fEmail_php_1($filename;$mime_type;$contents):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106441">
+        <simple_name>fEmail.addBCCRecipient_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addBCCRecipient_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106797">
+        <simple_name>fEmail.addCCRecipient_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addCCRecipient_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106963">
+        <simple_name>fEmail.addRecipient_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.addRecipient_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106378">
+        <simple_name>fEmail.buildMultiAddressHeader_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.buildMultiAddressHeader_@__inc_flourish_fEmail_php_1($header;$emails):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106693">
+        <simple_name>fEmail.combineNameEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.combineNameEmail_@__inc_flourish_fEmail_php_1($name;$email):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106679">
+        <simple_name>fEmail.compose_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.compose_@__inc_flourish_fEmail_php_1($message):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107237">
+        <simple_name>fEmail.createBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createBody_@__inc_flourish_fEmail_php_1($boundary):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106390">
+        <simple_name>fEmail.createBoundary_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createBoundary_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106499">
+        <simple_name>fEmail.createHeaders_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createHeaders_@__inc_flourish_fEmail_php_1($boundary):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107336">
+        <simple_name>fEmail.createSMIMEBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.createSMIMEBody_@__inc_flourish_fEmail_php_1($to;$subject;$headers;$body):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106587">
+        <simple_name>fEmail.encrypt_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.encrypt_@__inc_flourish_fEmail_php_1($recipients_smime_cert_file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107382">
+        <simple_name>fEmail.fixQmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.fixQmail_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107260">
+        <simple_name>fEmail.makeBase64_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.makeBase64_@__inc_flourish_fEmail_php_1($content):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107366">
+        <simple_name>fEmail.makeEncodedWord_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.makeEncodedWord_@__inc_flourish_fEmail_php_1($content):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107261">
+        <simple_name>fEmail.makeQuotedPrintable_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.makeQuotedPrintable_@__inc_flourish_fEmail_php_1($content):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106360">
+        <simple_name>fEmail.reset_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.reset_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106431">
+        <simple_name>fEmail.send_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.send_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106781">
+        <simple_name>fEmail.setBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setBody_@__inc_flourish_fEmail_php_1($plaintext):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106606">
+        <simple_name>fEmail.setBounceToEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setBounceToEmail_@__inc_flourish_fEmail_php_1($email):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106745">
+        <simple_name>fEmail.setFromEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setFromEmail_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106904">
+        <simple_name>fEmail.setHTMLBody_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setHTMLBody_@__inc_flourish_fEmail_php_1($html):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107091">
+        <simple_name>fEmail.setReplyToEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setReplyToEmail_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107284">
+        <simple_name>fEmail.setSenderEmail_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setSenderEmail_@__inc_flourish_fEmail_php_1($email;$name):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107317">
+        <simple_name>fEmail.setSubject_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.setSubject_@__inc_flourish_fEmail_php_1($subject):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106401">
+        <simple_name>fEmail.sign_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.sign_@__inc_flourish_fEmail_php_1($senders_smime_cert_file;$senders_smime_pk_file;$senders_smime_pk_password):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106740">
+        <simple_name>fEmail.stringlike_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.stringlike_@__inc_flourish_fEmail_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107222">
+        <simple_name>fEmail.validate_@__inc_flourish_fEmail_php_1</simple_name>
+        <signature>fEmail.validate_@__inc_flourish_fEmail_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

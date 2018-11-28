@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Serializer_Adapter_Igbinary">
+      <method vuln_id="1118421">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.___Class_Initializer_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.___Class_Initializer_@__Serializer_Adapter_Igbinary_php_1():void</signature>
+        <info_rule id="470951"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118391">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.__construct_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.__construct_@__Serializer_Adapter_Igbinary_php_1($opts):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1118374">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.serialize_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.serialize_@__Serializer_Adapter_Igbinary_php_1($value;$opts):Variant</signature>
+        <info_rule id="470901"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118380">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.unserialize_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.unserialize_@__Serializer_Adapter_Igbinary_php_1($serialized;$opts):Variant</signature>
+        <info_rule id="470906"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+    </class>
+    <class name="Zend_Serializer_Adapter_Igbinary">
+      <method vuln_id="1118421">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.___Class_Initializer_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.___Class_Initializer_@__Serializer_Adapter_Igbinary_php_1():void</signature>
+        <info_rule id="470951"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118391">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.__construct_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.__construct_@__Serializer_Adapter_Igbinary_php_1($opts):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1118374">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.serialize_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.serialize_@__Serializer_Adapter_Igbinary_php_1($value;$opts):Variant</signature>
+        <info_rule id="470901"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118380">
+        <simple_name>Zend_Serializer_Adapter_Igbinary.unserialize_@__Serializer_Adapter_Igbinary_php_1</simple_name>
+        <signature>Zend_Serializer_Adapter_Igbinary.unserialize_@__Serializer_Adapter_Igbinary_php_1($serialized;$opts):Variant</signature>
+        <info_rule id="470906"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

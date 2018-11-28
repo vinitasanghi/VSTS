@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_Graphics">
+      <method vuln_id="-1">
+        <simple_name>Cache_Graphics.Cache</simple_name>
+        <signature>Cache_Graphics.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Graphics.Cache_Graphics</simple_name>
+        <signature>Cache_Graphics.Cache_Graphics():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108041">
+        <simple_name>Cache_Graphics.cacheImage</simple_name>
+        <signature>Cache_Graphics.cacheImage(___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108049">
+        <simple_name>Cache_Graphics.cacheImageLink</simple_name>
+        <signature>Cache_Graphics.cacheImageLink(___Php.String;___Php.String;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108112">
+        <simple_name>Cache_Graphics.generateID</simple_name>
+        <signature>Cache_Graphics.generateID(mixed;___Php.String):void</signature>
+        <info_rule id="450913"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108040">
+        <simple_name>Cache_Graphics.get</simple_name>
+        <signature>Cache_Graphics.get():Variant</signature>
+        <info_rule id="450911"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108048">
+        <simple_name>Cache_Graphics.getImage</simple_name>
+        <signature>Cache_Graphics.getImage(___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108047">
+        <simple_name>Cache_Graphics.getImageLink</simple_name>
+        <signature>Cache_Graphics.getImageLink(___Php.String;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108046">
+        <simple_name>Cache_Graphics.isCached</simple_name>
+        <signature>Cache_Graphics.isCached():bool</signature>
+        <info_rule id="450912"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108043">
+        <simple_name>Cache_Graphics.save</simple_name>
+        <signature>Cache_Graphics.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450910"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108044">
+        <simple_name>Cache_Graphics.setCacheDir</simple_name>
+        <signature>Cache_Graphics.setCacheDir(___Php.String):void</signature>
+        <sink_rule id="450914">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108042">
+        <simple_name>Cache_Graphics.setCacheURL</simple_name>
+        <signature>Cache_Graphics.setCacheURL(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_Graphics">
+      <method vuln_id="-1">
+        <simple_name>Cache_Graphics.Cache</simple_name>
+        <signature>Cache_Graphics.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Graphics.Cache_Graphics</simple_name>
+        <signature>Cache_Graphics.Cache_Graphics():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108041">
+        <simple_name>Cache_Graphics.cacheImage</simple_name>
+        <signature>Cache_Graphics.cacheImage(___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108049">
+        <simple_name>Cache_Graphics.cacheImageLink</simple_name>
+        <signature>Cache_Graphics.cacheImageLink(___Php.String;___Php.String;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108112">
+        <simple_name>Cache_Graphics.generateID</simple_name>
+        <signature>Cache_Graphics.generateID(mixed;___Php.String):void</signature>
+        <info_rule id="450913"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108040">
+        <simple_name>Cache_Graphics.get</simple_name>
+        <signature>Cache_Graphics.get():Variant</signature>
+        <info_rule id="450911"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108048">
+        <simple_name>Cache_Graphics.getImage</simple_name>
+        <signature>Cache_Graphics.getImage(___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108047">
+        <simple_name>Cache_Graphics.getImageLink</simple_name>
+        <signature>Cache_Graphics.getImageLink(___Php.String;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108046">
+        <simple_name>Cache_Graphics.isCached</simple_name>
+        <signature>Cache_Graphics.isCached():bool</signature>
+        <info_rule id="450912"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108043">
+        <simple_name>Cache_Graphics.save</simple_name>
+        <signature>Cache_Graphics.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450910"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108044">
+        <simple_name>Cache_Graphics.setCacheDir</simple_name>
+        <signature>Cache_Graphics.setCacheDir(___Php.String):void</signature>
+        <sink_rule id="450914">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108042">
+        <simple_name>Cache_Graphics.setCacheURL</simple_name>
+        <signature>Cache_Graphics.setCacheURL(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

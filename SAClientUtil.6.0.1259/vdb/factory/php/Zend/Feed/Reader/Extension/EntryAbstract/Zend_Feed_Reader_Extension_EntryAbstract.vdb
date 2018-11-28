@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Feed_Reader_Extension_EntryAbstract">
+      <method vuln_id="1112183">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.__construct_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.__construct_@__Feed_Reader_Extension_EntryAbstract_php_1($entry;$entryKey;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract._registerNamespaces_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract._registerNamespaces_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111647">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getDomDocument_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getDomDocument_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112226">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getEncoding_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getEncoding_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112192">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getType_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getType_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112198">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111710">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getXpath_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getXpath_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111867">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.setXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.setXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1($prefix):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111970">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.setXpath_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.setXpath_@__Feed_Reader_Extension_EntryAbstract_php_1($xpath):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XPath</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111969">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.toArray_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.toArray_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Feed_Reader_Extension_EntryAbstract">
+      <method vuln_id="1112183">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.__construct_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.__construct_@__Feed_Reader_Extension_EntryAbstract_php_1($entry;$entryKey;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract._registerNamespaces_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract._registerNamespaces_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1111647">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getDomDocument_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getDomDocument_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112226">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getEncoding_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getEncoding_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112192">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getType_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getType_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112198">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111710">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.getXpath_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.getXpath_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111867">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.setXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.setXpathPrefix_@__Feed_Reader_Extension_EntryAbstract_php_1($prefix):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111970">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.setXpath_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.setXpath_@__Feed_Reader_Extension_EntryAbstract_php_1($xpath):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.XPath</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111969">
+        <simple_name>Zend_Feed_Reader_Extension_EntryAbstract.toArray_@__Feed_Reader_Extension_EntryAbstract_php_1</simple_name>
+        <signature>Zend_Feed_Reader_Extension_EntryAbstract.toArray_@__Feed_Reader_Extension_EntryAbstract_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

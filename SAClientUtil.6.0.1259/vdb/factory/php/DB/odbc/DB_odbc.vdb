@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_odbc">
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.DB_common</simple_name>
+        <signature>DB_odbc.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.DB_odbc</simple_name>
+        <signature>DB_odbc.DB_odbc():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc._checkManip</simple_name>
+        <signature>DB_odbc._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_odbc._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc._rtrimArrayValues</simple_name>
+        <signature>DB_odbc._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090816">
+        <simple_name>DB_odbc.affectedRows</simple_name>
+        <signature>DB_odbc.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090812">
+        <simple_name>DB_odbc.autoCommit</simple_name>
+        <signature>DB_odbc.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090825">
+        <simple_name>DB_odbc.commit</simple_name>
+        <signature>DB_odbc.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090811">
+        <simple_name>DB_odbc.connect</simple_name>
+        <signature>DB_odbc.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451128">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090814">
+        <simple_name>DB_odbc.createSequence</simple_name>
+        <signature>DB_odbc.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090813">
+        <simple_name>DB_odbc.disconnect</simple_name>
+        <signature>DB_odbc.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090810">
+        <simple_name>DB_odbc.dropSequence</simple_name>
+        <signature>DB_odbc.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090804">
+        <simple_name>DB_odbc.errorCode</simple_name>
+        <signature>DB_odbc.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451124">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090803">
+        <simple_name>DB_odbc.errorNative</simple_name>
+        <signature>DB_odbc.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451125">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090819">
+        <simple_name>DB_odbc.fetchInto</simple_name>
+        <signature>DB_odbc.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480729"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090809">
+        <simple_name>DB_odbc.freeResult</simple_name>
+        <signature>DB_odbc.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090815">
+        <simple_name>DB_odbc.getSequenceName</simple_name>
+        <signature>DB_odbc.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090805">
+        <simple_name>DB_odbc.getSpecialQuery</simple_name>
+        <signature>DB_odbc.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090818">
+        <simple_name>DB_odbc.modifyQuery</simple_name>
+        <signature>DB_odbc.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090806">
+        <simple_name>DB_odbc.nextId</simple_name>
+        <signature>DB_odbc.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090801">
+        <simple_name>DB_odbc.nextResult</simple_name>
+        <signature>DB_odbc.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090823">
+        <simple_name>DB_odbc.numCols</simple_name>
+        <signature>DB_odbc.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090808">
+        <simple_name>DB_odbc.numRows</simple_name>
+        <signature>DB_odbc.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.odbcRaiseError</simple_name>
+        <signature>DB_odbc.odbcRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.popErrorHandling</simple_name>
+        <signature>DB_odbc.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.pushErrorHandling</simple_name>
+        <signature>DB_odbc.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090817">
+        <simple_name>DB_odbc.query</simple_name>
+        <signature>DB_odbc.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090802">
+        <simple_name>DB_odbc.quote</simple_name>
+        <signature>DB_odbc.quote($str):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090820">
+        <simple_name>DB_odbc.quoteIdentifier</simple_name>
+        <signature>DB_odbc.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090824">
+        <simple_name>DB_odbc.quoteSmart</simple_name>
+        <signature>DB_odbc.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.raiseError</simple_name>
+        <signature>DB_odbc.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090821">
+        <simple_name>DB_odbc.rollback</simple_name>
+        <signature>DB_odbc.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090807">
+        <simple_name>DB_odbc.simpleQuery</simple_name>
+        <signature>DB_odbc.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090822">
+        <simple_name>DB_odbc.tableInfo</simple_name>
+        <signature>DB_odbc.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_odbc">
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.DB_common</simple_name>
+        <signature>DB_odbc.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.DB_odbc</simple_name>
+        <signature>DB_odbc.DB_odbc():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc._checkManip</simple_name>
+        <signature>DB_odbc._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_odbc._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc._rtrimArrayValues</simple_name>
+        <signature>DB_odbc._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090816">
+        <simple_name>DB_odbc.affectedRows</simple_name>
+        <signature>DB_odbc.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090812">
+        <simple_name>DB_odbc.autoCommit</simple_name>
+        <signature>DB_odbc.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090825">
+        <simple_name>DB_odbc.commit</simple_name>
+        <signature>DB_odbc.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090811">
+        <simple_name>DB_odbc.connect</simple_name>
+        <signature>DB_odbc.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451128">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090814">
+        <simple_name>DB_odbc.createSequence</simple_name>
+        <signature>DB_odbc.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090813">
+        <simple_name>DB_odbc.disconnect</simple_name>
+        <signature>DB_odbc.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090810">
+        <simple_name>DB_odbc.dropSequence</simple_name>
+        <signature>DB_odbc.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090804">
+        <simple_name>DB_odbc.errorCode</simple_name>
+        <signature>DB_odbc.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451124">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090803">
+        <simple_name>DB_odbc.errorNative</simple_name>
+        <signature>DB_odbc.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451125">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090819">
+        <simple_name>DB_odbc.fetchInto</simple_name>
+        <signature>DB_odbc.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480729"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090809">
+        <simple_name>DB_odbc.freeResult</simple_name>
+        <signature>DB_odbc.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090815">
+        <simple_name>DB_odbc.getSequenceName</simple_name>
+        <signature>DB_odbc.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090805">
+        <simple_name>DB_odbc.getSpecialQuery</simple_name>
+        <signature>DB_odbc.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090818">
+        <simple_name>DB_odbc.modifyQuery</simple_name>
+        <signature>DB_odbc.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090806">
+        <simple_name>DB_odbc.nextId</simple_name>
+        <signature>DB_odbc.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090801">
+        <simple_name>DB_odbc.nextResult</simple_name>
+        <signature>DB_odbc.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090823">
+        <simple_name>DB_odbc.numCols</simple_name>
+        <signature>DB_odbc.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090808">
+        <simple_name>DB_odbc.numRows</simple_name>
+        <signature>DB_odbc.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.odbcRaiseError</simple_name>
+        <signature>DB_odbc.odbcRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.popErrorHandling</simple_name>
+        <signature>DB_odbc.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.pushErrorHandling</simple_name>
+        <signature>DB_odbc.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090817">
+        <simple_name>DB_odbc.query</simple_name>
+        <signature>DB_odbc.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090802">
+        <simple_name>DB_odbc.quote</simple_name>
+        <signature>DB_odbc.quote($str):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090820">
+        <simple_name>DB_odbc.quoteIdentifier</simple_name>
+        <signature>DB_odbc.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090824">
+        <simple_name>DB_odbc.quoteSmart</simple_name>
+        <signature>DB_odbc.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_odbc.raiseError</simple_name>
+        <signature>DB_odbc.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090821">
+        <simple_name>DB_odbc.rollback</simple_name>
+        <signature>DB_odbc.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090807">
+        <simple_name>DB_odbc.simpleQuery</simple_name>
+        <signature>DB_odbc.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090822">
+        <simple_name>DB_odbc.tableInfo</simple_name>
+        <signature>DB_odbc.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

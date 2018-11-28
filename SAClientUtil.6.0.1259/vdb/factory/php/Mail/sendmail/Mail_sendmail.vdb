@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Mail_sendmail">
+      <method vuln_id="1092500">
+        <simple_name>Mail_sendmail.Mail_sendmail</simple_name>
+        <signature>Mail_sendmail.Mail_sendmail($params):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108572">
+        <simple_name>Mail_sendmail._sanitizeHeaders</simple_name>
+        <signature>Mail_sendmail._sanitizeHeaders():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108571">
+        <simple_name>Mail_sendmail.parseRecipients</simple_name>
+        <signature>Mail_sendmail.parseRecipients():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108570">
+        <simple_name>Mail_sendmail.prepareHeaders</simple_name>
+        <signature>Mail_sendmail.prepareHeaders():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092501">
+        <simple_name>Mail_sendmail.send</simple_name>
+        <signature>Mail_sendmail.send($recipients;$headers;$body):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Mail_sendmail">
+      <method vuln_id="1092500">
+        <simple_name>Mail_sendmail.Mail_sendmail</simple_name>
+        <signature>Mail_sendmail.Mail_sendmail($params):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108572">
+        <simple_name>Mail_sendmail._sanitizeHeaders</simple_name>
+        <signature>Mail_sendmail._sanitizeHeaders():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108571">
+        <simple_name>Mail_sendmail.parseRecipients</simple_name>
+        <signature>Mail_sendmail.parseRecipients():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108570">
+        <simple_name>Mail_sendmail.prepareHeaders</simple_name>
+        <signature>Mail_sendmail.prepareHeaders():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092501">
+        <simple_name>Mail_sendmail.send</simple_name>
+        <signature>Mail_sendmail.send($recipients;$headers;$body):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

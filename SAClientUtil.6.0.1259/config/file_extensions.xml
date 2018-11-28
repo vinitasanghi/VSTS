@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--supported_os maps to the following enumeration
+        OperatingSystemType_windows_k = 1
+        OperatingSystemType_linux_k = 2
+        OperatingSystemType_solaris_k = 3
+        OperatingSystemType_mac_k = 4
+        
+        The value is a comma delimited list of platforms where the
+        extension set should be available.  Lack of the attribute
+        implies all == supported_os="1,2,3,4"
+-->
+<FileExtensionSets>
+  <FileExtensionSet name="cobol" display_name="Cobol" supported_os="1,2,3">
+    <FileExtension extension="cob" assess="true" web="false" />
+    <FileExtension extension="cbl" assess="true" web="false" />
+    <FileExtension extension="ws" assess="true" web="false" />
+    <FileExtension extension="sqb" assess="true" web="false" />
+  </FileExtensionSet>
+  <FileExtensionSet name="cf" display_name="ColdFusion" supported_os="1,2,3">
+    <FileExtension extension="cfc" assess="true" web="false" />
+    <FileExtension extension="cfm" assess="true" web="false" />
+  </FileExtensionSet>
+  <FileExtensionSet name="javascript" display_name="JavaScript" supported_os="1,2,3,4">
+    <FileExtension extension="js" assess="true" web="false" />
+    <FileExtension extension="htm" assess="true" web="false" />
+    <FileExtension extension="html" assess="true" web="false" />
+    <FileExtension extension="xhtml" assess="true" web="false" />
+    <FileExtension extension="jsf" assess="true" web="false" />
+    <FileExtension extension="jsp" assess="true" web="false" />
+    <FileExtension extension="jspx" assess="true" web="false" />
+    <FileExtension extension="jspi" assess="true" web="false" />
+    <FileExtension extension="aspx" assess="true" web="false"  />
+    <FileExtension extension="asp" assess="true" web="false" />
+    <FileExtension extension="asa" assess="true" web="false" />
+    <FileExtension extension="inc" assess="true" web="false" />
+    <FileExtension extension="php" assess="true" web="false" />
+    <FileExtension extension="php3" assess="true" web="false" />
+    <FileExtension extension="php4" assess="true" web="false" />
+    <FileExtension extension="php5" assess="true" web="false" />
+    <FileExtension extension="phtm" assess="true" web="false" />
+    <FileExtension extension="phps" assess="true" web="false" />
+  </FileExtensionSet>
+  <!-- Analogous to C/C++, we do want to scan .m and .c files as top-level files.
+         We do not want to scan .h files as top-level files, so we set assess to false.
+         .h's get scanned in the context of being included from .c's or .m's.
+         Note these default choices are changeable via AppScan UI (Edit->Preferences->File Extensions)
+      -->
+  <FileExtensionSet name="objectivec" display_name="Objective-C" supported_os="4">
+    <FileExtension extension="h" assess="false" web="false" />
+    <FileExtension extension="m" assess="true" web="false" />
+    <FileExtension extension="c" assess="true" web="false" />
+    <FileExtension extension="sh" assess="false" web="false" />
+    <FileExtension extension="xib" assess="false" web="false" />
+    <FileExtension extension="html" assess="false" web="false" />
+    <FileExtension extension="plist" assess="false" web="false" />
+  </FileExtensionSet>
+  <FileExtensionSet name="pbsa" display_name="PBSA" supported_os="1,2,3">
+    <FileExtension extension="*" assess="true" web="false" />
+  </FileExtensionSet>
+  <FileExtensionSet name="perl" display_name="Perl" supported_os="1,2,3">
+        <FileExtension extension="pl" assess="true" web="false" />
+        <FileExtension extension="pm" assess="true" web="false" />
+        <FileExtension extension="cgi" assess="true" web="false" />
+        <FileExtension extension="t" assess="true" web="false" />
+    </FileExtensionSet>
+  <FileExtensionSet name="php" display_name="PHP" supported_os="1,2,3">
+    <FileExtension extension="php" assess="true" web="false" />
+    <FileExtension extension="php3" assess="true" web="false" />
+    <FileExtension extension="php4" assess="true" web="false" />
+    <FileExtension extension="php5" assess="true" web="false" />
+    <FileExtension extension="phtm" assess="true" web="false" />
+    <FileExtension extension="phps" assess="true" web="false" />
+    <FileExtension extension="inc" assess="true" web="false" />
+  </FileExtensionSet>
+  <FileExtensionSet name="plsql" display_name="PL/SQL" supported_os="1,2,3">
+        <FileExtension extension="sql" assess="true" web="false" />
+        <FileExtension extension="lst" assess="true" web="false" />
+        <FileExtension extension="dbf" assess="true" web="false" />
+        <FileExtension extension="log" assess="true" web="false" />
+        <FileExtension extension="rdo" assess="true" web="false" />
+        <FileExtension extension="arc" assess="true" web="false" />
+        <FileExtension extension="pls" assess="true" web="false" />
+        <FileExtension extension="plb" assess="true" web="false" />
+        <FileExtension extension="pks" assess="true" web="false" />
+        <FileExtension extension="pkb" assess="true" web="false" />
+        <FileExtension extension="pck" assess="true" web="false" />
+        <FileExtension extension="tst" assess="true" web="false" />
+        <FileExtension extension="sp" assess="true" web="false" />
+        <FileExtension extension="sf" assess="true" web="false" />
+        <FileExtension extension="spb" assess="true" web="false" />
+        <FileExtension extension="sps" assess="true" web="false" />
+    </FileExtensionSet>
+    <FileExtensionSet name="tsql" display_name="T-SQL" supported_os="1,2,3">
+        <FileExtension extension="sql" assess="true" web="false" />
+        <FileExtension extension="lst" assess="true" web="false" />
+        <FileExtension extension="dbf" assess="true" web="false" />
+        <FileExtension extension="log" assess="true" web="false" />
+        <FileExtension extension="rdo" assess="true" web="false" />
+        <FileExtension extension="arc" assess="true" web="false" />
+    </FileExtensionSet>
+    <FileExtensionSet name=".net" display_name=".Net Assembly" supported_os="1">
+        <FileExtension extension="dll" assess="true" web="false" />
+        <FileExtension extension="exe" assess="true" web="false" />
+    </FileExtensionSet>
+    <FileExtensionSet name="asp" display_name="ASP" supported_os="1">
+        <FileExtension extension="asp" assess="true" web="false" />
+        <FileExtension extension="asa" assess="true" web="false" />
+        <FileExtension extension="inc" assess="true" web="false" />
+    </FileExtensionSet>
+    <FileExtensionSet name="vb" display_name="VB" supported_os="1">
+        <FileExtension extension="bas" assess="true" web="false" />
+        <FileExtension extension="cls" assess="true" web="false" />
+        <FileExtension extension="frm" assess="true" web="false" />
+    </FileExtensionSet>
+    <FileExtensionSet name="java" display_name="Java">
+        <FileExtension extension="jsp" assess="true" web="true" />
+        <FileExtension extension="jspx" assess="false" web="true" />
+	    <FileExtension extension="jspi" assess="false" web="true" />
+	    <FileExtension extension="htm" assess="false" web="true" />
+	    <FileExtension extension="html" assess="false" web="true" />
+	    <FileExtension extension="xml" assess="false" web="true" />
+        <FileExtension extension="java" assess="true" />
+        <FileExtension extension="class" assess="false" />
+        <FileExtension extension="jar" assess="false" />
+        <FileExtension extension="wsdl" assess="true"/>
+    </FileExtensionSet>
+    <FileExtensionSet name="cpp" display_name="C/C++" supported_os="1,2,3">
+        <FileExtension extension="cpp" assess="true" />
+        <FileExtension extension="c" assess="true"  />
+        <FileExtension extension="C" assess="true"  />
+        <FileExtension extension="cc" assess="true"  />
+        <FileExtension extension="cxx" assess="true"  />
+        <FileExtension extension="CPP" assess="true"  />
+        <FileExtension extension="CC" assess="true"  />
+        <FileExtension extension="CXX" assess="true"  />
+        <FileExtension extension="h" assess="false"  />
+        <FileExtension extension="hpp" assess="false"  />
+        <FileExtension extension="H" assess="false"  />
+        <FileExtension extension="HPP" assess="false"  />
+        <FileExtension extension="HH" assess="false"  />
+        <FileExtension extension="hh" assess="false"  />
+        <FileExtension extension="i" assess="false"  />
+        <FileExtension extension="inl" assess="false"  />
+        <FileExtension extension="txt" assess="false"  />
+        <FileExtension extension="sql" assess="false"  />
+        <FileExtension extension="ico" assess="false"  />
+        <FileExtension extension="rc" assess="false"  />
+        <FileExtension extension="ICO" assess="false"  />
+        <FileExtension extension="RC" assess="false"  />
+        <FileExtension extension="cur" assess="false"  />
+        <FileExtension extension="rc2" assess="false"  />
+        <FileExtension extension="RC2" assess="false"  />
+        <FileExtension extension="bmp" assess="false"  />
+    </FileExtensionSet>
+    <FileExtensionSet name="aspproj" display_name="ASP.NET 1.x" supported_os="1">
+        <FileExtension extension="aspx" assess="true" web="true"  />
+        <FileExtension extension="cs" assess="true"  />
+        <FileExtension extension="vb" assess="true"  />
+        <FileExtension extension="vjs" assess="true"  />
+        <FileExtension extension="master" assess="false" web="true"  />
+        <FileExtension extension="xml" assess="false" web="true"  />
+        <FileExtension extension="ico" assess="false" web="true"  />
+        <FileExtension extension="config" assess="false" web="true"  />
+        <FileExtension extension="xsd" assess="false" web="true"  />
+        <FileExtension extension="xss" assess="false" web="true"  />
+        <FileExtension extension="sql" assess="false" web="true"  />
+        <FileExtension extension="mdf" assess="false" web="true"  />
+        <FileExtension extension="ldf" assess="false" web="true"  />
+        <FileExtension extension="ashx" assess="false" web="true"  />
+        <FileExtension extension="css" assess="false" web="true"  />
+        <FileExtension extension="ascx" assess="false" web="true"  />
+        <FileExtension extension="htm" assess="false" web="true"  />
+        <FileExtension extension="txt" assess="false" web="true"  />
+        <FileExtension extension="html" assess="false" web="true"  />
+        <FileExtension extension="asax" assess="false" web="true"  />
+        <FileExtension extension="gif" assess="false" web="true"  />
+        <FileExtension extension="jpg" assess="false" web="true"  />
+        <FileExtension extension="sitemap" assess="false" web="true"  />
+        <FileExtension extension="bmp" assess="false"  />
+        <FileExtension extension="js" assess="false"  />
+        <FileExtension extension="dll" assess="false"  />
+        <FileExtension extension="disco" assess="false"  />
+        <FileExtension extension="vsdisco" assess="false"  />
+        <FileExtension extension="wsdl" assess="false"  />
+        <FileExtension extension="map" assess="false"  />
+        <FileExtension extension="resx" assess="false"  />
+        <FileExtension extension="png" assess="false"  />
+        <FileExtension extension="mdb" assess="false"  />
+        <FileExtension extension="cshtml" assess="true" web="true"  />
+        <FileExtension extension="vbhtml" assess="true" web="true"  />
+    </FileExtensionSet>
+    <FileExtensionSet name="aspweb" display_name="ASP.NET 2.x" supported_os="1">
+        <FileExtension extension="aspx" assess="true" web="true"  />
+        <FileExtension extension="cs" assess="true"  />
+        <FileExtension extension="vb" assess="true"  />
+        <FileExtension extension="vjs" assess="true"  />
+        <FileExtension extension="master" assess="false" web="true"  />
+        <FileExtension extension="xml" assess="false" web="true"  />
+        <FileExtension extension="ico" assess="false" web="true"  />
+        <FileExtension extension="config" assess="false" web="true"  />
+        <FileExtension extension="xsd" assess="false" web="true"  />
+        <FileExtension extension="xss" assess="false" web="true"  />
+        <FileExtension extension="sql" assess="false" web="true"  />
+        <FileExtension extension="mdf" assess="false" web="true"  />
+        <FileExtension extension="ldf" assess="false" web="true"  />
+        <FileExtension extension="ashx" assess="false" web="true"  />
+        <FileExtension extension="css" assess="false" web="true"  />
+        <FileExtension extension="ascx" assess="false" web="true"  />
+        <FileExtension extension="htm" assess="false" web="true"  />
+        <FileExtension extension="txt" assess="false" web="true"  />
+        <FileExtension extension="html" assess="false" web="true"  />
+        <FileExtension extension="asax" assess="false" web="true"  />
+        <FileExtension extension="gif" assess="false" web="true"  />
+        <FileExtension extension="jpg" assess="false" web="true"  />
+        <FileExtension extension="sitemap" assess="false" web="true"  />
+        <FileExtension extension="bmp" assess="false"  />
+        <FileExtension extension="js" assess="false"  />
+        <FileExtension extension="dll" assess="false"  />
+        <FileExtension extension="disco" assess="false"  />
+        <FileExtension extension="vsdisco" assess="false"  />
+        <FileExtension extension="wsdl" assess="false"  />
+        <FileExtension extension="map" assess="false"  />
+        <FileExtension extension="resx" assess="false"  />
+        <FileExtension extension="png" assess="false"  />
+        <FileExtension extension="mdb" assess="false"  />
+        <FileExtension extension="cshtml" assess="true" web="true"  />
+        <FileExtension extension="vbhtml" assess="true" web="true"  />
+    </FileExtensionSet>
+    <FileExtensionSet name="c#" display_name="C#" supported_os="1">
+        <FileExtension extension="cs" assess="true"  />
+        <FileExtension extension="xml" assess="false"  />
+        <FileExtension extension="ico" assess="false"  />
+        <FileExtension extension="config" assess="false"  />
+        <FileExtension extension="gif" assess="false"  />
+        <FileExtension extension="png" assess="false"  />
+        <FileExtension extension="bmp" assess="false"  />
+        <FileExtension extension="js" assess="false"  />
+        <FileExtension extension="dll" assess="false"  />
+        <FileExtension extension="disco" assess="false"  />
+        <FileExtension extension="wsdl" assess="false"  />
+        <FileExtension extension="map" assess="false"  />
+        <FileExtension extension="resx" assess="false"  />
+        <FileExtension extension="txt" assess="false"  />
+        <FileExtension extension="sql" assess="false"  />
+    </FileExtensionSet>
+    <FileExtensionSet name="vb.net" display_name="VB.NET" supported_os="1">
+        <FileExtension extension="vb" assess="true"  />
+        <FileExtension extension="xml" assess="false"  />
+        <FileExtension extension="ico" assess="false"  />
+        <FileExtension extension="config" assess="false"  />
+        <FileExtension extension="gif" assess="false"  />
+        <FileExtension extension="png" assess="false"  />
+        <FileExtension extension="bmp" assess="false"  />
+        <FileExtension extension="js" assess="false"  />
+        <FileExtension extension="dll" assess="false"  />
+        <FileExtension extension="disco" assess="false"  />
+        <FileExtension extension="wsdl" assess="false"  />
+        <FileExtension extension="map" assess="false"  />
+        <FileExtension extension="resx" assess="false"  />
+        <FileExtension extension="txt" assess="false"  />
+        <FileExtension extension="sql" assess="false"  />
+    </FileExtensionSet>
+    <FileExtensionSet name="wsdl" display_name="WSDL">
+        <FileExtension extension="wsdl" assess="true"  />
+        <FileExtension extension="xsd" assess="false"  />
+    </FileExtensionSet>
+</FileExtensionSets>

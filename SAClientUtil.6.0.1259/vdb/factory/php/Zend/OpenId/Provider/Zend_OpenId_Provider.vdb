@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_OpenId_Provider">
+      <method vuln_id="1116806">
+        <simple_name>Zend_OpenId_Provider.__construct_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.__construct_@__OpenId_Provider_php_1($loginUrl;$trustUrl;$user;$storage;$sessionTtl):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116772">
+        <simple_name>Zend_OpenId_Provider._associate_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._associate_@__OpenId_Provider_php_1($version;$params):Variant</signature>
+        <info_rule id="469807"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116811">
+        <simple_name>Zend_OpenId_Provider._checkAuthentication_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._checkAuthentication_@__OpenId_Provider_php_1($version;$params):Variant</signature>
+        <info_rule id="469855"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116757">
+        <simple_name>Zend_OpenId_Provider._checkId_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._checkId_@__OpenId_Provider_php_1($version;$params;$immediate;$extensions;$response):Variant</signature>
+        <info_rule id="469793"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116784">
+        <simple_name>Zend_OpenId_Provider._genSecret_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._genSecret_@__OpenId_Provider_php_1($func):Variant</signature>
+        <info_rule id="469819"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116747">
+        <simple_name>Zend_OpenId_Provider._respond_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._respond_@__OpenId_Provider_php_1($version;$ret;$params;$extensions):Variant</signature>
+        <info_rule id="469781"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116741">
+        <simple_name>Zend_OpenId_Provider.allowSite_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.allowSite_@__OpenId_Provider_php_1($root;$extensions):Variant</signature>
+        <info_rule id="469775"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116838">
+        <simple_name>Zend_OpenId_Provider.delSite_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.delSite_@__OpenId_Provider_php_1($root):Variant</signature>
+        <info_rule id="469889"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116815">
+        <simple_name>Zend_OpenId_Provider.denySite_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.denySite_@__OpenId_Provider_php_1($root):Variant</signature>
+        <info_rule id="469859"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS.Lockout</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116786">
+        <simple_name>Zend_OpenId_Provider.getLoggedInUser_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.getLoggedInUser_@__OpenId_Provider_php_1():Variant</signature>
+        <info_rule id="469821"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116844">
+        <simple_name>Zend_OpenId_Provider.getSiteRoot_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.getSiteRoot_@__OpenId_Provider_php_1($params):Variant</signature>
+        <info_rule id="469895"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116814">
+        <simple_name>Zend_OpenId_Provider.getTrustedSites_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.getTrustedSites_@__OpenId_Provider_php_1():Variant</signature>
+        <info_rule id="469858"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116761">
+        <simple_name>Zend_OpenId_Provider.handle_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.handle_@__OpenId_Provider_php_1($params;$extensions;$response):Variant</signature>
+        <info_rule id="469798"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116753">
+        <simple_name>Zend_OpenId_Provider.hasUser_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.hasUser_@__OpenId_Provider_php_1($id):Variant</signature>
+        <info_rule id="469787"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116793">
+        <simple_name>Zend_OpenId_Provider.login_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.login_@__OpenId_Provider_php_1($id;$password):Variant</signature>
+        <info_rule id="469833"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469831">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469830">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116766">
+        <simple_name>Zend_OpenId_Provider.logout_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.logout_@__OpenId_Provider_php_1():Variant</signature>
+        <info_rule id="469801"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116794">
+        <simple_name>Zend_OpenId_Provider.register_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.register_@__OpenId_Provider_php_1($id;$password):Variant</signature>
+        <info_rule id="469837"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469835">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469834">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116745">
+        <simple_name>Zend_OpenId_Provider.respondToConsumer_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.respondToConsumer_@__OpenId_Provider_php_1($params;$extensions;$response):Variant</signature>
+        <info_rule id="469779"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116759">
+        <simple_name>Zend_OpenId_Provider.setOpEndpoint_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.setOpEndpoint_@__OpenId_Provider_php_1($url):Variant</signature>
+        <info_rule id="469795"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_OpenId_Provider">
+      <method vuln_id="1116806">
+        <simple_name>Zend_OpenId_Provider.__construct_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.__construct_@__OpenId_Provider_php_1($loginUrl;$trustUrl;$user;$storage;$sessionTtl):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116772">
+        <simple_name>Zend_OpenId_Provider._associate_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._associate_@__OpenId_Provider_php_1($version;$params):Variant</signature>
+        <info_rule id="469807"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116811">
+        <simple_name>Zend_OpenId_Provider._checkAuthentication_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._checkAuthentication_@__OpenId_Provider_php_1($version;$params):Variant</signature>
+        <info_rule id="469855"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116757">
+        <simple_name>Zend_OpenId_Provider._checkId_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._checkId_@__OpenId_Provider_php_1($version;$params;$immediate;$extensions;$response):Variant</signature>
+        <info_rule id="469793"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116784">
+        <simple_name>Zend_OpenId_Provider._genSecret_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._genSecret_@__OpenId_Provider_php_1($func):Variant</signature>
+        <info_rule id="469819"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116747">
+        <simple_name>Zend_OpenId_Provider._respond_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider._respond_@__OpenId_Provider_php_1($version;$ret;$params;$extensions):Variant</signature>
+        <info_rule id="469781"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1116741">
+        <simple_name>Zend_OpenId_Provider.allowSite_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.allowSite_@__OpenId_Provider_php_1($root;$extensions):Variant</signature>
+        <info_rule id="469775"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116838">
+        <simple_name>Zend_OpenId_Provider.delSite_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.delSite_@__OpenId_Provider_php_1($root):Variant</signature>
+        <info_rule id="469889"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116815">
+        <simple_name>Zend_OpenId_Provider.denySite_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.denySite_@__OpenId_Provider_php_1($root):Variant</signature>
+        <info_rule id="469859"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS.Lockout</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116786">
+        <simple_name>Zend_OpenId_Provider.getLoggedInUser_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.getLoggedInUser_@__OpenId_Provider_php_1():Variant</signature>
+        <info_rule id="469821"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116844">
+        <simple_name>Zend_OpenId_Provider.getSiteRoot_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.getSiteRoot_@__OpenId_Provider_php_1($params):Variant</signature>
+        <info_rule id="469895"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116814">
+        <simple_name>Zend_OpenId_Provider.getTrustedSites_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.getTrustedSites_@__OpenId_Provider_php_1():Variant</signature>
+        <info_rule id="469858"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116761">
+        <simple_name>Zend_OpenId_Provider.handle_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.handle_@__OpenId_Provider_php_1($params;$extensions;$response):Variant</signature>
+        <info_rule id="469798"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116753">
+        <simple_name>Zend_OpenId_Provider.hasUser_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.hasUser_@__OpenId_Provider_php_1($id):Variant</signature>
+        <info_rule id="469787"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116793">
+        <simple_name>Zend_OpenId_Provider.login_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.login_@__OpenId_Provider_php_1($id;$password):Variant</signature>
+        <info_rule id="469833"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469831">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469830">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116766">
+        <simple_name>Zend_OpenId_Provider.logout_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.logout_@__OpenId_Provider_php_1():Variant</signature>
+        <info_rule id="469801"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116794">
+        <simple_name>Zend_OpenId_Provider.register_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.register_@__OpenId_Provider_php_1($id;$password):Variant</signature>
+        <info_rule id="469837"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469835">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469834">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116745">
+        <simple_name>Zend_OpenId_Provider.respondToConsumer_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.respondToConsumer_@__OpenId_Provider_php_1($params;$extensions;$response):Variant</signature>
+        <info_rule id="469779"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116759">
+        <simple_name>Zend_OpenId_Provider.setOpEndpoint_@__OpenId_Provider_php_1</simple_name>
+        <signature>Zend_OpenId_Provider.setOpEndpoint_@__OpenId_Provider_php_1($url):Variant</signature>
+        <info_rule id="469795"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SplFileInfo">
+      <method vuln_id="1088680">
+        <simple_name>___Php.SplFileInfo.__construct</simple_name>
+        <signature>___Php.SplFileInfo.__construct(___Php.String):void</signature>
+        <comment>Cronstructs a new SplFileInfo from a path.</comment>
+      </method>
+      <method vuln_id="1088874">
+        <simple_name>___Php.SplFileInfo.getATime</simple_name>
+        <signature>___Php.SplFileInfo.getATime():int</signature>
+        <info_rule id="456288"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get last access time of file</comment>
+      </method>
+      <method vuln_id="1088807">
+        <simple_name>___Php.SplFileInfo.getBasename</simple_name>
+        <signature>___Php.SplFileInfo.getBasename(___Php.String):___Php.String</signature>
+        <info_rule id="456247"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns filename component of path</comment>
+      </method>
+      <method vuln_id="1088820">
+        <simple_name>___Php.SplFileInfo.getCTime</simple_name>
+        <signature>___Php.SplFileInfo.getCTime():int</signature>
+        <info_rule id="456254"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get inode modification time of file</comment>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileInfo.getExtension</simple_name>
+        <signature>___Php.SplFileInfo.getExtension(void):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088706">
+        <simple_name>___Php.SplFileInfo.getFileInfo</simple_name>
+        <signature>___Php.SplFileInfo.getFileInfo(___Php.String):___Php.SplFileInfo</signature>
+        <info_rule id="456199"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get/copy file info</comment>
+      </method>
+      <method vuln_id="1088857">
+        <simple_name>___Php.SplFileInfo.getFilename</simple_name>
+        <signature>___Php.SplFileInfo.getFilename():___Php.String</signature>
+        <info_rule id="456277"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return filename only</comment>
+      </method>
+      <method vuln_id="1088714">
+        <simple_name>___Php.SplFileInfo.getGroup</simple_name>
+        <signature>___Php.SplFileInfo.getGroup():int</signature>
+        <info_rule id="456203"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file group</comment>
+      </method>
+      <method vuln_id="1088834">
+        <simple_name>___Php.SplFileInfo.getInode</simple_name>
+        <signature>___Php.SplFileInfo.getInode():int</signature>
+        <info_rule id="456263"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file inode</comment>
+      </method>
+      <method vuln_id="1089020">
+        <simple_name>___Php.SplFileInfo.getLinkTarget</simple_name>
+        <signature>___Php.SplFileInfo.getLinkTarget():___Php.String</signature>
+        <info_rule id="456360"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return the target of a symbolic link</comment>
+      </method>
+      <method vuln_id="1089034">
+        <simple_name>___Php.SplFileInfo.getMTime</simple_name>
+        <signature>___Php.SplFileInfo.getMTime():int</signature>
+        <info_rule id="456363"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get last modification time of file</comment>
+      </method>
+      <method vuln_id="1088865">
+        <simple_name>___Php.SplFileInfo.getOwner</simple_name>
+        <signature>___Php.SplFileInfo.getOwner():int</signature>
+        <info_rule id="456281"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file owner</comment>
+      </method>
+      <method vuln_id="1088720">
+        <simple_name>___Php.SplFileInfo.getPath</simple_name>
+        <signature>___Php.SplFileInfo.getPath():___Php.String</signature>
+        <info_rule id="456205"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return the path</comment>
+      </method>
+      <method vuln_id="1088698">
+        <simple_name>___Php.SplFileInfo.getPathInfo</simple_name>
+        <signature>___Php.SplFileInfo.getPathInfo(___Php.String):___Php.SplFileInfo</signature>
+        <info_rule id="456197"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get/copy file info</comment>
+      </method>
+      <method vuln_id="1088681">
+        <simple_name>___Php.SplFileInfo.getPathname</simple_name>
+        <signature>___Php.SplFileInfo.getPathname():___Php.String</signature>
+        <info_rule id="456190"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return path and filename</comment>
+      </method>
+      <method vuln_id="1088838">
+        <simple_name>___Php.SplFileInfo.getPerms</simple_name>
+        <signature>___Php.SplFileInfo.getPerms():int</signature>
+        <info_rule id="456265"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file permissions</comment>
+      </method>
+      <method vuln_id="1088731">
+        <simple_name>___Php.SplFileInfo.getRealPath</simple_name>
+        <signature>___Php.SplFileInfo.getRealPath():___Php.String</signature>
+        <info_rule id="456214"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return the resolved path</comment>
+      </method>
+      <method vuln_id="1088885">
+        <simple_name>___Php.SplFileInfo.getSize</simple_name>
+        <signature>___Php.SplFileInfo.getSize():int</signature>
+        <info_rule id="456292"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file size</comment>
+      </method>
+      <method vuln_id="1089015">
+        <simple_name>___Php.SplFileInfo.getType</simple_name>
+        <signature>___Php.SplFileInfo.getType():___Php.String</signature>
+        <info_rule id="456356"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file type</comment>
+      </method>
+      <method vuln_id="1088691">
+        <simple_name>___Php.SplFileInfo.isDir</simple_name>
+        <signature>___Php.SplFileInfo.isDir():bool</signature>
+        <info_rule id="456193"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is directory</comment>
+      </method>
+      <method vuln_id="1088862">
+        <simple_name>___Php.SplFileInfo.isExecutable</simple_name>
+        <signature>___Php.SplFileInfo.isExecutable():bool</signature>
+        <info_rule id="456279"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is executable</comment>
+      </method>
+      <method vuln_id="1088840">
+        <simple_name>___Php.SplFileInfo.isFile</simple_name>
+        <signature>___Php.SplFileInfo.isFile():bool</signature>
+        <info_rule id="456267"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is a regular file</comment>
+      </method>
+      <method vuln_id="1088830">
+        <simple_name>___Php.SplFileInfo.isLink</simple_name>
+        <signature>___Php.SplFileInfo.isLink():bool</signature>
+        <info_rule id="456261"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is symbolic link</comment>
+      </method>
+      <method vuln_id="1088965">
+        <simple_name>___Php.SplFileInfo.isReadable</simple_name>
+        <signature>___Php.SplFileInfo.isReadable():bool</signature>
+        <info_rule id="456330"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file can be read</comment>
+      </method>
+      <method vuln_id="1088845">
+        <simple_name>___Php.SplFileInfo.isWritable</simple_name>
+        <signature>___Php.SplFileInfo.isWritable():bool</signature>
+        <info_rule id="456270"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file can be written</comment>
+      </method>
+      <method vuln_id="1088777">
+        <simple_name>___Php.SplFileInfo.openFile</simple_name>
+        <signature>___Php.SplFileInfo.openFile(___Php.String;bool;int):___Php.SplFileObject</signature>
+        <info_rule id="456233"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Open the current file</comment>
+      </method>
+      <method vuln_id="1088722">
+        <simple_name>___Php.SplFileInfo.setFileClass</simple_name>
+        <signature>___Php.SplFileInfo.setFileClass(___Php.String):void</signature>
+        <info_rule id="456206"/>
+        <property>Technology.FileSystem</property>
+        <comment>Class to use in openFile()</comment>
+      </method>
+      <method vuln_id="1089002">
+        <simple_name>___Php.SplFileInfo.setInfoClass</simple_name>
+        <signature>___Php.SplFileInfo.setInfoClass(___Php.String):void</signature>
+        <info_rule id="456350"/>
+        <property>Technology.FileSystem</property>
+        <comment>Class to use in getFileInfo(),getPathInfo()</comment>
+      </method>
+    </class>
+    <class name="SplFileInfo">
+      <method vuln_id="1088680">
+        <simple_name>___Php.SplFileInfo.__construct</simple_name>
+        <signature>___Php.SplFileInfo.__construct(___Php.String):void</signature>
+        <comment>Cronstructs a new SplFileInfo from a path.</comment>
+      </method>
+      <method vuln_id="1088874">
+        <simple_name>___Php.SplFileInfo.getATime</simple_name>
+        <signature>___Php.SplFileInfo.getATime():int</signature>
+        <info_rule id="456288"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get last access time of file</comment>
+      </method>
+      <method vuln_id="1088807">
+        <simple_name>___Php.SplFileInfo.getBasename</simple_name>
+        <signature>___Php.SplFileInfo.getBasename(___Php.String):___Php.String</signature>
+        <info_rule id="456247"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns filename component of path</comment>
+      </method>
+      <method vuln_id="1088820">
+        <simple_name>___Php.SplFileInfo.getCTime</simple_name>
+        <signature>___Php.SplFileInfo.getCTime():int</signature>
+        <info_rule id="456254"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get inode modification time of file</comment>
+      </method>
+      <method>
+        <simple_name>___Php.SplFileInfo.getExtension</simple_name>
+        <signature>___Php.SplFileInfo.getExtension(void):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088706">
+        <simple_name>___Php.SplFileInfo.getFileInfo</simple_name>
+        <signature>___Php.SplFileInfo.getFileInfo(___Php.String):___Php.SplFileInfo</signature>
+        <info_rule id="456199"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get/copy file info</comment>
+      </method>
+      <method vuln_id="1088857">
+        <simple_name>___Php.SplFileInfo.getFilename</simple_name>
+        <signature>___Php.SplFileInfo.getFilename():___Php.String</signature>
+        <info_rule id="456277"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return filename only</comment>
+      </method>
+      <method vuln_id="1088714">
+        <simple_name>___Php.SplFileInfo.getGroup</simple_name>
+        <signature>___Php.SplFileInfo.getGroup():int</signature>
+        <info_rule id="456203"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file group</comment>
+      </method>
+      <method vuln_id="1088834">
+        <simple_name>___Php.SplFileInfo.getInode</simple_name>
+        <signature>___Php.SplFileInfo.getInode():int</signature>
+        <info_rule id="456263"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file inode</comment>
+      </method>
+      <method vuln_id="1089020">
+        <simple_name>___Php.SplFileInfo.getLinkTarget</simple_name>
+        <signature>___Php.SplFileInfo.getLinkTarget():___Php.String</signature>
+        <info_rule id="456360"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return the target of a symbolic link</comment>
+      </method>
+      <method vuln_id="1089034">
+        <simple_name>___Php.SplFileInfo.getMTime</simple_name>
+        <signature>___Php.SplFileInfo.getMTime():int</signature>
+        <info_rule id="456363"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get last modification time of file</comment>
+      </method>
+      <method vuln_id="1088865">
+        <simple_name>___Php.SplFileInfo.getOwner</simple_name>
+        <signature>___Php.SplFileInfo.getOwner():int</signature>
+        <info_rule id="456281"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file owner</comment>
+      </method>
+      <method vuln_id="1088720">
+        <simple_name>___Php.SplFileInfo.getPath</simple_name>
+        <signature>___Php.SplFileInfo.getPath():___Php.String</signature>
+        <info_rule id="456205"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return the path</comment>
+      </method>
+      <method vuln_id="1088698">
+        <simple_name>___Php.SplFileInfo.getPathInfo</simple_name>
+        <signature>___Php.SplFileInfo.getPathInfo(___Php.String):___Php.SplFileInfo</signature>
+        <info_rule id="456197"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get/copy file info</comment>
+      </method>
+      <method vuln_id="1088681">
+        <simple_name>___Php.SplFileInfo.getPathname</simple_name>
+        <signature>___Php.SplFileInfo.getPathname():___Php.String</signature>
+        <info_rule id="456190"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return path and filename</comment>
+      </method>
+      <method vuln_id="1088838">
+        <simple_name>___Php.SplFileInfo.getPerms</simple_name>
+        <signature>___Php.SplFileInfo.getPerms():int</signature>
+        <info_rule id="456265"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file permissions</comment>
+      </method>
+      <method vuln_id="1088731">
+        <simple_name>___Php.SplFileInfo.getRealPath</simple_name>
+        <signature>___Php.SplFileInfo.getRealPath():___Php.String</signature>
+        <info_rule id="456214"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Return the resolved path</comment>
+      </method>
+      <method vuln_id="1088885">
+        <simple_name>___Php.SplFileInfo.getSize</simple_name>
+        <signature>___Php.SplFileInfo.getSize():int</signature>
+        <info_rule id="456292"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file size</comment>
+      </method>
+      <method vuln_id="1089015">
+        <simple_name>___Php.SplFileInfo.getType</simple_name>
+        <signature>___Php.SplFileInfo.getType():___Php.String</signature>
+        <info_rule id="456356"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Get file type</comment>
+      </method>
+      <method vuln_id="1088691">
+        <simple_name>___Php.SplFileInfo.isDir</simple_name>
+        <signature>___Php.SplFileInfo.isDir():bool</signature>
+        <info_rule id="456193"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is directory</comment>
+      </method>
+      <method vuln_id="1088862">
+        <simple_name>___Php.SplFileInfo.isExecutable</simple_name>
+        <signature>___Php.SplFileInfo.isExecutable():bool</signature>
+        <info_rule id="456279"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is executable</comment>
+      </method>
+      <method vuln_id="1088840">
+        <simple_name>___Php.SplFileInfo.isFile</simple_name>
+        <signature>___Php.SplFileInfo.isFile():bool</signature>
+        <info_rule id="456267"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is a regular file</comment>
+      </method>
+      <method vuln_id="1088830">
+        <simple_name>___Php.SplFileInfo.isLink</simple_name>
+        <signature>___Php.SplFileInfo.isLink():bool</signature>
+        <info_rule id="456261"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file is symbolic link</comment>
+      </method>
+      <method vuln_id="1088965">
+        <simple_name>___Php.SplFileInfo.isReadable</simple_name>
+        <signature>___Php.SplFileInfo.isReadable():bool</signature>
+        <info_rule id="456330"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file can be read</comment>
+      </method>
+      <method vuln_id="1088845">
+        <simple_name>___Php.SplFileInfo.isWritable</simple_name>
+        <signature>___Php.SplFileInfo.isWritable():bool</signature>
+        <info_rule id="456270"/>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <comment>Returns true if file can be written</comment>
+      </method>
+      <method vuln_id="1088777">
+        <simple_name>___Php.SplFileInfo.openFile</simple_name>
+        <signature>___Php.SplFileInfo.openFile(___Php.String;bool;int):___Php.SplFileObject</signature>
+        <info_rule id="456233"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <comment>Open the current file</comment>
+      </method>
+      <method vuln_id="1088722">
+        <simple_name>___Php.SplFileInfo.setFileClass</simple_name>
+        <signature>___Php.SplFileInfo.setFileClass(___Php.String):void</signature>
+        <info_rule id="456206"/>
+        <property>Technology.FileSystem</property>
+        <comment>Class to use in openFile()</comment>
+      </method>
+      <method vuln_id="1089002">
+        <simple_name>___Php.SplFileInfo.setInfoClass</simple_name>
+        <signature>___Php.SplFileInfo.setInfoClass(___Php.String):void</signature>
+        <info_rule id="456350"/>
+        <property>Technology.FileSystem</property>
+        <comment>Class to use in getFileInfo(),getPathInfo()</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

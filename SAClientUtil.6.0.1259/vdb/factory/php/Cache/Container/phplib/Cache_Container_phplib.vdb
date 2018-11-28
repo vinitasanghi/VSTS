@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_Container_phplib">
+      <method vuln_id="-1">
+        <simple_name>Cache_Container_phplib.Cache_Container_phplib</simple_name>
+        <signature>Cache_Container_phplib.Cache_Container_phplib($options):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108013">
+        <simple_name>Cache_Container_phplib.decode</simple_name>
+        <signature>Cache_Container_phplib.decode(mixed):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108010">
+        <simple_name>Cache_Container_phplib.encode</simple_name>
+        <signature>Cache_Container_phplib.encode(mixed):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108014">
+        <simple_name>Cache_Container_phplib.fetch</simple_name>
+        <signature>Cache_Container_phplib.fetch(___Php.String;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108009">
+        <simple_name>Cache_Container_phplib.flush</simple_name>
+        <signature>Cache_Container_phplib.flush(___Php.String):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108015">
+        <simple_name>Cache_Container_phplib.flushPreload</simple_name>
+        <signature>Cache_Container_phplib.flushPreload(___Php.String;___Php.String):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108011">
+        <simple_name>Cache_Container_phplib.garbageCollection</simple_name>
+        <signature>Cache_Container_phplib.garbageCollection(mixed):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108008">
+        <simple_name>Cache_Container_phplib.getExpiresAbsolute</simple_name>
+        <signature>Cache_Container_phplib.getExpiresAbsolute(mixed):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108006">
+        <simple_name>Cache_Container_phplib.idExists</simple_name>
+        <signature>Cache_Container_phplib.idExists(___Php.String;___Php.String):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108007">
+        <simple_name>Cache_Container_phplib.remove</simple_name>
+        <signature>Cache_Container_phplib.remove(___Php.String;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108005">
+        <simple_name>Cache_Container_phplib.save</simple_name>
+        <signature>Cache_Container_phplib.save(___Php.String;mixed;mixed;___Php.String):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108012">
+        <simple_name>Cache_Container_phplib.setOptions</simple_name>
+        <signature>Cache_Container_phplib.setOptions(___Php.Array;___Php.Array):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_Container_phplib">
+      <method vuln_id="-1">
+        <simple_name>Cache_Container_phplib.Cache_Container_phplib</simple_name>
+        <signature>Cache_Container_phplib.Cache_Container_phplib($options):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108013">
+        <simple_name>Cache_Container_phplib.decode</simple_name>
+        <signature>Cache_Container_phplib.decode(mixed):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108010">
+        <simple_name>Cache_Container_phplib.encode</simple_name>
+        <signature>Cache_Container_phplib.encode(mixed):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108014">
+        <simple_name>Cache_Container_phplib.fetch</simple_name>
+        <signature>Cache_Container_phplib.fetch(___Php.String;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108009">
+        <simple_name>Cache_Container_phplib.flush</simple_name>
+        <signature>Cache_Container_phplib.flush(___Php.String):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108015">
+        <simple_name>Cache_Container_phplib.flushPreload</simple_name>
+        <signature>Cache_Container_phplib.flushPreload(___Php.String;___Php.String):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108011">
+        <simple_name>Cache_Container_phplib.garbageCollection</simple_name>
+        <signature>Cache_Container_phplib.garbageCollection(mixed):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108008">
+        <simple_name>Cache_Container_phplib.getExpiresAbsolute</simple_name>
+        <signature>Cache_Container_phplib.getExpiresAbsolute(mixed):int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108006">
+        <simple_name>Cache_Container_phplib.idExists</simple_name>
+        <signature>Cache_Container_phplib.idExists(___Php.String;___Php.String):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108007">
+        <simple_name>Cache_Container_phplib.remove</simple_name>
+        <signature>Cache_Container_phplib.remove(___Php.String;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108005">
+        <simple_name>Cache_Container_phplib.save</simple_name>
+        <signature>Cache_Container_phplib.save(___Php.String;mixed;mixed;___Php.String):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SecondOrder</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108012">
+        <simple_name>Cache_Container_phplib.setOptions</simple_name>
+        <signature>Cache_Container_phplib.setOptions(___Php.Array;___Php.Array):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Net_Socket">
+      <method vuln_id="1092550">
+        <simple_name>Net_Socket.connect</simple_name>
+        <signature>Net_Socket.connect($addr;$port;$persistent;$timeout;$options):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092534">
+        <simple_name>Net_Socket.disconnect</simple_name>
+        <signature>Net_Socket.disconnect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_Socket.enableCrypto</simple_name>
+        <signature>Net_Socket.enableCrypto($enabled;$type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+        <comment>todo add a bad cryptography algorithm vulnerability </comment>
+      </method>
+      <method vuln_id="1092544">
+        <simple_name>Net_Socket.eof</simple_name>
+        <signature>Net_Socket.eof():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092551">
+        <simple_name>Net_Socket.getStatus</simple_name>
+        <signature>Net_Socket.getStatus():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092539">
+        <simple_name>Net_Socket.gets</simple_name>
+        <signature>Net_Socket.gets($size):$size</signature>
+        <info_rule id="480890"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092540">
+        <simple_name>Net_Socket.isBlocking</simple_name>
+        <signature>Net_Socket.isBlocking():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_Socket.raiseError</simple_name>
+        <signature>Net_Socket.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092541">
+        <simple_name>Net_Socket.read</simple_name>
+        <signature>Net_Socket.read($size):$size</signature>
+        <info_rule id="480893"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092548">
+        <simple_name>Net_Socket.readAll</simple_name>
+        <signature>Net_Socket.readAll():string</signature>
+        <info_rule id="480897"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <rule>
+          <ActionObject id="451909">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092537">
+        <simple_name>Net_Socket.readByte</simple_name>
+        <signature>Net_Socket.readByte():1</signature>
+        <info_rule id="480891"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092535">
+        <simple_name>Net_Socket.readIPAddress</simple_name>
+        <signature>Net_Socket.readIPAddress():Dot</signature>
+        <info_rule id="480898"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092536">
+        <simple_name>Net_Socket.readInt</simple_name>
+        <signature>Net_Socket.readInt():integer</signature>
+        <info_rule id="480895"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092543">
+        <simple_name>Net_Socket.readLine</simple_name>
+        <signature>Net_Socket.readLine():All</signature>
+        <info_rule id="480894"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <rule>
+          <ActionObject id="451905">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092538">
+        <simple_name>Net_Socket.readString</simple_name>
+        <signature>Net_Socket.readString():string,</signature>
+        <info_rule id="480896"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <rule>
+          <ActionObject id="451900">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092532">
+        <simple_name>Net_Socket.readWord</simple_name>
+        <signature>Net_Socket.readWord():1</signature>
+        <info_rule id="480892"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092542">
+        <simple_name>Net_Socket.select</simple_name>
+        <signature>Net_Socket.select($state;$tv_sec;$tv_usec):False</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092533">
+        <simple_name>Net_Socket.setBlocking</simple_name>
+        <signature>Net_Socket.setBlocking($mode):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092545">
+        <simple_name>Net_Socket.setTimeout</simple_name>
+        <signature>Net_Socket.setTimeout($seconds;$microseconds):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092549">
+        <simple_name>Net_Socket.setWriteBuffer</simple_name>
+        <signature>Net_Socket.setWriteBuffer($size):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092546">
+        <simple_name>Net_Socket.write</simple_name>
+        <signature>Net_Socket.write($data;$blocksize):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092547">
+        <simple_name>Net_Socket.writeLine</simple_name>
+        <signature>Net_Socket.writeLine($data):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Net_Socket">
+      <method vuln_id="1092550">
+        <simple_name>Net_Socket.connect</simple_name>
+        <signature>Net_Socket.connect($addr;$port;$persistent;$timeout;$options):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092534">
+        <simple_name>Net_Socket.disconnect</simple_name>
+        <signature>Net_Socket.disconnect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_Socket.enableCrypto</simple_name>
+        <signature>Net_Socket.enableCrypto($enabled;$type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+        <comment>todo add a bad cryptography algorithm vulnerability </comment>
+      </method>
+      <method vuln_id="1092544">
+        <simple_name>Net_Socket.eof</simple_name>
+        <signature>Net_Socket.eof():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092551">
+        <simple_name>Net_Socket.getStatus</simple_name>
+        <signature>Net_Socket.getStatus():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092539">
+        <simple_name>Net_Socket.gets</simple_name>
+        <signature>Net_Socket.gets($size):$size</signature>
+        <info_rule id="480890"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092540">
+        <simple_name>Net_Socket.isBlocking</simple_name>
+        <signature>Net_Socket.isBlocking():boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_Socket.raiseError</simple_name>
+        <signature>Net_Socket.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092541">
+        <simple_name>Net_Socket.read</simple_name>
+        <signature>Net_Socket.read($size):$size</signature>
+        <info_rule id="480893"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092548">
+        <simple_name>Net_Socket.readAll</simple_name>
+        <signature>Net_Socket.readAll():string</signature>
+        <info_rule id="480897"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <rule>
+          <ActionObject id="451909">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092537">
+        <simple_name>Net_Socket.readByte</simple_name>
+        <signature>Net_Socket.readByte():1</signature>
+        <info_rule id="480891"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092535">
+        <simple_name>Net_Socket.readIPAddress</simple_name>
+        <signature>Net_Socket.readIPAddress():Dot</signature>
+        <info_rule id="480898"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092536">
+        <simple_name>Net_Socket.readInt</simple_name>
+        <signature>Net_Socket.readInt():integer</signature>
+        <info_rule id="480895"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092543">
+        <simple_name>Net_Socket.readLine</simple_name>
+        <signature>Net_Socket.readLine():All</signature>
+        <info_rule id="480894"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <rule>
+          <ActionObject id="451905">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092538">
+        <simple_name>Net_Socket.readString</simple_name>
+        <signature>Net_Socket.readString():string,</signature>
+        <info_rule id="480896"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <rule>
+          <ActionObject id="451900">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092532">
+        <simple_name>Net_Socket.readWord</simple_name>
+        <signature>Net_Socket.readWord():1</signature>
+        <info_rule id="480892"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Socket</property>
+      </method>
+      <method vuln_id="1092542">
+        <simple_name>Net_Socket.select</simple_name>
+        <signature>Net_Socket.select($state;$tv_sec;$tv_usec):False</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092533">
+        <simple_name>Net_Socket.setBlocking</simple_name>
+        <signature>Net_Socket.setBlocking($mode):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092545">
+        <simple_name>Net_Socket.setTimeout</simple_name>
+        <signature>Net_Socket.setTimeout($seconds;$microseconds):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092549">
+        <simple_name>Net_Socket.setWriteBuffer</simple_name>
+        <signature>Net_Socket.setWriteBuffer($size):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092546">
+        <simple_name>Net_Socket.write</simple_name>
+        <signature>Net_Socket.write($data;$blocksize):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092547">
+        <simple_name>Net_Socket.writeLine</simple_name>
+        <signature>Net_Socket.writeLine($data):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

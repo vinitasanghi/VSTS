@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_LOB">
+      <method vuln_id="1091879">
+        <simple_name>MDB2_LOB.stream_close</simple_name>
+        <signature>MDB2_LOB.stream_close():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091880">
+        <simple_name>MDB2_LOB.stream_eof</simple_name>
+        <signature>MDB2_LOB.stream_eof():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091883">
+        <simple_name>MDB2_LOB.stream_open</simple_name>
+        <signature>MDB2_LOB.stream_open($path;$mode;$options;$opened_path):bool</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091882">
+        <simple_name>MDB2_LOB.stream_read</simple_name>
+        <signature>MDB2_LOB.stream_read($count):string</signature>
+        <info_rule id="480795"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091881">
+        <simple_name>MDB2_LOB.stream_seek</simple_name>
+        <signature>MDB2_LOB.stream_seek($offset;$whence):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091884">
+        <simple_name>MDB2_LOB.stream_stat</simple_name>
+        <signature>MDB2_LOB.stream_stat():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091885">
+        <simple_name>MDB2_LOB.stream_tell</simple_name>
+        <signature>MDB2_LOB.stream_tell():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091878">
+        <simple_name>MDB2_LOB.stream_write</simple_name>
+        <signature>MDB2_LOB.stream_write($data):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="451583">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.Not_Implemented</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_LOB">
+      <method vuln_id="1091879">
+        <simple_name>MDB2_LOB.stream_close</simple_name>
+        <signature>MDB2_LOB.stream_close():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091880">
+        <simple_name>MDB2_LOB.stream_eof</simple_name>
+        <signature>MDB2_LOB.stream_eof():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091883">
+        <simple_name>MDB2_LOB.stream_open</simple_name>
+        <signature>MDB2_LOB.stream_open($path;$mode;$options;$opened_path):bool</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091882">
+        <simple_name>MDB2_LOB.stream_read</simple_name>
+        <signature>MDB2_LOB.stream_read($count):string</signature>
+        <info_rule id="480795"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091881">
+        <simple_name>MDB2_LOB.stream_seek</simple_name>
+        <signature>MDB2_LOB.stream_seek($offset;$whence):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091884">
+        <simple_name>MDB2_LOB.stream_stat</simple_name>
+        <signature>MDB2_LOB.stream_stat():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091885">
+        <simple_name>MDB2_LOB.stream_tell</simple_name>
+        <signature>MDB2_LOB.stream_tell():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091878">
+        <simple_name>MDB2_LOB.stream_write</simple_name>
+        <signature>MDB2_LOB.stream_write($data):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="451583">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.Not_Implemented</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Mail_Part">
+      <method vuln_id="1115943">
+        <simple_name>Zend_Mail_Part.__construct_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__construct_@__Mail_Part_php_1($params):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116249">
+        <simple_name>Zend_Mail_Part.__get_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__get_@__Mail_Part_php_1($name):Variant</signature>
+        <info_rule id="469495"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115978">
+        <simple_name>Zend_Mail_Part.__isset_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__isset_@__Mail_Part_php_1($name):Variant</signature>
+        <info_rule id="469212"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116004">
+        <simple_name>Zend_Mail_Part.__toString_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__toString_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469239"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116200">
+        <simple_name>Zend_Mail_Part._cacheContent_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part._cacheContent_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469449"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116062">
+        <simple_name>Zend_Mail_Part.countParts_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.countParts_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469298"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116001">
+        <simple_name>Zend_Mail_Part.current_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.current_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469236"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116172">
+        <simple_name>Zend_Mail_Part.getChildren_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getChildren_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469415"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116177">
+        <simple_name>Zend_Mail_Part.getContent_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getContent_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469420"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116029">
+        <simple_name>Zend_Mail_Part.getHeaderField_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getHeaderField_@__Mail_Part_php_1($name;$wantedPart;$firstName):Variant</signature>
+        <info_rule id="469266"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116246">
+        <simple_name>Zend_Mail_Part.getHeader_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getHeader_@__Mail_Part_php_1($name;$format):Variant</signature>
+        <info_rule id="469492"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115983">
+        <simple_name>Zend_Mail_Part.getHeaders_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getHeaders_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469217"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116195">
+        <simple_name>Zend_Mail_Part.getPart_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getPart_@__Mail_Part_php_1($num):Variant</signature>
+        <info_rule id="469444"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116141">
+        <simple_name>Zend_Mail_Part.getSize_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getSize_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469382"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116025">
+        <simple_name>Zend_Mail_Part.hasChildren_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.hasChildren_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469261"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116198">
+        <simple_name>Zend_Mail_Part.headerExists_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.headerExists_@__Mail_Part_php_1($name):Variant</signature>
+        <info_rule id="469447"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116078">
+        <simple_name>Zend_Mail_Part.isMultipart_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.isMultipart_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469314"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116282">
+        <simple_name>Zend_Mail_Part.key_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.key_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469527"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116073">
+        <simple_name>Zend_Mail_Part.next_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.next_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469309"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116119">
+        <simple_name>Zend_Mail_Part.rewind_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.rewind_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469359"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116236">
+        <simple_name>Zend_Mail_Part.valid_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.valid_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469481"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+    <class name="Zend_Mail_Part">
+      <method vuln_id="1115943">
+        <simple_name>Zend_Mail_Part.__construct_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__construct_@__Mail_Part_php_1($params):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116249">
+        <simple_name>Zend_Mail_Part.__get_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__get_@__Mail_Part_php_1($name):Variant</signature>
+        <info_rule id="469495"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115978">
+        <simple_name>Zend_Mail_Part.__isset_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__isset_@__Mail_Part_php_1($name):Variant</signature>
+        <info_rule id="469212"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116004">
+        <simple_name>Zend_Mail_Part.__toString_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.__toString_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469239"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116200">
+        <simple_name>Zend_Mail_Part._cacheContent_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part._cacheContent_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469449"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116062">
+        <simple_name>Zend_Mail_Part.countParts_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.countParts_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469298"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116001">
+        <simple_name>Zend_Mail_Part.current_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.current_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469236"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116172">
+        <simple_name>Zend_Mail_Part.getChildren_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getChildren_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469415"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116177">
+        <simple_name>Zend_Mail_Part.getContent_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getContent_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469420"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116029">
+        <simple_name>Zend_Mail_Part.getHeaderField_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getHeaderField_@__Mail_Part_php_1($name;$wantedPart;$firstName):Variant</signature>
+        <info_rule id="469266"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116246">
+        <simple_name>Zend_Mail_Part.getHeader_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getHeader_@__Mail_Part_php_1($name;$format):Variant</signature>
+        <info_rule id="469492"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115983">
+        <simple_name>Zend_Mail_Part.getHeaders_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getHeaders_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469217"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116195">
+        <simple_name>Zend_Mail_Part.getPart_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getPart_@__Mail_Part_php_1($num):Variant</signature>
+        <info_rule id="469444"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116141">
+        <simple_name>Zend_Mail_Part.getSize_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.getSize_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469382"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116025">
+        <simple_name>Zend_Mail_Part.hasChildren_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.hasChildren_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469261"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116198">
+        <simple_name>Zend_Mail_Part.headerExists_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.headerExists_@__Mail_Part_php_1($name):Variant</signature>
+        <info_rule id="469447"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116078">
+        <simple_name>Zend_Mail_Part.isMultipart_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.isMultipart_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469314"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116282">
+        <simple_name>Zend_Mail_Part.key_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.key_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469527"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116073">
+        <simple_name>Zend_Mail_Part.next_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.next_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469309"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116119">
+        <simple_name>Zend_Mail_Part.rewind_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.rewind_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469359"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116236">
+        <simple_name>Zend_Mail_Part.valid_@__Mail_Part_php_1</simple_name>
+        <signature>Zend_Mail_Part.valid_@__Mail_Part_php_1():Variant</signature>
+        <info_rule id="469481"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

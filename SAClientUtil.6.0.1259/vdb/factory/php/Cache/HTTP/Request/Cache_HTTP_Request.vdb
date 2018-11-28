@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_HTTP_Request">
+      <method vuln_id="-1">
+        <simple_name>Cache_HTTP_Request.Cache</simple_name>
+        <signature>Cache_HTTP_Request.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108052">
+        <simple_name>Cache_HTTP_Request.Cache_HTTP_Request</simple_name>
+        <signature>Cache_HTTP_Request.Cache_HTTP_Request($url;$params;$container;$containerOptions;$expires;$mode):void</signature>
+        <sink_rule id="450919">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_HTTP_Request._Cache</simple_name>
+        <signature>Cache_HTTP_Request._Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_HTTP_Request._Cache_HTTP_Request</simple_name>
+        <signature>Cache_HTTP_Request._Cache_HTTP_Request():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108058">
+        <simple_name>Cache_HTTP_Request._sendRequestAndGetResponse</simple_name>
+        <signature>Cache_HTTP_Request._sendRequestAndGetResponse():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108053">
+        <simple_name>Cache_HTTP_Request.get</simple_name>
+        <signature>Cache_HTTP_Request.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450920"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108054">
+        <simple_name>Cache_HTTP_Request.getResponseBody</simple_name>
+        <signature>Cache_HTTP_Request.getResponseBody():mixed</signature>
+        <info_rule id="480690"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108051">
+        <simple_name>Cache_HTTP_Request.getResponseCode</simple_name>
+        <signature>Cache_HTTP_Request.getResponseCode():mixed</signature>
+        <info_rule id="480691"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108050">
+        <simple_name>Cache_HTTP_Request.getResponseHeader</simple_name>
+        <signature>Cache_HTTP_Request.getResponseHeader():mixed</signature>
+        <info_rule id="480692"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108057">
+        <simple_name>Cache_HTTP_Request.save</simple_name>
+        <signature>Cache_HTTP_Request.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450922"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108056">
+        <simple_name>Cache_HTTP_Request.sendRequest</simple_name>
+        <signature>Cache_HTTP_Request.sendRequest():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108055">
+        <simple_name>Cache_HTTP_Request.setMode</simple_name>
+        <signature>Cache_HTTP_Request.setMode(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_HTTP_Request">
+      <method vuln_id="-1">
+        <simple_name>Cache_HTTP_Request.Cache</simple_name>
+        <signature>Cache_HTTP_Request.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108052">
+        <simple_name>Cache_HTTP_Request.Cache_HTTP_Request</simple_name>
+        <signature>Cache_HTTP_Request.Cache_HTTP_Request($url;$params;$container;$containerOptions;$expires;$mode):void</signature>
+        <sink_rule id="450919">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_HTTP_Request._Cache</simple_name>
+        <signature>Cache_HTTP_Request._Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_HTTP_Request._Cache_HTTP_Request</simple_name>
+        <signature>Cache_HTTP_Request._Cache_HTTP_Request():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108058">
+        <simple_name>Cache_HTTP_Request._sendRequestAndGetResponse</simple_name>
+        <signature>Cache_HTTP_Request._sendRequestAndGetResponse():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108053">
+        <simple_name>Cache_HTTP_Request.get</simple_name>
+        <signature>Cache_HTTP_Request.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450920"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108054">
+        <simple_name>Cache_HTTP_Request.getResponseBody</simple_name>
+        <signature>Cache_HTTP_Request.getResponseBody():mixed</signature>
+        <info_rule id="480690"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108051">
+        <simple_name>Cache_HTTP_Request.getResponseCode</simple_name>
+        <signature>Cache_HTTP_Request.getResponseCode():mixed</signature>
+        <info_rule id="480691"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108050">
+        <simple_name>Cache_HTTP_Request.getResponseHeader</simple_name>
+        <signature>Cache_HTTP_Request.getResponseHeader():mixed</signature>
+        <info_rule id="480692"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108057">
+        <simple_name>Cache_HTTP_Request.save</simple_name>
+        <signature>Cache_HTTP_Request.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450922"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108056">
+        <simple_name>Cache_HTTP_Request.sendRequest</simple_name>
+        <signature>Cache_HTTP_Request.sendRequest():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108055">
+        <simple_name>Cache_HTTP_Request.setMode</simple_name>
+        <signature>Cache_HTTP_Request.setMode(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

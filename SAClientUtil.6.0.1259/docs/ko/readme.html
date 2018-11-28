@@ -1,0 +1,2556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Static Analyzer Readme" />
+<meta name="DC.Relation" scheme="URI" content="https://appscan.bluemix.net/swagger/" />
+<meta name="DC.Date" scheme="iso8601" content="2017-09-15" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="src_readme_index" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<title>Static Analyzer Readme</title>
+</head>
+<body><div role="main">
+<div class="nested0" id="src_readme_index"><h1 class="title topictitle1"><span class="keyword">Static Analyzer</span> Readme</h1>
+<div class="body"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_readme" title="정적 분석을 사용하여 소스 코드를 스캔해서 보안 취약점이 있는지 검사합니다. 이를 수행하려면 소형 유틸리티를 다운로드해야 합니다. 로컬 디스크로 유틸리티를 추출하는 경우에는 해당 명령행 인터페이스(CLI)를 사용하여 모든 지원 언어에서 보안 분석을 수행할 수 있습니다. 또는 정적 분석 플러그인을 Eclipse, Maven, IntelliJ IDEA 또는 Visual Studio에 추가하는 포함된 설치 프로그램을 실행할 수 있습니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">Static Analyzer 시작하기</a></li>
+<li class="li"><a class="xref" href="readme.html#src_whats_new" title="Application Security on Cloud 서비스에 최근 추가된 정적 분석 기능에 대해 알아봅니다.">최근의 정적 분석 업데이트</a></li>
+<li class="li"><span class="keyword">Static Analyzer</span> 설정
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_utility_install" title="정적 분석의 경우 소형 Client Utility를 다운로드합니다. 이 유틸리티를 로컬 디스크에 추출하는 경우 해당 명령행 인터페이스(CLI)를 사용하여 보안 분석을 수행할 수 있습니다. 또는 정적 분석 플러그인을 Maven 빌드 환경이나 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 추가하는 포함된 설치 프로그램을 실행할 수 있습니다.">Static Analyzer Client Utility 설정</a></li>
+<li class="li"><a class="xref" href="readme.html#src_utility_uninstall" title="이 태스크에서는 IDE(Integrated Development Environment)에서 Static Analyzer Client Utility 플러그인을 제거하는 방법을 설명합니다. 또한 Client Utility 제거를 위한 지시사항이 제공됩니다. 시스템에서 Static Analyzer Client Utility 컴포넌트를 제거하려는 경우 해당 지시사항만 따라야 합니다. 해당 컴포넌트를 새 Client Utility 버전으로 업그레이드하는 경우 새 버전을 설치하기 전에 플러그인 설치가 이전 컴포넌트를 자동으로 제거합니다.">Static Analyzer Client Utility 제거</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req" title="이 주제에서는 정적 분석 수행 시 지원되는 운영 체제와 ASoC에서 스캔할 수 있는 파일의 유형, 위치 및 프로젝트에 대해 설명합니다.">정적 분석의 시스템 요구사항</a></li>
+<li class="li"><a class="xref" href="readme.html#src_govt_compliance" title="미국 정부 보안 및 정보 기술 규정을 준수하면 영업상 장애물 및 방해물을 제거하는 데 도움이 됩니다. 또한 IBM이 해당 제품을 업계에서 가장 확고하게 자리잡도록 하기 위해 노력 중인 전세계적 전망의 실험장도 제공합니다. Static Analyzer Client Utility에서는 이 주제에 요약된 표준 및 가이드라인을 지원합니다. 유틸리티에 규제 준수를 구성하는 방법에 대한 정보는 IBM 지원 센터 담당자에게 문의하십시오.">미국 정부 규정 준수</a></li>
+</ul>
+</li>
+<li class="li"><span class="keyword">Intermediate Representation</span>(<span class="keyword">IRX</span>) 파일 생성
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen" title="보안 취약점에 대해 소스 코드를 스캔하려면 이 주제의 단계에 따르십시오.">보안 취약점 스캔</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_cli" title="파일의 분석을 시작하려면 먼저 클라우드에 제출할 IRX 파일을 생성해야 합니다. CLI를 사용하려면 다음 지시시항에 따라 해당 파일을 작성하십시오.">명령행 인터페이스(CLI)를 사용하여 IRX 파일 생성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_maven" title="파일의 분석을 시작하려면 먼저 클라우드에 제출할 IRX 파일을 생성해야 합니다. Maven 프로젝트를 스캔하려면 다음 지시사항에 따라 해당 파일을 작성하십시오.">Maven 프로젝트를 위한 IRX 파일 생성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">통합 개발 환경에서 스캔</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">CLI로 IRX 파일 생성 구성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_troubleshoot_irx_gen">정적 분석 IRX 파일 생성 시 오류 또는 경고가 발생함</a></li>
+<li class="li"><a class="xref" href="readme.html#src_troubleshoot_eclipse_install">Static Analyzer Client Utility를 설치할 때 Eclipse 플러그인 설치가 실패함</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations" title="정적 분석을 사용하여 Java를 스캔하는 경우 @ValidatorMethod, @CallbackMethod 및 @SuppressSecurityTrace 메소드 레벨 어노테이션이 지원됩니다.">지원되는 Java 소스 코드 어노테이션</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations" title="정적 분석을 사용하여 .NET를 스캔하는 경우, [ValidatorMethod], [CallbackMethod] 및 [SuppressSecurityTrace] 메소드 레벨 속성이 지원됩니다. 이 속성이 사용되면 [ValidatorMethod()], [CallbackMethod()] 및 [SuppressSecurityTrace()]도 허용됩니다.">지원되는 .NET 소스 코드 속성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_php_config" title="PHP에 대한 IRX 파일 생성 이후, 그 다음에 파일을 스캔할 때 IRX 생성을 구성하도록 허용하는 구성 파일이 작성됩니다.">해결되지 않은 PHP include 표현식 및 알 수 없는 PHP 클래스 구성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a></li>
+</ul>
+</li>
+<li class="li">CLI 명령 참조(Windows)<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_help" title="명령 도움말을 사용하여 사용 가능한 명령 목록을 검색하거나 개별 명령에 대한 정보를 검색할 수 있습니다.">명령 도움말</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다.">분석 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_global" title="글로벌 명령을 사용하여 CLI 도움말과 Static Analyzer Client Utility 버전 정보를 표시할 수 있습니다.">글로벌 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_config" title="구성 명령을 사용하여 스캔을 위해 파일을 준비할 수 있습니다.">구성 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다.">인증 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_results" title="결과 명령을 사용하여 분석 서비스에서 스캔 결과를 검색할 수 있습니다.">결과 명령</a></li>
+</ul>
+</li>
+<li class="li">CLI 명령 참조(Linux 및 macOS)<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_help" title="명령 도움말을 사용하여 사용 가능한 명령 목록을 검색하거나 개별 명령에 대한 정보를 검색할 수 있습니다.">명령 도움말</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다.">분석 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_global" title="글로벌 명령을 사용하여 CLI 도움말과 Static Analyzer Client Utility 버전 정보를 표시할 수 있습니다.">글로벌 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_config" title="구성 명령을 사용하여 스캔을 위해 파일을 준비할 수 있습니다.">구성 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다.">인증 명령</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_results" title="결과 명령을 사용하여 분석 서비스에서 스캔 결과를 검색할 수 있습니다.">결과 명령</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_readme"><h2 class="title topictitle2"><span class="keyword">Static Analyzer</span> 시작하기</h2>
+<div class="body taskbody"><p class="shortdesc">정적 분석을 사용하여 소스 코드를 스캔해서 보안 취약점이 있는지 검사합니다. 이를 수행하려면 소형 유틸리티를 다운로드해야 합니다.
+로컬 디스크로 유틸리티를 추출하는 경우에는 해당 명령행 인터페이스(CLI)를 사용하여
+모든 지원 언어에서 보안 분석을 수행할 수 있습니다. 또는 정적 분석 플러그인을 Eclipse, Maven, IntelliJ IDEA 또는 Visual Studio에 추가하는 포함된 설치 프로그램을 실행할 수 있습니다. 
+Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다.
+그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다. </p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e304">프로시저</h3></div><ul class="ul steps-unordered"><li class="li step"><span class="ph cmd"><span class="keyword">IBM Cloud Marketplace</span>의 <span class="keyword">Application Security on Cloud</span> 서비스 사용 방법에 대해 알아보려면 <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/Welcome.html" target="_blank" title="(새로운 탭이나 창으로 열기)">http://www.ibm.com/support/knowledgecenter/SSYJJF_1.0.0/ApplicationSecurityonCloud/Welcome.html</a>을 참조하십시오. </span></li>
+<li class="li step"><span class="ph cmd"><span class="keyword">Application Security on Cloud for Bluemix</span>의 사용 방법에 대해 알아보려면 <a class="xref" href="https://console.ng.bluemix.net/docs/services/ApplicationSecurityonCloud/index.html" target="_blank" title="(새로운 탭이나 창으로 열기)">https://console.ng.bluemix.net/docs/services/ApplicationSecurityonCloud/index.html</a>을 참조하십시오. </span></li>
+<li class="li step"><span class="ph cmd">이 readme 파일의 나머지 부분에서는 <span class="keyword">Static Analyzer Client Utility</span> 설치
+및 사용법에 대해 다룹니다.</span></li>
+</ul>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_whats_new"><h2 class="title topictitle2">최근의 정적 분석 업데이트</h2>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">Application Security on Cloud</span> 서비스에 최근 추가된 정적 분석 기능에 대해 알아봅니다.</p>
+<div class="section"></div>
+<div class="section"><h3 class="title sectiontitle">새로운 기능(2017년 9월 10일)</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__11SEPT17">이전에는 <span class="keyword">Application Security on Cloud</span>가
+<samp class="ph codeph">app_id</samp>에 기반하여 애플리케이션을 연관시켰습니다.
+최신 업데이트는 이 연관을 <samp class="ph codeph">app_id</samp>에서 <samp class="ph codeph">guid</samp>로 변경했습니다.
+대개 <span class="keyword">ASoC</span> 서비스는 이 업데이트에 기반하여
+애플리케이션을 다시 연관시키도록 프롬프트를 표시합니다. Jenkins 및 CLI의 경우 추가 단계를 수행해야 합니다.
+자세한 정보는 <a class="xref" href="readme.html#src_troubleshoot_mult_asset_groups_cm">보안 스캔이 ID가 x인 애플리케이션이 존재하지 않음 오류로 실패함</a>의 내용을 참조하십시오. </li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.1157의 새로운 기능(2017년 8월 24일)</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__24aug17new1">개방형 소스 분석기 지원에 대한 개선사항: <p class="p">동일한 세션에서 다중 세션을 실행할 때 개방형 소스 분석기와 Eclipse에서
+성능이 개선되었습니다. </p>
+</li>
+<li class="li" id="src_whats_new__24aug17new2">C/C++ 지원에 대한 개선사항:<p class="p">C++ 매크로 및 컴파일러 옵션의 검색이 개선되었습니다. </p>
+</li>
+<li class="li" id="src_whats_new__24aug17new3">추적을 사용하지 않은 정적 분석 문제의 식별이 변경되었습니다. <p class="p">정적 분석 엔진을 개선했으며 이를 통해
+추적을 사용하지 않고 찾은 결과에 대한 해시 알고리즘이 개선되었습니다. 이러한 변경으로 인해 이 최신 업데이트를 배치한 후에 발견되는 여러 정적 분석의 찾은 결과는
+문제 탭에서 한 번 중복됩니다. 이 변경사항은 기본적으로 Node.js, Ruby 및 JavaScript의 찾은 결과에 영향을 주며
+다른 언어에도 영향을 줄 수 있습니다. </p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.1142의 새로운 기능(2017년 6월 28일)</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__30jun17new1">Visual Studio 2015를 포함하여 C/C++에 대한 지원이 개선되었습니다. <p class="p">C/C++ 스캐닝
+개선사항에는 Visual Studio 2015 플랫폼 도구 세트를 대상으로 하는 64비트 프로젝트를 스캔하는 기능이
+포함되어 있습니다.</p>
+</li>
+<li class="li" id="src_whats_new__30jun17new2">.NET에 대한 로깅이 개선되었습니다. <p class="p">모든 .NET 관련 프로젝트에 대한 로깅 및
+보정이 개선되었습니다.</p>
+</li>
+<li class="li" id="src_whats_new__30jun17new3">Javascript 개선사항: <p class="p"> 불완전한 추적으로 인해 리턴되는 결과에 문제가 발생하지
+않도록 Javascript에서 보정항목을 추적합니다.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.1118의 새로운 기능(2017년 6월 14일)</h3>
+<div class="p"><ul class="ul"><li class="li" id="src_whats_new__14jun17new1">NodeJS 및 Ruby에 대한 지원이 개선되었습니다. <p class="p">Node.js 및 Ruby 스캔이
+IFA(Intelligent Findings Analytics)와 완전히 통합되어 스캔 시간이 크게
+단축되었습니다.</p>
+</li>
+<li class="li" id="src_whats_new__14jun17new2"> 클라이언트 측 Javascript가 개선되었습니다. <p class="p">Javascript 엔진을 통해 생성되는 추적 및
+비추적 찾은 결과에 대한 표시가 개선되었습니다.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section"><h3 class="title sectiontitle">새로운 기능(2017년 2월 3일)</h3>
+<ul class="ul"><li class="li">Jenkins 플러그인 사용 시기:<ul class="ul" id="src_whats_new__20170203_jenkins"><li class="li">이제 동적 분석이 지원됩니다. 이 기능으로 브라우저에서 실행되는 애플리케이션의 동적 분석을 수행할 수 있습니다. </li>
+<li class="li">로그인 신임 정보를 지정할 때 이제 생성된 API 키를 사용해야 합니다. </li>
+</ul>
+<div class="note note"><span class="notetitle">참고:</span> Jenkins
+플러그인에서 <span class="keyword">Application Security on Cloud for Bluemix</span>로의 연결은 지원되지 않습니다.</div>
+</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.1054의 새로운 기능(2017년 1월 25일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20170125_ica_cpp">이제 ICA(Intelligent Code Analytics)가 C/C++ <a class="xref" href="src_results.html#src_results" title="이 주제에서는 정적 분석 스캔 결과에 사용 가능한 기능에 대해 설명합니다.">정적 분석 스캔</a> 중에 적용됩니다.<p class="p">Java, .NET 및 PHP 스캔에 대한 ICA가
+이전에 도입되었습니다. 이 기술로 새 API(Application Programming Interface)를 검색하고
+이를 평가하여 보안에 미치는 영향을 판별합니다. ICA를 통해 모든 써드파티 API 및 프레임워크가 검토되고 보안에 미치는 영향이 올바로 지정됩니다.
+이를 통해 좀 더 완벽한 스캔 결과를 얻을 수 있습니다. </p>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.1036의 새로운 기능(2016년 12월 21일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20161221_api_login"><span class="keyword">IBM Cloud Marketplace</span>에서 서비스를
+사용할 때 이제 정적 분석에서 생성된 API 키를 사용한 로그인이 지원됩니다. <ul class="ul" id="src_whats_new__20161221_api_login_list"><li class="li"><a class="xref" href="readme.html#src_irx_gen_ide__login">통합 개발 환경에서
+로그인</a> 시 이제 생성된 API 키를 사용해야 합니다.</li>
+<li class="li">CLI에서 로그인할 때 <samp class="ph codeph">appscan api_login</samp> 명령(<span class="ph">(<span class="ph" id="src_whats_new__d8721e9">Windows</span>)</span>) 또는 <samp class="ph codeph">appscan.sh api_login</samp> 명령(<span class="ph">(<span class="ph" id="src_whats_new__d8730e9">Linux 및 macOS</span>)</span>)을 실행하십시오. 이 명령은 <a class="xref" href="readme.html#src_cli_win_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다."><span class="ph"><span class="ph" id="src_whats_new__d8721e4">인증 명령</span> <span class="ph" id="src_whats_new__d8721e7">(<span class="ph" id="src_whats_new__d8721e9-d8688e182a1310">Windows</span>)</span></span></a> 또는 <a class="xref" href="readme.html#src_cli_linux_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다."><span class="ph"><span class="ph">인증 명령</span> <span class="ph" id="src_whats_new__d8730e7">(<span class="ph" id="src_whats_new__d8730e9-d8688e195a1310">Linux 및 macOS</span>)</span></span></a> 주제에 나열되어 있는 옵션과 함께 사용됩니다.</li>
+</ul>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">새로운 기능(2016년 12월 13일)</h3>
+<ul class="ul"><li class="li"><span class="ph" id="src_whats_new__jenkins_content">Jenkins 자동 서버에 정적 및 모바일 분석 추가가 이제 지원됩니다. <span class="keyword">IBM Application Security on Cloud</span>
+Jenkins 플러그인으로 Jenkins 프로젝트에 보안 스캔 지원을 추가할 수 있습니다. 플러그인을 사용하여
+<span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">IBM Application Security on Cloud</span>에 연결할 수 있습니다.</span><div class="note note" id="src_whats_new__jenkins_bluemix"><span class="notetitle">참고:</span> Jenkins
+플러그인에서 <span class="keyword">Application Security on Cloud for Bluemix</span>로의 연결은 지원되지 않습니다.</div>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.1001의 새로운 기능(2016년 11월 16일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20161116_ica"><a class="xref" href="src_results.html#src_results" title="이 주제에서는 정적 분석 스캔 결과에 사용 가능한 기능에 대해 설명합니다.">정적 분석 스캔</a>에서 이제
+ICA(Intelligent Code Analytics)를 활용합니다. ICA는 자동으로 새 API(Application Programming Interface)를 검색하고
+이를 평가하여 보안에 미치는 영향을 판별합니다. ICA를 통해 모든 써드파티 API 및 프레임워크가 검토되고 보안에 미치는 영향이 올바로 지정됩니다.
+이를 통해 좀 더 완벽한 스캔 결과를 얻을 수 있습니다. <div class="note note"><span class="notetitle">참고:</span> 현재는 Java, C/C++, .NET 및 PHP를 스캔할 때에만 ICA가 적용됩니다. </div>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.971의 새로운 기능(2016년 10월 5일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20161005_macos"><a class="xref" href="readme.html#src_sys_req__os">이제 정적 분석 CLI, Eclipse 플러그인 및 Maven 플러그인은 macOS 버전 10.11 이상에서 지원됩니다.</a></li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.934의 새로운 기능(2016년 9월 14일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20160914_cpp"><a class="xref" href="readme.html#src_sys_req__scan">정적 분석은 이제 Visual Studio 솔루션에서 C/C++ 스캔을 위한 지원을 포함합니다.</a>
+<div class="note note"><span class="notetitle">참고:</span> <ul class="ul"><li class="li">관리 및 비관리 C++ 프로젝트가 지원됩니다. </li>
+<li class="li">32비트 Windows만을 대상으로 작성된 Visual Studio 솔루션은 지원되지 않습니다. Visual Studio 솔루션은 64비트 Windows 또는 32비트와 64비트 Windows 모두를 대상으로 해야 합니다.</li>
+</ul>
+</div>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.920의 새로운 기능(2016년 8월 23일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20160720_persist"><span class="keyword">Static Analyzer Client Utility</span>에서
+서비스에 로그인할 때는 이제 이 조치를 수행하여 로그인 토큰 파일이 만료될 때 유틸리티가 자동으로 서비스에 대한 재인증을 시도하도록 할 수 있습니다. <ul class="ul"><li class="li">명령행 인터페이스(CLI)에서 로그인하는 경우에는 <a class="xref" href="readme.html#src_cli_win_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다."><span class="ph"><span class="ph" id="src_whats_new__d8721e4-d8688e282a1310">인증 명령</span> <span class="ph" id="src_whats_new__d8721e7-d8688e285a1310">(<span class="ph" id="src_whats_new__d8721e9-d8688e287a1310">Windows</span>)</span></span></a> 및 <a class="xref" href="readme.html#src_cli_linux_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다."><span class="ph"><span class="ph">인증 명령</span> <span class="ph" id="src_whats_new__d8730e7-d8688e297a1310">(<span class="ph" id="src_whats_new__d8730e9-d8688e299a1310">Linux 및 macOS</span>)</span></span></a>에 설명된 대로 <samp class="ph codeph">-persist</samp> 옵션을 사용하십시오.</li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">IDE(Integrated Development Environment)에서 로그인</a>하는 경우에는 <span class="ph uicontrol">신임 정보 저장</span> 선택란을 선택하십시오.</li>
+</ul>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.891의 새로운 기능(2016년 7월 20일)</h3>
+<ul class="ul"><li class="li" id="src_whats_new__20160720_app_assoc"><strong class="ph b"><span class="keyword">IBM Cloud Marketplace</span>에만 해당:</strong> <span class="keyword">IBM Cloud Marketplace</span>에서 <span class="keyword">Application Security on Cloud</span> 서비스에 연결된 경우, 정적 분석 스캔은 이제 기존 <span class="keyword">Application Security on Cloud</span> 애플리케이션과 연관되어야 합니다. 스캔을 애플리케이션과 연관시키면
+<span class="keyword">Application Security on Cloud</span> 대시보드의 보고 및 경향 기능을 이용할 수 있습니다.<p class="p">CLI를 통해 스캔을 제출할 때 애플리케이션을 연관시키는 방법에 대해 알아보려면 <a class="xref" href="readme.html#src_cli_win_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다."><span class="ph"><span class="ph" id="src_whats_new__d8805e4">분석 명령</span> <span class="ph" id="src_whats_new__d8805e7">(<span class="ph" id="src_whats_new__d8805e9">Windows</span>)</span></span></a> 또는 <a class="xref" href="readme.html#src_cli_linux_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다."><span class="ph"><span class="ph">분석 명령</span> <span class="ph" id="src_whats_new__d8810e7">(<span class="ph" id="src_whats_new__d8810e9">Linux 및 macOS</span>)</span></span></a>의 내용을 참조하십시오. IDE에서 스캔을 제출할 때 이를 수행하는 방법에 대해 알아보려면 <a class="xref" href="readme.html#src_irx_gen_ide" title="다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">통합 개발 환경에서 스캔</a>의 내용을 참조하십시오.</p>
+</li>
+<li class="li" id="src_whats_new__20160720_cs_js"><a class="xref" href="readme.html#src_sys_req__scan">정적 분석 스캔 중에 클라이언트 측 Javascript 검색 개선</a></li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.865의 새로운 기능(2016년 6월 22일)</h3>
+<ul class="ul" id="src_whats_new__20160622_src"><li class="li" id="src_whats_new__20160622_src_lang"><a class="xref" href="readme.html#src_sys_req__scan">정적 분석은 이제 다음 언어에 대한 지원을 포함합니다.</a><ul class="ul"><li class="li">클라이언트 측 JavaScript</li>
+<li class="li">PHP</li>
+<li class="li">Ruby</li>
+</ul>
+</li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">버전 6.0.839의 새로운 기능(2016년 6월 1일)</h3>
+<ul class="ul" id="src_whats_new__20160601_src"><li class="li" id="src_whats_new__20160601_src_nodejs"><a class="xref" href="readme.html#src_sys_req__scan">이제 정적 분석 스캔에 대해 Node.js를 지원합니다.</a></li>
+<li class="li">일반 버그 수정</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">새로운 기능(2016년 4월 5일)</h3>
+<ul class="ul" id="src_whats_new__20160405_src"><li class="li" id="src_whats_new__20160405_src_intellij"><a class="xref" href="readme.html#src_irx_gen_ide" title="다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">IntelliJ IDE의 편의에서 <span class="keyword">Static Analyzer</span>의 취약점을 스캔하고 확인</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_utility_install"><h2 class="title topictitle2"><span class="keyword">Static Analyzer Client Utility</span> 설정</h2>
+<div class="body taskbody"><p class="shortdesc">정적 분석의 경우 소형 <span class="keyword">Client Utility</span>를 다운로드합니다. 이 유틸리티를 로컬 디스크에 추출하는 경우 해당 명령행 인터페이스(CLI)를 사용하여 보안 분석을 수행할 수 있습니다.
+또는 정적 분석 플러그인을 Maven 빌드 환경이나 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 추가하는 포함된 설치 프로그램을 실행할 수 있습니다.</p>
+<div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e805">이 태스크 정보</h3></div><p class="p">정적 분석을 사용하면 소스 코드를 스캔하여 클라우드에 업로드되는 파일을 생성합니다. 추적 분석으로
+암호화된 <span class="keyword">IRX</span>
+(<span class="keyword">.irx</span>) 파일인 해당 파일을 스캔하여 보안 취약성을 찾습니다. 컴파일된 언어에 대해 <span class="keyword">IRX</span>
+파일이 생성되면 애플리케이션 바이트 코드 파일이 코드의 <span class="keyword">Intermediate Representation</span>으로 변환됩니다. 스크립팅 언어에 대해 <span class="keyword">IRX</span>
+파일이 생성되면 소스 파일이 암호화된 <span class="keyword">IRX</span> 파일에
+포함됩니다. </p>
+
+<p class="p">Eclipse, IntelliJ IDEA 또는 Visual Studio 플러그인을 사용하는 경우 정적 분석 조치를 사용하면 IDE에서 <span class="keyword">IRX</span> 파일 생성 및 업로드가 자동으로 수행됩니다.</p>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 설치 프로그램을 실행하는 경우 특정한 IDE에서 정적 분석을 사용할 계획은 없지만 해당 IDE가 설치되어 있고 나중에 사용할 예정이라면 설치 프로그램을 나중에 다시 실행할 필요가 없도록 지금 IDE에 플러그인을 설치할 수 있습니다.</div>
+
+<div class="note fastpath" id="src_utility_install__yes_no"><span class="fastpathtitle">빠른경로:</span> 설치 프로그램에서 <span class="ph uicontrol">yes</span> 또는
+<span class="ph uicontrol">no</span>를 입력하는 경우 대신 약어로 <span class="ph uicontrol">y</span> 또는
+<span class="ph uicontrol">n</span>을 입력할 수 있습니다. 영어가 아닌 언어를 사용하는 시스템에서 실행 중인 설치 프로그램에 약어를 입력하는 경우
+입력하는 약어는 <span class="ph uicontrol">y</span> 또는 <span class="ph uicontrol">n</span>이어야 합니다.</div>
+
+<div class="note important"><span class="importanttitle">중요사항:</span> <span class="keyword">Client Utility</span>를 비ASCII 문자가 포함된 디렉토리에 배치해서는 안됩니다.</div>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e863">프로시저</h3></div><p class="li stepsection" id="src_utility_install__stepsection"><span class="keyword">Client Utility</span>를
+설정하려면 다음을 수행하십시오.</p><ol class="ol steps"><li class="li step stepexpand" id="src_utility_install__download"><span class="ph cmd"><span class="ph" id="src_utility_install__download_ph"><span class="keyword">Client Utility</span>를
+실행할 플랫폼을 선택하고 <span class="ph uicontrol">다운로드</span>를 클릭하십시오. 이렇게 하면
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일이
+다운로드됩니다. 여기서 <span class="ph filepath">&lt;version&gt;</span>은
+<span class="keyword">Client Utility</span>의
+현재 버전이고 <span class="ph filepath">&lt;os&gt;</span>는
+<span class="keyword">Client Utility</span>의
+운영 체제입니다.</span></span> <div class="note note"><span class="notetitle">참고:</span> <span class="keyword">IRX</span> 파일을
+선택하기 위한 양식으로 <span class="ph uicontrol"><span class="keyword">IRX</span> 파일을
+작성하는 방법</span>을 선택하여 시작 양식을 다시 열 수 있습니다.</div>
+</li>
+<li class="li step stepexpand" id="src_utility_install__extract"><span class="ph cmd"><span class="ph" id="src_utility_install__extract_ph">로컬 드라이브에 파일의 압축을 푸십시오.</span></span></li>
+<li class="li step stepexpand" id="src_utility_install__cli_path"><span class="ph cmd"><span class="ph" id="src_utility_install__cli_path_ph"><strong class="ph b"><span class="keyword">IRX</span> 파일
+생성, <span class="keyword">IRX</span> 파일 업로드
+또는 스캔 관리를 위해 CLI를 사용할 경우:</strong> 추출된
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">\bin</span> 디렉토리 위치를 <samp class="ph codeph">PATH</samp> 환경 변수에 추가하십시오.
+이를 수행하지 않으면 명령이 실행될 때마다 추출된
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">\bin</span> 디렉토리를 사용하여 모든 명령을 규정해야 합니다.</span></span> <div class="note important" id="src_utility_install__dotnet_register"><span class="importanttitle">중요사항:</span> CLI 또는
+Microsoft Visual Studio로 .NET을 스캔할 경우
+다음과 같은 세 개의 <span class="ph filepath">.bat</span> 파일(추출된
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일)을
+관리자로 실행해야 합니다.<ul class="ul"><li class="li"><span class="ph filepath">bin\register.bat</span></li>
+<li class="li"><span class="ph filepath">walalib\dotnet.libs40\RegisterInGAC.bat</span></li>
+<li class="li"><span class="ph filepath">walalib\dotnet.libs35\RegisterInGAC.bat</span></li>
+</ul>
+
+<p class="p">이러한 파일을 수동으로 실행할 수도 있고 관리자로 <span class="ph filepath">install-plugins.bat</span> 파일을 실행할 수도 있습니다. CLI만 사용할 경우 <span class="ph filepath">install-plugins.bat</span>를 실행하지만 정적 분석 플러그인을 설치하라는 프롬프트가 표시되면 <span class="ph uicontrol">no</span>(아니오)를 입력하십시오.</p>
+
+<p class="p">이러한 파일을 관리자로 실행하지 않은 경우 CLI를 사용할 때마다 경고 메시지가 콘솔에 나타납니다. Java 대상을 스캔하는 경우에는 이 메시지를 무시할 수 있습니다.</p>
+</div>
+
+
+<div class="note tip" id="src_utility_install__path_tip"><span class="tiptitle">팁:</span> <samp class="ph codeph">PATH</samp>를 변경한 후 명령 프롬프트에서 <samp class="ph codeph">appscan version</samp> <span class="ph">(<span class="ph" id="src_utility_install__d8029e9">Windows</span>)</span> 또는 <samp class="ph codeph">appscan.sh version</samp> <span class="ph">(<span class="ph" id="src_utility_install__d8038e9">Linux 및 macOS</span>)</span>을 실행하십시오. <span class="keyword">Static Analyzer Client Utility</span> 버전,
+홈 및 기타 정보가 리턴되면 <samp class="ph codeph">PATH</samp>가 올바르게 설정된 것입니다.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_utility_install__maven_eclipse"><strong class="ph b">정적 분석 플러그인을 Eclipse, Microsoft Visual Studio(Windows만 해당), IntelliJ IDEA 또는 Maven에 추가할 경우:</strong> 추출된 <span class="keyword">Client Utility</span>에서 <span class="ph filepath">install-plugins.bat</span>(Windows) 또는 <span class="ph filepath">install-plugins.sh</span>(Linux 및 macOS)를 찾아서 실행하십시오. Windows에서는 관리자로 파일을 실행하십시오.
+Linux 및 macOS에서 Eclipse에 플러그인을 추가할 경우 설치 중인 Eclipse 인스턴스를 수정할 권한이 있는 계정에 로그인되었는지 확인하십시오.</span></span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">기본적으로 <span class="keyword">Client Utility</span>는 <span class="keyword">IBM Cloud Marketplace</span>의 <span class="keyword">ASoC</span> 서비스에 연결됩니다.
+대신 <span class="keyword">IBM
+Bluemix®</span>의 서비스에 연결할 경우
+프롬프트가 표시되면 <span class="ph uicontrol">yes</span>를 입력하십시오.</span></li>
+<li class="li substep substepexpand" id="src_utility_install__eclipse"><span class="ph cmd"><span class="ph" id="src_utility_install__eclipse_ph">Eclipse에서 소스 코드를 스캔할 경우 설치 프로그램의 프롬프트를 따르십시오. <span class="ph" id="src_utility_install__eclipse_location">Eclipse 플러그인을 설치하도록 선택하면
+Eclipse 설치 위치를 입력하라는 프롬프트가 표시됩니다. <span class="ph filepath">eclipse.exe</span>(Windows) 또는 <span class="ph filepath">eclipse</span>(Linux 및 macOS) 파일이 포함된 디렉토리의 전체 경로를 입력하십시오.</span></span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__maven"><span class="ph cmd"><span class="ph" id="src_utility_install__maven_ph">Maven for <span class="keyword">IRX</span> 파일 생성을 사용할 경우
+설치 프로그램의 프롬프트를 따르십시오.</span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__intellij"><span class="ph cmd"><span class="ph">IntelliJ IDEA에서 소스 코드를 스캔할 경우 설치 프로그램의 프롬프트를 따르십시오. IntelliJ IDEA 플러그인을 설치하도록 선택할 경우, IntelliJ IDEA 구성 디렉토리의 위치를
+입력하라는 프롬프트가 표시됩니다. 이 디렉토리의 전체 경로를 입력하십시오.</span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__vs"><span class="ph cmd"><span class="ph" id="src_utility_install__vs_ph"><strong class="ph b">Windows에만 해당:</strong> Visual Studio에서 소스 코드를 스캔할 경우 설치 프로그램의 프롬프트를 따르십시오.<span class="ph" id="src_utility_install__vs_version_ph">Visual Studio 플러그인을 설치하도록 선택하는
+경우 플러그인을 설치해야 하는 Visual Studio의 버전을 선택하라는 프롬프트가 표시됩니다.
+플러그인을 설치할 Visual Studio 버전에 해당하는
+버전을 입력하십시오.</span></span></span></li>
+<li class="li substep substepexpand" id="src_utility_install__command_prompt_close"><span class="ph cmd"><span class="ph" id="src_utility_install__command_prompt_close_ph">아무 키나 눌러 명령 프롬프트를 닫으십시오. </span></span></li>
+<li class="li substep substepexpand"><span class="ph cmd">플러그인을 설치한 IDE의 경우 IDE를 다시 시작하십시오.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph" id="src_utility_install__linux_shell"><strong class="ph b">Linux 전용:</strong> 명령 프롬프트에서
+클라이언트 유틸리티가 포함된 디렉토리를 찾은 후 다음 행을 사용자의 쉘 자원 파일(예:
+<span class="ph filepath">.bash_profile</span> 또는 <span class="ph filepath">.shrc</span>)에 추가하십시오.</span></span> <pre class="pre codeblock" id="src_utility_install__linux_shell_codeblock"><code>export APPSCAN_INSTALL_DIR=&lt;client_utility&gt;
+export PATH=${APPSCAN_INSTALL_DIR}/bin:${PATH}
+export LD_LIBRARY_PATH=${APPSCAN_INSTALL_DIR}/bin:${LD_LIBRARY_PATH}</code></pre>
+
+
+<p class="p" id="src_utility_install__linux_shell_end">여기서 <samp class="ph codeph">&lt;client_utility&gt;</samp>는 <span class="keyword">Client Utility</span>의 경로입니다. 이러한 행을 추가한 후 정적 분석 플러그인을 사용하기 전에 쉘을 다시 로드하십시오.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph" id="src_utility_install__macos_shell"><strong class="ph b">macOS 전용:</strong> 명령 프롬프트에서 클라이언트 유틸리티가 포함된 디렉토리를 찾은 후 다음 행을 사용자의 쉘 자원 파일(예: <span class="ph filepath">.bash_profile</span> 또는 <span class="ph filepath">.shrc</span>)에 추가하십시오.</span></span> <pre class="pre codeblock" id="src_utility_install__macos_shell_codeblock"><code>export APPSCAN_INSTALL_DIR=&lt;client_utility&gt;
+export PATH=${APPSCAN_INSTALL_DIR}/bin:${PATH}
+export DYLD_LIBRARY_PATH=${APPSCAN_INSTALL_DIR}/bin:${DYLD_LIBRARY_PATH}</code></pre>
+
+
+<p class="p" id="src_utility_install__macos_shell_end">여기서 <samp class="ph codeph">&lt;client_utility&gt;</samp>는 <span class="keyword">Client Utility</span>의 경로입니다. 이러한 행을 추가한 후 정적 분석 플러그인을 사용하기 전에 쉘을 다시 로드하십시오.</p>
+
+
+<div class="note important"><span class="importanttitle">중요사항:</span> 쉘 자원 파일에 환경 변수를 설정하면 터미널에서 실행된 앱에만 영향을 미칩니다. 따라서 정적 분석을 실행할 IDE(Integrated Development Environment)를 실행하기 위한 터미널 창을 사용해야 합니다.</div>
+</li>
+</ol>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e1163">다음에 수행할 작업</h3></div><p class="p" id="src_utility_install__proxy"><strong class="ph b">프록시 뒤에 있는 컴퓨터에서
+<span class="keyword">Client Utility</span>를
+실행 중인 경우 -</strong>다음 방법 중 하나를 사용하여
+<span class="keyword">Client Utility</span>에서
+클라우드에 연결할 수 있도록 프록시를 지정하십시오.</p>
+
+<ul class="ul"><li class="li"><strong class="ph b"><span class="keyword">Client Utility</span> CLI 및 지원되는 IDE(Integrated Development Environment)</strong>: 프록시가 자동으로 인식되도록 다음 글로벌 또는 시스템 환경 변수를 설정하십시오. <ul class="ul"><li class="li">Windows: <samp class="ph codeph" id="src_utility_install__proxy_global">APPSCAN_OPTS=-Dhttps.proxyHost=&lt;proxy&gt;
+-Dhttps.proxyPort=&lt;port&gt;</samp></li>
+<li class="li">Linux and macOS: <samp class="ph codeph">APPSCAN_OPTS="-Dhttps.proxyHost=&lt;proxy&gt;
+-Dhttps.proxyPort=&lt;port&gt;"</samp></li>
+</ul>
+<p class="p">여기서
+<samp class="ph codeph">&lt;proxy&gt;</samp>는 프록시 서버의 호스트 이름이고 <samp class="ph codeph">&lt;port&gt;</samp>는
+프록시 서버에서 사용 중인 포트 번호입니다. </p>
+<p class="p">또는 (명령 프롬프트 또는 터미널에서 실행된) CLI 또는 IDE를 사용할 때마다 명령을 실행하여 <span class="keyword">Client Utility</span>가 프록시를 사용하도록 설정할 수 있습니다.</p>
+<ul class="ul"><li class="li">Windows: <samp class="ph codeph" id="src_utility_install__proxy_command">set
+"APPSCAN_OPTS=-Dhttps.proxyHost=&lt;proxy&gt; -Dhttps.proxyPort=&lt;port&gt;"</samp></li>
+<li class="li">Linux and macOS: <samp class="ph codeph">export
+APPSCAN_OPTS="-Dhttps.proxyHost=&lt;proxy&gt; -Dhttps.proxyPort=&lt;port&gt;"</samp></li>
+</ul>
+</li>
+<li class="li" id="src_utility_install__env_var_maven"><strong class="ph b">Maven</strong>: 정적 분석 플러그인을 Maven에 추가한 경우 <samp class="ph codeph">MAVEN_OPTS</samp> 환경 변수에 특성을 글로벌로 추가하거나 각 명령에 특성을 추가할 수 있습니다.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_utility_uninstall"><h2 class="title topictitle2"><span class="keyword">Static Analyzer Client Utility</span> 제거</h2>
+<div class="body taskbody"><p class="shortdesc">이 태스크에서는 IDE(Integrated Development Environment)에서 <span class="keyword">Static Analyzer Client Utility</span> 플러그인을 제거하는 방법을 설명합니다. 또한
+<span class="keyword">Client Utility</span> 제거를 위한 지시사항이 제공됩니다. 시스템에서 <span class="keyword">Static Analyzer Client Utility</span> 컴포넌트를 제거하려는 경우 해당 지시사항만 따라야 합니다. 해당 컴포넌트를
+새 <span class="keyword">Client Utility</span> 버전으로 업그레이드하는 경우 새 버전을 설치하기 전에
+플러그인 설치가 이전 컴포넌트를 자동으로 제거합니다.</p>
+<div class="section prereq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e1257">시작하기 전에</h3></div><div class="note important"><span class="importanttitle">중요사항:</span> <span class="keyword">Client Utility</span> 플러그인을 IDE에 설치한 경우 추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 위치에서 하나 이상의 파일 또는 명령을 실행하여 IDE 플러그인을 완전히 제거해야 합니다. 해당 파일은 다음과 같습니다.
+<ul class="ul"><li class="li"><strong class="ph b"><span class="keyword">Static Analyzer Client Utility</span> 버전 6.0.865 및 이전 버전:</strong><ul class="ul"><li class="li"><span class="ph filepath">walalib\dotnet.libs35\UnRegisterInGAC.bat</span></li>
+<li class="li"><span class="ph filepath">walalib\dotnet.libs40\UnRegisterInGAC.bat</span></li>
+</ul>
+</li>
+<li class="li"><strong class="ph b">버전 6.0.865 및 이전 버전을 포함한 모든 <span class="keyword">Static Analyzer Client Utility</span> 버전:</strong> 관리자로 명령 프롬프트를 열고
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span>을 추출한 위치로 디렉토리를 변경하십시오. <span class="ph filepath">bin\</span> 폴더로 디렉토리를 변경한 후
+이 명령을 실행하십시오. <pre class="pre codeblock"><code>regsvr32 /u msdia80.dll</code></pre>
+</li>
+</ul>
+
+<p class="p">해당 파일 및 명령을 실행하려면 모든 IDE 플러그인이 제거될 때까지 추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 컨텐츠를 삭제하지 마십시오.</p>
+
+<p class="p">IDE에서 플러그인을 제거하기 위한 아래의 지시사항을 따르기 전 또는 후에
+해당 파일 및 명령을 실행할 수 있습니다.</p>
+</div>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e1302">프로시저</h3></div><ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd"><strong class="ph b">Eclipse:</strong></span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">Eclipse의 기본 워크벤치 메뉴 표시줄에서 <span class="ph menucascade"><span class="ph uicontrol">도움말</span> &gt; <span class="ph uicontrol">새 소프트웨어 설치</span></span>를 선택하십시오. </span></li>
+<li class="li substep"><span class="ph cmd">설치 대화 상자 <span class="ph uicontrol">세부사항</span> 선택에서
+<span class="ph uicontrol">이미 설치되어 있는 항목</span> 링크를 클릭하십시오.</span></li>
+<li class="li substep"><span class="ph cmd">설치된 소프트웨어 목록에서 <span class="ph uicontrol"><span class="keyword">Static Analyzer</span></span>를 찾아서 선택한 후 <span class="ph uicontrol">설치 제거</span>를 선택하십시오.</span></li>
+<li class="li substep"><span class="ph cmd">설치 제거 대화 상자에서 <span class="ph uicontrol">완료</span>를 클릭하십시오.</span></li>
+<li class="li substep"><span class="ph cmd">프롬프트되면 Eclipse를 다시 시작하십시오. </span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><strong class="ph b">IntelliJ IDEA:</strong></span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">IntelliJ IDEA의 기본 메뉴 표시줄에서 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">설정</span></span>을 선택하십시오.</span></li>
+<li class="li substep"><span class="ph cmd">설치 대화 상자에서 <span class="ph uicontrol">플러그인</span>을 선택하십시오.</span></li>
+<li class="li substep"><span class="ph cmd">플러그인 목록에서 <span class="ph uicontrol"><span class="keyword">Static Analyzer</span> 플러그인</span>을 찾아서 선택하십시오.</span></li>
+<li class="li substep"><span class="ph cmd"><span class="ph uicontrol">설치 제거</span>를 클릭하십시오.</span></li>
+<li class="li substep"><span class="ph cmd"><span class="ph uicontrol">IntelliJ IDEA 다시 시작</span>을 클릭하십시오.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><strong class="ph b">Visual Studio:</strong></span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">Visual Studio의 기본 메뉴에서 <span class="ph menucascade"><span class="ph uicontrol">도구</span> &gt; <span class="ph uicontrol">확장기능 및 업데이트</span></span>를 선택하십시오.</span></li>
+<li class="li substep"><span class="ph cmd">설치된 확장기능 및 업데이트 목록에서 <span class="ph uicontrol"><span class="keyword">IBM Static Analyzer</span></span>를 찾아서 선택하십시오.</span></li>
+<li class="li substep"><span class="ph cmd"><span class="ph uicontrol">설치 제거</span>를 클릭한 후 <span class="keyword">IBM Static Analyzer</span> 설치 제거를 위한 프롬프트가 표시되면 <span class="ph uicontrol">예</span>를 클릭하십시오.</span></li>
+<li class="li substep"><span class="ph cmd"><span class="ph uicontrol">지금 다시 시작</span>을 선택하여 Visual Studio를 다시 시작하거나
+이후에 Visual Studio를 다시 시작하려는 경우 <span class="ph uicontrol">닫기</span>를 선택하십시오.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><strong class="ph b"><span class="keyword">Client Utility</span>:</strong> <span class="keyword">Client Utility</span>를 제거하려면 시스템에서 추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 컨텐츠만 삭제해야 합니다. <span class="keyword">Client Utility</span> <span class="ph filepath">\bin</span> 디렉토리의 위치를
+<samp class="ph codeph">PATH</samp> 환경 변수에 추가한 경우
+이를 제거하십시오.</span>  </li>
+</ul>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_sys_req"><h2 class="title topictitle2"><span class="ph" id="title">정적 분석의 시스템 요구사항</span></h2>
+<div class="body refbody"><p class="shortdesc"><span class="ph" id="shortdesc">이 주제에서는 정적 분석 수행 시 지원되는 운영 체제와 <span class="keyword">ASoC</span>에서 스캔할 수 있는 파일의 유형, 위치 및 프로젝트에 대해 설명합니다.</span></p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_sys_req__scan">언어 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__os">운영 체제 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__maven">Maven 프로젝트 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__eclipse">Eclipse 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__intellij">IntelliJ IDEA 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__vs">Microsoft Visual Studio 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__jenkins">Jenkins 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__app_server">애플리케이션 서버 지원</a></li>
+<li class="li"><a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a></li>
+</ul>
+</div>
+<div class="section" id="src_sys_req__scan"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__scan_title">언어 지원</span></h3>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="src_sys_req__table_ylp_rn5_jw" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">표 1. 정적 분석 언어 지원</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry thleft" valign="top" width="33.33333333333333%" id="d69e1518">언어</th>
+<th class="entry thleft" valign="top" width="33.33333333333333%" id="d69e1520">지원되는 <span class="keyword">Client Utility</span> CLI 파일 유형</th>
+<th class="entry thleft" valign="top" width="33.33333333333333%" id="d69e1525">해당 언어가 지원되는 운영 체제</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">Java and Java 웹 컨텐츠</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 "><ul class="ul"><li class="li"><span class="ph filepath">.class</span></li>
+<li class="li"><span class="ph filepath">.jar</span></li>
+<li class="li"><span class="ph filepath">.war</span></li>
+<li class="li"><span class="ph filepath">.ear</span></li>
+<li class="li">Eclipse 작업공간에 있는 Java 프로젝트</li>
+<li class="li">지원되는 애플리케이션 서버에 배치된 Java 웹 애플리케이션(지원되는 애플리케이션 서버에는
+Apache Tomcat 버전 7 이상 및 WebSphere® Application Server 버전 7, 8.0 및 8.5가 포함됨)</li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 "><a class="xref" href="readme.html#src_sys_req__os">지원되는 모든 운영 체제</a></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">.NET(C#, ASP.NET, VB.NET)</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 "><ul class="ul"><li class="li">Visual Studio 솔루션</li>
+<li class="li">.NET 어셈블리</li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 ">Windows</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">C/C++</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 ">Visual Studio 솔루션<div class="note note" id="src_sys_req__cpp_restriction"><span class="notetitle">참고:</span> <ul class="ul"><li class="li">관리 및 비관리 C++ 프로젝트가 지원됩니다. </li>
+<li class="li">32비트 Windows만을 대상으로 작성된 Visual Studio 솔루션은 지원되지 않습니다. Visual Studio 솔루션은 64비트 Windows 또는 32비트와 64비트 Windows 모두를 대상으로 해야 합니다.</li>
+</ul>
+</div>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 ">Windows</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">클라이언트 측 JavaScript</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 ">HTML 및 참조된 <span class="ph filepath">.js</span> 파일이 포함된 파일</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 "><a class="xref" href="readme.html#src_sys_req__os">지원되는 모든 운영 체제</a></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">Node.js</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 "><span class="ph filepath">package.json</span>이 포함된 유효한 노드 패키지 관리자(npm) 패키지</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 "><a class="xref" href="readme.html#src_sys_req__os">지원되는 모든 운영 체제</a></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">PHP</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 "><ul class="ul"><li class="li"><span class="ph filepath">.php</span></li>
+<li class="li"><span class="ph filepath">.php*</span></li>
+<li class="li"><span class="ph filepath">.phtm</span></li>
+<li class="li"><span class="ph filepath">.inc</span></li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 ">Windows 및 Linux</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d69e1518 ">Ruby</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1520 "><ul class="ul"><li class="li"><span class="ph filepath">.rb</span></li>
+<li class="li"><span class="ph filepath">.gem</span></li>
+</ul>
+</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d69e1525 "><a class="xref" href="readme.html#src_sys_req__os">지원되는 모든 운영 체제</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">정적 분석 명령행 인터페이스(CLI)에서 모든 지원 언어를 스캔할 수 있습니다. 또한 Eclipse 및 IntelliJ IDEA에서 Java 프로젝트를 스캔할 수 있으며, Visual Studio에서 .NET 및 C/C++를 스캔할 수 있습니다.</p>
+</div>
+<div class="section" id="src_sys_req__os"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__os_title">운영 체제 지원</span></h3>
+<p class="p" id="src_sys_req__os_p1"><span class="keyword">Static Analyzer Client Utility</span>는 Windows, macOS 및 Linux에서 지원됩니다.</p>
+
+<p class="p"><strong class="ph b">Windows:</strong>
+<span class="keyword">Client Utility</span>가
+64비트 시스템에서 지원되고 64비트 모드로 실행됩니다.</p>
+
+<p class="p"><strong class="ph b">macOS:</strong> 정적 분석 CLI, Eclipse 플러그인 및 Maven 플러그인은 macOS 버전 10.11 이상에서 지원됩니다. <span class="keyword">Client Utility</span>는 64비트 시스템에서 지원되고 64비트 모드로 실행됩니다.</p>
+
+<div class="p" id="src_sys_req__os_p3_linux"><strong class="ph b">Linux:</strong>
+<span class="keyword">Client Utility</span>가
+32비트 및 64비트 시스템에서 지원됩니다.<ul class="ul"><li class="li">64비트 Linux 시스템에서는
+<span class="keyword">Static Analyzer Client Utility</span>가
+32비트 모드로 실행됩니다.</li>
+<li class="li">64비트 Linux에서는
+<span class="keyword">Static Analyzer Client Utility</span>를
+설치하기 전에 다음 라이브러리를 설치해야 합니다. <ul class="ul"><li class="li"><samp class="ph codeph">glibc.i686</samp></li>
+<li class="li"><samp class="ph codeph">libgcc.i686</samp></li>
+<li class="li"><samp class="ph codeph">libstdc++.i686</samp></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="src_sys_req__maven"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__maven_title">Maven 프로젝트 지원</span></h3>
+<p class="p" id="src_sys_req__maven_p1"><span class="keyword">Static Analyzer Client Utility</span>를 다운로드한 후 Maven 프로젝트를 스캔할 수 있도록 Maven에 플러그인 설치를 선택할 수 있습니다. Maven 버전 3.x이 지원됩니다.</p>
+
+<p class="p" id="src_sys_req__maven_prereq">Maven 플러그인을
+설치하려면 Maven이 설치되어 있어야 하며 <samp class="ph codeph">mvn</samp> 명령이 사용자 시스템의 <samp class="ph codeph">PATH</samp> 환경 변수에 포함되어 있어야 합니다. </p>
+</div>
+<div class="section" id="src_sys_req__eclipse"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__eclipse_title">Eclipse 지원</span></h3>
+<p class="p" id="src_sys_req__eclipse_p1"><span class="keyword">Static Analyzer Client Utility</span>를 다운로드한 후 사용자 인터페이스에서 Java 프로젝트를 스캔할 수 있도록 Eclipse에 플러그인 설치를 선택할 수 있습니다. Eclipse 버전 4.2 이상이 지원됩니다. 여기에는 Eclipse 버전 4.2의 Eclipse 3.8 릴리스가 포함됩니다. </p>
+
+<p class="p">Eclipse 플러그인을 설치하려면 먼저 Eclipse가 사용자 시스템에 설치되어 있어야 합니다. </p>
+
+<p class="p" id="src_sys_req__eclipse_prereq">정적 분석 CLI를 사용하여 Eclipse 작업공간용 <span class="keyword">IRX</span> 파일을 생성하는 경우, <span class="keyword">Client Utility</span> 플러그인 설치 중에 Eclipse <span class="ph filepath">eclipse.exe</span>(Windows) 또는 <span class="ph filepath">eclipse</span>(Linux) 파일의 위치를 지정해야 합니다.</p>
+</div>
+<div class="section" id="src_sys_req__intellij"><h3 class="title sectiontitle"><span class="ph">IntelliJ IDEA 지원</span></h3>
+<p class="p"><span class="keyword">Static Analyzer Client Utility</span>를 다운로드한 후 사용자 인터페이스에서 Java 프로젝트를 스캔할 수 있도록 IntelliJ IDEA에 플러그인 설치를 선택할 수 있습니다. IntelliJ IDEA 버전 15.x Community
+및 IntelliJ IDEA 버전 15.x Ultimate가 지원됩니다. </p>
+
+<p class="p">IntelliJ IDEA 플러그인을 설치하려면 먼저 IntelliJ IDEA가 사용자 시스템에 설치되어 있어야 합니다. </p>
+
+<div class="note note"><span class="notetitle">참고:</span> 결과 및 보고서를 표시하려면 IntelliJ IDEA가 Oracle JDK와 함께 실행해야 합니다. Oracle JDK와 함께
+IntelliJ IDEA를 설정하는 방법을 학습하려면 <a class="xref" href="https://www.jetbrains.com/idea/documentation/" target="_blank" title="(새로운 탭이나 창으로 열기)">IntelliJ IDEA
+문서</a>를 참조하십시오.</div>
+
+<div class="note note"><span class="notetitle">참고:</span> IntelliJ IDEA 플러그인은 macOS에서 지원되지 않습니다.</div>
+</div>
+<div class="section" id="src_sys_req__vs"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__vs_title">Microsoft Visual Studio 지원</span></h3>
+<p class="p" id="src_sys_req__vs_p1"><span class="keyword">Static Analyzer Client Utility</span>를
+다운로드한 후에는 해당 사용자 인터페이스에서 .NET(C#, ASP.NET, VB.NET) 및 C++ 솔루션, 프로젝트 및 웹 사이트를 스캔할 수 있도록
+Visual Studio에 대해 플러그인 설치를 선택할 수 있습니다. Microsoft Visual Studio 2012, 2013 및 2015가 지원됩니다.
+CLI를 통해 스캔하는 경우, Visual Studio 2012, 2013, 2015 솔루션과 프로젝트 외에
+Visual Studio 2010 솔루션과 프로젝트를 스캔할 수 있습니다. </p>
+
+<p class="p" id="src_sys_req__vs_prereq">Visual Studio 플러그인을 설치하려면 시스템에 Visual Studio가 설치되어
+있어야 합니다. </p>
+
+<div class="note note"><span class="notetitle">참고:</span> <ul class="ul"><li class="li">관리 및 비관리 C++ 프로젝트가 지원됩니다. </li>
+<li class="li">32비트 Windows만을 대상으로 작성된 Visual Studio 솔루션은 지원되지 않습니다. Visual Studio 솔루션은 64비트 Windows 또는 32비트와 64비트 Windows 모두를 대상으로 해야 합니다.</li>
+</ul>
+</div>
+
+<div class="note note"><span class="notetitle">참고:</span> Visual Studio 플러그인은 macOS에서 지원되지 않습니다.</div>
+</div>
+<div class="section" id="src_sys_req__jenkins"><h3 class="title sectiontitle"><span class="ph">Jenkins 지원</span></h3>
+<p class="p"><span class="keyword">IBM Application Security on Cloud</span>
+Jenkins 플러그인으로 Jenkins 빌드 프로젝트에 정적 및 모바일 분석 빌드 단계를
+추가할 수 있습니다. 플러그인을 Jenkins 버전 1.609.1 이상에 설치할 수 있습니다. 플러그인에서 <span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">IBM Application Security on Cloud</span> 서비스에
+연결할 수 있습니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 현재 플러그인에서 <span class="keyword">Application Security on Cloud for Bluemix</span>로의 연결은 지원되지 않습니다.</div>
+</div>
+<div class="section" id="src_sys_req__app_server"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__app_server_title">애플리케이션 서버 지원</span></h3>
+<p class="p" id="src_sys_req__app_server_p1"><span class="keyword">Client Utility</span>에는
+기본 JavaServer Page 컴파일에 사용되는 Apache Tomcat 버전 7 애플리케이션 서버 <span class="ph filepath">.jar</span> 파일이 포함되어 있습니다. 호환성을 향상시키기
+위해 사용자 고유 애플리케이션 서버를 사용하도록 CLI를 구성할 수
+있습니다(지원되는 애플리케이션 서버는 Apache Tomcat 버전 7
+이상, WebSphere Application
+Server 버전 7, 8.0, 8.5.x 등이 있음). </p>
+</div>
+<div class="section" id="src_sys_req__version_check"><h3 class="title sectiontitle"><span class="ph" id="src_sys_req__version_check_title"><span class="keyword">Client Utility</span> 및 클라우드 서비스 버전 호환성</span></h3>
+<p class="p" id="src_sys_req__version_check_p1">다음과 같은 상황에서 <span class="keyword">Static Analyzer Client Utility</span> 버전이 자동으로 확인됩니다. </p>
+
+<ul class="ul" id="src_sys_req__version_check_ul1"><li class="li"><samp class="ph codeph">appscan
+prepare</samp> 명령(<span class="ph">Windows</span>) 또는 <samp class="ph codeph">appscan.sh prepare</samp> 명령(<span class="ph">Linux 및 macOS</span>)을 실행하십시오.</li>
+<li class="li">정적 분석 플러그인이 설치된 IDE(Integrated Development Environment)에서 <span class="ph uicontrol">정적 분석 실행</span> 조치를 사용하십시오.</li>
+<li class="li"><samp class="ph codeph">prepare</samp> 옵션을 사용하여 Maven 프로젝트에 대한
+<span class="keyword">IRX</span> 파일을 생성합니다.</li>
+<li class="li"><samp class="ph codeph">appscan queue_analysis</samp> 명령(<span class="ph">Windows</span>) 또는 <samp class="ph codeph">appscan.sh queue_analysis</samp> 명령(<span class="ph">Linux 및 macOS</span>)을 사용하여 <span class="keyword">IRX</span> 파일을 업로드하십시오.</li>
+<li class="li"><span class="keyword">IRX</span> 파일을
+클라우드에 업로드합니다.</li>
+</ul>
+
+<p class="p"><em class="ph i">prepare</em> 또는 <span class="ph uicontrol">정적 분석 실행</span> 조치를 수행할 때 <span class="keyword">Client Utility</span>의 새로운 버전이 사용 가능한지를 표시하는 메시지를 수신할 수 있습니다. 이런 경우, <span class="keyword">Client Utility</span> 업그레이드 없이 계속 진행할 수도 있고 또는 <span class="keyword">Client Utility</span>를 업그레이드 하여 <a class="xref" href="readme.html#src_whats_new" title="Application Security on Cloud 서비스에 최근 추가된 정적 분석 기능에 대해 알아봅니다.">새로운 기능</a>을 사용할 수도 있습니다.</p>
+
+<p class="p">더 이상 지원되지 않는 <span class="keyword">Client Utility</span> 버전에서위의 조치들을 수행하면, <span class="keyword">Client Utility</span>를 업데이트해야 한다는 메시지를 계속 수신하게 됩니다. 이런 경우, <a class="xref" href="readme.html#src_utility_install" title="정적 분석의 경우 소형 Client Utility를 다운로드합니다. 이 유틸리티를 로컬 디스크에 추출하는 경우 해당 명령행 인터페이스(CLI)를 사용하여 보안 분석을 수행할 수 있습니다. 또는 정적 분석 플러그인을 Maven 빌드 환경이나 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 추가하는 포함된 설치 프로그램을 실행할 수 있습니다.">최신 <span class="keyword">Client Utility</span></a>를 다운로드 및 설정하십시오.</p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_govt_compliance"><h2 class="title topictitle2"><span class="ph" id="title">미국 정부 규정 준수</span></h2>
+<div class="body refbody"><p class="shortdesc"><span class="ph" id="shortdesc">미국 정부 보안 및 정보 기술 규정을 준수하면
+영업상 장애물 및 방해물을 제거하는 데 도움이 됩니다. 또한 IBM이
+해당 제품을 업계에서 가장 확고하게 자리잡도록 하기 위해 노력 중인 전세계적 전망의 실험장도 제공합니다.
+<span class="keyword">Static Analyzer Client Utility</span>에서는 이 주제에 요약된 표준 및 가이드라인을 지원합니다. 유틸리티에 규제 준수를 구성하는
+방법에 대한 정보는 IBM 지원 센터 담당자에게 문의하십시오.</span></p>
+<div class="section" id="src_govt_compliance__fips"><h3 class="title sectiontitle"><span class="ph" id="src_govt_compliance__fips_title">FIPS(Federal Information Processing
+Standard)</span></h3><p class="p" id="src_govt_compliance__fips_p1">Maven 플러그인을 제외하면 <span class="keyword">Static Analyzer Client Utility</span>는 FIPS와 바로 호환됩니다. </p>
+
+<p class="p">Maven 플러그인 호환을 사용하려면 사용 중인 시스템 JRE(Java Runtime Environment)가 FIPS 호환인지 확인하십시오. </p>
+</div>
+</div>
+</div>
+<div class="topic nested1" xml:lang="ko-kr" id="src_irx_gen"><h2 class="title topictitle2">보안 취약점 스캔</h2>
+<div class="body"><p class="shortdesc">보안 취약점에 대해 소스 코드를 스캔하려면 이 주제의 단계에 따르십시오.</p>
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_cli" title="파일의 분석을 시작하려면 먼저 클라우드에 제출할 IRX 파일을 생성해야 합니다. CLI를 사용하려면 다음 지시시항에 따라 해당 파일을 작성하십시오.">명령행 인터페이스(CLI)를 사용하여 IRX 파일 생성</a><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">CLI로 IRX 파일 생성 구성</a></li>
+</ul>
+</li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_maven" title="파일의 분석을 시작하려면 먼저 클라우드에 제출할 IRX 파일을 생성해야 합니다. Maven 프로젝트를 스캔하려면 다음 지시사항에 따라 해당 파일을 작성하십시오.">Maven 프로젝트를 위한 IRX 파일 생성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">통합 개발 환경에서 스캔</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations" title="정적 분석을 사용하여 Java를 스캔하는 경우 @ValidatorMethod, @CallbackMethod 및 @SuppressSecurityTrace 메소드 레벨 어노테이션이 지원됩니다.">지원되는 Java 소스 코드 어노테이션</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations" title="정적 분석을 사용하여 .NET를 스캔하는 경우, [ValidatorMethod], [CallbackMethod] 및 [SuppressSecurityTrace] 메소드 레벨 속성이 지원됩니다. 이 속성이 사용되면 [ValidatorMethod()], [CallbackMethod()] 및 [SuppressSecurityTrace()]도 허용됩니다.">지원되는 .NET 소스 코드 속성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_php_config" title="PHP에 대한 IRX 파일 생성 이후, 그 다음에 파일을 스캔할 때 IRX 생성을 구성하도록 허용하는 구성 파일이 작성됩니다.">해결되지 않은 PHP include 표현식 및 알 수 없는 PHP 클래스 구성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a></li>
+</ul>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_irx_gen_cli"><h2 class="title topictitle2">명령행 인터페이스(CLI)를 사용하여
+<span class="keyword">IRX</span> 파일 생성</h2>
+<div class="body taskbody"><p class="shortdesc">파일의 분석을 시작하려면 먼저 클라우드에 제출할
+<span class="keyword">IRX</span> 파일을
+생성해야 합니다. CLI를 사용하려면 다음 지시시항에 따라 해당 파일을 작성하십시오.</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e2144">프로시저</h3></div><p class="li stepsection"><span class="keyword">IRX</span> 파일을 생성하려면 다음을 수행하십시오.</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__d4923e28">새 명령 프롬프트 창을 열었는지 확인하십시오.
+<span class="keyword">Client Utility</span>를
+설치하는 데 사용된 명령 프롬프트 창을 사용하지 마십시오.</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__step2">명령 프롬프트에서, 파일이 포함된 위치로 디렉토리를 변경하는 명령을 실행하십시오. 
+지원되는 파일 유형에 대해 파악하려면 <a class="xref" href="readme.html#src_sys_req__scan">언어 지원</a>을 참조하십시오. 
+Eclipse에서 Java 프로젝트를 스캔 중인 경우에는 Eclipse 작업공간으로 디렉토리를 변경하십시오. </span></span> <div class="note note"><span class="notetitle">참고:</span> <ul class="ul"><li class="li"><span class="ph" id="src_irx_gen_cli__step2_config_file">구성 파일을 사용하여
+<span class="keyword">IRX</span> 파일을
+생성할 경우 이 단계가 필요하지 않습니다.</span> <a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">CLI로 IRX 파일 생성 구성</a>을 참조하십시오. </li>
+<li class="li"><span class="ph" id="src_irx_gen_cli__step2_eclipse">CLI를 사용하여 Eclipse 작업공간에서 개별 프로젝트를
+스캔할 수 없습니다. 전체 작업공간만 스캔할 수 있습니다. 개별 프로젝트를 스캔하려는 경우
+Eclipse에서 <span class="keyword">IRX</span> 파일을
+생성해야 합니다.</span></li>
+<li class="li"><span class="ph" id="src_irx_gen_cli__step2_vs"><span class="ph filepath">.dll</span> 및 <span class="ph filepath">.exe</span> 파일이
+올바른 .NET 어셈블리여야 합니다.</span></li>
+</ul>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__step3"><samp class="ph codeph">appscan
+prepare</samp> <span class="ph">(<span class="ph" id="src_irx_gen_cli__d4940e9">Windows</span>)</span> 또는 <samp class="ph codeph">appscan.sh prepare</samp> <span class="ph">(<span class="ph" id="src_irx_gen_cli__d4949e9">Linux 및 macOS</span>)</span> 명령을 실행하십시오</span>. 이 명령은 <a class="xref" href="readme.html#src_cli_win_config" title="구성 명령을 사용하여 스캔을 위해 파일을 준비할 수 있습니다.">구성 명령(Windows)</a> 및 <a class="xref" href="readme.html#src_cli_linux_config" title="구성 명령을 사용하여 스캔을 위해 파일을 준비할 수 있습니다.">구성 명령(Linux 및 macOS)</a> 주제에 나열된 옵션과 함께 사용됩니다. 예를 들어, <samp class="ph codeph">-d</samp> 및 <samp class="ph codeph">-n</samp> 옵션을
+사용하여 <span class="keyword">IRX</span> 파일을
+저장할 특정 디렉토리를 지정하고 특정 파일 이름으로 파일을 저장할 수 있습니다.
+또한 구성 파일을 사용하여 명령을 실행하면 완전한
+<span class="keyword">IRX</span> 파일을
+생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다(<a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">CLI로 IRX 파일 생성 구성</a> 참조).</span> <div class="note tip"><span class="tiptitle">팁:</span> <span class="ph">기본적으로, 써드파티 Java 및 .NET 코드는
+<span class="keyword">IRX</span> 파일 생성 중에
+스캔되지 않습니다. <a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a>의 지시사항을 따라 써드파티 코드 제외 설정을 수정할 수 있습니다.
+써드파티 코드를 포함하려면 <samp class="ph codeph">prepare</samp> 명령을 실행할 때 <samp class="ph codeph">-t</samp> 또는
+<samp class="ph codeph">--thirdParty</samp> 옵션을 지정하십시오.</span>
+<p class="p">정상적으로 스캔에 포함되는 써드파티 코드의 개발자인 경우 설정을 사용하여 써드파티 코드를 포함시켜야 합니다.</p>
+</div>
+
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_cli__step4">명령이 실행된 후
+<span class="keyword">Client Utility</span>가
+명령이 실행된 디렉토리 및 모든 해당 서브디렉토리에서 지원되는 파일에 대한 정보를 수집합니다. <span class="keyword">IRX</span> 파일이
+디렉토리에 작성됩니다. 이 파일의 이름은 명령이 실행된 디렉토리를 기반으로 하며 날짜 및
+시간소인을 포함합니다(다른 파일 이름을 지정하기 위해 구성 옵션을 사용하지 않았다고 가정함).</span></span></li>
+<li class="li step stepexpand" id="src_irx_gen_cli__submit_irx"><span class="ph cmd">분석을 위해 클라우드에 <span class="keyword">IRX</span>
+파일을 제출하십시오. 이를 수행하려면 <samp class="ph codeph">appscan queue_analysis</samp> 명령(<span class="ph">(<span class="ph" id="src_irx_gen_cli__d5000e9">Windows</span>)</span>) 또는 <samp class="ph codeph">appscan.sh queue_analysis</samp> 명령(<span class="ph">(<span class="ph" id="src_irx_gen_cli__d5009e9">Linux 및 macOS</span>)</span>)을 실행하십시오. 이 명령은 <a class="xref" href="readme.html#src_cli_win_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다."><span class="ph"><span class="ph" id="src_irx_gen_cli__d5000e4">분석 명령</span> <span class="ph" id="src_irx_gen_cli__d5000e7">(<span class="ph" id="src_irx_gen_cli__d5000e9-d4898e193a1310">Windows</span>)</span></span></a> 또는 <a class="xref" href="readme.html#src_cli_linux_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다."><span class="ph"><span class="ph">분석 명령</span> <span class="ph" id="src_irx_gen_cli__d5009e7">(<span class="ph" id="src_irx_gen_cli__d5009e9-d4898e205a1310">Linux 및 macOS</span>)</span></span></a> 주제에 나열되어 있는 옵션과 함께 사용됩니다.</span></li>
+</ol>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_irx_gen_maven"><h2 class="title topictitle2">Maven 프로젝트를 위한 <span class="keyword">IRX</span> 파일 생성</h2>
+<div class="body taskbody"><p class="shortdesc">파일의 분석을 시작하려면 먼저 클라우드에 제출할
+<span class="keyword">IRX</span> 파일을
+생성해야 합니다. Maven 프로젝트를 스캔하려면 다음 지시사항에 따라 해당 파일을 작성하십시오.</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e2395">프로시저</h3></div><p class="li stepsection"><span class="keyword">IRX</span> 파일을 생성하려면 다음을 수행하십시오.</p><ol class="ol steps"><li class="li step stepexpand" id="src_irx_gen_maven__step1"><span class="ph cmd"><span class="ph" id="src_irx_gen_maven__step1_ph">새 명령 프롬프트 창을 열었는지 확인하십시오.
+<span class="keyword">Client Utility</span>를
+설치하는 데 사용된 명령 프롬프트 창을 사용하지 마십시오.</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_maven__step2">명령 프롬프트에서 명령을 실행하여 Maven 프로젝트가 포함된
+위치(<span class="ph filepath">pom.xml</span> 파일이 포함된 폴더)로 디렉토리를 변경하십시오.</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_maven__step3">다음 명령 중 하나를 실행하십시오. </span></span> <ul class="ul" id="src_irx_gen_maven__step3_ul"><li class="li">Maven 프로젝트를 아직 빌드하지 않은 경우 <samp class="ph codeph">mvn
+package com.ibm.appscan:appscan-maven-plugin:prepare</samp> 명령을 실행하십시오. 명령이 실행된 후
+<span class="keyword">IRX</span> 파일이
+Maven 프로젝트의 <span class="ph filepath">target</span> 디렉토리에 작성됩니다.<span class="ph" id="src_irx_gen_maven__maven_filename"> 이 파일의 이름은 다른 파일 이름을 지정하기 위한
+구성 옵션을 사용하지 않았다고 가정하여 최상위 레벨 Maven 프로젝트(<span class="ph filepath">pom.xml</span> 파일에
+있는 프로젝트 이름)에 따라 지정됩니다.</span></li>
+<li class="li">Maven 프로젝트를 이미 빌드한 경우 <samp class="ph codeph">mvn
+com.ibm.appscan:appscan-maven-plugin:prepare</samp> 명령을 실행하십시오. 명령이
+실행되면 <span class="keyword">IRX</span> 파일이
+Maven 프로젝트의 <span class="ph filepath">target</span> 디렉토리에
+작성됩니다.<span class="ph"> 이 파일의 이름은 다른 파일 이름을 지정하기 위한
+구성 옵션을 사용하지 않았다고 가정하여 최상위 레벨 Maven 프로젝트(<span class="ph filepath">pom.xml</span> 파일에
+있는 프로젝트 이름)에 따라 지정됩니다.</span> <div class="note note"><span class="notetitle">참고:</span> Maven 프로젝트가
+동일한 리액터 빌드에 있는 다른 프로젝트에 대한 컴파일 시간 종속성을 가지는 경우 기존 Maven
+버그(<a class="xref" href="https://issues.apache.org/jira/browse/MNG-3283" target="_blank" title="(새로운 탭이나 창으로 열기)">https://issues.apache.org/jira/browse/MNG-3283</a>)로 인해
+<samp class="ph codeph">mvn com.ibm.appscan:appscan-maven-plugin:prepare</samp> 명령이 실패합니다. 이 문제를 해결하려면 다음 단계 중 하나를 수행하십시오.<ul class="ul"><li class="li"><span class="keyword">Client Utility</span>
+<samp class="ph codeph">prepare</samp> 명령을 실행하기 전에 <samp class="ph codeph">mvn package</samp> 대신 <samp class="ph codeph">mvn install</samp> 명령을 실행하십시오.</li>
+<li class="li"><samp class="ph codeph">mvn package</samp> 명령과
+<span class="keyword">Client Utility</span> <samp class="ph codeph">prepare</samp> 명령을
+동시에 실행하십시오(<samp class="ph codeph">mvn package com.ibm.appscan:appscan-maven-plugin:prepare</samp> 실행).</li>
+</ul>
+</div>
+</li>
+<li class="li"><span class="keyword">IRX</span> 파일을
+다른 디렉토리에 작성하거나 다른 파일 이름을 지정하려는 경우 <samp class="ph codeph">-Doutput</samp> 옵션을 사용하여 명령을 실행하십시오.
+<p class="p">Windows에서는 다음 명령을 실행하십시오.</p>
+<pre class="pre codeblock"><code>mvn package com.ibm.appscan:appscan-maven-plugin:prepare -Doutput=&lt;output_location&gt;\&lt;filename&gt;<span class="keyword">.irx</span></code></pre>
+<p class="p">Linux 및 macOS에서는 다음 명령을 실행하십시오.</p>
+<pre class="pre codeblock"><code>mvn package com.ibm.appscan:appscan-maven-plugin:prepare -Doutput=&lt;output_location&gt;/&lt;filename&gt;<span class="keyword">.irx</span></code></pre>
+
+<p class="p">여기서,
+<samp class="ph codeph">&lt;output_location&gt;</samp>은 파일을 저장하려는 디렉토리이고 <samp class="ph codeph">filename</samp>은
+파일의 이름입니다. </p>
+</li>
+<li class="li"><span class="keyword">Client Utility</span>에는
+Tomcat JSP 컴파일러가 포함되어 있습니다. 이 JSP 컴파일러는 기본적으로
+<span class="keyword">IRX</span> 파일 생성
+중에 사용됩니다. WAR 또는 EAR 파일을 위한
+<span class="keyword">IRX</span> 파일을 생성 중이고
+다른 JSP 컴파일러가 사용되도록 하려면 <samp class="ph codeph">-DjspCompiler</samp> 옵션을 사용하여 명령을 실행하십시오.
+예: <pre class="pre codeblock"><code>mvn com.ibm.appscan:appscan-maven-plugin:prepare -DjspCompiler=&lt;jsp_compiler&gt;</code></pre>
+<p class="p">여기서,
+<samp class="ph codeph">&lt;jsp_compiler&gt;</samp>는 사용하려는 JSP 컴파일러의 경로입니다(서버의 루트 디렉토리를 지정하십시오). </p>
+</li>
+</ul>
+
+
+<div class="note tip"><span class="tiptitle">팁:</span> 기본적으로 써드파티 코드는
+<span class="keyword">IRX</span> 파일 생성 중에
+스캔되지 않습니다. <a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a>의 지시사항을 따라 써드파티 코드 제외 설정을 수정할 수 있습니다.
+써드파티 코드를 포함하려면 <samp class="ph codeph">-DthirdParty</samp> 옵션을 지정하여 명령을 실행하십시오.<p class="p">정상적으로 스캔에 포함되는 써드파티 코드의 개발자인 경우 설정을 사용하여 써드파티 코드를 포함시켜야 합니다.</p>
+</div>
+
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">분석을 위해 클라우드에 <span class="keyword">IRX</span>
+파일을 제출하십시오. 이를 수행하려면 <samp class="ph codeph">appscan queue_analysis</samp> 명령(<span class="ph">(<span class="ph" id="src_irx_gen_maven__d6161e169">Windows</span>)</span>) 또는 <samp class="ph codeph">appscan.sh queue_analysis</samp> 명령(<span class="ph">(<span class="ph" id="src_irx_gen_maven__d6161e179">Linux 및 macOS</span>)</span>)을 실행하십시오. 이 명령은 <a class="xref" href="readme.html#src_cli_win_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다."><span class="ph"><span class="ph" id="src_irx_gen_maven__d6161e188">분석 명령</span> <span class="ph" id="src_irx_gen_maven__d6161e191">(<span class="ph" id="src_irx_gen_maven__d6161e193">Windows</span>)</span></span></a> 또는 <a class="xref" href="readme.html#src_cli_linux_analysis" title="분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된 스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를 수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다."><span class="ph"><span class="ph">분석 명령</span> <span class="ph" id="src_irx_gen_maven__d6161e203">(<span class="ph" id="src_irx_gen_maven__d6161e205">Linux 및 macOS</span>)</span></span></a> 주제에 나열되어 있는 옵션과 함께 사용됩니다.</span></li>
+</ol>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_irx_gen_config"><h2 class="title topictitle2"><span class="ph" id="title">CLI로 <span class="keyword">IRX</span> 파일 생성 구성</span></h2>
+<div class="body refbody"><p class="shortdesc">구성 파일을 사용하여
+<span class="keyword">IRX</span> 파일을
+생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다.
+또한 구성 파일을 사용하여 완전한
+<span class="keyword">IRX</span> 파일을
+생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_config__usage">구성 파일 사용법</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config__template">구성 파일 템플리트 및 설정</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config__behavior">대상 포함 및 제외 동작</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_config__example">구성 파일 예</a></li>
+</ul>
+</div>
+<div class="section" id="src_irx_gen_config__usage"><h3 class="title sectiontitle">구성 파일 사용법</h3><p class="p">구성 파일은
+<span class="keyword">IRX</span> 파일 생성 시
+포함하거나 제외할 대상을 나타내는 데 사용할 수 있습니다. 또한 빌드된 아티팩트를 포함하는 디렉토리를 지정할 수 있으며 <span class="keyword">IRX</span> 파일 생성 중에 사용해야 하는 빌드 정보를 지정할 수 있습니다. 예를 들어, 이 설정을 사용하여 특정 JDK 또는 JSP 컴파일러를 지정할 수 있습니다. </p>
+<p class="p"><samp class="ph codeph">appscan
+prepare</samp> <span class="ph">(<span class="ph" id="src_irx_gen_config__d5176e9">Windows</span>)</span> 또는 <samp class="ph codeph">appscan.sh prepare</samp> <span class="ph">(<span class="ph" id="src_irx_gen_config__d5185e9">Linux 및 macOS</span>)</span> 명령을 실행하여 <span class="keyword">IRX</span> 파일을 생성할 때마다 <span class="keyword">Static Analyzer Client Utility</span>가 현재 디렉토리에서 <span class="ph filepath">appscan-config.xml</span> 파일을 자동으로 검사합니다. 발견되는 경우 파일이 자동으로 사용됩니다.</p>
+<p class="p">다른 디렉토리에 구성 파일이 있거나 다른 이름이 지정된 경우, <samp class="ph codeph">appscan
+prepare</samp> 또는 <samp class="ph codeph">appscan.sh prepare</samp> 명령을 실행할 때 <samp class="ph codeph">-c</samp> 옵션을 포함시켜서 파일을 사용할 수 있습니다. 이 경우 <span class="ph">(<span class="ph" id="src_irx_gen_config__d5176e9-d5143e96a1310">Windows</span>)</span>에서는 <samp class="ph codeph">appscan prepare -c &lt;configuration_file&gt;</samp>을 실행하고 <span class="ph">(<span class="ph" id="src_irx_gen_config__d5185e9-d5143e107a1310">Linux 및 macOS</span>)</span>에서는 <samp class="ph codeph">appscan.sh prepare -c &lt;configuration_file&gt;</samp>을 실행할 수 있습니다. 여기서 <samp class="ph codeph">&lt;configuration_file&gt;</samp>은 구성 파일의 전체 경로 및 파일 이름입니다.</p>
+</div>
+<div class="section" id="src_irx_gen_config__template"><h3 class="title sectiontitle">구성 파일 템플리트 및 설정</h3><p class="p">구성 파일을 준비할 때
+다음 템플리트를 사용하십시오.</p>
+<pre class="pre codeblock"><code>&lt;Configuration&gt;
+  &lt;Targets&gt;
+    &lt;Target outputs-only="true/false" path="scan_target_path"&gt;
+      &lt;CustomBuildInfo build_info="info"/&gt;
+      &lt;Include&gt;string_pattern&lt;/Include&gt;
+      &lt;Exclude&gt;string_pattern&lt;/Exclude&gt;
+    &lt;/Target&gt;
+  &lt;/Targets&gt;
+&lt;/Configuration&gt;</code></pre>
+<p class="p">여기서는 <samp class="ph codeph">Targets</samp> 요소를 사용하여
+<span class="keyword">IRX</span> 파일 생성 시에
+스캔할 대상을 표시할 수 있습니다. 대상(<samp class="ph codeph">Target</samp>) 속성 및 하위 요소는
+다음과 같이 사용됩니다. </p>
+<ul class="ul"><li class="li"><samp class="ph codeph">Target</samp> 요소 <samp class="ph codeph">outputs-only</samp> 속성은 디렉토리를 스캔하고
+<span class="keyword">Client Utility</span>에서
+빌드 출력 파일(예: <samp class="ph codeph">.jar</samp>, <span class="ph filepath">.war</span> 및 <span class="ph filepath">.class</span> 파일)을 강제로 찾도록 하려는
+경우에만 사용됩니다. 기본적으로 이 속성은 <samp class="ph codeph">false</samp>로 설정됩니다. 이는
+<span class="keyword">Client Utility</span>에서
+디렉토리를 검색하여 디렉토리가 대상인지(예: 애플리케이션 서버 또는 Eclipse 작업공간) 또는 디렉토리에 빌드 스크립트,
+Maven <span class="ph filepath">.pom</span> 파일 및 <samp class="ph codeph">make</samp> 파일 등의 항목이 포함되어 있는지 여부를 판별한다는 것을
+의미합니다. 스캔 대상을 단순 디렉토리로 처리하고 출력 파일만 찾도록 하려는 경우,
+<samp class="ph codeph">Target</samp> 요소에서 <samp class="ph codeph">outputs-only="true"</samp>를 지정하십시오. <p class="p">예를 들어,
+<samp class="ph codeph">&lt;Target outputs-only="false" path="C:\Tomcat"&gt;</samp>을 지정할 경우
+<span class="keyword">Client Utility</span>가
+대상이 Tomcat 애플리케이션 서버라고 가정하고 배치된 해당 <span class="ph filepath">.war</span> 파일을
+검색합니다. 그러나 <samp class="ph codeph">&lt;Target outputs-only="true"
+path="C:\Tomcat"&gt;</samp>을 지정할 경우
+<span class="keyword">Client Utility</span>가
+해당 위치를 디렉토리로 처리하며 내부의 모든 빌드 출력 파일을 찾습니다.</p>
+</li>
+<li class="li"><samp class="ph codeph">Target</samp> 요소 <samp class="ph codeph">path</samp> 속성을 사용하여 스캔 대상의 디렉토리 또는
+스캔 대상의 경로(<samp class="ph codeph">&lt;scan_target_path&gt;</samp>)를 지정합니다. 디렉토리가 지정되면
+모든 해당 하위 디렉토리가 스캔 동안 포함됩니다.<p class="p">예를 들어,
+<samp class="ph codeph">&lt;Target outputs-only="false" path="C:\WebSphere\AppServer85\profiles\AppSrv01"&gt;</samp>을 지정하는 경우
+<span class="keyword">Client Utility</span>가
+<samp class="ph codeph">AppSrv01</samp> 프로파일에서 배치된 모든 <span class="ph filepath">.ear</span> 파일을 찾습니다. <samp class="ph codeph">&lt;Target outputs-only="false"
+path="C:\WebSphere\AppServer85"&gt;</samp>를 지정하는 경우
+<span class="keyword">Client Utility</span>가
+모든 프로파일에서 배치된 모든 <span class="ph filepath">.ear</span> 파일을 찾습니다.</p>
+</li>
+<li class="li">다음과 같은 선택적
+<samp class="ph codeph">Target</samp> 하위 요소를 지정할 수도 있습니다.<ul class="ul"><li class="li"><samp class="ph codeph">CustomBuildInfo</samp> 요소를 사용하여 속성을 설정할 수 있습니다. 템플리트의 다음 파트를 사용하십시오. <pre class="pre codeblock"><code>&lt;CustomBuildInfo build_info="info"/&gt;</code></pre>
+
+그러면 대상 언어에 따라 빌드 정보를 지정할 수 있습니다. 일부 언어의 경우에는 둘 이상의 속성을 설정할 수 있습니다.
+예를 들어, 대상 언어에 따라 <samp class="ph codeph"> &lt;CustomBuildInfo build_info_1="info_1" build_info_2="info_2"
+build_info_3="info_3"/&gt;</samp>을 설정할 수 있습니다. <ul class="ul"><li class="li">Java의 경우에는 다음 속성을 설정할 수 있습니다. <pre class="pre codeblock"><code>&lt;CustomBuildInfo additional_classpath="dependency_path"
+  jdk_path="JDK_path" jsp_compiler="JSP_compiler_path"/&gt;</code></pre>
+<ul class="ul"><li class="li"><samp class="ph codeph">additional_classpath</samp> 속성을 사용하여 추가 클래스 경로를 지정합니다. Windows에서는 여러 클래스 경로를 세미콜론으로
+구분하십시오. Linux 및 macOS에서는 여러 클래스 경로를 콜론으로 구분하십시오.</li>
+<li class="li"><samp class="ph codeph">jdk_path</samp> 속성을 사용하여 JDK 설치의 경로를 지정합니다. </li>
+<li class="li"><samp class="ph codeph">jsp_compiler</samp> 속성을 사용하여 JSP 컴파일러의 경로(예: <samp class="ph codeph">jsp_compiler="C:\Tomcat"</samp>)를
+지정합니다. </li>
+</ul>
+</li>
+<li class="li">.NET(Windows에만 해당)의 경우에는 다음 속성을 설정할 수 있습니다. <pre class="pre codeblock"><code>&lt;CustomBuildInfo reference="assembly_reference"
+  configuration="build_configuration"/&gt;</code></pre>
+<ul class="ul"><li class="li"><samp class="ph codeph">reference</samp> 속성을 사용하여 어셈블리 참조를 추가합니다. 참조가 여럿이면 세미콜론으로 구분하십시오. </li>
+<li class="li"><samp class="ph codeph">configuration</samp> 속성을 사용하여 Visual Studio 솔루션 검색을 위한 빌드 구성을 포함합니다. </li>
+</ul>
+</li>
+<li class="li">C/C++(Windows에만 해당)의 경우에는 다음 속성을 설정할 수 있습니다. <pre class="pre codeblock"><code>&lt;CustomBuildInfo configuration="build_configuration"
+  include_paths="include_directories" macros="macros" compiler_opts=/&gt;</code></pre>
+<ul class="ul"><li class="li"><samp class="ph codeph">configuration</samp> 속성을 사용하여 빌드 구성을 포함합니다. </li>
+<li class="li"><samp class="ph codeph">include_paths</samp> 속성을 사용하여 포함 경로를 지정합니다. 포함 경로가 여럿이면 세미콜론으로 구분하십시오. </li>
+<li class="li"><samp class="ph codeph">macros</samp> 속성을 사용하여 매크로를 포함합니다. 매크로가 여럿이면 세미콜론으로 구분하십시오. </li>
+<li class="li"><samp class="ph codeph">compiler_opts</samp> 속성을 사용하여 컴파일러 옵션을 지정합니다. 옵션이 여럿이면 세미콜론으로 구분하십시오. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="note note"><span class="notetitle">참고:</span> 하위 대상은 이러한 속성으로 설정된 값을 상속합니다. 예를 들어, 대상이 <span class="ph filepath">WAR</span> 및 <span class="ph filepath">JAR</span> 하위 대상을 포함하는
+<span class="ph filepath">EAR</span> 파일인 경우, <span class="ph filepath">WAR</span> 및 <span class="ph filepath">JAR</span>이
+이러한 속성을 사용하여 <span class="ph filepath">EAR</span> 파일에 설정된 동일한 값을 가지고 있다고 가정합니다.</div>
+</li>
+<li class="li"><span class="keyword">IRX</span> 파일을
+생성할 경우 포함할 파일 패턴(<samp class="ph codeph">&lt;string_pattern&gt;</samp>)을 지정하려면 <samp class="ph codeph">Include</samp>
+하위 요소를 사용하십시오. <cite class="cite">대상 포함 및 제외 동작</cite> 섹션에 설명된 대로
+<samp class="ph codeph">Include</samp> 동작은 대상 유형에 따라 달라집니다. 여러 <samp class="ph codeph">include</samp> 패턴을 지정하려면 각 패턴을 고유의
+<samp class="ph codeph">&lt;Include&gt;&lt;/Include&gt;</samp> 태그에 추가하십시오.
+예를 들면 다음과 같습니다. <pre class="pre codeblock"><code>&lt;Include&gt;string_pattern_1&lt;/Include&gt;
+&lt;Include&gt;string_pattern_2&lt;/Include&gt;</code></pre>
+<div class="note note" id="src_irx_gen_config__inc_exc_note"><span class="notetitle">참고:</span> 지정한 <samp class="ph codeph">include</samp> 및 <samp class="ph codeph">exclude</samp> 패턴이
+충돌되는 경우 <samp class="ph codeph">exclude</samp> 패턴이 우선적으로 적용됩니다.</div>
+</li>
+<li class="li"><span class="keyword">IRX</span> 파일을
+생성할 경우 제외할 파일 패턴을 지정하려면 <samp class="ph codeph">Exclude</samp> 하위 요소를 사용하십시오. <cite class="cite">대상 포함 및 제외 동작</cite> 섹션에 설명된 대로
+<samp class="ph codeph">Exclude</samp> 동작은 대상 유형에 따라 달라집니다. 여러 <samp class="ph codeph">exclude</samp> 패턴을 지정하려면 각 패턴을 고유의
+<samp class="ph codeph">&lt;Exclude&gt;&lt;/Exclude&gt;</samp> 태그에 추가하십시오.<div class="note note"><span class="notetitle">참고:</span> 지정한 <samp class="ph codeph">include</samp> 및 <samp class="ph codeph">exclude</samp> 패턴이
+충돌되는 경우 <samp class="ph codeph">exclude</samp> 패턴이 우선적으로 적용됩니다.</div>
+</li>
+</ul>
+</div>
+<div class="section" id="src_irx_gen_config__behavior"><h3 class="title sectiontitle">대상 포함 및 제외 동작</h3><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="다음 표에는 포함 및 제외 설정의 동작이 대상 유형별로 설명되어 있습니다." class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">표 2. 대상 포함 및 제외 동작</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry thleft thbot" valign="bottom" id="d69e3047">대상 유형</th>
+<th class="entry thleft thbot" valign="bottom" id="d69e3049">동작</th>
+<th class="entry thleft thbot" valign="bottom" id="d69e3051">예</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d69e3047 "><span class="ph filepath">.jar</span>, <span class="ph filepath">.dll</span></td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 <span class="ph filepath">.jar</span> 또는 <span class="ph filepath">.dll</span> 파일이면
+대상의 포함 또는 제외가 스캔에 영향을 주지 않습니다. 이러한 파일에 대상이 포함될 수 없기 때문입니다. </td>
+<td class="entry" valign="top" headers="d69e3051 "> </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3047 "><span class="ph filepath">.war</span></td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 <span class="ph filepath">.war</span> 파일인 경우,
+<span class="ph filepath">WEB-INF/lib</span>의 <span class="ph filepath">.jar</span> 파일을 포함 또는 제외시킬 수 있습니다. <div class="note note"><span class="notetitle">참고:</span> 기본적으로
+<span class="ph filepath">.jar</span> 파일은 써드파티 코드로 처리되고 <span class="ph filepath">.war</span> 파일의
+클래스 경로에 추가됩니다(또한 기본적으로 제외됨). </div>
+</td>
+<td class="entry" valign="top" headers="d69e3051 "><span class="ph filepath">com.ibm.*.jar</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3047 "><span class="ph filepath">.ear</span></td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 <span class="ph filepath">.ear</span> 파일인 경우,
+<span class="ph filepath">.jar</span> 및 <span class="ph filepath">.war</span> 파일을 포함 또는 제외시킬 수 있습니다. </td>
+<td class="entry" valign="top" headers="d69e3051 "><ul class="ul"><li class="li"><span class="ph filepath">com.ibm.*.jar</span></li>
+<li class="li"><span class="ph filepath">JSPWiki.war</span></li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3047 ">디렉토리</td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 디렉토리인 경우, 모든 대상 또는 대상 유형의 파일 이름이나 경로를
+포함 또는 제외시킬 수 있습니다. </td>
+<td class="entry" valign="top" headers="d69e3051 "><ul class="ul"><li class="li"><span class="ph filepath">com.ibm.*.jar</span></li>
+<li class="li"><span class="ph filepath">test/</span>: <span class="ph filepath">test/</span> 디렉토리와 해당 하위 디렉토리의
+모든 항목을 포함 또는 제외시킵니다. </li>
+<li class="li"><span class="ph filepath">test/*.jar</span>: <span class="ph filepath">test/</span> 디렉토리의 모든
+<span class="ph filepath">.jar</span> 파일을 포함 또는 제외시키지만 하위 디렉토리는 해당되지 않습니다. </li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3047 ">웹 서버(지원되는 웹 서버에 대해 알아보려면 <cite class="cite">시스템
+요구사항</cite> 참조)</td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 웹 서버인 경우, 서버에 배치된 모든 애플리케이션의 파일 이름을
+포함 또는 제외시킬 수 있습니다. </td>
+<td class="entry" valign="top" headers="d69e3051 "><ul class="ul"><li class="li"><span class="ph filepath">JSPWiki.war</span></li>
+<li class="li"><span class="ph filepath">MyApp.ear</span></li>
+<li class="li"><span class="ph filepath">*.war</span>(대상이 Tomcat 서버인 경우)</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3047 "><span class="ph filepath">.sln</span>(.NET)</td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 .NET 프로젝트가 포함된 Visual Studio 솔루션 파일이면
+솔루션의 프로젝트에서 작성한 .NET 어셈블리의 파일 이름을 포함 또는 제외시킬 수 있습니다. </td>
+<td class="entry" valign="top" headers="d69e3051 "><ul class="ul"><li class="li"><span class="ph filepath">*\MyLib.dll</span></li>
+<li class="li"><span class="ph filepath">*\MyApp.exe</span></li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d69e3047 "><span class="ph filepath">.sln</span>(C/C++)</td>
+<td class="entry" valign="top" headers="d69e3049 ">대상이 비관리 C/C++ 프로젝트가 포함된 Visual Studio 솔루션 파일이면 프로젝트의 파일 이름을 포함 또는 제외시킬 수 있습니다. </td>
+<td class="entry" valign="top" headers="d69e3051 "><ul class="ul"><li class="li"><span class="ph filepath">*\myProject.vcxproj</span></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="src_irx_gen_config__example"><h3 class="title sectiontitle">구성 파일 예</h3><pre class="pre codeblock"><code>&lt;Configuration&gt;
+  &lt;Targets&gt;
+    &lt;Target path="C:\test\MyApplication.ear"&gt;
+      &lt;CustomBuildInfo additional_classpath="C:\java\lib;C:\java2\lib"
+        jdk_path="C:\Program Files\Java\jdk1.7" jsp_compiler="C:\Tomcat"/&gt;
+      &lt;Include&gt;ShoppingCart.war&lt;/Include&gt;
+      &lt;Include&gt;*Account.jar&lt;/Include&gt;
+      &lt;Exclude&gt;thirdPartyJars/&lt;/Exclude&gt;
+      &lt;Exclude&gt;*test*&lt;/Exclude&gt;
+    &lt;/Target&gt;
+  &lt;/Targets&gt;
+&lt;/Configuration&gt;</code></pre>
+<div class="p">이 구성 파일에는 다음이 적용됩니다. <ul class="ul"><li class="li"><span class="ph filepath">C:\test\MyApplication.ear</span>이 대상입니다.</li>
+<li class="li"><span class="ph filepath">C:\java\lib</span> 및 <span class="ph filepath">C:\java2\lib</span>에서 컴파일에 필요한 모든 클래스 파일 종속 항목이 검색됩니다.</li>
+<li class="li"><span class="ph filepath">C:\Program Files\Java\jdk1.7</span>은 종속 항목을 찾는 데 사용됩니다.</li>
+<li class="li"><span class="ph filepath">C:\Tomcat</span> 컴파일러는
+<span class="keyword">Static Analyzer Client Utility</span>에
+포함된 Apache Tomcat 버전 7 애플리케이션 대신 JSP 컴파일에 사용됩니다. </li>
+<li class="li"><span class="keyword">IRX</span> 파일이
+생성되면 <span class="ph filepath">*Account.jar</span>의 끝에 있는 모든 파일과 같이 <span class="ph filepath">ShoppingCart.war</span>
+파일이 포함됩니다. <span class="ph filepath">EAR</span> 파일의 <span class="ph filepath">thirdPartyJars/</span>에 있는
+모든 항목은 파일 이름에 <span class="ph filepath">test</span> 문자열이 있는 모든 파일처럼 제외됩니다. 충돌이 있는 경우, <samp class="ph codeph">exclude</samp> 패턴이 우선순위를
+가집니다. 예를 들어, <span class="ph filepath">EAR</span> 파일에 <span class="ph filepath">testCustomerAccount.jar</span> 파일이 포함된 경우,
+<span class="ph filepath">test</span>
+<samp class="ph codeph">exclude</samp> 패턴이 <span class="ph filepath">*Account.jar</span>
+<samp class="ph codeph">include</samp> 패턴보다
+우선권을 가지므로 이 파일은 제외됩니다.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_irx_gen_ide"><h2 class="title topictitle2">통합 개발 환경에서 스캔</h2>
+<div class="body taskbody"><p class="shortdesc">다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. 
+Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다.
+그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다. </p>
+<div class="section prereq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e3279">시작하기 전에</h3></div>기본적으로, Java and .NET을 스캔할 때는 써드파티 코드가 포함되지 않습니다. <a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a>의 지시사항을 따라 써드파티 코드 제외 설정을 수정할 수 있습니다. <ul class="ul"><li class="li">Eclipse, IntelliJ IDEA 또는 Visual Studio에서 스캔 중일 때 써드파티 코드를 포함하려면 다음 방법 중 하나를 사용하십시오. <ul class="ul"><li class="li">ID를 시작하기 전에 이 글로벌 또는 시스템 환경 변수를 설정하십시오.
+<pre class="pre codeblock"><code>APPSCAN_OPTS=-DthirdParty</code></pre>
+</li>
+<li class="li">IDE를 사용할 때마다 IDE 시작 전에 다음 명령을 실행할 수 있습니다. <pre class="pre codeblock"><code>set APPSCAN_OPTS=-DthirdParty</code></pre>
+</li>
+</ul>
+</li>
+<li class="li">또는 Eclipse에서 스캔할 때는 <samp class="ph codeph">-vmargs</samp> 섹션에 <samp class="ph codeph">-DthirdParty</samp>가 포함되도록
+Eclipse를 시작하기 전에 <span class="ph filepath">eclipse.ini</span> 파일을 수정할 수 있습니다. </li>
+<li class="li">또는 IntelliJ IDEA에서 스캔할 때는 IntelliJ IDEA 설치의 <span class="ph filepath">bin</span> 디렉토리에서
+IntelliJ IDEA를 시작하기 전에 <span class="ph filepath">idea.exe.vmoptions</span> 파일을 수정할 수 있습니다. 파일에
+<samp class="ph codeph">-DthirdParty</samp>를 추가하고 이를 저장하십시오. </li>
+</ul>
+<p class="p" id="src_irx_gen_ide__third_party_par">정상적으로 스캔에 포함되는 써드파티 코드의 개발자인 경우 설정을 사용하여 써드파티 코드를 포함시켜야 합니다.</p>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e3326">프로시저</h3></div><p class="li stepsection">보안 코드를 스캔하고 평가서나 보고서를 열려면 다음을 수행하십시오. </p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_ide__step1">플러그인이 IDE에 설치되었는지 확인하십시오. 설치 중에 IDE가 열려 있었다면 이를 다시 시작하십시오.</span></span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_ide__step2">스캔할 항목을 선택하십시오. </span></span> <ul class="ul"><li class="li">Eclipse에서 스캔할 프로젝트를 선택하십시오(복수 선택 가능). 전체 Eclipse 작업공간을 스캔하려면 모든 프로젝트를 선택하십시오.</li>
+<li class="li">IntelliJ IDEA에서 스캔할 프로젝트 모듈을 선택하십시오. </li>
+<li class="li">Visual Studio에서 스캔할 솔루션, 프로젝트 또는 웹 사이트를 선택하십시오. </li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph" id="src_irx_gen_ide__step3">선택사항을 마우스 오른쪽 단추로 클릭하고 <span class="ph menucascade"><span class="ph uicontrol">보안 분석</span> &gt; <span class="ph uicontrol" id="src_irx_gen_ide__ide_action">정적 분석 실행</span></span>을 선택하십시오.</span> </span> <div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+</li>
+<li class="li step stepexpand" id="src_irx_gen_ide__login"><span class="ph cmd">스캔이 준비된 후 아직 서비스에 로그인하지 않은 경우 로그인 대화 상자가 열립니다. 열리는 로그인 대화 상자는 <span class="ph filepath">install-plugins.bat</span>(Windows) 또는 <span class="ph filepath">install-plugins.sh</span>(Linux 및 macOS) 설치 프로그램을 실행하기 전에 구축된 연결 설정에 의해 결정됩니다. 대화 상자에서 서비스 신임 정보를 입력하십시오.</span> <ul class="ul choices"><li class="li choice"><strong class="ph b">Cloud Marketplace에 연결된 경우</strong>: <span class="keyword">Application Security on Cloud</span> 서비스에서
+API 키 생성 시 <span class="ph uicontrol">키 ID</span> 및 <span class="ph uicontrol">키 시크릿</span>을 수신합니다. <span class="ph uicontrol">ID</span>
+및 <span class="ph uicontrol">시크릿</span> 필드에 해당 값을 입력하십시오. API 키가
+아직 생성되지 않은 경우 작성 관련 대화 상자의 링크를 따르십시오.</li>
+<li class="li choice"><strong class="ph b">Bluemix에 연결된 경우</strong>: 서비스 신임 정보에 표시된 <span class="ph uicontrol">바인딩 ID</span>와
+<span class="ph uicontrol">비밀번호</span>를 입력하십시오. <p class="p"><span class="keyword">Bluemix</span> 서비스 신임 정보를 판별하려면
+서비스 대시보드의 왼쪽 탐색 분할창에서 <span class="ph uicontrol">서비스 신임 정보</span>를 선택하십시오.
+<a class="xref" href="https://console.ng.bluemix.net/docs/services/reqnsi.html#accser_external">외부 앱이 Bluemix
+서비스를 사용하도록 설정</a>을 참조하십시오.</p>
+</li>
+</ul>
+서비스에 로그인하면 암호화된 키 파일이 작성됩니다. 그리고 이 토큰 파일은
+<span class="keyword">ASoC</span> 서비스와 상호작용할 때
+기타 조치에 의해 참조됩니다. <p class="p">Bluemix에 로그인한
+경우 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 이 경우
+이 파일이 만료된 이후에 추가 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <span class="ph uicontrol">신임 정보 저장</span> 선택란을 선택할 수 있습니다. 이 선택란을 선택하는 경우, <span class="keyword">Client Utility</span>에서는 토큰이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다.</p>
+</li>
+<li class="li step stepexpand" id="src_irx_gen_ide__associate_app"><span class="ph cmd"><strong class="ph b"><span class="keyword">IBM Cloud Marketplace</span> 전용:</strong> <span class="keyword">IBM Cloud Marketplace</span>에서 <span class="keyword">Application Security on Cloud</span> 서비스에 연결하는 경우 IDE의 정적 분석 스캔이 기존 <span class="keyword">Application Security on Cloud</span> 애플리케이션과 연관되어야 합니다. 스캔이 실행된 후에
+연관시킬 애플리케이션을 선택하도록 대화 상자에 프롬프트가 표시됩니다.</span> <p class="p">스캔을 연관시킬 애플리케이션을 선택한 후에
+연관 정보가 다음과 같이 저장됩니다.</p>
+
+
+<ul class="ul"><li class="li">Eclipse에서 애플리케이션이 전체 작업공간과 연관됩니다. 연관에 대한 정보는
+<span class="ph filepath">&lt;workspace&gt;/.metadata/.plugins/com.ibm.appscan.eclipse.plugin/.scans/.app</span>에
+저장됩니다. 여기서 <span class="ph filepath">&lt;workspace&gt;</span>는
+Eclipse 작업공간의 위치입니다.</li>
+<li class="li">IntelliJ IDEA에서 애플리케이션은 개별 프로젝트 모듈과 연관됩니다. 연관에 대한 정보는
+<span class="ph filepath">&lt;project&gt;/.scans/.app</span>에 저장됩니다. 여기서
+<span class="ph filepath">&lt;project&gt;</span>는 프로젝트 모듈의 위치입니다.</li>
+<li class="li">Visual Studio에서 애플리케이션은 솔루션과 연관됩니다. 
+연관에 대한 정보는 <span class="ph filepath">&lt;solution&gt;/.scans/.app</span>에 저장됩니다.
+여기서 <span class="ph filepath">&lt;solution&gt;</span>은 <span class="ph filepath">.sln</span> 파일이 포함된 디렉토리입니다. </li>
+</ul>
+
+
+<p class="p"><span class="ph filepath">.app</span> 파일이 해당 위치에서 제거되면 다음에 스캔할 때
+연관된 애플리케이션을 선택하도록 프롬프트가 표시됩니다. 애플리케이션 연관을 선택하고
+다른 애플리케이션으로 변경하려는 경우 <span class="ph filepath">.app</span> 파일을 삭제한 후
+다시 스캔하십시오.</p>
+
+
+<div class="note note"><span class="notetitle">참고:</span> <span class="keyword">IBM
+Bluemix</span>에서 <span class="keyword">Application Security on Cloud</span> 서비스에 연결하는 경우 애플리케이션 연관이 적용되지 않습니다.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">스캔이 제출된 후 정적 분석 스캔 보기가 열립니다.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">스캔이 완료되면 <span class="ph uicontrol">결과</span> 또는 <span class="ph uicontrol">보고서</span>를 열 수 있는 링크가 포함된 알림이 열립니다. 그리고 스캔을 포함하도록 정적 분석 스캔 보기가 업데이트됩니다. 보기에는 스캔 이름, 상태, 시작 시간 및 종료 시간, 발견된 취약점 수와 심각도가 나열됩니다.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">결과</span>: 알림의 링크를 선택하여 결과를 열거나 보기의 <span class="ph uicontrol">결과</span> 열에서 아이콘을 두 번 클릭합니다(Visual Studio에서는
+시스템 트레이를 사용하여 결과를 열 수도 있습니다). 그러면 수정 그룹에서 찾은 결과를 나열하는 대화식 평가서가 열립니다. <span class="ph">수정 그룹은
+그룹화된 찾은 결과가 플로우되는 가장 공통적인 노드를 나타냅니다.
+일반적으로 수정 그룹에 대한 수정이 구현되는 경우 작업 대비 효과가 가장 높습니다.
+또한 수정 그룹은 관련된 찾은 결과를 동시에 검토할 수 있다는 점에서 논리 그룹화 관점으로 고려될 수 있습니다.
+수정 그룹이 수정이 반드시 있어야 하는 위치가 아닐 수도 있음을 주의하십시오.
+수정의 수정 그룹 위치를 사용하여
+이후의 리팩토링, 코드 예시 및 기타 요인이 미리 포함될 수 있습니다.</span></span> <p class="p">평가서에서: </p>
+
+
+<ul class="ul"><li class="li">각 수정 그룹은 권장되는 수정 위치, 수정 위치의 소스가 열리는 링크, 취약성, 소스 코드가 정정되면 수정되는 취약성 발생 수를 표시합니다.</li>
+<li class="li">취약성을 선택하는 경우 해당 설명이 열립니다(일반적으로 예제와 권장사항이 포함됨).</li>
+<li class="li"><span class="ph uicontrol">세부사항</span> 단추를 선택하면 소스 코드가 정정된 경우 수정되는 모든 찾은 결과에 대해 수정 그룹이 열립니다.
+세부사항 보기에서 소스 위치를 선택하면 소스 편집기에서 열립니다.
+추적 아이콘을 선택하면 애플리케이션을 통한 데이터 플로우가 표시되는 추적 페이지가 열립니다.</li>
+</ul>
+
+
+<div class="note important"><span class="importanttitle">중요사항:</span> 대화식 평가서(결과)는 IntelliJ IDEA나 특정 구독 레벨에서는 사용할 수 없습니다.</div>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">보고서</span>: 알림의 링크를 선택하여 보고서를 열거나 보기의 <span class="ph uicontrol">보고서</span> 열에서 아이콘을 두 번 클릭합니다(Visual Studio에서는
+시스템 트레이를 사용하여 보고서를 열 수도 있습니다). 그러면 찾은 결과의 보고서가 열립니다. 또한 이 보고서는 연결하는 Cloud 서비스에도 있습니다. </span></li>
+</ol>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e3553">결과</h3></div><div class="note important"><span class="importanttitle">중요사항:</span> 재스캐닝은 통합 개발 환경에서 지원되지 않습니다.</div>
+</div>
+</div>
+</div>
+<div class="topic tsTroubleshooting nested1" xml:lang="ko-kr" id="src_troubleshoot_irx_gen"><h2 class="title topictitle2"><span class="ph" id="title">정적 분석 <span class="keyword">IRX</span> 파일 생성 시 오류 또는 경고가 발생함</span></h2>
+<div class="body tsBody"><h2 id="tstitled69e3579" class="sectiontitle">증상</h2>
+<div class="section tsSymptoms"><span class="ph" id="src_troubleshoot_irx_gen__symptoms"><span class="keyword">IRX</span> 파일을
+생성할 때 오류 또는 경고를 수신하거나 <span class="keyword">IRX</span> 파일
+생성에 실패할 수 있습니다. <span class="keyword">IRX</span> 파일
+생성에 실패하면 결과 파일의 이름에 <span class="ph filepath">_failed</span>가 추가됩니다(예:
+<span class="ph filepath">my_<span class="keyword">irx</span>_file_failed<span class="keyword">.irx</span></span>). 이와 같은 상황이 발생하는 경우
+<span class="keyword">IRX</span> 파일 생성
+문제점 해결을 위한 다양한 옵션이 있습니다.</span></div>
+<h2 id="tstitled69e3604" class="sectiontitle">문제점 해결</h2>
+<div class="section tsResolve"><ul class="ul"><li class="li"><strong class="ph b" id="src_troubleshoot_irx_gen__resolve_li1_heading">구성 파일을 사용하여
+<span class="keyword">IRX</span> 파일
+생성 문제점 해결</strong><p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p1">구성 파일을 사용하지 않고 <span class="keyword">IRX</span> 파일을 생성했지만
+파일 생성이 완료되지 않은 경우(또는 오류와 함께 완료된 경우)
+<span class="keyword">Static Analyzer Client Utility</span>는 후속 스캔을 위해 임시 구성 파일을 생성합니다. 이 파일은 구성 파일 템플리트와 유사하게 보이며
+그 안에는 대상에 대해 알려진 정보와 함께 <samp class="ph codeph">Targets</samp> 요소가
+포함됩니다. 그러나 이 파일에는
+<span class="keyword">Client Utility</span>에서
+전체 <span class="keyword">IRX</span> 파일을 생성할 수 있도록
+사용자가 정보를 추가하여 수정할 수 있는 <samp class="ph codeph">&lt;TargetSettings&gt;</samp> 요소도 포함되어 있습니다.
+이 파일은 <span class="ph filepath">appscan-config.xml</span>이라는 이름이 지정되고
+현재 디렉토리에 저장됩니다. 즉, 이 파일을
+다음 스캔에 자동으로 사용합니다.</p>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p2">예를 들어, 찾을 수 없는 외부 종속성이 포함된 대상에 대한
+<span class="keyword">IRX</span> 파일 생성이 제공된 경우
+다음과 같은 메시지가 수신될 수 있습니다.</p>
+<pre class="pre codeblock" id="src_troubleshoot_irx_gen__resolve_li1_codeblock1"><code>C:\myTargetDirectory&gt;appscan prepare
+An <span class="keyword">IRX</span> file was created, but it may be incomplete.
+C:\myTargetDirectory\myTarget.jar requires the following packages:
+      org.apache.jasper.*
+An appscan-config.xml file was created in: C:\myTargetDirectory\appscan-config.xml
+Please update the file and rerun the command.</code></pre>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p3">생성되는
+<span class="ph filepath">appscan-config.xml</span> 파일은 다음과 유사하게 보입니다.</p>
+<pre class="pre codeblock" id="src_troubleshoot_irx_gen__resolve_li1_codeblock2"><code>&lt;Configuration&gt;
+  &lt;Targets&gt;
+    &lt;Target outputs-only="true" path="C:\myTargetDirectory"/&gt;
+  &lt;/Targets&gt;
+  &lt;Settings/&gt;
+  &lt;TargetSettings&gt;
+    &lt;Target path="C:\myTargetDirectory\myTarget.jar"/&gt;
+      &lt;!--Please add the path of the following dependencies to the attribute "additional_classpath" below, separated by semi-colon.
+			  org.apache.jasper.*--&gt;
+      &lt;CustomBuildInfo additional_classpath=""/&gt;
+    &lt;/Target&gt;
+  &lt;/TargetSettings&gt;
+&lt;/Configuration&gt; </code></pre>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p4">문제점을 해결하려면 클래스 경로에서 <span class="ph filepath">org.apache.jasper.*</span> 클래스를 포함하도록 <samp class="ph codeph">&lt;CustomBuildInfo additional_classpath=""/&gt;</samp>를 업데이트하고 <span class="ph filepath">appscan-config.xml</span> 파일을 저장한 후에 <samp class="ph codeph">appscan
+prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7629e9">Windows</span>)</span> 또는 <samp class="ph codeph">appscan.sh prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7638e9">Linux 및 macOS</span>)</span> 명령을 다시 실행하십시오. <span class="ph filepath">JAR</span> 파일에 대한 경로를 지정하는 경우,
+표준 Java 클래스 경로 구문이 지원됩니다(예를 들면, 와일드카드가
+지원됨). </p>
+<p class="p" id="src_troubleshoot_irx_gen__resolve_li1_p5">구성 파일을 사용해도 유사한 문제점이 발생하는 경우 문제점을 나타내는
+메시지가 표시됩니다. 이 메시지를 사용하여 기존 구성 파일을 업데이트한 후 명령을 다시 실행하십시오. </p>
+<p class="p">구성 파일은 <a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">CLI로 IRX 파일 생성 구성</a>에 설명되어 있습니다.</p>
+</li>
+<li class="li" id="src_troubleshoot_irx_gen__resolve_li2"><strong class="ph b">디버그 모드에서 <span class="keyword">IRX</span> 파일
+생성</strong><p class="p">CLI에서 <span class="keyword">IRX</span> 파일을 생성 중인 경우 디버그 옵션을 사용하여 <samp class="ph codeph">appscan
+prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7629e9-d7560e157a1310">Windows</span>)</span> 또는 <samp class="ph codeph">appscan.sh prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7638e9-d7560e167a1310">Linux 및 macOS</span>)</span> 명령을 실행할 수 있습니다. 그러면 더 많은 로그 파일이 생성됩니다.</p>
+</li>
+<li class="li" id="src_troubleshoot_irx_gen__resolve_li3"><strong class="ph b"> <span class="keyword">IRX</span> 파일
+생성과 연관된 로그 파일</strong><p class="p">오류 또는 경고를 확인하려면
+함께 생성된 로그 파일을 참조하십시오. 로그 파일은
+<span class="ph filepath">.zip</span> 아카이브 파일에 저장됩니다. 기본적으로 이 파일은 <span class="keyword">IRX</span>가 저장되는 위치와 동일한 위치에 저장됩니다. 그렇지 않으면 <samp class="ph codeph">appscan
+prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7629e9-d7560e192a1310">Windows</span>)</span> 또는 <samp class="ph codeph">appscan.sh prepare</samp> <span class="ph">(<span class="ph" id="src_troubleshoot_irx_gen__d7638e9-d7560e203a1310">Linux 및 macOS</span>)</span> 명령의 <samp class="ph codeph">-l</samp> 옵션을 사용하여 다른 위치를 지정할 수 있습니다. <span class="ph filepath">.zip</span> 파일의 이름은 생성된
+<span class="keyword">IRX</span> 파일의
+이름을 기반으로 합니다.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic tsTroubleshooting nested1" xml:lang="ko-kr" id="src_troubleshoot_eclipse_install"><h2 class="title topictitle2"><span class="keyword">Static Analyzer Client Utility</span>를 설치할 때 Eclipse 플러그인 설치가 실패함</h2>
+<div class="body tsBody"><h2 id="tstitled69e3803" class="sectiontitle">증상</h2>
+<div class="section tsSymptoms"><p class="p">정적 분석 플러그인을 Eclipse에 설치할 때 설치가 오류와 함께 실패합니다.</p>
+</div>
+<h2 id="tstitled69e3806" class="sectiontitle">문제점 해결</h2>
+<div class="section tsResolve"><p class="p">Eclipse 플러그인 설치가 실패하면 설치를 위해 대신 Eclipse 사용자 인터페이스를 사용하십시오.</p>
+
+<ol class="ol"><li class="li">Eclipse의 기본 워크벤치 메뉴 표시줄에서 <span class="ph menucascade"><span class="ph uicontrol">도움말</span> &gt; <span class="ph uicontrol">새 소프트웨어 설치</span></span>를 선택하십시오. </li>
+<li class="li">설치 대화 상자의 사용 가능한 소프트웨어 페이지에서 <span class="ph uicontrol">추가</span>를 클릭하십시오.</li>
+<li class="li">사이트 추가 대화 상자에서(일부 버전의 Eclipse에서 이 대화 상자 이름은 저장소 추가임)
+<span class="ph uicontrol">이름</span> 필드에 업데이트 사이트의 이름을 지정하십시오. </li>
+<li class="li"><span class="ph uicontrol">아카이브</span>를 클릭하십시오. </li>
+<li class="li">폴더 찾아보기 대화 상자에서 추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의 위치에서 <span class="ph filepath">plugins\eclipse\eclipse_plugin.zip</span>(Windows) 또는 <span class="ph filepath">plugins/eclipse/eclipse_plugin.zip</span>(Linux 및 macOS)을 탐색하십시오.</li>
+<li class="li"><span class="ph uicontrol">확인</span>을 클릭하여 사이트 추가 대화 상자로 돌아간 다음 <span class="ph uicontrol">확인</span>을 클릭하여 업데이트 사이트를 추가하십시오.</li>
+<li class="li">새 사이트가 목록에 나타납니다. 옆에 있는 선택란을 선택하고
+<span class="ph uicontrol">다음</span>을 클릭하여 다음 설치 패널로 진행하십시오. </li>
+<li class="li">설치 세부사항 페이지에서 설치할 항목을 검토한 후 <span class="ph uicontrol">다음</span>을 클릭하십시오.</li>
+<li class="li">라이센스 검토 페이지에서 라이센스 계약에 동의한 다음 <span class="ph uicontrol">완료</span>를 클릭하십시오.</li>
+<li class="li">프롬프트되면 Eclipse를 다시 시작하십시오. </li>
+</ol>
+</div>
+</div>
+</div>
+<div class="topic tsTroubleshooting nested1" xml:lang="ko-kr" id="src_troubleshoot_mult_asset_groups_cm"><h2 class="title topictitle2">보안 스캔이 <samp class="ph codeph">ID가 <em class="ph i">x</em>인 애플리케이션이 존재하지 않음</samp> 오류로 실패함</h2>
+<div class="body tsBody"><h2 id="tstitled69e3898" class="sectiontitle">증상</h2>
+<div class="section tsSymptoms"><p class="p">Jenkins나 IDE 플러그인 또는 명령 인터페이스(CLI)를 사용하는 스캔 실행 중 다음 오류로 실패합니다.</p>
+
+<pre class="pre codeblock"><code>ID가 <em class="ph i">x</em>인 애플리케이션이 존재하지 않음</code></pre>
+
+<pre class="pre codeblock"><code>보안 스캔 실행 실패: 분석 서비스에 IRX 파일을 제출하는 중에 문제점이 발생했습니다. </code></pre>
+</div>
+<h2 id="tstitled69e3910" class="sectiontitle">원인</h2>
+<div class="section tsCauses"><p class="p">이전에는 <span class="keyword">Application Security on Cloud</span>가
+<samp class="ph codeph">app_id</samp>에 기반하여 애플리케이션을 연관시켰습니다.
+최신 업데이트는 이 연관을 <samp class="ph codeph">app_id</samp>에서 <samp class="ph codeph">guid</samp>로 변경했습니다.
+대개 <span class="keyword">ASoC</span> 서비스는 이 업데이트에 기반하여
+애플리케이션을 다시 연관시키도록 프롬프트를 표시합니다. Jenkins 및 IDE 플러그인과 CLI의 경우 추가 단계를 수행해야 합니다.</p>
+</div>
+<h2 id="tstitled69e3928" class="sectiontitle">문제점 해결</h2>
+<div class="section tsResolve"><p class="p">Jenkins 플러그인의 경우
+<a class="xref" href="appseccloud_jenkins.html#appseccloud_jenkins" title="IBM Application Security on Cloud Jenkins 플러그인으로 Jenkins 프로젝트에 보안 스캔 지원을 추가할 수 있습니다. 플러그인을 사용하여 IBM Cloud Marketplace의 IBM Application Security on Cloud에 연결할 수 있습니다.">Jenkins 자동 서버에 보안 분석 추가</a>의 지시사항에 따라 Jenkins 플러그인 구성을 다시 저장한 후 스캔을 다시 시도하십시오.</p>
+
+<p class="p">IDE 플러그인의 경우, 프롬프트가 표시되면 동일한 애플리케이션을 다시 선택하여 스캔한 후 <span class="ph uicontrol">확인</span>을 클릭하십시오.</p>
+
+<p class="p">CLI의 경우, 새 <samp class="ph codeph">guid</samp>가 <samp class="ph codeph">app_id</samp>를 대체합니다. <samp class="ph codeph">guid</samp>는 32자의 고유 ID입니다.
+예를 들어, <samp class="ph codeph">33c3281a-6d7c-e711-b334-002590731623</samp>입니다. <samp class="ph codeph">appscan list_apps</samp> 명령을 사용하여
+각 앱에 대한 <samp class="ph codeph">guid</samp>를 판별하고 명령행 또는 스크립트의 <samp class="ph codeph">queue_analysis</samp> 명령에서
+<samp class="ph codeph">app_id</samp>를 이 guid로 대체하십시오. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_java_annotations"><h2 class="title topictitle2">지원되는 Java 소스 코드 어노테이션</h2>
+<div class="body refbody"><p class="shortdesc">정적 분석을 사용하여 Java를 스캔하는 경우 <samp class="ph codeph">@ValidatorMethod</samp>, <samp class="ph codeph">@CallbackMethod</samp> 및 <samp class="ph codeph">@SuppressSecurityTrace</samp> 메소드 레벨 어노테이션이 지원됩니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_java_annotations__using">어노테이션 사용</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations__validator_method">@ValidatorMethod</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations__suppress_security_trace">@SuppressSecurityTrace</a></li>
+<li class="li"><a class="xref" href="readme.html#src_java_annotations__callback_method">@CallbackMethod</a></li>
+</ul>
+</div>
+<div class="section" id="src_java_annotations__using"><h3 class="title sectiontitle">어노테이션 사용</h3>
+<p class="p">다음 단계를 따라 어노테이션을 사용할 수 있습니다. </p>
+
+<ol class="ol"><li class="li">기본적으로 어노테이션 지원이 사용으로 설정됩니다. 어노테이션 <span class="ph filepath">.jar</span> 파일은
+추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의 <span class="ph filepath">\annotation</span> 디렉토리에 있습니다. </li>
+<li class="li">사전 컴파일된 클래스 <span class="ph filepath">.war</span> 파일 또는
+<span class="ph filepath">.jar</span> 파일을 스캔하는 경우 <span class="ph filepath">com.ibm.security.annotation.jar</span>를
+어노테이션된 소스가 있는 Java 프로젝트에 추가하고 프로젝트를 다시 빌드하십시오. </li>
+<li class="li">정적 분석 플러그인이 설치된 IDE(Integrated Development Environment)에서 스캔하는 경우 <span class="ph filepath">com.ibm.security.annotation.jar</span>를 Java 클래스 경로에 추가하십시오.</li>
+<li class="li">정적 분석 CLI를 사용하는 경우 <a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">구성 파일을 작성하고 </a>구성 파일에서 <samp class="ph codeph">dependency_path</samp>에 <span class="ph filepath">com.ibm.security.annotation.jar</span> 파일의 위치가 포함되도록 <samp class="ph codeph">CustomBuildInfo additional_classpath="dependency_path"</samp>를 설정하십시오.</li>
+</ol>
+
+<p class="p">어노테이션은 스캔하기 전에 소스 코드에 추가될 수 있습니다. 또는 스캔한 후와 허위 양성(false-positive)을 식별하고 제거하기 위해 분류하는 중에 추가될 수도 있습니다.
+정적 분석 플러그인이 설치된 IDE에서 스캔하는 경우 스캔 보고서에서 <span class="ph uicontrol">수정하는 데 도움 주기</span> 단추를 사용할 수 있습니다.
+이 단추를 선택하면 어노테이션이 추가될 수 있는 지점이 표시됩니다. </p>
+
+<p class="p">어노테이션을 사용하면 사용자의 지식을 소스 코드에 보안 어노테이션 양식으로 직접 삽입할 수 있습니다.
+어노테이션은 코드 안전 부분을 선언하는 데 사용되므로 매우 주의하여 사용해야 합니다.
+보안 취약점을 스캔해야 하는 코드에는 어노테이션을 사용하면 안됩니다.
+어노테이션을 사용하는 경우 보안 분석가는 추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">\config</span> 디렉토리에 있는 <span class="ph filepath">irgen-engine.apsettings</span> 파일에서 기능을 사용 안함으로 설정하여 어노테이션을 무시하도록 선택할 수 있습니다.
+이 파일에서 다음 설정을 찾아보십시오. </p>
+
+<pre class="pre codeblock" id="src_java_annotations__setting"><code>&lt;Setting
+  name="process_security_annotations"
+  value="true"
+  default_value="true"
+  description="When turned on, method annotations will be processed - used by DotNet and Java LSPs"
+  display_name="Process Security Annotations"
+  type="bool"
+/&gt;</code></pre>
+
+<p class="p" id="src_java_annotations__setting_disable">기능을 사용 안함으로 설정하려면 <samp class="ph codeph">value="true"</samp>를
+<samp class="ph codeph">value="false"</samp>로 변경하십시오.</p>
+
+<div class="note note" id="src_java_annotations__setting_enable"><span class="notetitle">참고:</span> 설정이 <samp class="ph codeph">value="false"</samp>로 설정된 경우,
+어노테이션을 사용하려면 이를 <samp class="ph codeph">value="true"</samp>로 설정하십시오. </div>
+</div>
+<div class="section" id="src_java_annotations__validator_method"><h3 class="title sectiontitle"><samp class="ph codeph">@ValidatorMethod</samp></h3>
+<p class="p">유효성 검증기는 입력 데이터에서 검사를 수행하는 메소드이며, 보통 입력이 유효한지 여부를 표시하는 부울 값을 리턴합니다.
+유효성 검증기를 사용하여 입력을 승인하거나 거부하기 보다 사용자 입력을 승인 가능한 형식으로 변경할 수 있습니다.
+이러한 메소드를 무결 처리기라고 합니다. </p>
+
+<p class="p"><samp class="ph codeph">@ValidatorMethod</samp> 어노테이션을 사용하여 애플리케이션 소스 코드에서 모든 유효성 검증기와 무결 처리기 메소드를 식별할 수 있습니다.
+정적 분석 스캔 중에 데이터가 안전하다고 판단되면 이러한 메소드를 통해 전달되는 데이터 플로우를 제거하는 데 이 정보가 사용됩니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 현재 유효성 검증되었다고 인식되어야 하는 어노테이션된 메소드의 매개변수를 지정하는 프로비저닝이 없습니다.
+정적 분석 스캔 중에 모든 입력 매개변수가 유효성 검증된다고 가정합니다. </div>
+</div>
+<div class="section" id="src_java_annotations__suppress_security_trace"><h3 class="title sectiontitle"><samp class="ph codeph">@SuppressSecurityTrace</samp></h3>
+<p class="p">이 어노테이션으로 표시된 메소드를 통해 플로우되는 추적이 제거됩니다. 이는 특정 추적 그룹이 허위 양성(false-positive)으로 식별되거나 다른 그룹에 비해 덜 중요하거나 관심 그룹이 아닌 경우에 유용합니다.
+이 어노테이션을 사용하여 이러한 추적을 필터링하거나 채우기를 줄일 목적으로 해당 추적을 숨길 수 있습니다.</p>
+</div>
+<div class="section" id="src_java_annotations__callback_method"><h3 class="title sectiontitle"><samp class="ph codeph">@CallbackMethod</samp></h3>
+<p class="p">이 어노테이션을 사용하여 애플리케이션에 대한 콜백이나 시작점을 식별합니다. 모든 인수는
+감염을 전달할 것으로 생각됩니다. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_dotnet_annotations"><h2 class="title topictitle2">지원되는 .NET 소스 코드 속성</h2>
+<div class="body refbody"><p class="shortdesc">정적 분석을 사용하여 .NET를 스캔하는 경우, <samp class="ph codeph">[ValidatorMethod]</samp>, <samp class="ph codeph">[CallbackMethod]</samp> 및 <samp class="ph codeph">[SuppressSecurityTrace]</samp> 메소드 레벨 속성이 지원됩니다. 
+이 속성이 사용되면 <samp class="ph codeph">[ValidatorMethod()]</samp>, <samp class="ph codeph">[CallbackMethod()]</samp> 및
+<samp class="ph codeph">[SuppressSecurityTrace()]</samp>도 허용됩니다. </p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__using">속성 사용</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__validator_method">[ValidatorMethod] 또는 [ValidatorMethod()]</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__suppress_security_trace">[SuppressSecurityTrace] 또는 [SuppressSecurityTrace()]</a></li>
+<li class="li"><a class="xref" href="readme.html#src_dotnet_annotations__callback_method">[CallbackMethod] 또는 [CallbackMethod()]</a></li>
+</ul>
+</div>
+<div class="section" id="src_dotnet_annotations__using"><h3 class="title sectiontitle">속성 사용</h3>
+<p class="p">다음 단계에서 속성을 사용할 수 있습니다. </p>
+
+<ol class="ol"><li class="li">기본적으로 속성에 대한 지원은 사용 가능으로 설정됩니다. <span class="ph filepath">SecurityAttributes.dll</span> 속성 파일은
+추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">\annotation</span> 디렉토리에 있습니다. </li>
+<li class="li">사전 컴파일된 클래스 <span class="ph filepath">.exe</span> 파일 또는 <span class="ph filepath">.dll</span> 파일을 스캔하는 경우
+어노테이션이 있는 소스가 포함된 .NET 프로젝트에 <span class="ph filepath">SecurityAttributes.dll</span>을 추가한 다음 프로젝트를 다시 빌드하십시오. </li>
+<li class="li">정적 분석 플러그인이 설치된 IDE(Integrated Development Environment)에서 스캔하는 경우 <span class="ph filepath">SecurityAttributes.dll</span>을 참조로 추가하십시오.</li>
+<li class="li">정적 분석 CLI를 사용하는 경우 <a class="xref" href="readme.html#src_irx_gen_config" title="구성 파일을 사용하여 IRX 파일을 생성할 수 있습니다. 이 파일에 개별 대상을 지정하거나 대상을 포함 또는 제외할 수 있습니다. 또한 구성 파일을 사용하여 완전한 IRX 파일을 생성하는 데 도움이 될 수 있는 추가 정보를 지정할 수 있습니다.">구성 파일을 작성하고 </a>구성 파일에서 <samp class="ph codeph">dependency_path</samp>에 <span class="ph filepath">SecurityAttributes.dll</span> 파일의 위치가 포함되도록 <samp class="ph codeph">CustomBuildInfo additional_classpath="dependency_path"</samp>를 설정하십시오.</li>
+</ol>
+
+<p class="p">스캔하기 전에 소스 코드에 속성을 추가할 수 있습니다. 또는 스캔한 후와 허위 양성(false-positive)을 식별하고 제거하기 위해 선별하는 중에 추가할 수도 있습니다.
+정적 분석 플러그인이 설치된 IDE에서 스캔하는 경우 스캔 보고서에서 <span class="ph uicontrol">수정하는 데 도움 주기</span> 단추를 사용할 수 있습니다.
+이 단추를 선택하면 속성을 추가할 수 있는 지점이 표시됩니다. </p>
+
+<p class="p">속성을 사용하면 사용자의 지식을 소스 코드에 보안 속성 양식으로 직접 삽입할 수 있습니다.
+속성은 코드 안전 부분을 선언하는 데 사용되므로 매우 주의하여 사용해야 합니다.
+보안 취약점을 스캔해야 하는 코드에는 어노테이션을 사용하면 안됩니다.
+속성을 사용하는 경우 보안 분석가는 추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">\config</span> 디렉토리에 있는 <span class="ph filepath">irgen-engine.apsettings</span> 파일에서 기능을 사용 안함으로 설정하여 속성을 무시하도록 선택할 수 있습니다.
+이 파일에서 다음 설정을 찾아보십시오. </p>
+
+<pre class="pre codeblock"><code>&lt;Setting
+  name="process_security_annotations"
+  value="true"
+  default_value="true"
+  description="When turned on, method annotations will be processed - used by DotNet and Java LSPs"
+  display_name="Process Security Annotations"
+  type="bool"
+/&gt;</code></pre>
+
+<p class="p">기능을 사용 안함으로 설정하려면 <samp class="ph codeph">value="true"</samp>를
+<samp class="ph codeph">value="false"</samp>로 변경하십시오.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 설정이 <samp class="ph codeph">value="false"</samp>로 설정된 경우,
+어노테이션을 사용하려면 이를 <samp class="ph codeph">value="true"</samp>로 설정하십시오. </div>
+</div>
+<div class="section" id="src_dotnet_annotations__validator_method"><h3 class="title sectiontitle"><samp class="ph codeph">[ValidatorMethod]</samp> 또는 <samp class="ph codeph">[ValidatorMethod()]</samp></h3>
+<p class="p">유효성 검증기는 입력 데이터에서 검사를 수행하는 메소드이며, 보통 입력이 유효한지 여부를 표시하는 부울 값을 리턴합니다.
+유효성 검증기를 사용하여 입력을 승인하거나 거부하기 보다 사용자 입력을 승인 가능한 형식으로 변경할 수 있습니다.
+이러한 메소드를 무결 처리기라고 합니다. </p>
+
+<p class="p"><samp class="ph codeph">[ValidatorMethod]</samp> 속성을 사용하여 애플리케이션 소스 코드에서 모든 유효성 검증기와 무결 처리기 메소드를 식별할 수 있습니다.
+정적 분석 스캔 중에 데이터가 안전하다고 판단되면 이러한 메소드를 통해 전달되는 데이터 플로우를 제거하는 데 이 정보가 사용됩니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 현재 유효성 검증되었다고 인식되어야 하는 어노테이션된 메소드의 매개변수를 지정하는 프로비저닝이 없습니다.
+정적 분석 스캔 중에 모든 입력 매개변수가 유효성 검증된다고 가정합니다. </div>
+</div>
+<div class="section" id="src_dotnet_annotations__suppress_security_trace"><h3 class="title sectiontitle"><samp class="ph codeph">[SuppressSecurityTrace]</samp> 또는 <samp class="ph codeph">[SuppressSecurityTrace()]</samp></h3>
+<p class="p">이 속성으로 표시된 메소드를 통해 플로우되는 모든 추적이 제거됩니다. 이는 특정 추적 그룹이 허위 양성(false-positive)으로 식별되거나 다른 그룹에 비해 덜 중요하거나 관심 그룹이 아닌 경우에 유용합니다.
+이 속성을 사용하여 이러한 추적을 필터링하거나, 채우기를 줄일 목적으로 해당 추적을 숨길 수 있습니다.</p>
+</div>
+<div class="section" id="src_dotnet_annotations__callback_method"><h3 class="title sectiontitle"><samp class="ph codeph">[CallbackMethod]</samp> 또는 <samp class="ph codeph">[CallbackMethod()]</samp></h3>
+<p class="p">이 속성을 사용하여 애플리케이션에 대한 콜백이나 시작점을 식별합니다. 모든 인수는
+감염을 전달할 것으로 생각됩니다. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_php_config"><h2 class="title topictitle2">해결되지 않은 PHP <samp class="ph codeph">include</samp> 표현식 및 알 수 없는 PHP
+클래스 구성</h2>
+<div class="body refbody"><p class="shortdesc">PHP에 대한 <span class="keyword">IRX</span>
+파일 생성 이후, 그 다음에 파일을 스캔할 때 <span class="keyword">IRX</span>
+생성을 구성하도록 허용하는 구성 파일이 작성됩니다.</p>
+<div class="section"><p class="p">구성 파일 <span class="ph filepath">php-scan-config.xml</span>이
+<samp class="ph codeph">prepare</samp> 명령을 실행한 위치에 생성됩니다. 파일에는 두 개의 섹션인
+<samp class="ph codeph">&lt;UserInputs&gt;</samp> 및 <samp class="ph codeph">&lt;Php-Unknown-Configuration&gt;</samp>이 포함됩니다.</p>
+
+<p class="p"><span class="ph filepath">&lt;UserInputs&gt;</span> 섹션에는 PHP 스캔에 대해 수정될 수 있는 구성 설정이
+포함됩니다. 섹션은 샘플 값으로 사전에 채워집니다. 세미콜론(<samp class="ph codeph">;</samp>)을 통해
+이러한 값에 추가할 수 있습니다. 이 섹션의 설정은 다음과 같습니다.</p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">&lt;RegularExpression&gt;</samp>: 이는 정규식이 검색 텍스트에 대해 지정되도록 허용하는
+고급 기능입니다.</li>
+<li class="li"><samp class="ph codeph">&lt;ReplaceText&gt;</samp>: 이는 단순 텍스트 검색 및 대체에 사용됩니다. 검색 텍스트는
+현상태대로 사용되고, 포함된 텍스트의 임의의 위치에서 발견되면
+대체 텍스트로 바뀝니다.</li>
+<li class="li"><samp class="ph codeph">&lt;Function&gt;</samp>: 이 설정은 함수 호출이 대체될 때 사용됩니다. 검색 텍스트는
+소괄호 없는 함수의 이름이어야 합니다. 검색 텍스트는
+소괄호가 뒤따르는 지정된 이름으로 함수 호출을 검색하도록 기능 보강되고
+소괄호 내에서 임의의 항목과 일치합니다.</li>
+<li class="li"><samp class="ph codeph">&lt;SimpleText&gt;</samp>: 단순화된 대체 텍스트입니다. 대체 텍스트가 단일 문자열일 때 이를
+사용하십시오.</li>
+<li class="li"><samp class="ph codeph">&lt;SimpleRegEx&gt;</samp>: 단순화된 대체 정규식입니다. 대체 정규식이 단순 문자열일 때 이를
+사용하십시오.</li>
+<li class="li"><samp class="ph codeph">&lt;AdditionalIncludePaths&gt;</samp>: 이 설정을 사용하여
+참조된 파일이 포함된 추가 <samp class="ph codeph">include</samp> 경로를 추가하십시오. </li>
+</ul>
+
+<p class="p"><samp class="ph codeph">&lt;Php-Unknown-Configuration&gt;</samp> 섹션에는 마지막 스캔에서 발견된
+모든 해결되지 않은 <samp class="ph codeph">include</samp> 표현식 및 알 수 없는 클래스가 포함됩니다. 이 정보를 사용하여
+<samp class="ph codeph">&lt;UserInputs&gt;</samp> 섹션을 완료하십시오.</p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">&lt;Summary&gt;</samp>: 마지막 섹션의 알 수 없는 <samp class="ph codeph">include</samp>
+표현식(<samp class="ph codeph">&lt;NumberOfUnknownIncludeExprs&gt;</samp>) 및 알 수 없는 클래스
+(<samp class="ph codeph">&lt;NumberOfUnknownClasses&gt;</samp>)의 수를 요약합니다.</li>
+<li class="li"><samp class="ph codeph">&lt;SourceFile&gt;</samp>: 모든 알 수 없는 <samp class="ph codeph">include</samp> 표현식 및 알 수 없는
+클래스가 소스 파일 이름에 따라 알파벳순으로 나열됩니다. 각 소스 파일마다
+파일 경로(<samp class="ph codeph">&lt;FilePath&gt;</samp>)가 소스의 절대 경로, 알 수 없는 클래스
+(<samp class="ph codeph">&lt;UnknownClass&gt;</samp>) 및 알 수 없는 <samp class="ph codeph">include</samp> 표현식
+(<samp class="ph codeph">&lt;UnknownIncludes&gt;</samp>)을 나열합니다.</li>
+</ul>
+</div>
+<div class="section"><h3 class="title sectiontitle">알 수 없는 클래스(<samp class="ph codeph">&lt;UnknownClass&gt;</samp>) 정보</h3>
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d69e4472" class="stentry thleft thbot">태그</th>
+<th valign="bottom" align="left" id="d69e4474" class="stentry thleft thbot">설명</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4472" class="stentry"><samp class="ph codeph">&lt;ClassName&gt;</samp></td>
+<td valign="top" headers="d69e4474" class="stentry">클래스가 사용되는
+소스 파일(<samp class="ph codeph">&lt;FilePath&gt;</samp>)의 위치와 함께 소스 코드에서 참조된 클래스 이름입니다. 알 수 없는 클래스를 해결하려면 편집기에서 위치를 봐야할 수 있습니다.</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4472" class="stentry"><samp class="ph codeph">&lt;Status&gt;</samp></td>
+<td valign="top" headers="d69e4474" class="stentry">클래스가 <samp class="ph codeph">해결됨</samp> 또는 <samp class="ph codeph">해결되지
+않음</samp>인지 표시합니다.</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4472" class="stentry"><samp class="ph codeph">&lt;ResolvedBy&gt;</samp></td>
+<td valign="top" headers="d69e4474" class="stentry">알 수 없는 클래스가 해결된 방식을 표시합니다. 값은 다음과 같습니다.<ul class="ul"><li class="li"><samp class="ph codeph">AutoResolver</samp>: 파일을 찾기 위한 애플리케이션 사용 내부 체험입니다.</li>
+<li class="li"><samp class="ph codeph">SearchReplace</samp>: 업데이트된 텍스트를 생성하는 데 포함된 텍스트에 하나 이상의 검색 및 대체 규칙이
+적용되었습니다.</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3 class="title sectiontitle"> 알 수 없는 <samp class="ph codeph">include</samp> 표현식(<samp class="ph codeph">&lt;UnknownIncludes&gt;</samp>)
+정보</h3>
+<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d69e4524" class="stentry thleft thbot">태그</th>
+<th valign="bottom" align="left" id="d69e4526" class="stentry thleft thbot">설명</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4524" class="stentry"><samp class="ph codeph">&lt;IncludeText&gt;</samp></td>
+<td valign="top" headers="d69e4526" class="stentry">표현식이 사용된
+소스 파일(<samp class="ph codeph">&lt;FilePath&gt;</samp>)의 위치와 함께 소스 코드에 있는 표현식 텍스트입니다. 알 수 없는 <samp class="ph codeph">include</samp>표현식을 해결하려면 편집기에서 위치를 봐야할 수 있습니다.</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4524" class="stentry"><samp class="ph codeph">&lt;UpdatedText&gt;</samp></td>
+<td valign="top" headers="d69e4526" class="stentry">마지막 스캔 중 사용된 업데이트된 텍스트입니다.</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4524" class="stentry"><samp class="ph codeph">&lt;Status&gt;</samp></td>
+<td valign="top" headers="d69e4526" class="stentry">표현식이 <samp class="ph codeph">해결됨</samp> 또는 <samp class="ph codeph">해결되지
+않음</samp>인지 표시합니다.</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d69e4524" class="stentry"><samp class="ph codeph">&lt;ResolvedBy&gt;</samp></td>
+<td valign="top" headers="d69e4526" class="stentry">업데이트된 텍스트가 생성된 방식을 표시합니다. 값은 다음과 같습니다.<ul class="ul"><li class="li"><samp class="ph codeph">AutoResolver</samp>: 파일을 찾기 위한 애플리케이션 사용 내부 체험입니다.</li>
+<li class="li"><samp class="ph codeph">SearchReplace</samp>: 업데이트된 텍스트를 생성하는 데 포함된 텍스트에 하나 이상의 검색 및 대체 규칙이
+적용되었습니다.</li>
+<li class="li"><samp class="ph codeph">SearchReplace+AutoResolver</samp>: 업데이트된 텍스트를 생성하는 데 포함된 텍스트에 하나 이상의 검색 및 대체 규칙이
+적용된 후, 파일을 찾는 데 내부 체험이
+적용되었습니다.</li>
+<li class="li"><samp class="ph codeph">SearchReplace+IncludePath</samp>: 업데이트된 텍스트를 생성하는 데 포함된 텍스트에 하나 이상의 검색 및 대체 규칙이
+적용된 후, 파일을 찾는 데
+<samp class="ph codeph">include</samp> 경로의 디렉토리와 결합되었습니다.</li>
+<li class="li"><samp class="ph codeph">SearchReplace+RelativeDir</samp>: 업데이트된 텍스트를 생성하는 데 포함된 텍스트에 하나 이상의 검색 및 대체 규칙이
+적용된 후,
+<samp class="ph codeph">include</samp> 표현식이 포함되는 파일의 소스 디렉토리에 상대적으로 발견되었습니다.</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="ko-kr" id="src_third_party"><h2 class="title topictitle2">써드파티 Java 및 .NET 제외 관리</h2>
+<div class="body taskbody"><p class="shortdesc">기본적으로 써드파티 Java 및 .NET 코드는 <span class="keyword">IRX</span>
+파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다. </p>
+<div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e4608">이 태스크 정보</h3></div><p class="p">사용자 코드에 대한 <span class="keyword">IRX</span> 파일을 생성할 때
+써드파티 코드가 제외되므로 사용자의 평가에는 사용자가 분석하지 않는 코드에 대한 정보와 찾은 결과가 포함되지 않습니다.
+제외되는 내용을 수정하려면 이 주제의 단계에 따르십시오.
+스캐닝 중에 써드파티 코드를 포함시키려면 다음 주제를 참조하십시오. </p>
+
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_irx_gen_cli" title="파일의 분석을 시작하려면 먼저 클라우드에 제출할 IRX 파일을 생성해야 합니다. CLI를 사용하려면 다음 지시시항에 따라 해당 파일을 작성하십시오.">명령행 인터페이스(CLI)를 사용하여 IRX 파일 생성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_maven" title="파일의 분석을 시작하려면 먼저 클라우드에 제출할 IRX 파일을 생성해야 합니다. Maven 프로젝트를 스캔하려면 다음 지시사항에 따라 해당 파일을 작성하십시오.">Maven 프로젝트를 위한 IRX 파일 생성</a></li>
+<li class="li"><a class="xref" href="readme.html#src_irx_gen_ide" title="다음 지시사항은 정적 분석 플러그인이 Eclipse, IntelliJ IDEA 또는 Visual Studio IDE(Integrated Development Environment)에 설치된 후 이를 사용하여 소스 코드를 스캔하는 방법에 대해 설명합니다. Eclipse 및 IntelliJ IDEA에서는 Java 프로젝트를 스캔할 수 있습니다. 그리고 Visual Studio에서는 .NET (C#, ASP.NET, VB.NET)를 스캔할 수 있습니다.">통합 개발 환경에서 스캔</a></li>
+</ul>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e4640">프로시저</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">config</span> 디렉토리를 찾으십시오(여기서 <span class="ph filepath">&lt;version&gt;</span>은
+<span class="keyword">Client Utility</span>의 현재 버전입니다). </span></li>
+<li class="li step stepexpand"><span class="ph cmd">이 디렉토리에서 <span class="ph filepath">dot_net.exclusions</span>(.NET) 또는
+<span class="ph filepath">java.exclusions</span>(Java) 파일을 찾으십시오. </span> <div class="note note"><span class="notetitle">참고:</span> 이 디렉토리의 다른 <span class="ph filepath">.exclusions</span> 파일은 실험용으로, 이들을 수정해도 써드파티 제외에는 영향이 없습니다. </div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">텍스트 편집기에서 파일을 열면 다음 형식의 XML을 확인할 수 있습니다. </span> <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;Exclusions&gt;
+  &lt;packages&gt;
+    &lt;package name="package_name"/&gt;
+  &lt;/packages&gt;
+  ...
+&lt;/Exclusions&gt;</code></pre>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">제외시킬 패키지를 추가하려면 파일을 편집하십시오. </span> <div class="note note"><span class="notetitle">참고:</span> <ul class="ul"><li class="li">지정된 패키지 이름은 동일한 접두부의 모든 패키지와 일치합니다(와일드카드가 후속하는 것처럼 취급됩니다).
+예를 들어, <samp class="ph codeph">&lt;package
+name="<strong class="ph b">com.mycompany.common</strong>"/&gt;</samp>을 제외로 추가하는 경우, <samp class="ph codeph">&lt;package
+name="<strong class="ph b">com.mycompany.common</strong>.action1"/&gt;</samp> 및 <samp class="ph codeph">&lt;package
+name="<strong class="ph b">com.mycompany.common</strong>.action2"/&gt;</samp>가 제외됩니다. </li>
+<li class="li"><samp class="ph codeph">&lt;packages&gt;</samp> 컨테이너에 추가된 항목만 써드파티 제외에 영향을 줍니다.
+클래스와 메소드를 추가해도 제외에는 영향을 주지 않습니다. </li>
+</ul>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">파일을 저장한 다음 사용자의 소스 코드에 대한 <span class="keyword">IRX</span> 파일을 생성하십시오. </span></li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h3 class="sectiontitle tasklabel" id="taskd69e4713">다음에 수행할 작업</h3></div>제외 파일을 수정하는 경우 다음 우수 사례를 따라야 합니다. <ul class="ul"><li class="li">수정된 제외 파일의 백업을 보관하십시오. 특히, <span class="keyword">Static Analyzer Client Utility</span>의 새 버전으로
+업그레이드하는 경우 업데이트 없이 제외 파일의 버전이 다운로드됩니다.
+<span class="keyword">Client Utility</span>의 업데이트 시,
+수정된 제외 파일의 사본을 저장한 다음 이 파일을 새 <span class="keyword">Client Utility</span>에 복사하십시오. </li>
+<li class="li">필요 시 복사하여 붙여넣기 쉽도록 수정사항을 단일의 XML 항목 블록으로 보관하십시오. </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_win_help"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">명령 도움말</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">명령 도움말을 사용하여 사용 가능한 명령 목록을 검색하거나
+개별 명령에 대한 정보를 검색할 수 있습니다. </p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_help__help_command">appscan help</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<p class="p" id="src_cli_win_help__help_p1">CLI를 사용하여
+사용 가능한 명령 목록을 검색하려면 <samp class="ph codeph">appscan help</samp> 명령을 실행하십시오. </p>
+<p class="p" id="src_cli_win_help__help_p2">CLI를 사용하여
+개별 명령에 대한 정보를 검색하려면 <samp class="ph codeph">appscan help &lt;command&gt;</samp>를 실행하십시오.
+여기서, <samp class="ph codeph">&lt;command&gt;</samp>는 도움말을 표시하려는 명령입니다. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_win_analysis"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">분석 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된
+스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를
+수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다. </p>
+<div class="section"><p class="p">이러한 명령을 실행하기 전에
+분석 서비스에 로그인했는지 확인하십시오(<a class="xref" href="readme.html#src_cli_win_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다.">인증 명령</a> 참조).</p>
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__status">appscan status</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__list">appscan list</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__list_apps">appscan list_apps</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__cancel">appscan cancel</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__queue_analysis">appscan queue_analysis</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_analysis__info">appscan info</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_analysis__status"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__status_command">appscan status</samp></h3><p class="p" id="src_cli_win_analysis__syntax"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__status_syntax"><code>appscan status<span class="ph" id="src_cli_win_analysis__status_command_options"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p" id="src_cli_win_analysis__description"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_analysis__status_p1">분석 작업에 대해
+다음 상태 코드 중 하나를 리턴합니다. </p>
+<pre class="pre codeblock" id="src_cli_win_analysis__status_codeblock"><code>0 = Pending
+1 = Starting
+2 = Running
+3 = FinishedRunning
+4 = FinishedRunningWithErrors
+5 = PendingSupport
+6 = Ready
+7 = ReadyIncomplete
+8 = FailedToScan
+9 = ManuallyStopped
+10 = None
+11 = Initiating
+12 = MissingConfiguration
+13 = PossibleMissingConfiguration</code></pre>
+<p class="p" id="src_cli_win_analysis__required_options"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_analysis__status_ul1"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<div class="note tip" id="src_cli_win_analysis__options_order"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p" id="src_cli_win_analysis__examples"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_analysis__status_p3">작업 ID 12345의 상태를 보려면 다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_analysis__status_examples_codeblock1"><code>appscan status -i 12345</code></pre>
+<p class="p" id="src_cli_win_analysis__status_p4">리턴 코드가
+<samp class="ph codeph">0</samp>이면 작업이 보류 중 상태입니다. 리턴 코드가 <samp class="ph codeph">1</samp>이면 작업이 시작 중입니다.</p>
+</div>
+<div class="section" id="src_cli_win_analysis__list"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__list_command">appscan list</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__list_syntax"><code>appscan list</code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_analysis__list_p1">대기 중이거나 실행 중이거나 완료된 작업을 포함하여
+모든 분석 작업을 나열하십시오. 다른 명령에 작업 ID를 사용할 수 있도록
+각 작업의 ID가 리턴됩니다. 예를 들어, ID는 명령 프롬프트 또는 스크립트에서 <samp class="ph codeph">info</samp> 명령과 함께
+사용할 수 있습니다.</p>
+</div>
+<div class="section" id="src_cli_win_analysis__list_apps"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__list_apps_command">appscan list_apps</samp></h3>
+<p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_win_analysis__list_apps_syntax"><code>appscan list_apps</code></pre>
+
+<p class="p"><strong class="ph b">설명:</strong></p>
+
+<p class="p" id="src_cli_win_analysis__list_apps_p1"><strong class="ph b"><span class="keyword">IBM Cloud Marketplace</span>에만 해당:</strong>
+<span class="keyword">IBM Cloud Marketplace</span>에서
+<span class="keyword">Application Security on Cloud</span> 서비스에 연결된 경우,
+클라우드에 제출하는 <span class="keyword">IRX</span> 파일은
+기존 <span class="keyword">Application Security on Cloud</span> 애플리케이션과
+연관되어야 합니다. </p>
+
+<p class="p" id="src_cli_win_analysis__list_apps_p2">이 명령을 사용하면 액세스 권한이 있는
+<span class="keyword">Application Security on Cloud</span> 애플리케이션을 볼 수 있습니다. 
+명령을 사용하려면 <span class="keyword">IBM Cloud Marketplace</span>에서
+서비스에 대해 인증을 받아야 합니다.
+명령을 실행한 후에 <span class="keyword">Application Security on Cloud</span>
+애플리케이션의 목록은 애플리케이션 이름 및 해당 ID(소괄호로 묶임)와 함께 표시됩니다. 
+<samp class="ph codeph">queue_analysis</samp> 명령의 <samp class="ph codeph">-a</samp> 옵션을 사용할 때는 이 목록의 ID 값을 사용하십시오. </p>
+
+<div class="note note" id="src_cli_win_analysis__list_apps_note1"><span class="notetitle">참고:</span> <span class="keyword">Bluemix</span>에서 <span class="keyword">ASoC</span> 서비스에 연결하는 경우 애플리케이션 연관이 적용되지 않습니다.</div>
+</div>
+<div class="section" id="src_cli_win_analysis__cancel"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__cancel_command">appscan cancel</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__cancel_syntax"><code>appscan cancel<span class="ph" id="src_cli_win_analysis__cancel_command_options"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_analysis__cancel_p1">실행 중이거나
+큐에 있는 분석 작업을 취소합니다. </p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_analysis__cancel_ul1"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_analysis__cancel_p3">작업 ID 12345를 취소하려면
+다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_analysis__cancel_examples_codeblock1"><code>appscan cancel -i 12345</code></pre>
+</div>
+<div class="section" id="src_cli_win_analysis__queue_analysis"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__queue_analysis_command">appscan queue_analysis</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__queue_analysis_syntax"><code>appscan queue_analysis<span class="ph" id="src_cli_win_analysis__queue_analysis_command_options"> -a &lt;app_id&gt; -f &lt;<span class="keyword">irx</span>_file&gt; -n &lt;scan_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_analysis__queue_analysis_p1">분석을 위해
+<span class="keyword">IRX</span> 파일을 클라우드에 제출합니다.스캔이 완료되면 이메일 알림을 받게 됩니다(분석 서비스에 로그인할 때
+사용된 계정과 연관된 이메일 주소로). 이 이메일에는 스캔을 다운로드하기 위해 로그인할 수 있도록 클라우드에 대한
+링크가 포함되어 있습니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_analysis__queue_analysis_ul1"><li class="li" id="src_cli_win_analysis__queue_analysis_ul1_li1"><samp class="ph codeph">-f</samp>:
+<samp class="ph codeph">-f &lt;<span class="keyword">irx</span>_file&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;<span class="keyword">irx</span>_file&gt;</samp>은 스캔을 위해 제출하려는 <span class="keyword">IRX</span> 파일입니다.
+<span class="keyword">IRX</span> 파일이
+현재 디렉토리에 없는 경우 이 옵션을 사용하여
+<span class="keyword">IRX</span> 파일 경로 및 파일 이름을 지정하십시오.<div class="note note"><span class="notetitle">참고:</span> 이 옵션은 이러한 명령문 중 하나 또는 둘 다가 true인 경우에만
+필요합니다. <ul class="ul"><li class="li">두 개 이상의 <span class="keyword">IRX</span> 파일이 있는 디렉토리에서
+명령을 실행합니다.
+디렉토리에 하나의 <span class="keyword">IRX</span> 파일만 있으면 <samp class="ph codeph">-f</samp> 옵션이 사용되지 않는 경우
+해당 파일이 제출됩니다.</li>
+<li class="li"><span class="keyword">IRX</span> 파일이 없는 디렉토리에서 명령을 실행합니다.
+이 경우에는 <samp class="ph codeph">-f</samp> 옵션을 사용하여
+제출할 <span class="keyword">IRX</span> 파일의 경로 및 이름을
+지정해야 합니다.</li>
+</ul>
+</div>
+</li>
+<li class="li" id="src_cli_win_analysis__queue_analysis_ul1_li2"><samp class="ph codeph">-n</samp>: <samp class="ph codeph">-n &lt;scan_name&gt;</samp>을 지정하십시오.
+여기서 <samp class="ph codeph">&lt;scan_name&gt;</samp>은 클라우드에서 수행할 스캔의
+이름입니다.</li>
+<li class="li"><samp class="ph codeph">-a</samp>
+<strong class="ph b">(<span class="keyword">IBM Cloud Marketplace</span>에만 해당)</strong>:
+<span class="keyword">IBM Cloud Marketplace</span>에서
+<span class="keyword">Application Security on Cloud</span> 서비스에 연결된 경우,
+클라우드에 제출하는 <span class="keyword">IRX</span> 파일은
+기존 <span class="keyword">Application Security on Cloud</span> 애플리케이션과
+연관되어야 합니다. 이 옵션에서 <samp class="ph codeph">-a &lt;app_id&gt;</samp>를 지정하십시오.
+여기서 <samp class="ph codeph">&lt;app_id&gt;</samp>는 연관되는 애플리케이션의 ID입니다. 
+ID를 판별하려면 <samp class="ph codeph">list_apps</samp> 명령을 사용하십시오. <div class="note note"><span class="notetitle">참고:</span> <span class="keyword">Bluemix</span>에서 <span class="keyword">ASoC</span> 서비스에 연결하는 경우 애플리케이션 연관이 적용되지 않습니다.</div>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_analysis__queue_analysis_p3"><span class="keyword">Bluemix</span>의 서비스에 연결될 때 이 명령을 사용하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_analysis__queue_analysis_examples_codeblock1"><code>appscan queue_analysis -f my_<span class="keyword">irx</span><span class="keyword">.irx</span> -n my_scan</code></pre>
+<p class="p" id="src_cli_win_analysis__queue_analysis_p4">스캔을 위해
+현재 디렉토리에 있는 <span class="ph filepath">my_<span class="keyword">irx</span><span class="keyword">.irx</span></span>을
+클라우드에 제출하는 데 사용됩니다. 모든 현재 스캔을 확인하기 위해 클라우드 사용자 인터페이스 또는
+<samp class="ph codeph">list</samp> 명령을 사용할 경우, <samp class="ph codeph">my_scan</samp>이 목록에
+표시됩니다.</p>
+
+<p class="p" id="src_cli_win_analysis__queue_analysis_p5"><span class="keyword">IBM Cloud Marketplace</span>의
+서비스에 연결될 때 위의 명령을 실행하되, <samp class="ph codeph">-a 12345</samp>를 포함하십시오.
+여기서 <samp class="ph codeph">12345</samp>는 스캔과 연관되는 애플리케이션의 ID입니다(애플리케이션 ID는
+<samp class="ph codeph">list_apps</samp> 명령을 사용하여 판별될 수 있음). </p>
+</div>
+<div class="section" id="src_cli_win_analysis__info"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_analysis__info_command">appscan info</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_analysis__info_syntax"><code>appscan info<span class="ph" id="src_cli_win_analysis__info_command_options"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_analysis__info_p1">지정된 분석 작업에 대한
+정보를 표시합니다. </p>
+<p class="p" id="src_cli_win_analysis__info_p2">제공되는 정보는 자동화 스크립트에 사용할 수 있습니다. </p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_analysis__info_ul1"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_analysis__info_p4">작업 ID 12345에 대한
+정보를 수신하려면 다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_analysis__info_examples_codeblock1"><code>appscan info -i 12345</code></pre>
+<p class="p" id="src_cli_win_analysis__info_p5">리턴되는 정보의 예는 다음과 같습니다. </p>
+<pre class="pre codeblock" id="src_cli_win_analysis__info_codeblock"><code>NLowIssues=0
+ReadStatus=2
+NHighIssues=0
+Name=appscan.zip
+ScanEndTime=2014-11-20T13:56:04.497Z
+Progress=0
+RemainingFreeRescanMinutes=0
+ParentJobId=00000000-0000-0000-0000-000000000000
+EnableMailNotifications=false
+JobStatus=6
+NInfoIssues=0
+JobId=9b344fc7-bc70-e411-b922-005056924f9b
+NIssuesFound=0
+CreatedAt=2014-11-20T13:54:49.597Z
+UserMessage=Scan completed successfully. The report is ready.
+NMediumIssues=0
+Result=1</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_win_global"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">글로벌 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">글로벌 명령을 사용하여 CLI 도움말과
+<span class="keyword">Static Analyzer Client Utility</span> 버전 정보를 표시할 수
+있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_global__help">appscan help</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_global__version">appscan version</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_global__help"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_global__help_command">appscan help</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_global__help_syntax"><code>appscan help
+&lt;command&gt;</code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_global__help_p1">모든 명령 또는
+개별 명령에 대한 도움말을 표시합니다. </p>
+<p class="p" id="src_cli_win_global__optional_options"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_global__help_ul1"><li class="li"><samp class="ph codeph">&lt;command&gt;</samp>: 여기에 지정된 개별 명령에 대한 도움말을
+표시합니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_global__help_p2"><samp class="ph codeph">prepare</samp> 명령에 대한
+도움말을 보려면 다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_global__help_examples_codeblock1"><code>appscan help prepare</code></pre>
+</div>
+<div class="section" id="src_cli_win_global__version"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_global__version_command">appscan version</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_global__version_syntax"><code>appscan
+version</code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_global__version_p1"><span class="keyword">Static Analyzer Client Utility</span>
+버전을 표시합니다. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_win_config"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">구성 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">구성 명령을 사용하여 스캔을 위해 파일을 준비할 수 있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_config__prepare">appscan prepare</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_config__package">appscan package</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_config__get_pubkey">appscan get_pubkey</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_config__prepare"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_config__prepare_command">appscan
+prepare</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_config__prepare_syntax"><code>appscan prepare<span class="ph" id="src_cli_win_config__prepare_command_options"> -c &lt;configuration_file&gt; -d &lt;save_path&gt; -l &lt;log_path&gt; -n &lt;file_name&gt; -t,--thirdParty -v,--verbose -X,--debug</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_config__prepare_p1"><span class="keyword">IRX</span> 파일을 생성합니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_config__prepare_ul1"><li class="li"><samp class="ph codeph">-c</samp>: 이 옵션은 스캔을 구성하는 데 사용됩니다.</li>
+<li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;save_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;save_path&gt;</samp>는
+<span class="keyword">IRX</span> 파일을
+저장하려는 디렉토리입니다.</li>
+<li class="li"><samp class="ph codeph">-l</samp>: <samp class="ph codeph">-l &lt;log_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;log_path&gt;</samp>는 로그 파일을 저장하려는 디렉토리입니다. </li>
+<li class="li"><samp class="ph codeph">-n</samp>: <samp class="ph codeph">-n &lt;file_name&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;file_name&gt;</samp>은 <span class="keyword">IRX</span> 파일 이름으로
+사용됩니다. 파일 이름에는 <span class="ph filepath"><span class="keyword">.irx</span></span> 파일 확장자를 지정하거나 지정하지 않을 수 있습니다. 이를 확장자 없이 지정할 경우, 파일이 생성될 때 자동으로
+추가됩니다.</li>
+<li class="li"><samp class="ph codeph">-t,--thirdParty</samp>: <span class="ph" id="src_cli_win_config__thirdparty">기본적으로, 써드파티 Java 및 .NET 코드는
+<span class="keyword">IRX</span> 파일 생성 중에
+스캔되지 않습니다. <a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a>의 지시사항을 따라 써드파티 코드 제외 설정을 수정할 수 있습니다.
+써드파티 코드를 포함하려면 <samp class="ph codeph">prepare</samp> 명령을 실행할 때 <samp class="ph codeph">-t</samp> 또는
+<samp class="ph codeph">--thirdParty</samp> 옵션을 지정하십시오.</span><p class="p">정상적으로 스캔에 포함되는 써드파티 코드의 개발자인 경우 설정을 사용하여 써드파티 코드를 포함시켜야 합니다.</p>
+</li>
+<li class="li"><samp class="ph codeph">-v,--verbose</samp>:
+<span class="keyword">IRX</span> 파일
+생성 중에 더 많은 정보 출력이 표시되도록 하려면 <samp class="ph codeph">-v</samp> 또는 <samp class="ph codeph">--verbose</samp>를 지정하십시오.</li>
+<li class="li"><samp class="ph codeph">-X,--debug</samp>: <samp class="ph codeph">-X</samp> 또는 <samp class="ph codeph">--debug</samp>를 지정하면
+전체 명령이 디버그 모드로 실행됩니다. 디버그 모드로 실행할 때
+문제점 해결을 위해 추가 로그 파일이 생성됩니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_config__prepare_examples_p1"><span class="ph filepath">c:\my_config_files\my_config.xml</span> 구성 파일을 사용하여 <span class="keyword">IRX</span> 파일을 생성하고 <span class="keyword">IRX</span> 파일을 <span class="ph filepath">c:\my_<span class="keyword">irx</span>_files\my_scan<span class="keyword">.irx</span></span>에 저장하려면 다음 명령을 실행하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_config__prepare_examples_codeblock"><code>appscan prepare -c c:\my_config_files\my_config.xml -d c:\my_<span class="keyword">irx</span>_files -n my_scan<span class="keyword">.irx</span></code></pre>
+</div>
+<div class="section" id="src_cli_win_config__package"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_config__package_command">appscan
+package</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_config__package_syntax"><code>appscan package<span class="ph" id="src_cli_win_config__package_command_options"> -d &lt;save_path&gt; -f &lt;assessment_file&gt; -n &lt;file_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_config__package_p1"><span class="keyword">IBM Security AppScan® Source</span> 버전 9.0
+이상 제품에서 작성된 평가(<span class="ph filepath">.ozasmt</span>) 파일이 포함된
+<span class="keyword">IRX</span> 파일을
+생성하십시오.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_config__package_ul1"><li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;save_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;save_path&gt;</samp>는
+<span class="keyword">IRX</span> 파일을
+저장하려는 디렉토리입니다.</li>
+<li class="li"><samp class="ph codeph">-f</samp>: <samp class="ph codeph">-f &lt;assessment_file&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;assessment_file&gt;</samp>은 스캔을 위해 패키지로 만드는
+<span class="ph filepath">.ozasmt</span> 파일입니다. <samp class="ph codeph">&lt;assessment_file&gt;</samp> 파일이
+현재 디렉토리에 없으면 이 옵션을 사용하여 평가 파일 경로 및 파일 이름을
+지정하십시오. <div class="note note"><span class="notetitle">참고:</span> 이 옵션은 이러한 명령문 중 하나 또는 둘 다가 true인 경우에만
+필요합니다. <ul class="ul"><li class="li">두 개 이상의 평가 파일이 있는 디렉토리에서
+명령을 실행합니다. 디렉토리에 평가 파일이 하나만 포함된 경우,
+<samp class="ph codeph">-f</samp> 옵션이 사용되지 않으면 해당 파일이 패키지됩니다.</li>
+<li class="li">평가 파일이 없는 디렉토리에서 명령을
+실행합니다. 이 경우에는 <samp class="ph codeph">-f</samp> 옵션을 사용하여
+패키지로 만들 평가 파일의 경로와 이름을 지정해야 합니다. </li>
+</ul>
+</div>
+</li>
+<li class="li"><samp class="ph codeph">-n</samp>: <samp class="ph codeph">-n &lt;file_name&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;file_name&gt;</samp>은 <span class="keyword">IRX</span> 파일 이름으로
+사용됩니다. 파일 이름에는 <span class="ph filepath"><span class="keyword">.irx</span></span> 파일 확장자를 지정하거나 지정하지 않을 수 있습니다. 이를 확장자 없이 지정할 경우, 파일이 생성될 때 자동으로
+추가됩니다.</li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_config__package_examples_p1"><span class="ph filepath">c:\my_irx_files</span> 디렉토리에서 다음 명령을 실행하여 <span class="ph filepath">c:\my_assessment_files\my_assessment.ozasmt</span> 평가 파일이 들어 있는 <span class="keyword">IRX</span> 파일을 생성할 수 있습니다. </p>
+<pre class="pre codeblock" id="src_cli_win_config__package_examples_codeblock"><code>appscan package -f c:\my_assessment_files\my_assessment.ozasmt</code></pre>
+<p class="p" id="src_cli_win_config__package_examples_p2">결과 <span class="keyword">IRX</span> 파일이
+<span class="ph filepath">c:\my_irx_files</span>에 저장됩니다.</p>
+</div>
+<div class="section" id="src_cli_win_config__get_pubkey"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_config__get_pubkey_command">appscan
+get_pubkey</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_config__get_pubkey_syntax"><code>appscan get_pubkey<span class="ph" id="src_cli_win_config__get_pubkey_command_options"> -d &lt;save_path&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_config__get_pubkey_p1">인터넷에 연결되지 않은
+컴퓨터에 사용할 공용 암호화 키를 다운로드하십시오.</p>
+<p class="p" id="src_cli_win_config__get_pubkey_p2">인터넷에 연결된 컴퓨터에서
+<span class="keyword">IRX</span> 파일을
+생성하는 경우 <samp class="ph codeph">prepare</samp> 명령을 실행할 때
+암호화 키가 자동으로 다운로드되므로
+이 명령이 필요하지 않습니다. 암호화 키가 컴퓨터에 이미 존재하는 경우,
+<samp class="ph codeph">prepare</samp> 명령을 실행할 때 필요에 따라
+업데이트됩니다.</p>
+<p class="p" id="src_cli_win_config__get_pubkey_p3">하지만 인터넷에 연결되지 않은 컴퓨터에서
+<span class="keyword">IRX</span> 파일을
+생성하는 경우 이 명령을 사용하여 암호화 키를
+다운로드할 수 있습니다. 그런 다음
+<span class="keyword">IRX</span> 파일을 생성할 때
+사용할 수 있도록 인터넷에 연결되지 않은 컴퓨터에 암호화 키를 복사할 수 있습니다.
+해당 컴퓨터에서 암호화 키를 사용하려면 <span class="ph filepath">rsa.pub</span> 파일 이름을 유지하고 해당 파일을
+추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">config</span> 디렉토리에 배치해야 합니다(여기서 <span class="ph filepath">&lt;version&gt;</span>은
+<span class="keyword">Client Utility</span>의
+현재 버전임).</p>
+<div class="note note" id="src_cli_win_config__get_pubkey_note1"><span class="notetitle">참고:</span> 사용된 암호화 키는 최신이어야 합니다.
+<span class="keyword">IRX</span> 파일이
+기한이 지난 암호화 키로 생성된 경우에는 업로드될 때
+<span class="keyword">IRX</span> 파일이
+거부됩니다. 컴퓨터가 인터넷에 연결된 경우
+<samp class="ph codeph">prepare</samp> 명령을 다시 실행하여
+암호화 키를 자동으로 업데이트하십시오. 컴퓨터가 인터넷에 연결되지 않은 경우 <samp class="ph codeph">get_pubkey</samp> 명령을
+사용해야 합니다.</div>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_config__get_pubkey_ul1"><li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;save_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;save_path&gt;</samp>는 암호화 키를 저장하려는
+디렉토리입니다. 이 옵션이 지정되지 않으면 추출된
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">config</span> 디렉토리에 키가 저장됩니다.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_win_authenticate"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">인증 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">인증 명령을 사용하여 <span class="keyword">ASoC</span>
+서비스에 로그인할 수 있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate__api_login">appscan api_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate__scx_login">appscan scx_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_win_authenticate__login">appscan login</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_win_authenticate__api_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_authenticate__api_login_command">appscan api_login</samp></h3>
+<p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_win_authenticate__api_login_syntax"><code>appscan api_login<span class="ph" id="src_cli_win_authenticate__api_login_command_options"> -P &lt;key_secret&gt; -u &lt;key_id&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">설명:</strong></p>
+
+<p class="p" id="src_cli_win_authenticate__api_login_p1">생성된 API 키를 사용하여 <span class="keyword">IBM Cloud Marketplace</span>에서 <span class="keyword">ASoC</span> 서비스에 로그인하십시오. </p>
+
+<div class="note important" id="src_cli_win_authenticate__api_login_type_note"><span class="importanttitle">중요사항:</span> <samp class="ph codeph">api_login</samp> 명령은
+CLI에서 <span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하는 데만 사용합니다.
+<span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하려면
+<samp class="ph codeph">login</samp> 명령을 사용하십시오. </div>
+
+<p class="p">서비스에 로그인할 경우, 암호화 키 파일 <span class="ph filepath">cli.token</span>이
+<span class="ph filepath">home</span> 디렉토리의 <span class="ph filepath">.appscan</span> 폴더에
+저장됩니다. 그런 다음 이 토큰 파일은 <span class="keyword">ASoC</span> 서비스와
+상호작용할 때 다른 명령 및 조치에서 참조합니다. 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 
+이 파일이 만료된 이후, 추가 명령 또는 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <samp class="ph codeph">-persist</samp> 옵션을 포함할 수 있습니다. 
+이 옵션이 사용되는 경우,
+<span class="keyword">Client Utility</span>에서는
+토큰이 만료될 때 자동으로 서비스에 대해 재인증을 시도합니다. </p>
+
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+
+<ul class="ul" id="src_cli_win_authenticate__api_login_ul1"><li class="li"><samp class="ph codeph">-P</samp>: <samp class="ph codeph">-P &lt;key_secret&gt;</samp>를 지정하십시오. 여기서
+<samp class="ph codeph">&lt;key_secret&gt;</samp>은 API 키를 생성했을 때 작성된 <span class="ph uicontrol">키 시크릿</span>입니다.</li>
+<li class="li"><samp class="ph codeph">-u</samp>: <samp class="ph codeph">-u &lt;key_id&gt;</samp>를 지정하십시오. 여기서
+<samp class="ph codeph">&lt;key_id&gt;</samp>는 API 키를 생성했을 때 작성된 <span class="ph uicontrol">키 ID</span>입니다.</li>
+</ul>
+
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>: 로그인 토큰 파일이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다. </li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+</div>
+<div class="section" id="src_cli_win_authenticate__scx_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_authenticate__scx_login_command">appscan
+scx_login</samp></h3>
+<div class="note note"><span class="notetitle">참고:</span> 이 명령은 지원되지만 대신 <a class="xref" href="readme.html#src_cli_win_authenticate__api_login">appscan api_login</a> 명령 사용을 권장합니다.</div>
+
+<p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_win_authenticate__scx_login_syntax"><code>appscan scx_login<span class="ph" id="src_cli_win_authenticate__scx_login_command_options"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">설명:</strong></p>
+
+<p class="p" id="src_cli_win_authenticate__scx_login_p1"><span class="keyword">ASoC</span> 신임 정보로 <span class="keyword">IBM Cloud Marketplace</span>에서
+<span class="keyword">ASoC</span> 서비스에 로그인하십시오.</p>
+
+<div class="note important" id="src_cli_win_authenticate__scx_login_type_note"><span class="importanttitle">중요사항:</span> <samp class="ph codeph">scx_login</samp> 명령은 CLI에서 <span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하는 데만 사용됩니다.
+<span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하려면
+<samp class="ph codeph">login</samp> 명령을 사용하십시오. </div>
+
+<p class="p" id="src_cli_win_authenticate__login_token">서비스에 로그인할 경우, 암호화 키 파일 <span class="ph filepath">cli.token</span>이
+<span class="ph filepath">home</span> 디렉토리의 <span class="ph filepath">.appscan</span> 폴더에
+저장됩니다. 그런 다음 이 토큰 파일은 <span class="keyword">ASoC</span> 서비스와
+상호작용할 때 다른 명령 및 조치에서 참조합니다. 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 
+이 파일이 만료된 이후, 추가 명령 또는 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <samp class="ph codeph">-persist</samp> 옵션을 포함할 수 있습니다. 
+이 옵션이 사용되는 경우,
+<span class="keyword">Client Utility</span>에서는
+토큰이 만료될 때 자동으로 서비스에 대해 재인증을 시도합니다. </p>
+
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+
+<ul class="ul" id="src_cli_win_authenticate__scx_login_ul1"><li class="li"><samp class="ph codeph">-P</samp>: Specify <samp class="ph codeph">-P &lt;password&gt;</samp>.
+여기서 <samp class="ph codeph">&lt;password&gt;</samp>는 <span class="keyword">ASoC</span>
+서비스에 등록할 때 지정한 비밀번호입니다.</li>
+<li class="li"><samp class="ph codeph">-u</samp>: Specify <samp class="ph codeph">-u &lt;user_name&gt;</samp>.
+여기서 <samp class="ph codeph">&lt;user_name&gt;</samp>은 <span class="keyword">ASoC</span>
+서비스에 등록할 때 지정한 이메일 주소입니다.</li>
+</ul>
+
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+
+<ul class="ul" id="src_cli_win_authenticate__scx_login_ul2"><li class="li"><samp class="ph codeph">-persist</samp>: 로그인 토큰 파일이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다. </li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+</div>
+<div class="section" id="src_cli_win_authenticate__login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_authenticate__login_command">appscan login</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_authenticate__login_syntax"><code>appscan login<span class="ph" id="src_cli_win_authenticate__login_command_options"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_authenticate__login_p1"><span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인합니다.</p>
+<div class="note important" id="src_cli_win_authenticate__login_type_note"><span class="importanttitle">중요사항:</span> <samp class="ph codeph">login</samp> 명령은
+CLI에서 <span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하는 데만 사용됩니다.
+<span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하려면
+<samp class="ph codeph">scx_login</samp> 명령을 사용하십시오.</div>
+
+<p class="p">서비스에 로그인할 경우, 암호화 키 파일 <span class="ph filepath">cli.token</span>이
+<span class="ph filepath">home</span> 디렉토리의 <span class="ph filepath">.appscan</span> 폴더에
+저장됩니다. 그런 다음 이 토큰 파일은 <span class="keyword">ASoC</span> 서비스와
+상호작용할 때 다른 명령 및 조치에서 참조합니다. 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 
+이 파일이 만료된 이후, 추가 명령 또는 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <samp class="ph codeph">-persist</samp> 옵션을 포함할 수 있습니다. 
+이 옵션이 사용되는 경우,
+<span class="keyword">Client Utility</span>에서는
+토큰이 만료될 때 자동으로 서비스에 대해 재인증을 시도합니다. </p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_authenticate__login_ul1"><li class="li"><samp class="ph codeph">-P</samp>: <samp class="ph codeph">-P &lt;password&gt;</samp>를 지정하십시오.
+여기서 <samp class="ph codeph">&lt;password&gt;</samp>는 서비스 신임 정보에 표시되는 비밀번호입니다.</li>
+<li class="li"><samp class="ph codeph">-u</samp>: <samp class="ph codeph">-u &lt;user_name&gt;</samp>을 지정하십시오.
+여기서 <samp class="ph codeph">&lt;user_name&gt;</samp>은 서비스 신임 정보에 표시되는 바인딩 ID입니다.</li>
+</ul>
+<p class="p" id="src_cli_win_authenticate__service_credentials"><span class="keyword">Bluemix</span> 서비스 신임 정보를 판별하려면
+서비스 대시보드의 왼쪽 탐색 분할창에서 <span class="ph uicontrol">서비스 신임 정보</span>를 선택하십시오.
+<a class="xref" href="https://console.ng.bluemix.net/docs/services/reqnsi.html#accser_external">외부 앱이 Bluemix
+서비스를 사용하도록 설정</a>을 참조하십시오.</p>
+
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>: 로그인 토큰 파일이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_win_authenticate__login_p5">바인딩 ID <samp class="ph codeph">123-mybindingid-456</samp>과
+비밀번호 <samp class="ph codeph">123-mypassword-456</samp>으로 클라우드에 로그인하려면 다음 명령을 실행하십시오. </p>
+<pre class="pre codeblock" id="src_cli_win_authenticate__login_examples_codeblock1"><code>appscan login -P 123-mypassword-456 -u 123-mybindingid-456</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_win_results"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph" id="title">결과 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Windows</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">결과 명령을 사용하여 분석 서비스에서 스캔 결과를 검색할 수 있습니다.</p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_win_results__get_result_command">appscan get_result</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_win_results__get_result_codeblock"><code>appscan get_result<span class="ph" id="src_cli_win_results__get_result_command_options"> -d &lt;file_path&gt; -i &lt;job_id&gt; -t &lt;type&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p" id="src_cli_win_results__get_result_p1">스캔 결과를
+검색합니다. </p>
+<p class="p" id="src_cli_win_results__get_result_p3">이러한 명령을 사용하기 전에
+분석 서비스에 로그인했는지 확인하십시오.</p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_results__get_result_ul1"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul" id="src_cli_win_results__get_result_ul2"><li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;file_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;file_path&gt;</samp>는 대상 파일의 완전한 경로 및/또는
+대상 파일의 파일 이름입니다. 파일 이름이 지정되지 않으면 파일 이름은 스캔 작업 이름을 기반으로 생성됩니다. 경로가 지정되지 않으면 파일이
+현재 디렉토리에 저장됩니다. 이 옵션이 포함되지 않으면 파일이 스캔 작업 이름을 기반으로 생성된 파일 이름으로
+현재 디렉토리에 저장됩니다.</li>
+<li class="li"><samp class="ph codeph">-t</samp>: <samp class="ph codeph">-t &lt;type&gt;</samp>을 지정합니다. 여기서, <samp class="ph codeph">&lt;type&gt;</samp>은
+<samp class="ph codeph">html</samp> 또는 <samp class="ph codeph">zip</samp> 중 하나입니다. 결과는
+HTML 파일 또는 HTML 결과가 포함된 <span class="ph filepath">.zip</span> 파일로 저장됩니다. 이 옵션이 포함되지 않으면
+결과가 HTML 파일로 저장됩니다.<p class="p">스캔 결과가 <samp class="ph codeph">package</samp> 명령을 통해
+생성된 <span class="keyword">IRX</span> 파일에 대한
+내용인 경우, <samp class="ph codeph">-t zip</samp>을 지정하면 <span class="keyword">AppScan Source</span> 버전
+9.0 이상 제품으로 로드할 수 있는 새로운 <span class="ph filepath">.ozasmt</span> 파일이 포함된
+결과가 저장됩니다.</p>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_linux_help"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">명령 도움말</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Linux 및 macOS</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">명령 도움말을 사용하여 사용 가능한 명령 목록을 검색하거나
+개별 명령에 대한 정보를 검색할 수 있습니다. </p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_help__help_command">appscan.sh help</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<p class="p" id="src_cli_linux_help__help_p1">CLI를 사용하여
+사용 가능한 명령 목록을 검색하려면 <samp class="ph codeph">appscan.sh help</samp> 명령을 실행하십시오. </p>
+<p class="p" id="src_cli_linux_help__help_p2">CLI를 사용하여
+개별 명령에 대한 정보를 검색하려면 <samp class="ph codeph">appscan.sh help &lt;command&gt;</samp>를 실행하십시오.
+여기서, <samp class="ph codeph">&lt;command&gt;</samp>는 도움말을 표시하려는 명령입니다. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_linux_analysis"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">분석 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Linux 및 macOS</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">분석 명령은 스캔 요청을 클라우드에 제출하거나 클라우드에 이미 제출된
+스캔 요청에 대한 작업을 수행하기 위해 사용합니다. 분석 명령을 사용하여 스캔에 대한 정보를
+수신할 수도 있습니다. 이 정보는 자동화 스크립트에 유용하게 사용됩니다. </p>
+<div class="section"><p class="p">이러한 명령을 실행하기 전에
+분석 서비스에 로그인했는지 확인하십시오(<a class="xref" href="readme.html#src_cli_linux_authenticate" title="인증 명령을 사용하여 ASoC 서비스에 로그인할 수 있습니다.">인증 명령</a> 참조).</p>
+<ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__status">appscan.sh status</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__list">appscan.sh list</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__list_apps">appscan.sh list_apps</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__cancel">appscan.sh cancel</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__queue_analysis">appscan.sh queue_analysis</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_analysis__info">appscan.sh info</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_analysis__status"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__status_command">appscan.sh status</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__status_syntax"><code>appscan.sh status<span class="ph"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">분석 작업에 대해
+다음 상태 코드 중 하나를 리턴합니다. </p>
+<pre class="pre codeblock"><code>0 = Pending
+1 = Starting
+2 = Running
+3 = FinishedRunning
+4 = FinishedRunningWithErrors
+5 = PendingSupport
+6 = Ready
+7 = ReadyIncomplete
+8 = FailedToScan
+9 = ManuallyStopped
+10 = None
+11 = Initiating
+12 = MissingConfiguration
+13 = PossibleMissingConfiguration</code></pre>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p">작업 ID 12345의 상태를 보려면 다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__status_examples_codeblock1"><code>appscan.sh status -i 12345</code></pre>
+<p class="p">리턴 코드가
+<samp class="ph codeph">0</samp>이면 작업이 보류 중 상태입니다. 리턴 코드가 <samp class="ph codeph">1</samp>이면 작업이 시작 중입니다.</p>
+</div>
+<div class="section" id="src_cli_linux_analysis__list"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__list_command">appscan.sh list</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__list_syntax"><code>appscan.sh list</code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">대기 중이거나 실행 중이거나 완료된 작업을 포함하여
+모든 분석 작업을 나열하십시오. 다른 명령에 작업 ID를 사용할 수 있도록
+각 작업의 ID가 리턴됩니다. 예를 들어, ID는 명령 프롬프트 또는 스크립트에서 <samp class="ph codeph">info</samp> 명령과 함께
+사용할 수 있습니다.</p>
+</div>
+<div class="section" id="src_cli_linux_analysis__list_apps"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__listapps_command">appscan.sh list_apps</samp></h3>
+<p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_analysis__list_apps_syntax"><code>appscan.sh list_apps</code></pre>
+
+<p class="p"><strong class="ph b">설명:</strong></p>
+
+<p class="p"><strong class="ph b"><span class="keyword">IBM Cloud Marketplace</span>에만 해당:</strong>
+<span class="keyword">IBM Cloud Marketplace</span>에서
+<span class="keyword">Application Security on Cloud</span> 서비스에 연결된 경우,
+클라우드에 제출하는 <span class="keyword">IRX</span> 파일은
+기존 <span class="keyword">Application Security on Cloud</span> 애플리케이션과
+연관되어야 합니다. </p>
+
+<p class="p">이 명령을 사용하면 액세스 권한이 있는
+<span class="keyword">Application Security on Cloud</span> 애플리케이션을 볼 수 있습니다. 
+명령을 사용하려면 <span class="keyword">IBM Cloud Marketplace</span>에서
+서비스에 대해 인증을 받아야 합니다.
+명령을 실행한 후에 <span class="keyword">Application Security on Cloud</span>
+애플리케이션의 목록은 애플리케이션 이름 및 해당 ID(소괄호로 묶임)와 함께 표시됩니다. 
+<samp class="ph codeph">queue_analysis</samp> 명령의 <samp class="ph codeph">-a</samp> 옵션을 사용할 때는 이 목록의 ID 값을 사용하십시오. </p>
+
+<div class="note note"><span class="notetitle">참고:</span> <span class="keyword">Bluemix</span>에서 <span class="keyword">ASoC</span> 서비스에 연결하는 경우 애플리케이션 연관이 적용되지 않습니다.</div>
+</div>
+<div class="section" id="src_cli_linux_analysis__cancel"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__cancel_command">appscan.sh cancel</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__cancel_syntax"><code>appscan.sh cancel<span class="ph"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">실행 중이거나
+큐에 있는 분석 작업을 취소합니다. </p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p">작업 ID 12345를 취소하려면
+다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__cancel_examples_codeblock1"><code>appscan.sh cancel -i 12345</code></pre>
+</div>
+<div class="section" id="src_cli_linux_analysis__queue_analysis"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__queue_analysis_command">appscan.sh queue_analysis</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__queue_analysis_syntax"><code>appscan.sh queue_analysis<span class="ph"> -a &lt;app_id&gt; -f &lt;<span class="keyword">irx</span>_file&gt; -n &lt;scan_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">분석을 위해
+<span class="keyword">IRX</span> 파일을 클라우드에 제출합니다.스캔이 완료되면 이메일 알림을 받게 됩니다(분석 서비스에 로그인할 때
+사용된 계정과 연관된 이메일 주소로). 이 이메일에는 스캔을 다운로드하기 위해 로그인할 수 있도록 클라우드에 대한
+링크가 포함되어 있습니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul"><li class="li" id="src_cli_linux_analysis__d422e202"><samp class="ph codeph">-f</samp>:
+<samp class="ph codeph">-f &lt;<span class="keyword">irx</span>_file&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;<span class="keyword">irx</span>_file&gt;</samp>은 스캔을 위해 제출하려는 <span class="keyword">IRX</span> 파일입니다.
+<span class="keyword">IRX</span> 파일이
+현재 디렉토리에 없는 경우 이 옵션을 사용하여
+<span class="keyword">IRX</span> 파일 경로 및 파일 이름을 지정하십시오.<div class="note note"><span class="notetitle">참고:</span> 이 옵션은 이러한 명령문 중 하나 또는 둘 다가 true인 경우에만
+필요합니다. <ul class="ul"><li class="li">두 개 이상의 <span class="keyword">IRX</span> 파일이 있는 디렉토리에서
+명령을 실행합니다.
+디렉토리에 하나의 <span class="keyword">IRX</span> 파일만 있으면 <samp class="ph codeph">-f</samp> 옵션이 사용되지 않는 경우
+해당 파일이 제출됩니다.</li>
+<li class="li"><span class="keyword">IRX</span> 파일이 없는 디렉토리에서 명령을 실행합니다.
+이 경우에는 <samp class="ph codeph">-f</samp> 옵션을 사용하여
+제출할 <span class="keyword">IRX</span> 파일의 경로 및 이름을
+지정해야 합니다.</li>
+</ul>
+</div>
+</li>
+<li class="li" id="src_cli_linux_analysis__d422e243"><samp class="ph codeph">-n</samp>: <samp class="ph codeph">-n &lt;scan_name&gt;</samp>을 지정하십시오.
+여기서 <samp class="ph codeph">&lt;scan_name&gt;</samp>은 클라우드에서 수행할 스캔의
+이름입니다.</li>
+<li class="li"><samp class="ph codeph">-a</samp>
+<strong class="ph b">(<span class="keyword">IBM Cloud Marketplace</span>에만 해당)</strong>:
+<span class="keyword">IBM Cloud Marketplace</span>에서
+<span class="keyword">Application Security on Cloud</span> 서비스에 연결된 경우,
+클라우드에 제출하는 <span class="keyword">IRX</span> 파일은
+기존 <span class="keyword">Application Security on Cloud</span> 애플리케이션과
+연관되어야 합니다. 이 옵션에서 <samp class="ph codeph">-a &lt;app_id&gt;</samp>를 지정하십시오.
+여기서 <samp class="ph codeph">&lt;app_id&gt;</samp>는 연관되는 애플리케이션의 ID입니다. 
+ID를 판별하려면 <samp class="ph codeph">list_apps</samp> 명령을 사용하십시오. <div class="note note"><span class="notetitle">참고:</span> <span class="keyword">Bluemix</span>에서 <span class="keyword">ASoC</span> 서비스에 연결하는 경우 애플리케이션 연관이 적용되지 않습니다.</div>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p"><span class="keyword">Bluemix</span>의 서비스에 연결될 때 이 명령을 사용하십시오. </p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__queue_analysis_examples_codeblock1"><code>appscan.sh queue_analysis -f my_<span class="keyword">irx</span><span class="keyword">.irx</span> -n my_scan</code></pre>
+<p class="p">스캔을 위해
+현재 디렉토리에 있는 <span class="ph filepath">my_<span class="keyword">irx</span><span class="keyword">.irx</span></span>을
+클라우드에 제출하는 데 사용됩니다. 모든 현재 스캔을 확인하기 위해 클라우드 사용자 인터페이스 또는
+<samp class="ph codeph">list</samp> 명령을 사용할 경우, <samp class="ph codeph">my_scan</samp>이 목록에
+표시됩니다.</p>
+
+<p class="p"><span class="keyword">IBM Cloud Marketplace</span>의
+서비스에 연결될 때 위의 명령을 실행하되, <samp class="ph codeph">-a 12345</samp>를 포함하십시오.
+여기서 <samp class="ph codeph">12345</samp>는 스캔과 연관되는 애플리케이션의 ID입니다(애플리케이션 ID는
+<samp class="ph codeph">list_apps</samp> 명령을 사용하여 판별될 수 있음). </p>
+</div>
+<div class="section" id="src_cli_linux_analysis__info"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_analysis__info_command">appscan.sh info</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__info_syntax"><code>appscan.sh info<span class="ph"> -i &lt;job_id&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">지정된 분석 작업에 대한
+정보를 표시합니다. </p>
+<p class="p">제공되는 정보는 자동화 스크립트에 사용할 수 있습니다. </p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p">작업 ID 12345에 대한
+정보를 수신하려면 다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_linux_analysis__info_examples_codeblock1"><code>appscan.sh info -i 12345</code></pre>
+<p class="p">리턴되는 정보의 예는 다음과 같습니다. </p>
+<pre class="pre codeblock"><code>NLowIssues=0
+ReadStatus=2
+NHighIssues=0
+Name=appscan.zip
+ScanEndTime=2014-11-20T13:56:04.497Z
+Progress=0
+RemainingFreeRescanMinutes=0
+ParentJobId=00000000-0000-0000-0000-000000000000
+EnableMailNotifications=false
+JobStatus=6
+NInfoIssues=0
+JobId=9b344fc7-bc70-e411-b922-005056924f9b
+NIssuesFound=0
+CreatedAt=2014-11-20T13:54:49.597Z
+UserMessage=Scan completed successfully. The report is ready.
+NMediumIssues=0
+Result=1</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_linux_global"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">글로벌 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Linux 및 macOS</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">글로벌 명령을 사용하여 CLI 도움말과
+<span class="keyword">Static Analyzer Client Utility</span> 버전 정보를 표시할 수
+있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_global__help">appscan.sh help</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_global__version">appscan.sh version</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_global__help"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_global__help_command">appscan.sh help</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_global__help_syntax"><code>appscan.sh help &lt;command&gt;</code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">모든 명령 또는
+개별 명령에 대한 도움말을 표시합니다. </p>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">&lt;command&gt;</samp>: 여기에 지정된 개별 명령에 대한 도움말을
+표시합니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p"><samp class="ph codeph">prepare</samp> 명령에 대한
+도움말을 보려면 다음을 지정하십시오. </p>
+<pre class="pre codeblock" id="src_cli_linux_global__help_examples_codeblock1"><code>appscan.sh help prepare</code></pre>
+</div>
+<div class="section" id="src_cli_linux_global__version"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_global__version_command">appscan.sh version</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_global__version_syntax"><code>appscan.sh version</code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p"><span class="keyword">Static Analyzer Client Utility</span>
+버전을 표시합니다. </p>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_linux_config"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">구성 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Linux 및 macOS</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">구성 명령을 사용하여 스캔을 위해 파일을 준비할 수 있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_config__prepare">appscan.sh prepare</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_config__package">appscan.sh package</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_config__get_pubkey">appscan.sh get_pubkey</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_config__prepare"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_config__prepare_command">appscan.sh prepare</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_config__prepare_syntax"><code>appscan.sh prepare<span class="ph"> -c &lt;configuration_file&gt; -d &lt;save_path&gt; -l &lt;log_path&gt; -n &lt;file_name&gt; -t,--thirdParty -v,--verbose -X,--debug</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p"><span class="keyword">IRX</span> 파일을 생성합니다.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-c</samp>: 이 옵션은 스캔을 구성하는 데 사용됩니다.</li>
+<li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;save_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;save_path&gt;</samp>는
+<span class="keyword">IRX</span> 파일을
+저장하려는 디렉토리입니다.</li>
+<li class="li"><samp class="ph codeph">-l</samp>: <samp class="ph codeph">-l &lt;log_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;log_path&gt;</samp>는 로그 파일을 저장하려는 디렉토리입니다. </li>
+<li class="li"><samp class="ph codeph">-n</samp>: <samp class="ph codeph">-n &lt;file_name&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;file_name&gt;</samp>은 <span class="keyword">IRX</span> 파일 이름으로
+사용됩니다. 파일 이름에는 <span class="ph filepath"><span class="keyword">.irx</span></span> 파일 확장자를 지정하거나 지정하지 않을 수 있습니다. 이를 확장자 없이 지정할 경우, 파일이 생성될 때 자동으로
+추가됩니다.</li>
+<li class="li"><samp class="ph codeph">-t,--thirdParty</samp>: <span class="ph" id="src_cli_linux_config__d1761e93">기본적으로, 써드파티 Java 및 .NET 코드는
+<span class="keyword">IRX</span> 파일 생성 중에
+스캔되지 않습니다. <a class="xref" href="readme.html#src_third_party" title="기본적으로 써드파티 Java 및 .NET 코드는 IRX 파일 생성 중에 스캔되지 않습니다. 이 주제의 지시사항에 따라 제외되는 써드파티 코드를 관리할 수 있습니다.">써드파티 Java 및 .NET 제외 관리</a>의 지시사항을 따라 써드파티 코드 제외 설정을 수정할 수 있습니다.
+써드파티 코드를 포함하려면 <samp class="ph codeph">prepare</samp> 명령을 실행할 때 <samp class="ph codeph">-t</samp> 또는
+<samp class="ph codeph">--thirdParty</samp> 옵션을 지정하십시오.</span><p class="p">정상적으로 스캔에 포함되는 써드파티 코드의 개발자인 경우 설정을 사용하여 써드파티 코드를 포함시켜야 합니다.</p>
+</li>
+<li class="li"><samp class="ph codeph">-v,--verbose</samp>:
+<span class="keyword">IRX</span> 파일
+생성 중에 더 많은 정보 출력이 표시되도록 하려면 <samp class="ph codeph">-v</samp> 또는 <samp class="ph codeph">--verbose</samp>를 지정하십시오.</li>
+<li class="li"><samp class="ph codeph">-X,--debug</samp>: <samp class="ph codeph">-X</samp> 또는 <samp class="ph codeph">--debug</samp>를 지정하면
+전체 명령이 디버그 모드로 실행됩니다. 디버그 모드로 실행할 때
+문제점 해결을 위해 추가 로그 파일이 생성됩니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_linux_config__prepare_examples_p1"><span class="ph filepath">/root/Desktop/my_config_files/my_config.xml</span> 구성 파일을
+사용하여 <span class="keyword">IRX</span> 파일을 생성하고
+<span class="keyword">IRX</span> 파일을
+<span class="ph filepath">/root/Desktop/my_<span class="keyword">irx</span>_files
+-n my_scan<span class="keyword">.irx</span></span>로 저장하려면
+다음 명령을 실행하십시오.</p>
+<pre class="pre codeblock" id="src_cli_linux_config__prepare_examples_codeblock1"><code>appscan.sh prepare -c /root/Desktop/my_config_files/my_config.xml -d /root/Desktop/my_<span class="keyword">irx</span>_files -n my_scan<span class="keyword">.irx</span></code></pre>
+</div>
+<div class="section" id="src_cli_linux_config__package"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_config__package_command">appscan.sh package</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_config__package_syntax"><code>appscan.sh package<span class="ph"> -d &lt;save_path&gt; -f &lt;assessment_file&gt; -n &lt;file_name&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p"><span class="keyword">IBM Security AppScan Source</span> 버전 9.0
+이상 제품에서 작성된 평가(<span class="ph filepath">.ozasmt</span>) 파일이 포함된
+<span class="keyword">IRX</span> 파일을
+생성하십시오.</p>
+
+<div class="note note"><span class="notetitle">참고:</span> 소스 코드를 스캔하거나 <span class="keyword">IRX</span> 파일을
+생성할 때 최신 <span class="keyword">Client Utility</span>로
+업데이트하는 방법에 대한 메시지를 수신할 수 있습니다. <a class="xref" href="readme.html#src_sys_req__version_check">Client Utility 및 클라우드 서비스 버전 호환성</a>의 내용을 참조하십시오. </div>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;save_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;save_path&gt;</samp>는
+<span class="keyword">IRX</span> 파일을
+저장하려는 디렉토리입니다.</li>
+<li class="li"><samp class="ph codeph">-f</samp>: <samp class="ph codeph">-f &lt;assessment_file&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;assessment_file&gt;</samp>은 스캔을 위해 패키지로 만드는
+<span class="ph filepath">.ozasmt</span> 파일입니다. <samp class="ph codeph">&lt;assessment_file&gt;</samp> 파일이
+현재 디렉토리에 없으면 이 옵션을 사용하여 평가 파일 경로 및 파일 이름을
+지정하십시오. <div class="note note"><span class="notetitle">참고:</span> 이 옵션은 이러한 명령문 중 하나 또는 둘 다가 true인 경우에만
+필요합니다. <ul class="ul"><li class="li">두 개 이상의 평가 파일이 있는 디렉토리에서
+명령을 실행합니다. 디렉토리에 평가 파일이 하나만 포함된 경우,
+<samp class="ph codeph">-f</samp> 옵션이 사용되지 않으면 해당 파일이 패키지됩니다.</li>
+<li class="li">평가 파일이 없는 디렉토리에서 명령을
+실행합니다. 이 경우에는 <samp class="ph codeph">-f</samp> 옵션을 사용하여
+패키지로 만들 평가 파일의 경로와 이름을 지정해야 합니다. </li>
+</ul>
+</div>
+</li>
+<li class="li"><samp class="ph codeph">-n</samp>: <samp class="ph codeph">-n &lt;file_name&gt;</samp>을 지정합니다.
+여기서, <samp class="ph codeph">&lt;file_name&gt;</samp>은 <span class="keyword">IRX</span> 파일 이름으로
+사용됩니다. 파일 이름에는 <span class="ph filepath"><span class="keyword">.irx</span></span> 파일 확장자를 지정하거나 지정하지 않을 수 있습니다. 이를 확장자 없이 지정할 경우, 파일이 생성될 때 자동으로
+추가됩니다.</li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p" id="src_cli_linux_config__package_examples_p1"><span class="ph filepath">/root/Desktop/my_irx_files</span> 디렉토리에서
+다음 명령을 실행하여 <span class="ph filepath">/root/Desktop/my_assessment_files/my_assessment.ozasmt</span>
+평가 파일이 들어 있는 <span class="keyword">IRX</span> 파일을
+생성할 수 있습니다. </p>
+<pre class="pre codeblock" id="src_cli_linux_config__package_examples_codeblock1"><code>appscan.sh package -f /root/Desktop/my_assessment_files/my_assessment.ozasmt</code></pre>
+<p class="p" id="src_cli_linux_config__package_examples_p2">생성되는
+<span class="keyword">IRX</span> 파일이
+<span class="ph filepath">/root/Desktop/my_irx_files</span>에 저장됩니다.</p>
+</div>
+<div class="section" id="src_cli_linux_config__get_pubkey"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_config__get_pubkey_command">appscan.sh get_pubkey</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_config__get_pubkey_syntax"><code>appscan.sh get_pubkey<span class="ph"> -d &lt;save_path&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">인터넷에 연결되지 않은
+컴퓨터에 사용할 공용 암호화 키를 다운로드하십시오.</p>
+<p class="p">인터넷에 연결된 컴퓨터에서
+<span class="keyword">IRX</span> 파일을
+생성하는 경우 <samp class="ph codeph">prepare</samp> 명령을 실행할 때
+암호화 키가 자동으로 다운로드되므로
+이 명령이 필요하지 않습니다. 암호화 키가 컴퓨터에 이미 존재하는 경우,
+<samp class="ph codeph">prepare</samp> 명령을 실행할 때 필요에 따라
+업데이트됩니다.</p>
+<p class="p">하지만 인터넷에 연결되지 않은 컴퓨터에서
+<span class="keyword">IRX</span> 파일을
+생성하는 경우 이 명령을 사용하여 암호화 키를
+다운로드할 수 있습니다. 그런 다음
+<span class="keyword">IRX</span> 파일을 생성할 때
+사용할 수 있도록 인터넷에 연결되지 않은 컴퓨터에 암호화 키를 복사할 수 있습니다.
+해당 컴퓨터에서 암호화 키를 사용하려면 <span class="ph filepath">rsa.pub</span> 파일 이름을 유지하고 해당 파일을
+추출된 <span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">config</span> 디렉토리에 배치해야 합니다(여기서 <span class="ph filepath">&lt;version&gt;</span>은
+<span class="keyword">Client Utility</span>의
+현재 버전임).</p>
+<div class="note note"><span class="notetitle">참고:</span> 사용된 암호화 키는 최신이어야 합니다.
+<span class="keyword">IRX</span> 파일이
+기한이 지난 암호화 키로 생성된 경우에는 업로드될 때
+<span class="keyword">IRX</span> 파일이
+거부됩니다. 컴퓨터가 인터넷에 연결된 경우
+<samp class="ph codeph">prepare</samp> 명령을 다시 실행하여
+암호화 키를 자동으로 업데이트하십시오. 컴퓨터가 인터넷에 연결되지 않은 경우 <samp class="ph codeph">get_pubkey</samp> 명령을
+사용해야 합니다.</div>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;save_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;save_path&gt;</samp>는 암호화 키를 저장하려는
+디렉토리입니다. 이 옵션이 지정되지 않으면 추출된
+<span class="ph filepath">SAClientUtil_&lt;version&gt;_&lt;os&gt;.zip</span> 파일의
+<span class="ph filepath">config</span> 디렉토리에 키가 저장됩니다.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_linux_authenticate"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">인증 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Linux 및 macOS</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">인증 명령을 사용하여 <span class="keyword">ASoC</span>
+서비스에 로그인할 수 있습니다.</p>
+<div class="section"><ul class="ul"><li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate__api_login">appscan.sh api_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate__scx_login">appscan.sh scx_login</a></li>
+<li class="li"><a class="xref" href="readme.html#src_cli_linux_authenticate__login">appscan.sh login</a></li>
+</ul>
+</div>
+<div class="section" id="src_cli_linux_authenticate__api_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_authenticate__api_login_command">appscan.sh api_login</samp></h3>
+<p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_authenticate__api_login_syntax"><code>appscan.sh api_login<span class="ph"> -P &lt;key_secret&gt; -u &lt;key_id&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">설명:</strong></p>
+
+<p class="p">생성된 API 키를 사용하여 <span class="keyword">IBM Cloud Marketplace</span>에서 <span class="keyword">ASoC</span> 서비스에 로그인하십시오. </p>
+
+<div class="note important"><span class="importanttitle">중요사항:</span> <samp class="ph codeph">api_login</samp> 명령은
+CLI에서 <span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하는 데만 사용합니다.
+<span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하려면
+<samp class="ph codeph">login</samp> 명령을 사용하십시오. </div>
+
+<p class="p">서비스에 로그인할 경우, 암호화 키 파일 <span class="ph filepath">cli.token</span>이
+<span class="ph filepath">home</span> 디렉토리의 <span class="ph filepath">.appscan</span> 폴더에
+저장됩니다. 그런 다음 이 토큰 파일은 <span class="keyword">ASoC</span> 서비스와
+상호작용할 때 다른 명령 및 조치에서 참조합니다. 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 
+이 파일이 만료된 이후, 추가 명령 또는 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <samp class="ph codeph">-persist</samp> 옵션을 포함할 수 있습니다. 
+이 옵션이 사용되는 경우,
+<span class="keyword">Client Utility</span>에서는
+토큰이 만료될 때 자동으로 서비스에 대해 재인증을 시도합니다. </p>
+
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-P</samp>: <samp class="ph codeph">-P &lt;key_secret&gt;</samp>를 지정하십시오. 여기서
+<samp class="ph codeph">&lt;key_secret&gt;</samp>은 API 키를 생성했을 때 작성된 <span class="ph uicontrol">키 시크릿</span>입니다.</li>
+<li class="li"><samp class="ph codeph">-u</samp>: <samp class="ph codeph">-u &lt;key_id&gt;</samp>를 지정하십시오. 여기서
+<samp class="ph codeph">&lt;key_id&gt;</samp>는 API 키를 생성했을 때 작성된 <span class="ph uicontrol">키 ID</span>입니다.</li>
+</ul>
+
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>: 로그인 토큰 파일이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다. </li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+</div>
+<div class="section" id="src_cli_linux_authenticate__scx_login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_authenticate__scx_login_command">appscan.sh
+scx_login</samp></h3>
+<div class="note note"><span class="notetitle">참고:</span> 이 명령은 지원되지만 대신 <a class="xref" href="readme.html#src_cli_linux_authenticate__api_login">appscan.sh api_login</a> 명령 사용을 권장합니다.</div>
+
+<p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_authenticate__scx_login_syntax"><code>appscan.sh scx_login<span class="ph"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+
+<p class="p"><strong class="ph b">설명:</strong></p>
+
+<p class="p"><span class="keyword">ASoC</span> 신임 정보로 <span class="keyword">IBM Cloud Marketplace</span>에서
+<span class="keyword">ASoC</span> 서비스에 로그인하십시오.</p>
+
+<div class="note important"><span class="importanttitle">중요사항:</span> <samp class="ph codeph">scx_login</samp> 명령은 CLI에서 <span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하는 데만 사용됩니다.
+<span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하려면
+<samp class="ph codeph">login</samp> 명령을 사용하십시오. </div>
+
+<p class="p">서비스에 로그인할 경우, 암호화 키 파일 <span class="ph filepath">cli.token</span>이
+<span class="ph filepath">home</span> 디렉토리의 <span class="ph filepath">.appscan</span> 폴더에
+저장됩니다. 그런 다음 이 토큰 파일은 <span class="keyword">ASoC</span> 서비스와
+상호작용할 때 다른 명령 및 조치에서 참조합니다. 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 
+이 파일이 만료된 이후, 추가 명령 또는 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <samp class="ph codeph">-persist</samp> 옵션을 포함할 수 있습니다. 
+이 옵션이 사용되는 경우,
+<span class="keyword">Client Utility</span>에서는
+토큰이 만료될 때 자동으로 서비스에 대해 재인증을 시도합니다. </p>
+
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-P</samp>: Specify <samp class="ph codeph">-P &lt;password&gt;</samp>.
+여기서 <samp class="ph codeph">&lt;password&gt;</samp>는 <span class="keyword">ASoC</span>
+서비스에 등록할 때 지정한 비밀번호입니다.</li>
+<li class="li"><samp class="ph codeph">-u</samp>: Specify <samp class="ph codeph">-u &lt;user_name&gt;</samp>.
+여기서 <samp class="ph codeph">&lt;user_name&gt;</samp>은 <span class="keyword">ASoC</span>
+서비스에 등록할 때 지정한 이메일 주소입니다.</li>
+</ul>
+
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>: 로그인 토큰 파일이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다. </li>
+</ul>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+</div>
+<div class="section" id="src_cli_linux_authenticate__login"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_authenticate__login_command">appscan.sh login</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+
+<pre class="pre codeblock" id="src_cli_linux_authenticate__login_syntax"><code>appscan.sh login<span class="ph"> -P &lt;password&gt; -u &lt;user_name&gt; -persist</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p"><span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인합니다.</p>
+<div class="note important"><span class="importanttitle">중요사항:</span> <samp class="ph codeph">login</samp> 명령은
+CLI에서 <span class="keyword">Bluemix</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하는 데만 사용됩니다.
+<span class="keyword">IBM Cloud Marketplace</span>의
+<span class="keyword">ASoC</span> 서비스에 로그인하려면
+<samp class="ph codeph">scx_login</samp> 명령을 사용하십시오.</div>
+
+<p class="p">서비스에 로그인할 경우, 암호화 키 파일 <span class="ph filepath">cli.token</span>이
+<span class="ph filepath">home</span> 디렉토리의 <span class="ph filepath">.appscan</span> 폴더에
+저장됩니다. 그런 다음 이 토큰 파일은 <span class="keyword">ASoC</span> 서비스와
+상호작용할 때 다른 명령 및 조치에서 참조합니다. 이 토큰 파일은 작성한 후 2시간이 지나면 만료됩니다. 
+이 파일이 만료된 이후, 추가 명령 또는 조치를 계속하려면 서비스에 다시 로그인해야 합니다.
+또는 로그인할 때 <samp class="ph codeph">-persist</samp> 옵션을 포함할 수 있습니다. 
+이 옵션이 사용되는 경우,
+<span class="keyword">Client Utility</span>에서는
+토큰이 만료될 때 자동으로 서비스에 대해 재인증을 시도합니다. </p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-P</samp>: <samp class="ph codeph">-P &lt;password&gt;</samp>를 지정하십시오.
+여기서 <samp class="ph codeph">&lt;password&gt;</samp>는 서비스 신임 정보에 표시되는 비밀번호입니다.</li>
+<li class="li"><samp class="ph codeph">-u</samp>: <samp class="ph codeph">-u &lt;user_name&gt;</samp>을 지정하십시오.
+여기서 <samp class="ph codeph">&lt;user_name&gt;</samp>은 서비스 신임 정보에 표시되는 바인딩 ID입니다.</li>
+</ul>
+<p class="p"><span class="keyword">Bluemix</span> 서비스 신임 정보를 판별하려면
+서비스 대시보드의 왼쪽 탐색 분할창에서 <span class="ph uicontrol">서비스 신임 정보</span>를 선택하십시오.
+<a class="xref" href="https://console.ng.bluemix.net/docs/services/reqnsi.html#accser_external">외부 앱이 Bluemix
+서비스를 사용하도록 설정</a>을 참조하십시오.</p>
+
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+
+<ul class="ul"><li class="li"><samp class="ph codeph">-persist</samp>: 로그인 토큰 파일이 만료될 때 자동으로 서비스에 대한 재인증을 시도합니다. </li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+<p class="p"><strong class="ph b">예제:</strong></p>
+<p class="p">바인딩 ID <samp class="ph codeph">123-mybindingid-456</samp>과
+비밀번호 <samp class="ph codeph">123-mypassword-456</samp>으로 클라우드에 로그인하려면 다음 명령을 실행하십시오. </p>
+<pre class="pre codeblock" id="src_cli_linux_authenticate__login_examples_codeblock1"><code>appscan.sh login -P 123-mypassword-456 -u 123-mybindingid-456</code></pre>
+</div>
+</div>
+</div>
+<div class="topic reference nested1" xml:lang="ko-kr" id="src_cli_linux_results"><h2 class="title topictitle2"><span class="ph" id="title_with_os"><span class="ph">결과 명령</span> <span class="ph" id="os">(<span class="ph" id="os_nobracket">Linux 및 macOS</span>)</span></span></h2>
+<div class="body refbody"><p class="shortdesc">결과 명령을 사용하여 분석 서비스에서 스캔 결과를 검색할 수 있습니다.</p>
+<div class="section"><h3 class="title sectiontitle"><samp class="ph codeph" id="src_cli_linux_results__get_result_command">appscan.sh get_result</samp></h3><p class="p"><strong class="ph b">구문:</strong></p>
+<pre class="pre codeblock" id="src_cli_linux_results__get_result_syntax"><code>appscan.sh get_result<span class="ph"> -d &lt;file_path&gt; -i &lt;job_id&gt; -t &lt;type&gt;</span></code></pre>
+<p class="p"><strong class="ph b">설명:</strong></p>
+<p class="p">스캔 결과를
+검색합니다. </p>
+<p class="p">이러한 명령을 사용하기 전에
+분석 서비스에 로그인했는지 확인하십시오.</p>
+<p class="p"><strong class="ph b">필수 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-i</samp>: <samp class="ph codeph">-i &lt;job_id&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;job_id&gt;</samp>는 분석 작업의 ID입니다. </li>
+</ul>
+<p class="p"><strong class="ph b">선택적 옵션:</strong></p>
+<ul class="ul"><li class="li"><samp class="ph codeph">-d</samp>: <samp class="ph codeph">-d &lt;file_path&gt;</samp>를 지정합니다.
+여기서, <samp class="ph codeph">&lt;file_path&gt;</samp>는 대상 파일의 완전한 경로 및/또는
+대상 파일의 파일 이름입니다. 파일 이름이 지정되지 않으면 파일 이름은 스캔 작업 이름을 기반으로 생성됩니다. 경로가 지정되지 않으면 파일이
+현재 디렉토리에 저장됩니다. 이 옵션이 포함되지 않으면 파일이 스캔 작업 이름을 기반으로 생성된 파일 이름으로
+현재 디렉토리에 저장됩니다.</li>
+<li class="li"><samp class="ph codeph">-t</samp>: <samp class="ph codeph">-t &lt;type&gt;</samp>을 지정합니다. 여기서, <samp class="ph codeph">&lt;type&gt;</samp>은
+<samp class="ph codeph">html</samp> 또는 <samp class="ph codeph">zip</samp> 중 하나입니다. 결과는
+HTML 파일 또는 HTML 결과가 포함된 <span class="ph filepath">.zip</span> 파일로 저장됩니다. 이 옵션이 포함되지 않으면
+결과가 HTML 파일로 저장됩니다.<p class="p">스캔 결과가 <samp class="ph codeph">package</samp> 명령을 통해
+생성된 <span class="keyword">IRX</span> 파일에 대한
+내용인 경우, <samp class="ph codeph">-t zip</samp>을 지정하면 <span class="keyword">AppScan Source</span> 버전
+9.0 이상 제품으로 로드할 수 있는 새로운 <span class="ph filepath">.ozasmt</span> 파일이 포함된
+결과가 저장됩니다.</p>
+</li>
+</ul>
+<div class="note tip"><span class="tiptitle">팁:</span> 모든 명령에서 옵션은
+임의의 순서로 사용할 수 있습니다. </div>
+</div>
+</div>
+</div>
+</div>
+<div class="topic reference nested0" xml:lang="ko-kr" id="rellinks"><h1 class="title topictitle1">관련 링크</h1>
+<div class="related-links">
+<div class="linklist linklist"><strong class="linklistlabel">API 참조</strong><br />
+
+<div><img src="./sout.gif" alt="" /><a class="link" href="https://appscan.bluemix.net/swagger/" target="_blank" title="(새로운 탭이나 창으로 열기)">REST API 참조</a></div></div>
+</div></div>
+</div></body>
+</html>

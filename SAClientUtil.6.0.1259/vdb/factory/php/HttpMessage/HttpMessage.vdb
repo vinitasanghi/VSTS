@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpMessage">
+      <method vuln_id="1086806">
+        <simple_name>HttpMessage.__construct</simple_name>
+        <signature>HttpMessage.__construct(___Php.String):void</signature>
+        <comment>HttpMessage constructor</comment>
+      </method>
+      <method vuln_id="1086775">
+        <simple_name>HttpMessage.addHeaders</simple_name>
+        <signature>HttpMessage.addHeaders(___Php.Array;bool):void</signature>
+        <info_rule id="453678"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add headers. If append is true;headers with the same name will be separated;else overwritten.</comment>
+      </method>
+      <method vuln_id="1086794">
+        <simple_name>HttpMessage.detach</simple_name>
+        <signature>HttpMessage.detach():HttpMessage</signature>
+        <info_rule id="453701"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Returns a clone of an HttpMessage object detached from any parent messages.</comment>
+      </method>
+      <method vuln_id="1086735">
+        <simple_name>HttpMessage.factory</simple_name>
+        <signature>HttpMessage.factory(___Php.String;___Php.String):HttpMessage</signature>
+        <info_rule id="453620"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Create an HttpMessage object from a string.</comment>
+      </method>
+      <method vuln_id="1086820">
+        <simple_name>HttpMessage.fromEnv</simple_name>
+        <signature>HttpMessage.fromEnv(int;___Php.String):HttpMessage</signature>
+        <info_rule id="453742"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Create an HttpMessage object from script environment.</comment>
+      </method>
+      <method vuln_id="1086748">
+        <simple_name>HttpMessage.fromString</simple_name>
+        <signature>HttpMessage.fromString(___Php.String;___Php.String):HttpMessage</signature>
+        <info_rule id="453640"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Create an HttpMessage object from a string.</comment>
+      </method>
+      <method vuln_id="1086759">
+        <simple_name>HttpMessage.getBody</simple_name>
+        <signature>HttpMessage.getBody():___Php.String</signature>
+        <info_rule id="453656"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the body of the parsed HttpMessage</comment>
+      </method>
+      <method vuln_id="1086692">
+        <simple_name>HttpMessage.getHeader</simple_name>
+        <signature>HttpMessage.getHeader(___Php.String):___Php.String</signature>
+        <info_rule id="453555"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get message header.</comment>
+      </method>
+      <method vuln_id="1086792">
+        <simple_name>HttpMessage.getHeaders</simple_name>
+        <signature>HttpMessage.getHeaders():___Php.Array</signature>
+        <info_rule id="453698"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get message headers.</comment>
+      </method>
+      <method vuln_id="1086813">
+        <simple_name>HttpMessage.getHttpVersion</simple_name>
+        <signature>HttpMessage.getHttpVersion():___Php.String</signature>
+        <info_rule id="453730"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the HTTP Protocol Version of the Message.</comment>
+      </method>
+      <method vuln_id="1086696">
+        <simple_name>HttpMessage.getParentMessage</simple_name>
+        <signature>HttpMessage.getParentMessage():HttpMessage</signature>
+        <info_rule id="453563"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get parent Message.</comment>
+      </method>
+      <method vuln_id="1086744">
+        <simple_name>HttpMessage.getRequestMethod</simple_name>
+        <signature>HttpMessage.getRequestMethod():___Php.String</signature>
+        <info_rule id="453635"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Request Method of the Message</comment>
+      </method>
+      <method vuln_id="1086694">
+        <simple_name>HttpMessage.getRequestUrl</simple_name>
+        <signature>HttpMessage.getRequestUrl():___Php.String</signature>
+        <info_rule id="453559"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Request URL of the Message</comment>
+      </method>
+      <method vuln_id="1086708">
+        <simple_name>HttpMessage.getResponseCode</simple_name>
+        <signature>HttpMessage.getResponseCode():int</signature>
+        <info_rule id="453585"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Response Code of the Message.</comment>
+      </method>
+      <method vuln_id="1086756">
+        <simple_name>HttpMessage.getResponseStatus</simple_name>
+        <signature>HttpMessage.getResponseStatus():___Php.String</signature>
+        <info_rule id="453651"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Response Status of the message(i.e. the string following the response code).</comment>
+      </method>
+      <method vuln_id="1086866">
+        <simple_name>HttpMessage.getType</simple_name>
+        <signature>HttpMessage.getType():int</signature>
+        <info_rule id="453807"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get Message Type. Either HTTP_MSG_NONE;HTTP_MSG_REQUEST or HTTP_MSG_RESPONSE</comment>
+      </method>
+      <method vuln_id="1086837">
+        <simple_name>HttpMessage.guessContentType</simple_name>
+        <signature>HttpMessage.guessContentType(___Php.String;int):___Php.String</signature>
+        <info_rule id="453768"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Attempts to guess the content type of the message body through libmagic.</comment>
+      </method>
+      <method vuln_id="1086779">
+        <simple_name>HttpMessage.prepend</simple_name>
+        <signature>HttpMessage.prepend(HttpMessage;bool):void</signature>
+        <info_rule id="453683"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Prepends message(s):to the HTTP message.</comment>
+      </method>
+      <method vuln_id="1086760">
+        <simple_name>HttpMessage.reverse</simple_name>
+        <signature>HttpMessage.reverse():HttpMessage</signature>
+        <info_rule id="453658"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Reorders the message chain in reverse order.</comment>
+      </method>
+      <method vuln_id="1086856">
+        <simple_name>HttpMessage.send</simple_name>
+        <signature>HttpMessage.send():bool</signature>
+        <info_rule id="453794"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send the Message according to its type as Response or Request.</comment>
+      </method>
+      <method vuln_id="1086738">
+        <simple_name>HttpMessage.setBody</simple_name>
+        <signature>HttpMessage.setBody(___Php.String):void</signature>
+        <info_rule id="453626"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the body of the HttpMessage</comment>
+      </method>
+      <method vuln_id="1086809">
+        <simple_name>HttpMessage.setHeaders</simple_name>
+        <signature>HttpMessage.setHeaders(___Php.Array):void</signature>
+        <info_rule id="453724"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Sets new headers</comment>
+      </method>
+      <method vuln_id="1086859">
+        <simple_name>HttpMessage.setHttpVersion</simple_name>
+        <signature>HttpMessage.setHttpVersion(___Php.String):bool</signature>
+        <info_rule id="453800"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the HTTP Protocol version of the Message</comment>
+      </method>
+      <method vuln_id="1086788">
+        <simple_name>HttpMessage.setRequestMethod</simple_name>
+        <signature>HttpMessage.setRequestMethod(___Php.String):bool</signature>
+        <info_rule id="453692"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Request Method of the HTTP Message.</comment>
+      </method>
+      <method vuln_id="1086821">
+        <simple_name>HttpMessage.setRequestUrl</simple_name>
+        <signature>HttpMessage.setRequestUrl(___Php.String):bool</signature>
+        <info_rule id="453744"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Request URL of the HTTP Message</comment>
+      </method>
+      <method vuln_id="1086790">
+        <simple_name>HttpMessage.setResponseCode</simple_name>
+        <signature>HttpMessage.setResponseCode(int):bool</signature>
+        <info_rule id="453695"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the response code of an HTTP Response Message.</comment>
+      </method>
+      <method vuln_id="1086807">
+        <simple_name>HttpMessage.setResponseStatus</simple_name>
+        <signature>HttpMessage.setResponseStatus(___Php.String):bool</signature>
+        <info_rule id="453720"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Response Status of the HTTP message(i.e. the string following the response code).</comment>
+      </method>
+      <method vuln_id="1086822">
+        <simple_name>HttpMessage.setType</simple_name>
+        <signature>HttpMessage.setType(int):void</signature>
+        <info_rule id="453745"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set Message Type. Either HTTP_MSG_NONE;HTTP_MSG_REQUEST or HTTP_MSG_RESPONSE</comment>
+      </method>
+      <method vuln_id="1086718">
+        <simple_name>HttpMessage.toMessageTypeObject</simple_name>
+        <signature>HttpMessage.toMessageTypeObject():mixed</signature>
+        <info_rule id="453598"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Creates an object regarding to the type of the message.</comment>
+      </method>
+      <method vuln_id="1086684">
+        <simple_name>HttpMessage.toString</simple_name>
+        <signature>HttpMessage.toString(bool):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the string representation of the Message.</comment>
+      </method>
+    </class>
+    <class name="HttpMessage">
+      <method vuln_id="1086806">
+        <simple_name>HttpMessage.__construct</simple_name>
+        <signature>HttpMessage.__construct(___Php.String):void</signature>
+        <comment>HttpMessage constructor</comment>
+      </method>
+      <method vuln_id="1086775">
+        <simple_name>HttpMessage.addHeaders</simple_name>
+        <signature>HttpMessage.addHeaders(___Php.Array;bool):void</signature>
+        <info_rule id="453678"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add headers. If append is true;headers with the same name will be separated;else overwritten.</comment>
+      </method>
+      <method vuln_id="1086794">
+        <simple_name>HttpMessage.detach</simple_name>
+        <signature>HttpMessage.detach():HttpMessage</signature>
+        <info_rule id="453701"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Returns a clone of an HttpMessage object detached from any parent messages.</comment>
+      </method>
+      <method vuln_id="1086735">
+        <simple_name>HttpMessage.factory</simple_name>
+        <signature>HttpMessage.factory(___Php.String;___Php.String):HttpMessage</signature>
+        <info_rule id="453620"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Create an HttpMessage object from a string.</comment>
+      </method>
+      <method vuln_id="1086820">
+        <simple_name>HttpMessage.fromEnv</simple_name>
+        <signature>HttpMessage.fromEnv(int;___Php.String):HttpMessage</signature>
+        <info_rule id="453742"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Create an HttpMessage object from script environment.</comment>
+      </method>
+      <method vuln_id="1086748">
+        <simple_name>HttpMessage.fromString</simple_name>
+        <signature>HttpMessage.fromString(___Php.String;___Php.String):HttpMessage</signature>
+        <info_rule id="453640"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Create an HttpMessage object from a string.</comment>
+      </method>
+      <method vuln_id="1086759">
+        <simple_name>HttpMessage.getBody</simple_name>
+        <signature>HttpMessage.getBody():___Php.String</signature>
+        <info_rule id="453656"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the body of the parsed HttpMessage</comment>
+      </method>
+      <method vuln_id="1086692">
+        <simple_name>HttpMessage.getHeader</simple_name>
+        <signature>HttpMessage.getHeader(___Php.String):___Php.String</signature>
+        <info_rule id="453555"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get message header.</comment>
+      </method>
+      <method vuln_id="1086792">
+        <simple_name>HttpMessage.getHeaders</simple_name>
+        <signature>HttpMessage.getHeaders():___Php.Array</signature>
+        <info_rule id="453698"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get message headers.</comment>
+      </method>
+      <method vuln_id="1086813">
+        <simple_name>HttpMessage.getHttpVersion</simple_name>
+        <signature>HttpMessage.getHttpVersion():___Php.String</signature>
+        <info_rule id="453730"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the HTTP Protocol Version of the Message.</comment>
+      </method>
+      <method vuln_id="1086696">
+        <simple_name>HttpMessage.getParentMessage</simple_name>
+        <signature>HttpMessage.getParentMessage():HttpMessage</signature>
+        <info_rule id="453563"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get parent Message.</comment>
+      </method>
+      <method vuln_id="1086744">
+        <simple_name>HttpMessage.getRequestMethod</simple_name>
+        <signature>HttpMessage.getRequestMethod():___Php.String</signature>
+        <info_rule id="453635"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Request Method of the Message</comment>
+      </method>
+      <method vuln_id="1086694">
+        <simple_name>HttpMessage.getRequestUrl</simple_name>
+        <signature>HttpMessage.getRequestUrl():___Php.String</signature>
+        <info_rule id="453559"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Request URL of the Message</comment>
+      </method>
+      <method vuln_id="1086708">
+        <simple_name>HttpMessage.getResponseCode</simple_name>
+        <signature>HttpMessage.getResponseCode():int</signature>
+        <info_rule id="453585"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Response Code of the Message.</comment>
+      </method>
+      <method vuln_id="1086756">
+        <simple_name>HttpMessage.getResponseStatus</simple_name>
+        <signature>HttpMessage.getResponseStatus():___Php.String</signature>
+        <info_rule id="453651"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the Response Status of the message(i.e. the string following the response code).</comment>
+      </method>
+      <method vuln_id="1086866">
+        <simple_name>HttpMessage.getType</simple_name>
+        <signature>HttpMessage.getType():int</signature>
+        <info_rule id="453807"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get Message Type. Either HTTP_MSG_NONE;HTTP_MSG_REQUEST or HTTP_MSG_RESPONSE</comment>
+      </method>
+      <method vuln_id="1086837">
+        <simple_name>HttpMessage.guessContentType</simple_name>
+        <signature>HttpMessage.guessContentType(___Php.String;int):___Php.String</signature>
+        <info_rule id="453768"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Attempts to guess the content type of the message body through libmagic.</comment>
+      </method>
+      <method vuln_id="1086779">
+        <simple_name>HttpMessage.prepend</simple_name>
+        <signature>HttpMessage.prepend(HttpMessage;bool):void</signature>
+        <info_rule id="453683"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Prepends message(s):to the HTTP message.</comment>
+      </method>
+      <method vuln_id="1086760">
+        <simple_name>HttpMessage.reverse</simple_name>
+        <signature>HttpMessage.reverse():HttpMessage</signature>
+        <info_rule id="453658"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Reorders the message chain in reverse order.</comment>
+      </method>
+      <method vuln_id="1086856">
+        <simple_name>HttpMessage.send</simple_name>
+        <signature>HttpMessage.send():bool</signature>
+        <info_rule id="453794"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send the Message according to its type as Response or Request.</comment>
+      </method>
+      <method vuln_id="1086738">
+        <simple_name>HttpMessage.setBody</simple_name>
+        <signature>HttpMessage.setBody(___Php.String):void</signature>
+        <info_rule id="453626"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the body of the HttpMessage</comment>
+      </method>
+      <method vuln_id="1086809">
+        <simple_name>HttpMessage.setHeaders</simple_name>
+        <signature>HttpMessage.setHeaders(___Php.Array):void</signature>
+        <info_rule id="453724"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Sets new headers</comment>
+      </method>
+      <method vuln_id="1086859">
+        <simple_name>HttpMessage.setHttpVersion</simple_name>
+        <signature>HttpMessage.setHttpVersion(___Php.String):bool</signature>
+        <info_rule id="453800"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the HTTP Protocol version of the Message</comment>
+      </method>
+      <method vuln_id="1086788">
+        <simple_name>HttpMessage.setRequestMethod</simple_name>
+        <signature>HttpMessage.setRequestMethod(___Php.String):bool</signature>
+        <info_rule id="453692"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Request Method of the HTTP Message.</comment>
+      </method>
+      <method vuln_id="1086821">
+        <simple_name>HttpMessage.setRequestUrl</simple_name>
+        <signature>HttpMessage.setRequestUrl(___Php.String):bool</signature>
+        <info_rule id="453744"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Request URL of the HTTP Message</comment>
+      </method>
+      <method vuln_id="1086790">
+        <simple_name>HttpMessage.setResponseCode</simple_name>
+        <signature>HttpMessage.setResponseCode(int):bool</signature>
+        <info_rule id="453695"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the response code of an HTTP Response Message.</comment>
+      </method>
+      <method vuln_id="1086807">
+        <simple_name>HttpMessage.setResponseStatus</simple_name>
+        <signature>HttpMessage.setResponseStatus(___Php.String):bool</signature>
+        <info_rule id="453720"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the Response Status of the HTTP message(i.e. the string following the response code).</comment>
+      </method>
+      <method vuln_id="1086822">
+        <simple_name>HttpMessage.setType</simple_name>
+        <signature>HttpMessage.setType(int):void</signature>
+        <info_rule id="453745"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set Message Type. Either HTTP_MSG_NONE;HTTP_MSG_REQUEST or HTTP_MSG_RESPONSE</comment>
+      </method>
+      <method vuln_id="1086718">
+        <simple_name>HttpMessage.toMessageTypeObject</simple_name>
+        <signature>HttpMessage.toMessageTypeObject():mixed</signature>
+        <info_rule id="453598"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Creates an object regarding to the type of the message.</comment>
+      </method>
+      <method vuln_id="1086684">
+        <simple_name>HttpMessage.toString</simple_name>
+        <signature>HttpMessage.toString(bool):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the string representation of the Message.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

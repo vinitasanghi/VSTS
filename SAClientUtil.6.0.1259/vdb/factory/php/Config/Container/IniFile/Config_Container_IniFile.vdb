@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Config_Container_IniFile">
+      <method vuln_id="-1">
+        <simple_name>Config_Container_IniFile.Config_Container_IniFile</simple_name>
+        <signature>Config_Container_IniFile.Config_Container_IniFile($options):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090451">
+        <simple_name>Config_Container_IniFile.parseDatasrc</simple_name>
+        <signature>Config_Container_IniFile.parseDatasrc($datasrc;$obj):mixed</signature>
+        <info_rule id="480698"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090452">
+        <simple_name>Config_Container_IniFile.toString</simple_name>
+        <signature>Config_Container_IniFile.toString($obj):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Config_Container_IniFile">
+      <method vuln_id="-1">
+        <simple_name>Config_Container_IniFile.Config_Container_IniFile</simple_name>
+        <signature>Config_Container_IniFile.Config_Container_IniFile($options):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090451">
+        <simple_name>Config_Container_IniFile.parseDatasrc</simple_name>
+        <signature>Config_Container_IniFile.parseDatasrc($datasrc;$obj):mixed</signature>
+        <info_rule id="480698"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Technology.ConfigurationManagement</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090452">
+        <simple_name>Config_Container_IniFile.toString</simple_name>
+        <signature>Config_Container_IniFile.toString($obj):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

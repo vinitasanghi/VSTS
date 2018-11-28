@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Config_Container">
+      <method vuln_id="-1">
+        <simple_name>Config_Container.Config_Container</simple_name>
+        <signature>Config_Container.Config_Container($type;$name;$content;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090438">
+        <simple_name>Config_Container.addItem</simple_name>
+        <signature>Config_Container.addItem($item;$where;$target):mixed</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090442">
+        <simple_name>Config_Container.countChildren</simple_name>
+        <signature>Config_Container.countChildren($type;$name):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090430">
+        <simple_name>Config_Container.createBlank</simple_name>
+        <signature>Config_Container.createBlank($where;$target):object reference</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090439">
+        <simple_name>Config_Container.createComment</simple_name>
+        <signature>Config_Container.createComment($content;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090424">
+        <simple_name>Config_Container.createDirective</simple_name>
+        <signature>Config_Container.createDirective($name;$content;$attributes;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090420">
+        <simple_name>Config_Container.createItem</simple_name>
+        <signature>Config_Container.createItem($type;$name;$content;$attributes;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090431">
+        <simple_name>Config_Container.createSection</simple_name>
+        <signature>Config_Container.createSection($name;$attributes;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Config_Container.directiveContent</simple_name>
+        <signature>Config_Container.directiveContent($args;$index):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090427">
+        <simple_name>Config_Container.getAttribute</simple_name>
+        <signature>Config_Container.getAttribute($attribute):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090426">
+        <simple_name>Config_Container.getAttributes</simple_name>
+        <signature>Config_Container.getAttributes():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090443">
+        <simple_name>Config_Container.getChild</simple_name>
+        <signature>Config_Container.getChild($index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090437">
+        <simple_name>Config_Container.getContent</simple_name>
+        <signature>Config_Container.getContent():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090433">
+        <simple_name>Config_Container.getItem</simple_name>
+        <signature>Config_Container.getItem($type;$name;$content;$attributes;$index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090441">
+        <simple_name>Config_Container.getItemIndex</simple_name>
+        <signature>Config_Container.getItemIndex():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090432">
+        <simple_name>Config_Container.getItemPosition</simple_name>
+        <signature>Config_Container.getItemPosition($byType):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090417">
+        <simple_name>Config_Container.getName</simple_name>
+        <signature>Config_Container.getName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090440">
+        <simple_name>Config_Container.getParent</simple_name>
+        <signature>Config_Container.getParent():object returns</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090428">
+        <simple_name>Config_Container.getType</simple_name>
+        <signature>Config_Container.getType():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090429">
+        <simple_name>Config_Container.isRoot</simple_name>
+        <signature>Config_Container.isRoot():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090421">
+        <simple_name>Config_Container.removeItem</simple_name>
+        <signature>Config_Container.removeItem():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090422">
+        <simple_name>Config_Container.searchPath</simple_name>
+        <signature>Config_Container.searchPath($args):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090418">
+        <simple_name>Config_Container.setAttributes</simple_name>
+        <signature>Config_Container.setAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090423">
+        <simple_name>Config_Container.setContent</simple_name>
+        <signature>Config_Container.setContent($content):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090436">
+        <simple_name>Config_Container.setDirective</simple_name>
+        <signature>Config_Container.setDirective($name;$content;$index):object newly</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090435">
+        <simple_name>Config_Container.setName</simple_name>
+        <signature>Config_Container.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090444">
+        <simple_name>Config_Container.setType</simple_name>
+        <signature>Config_Container.setType($type):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090425">
+        <simple_name>Config_Container.toArray</simple_name>
+        <signature>Config_Container.toArray($useAttr):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090419">
+        <simple_name>Config_Container.toString</simple_name>
+        <signature>Config_Container.toString($configType;$options):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090434">
+        <simple_name>Config_Container.updateAttributes</simple_name>
+        <signature>Config_Container.updateAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090416">
+        <simple_name>Config_Container.writeDatasrc</simple_name>
+        <signature>Config_Container.writeDatasrc($datasrc;$configType;$options):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this,2,3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Config_Container">
+      <method vuln_id="-1">
+        <simple_name>Config_Container.Config_Container</simple_name>
+        <signature>Config_Container.Config_Container($type;$name;$content;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090438">
+        <simple_name>Config_Container.addItem</simple_name>
+        <signature>Config_Container.addItem($item;$where;$target):mixed</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090442">
+        <simple_name>Config_Container.countChildren</simple_name>
+        <signature>Config_Container.countChildren($type;$name):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090430">
+        <simple_name>Config_Container.createBlank</simple_name>
+        <signature>Config_Container.createBlank($where;$target):object reference</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090439">
+        <simple_name>Config_Container.createComment</simple_name>
+        <signature>Config_Container.createComment($content;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090424">
+        <simple_name>Config_Container.createDirective</simple_name>
+        <signature>Config_Container.createDirective($name;$content;$attributes;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090420">
+        <simple_name>Config_Container.createItem</simple_name>
+        <signature>Config_Container.createItem($type;$name;$content;$attributes;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090431">
+        <simple_name>Config_Container.createSection</simple_name>
+        <signature>Config_Container.createSection($name;$attributes;$where;$target):object reference</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Config_Container.directiveContent</simple_name>
+        <signature>Config_Container.directiveContent($args;$index):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090427">
+        <simple_name>Config_Container.getAttribute</simple_name>
+        <signature>Config_Container.getAttribute($attribute):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090426">
+        <simple_name>Config_Container.getAttributes</simple_name>
+        <signature>Config_Container.getAttributes():array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090443">
+        <simple_name>Config_Container.getChild</simple_name>
+        <signature>Config_Container.getChild($index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090437">
+        <simple_name>Config_Container.getContent</simple_name>
+        <signature>Config_Container.getContent():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090433">
+        <simple_name>Config_Container.getItem</simple_name>
+        <signature>Config_Container.getItem($type;$name;$content;$attributes;$index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090441">
+        <simple_name>Config_Container.getItemIndex</simple_name>
+        <signature>Config_Container.getItemIndex():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090432">
+        <simple_name>Config_Container.getItemPosition</simple_name>
+        <signature>Config_Container.getItemPosition($byType):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090417">
+        <simple_name>Config_Container.getName</simple_name>
+        <signature>Config_Container.getName():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090440">
+        <simple_name>Config_Container.getParent</simple_name>
+        <signature>Config_Container.getParent():object returns</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090428">
+        <simple_name>Config_Container.getType</simple_name>
+        <signature>Config_Container.getType():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090429">
+        <simple_name>Config_Container.isRoot</simple_name>
+        <signature>Config_Container.isRoot():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090421">
+        <simple_name>Config_Container.removeItem</simple_name>
+        <signature>Config_Container.removeItem():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090422">
+        <simple_name>Config_Container.searchPath</simple_name>
+        <signature>Config_Container.searchPath($args):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090418">
+        <simple_name>Config_Container.setAttributes</simple_name>
+        <signature>Config_Container.setAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090423">
+        <simple_name>Config_Container.setContent</simple_name>
+        <signature>Config_Container.setContent($content):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090436">
+        <simple_name>Config_Container.setDirective</simple_name>
+        <signature>Config_Container.setDirective($name;$content;$index):object newly</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090435">
+        <simple_name>Config_Container.setName</simple_name>
+        <signature>Config_Container.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090444">
+        <simple_name>Config_Container.setType</simple_name>
+        <signature>Config_Container.setType($type):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090425">
+        <simple_name>Config_Container.toArray</simple_name>
+        <signature>Config_Container.toArray($useAttr):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090419">
+        <simple_name>Config_Container.toString</simple_name>
+        <signature>Config_Container.toString($configType;$options):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090434">
+        <simple_name>Config_Container.updateAttributes</simple_name>
+        <signature>Config_Container.updateAttributes($attributes):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090416">
+        <simple_name>Config_Container.writeDatasrc</simple_name>
+        <signature>Config_Container.writeDatasrc($datasrc;$configType;$options):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this,2,3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

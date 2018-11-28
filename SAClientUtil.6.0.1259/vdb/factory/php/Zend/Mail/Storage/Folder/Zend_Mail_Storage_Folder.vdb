@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Mail_Storage_Folder">
+      <method vuln_id="1115968">
+        <simple_name>Zend_Mail_Storage_Folder.__construct_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__construct_@__Mail_Storage_Folder_php_1($localName;$globalName;$selectable;$folders):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116138">
+        <simple_name>Zend_Mail_Storage_Folder.__get_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__get_@__Mail_Storage_Folder_php_1($name):Variant</signature>
+        <info_rule id="469380"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116135">
+        <simple_name>Zend_Mail_Storage_Folder.__set_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__set_@__Mail_Storage_Folder_php_1($name;$folder):Variant</signature>
+        <info_rule id="469377"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116084">
+        <simple_name>Zend_Mail_Storage_Folder.__toString_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__toString_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469319"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116182">
+        <simple_name>Zend_Mail_Storage_Folder.__unset_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__unset_@__Mail_Storage_Folder_php_1($name):Variant</signature>
+        <info_rule id="469427"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116006">
+        <simple_name>Zend_Mail_Storage_Folder.current_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.current_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469241"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116202">
+        <simple_name>Zend_Mail_Storage_Folder.getChildren_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.getChildren_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469451"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116252">
+        <simple_name>Zend_Mail_Storage_Folder.getGlobalName_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.getGlobalName_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469498"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116270">
+        <simple_name>Zend_Mail_Storage_Folder.getLocalName_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.getLocalName_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469515"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116051">
+        <simple_name>Zend_Mail_Storage_Folder.hasChildren_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.hasChildren_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469286"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116097">
+        <simple_name>Zend_Mail_Storage_Folder.isLeaf_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.isLeaf_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469333"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116082">
+        <simple_name>Zend_Mail_Storage_Folder.isSelectable_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.isSelectable_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469317"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116118">
+        <simple_name>Zend_Mail_Storage_Folder.key_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.key_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469358"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116262">
+        <simple_name>Zend_Mail_Storage_Folder.next_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.next_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469507"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115979">
+        <simple_name>Zend_Mail_Storage_Folder.rewind_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.rewind_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469213"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116267">
+        <simple_name>Zend_Mail_Storage_Folder.valid_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.valid_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469512"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+    <class name="Zend_Mail_Storage_Folder">
+      <method vuln_id="1115968">
+        <simple_name>Zend_Mail_Storage_Folder.__construct_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__construct_@__Mail_Storage_Folder_php_1($localName;$globalName;$selectable;$folders):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116138">
+        <simple_name>Zend_Mail_Storage_Folder.__get_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__get_@__Mail_Storage_Folder_php_1($name):Variant</signature>
+        <info_rule id="469380"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116135">
+        <simple_name>Zend_Mail_Storage_Folder.__set_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__set_@__Mail_Storage_Folder_php_1($name;$folder):Variant</signature>
+        <info_rule id="469377"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116084">
+        <simple_name>Zend_Mail_Storage_Folder.__toString_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__toString_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469319"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116182">
+        <simple_name>Zend_Mail_Storage_Folder.__unset_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.__unset_@__Mail_Storage_Folder_php_1($name):Variant</signature>
+        <info_rule id="469427"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116006">
+        <simple_name>Zend_Mail_Storage_Folder.current_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.current_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469241"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116202">
+        <simple_name>Zend_Mail_Storage_Folder.getChildren_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.getChildren_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469451"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116252">
+        <simple_name>Zend_Mail_Storage_Folder.getGlobalName_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.getGlobalName_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469498"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116270">
+        <simple_name>Zend_Mail_Storage_Folder.getLocalName_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.getLocalName_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469515"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116051">
+        <simple_name>Zend_Mail_Storage_Folder.hasChildren_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.hasChildren_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469286"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116097">
+        <simple_name>Zend_Mail_Storage_Folder.isLeaf_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.isLeaf_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469333"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116082">
+        <simple_name>Zend_Mail_Storage_Folder.isSelectable_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.isSelectable_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469317"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116118">
+        <simple_name>Zend_Mail_Storage_Folder.key_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.key_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469358"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116262">
+        <simple_name>Zend_Mail_Storage_Folder.next_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.next_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469507"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115979">
+        <simple_name>Zend_Mail_Storage_Folder.rewind_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.rewind_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469213"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116267">
+        <simple_name>Zend_Mail_Storage_Folder.valid_@__Mail_Storage_Folder_php_1</simple_name>
+        <signature>Zend_Mail_Storage_Folder.valid_@__Mail_Storage_Folder_php_1():Variant</signature>
+        <info_rule id="469512"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

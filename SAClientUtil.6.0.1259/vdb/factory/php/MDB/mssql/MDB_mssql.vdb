@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_mssql">
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.GetTextValue</simple_name>
+        <signature>MDB_mssql.GetTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.MDB_Common</simple_name>
+        <signature>MDB_mssql.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.MDB_mssql</simple_name>
+        <signature>MDB_mssql.MDB_mssql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._baseConvertResult</simple_name>
+        <signature>MDB_mssql._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._close</simple_name>
+        <signature>MDB_mssql._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._doQuery</simple_name>
+        <signature>MDB_mssql._doQuery($query):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._mssql_field_flags</simple_name>
+        <signature>MDB_mssql._mssql_field_flags($table;$column):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._quote</simple_name>
+        <signature>MDB_mssql._quote():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092252">
+        <simple_name>MDB_mssql.autoCommit</simple_name>
+        <signature>MDB_mssql.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092258">
+        <simple_name>MDB_mssql.commit</simple_name>
+        <signature>MDB_mssql.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.connect</simple_name>
+        <signature>MDB_mssql.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092277">
+        <simple_name>MDB_mssql.convertResult</simple_name>
+        <signature>MDB_mssql.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092300">
+        <simple_name>MDB_mssql.convertResultRow</simple_name>
+        <signature>MDB_mssql.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092296">
+        <simple_name>MDB_mssql.createSequence</simple_name>
+        <signature>MDB_mssql.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092281">
+        <simple_name>MDB_mssql.debug</simple_name>
+        <signature>MDB_mssql.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092283">
+        <simple_name>MDB_mssql.endOfLob</simple_name>
+        <signature>MDB_mssql.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092297">
+        <simple_name>MDB_mssql.endOfResult</simple_name>
+        <signature>MDB_mssql.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092293">
+        <simple_name>MDB_mssql.errorCode</simple_name>
+        <signature>MDB_mssql.errorCode():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092285">
+        <simple_name>MDB_mssql.errorNative</simple_name>
+        <signature>MDB_mssql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451790">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.expectError</simple_name>
+        <signature>MDB_mssql.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092255">
+        <simple_name>MDB_mssql.fetch</simple_name>
+        <signature>MDB_mssql.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480856"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092267">
+        <simple_name>MDB_mssql.fetchAll</simple_name>
+        <signature>MDB_mssql.fetchAll():Variant</signature>
+        <info_rule id="480850"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092298">
+        <simple_name>MDB_mssql.fetchBlob</simple_name>
+        <signature>MDB_mssql.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480857"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092261">
+        <simple_name>MDB_mssql.fetchClob</simple_name>
+        <signature>MDB_mssql.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480849"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092284">
+        <simple_name>MDB_mssql.fetchInto</simple_name>
+        <signature>MDB_mssql.fetchInto($result;$fetchmode;$rownum):int</signature>
+        <info_rule id="480852"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092279">
+        <simple_name>MDB_mssql.fetchLob</simple_name>
+        <signature>MDB_mssql.fetchLob():Variant</signature>
+        <info_rule id="480855"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092272">
+        <simple_name>MDB_mssql.freeBlobValue</simple_name>
+        <signature>MDB_mssql.freeBlobValue($prepared_query;$blob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092271">
+        <simple_name>MDB_mssql.freeClobValue</simple_name>
+        <signature>MDB_mssql.freeClobValue($prepared_query;$clob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092256">
+        <simple_name>MDB_mssql.freeResult</simple_name>
+        <signature>MDB_mssql.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092280">
+        <simple_name>MDB_mssql.getBlobDeclaration</simple_name>
+        <signature>MDB_mssql.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092270">
+        <simple_name>MDB_mssql.getBlobValue</simple_name>
+        <signature>MDB_mssql.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092265">
+        <simple_name>MDB_mssql.getBooleanDeclaration</simple_name>
+        <signature>MDB_mssql.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092275">
+        <simple_name>MDB_mssql.getBooleanValue</simple_name>
+        <signature>MDB_mssql.getBooleanValue($value):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092299">
+        <simple_name>MDB_mssql.getClobDeclaration</simple_name>
+        <signature>MDB_mssql.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092295">
+        <simple_name>MDB_mssql.getClobValue</simple_name>
+        <signature>MDB_mssql.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092290">
+        <simple_name>MDB_mssql.getColumnNames</simple_name>
+        <signature>MDB_mssql.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092262">
+        <simple_name>MDB_mssql.getDateDeclaration</simple_name>
+        <signature>MDB_mssql.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092278">
+        <simple_name>MDB_mssql.getDateValue</simple_name>
+        <signature>MDB_mssql.getDateValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092268">
+        <simple_name>MDB_mssql.getDecimalDeclaration</simple_name>
+        <signature>MDB_mssql.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092259">
+        <simple_name>MDB_mssql.getDecimalValue</simple_name>
+        <signature>MDB_mssql.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092294">
+        <simple_name>MDB_mssql.getFloatDeclaration</simple_name>
+        <signature>MDB_mssql.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092269">
+        <simple_name>MDB_mssql.getFloatValue</simple_name>
+        <signature>MDB_mssql.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092273">
+        <simple_name>MDB_mssql.getIntegerDeclaration</simple_name>
+        <signature>MDB_mssql.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092274">
+        <simple_name>MDB_mssql.getSequenceName</simple_name>
+        <signature>MDB_mssql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092263">
+        <simple_name>MDB_mssql.getTextDeclaration</simple_name>
+        <signature>MDB_mssql.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092282">
+        <simple_name>MDB_mssql.getTimeDeclaration</simple_name>
+        <signature>MDB_mssql.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092260">
+        <simple_name>MDB_mssql.getTimeValue</simple_name>
+        <signature>MDB_mssql.getTimeValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092286">
+        <simple_name>MDB_mssql.getTimestampDeclaration</simple_name>
+        <signature>MDB_mssql.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092292">
+        <simple_name>MDB_mssql.getTimestampValue</simple_name>
+        <signature>MDB_mssql.getTimestampValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.getoption</simple_name>
+        <signature>MDB_mssql.getoption():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.mssqlRaiseError</simple_name>
+        <signature>MDB_mssql.mssqlRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092264">
+        <simple_name>MDB_mssql.nextId</simple_name>
+        <signature>MDB_mssql.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092291">
+        <simple_name>MDB_mssql.numCols</simple_name>
+        <signature>MDB_mssql.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092276">
+        <simple_name>MDB_mssql.numRows</simple_name>
+        <signature>MDB_mssql.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.popExpect</simple_name>
+        <signature>MDB_mssql.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092287">
+        <simple_name>MDB_mssql.query</simple_name>
+        <signature>MDB_mssql.query($query;$types):mixed</signature>
+        <info_rule id="480853"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092253">
+        <simple_name>MDB_mssql.queryOne</simple_name>
+        <signature>MDB_mssql.queryOne():Variant</signature>
+        <info_rule id="480854"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092254">
+        <simple_name>MDB_mssql.quoteIdentifier</simple_name>
+        <signature>MDB_mssql.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.raiseError</simple_name>
+        <signature>MDB_mssql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092257">
+        <simple_name>MDB_mssql.readLob</simple_name>
+        <signature>MDB_mssql.readLob():Variant</signature>
+        <info_rule id="480851"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092288">
+        <simple_name>MDB_mssql.rollback</simple_name>
+        <signature>MDB_mssql.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092266">
+        <simple_name>MDB_mssql.setResultTypes</simple_name>
+        <signature>MDB_mssql.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.standaloneQuery</simple_name>
+        <signature>MDB_mssql.standaloneQuery($query):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092289">
+        <simple_name>MDB_mssql.tableInfo</simple_name>
+        <signature>MDB_mssql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_mssql">
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.GetTextValue</simple_name>
+        <signature>MDB_mssql.GetTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.MDB_Common</simple_name>
+        <signature>MDB_mssql.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.MDB_mssql</simple_name>
+        <signature>MDB_mssql.MDB_mssql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._baseConvertResult</simple_name>
+        <signature>MDB_mssql._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._close</simple_name>
+        <signature>MDB_mssql._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._doQuery</simple_name>
+        <signature>MDB_mssql._doQuery($query):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._mssql_field_flags</simple_name>
+        <signature>MDB_mssql._mssql_field_flags($table;$column):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql._quote</simple_name>
+        <signature>MDB_mssql._quote():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092252">
+        <simple_name>MDB_mssql.autoCommit</simple_name>
+        <signature>MDB_mssql.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092258">
+        <simple_name>MDB_mssql.commit</simple_name>
+        <signature>MDB_mssql.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.connect</simple_name>
+        <signature>MDB_mssql.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092277">
+        <simple_name>MDB_mssql.convertResult</simple_name>
+        <signature>MDB_mssql.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092300">
+        <simple_name>MDB_mssql.convertResultRow</simple_name>
+        <signature>MDB_mssql.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092296">
+        <simple_name>MDB_mssql.createSequence</simple_name>
+        <signature>MDB_mssql.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092281">
+        <simple_name>MDB_mssql.debug</simple_name>
+        <signature>MDB_mssql.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092283">
+        <simple_name>MDB_mssql.endOfLob</simple_name>
+        <signature>MDB_mssql.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092297">
+        <simple_name>MDB_mssql.endOfResult</simple_name>
+        <signature>MDB_mssql.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092293">
+        <simple_name>MDB_mssql.errorCode</simple_name>
+        <signature>MDB_mssql.errorCode():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092285">
+        <simple_name>MDB_mssql.errorNative</simple_name>
+        <signature>MDB_mssql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451790">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.expectError</simple_name>
+        <signature>MDB_mssql.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092255">
+        <simple_name>MDB_mssql.fetch</simple_name>
+        <signature>MDB_mssql.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480856"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092267">
+        <simple_name>MDB_mssql.fetchAll</simple_name>
+        <signature>MDB_mssql.fetchAll():Variant</signature>
+        <info_rule id="480850"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092298">
+        <simple_name>MDB_mssql.fetchBlob</simple_name>
+        <signature>MDB_mssql.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480857"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092261">
+        <simple_name>MDB_mssql.fetchClob</simple_name>
+        <signature>MDB_mssql.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480849"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092284">
+        <simple_name>MDB_mssql.fetchInto</simple_name>
+        <signature>MDB_mssql.fetchInto($result;$fetchmode;$rownum):int</signature>
+        <info_rule id="480852"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092279">
+        <simple_name>MDB_mssql.fetchLob</simple_name>
+        <signature>MDB_mssql.fetchLob():Variant</signature>
+        <info_rule id="480855"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092272">
+        <simple_name>MDB_mssql.freeBlobValue</simple_name>
+        <signature>MDB_mssql.freeBlobValue($prepared_query;$blob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092271">
+        <simple_name>MDB_mssql.freeClobValue</simple_name>
+        <signature>MDB_mssql.freeClobValue($prepared_query;$clob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092256">
+        <simple_name>MDB_mssql.freeResult</simple_name>
+        <signature>MDB_mssql.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092280">
+        <simple_name>MDB_mssql.getBlobDeclaration</simple_name>
+        <signature>MDB_mssql.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092270">
+        <simple_name>MDB_mssql.getBlobValue</simple_name>
+        <signature>MDB_mssql.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092265">
+        <simple_name>MDB_mssql.getBooleanDeclaration</simple_name>
+        <signature>MDB_mssql.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092275">
+        <simple_name>MDB_mssql.getBooleanValue</simple_name>
+        <signature>MDB_mssql.getBooleanValue($value):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092299">
+        <simple_name>MDB_mssql.getClobDeclaration</simple_name>
+        <signature>MDB_mssql.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092295">
+        <simple_name>MDB_mssql.getClobValue</simple_name>
+        <signature>MDB_mssql.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092290">
+        <simple_name>MDB_mssql.getColumnNames</simple_name>
+        <signature>MDB_mssql.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092262">
+        <simple_name>MDB_mssql.getDateDeclaration</simple_name>
+        <signature>MDB_mssql.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092278">
+        <simple_name>MDB_mssql.getDateValue</simple_name>
+        <signature>MDB_mssql.getDateValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092268">
+        <simple_name>MDB_mssql.getDecimalDeclaration</simple_name>
+        <signature>MDB_mssql.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092259">
+        <simple_name>MDB_mssql.getDecimalValue</simple_name>
+        <signature>MDB_mssql.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092294">
+        <simple_name>MDB_mssql.getFloatDeclaration</simple_name>
+        <signature>MDB_mssql.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092269">
+        <simple_name>MDB_mssql.getFloatValue</simple_name>
+        <signature>MDB_mssql.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092273">
+        <simple_name>MDB_mssql.getIntegerDeclaration</simple_name>
+        <signature>MDB_mssql.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092274">
+        <simple_name>MDB_mssql.getSequenceName</simple_name>
+        <signature>MDB_mssql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092263">
+        <simple_name>MDB_mssql.getTextDeclaration</simple_name>
+        <signature>MDB_mssql.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092282">
+        <simple_name>MDB_mssql.getTimeDeclaration</simple_name>
+        <signature>MDB_mssql.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092260">
+        <simple_name>MDB_mssql.getTimeValue</simple_name>
+        <signature>MDB_mssql.getTimeValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092286">
+        <simple_name>MDB_mssql.getTimestampDeclaration</simple_name>
+        <signature>MDB_mssql.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092292">
+        <simple_name>MDB_mssql.getTimestampValue</simple_name>
+        <signature>MDB_mssql.getTimestampValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.getoption</simple_name>
+        <signature>MDB_mssql.getoption():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.mssqlRaiseError</simple_name>
+        <signature>MDB_mssql.mssqlRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092264">
+        <simple_name>MDB_mssql.nextId</simple_name>
+        <signature>MDB_mssql.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092291">
+        <simple_name>MDB_mssql.numCols</simple_name>
+        <signature>MDB_mssql.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092276">
+        <simple_name>MDB_mssql.numRows</simple_name>
+        <signature>MDB_mssql.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.popExpect</simple_name>
+        <signature>MDB_mssql.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092287">
+        <simple_name>MDB_mssql.query</simple_name>
+        <signature>MDB_mssql.query($query;$types):mixed</signature>
+        <info_rule id="480853"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092253">
+        <simple_name>MDB_mssql.queryOne</simple_name>
+        <signature>MDB_mssql.queryOne():Variant</signature>
+        <info_rule id="480854"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092254">
+        <simple_name>MDB_mssql.quoteIdentifier</simple_name>
+        <signature>MDB_mssql.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.raiseError</simple_name>
+        <signature>MDB_mssql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092257">
+        <simple_name>MDB_mssql.readLob</simple_name>
+        <signature>MDB_mssql.readLob():Variant</signature>
+        <info_rule id="480851"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092288">
+        <simple_name>MDB_mssql.rollback</simple_name>
+        <signature>MDB_mssql.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092266">
+        <simple_name>MDB_mssql.setResultTypes</simple_name>
+        <signature>MDB_mssql.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_mssql.standaloneQuery</simple_name>
+        <signature>MDB_mssql.standaloneQuery($query):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092289">
+        <simple_name>MDB_mssql.tableInfo</simple_name>
+        <signature>MDB_mssql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Manager_mysql">
+      <method vuln_id="1092112">
+        <simple_name>MDB_Manager_mysql._isSequenceName</simple_name>
+        <signature>MDB_Manager_mysql._isSequenceName():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager_mysql._verifyTransactionalTableType</simple_name>
+        <signature>MDB_Manager_mysql._verifyTransactionalTableType($db;$table_type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092110">
+        <simple_name>MDB_Manager_mysql.alterTable</simple_name>
+        <signature>MDB_Manager_mysql.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092113">
+        <simple_name>MDB_Manager_mysql.createDatabase</simple_name>
+        <signature>MDB_Manager_mysql.createDatabase($db;$name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092103">
+        <simple_name>MDB_Manager_mysql.createIndex</simple_name>
+        <signature>MDB_Manager_mysql.createIndex($db;$table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092099">
+        <simple_name>MDB_Manager_mysql.createSequence</simple_name>
+        <signature>MDB_Manager_mysql.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092100">
+        <simple_name>MDB_Manager_mysql.createTable</simple_name>
+        <signature>MDB_Manager_mysql.createTable($db;$name;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092102">
+        <simple_name>MDB_Manager_mysql.dropDatabase</simple_name>
+        <signature>MDB_Manager_mysql.dropDatabase($db;$name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092108">
+        <simple_name>MDB_Manager_mysql.dropIndex</simple_name>
+        <signature>MDB_Manager_mysql.dropIndex($db;$table;$name):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092104">
+        <simple_name>MDB_Manager_mysql.dropSequence</simple_name>
+        <signature>MDB_Manager_mysql.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092106">
+        <simple_name>MDB_Manager_mysql.getTableFieldDefinition</simple_name>
+        <signature>MDB_Manager_mysql.getTableFieldDefinition($db;$table;$field_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092114">
+        <simple_name>MDB_Manager_mysql.getTableIndexDefinition</simple_name>
+        <signature>MDB_Manager_mysql.getTableIndexDefinition($db;$table;$index_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092111">
+        <simple_name>MDB_Manager_mysql.listDatabases</simple_name>
+        <signature>MDB_Manager_mysql.listDatabases($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092105">
+        <simple_name>MDB_Manager_mysql.listSequences</simple_name>
+        <signature>MDB_Manager_mysql.listSequences($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092101">
+        <simple_name>MDB_Manager_mysql.listTableFields</simple_name>
+        <signature>MDB_Manager_mysql.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092109">
+        <simple_name>MDB_Manager_mysql.listTableIndexes</simple_name>
+        <signature>MDB_Manager_mysql.listTableIndexes($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092107">
+        <simple_name>MDB_Manager_mysql.listTables</simple_name>
+        <signature>MDB_Manager_mysql.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092115">
+        <simple_name>MDB_Manager_mysql.listUsers</simple_name>
+        <signature>MDB_Manager_mysql.listUsers($db):mixed</signature>
+        <info_rule id="480843"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Manager_mysql">
+      <method vuln_id="1092112">
+        <simple_name>MDB_Manager_mysql._isSequenceName</simple_name>
+        <signature>MDB_Manager_mysql._isSequenceName():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Manager_mysql._verifyTransactionalTableType</simple_name>
+        <signature>MDB_Manager_mysql._verifyTransactionalTableType($db;$table_type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092110">
+        <simple_name>MDB_Manager_mysql.alterTable</simple_name>
+        <signature>MDB_Manager_mysql.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092113">
+        <simple_name>MDB_Manager_mysql.createDatabase</simple_name>
+        <signature>MDB_Manager_mysql.createDatabase($db;$name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092103">
+        <simple_name>MDB_Manager_mysql.createIndex</simple_name>
+        <signature>MDB_Manager_mysql.createIndex($db;$table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092099">
+        <simple_name>MDB_Manager_mysql.createSequence</simple_name>
+        <signature>MDB_Manager_mysql.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092100">
+        <simple_name>MDB_Manager_mysql.createTable</simple_name>
+        <signature>MDB_Manager_mysql.createTable($db;$name;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092102">
+        <simple_name>MDB_Manager_mysql.dropDatabase</simple_name>
+        <signature>MDB_Manager_mysql.dropDatabase($db;$name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092108">
+        <simple_name>MDB_Manager_mysql.dropIndex</simple_name>
+        <signature>MDB_Manager_mysql.dropIndex($db;$table;$name):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092104">
+        <simple_name>MDB_Manager_mysql.dropSequence</simple_name>
+        <signature>MDB_Manager_mysql.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092106">
+        <simple_name>MDB_Manager_mysql.getTableFieldDefinition</simple_name>
+        <signature>MDB_Manager_mysql.getTableFieldDefinition($db;$table;$field_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092114">
+        <simple_name>MDB_Manager_mysql.getTableIndexDefinition</simple_name>
+        <signature>MDB_Manager_mysql.getTableIndexDefinition($db;$table;$index_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092111">
+        <simple_name>MDB_Manager_mysql.listDatabases</simple_name>
+        <signature>MDB_Manager_mysql.listDatabases($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092105">
+        <simple_name>MDB_Manager_mysql.listSequences</simple_name>
+        <signature>MDB_Manager_mysql.listSequences($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092101">
+        <simple_name>MDB_Manager_mysql.listTableFields</simple_name>
+        <signature>MDB_Manager_mysql.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092109">
+        <simple_name>MDB_Manager_mysql.listTableIndexes</simple_name>
+        <signature>MDB_Manager_mysql.listTableIndexes($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092107">
+        <simple_name>MDB_Manager_mysql.listTables</simple_name>
+        <signature>MDB_Manager_mysql.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092115">
+        <simple_name>MDB_Manager_mysql.listUsers</simple_name>
+        <signature>MDB_Manager_mysql.listUsers($db):mixed</signature>
+        <info_rule id="480843"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

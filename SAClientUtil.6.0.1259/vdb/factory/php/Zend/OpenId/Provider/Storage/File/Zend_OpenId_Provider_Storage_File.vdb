@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_OpenId_Provider_Storage_File">
+      <method vuln_id="1116839">
+        <simple_name>Zend_OpenId_Provider_Storage_File.__construct_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.__construct_@__OpenId_Provider_Storage_File_php_1($dir):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116773">
+        <simple_name>Zend_OpenId_Provider_Storage_File.addAssociation_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.addAssociation_@__OpenId_Provider_Storage_File_php_1($handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469808"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116818">
+        <simple_name>Zend_OpenId_Provider_Storage_File.addSite_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.addSite_@__OpenId_Provider_Storage_File_php_1($id;$site;$trusted):Variant</signature>
+        <info_rule id="469863"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116829">
+        <simple_name>Zend_OpenId_Provider_Storage_File.addUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.addUser_@__OpenId_Provider_Storage_File_php_1($id;$password):Variant</signature>
+        <info_rule id="469877"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469875">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469874">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116834">
+        <simple_name>Zend_OpenId_Provider_Storage_File.checkUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.checkUser_@__OpenId_Provider_Storage_File_php_1($id;$password):Variant</signature>
+        <info_rule id="469885"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116808">
+        <simple_name>Zend_OpenId_Provider_Storage_File.delAssociation_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.delAssociation_@__OpenId_Provider_Storage_File_php_1($handle):Variant</signature>
+        <info_rule id="469852"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116825">
+        <simple_name>Zend_OpenId_Provider_Storage_File.delUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.delUser_@__OpenId_Provider_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469870"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116843">
+        <simple_name>Zend_OpenId_Provider_Storage_File.getAssociation_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.getAssociation_@__OpenId_Provider_Storage_File_php_1($handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469894"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116833">
+        <simple_name>Zend_OpenId_Provider_Storage_File.getTrustedSites_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.getTrustedSites_@__OpenId_Provider_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469884"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116800">
+        <simple_name>Zend_OpenId_Provider_Storage_File.hasUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.hasUser_@__OpenId_Provider_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469844"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_OpenId_Provider_Storage_File">
+      <method vuln_id="1116839">
+        <simple_name>Zend_OpenId_Provider_Storage_File.__construct_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.__construct_@__OpenId_Provider_Storage_File_php_1($dir):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116773">
+        <simple_name>Zend_OpenId_Provider_Storage_File.addAssociation_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.addAssociation_@__OpenId_Provider_Storage_File_php_1($handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469808"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116818">
+        <simple_name>Zend_OpenId_Provider_Storage_File.addSite_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.addSite_@__OpenId_Provider_Storage_File_php_1($id;$site;$trusted):Variant</signature>
+        <info_rule id="469863"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116829">
+        <simple_name>Zend_OpenId_Provider_Storage_File.addUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.addUser_@__OpenId_Provider_Storage_File_php_1($id;$password):Variant</signature>
+        <info_rule id="469877"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469875">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469874">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116834">
+        <simple_name>Zend_OpenId_Provider_Storage_File.checkUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.checkUser_@__OpenId_Provider_Storage_File_php_1($id;$password):Variant</signature>
+        <info_rule id="469885"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116808">
+        <simple_name>Zend_OpenId_Provider_Storage_File.delAssociation_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.delAssociation_@__OpenId_Provider_Storage_File_php_1($handle):Variant</signature>
+        <info_rule id="469852"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116825">
+        <simple_name>Zend_OpenId_Provider_Storage_File.delUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.delUser_@__OpenId_Provider_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469870"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116843">
+        <simple_name>Zend_OpenId_Provider_Storage_File.getAssociation_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.getAssociation_@__OpenId_Provider_Storage_File_php_1($handle;$macFunc;$secret;$expires):Variant</signature>
+        <info_rule id="469894"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116833">
+        <simple_name>Zend_OpenId_Provider_Storage_File.getTrustedSites_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.getTrustedSites_@__OpenId_Provider_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469884"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116800">
+        <simple_name>Zend_OpenId_Provider_Storage_File.hasUser_@__OpenId_Provider_Storage_File_php_1</simple_name>
+        <signature>Zend_OpenId_Provider_Storage_File.hasUser_@__OpenId_Provider_Storage_File_php_1($id):Variant</signature>
+        <info_rule id="469844"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

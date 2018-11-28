@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SWFText">
+      <method vuln_id="1087486">
+        <simple_name>___Php.SWFText.__construct</simple_name>
+        <signature>___Php.SWFText.__construct():void</signature>
+        <info_rule id="454601"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Creates new SWFText object</comment>
+      </method>
+      <method vuln_id="1087520">
+        <simple_name>___Php.SWFText.addString</simple_name>
+        <signature>___Php.SWFText.addString(___Php.String):void</signature>
+        <info_rule id="454637"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Writes the given text into this SWFText object at the current pen position,using the current font,height,spacing,and color</comment>
+      </method>
+      <method vuln_id="1087480">
+        <simple_name>___Php.SWFText.addUTF8String</simple_name>
+        <signature>___Php.SWFText.addUTF8String(___Php.String):void</signature>
+        <info_rule id="454594"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Writes the given text into this SWFText object at the current pen position, using the current font,height,spacing,and color</comment>
+      </method>
+      <method vuln_id="1087385">
+        <simple_name>___Php.SWFText.addWideString</simple_name>
+        <signature>___Php.SWFText.addWideString(___Php.String):void</signature>
+        <info_rule id="454494"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Writes the given text into this SWFText object at the current pen position, using the current font,height,spacing,and color</comment>
+      </method>
+      <method vuln_id="1087465">
+        <simple_name>___Php.SWFText.getAscent</simple_name>
+        <signature>___Php.SWFText.getAscent():float</signature>
+        <info_rule id="454578"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns the ascent of the current font at its current size,or 0 if not available</comment>
+      </method>
+      <method vuln_id="1087468">
+        <simple_name>___Php.SWFText.getDescent</simple_name>
+        <signature>___Php.SWFText.getDescent():float</signature>
+        <info_rule id="454581"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns the descent of the current font at its current size,or 0 if not available</comment>
+      </method>
+      <method vuln_id="1087428">
+        <simple_name>___Php.SWFText.getLeading</simple_name>
+        <signature>___Php.SWFText.getLeading():float</signature>
+        <info_rule id="454540"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns the leading of the current font at its current size,or 0 if not available</comment>
+      </method>
+      <method vuln_id="1087447">
+        <simple_name>___Php.SWFText.getUTF8Width</simple_name>
+        <signature>___Php.SWFText.getUTF8Width(___Php.String):float</signature>
+        <info_rule id="454560"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>calculates the width of the given string in this text objects current font and size</comment>
+      </method>
+      <method vuln_id="1087421">
+        <simple_name>___Php.SWFText.getWideWidth</simple_name>
+        <signature>___Php.SWFText.getWideWidth(___Php.String):float</signature>
+        <info_rule id="454533"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>calculates the width of the given string in this text objects current font and size</comment>
+      </method>
+      <method vuln_id="1087522">
+        <simple_name>___Php.SWFText.getWidth</simple_name>
+        <signature>___Php.SWFText.getWidth(___Php.String):float</signature>
+        <info_rule id="454639"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Calculates the width of the given string in this text objects current font and size</comment>
+      </method>
+      <method vuln_id="1087507">
+        <simple_name>___Php.SWFText.moveTo</simple_name>
+        <signature>___Php.SWFText.moveTo(int;int):void</signature>
+        <info_rule id="454624"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves this SWFText object's current pen position to (x,y) in text coordinates</comment>
+      </method>
+      <method vuln_id="1087431">
+        <simple_name>___Php.SWFText.setColor</simple_name>
+        <signature>___Php.SWFText.setColor(int;int;int;int):void</signature>
+        <info_rule id="454543"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current color to the given color</comment>
+      </method>
+      <method vuln_id="1087377">
+        <simple_name>___Php.SWFText.setFont</simple_name>
+        <signature>___Php.SWFText.setFont(___Php.String):void</signature>
+        <info_rule id="454486"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current font to given font</comment>
+      </method>
+      <method vuln_id="1087381">
+        <simple_name>___Php.SWFText.setHeight</simple_name>
+        <signature>___Php.SWFText.setHeight(int):void</signature>
+        <info_rule id="454490"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current height to given height</comment>
+      </method>
+      <method vuln_id="1087499">
+        <simple_name>___Php.SWFText.setSpacing</simple_name>
+        <signature>___Php.SWFText.setSpacing(float):void</signature>
+        <info_rule id="454615"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current letterspacing to given spacing</comment>
+      </method>
+    </class>
+    <class name="SWFText">
+      <method vuln_id="1087486">
+        <simple_name>___Php.SWFText.__construct</simple_name>
+        <signature>___Php.SWFText.__construct():void</signature>
+        <info_rule id="454601"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Creates new SWFText object</comment>
+      </method>
+      <method vuln_id="1087520">
+        <simple_name>___Php.SWFText.addString</simple_name>
+        <signature>___Php.SWFText.addString(___Php.String):void</signature>
+        <info_rule id="454637"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Writes the given text into this SWFText object at the current pen position,using the current font,height,spacing,and color</comment>
+      </method>
+      <method vuln_id="1087480">
+        <simple_name>___Php.SWFText.addUTF8String</simple_name>
+        <signature>___Php.SWFText.addUTF8String(___Php.String):void</signature>
+        <info_rule id="454594"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Writes the given text into this SWFText object at the current pen position, using the current font,height,spacing,and color</comment>
+      </method>
+      <method vuln_id="1087385">
+        <simple_name>___Php.SWFText.addWideString</simple_name>
+        <signature>___Php.SWFText.addWideString(___Php.String):void</signature>
+        <info_rule id="454494"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Writes the given text into this SWFText object at the current pen position, using the current font,height,spacing,and color</comment>
+      </method>
+      <method vuln_id="1087465">
+        <simple_name>___Php.SWFText.getAscent</simple_name>
+        <signature>___Php.SWFText.getAscent():float</signature>
+        <info_rule id="454578"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns the ascent of the current font at its current size,or 0 if not available</comment>
+      </method>
+      <method vuln_id="1087468">
+        <simple_name>___Php.SWFText.getDescent</simple_name>
+        <signature>___Php.SWFText.getDescent():float</signature>
+        <info_rule id="454581"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns the descent of the current font at its current size,or 0 if not available</comment>
+      </method>
+      <method vuln_id="1087428">
+        <simple_name>___Php.SWFText.getLeading</simple_name>
+        <signature>___Php.SWFText.getLeading():float</signature>
+        <info_rule id="454540"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns the leading of the current font at its current size,or 0 if not available</comment>
+      </method>
+      <method vuln_id="1087447">
+        <simple_name>___Php.SWFText.getUTF8Width</simple_name>
+        <signature>___Php.SWFText.getUTF8Width(___Php.String):float</signature>
+        <info_rule id="454560"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>calculates the width of the given string in this text objects current font and size</comment>
+      </method>
+      <method vuln_id="1087421">
+        <simple_name>___Php.SWFText.getWideWidth</simple_name>
+        <signature>___Php.SWFText.getWideWidth(___Php.String):float</signature>
+        <info_rule id="454533"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>calculates the width of the given string in this text objects current font and size</comment>
+      </method>
+      <method vuln_id="1087522">
+        <simple_name>___Php.SWFText.getWidth</simple_name>
+        <signature>___Php.SWFText.getWidth(___Php.String):float</signature>
+        <info_rule id="454639"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Calculates the width of the given string in this text objects current font and size</comment>
+      </method>
+      <method vuln_id="1087507">
+        <simple_name>___Php.SWFText.moveTo</simple_name>
+        <signature>___Php.SWFText.moveTo(int;int):void</signature>
+        <info_rule id="454624"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves this SWFText object's current pen position to (x,y) in text coordinates</comment>
+      </method>
+      <method vuln_id="1087431">
+        <simple_name>___Php.SWFText.setColor</simple_name>
+        <signature>___Php.SWFText.setColor(int;int;int;int):void</signature>
+        <info_rule id="454543"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current color to the given color</comment>
+      </method>
+      <method vuln_id="1087377">
+        <simple_name>___Php.SWFText.setFont</simple_name>
+        <signature>___Php.SWFText.setFont(___Php.String):void</signature>
+        <info_rule id="454486"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current font to given font</comment>
+      </method>
+      <method vuln_id="1087381">
+        <simple_name>___Php.SWFText.setHeight</simple_name>
+        <signature>___Php.SWFText.setHeight(int):void</signature>
+        <info_rule id="454490"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current height to given height</comment>
+      </method>
+      <method vuln_id="1087499">
+        <simple_name>___Php.SWFText.setSpacing</simple_name>
+        <signature>___Php.SWFText.setSpacing(float):void</signature>
+        <info_rule id="454615"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFText object's current letterspacing to given spacing</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

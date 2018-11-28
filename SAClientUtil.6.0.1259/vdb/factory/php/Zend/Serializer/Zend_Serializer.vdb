@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Serializer">
+      <method vuln_id="1118369">
+        <simple_name>Zend_Serializer.___Class_Initializer_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.___Class_Initializer_@__Serializer_php_1():void</signature>
+        <info_rule id="470894"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118459">
+        <simple_name>Zend_Serializer._getDefaultAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer._getDefaultAdapterLoader_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470996"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118416">
+        <simple_name>Zend_Serializer.factory_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.factory_@__Serializer_php_1($adapterName;$opts):Variant</signature>
+        <info_rule id="470945"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118375">
+        <simple_name>Zend_Serializer.getAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.getAdapterLoader_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470902"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118451">
+        <simple_name>Zend_Serializer.getDefaultAdapter_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.getDefaultAdapter_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470987"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118410">
+        <simple_name>Zend_Serializer.resetAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.resetAdapterLoader_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470940"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118456">
+        <simple_name>Zend_Serializer.serialize_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.serialize_@__Serializer_php_1($value;$options):Variant</signature>
+        <info_rule id="470993"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118381">
+        <simple_name>Zend_Serializer.setAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.setAdapterLoader_@__Serializer_php_1($pluginLoader):Variant</signature>
+        <info_rule id="470908"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118373">
+        <simple_name>Zend_Serializer.setDefaultAdapter_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.setDefaultAdapter_@__Serializer_php_1($adapter;$options):Variant</signature>
+        <info_rule id="470899"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118395">
+        <simple_name>Zend_Serializer.unserialize_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.unserialize_@__Serializer_php_1($serialized;$options):Variant</signature>
+        <info_rule id="470924"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+    </class>
+    <class name="Zend_Serializer">
+      <method vuln_id="1118369">
+        <simple_name>Zend_Serializer.___Class_Initializer_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.___Class_Initializer_@__Serializer_php_1():void</signature>
+        <info_rule id="470894"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118459">
+        <simple_name>Zend_Serializer._getDefaultAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer._getDefaultAdapterLoader_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470996"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118416">
+        <simple_name>Zend_Serializer.factory_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.factory_@__Serializer_php_1($adapterName;$opts):Variant</signature>
+        <info_rule id="470945"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118375">
+        <simple_name>Zend_Serializer.getAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.getAdapterLoader_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470902"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118451">
+        <simple_name>Zend_Serializer.getDefaultAdapter_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.getDefaultAdapter_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470987"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118410">
+        <simple_name>Zend_Serializer.resetAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.resetAdapterLoader_@__Serializer_php_1():Variant</signature>
+        <info_rule id="470940"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118456">
+        <simple_name>Zend_Serializer.serialize_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.serialize_@__Serializer_php_1($value;$options):Variant</signature>
+        <info_rule id="470993"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118381">
+        <simple_name>Zend_Serializer.setAdapterLoader_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.setAdapterLoader_@__Serializer_php_1($pluginLoader):Variant</signature>
+        <info_rule id="470908"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118373">
+        <simple_name>Zend_Serializer.setDefaultAdapter_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.setDefaultAdapter_@__Serializer_php_1($adapter;$options):Variant</signature>
+        <info_rule id="470899"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+      <method vuln_id="1118395">
+        <simple_name>Zend_Serializer.unserialize_@__Serializer_php_1</simple_name>
+        <signature>Zend_Serializer.unserialize_@__Serializer_php_1($serialized;$options):Variant</signature>
+        <info_rule id="470924"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Persistence.Serialization</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

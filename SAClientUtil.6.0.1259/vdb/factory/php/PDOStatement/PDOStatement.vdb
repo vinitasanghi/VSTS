@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="PDOStatement">
+      <method vuln_id="1088164">
+        <simple_name>___Php.PDOStatement.__sleep</simple_name>
+        <signature>___Php.PDOStatement.__sleep():int</signature>
+        <info_rule id="455554"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Prevents serialization of a PDOStatement instance</comment>
+      </method>
+      <method vuln_id="1088147">
+        <simple_name>___Php.PDOStatement.__wakeup</simple_name>
+        <signature>___Php.PDOStatement.__wakeup():int</signature>
+        <info_rule id="455526"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Prevents use of a PDOStatement instance that has been unserialized</comment>
+      </method>
+      <method vuln_id="1088149">
+        <simple_name>___Php.PDOStatement.bindColumn</simple_name>
+        <signature>___Php.PDOStatement.bindColumn(mixed;mixed;int):bool</signature>
+        <info_rule id="455529"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>bind a column to a PHP variable. On each row fetch $param will contain the value of the corresponding column. $column is the 1-based offset of the column,or the column name. For portability,don't call this before execute().</comment>
+      </method>
+      <method vuln_id="1088152">
+        <simple_name>___Php.PDOStatement.bindParam</simple_name>
+        <signature>___Php.PDOStatement.bindParam(mixed;mixed;int;int;mixed):bool</signature>
+        <info_rule id="455532"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>bind a parameter to a PHP variable. $paramno is the 1-based position of the placeholder in the SQL statement (but can be the parameter name for drivers that support named placeholders). This isn't supported by all drivers. It should be called prior to execute().</comment>
+      </method>
+      <method vuln_id="1088115">
+        <simple_name>___Php.PDOStatement.bindValue</simple_name>
+        <signature>___Php.PDOStatement.bindValue(mixed;mixed;int):bool</signature>
+        <info_rule id="455483"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>bind an input parameter to the value of a PHP variable. $paramno is the 1-based position of the placeholder in the SQL statement (but can be the parameter name for drivers that support named placeholders). It should be called prior to execute().</comment>
+      </method>
+      <method vuln_id="1088159">
+        <simple_name>___Php.PDOStatement.closeCursor</simple_name>
+        <signature>___Php.PDOStatement.closeCursor():bool</signature>
+        <info_rule id="455545"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Closes the cursor,leaving the statement ready for re-execution.</comment>
+      </method>
+      <method vuln_id="1088145">
+        <simple_name>___Php.PDOStatement.columnCount</simple_name>
+        <signature>___Php.PDOStatement.columnCount():int</signature>
+        <info_rule id="455524"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of columns in the result set</comment>
+      </method>
+      <method vuln_id="1088148">
+        <simple_name>___Php.PDOStatement.debugDumpParams</simple_name>
+        <signature>___Php.PDOStatement.debugDumpParams():void</signature>
+        <info_rule id="455528"/>
+        <rule>
+          <ActionObject id="455527">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <comment>A utility for internals hackers to debug parameter internals</comment>
+      </method>
+      <method vuln_id="1088120">
+        <simple_name>___Php.PDOStatement.errorCode</simple_name>
+        <signature>___Php.PDOStatement.errorCode():___Php.String</signature>
+        <info_rule id="455491"/>
+        <rule>
+          <ActionObject id="474170">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461687">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455490">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Fetch the error code associated with the last operation on the statement handle</comment>
+      </method>
+      <method vuln_id="1088158">
+        <simple_name>___Php.PDOStatement.errorInfo</simple_name>
+        <signature>___Php.PDOStatement.errorInfo():___Php.Array</signature>
+        <info_rule id="455544"/>
+        <rule>
+          <ActionObject id="474173">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461689">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455542">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="455541">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Fetch extended error information associated with the last operation on the statement handle</comment>
+      </method>
+      <method vuln_id="1088123">
+        <simple_name>___Php.PDOStatement.execute</simple_name>
+        <signature>___Php.PDOStatement.execute(___Php.Array):bool</signature>
+        <info_rule id="455496"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Execute a prepared statement,optionally binding parameters</comment>
+      </method>
+      <method vuln_id="1088160">
+        <simple_name>___Php.PDOStatement.fetch</simple_name>
+        <signature>___Php.PDOStatement.fetch(int;int;int):mixed</signature>
+        <info_rule id="455546"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row and returns it,or false if there are no more rows</comment>
+      </method>
+      <method vuln_id="1088136">
+        <simple_name>___Php.PDOStatement.fetchAll</simple_name>
+        <signature>___Php.PDOStatement.fetchAll(int;int;___Php.Array):___Php.Array</signature>
+        <info_rule id="455514"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,3"/>
+        <property>Technology.Database</property>
+        <comment>Returns an array of all of the results.</comment>
+      </method>
+      <method vuln_id="1088117">
+        <simple_name>___Php.PDOStatement.fetchColumn</simple_name>
+        <signature>___Php.PDOStatement.fetchColumn(int):___Php.String</signature>
+        <info_rule id="455487"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns a data of the specified column in the result set.</comment>
+      </method>
+      <method vuln_id="1088124">
+        <simple_name>___Php.PDOStatement.fetchObject</simple_name>
+        <signature>___Php.PDOStatement.fetchObject(___Php.String;___Php.Array):mixed</signature>
+        <info_rule id="455497"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,2"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row and returns it as an object.</comment>
+      </method>
+      <method vuln_id="1088118">
+        <simple_name>___Php.PDOStatement.getAttribute</simple_name>
+        <signature>___Php.PDOStatement.getAttribute(int):mixed</signature>
+        <info_rule id="455488"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get an attribute</comment>
+      </method>
+      <method vuln_id="1088132">
+        <simple_name>___Php.PDOStatement.getColumnMeta</simple_name>
+        <signature>___Php.PDOStatement.getColumnMeta(int):___Php.Array</signature>
+        <info_rule id="455510"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns meta data for a numbered column</comment>
+      </method>
+      <method vuln_id="1088131">
+        <simple_name>___Php.PDOStatement.nextRowset</simple_name>
+        <signature>___Php.PDOStatement.nextRowset():bool</signature>
+        <info_rule id="455509"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Advances to the next rowset in a multi-rowset statement handle. Returns true if it succeded,false otherwise</comment>
+      </method>
+      <method vuln_id="1088155">
+        <simple_name>___Php.PDOStatement.rowCount</simple_name>
+        <signature>___Php.PDOStatement.rowCount():int</signature>
+        <info_rule id="455535"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of rows in a result set,or the number of rows affected by the last execute(). It is not always meaningful.</comment>
+      </method>
+      <method vuln_id="1088142">
+        <simple_name>___Php.PDOStatement.setAttribute</simple_name>
+        <signature>___Php.PDOStatement.setAttribute(int;mixed):bool</signature>
+        <info_rule id="455521"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>Set an attribute</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1088129">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int;___Php.String;___Php.Array):bool</signature>
+        <info_rule id="455507"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Changes the default fetch mode for subsequent fetches (params have different meaning for different fetch modes)</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int;int):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int;object):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+    </class>
+    <class name="PDOStatement">
+      <method vuln_id="1088164">
+        <simple_name>___Php.PDOStatement.__sleep</simple_name>
+        <signature>___Php.PDOStatement.__sleep():int</signature>
+        <info_rule id="455554"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Prevents serialization of a PDOStatement instance</comment>
+      </method>
+      <method vuln_id="1088147">
+        <simple_name>___Php.PDOStatement.__wakeup</simple_name>
+        <signature>___Php.PDOStatement.__wakeup():int</signature>
+        <info_rule id="455526"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Prevents use of a PDOStatement instance that has been unserialized</comment>
+      </method>
+      <method vuln_id="1088149">
+        <simple_name>___Php.PDOStatement.bindColumn</simple_name>
+        <signature>___Php.PDOStatement.bindColumn(mixed;mixed;int):bool</signature>
+        <info_rule id="455529"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>bind a column to a PHP variable. On each row fetch $param will contain the value of the corresponding column. $column is the 1-based offset of the column,or the column name. For portability,don't call this before execute().</comment>
+      </method>
+      <method vuln_id="1088152">
+        <simple_name>___Php.PDOStatement.bindParam</simple_name>
+        <signature>___Php.PDOStatement.bindParam(mixed;mixed;int;int;mixed):bool</signature>
+        <info_rule id="455532"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>bind a parameter to a PHP variable. $paramno is the 1-based position of the placeholder in the SQL statement (but can be the parameter name for drivers that support named placeholders). This isn't supported by all drivers. It should be called prior to execute().</comment>
+      </method>
+      <method vuln_id="1088115">
+        <simple_name>___Php.PDOStatement.bindValue</simple_name>
+        <signature>___Php.PDOStatement.bindValue(mixed;mixed;int):bool</signature>
+        <info_rule id="455483"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>bind an input parameter to the value of a PHP variable. $paramno is the 1-based position of the placeholder in the SQL statement (but can be the parameter name for drivers that support named placeholders). It should be called prior to execute().</comment>
+      </method>
+      <method vuln_id="1088159">
+        <simple_name>___Php.PDOStatement.closeCursor</simple_name>
+        <signature>___Php.PDOStatement.closeCursor():bool</signature>
+        <info_rule id="455545"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Closes the cursor,leaving the statement ready for re-execution.</comment>
+      </method>
+      <method vuln_id="1088145">
+        <simple_name>___Php.PDOStatement.columnCount</simple_name>
+        <signature>___Php.PDOStatement.columnCount():int</signature>
+        <info_rule id="455524"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of columns in the result set</comment>
+      </method>
+      <method vuln_id="1088148">
+        <simple_name>___Php.PDOStatement.debugDumpParams</simple_name>
+        <signature>___Php.PDOStatement.debugDumpParams():void</signature>
+        <info_rule id="455528"/>
+        <rule>
+          <ActionObject id="455527">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <comment>A utility for internals hackers to debug parameter internals</comment>
+      </method>
+      <method vuln_id="1088120">
+        <simple_name>___Php.PDOStatement.errorCode</simple_name>
+        <signature>___Php.PDOStatement.errorCode():___Php.String</signature>
+        <info_rule id="455491"/>
+        <rule>
+          <ActionObject id="474170">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461687">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455490">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Fetch the error code associated with the last operation on the statement handle</comment>
+      </method>
+      <method vuln_id="1088158">
+        <simple_name>___Php.PDOStatement.errorInfo</simple_name>
+        <signature>___Php.PDOStatement.errorInfo():___Php.Array</signature>
+        <info_rule id="455544"/>
+        <rule>
+          <ActionObject id="474173">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461689">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455542">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule id="455541">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+        <comment>Fetch extended error information associated with the last operation on the statement handle</comment>
+      </method>
+      <method vuln_id="1088123">
+        <simple_name>___Php.PDOStatement.execute</simple_name>
+        <signature>___Php.PDOStatement.execute(___Php.Array):bool</signature>
+        <info_rule id="455496"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Execute a prepared statement,optionally binding parameters</comment>
+      </method>
+      <method vuln_id="1088160">
+        <simple_name>___Php.PDOStatement.fetch</simple_name>
+        <signature>___Php.PDOStatement.fetch(int;int;int):mixed</signature>
+        <info_rule id="455546"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row and returns it,or false if there are no more rows</comment>
+      </method>
+      <method vuln_id="1088136">
+        <simple_name>___Php.PDOStatement.fetchAll</simple_name>
+        <signature>___Php.PDOStatement.fetchAll(int;int;___Php.Array):___Php.Array</signature>
+        <info_rule id="455514"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,3"/>
+        <property>Technology.Database</property>
+        <comment>Returns an array of all of the results.</comment>
+      </method>
+      <method vuln_id="1088117">
+        <simple_name>___Php.PDOStatement.fetchColumn</simple_name>
+        <signature>___Php.PDOStatement.fetchColumn(int):___Php.String</signature>
+        <info_rule id="455487"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns a data of the specified column in the result set.</comment>
+      </method>
+      <method vuln_id="1088124">
+        <simple_name>___Php.PDOStatement.fetchObject</simple_name>
+        <signature>___Php.PDOStatement.fetchObject(___Php.String;___Php.Array):mixed</signature>
+        <info_rule id="455497"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,2"/>
+        <property>Technology.Database</property>
+        <comment>Fetches the next row and returns it as an object.</comment>
+      </method>
+      <method vuln_id="1088118">
+        <simple_name>___Php.PDOStatement.getAttribute</simple_name>
+        <signature>___Php.PDOStatement.getAttribute(int):mixed</signature>
+        <info_rule id="455488"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get an attribute</comment>
+      </method>
+      <method vuln_id="1088132">
+        <simple_name>___Php.PDOStatement.getColumnMeta</simple_name>
+        <signature>___Php.PDOStatement.getColumnMeta(int):___Php.Array</signature>
+        <info_rule id="455510"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns meta data for a numbered column</comment>
+      </method>
+      <method vuln_id="1088131">
+        <simple_name>___Php.PDOStatement.nextRowset</simple_name>
+        <signature>___Php.PDOStatement.nextRowset():bool</signature>
+        <info_rule id="455509"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Advances to the next rowset in a multi-rowset statement handle. Returns true if it succeded,false otherwise</comment>
+      </method>
+      <method vuln_id="1088155">
+        <simple_name>___Php.PDOStatement.rowCount</simple_name>
+        <signature>___Php.PDOStatement.rowCount():int</signature>
+        <info_rule id="455535"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Returns the number of rows in a result set,or the number of rows affected by the last execute(). It is not always meaningful.</comment>
+      </method>
+      <method vuln_id="1088142">
+        <simple_name>___Php.PDOStatement.setAttribute</simple_name>
+        <signature>___Php.PDOStatement.setAttribute(int;mixed):bool</signature>
+        <info_rule id="455521"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+        <comment>Set an attribute</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1088129">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int;___Php.String;___Php.Array):bool</signature>
+        <info_rule id="455507"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>Changes the default fetch mode for subsequent fetches (params have different meaning for different fetch modes)</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int;int):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDOStatement.setFetchMode</simple_name>
+        <signature>___Php.PDOStatement.setFetchMode(int;object):bool</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

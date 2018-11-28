@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Manager_oci8">
+      <method vuln_id="1092116">
+        <simple_name>MDB_Manager_oci8.alterTable</simple_name>
+        <signature>MDB_Manager_oci8.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092117">
+        <simple_name>MDB_Manager_oci8.createSequence</simple_name>
+        <signature>MDB_Manager_oci8.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092120">
+        <simple_name>MDB_Manager_oci8.dropSequence</simple_name>
+        <signature>MDB_Manager_oci8.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092119">
+        <simple_name>MDB_Manager_oci8.listDatabases</simple_name>
+        <signature>MDB_Manager_oci8.listDatabases($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092118">
+        <simple_name>MDB_Manager_oci8.listTableFields</simple_name>
+        <signature>MDB_Manager_oci8.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092121">
+        <simple_name>MDB_Manager_oci8.listTables</simple_name>
+        <signature>MDB_Manager_oci8.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Manager_oci8">
+      <method vuln_id="1092116">
+        <simple_name>MDB_Manager_oci8.alterTable</simple_name>
+        <signature>MDB_Manager_oci8.alterTable($db;$name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092117">
+        <simple_name>MDB_Manager_oci8.createSequence</simple_name>
+        <signature>MDB_Manager_oci8.createSequence($db;$seq_name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092120">
+        <simple_name>MDB_Manager_oci8.dropSequence</simple_name>
+        <signature>MDB_Manager_oci8.dropSequence($db;$seq_name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092119">
+        <simple_name>MDB_Manager_oci8.listDatabases</simple_name>
+        <signature>MDB_Manager_oci8.listDatabases($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092118">
+        <simple_name>MDB_Manager_oci8.listTableFields</simple_name>
+        <signature>MDB_Manager_oci8.listTableFields($db;$table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092121">
+        <simple_name>MDB_Manager_oci8.listTables</simple_name>
+        <signature>MDB_Manager_oci8.listTables($db):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

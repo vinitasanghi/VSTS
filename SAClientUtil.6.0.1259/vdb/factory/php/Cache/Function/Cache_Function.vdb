@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_Function">
+      <method vuln_id="-1">
+        <simple_name>Cache_Function.Cache</simple_name>
+        <signature>Cache_Function.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Function.Cache_Function</simple_name>
+        <signature>Cache_Function.Cache_Function($container;$container_options;$expires):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108036">
+        <simple_name>Cache_Function._Cache</simple_name>
+        <signature>Cache_Function._Cache():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Function._Cache_Function</simple_name>
+        <signature>Cache_Function._Cache_Function():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108038">
+        <simple_name>Cache_Function.call</simple_name>
+        <signature>Cache_Function.call():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108039">
+        <simple_name>Cache_Function.get</simple_name>
+        <signature>Cache_Function.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450908"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108037">
+        <simple_name>Cache_Function.save</simple_name>
+        <signature>Cache_Function.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450909"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+    </class>
+    <class name="Cache_Function">
+      <method vuln_id="-1">
+        <simple_name>Cache_Function.Cache</simple_name>
+        <signature>Cache_Function.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Function.Cache_Function</simple_name>
+        <signature>Cache_Function.Cache_Function($container;$container_options;$expires):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108036">
+        <simple_name>Cache_Function._Cache</simple_name>
+        <signature>Cache_Function._Cache():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Function._Cache_Function</simple_name>
+        <signature>Cache_Function._Cache_Function():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108038">
+        <simple_name>Cache_Function.call</simple_name>
+        <signature>Cache_Function.call():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108039">
+        <simple_name>Cache_Function.get</simple_name>
+        <signature>Cache_Function.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450908"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108037">
+        <simple_name>Cache_Function.save</simple_name>
+        <signature>Cache_Function.save(___Php.String;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450909"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

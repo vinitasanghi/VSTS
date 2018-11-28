@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Memcache">
+      <method vuln_id="1088922">
+        <simple_name>___Php.Memcache.add</simple_name>
+        <signature>___Php.Memcache.add(___Php.String;mixed;int;int):bool</signature>
+        <info_rule id="456306"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088813">
+        <simple_name>___Php.Memcache.addServer</simple_name>
+        <signature>___Php.Memcache.addServer(___Php.String;int;bool;int;int;int;bool;mixed):bool</signature>
+        <info_rule id="456249"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088925">
+        <simple_name>___Php.Memcache.close</simple_name>
+        <signature>___Php.Memcache.close():bool</signature>
+        <info_rule id="456307"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088888">
+        <simple_name>___Php.Memcache.connect</simple_name>
+        <signature>___Php.Memcache.connect(___Php.String;int;int):bool</signature>
+        <info_rule id="456294"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088987">
+        <simple_name>___Php.Memcache.debug</simple_name>
+        <signature>___Php.Memcache.debug(bool):bool</signature>
+        <info_rule id="456342"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088789">
+        <simple_name>___Php.Memcache.decrement</simple_name>
+        <signature>___Php.Memcache.decrement(___Php.String;int):int</signature>
+        <info_rule id="456238"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088947">
+        <simple_name>___Php.Memcache.delete</simple_name>
+        <signature>___Php.Memcache.delete(___Php.String;int):bool</signature>
+        <info_rule id="456319"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088692">
+        <simple_name>___Php.Memcache.flush</simple_name>
+        <signature>___Php.Memcache.flush():bool</signature>
+        <info_rule id="456194"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Memcache.get</simple_name>
+        <signature>___Php.Memcache.get(___Php.Array;___Php.Array&amp;):___Php.String</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Memcache.get</simple_name>
+        <signature>___Php.Memcache.get(___Php.String;int&amp;):___Php.String</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107503">
+        <simple_name>___Php.Memcache.get</simple_name>
+        <signature>___Php.Memcache.get(mixed;mixed&amp;):mixed</signature>
+        <info_rule id="462674"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088734">
+        <simple_name>___Php.Memcache.getExtendedStats</simple_name>
+        <signature>___Php.Memcache.getExtendedStats(___Php.String;int;int):___Php.Array</signature>
+        <info_rule id="456215"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088994">
+        <simple_name>___Php.Memcache.getServerStatus</simple_name>
+        <signature>___Php.Memcache.getServerStatus(___Php.String;int):int</signature>
+        <info_rule id="456346"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088953">
+        <simple_name>___Php.Memcache.getStats</simple_name>
+        <signature>___Php.Memcache.getStats(___Php.String;int;int):___Php.Array</signature>
+        <info_rule id="456322"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088724">
+        <simple_name>___Php.Memcache.getVersion</simple_name>
+        <signature>___Php.Memcache.getVersion():___Php.String</signature>
+        <info_rule id="456207"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088848">
+        <simple_name>___Php.Memcache.increment</simple_name>
+        <signature>___Php.Memcache.increment(___Php.String;int):int</signature>
+        <info_rule id="456271"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088937">
+        <simple_name>___Php.Memcache.pconnect</simple_name>
+        <signature>___Php.Memcache.pconnect(___Php.String;int;int):bool</signature>
+        <info_rule id="456312"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088902">
+        <simple_name>___Php.Memcache.replace</simple_name>
+        <signature>___Php.Memcache.replace(___Php.String;mixed;int;int):bool</signature>
+        <info_rule id="456300"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088685">
+        <simple_name>___Php.Memcache.set</simple_name>
+        <signature>___Php.Memcache.set(___Php.String;mixed;int;int):bool</signature>
+        <info_rule id="456191"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088990">
+        <simple_name>___Php.Memcache.setCompressThreshold</simple_name>
+        <signature>___Php.Memcache.setCompressThreshold(int;float):bool</signature>
+        <info_rule id="456344"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088981">
+        <simple_name>___Php.Memcache.setServerParams</simple_name>
+        <signature>___Php.Memcache.setServerParams(___Php.String;int;int;int;bool;mixed):bool</signature>
+        <info_rule id="456339"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+    </class>
+    <class name="Memcache">
+      <method vuln_id="1088922">
+        <simple_name>___Php.Memcache.add</simple_name>
+        <signature>___Php.Memcache.add(___Php.String;mixed;int;int):bool</signature>
+        <info_rule id="456306"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088813">
+        <simple_name>___Php.Memcache.addServer</simple_name>
+        <signature>___Php.Memcache.addServer(___Php.String;int;bool;int;int;int;bool;mixed):bool</signature>
+        <info_rule id="456249"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088925">
+        <simple_name>___Php.Memcache.close</simple_name>
+        <signature>___Php.Memcache.close():bool</signature>
+        <info_rule id="456307"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088888">
+        <simple_name>___Php.Memcache.connect</simple_name>
+        <signature>___Php.Memcache.connect(___Php.String;int;int):bool</signature>
+        <info_rule id="456294"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088987">
+        <simple_name>___Php.Memcache.debug</simple_name>
+        <signature>___Php.Memcache.debug(bool):bool</signature>
+        <info_rule id="456342"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088789">
+        <simple_name>___Php.Memcache.decrement</simple_name>
+        <signature>___Php.Memcache.decrement(___Php.String;int):int</signature>
+        <info_rule id="456238"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088947">
+        <simple_name>___Php.Memcache.delete</simple_name>
+        <signature>___Php.Memcache.delete(___Php.String;int):bool</signature>
+        <info_rule id="456319"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088692">
+        <simple_name>___Php.Memcache.flush</simple_name>
+        <signature>___Php.Memcache.flush():bool</signature>
+        <info_rule id="456194"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Memcache.get</simple_name>
+        <signature>___Php.Memcache.get(___Php.Array;___Php.Array&amp;):___Php.String</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Memcache.get</simple_name>
+        <signature>___Php.Memcache.get(___Php.String;int&amp;):___Php.String</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107503">
+        <simple_name>___Php.Memcache.get</simple_name>
+        <signature>___Php.Memcache.get(mixed;mixed&amp;):mixed</signature>
+        <info_rule id="462674"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088734">
+        <simple_name>___Php.Memcache.getExtendedStats</simple_name>
+        <signature>___Php.Memcache.getExtendedStats(___Php.String;int;int):___Php.Array</signature>
+        <info_rule id="456215"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088994">
+        <simple_name>___Php.Memcache.getServerStatus</simple_name>
+        <signature>___Php.Memcache.getServerStatus(___Php.String;int):int</signature>
+        <info_rule id="456346"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088953">
+        <simple_name>___Php.Memcache.getStats</simple_name>
+        <signature>___Php.Memcache.getStats(___Php.String;int;int):___Php.Array</signature>
+        <info_rule id="456322"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088724">
+        <simple_name>___Php.Memcache.getVersion</simple_name>
+        <signature>___Php.Memcache.getVersion():___Php.String</signature>
+        <info_rule id="456207"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088848">
+        <simple_name>___Php.Memcache.increment</simple_name>
+        <signature>___Php.Memcache.increment(___Php.String;int):int</signature>
+        <info_rule id="456271"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088937">
+        <simple_name>___Php.Memcache.pconnect</simple_name>
+        <signature>___Php.Memcache.pconnect(___Php.String;int;int):bool</signature>
+        <info_rule id="456312"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088902">
+        <simple_name>___Php.Memcache.replace</simple_name>
+        <signature>___Php.Memcache.replace(___Php.String;mixed;int;int):bool</signature>
+        <info_rule id="456300"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088685">
+        <simple_name>___Php.Memcache.set</simple_name>
+        <signature>___Php.Memcache.set(___Php.String;mixed;int;int):bool</signature>
+        <info_rule id="456191"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088990">
+        <simple_name>___Php.Memcache.setCompressThreshold</simple_name>
+        <signature>___Php.Memcache.setCompressThreshold(int;float):bool</signature>
+        <info_rule id="456344"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1088981">
+        <simple_name>___Php.Memcache.setServerParams</simple_name>
+        <signature>___Php.Memcache.setServerParams(___Php.String;int;int;int;bool;mixed):bool</signature>
+        <info_rule id="456339"/>
+        <property>Technology.Storage.Cache</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

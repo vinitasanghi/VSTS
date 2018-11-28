@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XMLWriter">
+      <method vuln_id="1089993">
+        <simple_name>___Php.XMLWriter.endAttribute</simple_name>
+        <signature>___Php.XMLWriter.endAttribute():bool</signature>
+        <info_rule id="457293"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089975">
+        <simple_name>___Php.XMLWriter.endCData</simple_name>
+        <signature>___Php.XMLWriter.endCData():bool</signature>
+        <info_rule id="457265"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current CDATA - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090042">
+        <simple_name>___Php.XMLWriter.endComment</simple_name>
+        <signature>___Php.XMLWriter.endComment():bool</signature>
+        <info_rule id="457374"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create end comment - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089971">
+        <simple_name>___Php.XMLWriter.endDTD</simple_name>
+        <signature>___Php.XMLWriter.endDTD():bool</signature>
+        <info_rule id="457258"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090041">
+        <simple_name>___Php.XMLWriter.endDTDAttlist</simple_name>
+        <signature>___Php.XMLWriter.endDTDAttlist():bool</signature>
+        <info_rule id="457373"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD AttList - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090043">
+        <simple_name>___Php.XMLWriter.endDTDElement</simple_name>
+        <signature>___Php.XMLWriter.endDTDElement():bool</signature>
+        <info_rule id="457375"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089995">
+        <simple_name>___Php.XMLWriter.endDTDEntity</simple_name>
+        <signature>___Php.XMLWriter.endDTDEntity():bool</signature>
+        <info_rule id="457296"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD Entity - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090005">
+        <simple_name>___Php.XMLWriter.endDocument</simple_name>
+        <signature>___Php.XMLWriter.endDocument():bool</signature>
+        <info_rule id="457311"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current document - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090046">
+        <simple_name>___Php.XMLWriter.endElement</simple_name>
+        <signature>___Php.XMLWriter.endElement():bool</signature>
+        <info_rule id="457379"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089985">
+        <simple_name>___Php.XMLWriter.endPI</simple_name>
+        <signature>___Php.XMLWriter.endPI():bool</signature>
+        <info_rule id="457281"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current PI - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089998">
+        <simple_name>___Php.XMLWriter.flush</simple_name>
+        <signature>___Php.XMLWriter.flush(bool):mixed</signature>
+        <info_rule id="457299"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Output current buffer</comment>
+      </method>
+      <method vuln_id="1089965">
+        <simple_name>___Php.XMLWriter.fullEndElement</simple_name>
+        <signature>___Php.XMLWriter.fullEndElement():bool</signature>
+        <info_rule id="457250"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090006">
+        <simple_name>___Php.XMLWriter.openMemory</simple_name>
+        <signature>___Php.XMLWriter.openMemory():bool</signature>
+        <info_rule id="457312"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create new xmlwriter using memory for string output</comment>
+      </method>
+      <method vuln_id="1090019">
+        <simple_name>___Php.XMLWriter.openURI</simple_name>
+        <signature>___Php.XMLWriter.openURI(___Php.String):bool</signature>
+        <info_rule id="457335"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create new xmlwriter using source uri for output</comment>
+      </method>
+      <method vuln_id="1089981">
+        <simple_name>___Php.XMLWriter.outputMemory</simple_name>
+        <signature>___Php.XMLWriter.outputMemory(bool):___Php.String</signature>
+        <info_rule id="457275"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Output current buffer as string</comment>
+      </method>
+      <method vuln_id="1089988">
+        <simple_name>___Php.XMLWriter.setIndent</simple_name>
+        <signature>___Php.XMLWriter.setIndent(bool):bool</signature>
+        <info_rule id="457286"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Toggle indentation on/off - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090023">
+        <simple_name>___Php.XMLWriter.setIndentString</simple_name>
+        <signature>___Php.XMLWriter.setIndentString(___Php.String):bool</signature>
+        <info_rule id="457341"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Set string used for indenting - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090014">
+        <simple_name>___Php.XMLWriter.startAttribute</simple_name>
+        <signature>___Php.XMLWriter.startAttribute(___Php.String):bool</signature>
+        <info_rule id="457325"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089990">
+        <simple_name>___Php.XMLWriter.startAttributeNS</simple_name>
+        <signature>___Php.XMLWriter.startAttributeNS(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457289"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create start namespaced attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089969">
+        <simple_name>___Php.XMLWriter.startCData</simple_name>
+        <signature>___Php.XMLWriter.startCData():bool</signature>
+        <info_rule id="457255"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create start CDATA tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090011">
+        <simple_name>___Php.XMLWriter.startComment</simple_name>
+        <signature>___Php.XMLWriter.startComment():bool</signature>
+        <info_rule id="457320"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create start comment - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089964">
+        <simple_name>___Php.XMLWriter.startDTD</simple_name>
+        <signature>___Php.XMLWriter.startDTD(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457248"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089974">
+        <simple_name>___Php.XMLWriter.startDTDAttlist</simple_name>
+        <signature>___Php.XMLWriter.startDTDAttlist(___Php.String):bool</signature>
+        <info_rule id="457263"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD AttList - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089979">
+        <simple_name>___Php.XMLWriter.startDTDElement</simple_name>
+        <signature>___Php.XMLWriter.startDTDElement(___Php.String):bool</signature>
+        <info_rule id="457271"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090036">
+        <simple_name>___Php.XMLWriter.startDTDEntity</simple_name>
+        <signature>___Php.XMLWriter.startDTDEntity(___Php.String;bool):bool</signature>
+        <info_rule id="457364"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD Entity - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089999">
+        <simple_name>___Php.XMLWriter.startDocument</simple_name>
+        <signature>___Php.XMLWriter.startDocument(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457300"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create document tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089986">
+        <simple_name>___Php.XMLWriter.startElement</simple_name>
+        <signature>___Php.XMLWriter.startElement(___Php.String):bool</signature>
+        <info_rule id="457282"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090018">
+        <simple_name>___Php.XMLWriter.startElementNS</simple_name>
+        <signature>___Php.XMLWriter.startElementNS(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457333"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create start namespaced element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090016">
+        <simple_name>___Php.XMLWriter.startPI</simple_name>
+        <signature>___Php.XMLWriter.startPI(___Php.String):bool</signature>
+        <info_rule id="457329"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start PI tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090025">
+        <simple_name>___Php.XMLWriter.text</simple_name>
+        <signature>___Php.XMLWriter.text(___Php.String):bool</signature>
+        <info_rule id="457345"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write text - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090001">
+        <simple_name>___Php.XMLWriter.writeAttribute</simple_name>
+        <signature>___Php.XMLWriter.writeAttribute(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457303"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090030">
+        <simple_name>___Php.XMLWriter.writeAttributeNS</simple_name>
+        <signature>___Php.XMLWriter.writeAttributeNS(___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457353"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.XML</property>
+        <comment>Write full namespaced attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090040">
+        <simple_name>___Php.XMLWriter.writeCData</simple_name>
+        <signature>___Php.XMLWriter.writeCData(___Php.String):bool</signature>
+        <info_rule id="457371"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write full CDATA tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090037">
+        <simple_name>___Php.XMLWriter.writeComment</simple_name>
+        <signature>___Php.XMLWriter.writeComment(___Php.String):bool</signature>
+        <info_rule id="457366"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write full comment tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089987">
+        <simple_name>___Php.XMLWriter.writeDTD</simple_name>
+        <signature>___Php.XMLWriter.writeDTD(___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457284"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090024">
+        <simple_name>___Php.XMLWriter.writeDTDAttlist</simple_name>
+        <signature>___Php.XMLWriter.writeDTDAttlist(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457343"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD AttList tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090013">
+        <simple_name>___Php.XMLWriter.writeDTDElement</simple_name>
+        <signature>___Php.XMLWriter.writeDTDElement(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457323"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089977">
+        <simple_name>___Php.XMLWriter.writeDTDEntity</simple_name>
+        <signature>___Php.XMLWriter.writeDTDEntity(___Php.String;___Php.String;int;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457268"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD Entity tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090002">
+        <simple_name>___Php.XMLWriter.writeElement</simple_name>
+        <signature>___Php.XMLWriter.writeElement(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457305"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090008">
+        <simple_name>___Php.XMLWriter.writeElementNS</simple_name>
+        <signature>___Php.XMLWriter.writeElementNS(___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457314"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.XML</property>
+        <comment>Write full namesapced element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089984">
+        <simple_name>___Php.XMLWriter.writePI</simple_name>
+        <signature>___Php.XMLWriter.writePI(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457279"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full PI tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090022">
+        <simple_name>___Php.XMLWriter.writeRaw</simple_name>
+        <signature>___Php.XMLWriter.writeRaw(int;___Php.String):bool</signature>
+        <info_rule id="457339"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write text - returns FALSE on error</comment>
+      </method>
+    </class>
+    <class name="XMLWriter">
+      <method vuln_id="1089993">
+        <simple_name>___Php.XMLWriter.endAttribute</simple_name>
+        <signature>___Php.XMLWriter.endAttribute():bool</signature>
+        <info_rule id="457293"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089975">
+        <simple_name>___Php.XMLWriter.endCData</simple_name>
+        <signature>___Php.XMLWriter.endCData():bool</signature>
+        <info_rule id="457265"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current CDATA - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090042">
+        <simple_name>___Php.XMLWriter.endComment</simple_name>
+        <signature>___Php.XMLWriter.endComment():bool</signature>
+        <info_rule id="457374"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create end comment - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089971">
+        <simple_name>___Php.XMLWriter.endDTD</simple_name>
+        <signature>___Php.XMLWriter.endDTD():bool</signature>
+        <info_rule id="457258"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090041">
+        <simple_name>___Php.XMLWriter.endDTDAttlist</simple_name>
+        <signature>___Php.XMLWriter.endDTDAttlist():bool</signature>
+        <info_rule id="457373"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD AttList - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090043">
+        <simple_name>___Php.XMLWriter.endDTDElement</simple_name>
+        <signature>___Php.XMLWriter.endDTDElement():bool</signature>
+        <info_rule id="457375"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089995">
+        <simple_name>___Php.XMLWriter.endDTDEntity</simple_name>
+        <signature>___Php.XMLWriter.endDTDEntity():bool</signature>
+        <info_rule id="457296"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current DTD Entity - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090005">
+        <simple_name>___Php.XMLWriter.endDocument</simple_name>
+        <signature>___Php.XMLWriter.endDocument():bool</signature>
+        <info_rule id="457311"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current document - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090046">
+        <simple_name>___Php.XMLWriter.endElement</simple_name>
+        <signature>___Php.XMLWriter.endElement():bool</signature>
+        <info_rule id="457379"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089985">
+        <simple_name>___Php.XMLWriter.endPI</simple_name>
+        <signature>___Php.XMLWriter.endPI():bool</signature>
+        <info_rule id="457281"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current PI - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089998">
+        <simple_name>___Php.XMLWriter.flush</simple_name>
+        <signature>___Php.XMLWriter.flush(bool):mixed</signature>
+        <info_rule id="457299"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Output current buffer</comment>
+      </method>
+      <method vuln_id="1089965">
+        <simple_name>___Php.XMLWriter.fullEndElement</simple_name>
+        <signature>___Php.XMLWriter.fullEndElement():bool</signature>
+        <info_rule id="457250"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>End current element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090006">
+        <simple_name>___Php.XMLWriter.openMemory</simple_name>
+        <signature>___Php.XMLWriter.openMemory():bool</signature>
+        <info_rule id="457312"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create new xmlwriter using memory for string output</comment>
+      </method>
+      <method vuln_id="1090019">
+        <simple_name>___Php.XMLWriter.openURI</simple_name>
+        <signature>___Php.XMLWriter.openURI(___Php.String):bool</signature>
+        <info_rule id="457335"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create new xmlwriter using source uri for output</comment>
+      </method>
+      <method vuln_id="1089981">
+        <simple_name>___Php.XMLWriter.outputMemory</simple_name>
+        <signature>___Php.XMLWriter.outputMemory(bool):___Php.String</signature>
+        <info_rule id="457275"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Output current buffer as string</comment>
+      </method>
+      <method vuln_id="1089988">
+        <simple_name>___Php.XMLWriter.setIndent</simple_name>
+        <signature>___Php.XMLWriter.setIndent(bool):bool</signature>
+        <info_rule id="457286"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Toggle indentation on/off - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090023">
+        <simple_name>___Php.XMLWriter.setIndentString</simple_name>
+        <signature>___Php.XMLWriter.setIndentString(___Php.String):bool</signature>
+        <info_rule id="457341"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Set string used for indenting - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090014">
+        <simple_name>___Php.XMLWriter.startAttribute</simple_name>
+        <signature>___Php.XMLWriter.startAttribute(___Php.String):bool</signature>
+        <info_rule id="457325"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089990">
+        <simple_name>___Php.XMLWriter.startAttributeNS</simple_name>
+        <signature>___Php.XMLWriter.startAttributeNS(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457289"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create start namespaced attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089969">
+        <simple_name>___Php.XMLWriter.startCData</simple_name>
+        <signature>___Php.XMLWriter.startCData():bool</signature>
+        <info_rule id="457255"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create start CDATA tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090011">
+        <simple_name>___Php.XMLWriter.startComment</simple_name>
+        <signature>___Php.XMLWriter.startComment():bool</signature>
+        <info_rule id="457320"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Create start comment - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089964">
+        <simple_name>___Php.XMLWriter.startDTD</simple_name>
+        <signature>___Php.XMLWriter.startDTD(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457248"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089974">
+        <simple_name>___Php.XMLWriter.startDTDAttlist</simple_name>
+        <signature>___Php.XMLWriter.startDTDAttlist(___Php.String):bool</signature>
+        <info_rule id="457263"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD AttList - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089979">
+        <simple_name>___Php.XMLWriter.startDTDElement</simple_name>
+        <signature>___Php.XMLWriter.startDTDElement(___Php.String):bool</signature>
+        <info_rule id="457271"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD element - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090036">
+        <simple_name>___Php.XMLWriter.startDTDEntity</simple_name>
+        <signature>___Php.XMLWriter.startDTDEntity(___Php.String;bool):bool</signature>
+        <info_rule id="457364"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start DTD Entity - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089999">
+        <simple_name>___Php.XMLWriter.startDocument</simple_name>
+        <signature>___Php.XMLWriter.startDocument(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457300"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create document tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089986">
+        <simple_name>___Php.XMLWriter.startElement</simple_name>
+        <signature>___Php.XMLWriter.startElement(___Php.String):bool</signature>
+        <info_rule id="457282"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090018">
+        <simple_name>___Php.XMLWriter.startElementNS</simple_name>
+        <signature>___Php.XMLWriter.startElementNS(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457333"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.XML</property>
+        <comment>Create start namespaced element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090016">
+        <simple_name>___Php.XMLWriter.startPI</simple_name>
+        <signature>___Php.XMLWriter.startPI(___Php.String):bool</signature>
+        <info_rule id="457329"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Create start PI tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090025">
+        <simple_name>___Php.XMLWriter.text</simple_name>
+        <signature>___Php.XMLWriter.text(___Php.String):bool</signature>
+        <info_rule id="457345"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write text - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090001">
+        <simple_name>___Php.XMLWriter.writeAttribute</simple_name>
+        <signature>___Php.XMLWriter.writeAttribute(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457303"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090030">
+        <simple_name>___Php.XMLWriter.writeAttributeNS</simple_name>
+        <signature>___Php.XMLWriter.writeAttributeNS(___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457353"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.XML</property>
+        <comment>Write full namespaced attribute - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090040">
+        <simple_name>___Php.XMLWriter.writeCData</simple_name>
+        <signature>___Php.XMLWriter.writeCData(___Php.String):bool</signature>
+        <info_rule id="457371"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write full CDATA tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090037">
+        <simple_name>___Php.XMLWriter.writeComment</simple_name>
+        <signature>___Php.XMLWriter.writeComment(___Php.String):bool</signature>
+        <info_rule id="457366"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write full comment tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089987">
+        <simple_name>___Php.XMLWriter.writeDTD</simple_name>
+        <signature>___Php.XMLWriter.writeDTD(___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457284"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090024">
+        <simple_name>___Php.XMLWriter.writeDTDAttlist</simple_name>
+        <signature>___Php.XMLWriter.writeDTDAttlist(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457343"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD AttList tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090013">
+        <simple_name>___Php.XMLWriter.writeDTDElement</simple_name>
+        <signature>___Php.XMLWriter.writeDTDElement(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457323"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089977">
+        <simple_name>___Php.XMLWriter.writeDTDEntity</simple_name>
+        <signature>___Php.XMLWriter.writeDTDEntity(___Php.String;___Php.String;int;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457268"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full DTD Entity tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090002">
+        <simple_name>___Php.XMLWriter.writeElement</simple_name>
+        <signature>___Php.XMLWriter.writeElement(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457305"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090008">
+        <simple_name>___Php.XMLWriter.writeElementNS</simple_name>
+        <signature>___Php.XMLWriter.writeElementNS(___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="457314"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.XML</property>
+        <comment>Write full namesapced element tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1089984">
+        <simple_name>___Php.XMLWriter.writePI</simple_name>
+        <signature>___Php.XMLWriter.writePI(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457279"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.XML</property>
+        <comment>Write full PI tag - returns FALSE on error</comment>
+      </method>
+      <method vuln_id="1090022">
+        <simple_name>___Php.XMLWriter.writeRaw</simple_name>
+        <signature>___Php.XMLWriter.writeRaw(int;___Php.String):bool</signature>
+        <info_rule id="457339"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Write text - returns FALSE on error</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

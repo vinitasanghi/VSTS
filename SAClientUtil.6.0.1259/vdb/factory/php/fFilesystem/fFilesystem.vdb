@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fFilesystem">
+      <method vuln_id="1106511">
+        <simple_name>fFilesystem.___Class_Initializer_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.___Class_Initializer_@__inc_flourish_fFilesystem_php_1():void</signature>
+      </method>
+      <method vuln_id="1107014">
+        <simple_name>fFilesystem.__construct_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.__construct_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107426">
+        <simple_name>fFilesystem.addWebPathTranslation_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.addWebPathTranslation_@__inc_flourish_fFilesystem_php_1($search_path;$replace_path):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107145">
+        <simple_name>fFilesystem.begin_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.begin_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106953">
+        <simple_name>fFilesystem.commit_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.commit_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106614">
+        <simple_name>fFilesystem.convertToBytes_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.convertToBytes_@__inc_flourish_fFilesystem_php_1($size):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106399">
+        <simple_name>fFilesystem.createObject_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.createObject_@__inc_flourish_fFilesystem_php_1($path):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106597">
+        <simple_name>fFilesystem.delete</simple_name>
+        <signature>fFilesystem.delete(Arg#0):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107314">
+        <simple_name>fFilesystem.formatFilesize_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.formatFilesize_@__inc_flourish_fFilesystem_php_1($bytes;$decimal_places):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106653">
+        <simple_name>fFilesystem.getPathInfo_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.getPathInfo_@__inc_flourish_fFilesystem_php_1($file;$element):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106707">
+        <simple_name>fFilesystem.hookExceptionMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.hookExceptionMap_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107173">
+        <simple_name>fFilesystem.hookFilenameMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.hookFilenameMap_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106616">
+        <simple_name>fFilesystem.isInsideTransaction_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.isInsideTransaction_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107293">
+        <simple_name>fFilesystem.makeURLSafe_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.makeURLSafe_@__inc_flourish_fFilesystem_php_1($filename):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106319">
+        <simple_name>fFilesystem.makeUniqueName_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.makeUniqueName_@__inc_flourish_fFilesystem_php_1($file;$new_extension):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106959">
+        <simple_name>fFilesystem.recordCreate_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordCreate_@__inc_flourish_fFilesystem_php_1($object):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106964">
+        <simple_name>fFilesystem.recordDelete_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordDelete_@__inc_flourish_fFilesystem_php_1($object):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106947">
+        <simple_name>fFilesystem.recordDuplicate_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordDuplicate_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106530">
+        <simple_name>fFilesystem.recordRename_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordRename_@__inc_flourish_fFilesystem_php_1($old_name;$new_name):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106660">
+        <simple_name>fFilesystem.recordWrite_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordWrite_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107364">
+        <simple_name>fFilesystem.rename</simple_name>
+        <signature>fFilesystem.rename(Arg#0;Arg#1):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107089">
+        <simple_name>fFilesystem.reset_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.reset_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106369">
+        <simple_name>fFilesystem.rollback_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.rollback_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107003">
+        <simple_name>fFilesystem.translateToWebPath_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.translateToWebPath_@__inc_flourish_fFilesystem_php_1($path):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107042">
+        <simple_name>fFilesystem.updateExceptionMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.updateExceptionMap_@__inc_flourish_fFilesystem_php_1($file;$exception):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107313">
+        <simple_name>fFilesystem.updateFilenameMapForDirectory_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.updateFilenameMapForDirectory_@__inc_flourish_fFilesystem_php_1($existing_dirname;$new_dirname):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106819">
+        <simple_name>fFilesystem.updateFilenameMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.updateFilenameMap_@__inc_flourish_fFilesystem_php_1($existing_filename;$new_filename):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fFilesystem">
+      <method vuln_id="1106511">
+        <simple_name>fFilesystem.___Class_Initializer_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.___Class_Initializer_@__inc_flourish_fFilesystem_php_1():void</signature>
+      </method>
+      <method vuln_id="1107014">
+        <simple_name>fFilesystem.__construct_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.__construct_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107426">
+        <simple_name>fFilesystem.addWebPathTranslation_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.addWebPathTranslation_@__inc_flourish_fFilesystem_php_1($search_path;$replace_path):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107145">
+        <simple_name>fFilesystem.begin_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.begin_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106953">
+        <simple_name>fFilesystem.commit_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.commit_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106614">
+        <simple_name>fFilesystem.convertToBytes_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.convertToBytes_@__inc_flourish_fFilesystem_php_1($size):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106399">
+        <simple_name>fFilesystem.createObject_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.createObject_@__inc_flourish_fFilesystem_php_1($path):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106597">
+        <simple_name>fFilesystem.delete</simple_name>
+        <signature>fFilesystem.delete(Arg#0):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107314">
+        <simple_name>fFilesystem.formatFilesize_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.formatFilesize_@__inc_flourish_fFilesystem_php_1($bytes;$decimal_places):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106653">
+        <simple_name>fFilesystem.getPathInfo_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.getPathInfo_@__inc_flourish_fFilesystem_php_1($file;$element):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106707">
+        <simple_name>fFilesystem.hookExceptionMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.hookExceptionMap_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107173">
+        <simple_name>fFilesystem.hookFilenameMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.hookFilenameMap_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106616">
+        <simple_name>fFilesystem.isInsideTransaction_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.isInsideTransaction_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107293">
+        <simple_name>fFilesystem.makeURLSafe_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.makeURLSafe_@__inc_flourish_fFilesystem_php_1($filename):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106319">
+        <simple_name>fFilesystem.makeUniqueName_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.makeUniqueName_@__inc_flourish_fFilesystem_php_1($file;$new_extension):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106959">
+        <simple_name>fFilesystem.recordCreate_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordCreate_@__inc_flourish_fFilesystem_php_1($object):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106964">
+        <simple_name>fFilesystem.recordDelete_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordDelete_@__inc_flourish_fFilesystem_php_1($object):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106947">
+        <simple_name>fFilesystem.recordDuplicate_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordDuplicate_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106530">
+        <simple_name>fFilesystem.recordRename_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordRename_@__inc_flourish_fFilesystem_php_1($old_name;$new_name):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106660">
+        <simple_name>fFilesystem.recordWrite_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.recordWrite_@__inc_flourish_fFilesystem_php_1($file):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107364">
+        <simple_name>fFilesystem.rename</simple_name>
+        <signature>fFilesystem.rename(Arg#0;Arg#1):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107089">
+        <simple_name>fFilesystem.reset_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.reset_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106369">
+        <simple_name>fFilesystem.rollback_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.rollback_@__inc_flourish_fFilesystem_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107003">
+        <simple_name>fFilesystem.translateToWebPath_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.translateToWebPath_@__inc_flourish_fFilesystem_php_1($path):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107042">
+        <simple_name>fFilesystem.updateExceptionMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.updateExceptionMap_@__inc_flourish_fFilesystem_php_1($file;$exception):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107313">
+        <simple_name>fFilesystem.updateFilenameMapForDirectory_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.updateFilenameMapForDirectory_@__inc_flourish_fFilesystem_php_1($existing_dirname;$new_dirname):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106819">
+        <simple_name>fFilesystem.updateFilenameMap_@__inc_flourish_fFilesystem_php_1</simple_name>
+        <signature>fFilesystem.updateFilenameMap_@__inc_flourish_fFilesystem_php_1($existing_filename;$new_filename):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_QuickForm_advcheckbox">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox.HTML_QuickForm_advcheckbox</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.HTML_QuickForm_advcheckbox($elementName;$elementLabel;$text;$attributes;$values):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox.HTML_QuickForm_checkbox</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.HTML_QuickForm_checkbox():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._findValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._findValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._getAttrString</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._getAttrString():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._getPersistantData</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._getPersistantData():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._prepareValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._prepareValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091239">
+        <simple_name>HTML_QuickForm_advcheckbox.exportValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480747"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091243">
+        <simple_name>HTML_QuickForm_advcheckbox.getChecked</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getChecked():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091247">
+        <simple_name>HTML_QuickForm_advcheckbox.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getFrozenHtml():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091242">
+        <simple_name>HTML_QuickForm_advcheckbox.getOnclickJs</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getOnclickJs($elementName):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091241">
+        <simple_name>HTML_QuickForm_advcheckbox.getPrivateName</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getPrivateName($elementName):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091246">
+        <simple_name>HTML_QuickForm_advcheckbox.getValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getValue():mixed</signature>
+        <info_rule id="480748"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091245">
+        <simple_name>HTML_QuickForm_advcheckbox.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091238">
+        <simple_name>HTML_QuickForm_advcheckbox.setChecked</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.setChecked():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091236">
+        <simple_name>HTML_QuickForm_advcheckbox.setValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091237">
+        <simple_name>HTML_QuickForm_advcheckbox.setValues</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.setValues($values):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091240">
+        <simple_name>HTML_QuickForm_advcheckbox.toHtml</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091244">
+        <simple_name>HTML_QuickForm_advcheckbox.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_QuickForm_advcheckbox">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox.HTML_QuickForm_advcheckbox</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.HTML_QuickForm_advcheckbox($elementName;$elementLabel;$text;$attributes;$values):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox.HTML_QuickForm_checkbox</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.HTML_QuickForm_checkbox():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._findValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._findValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._getAttrString</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._getAttrString():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._getPersistantData</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._getPersistantData():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_advcheckbox._prepareValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox._prepareValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091239">
+        <simple_name>HTML_QuickForm_advcheckbox.exportValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480747"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091243">
+        <simple_name>HTML_QuickForm_advcheckbox.getChecked</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getChecked():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091247">
+        <simple_name>HTML_QuickForm_advcheckbox.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getFrozenHtml():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091242">
+        <simple_name>HTML_QuickForm_advcheckbox.getOnclickJs</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getOnclickJs($elementName):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091241">
+        <simple_name>HTML_QuickForm_advcheckbox.getPrivateName</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getPrivateName($elementName):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091246">
+        <simple_name>HTML_QuickForm_advcheckbox.getValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.getValue():mixed</signature>
+        <info_rule id="480748"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091245">
+        <simple_name>HTML_QuickForm_advcheckbox.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091238">
+        <simple_name>HTML_QuickForm_advcheckbox.setChecked</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.setChecked():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091236">
+        <simple_name>HTML_QuickForm_advcheckbox.setValue</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091237">
+        <simple_name>HTML_QuickForm_advcheckbox.setValues</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.setValues($values):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091240">
+        <simple_name>HTML_QuickForm_advcheckbox.toHtml</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.toHtml():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091244">
+        <simple_name>HTML_QuickForm_advcheckbox.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_advcheckbox.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="mysqli_result">
+      <method vuln_id="1087835">
+        <simple_name>___Php.mysqli_result.close</simple_name>
+        <signature>___Php.mysqli_result.close():void</signature>
+        <info_rule id="455100"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free query result memory for the given result handle</comment>
+      </method>
+      <method vuln_id="1087807">
+        <simple_name>___Php.mysqli_result.current_field</simple_name>
+        <signature>___Php.mysqli_result.current_field():int</signature>
+        <info_rule id="455063"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get current field offset of result pointer</comment>
+      </method>
+      <method vuln_id="1087726">
+        <simple_name>___Php.mysqli_result.fetch_array</simple_name>
+        <signature>___Php.mysqli_result.fetch_array(int):mixed</signature>
+        <info_rule id="454935"/>
+        <source_rule id="454934">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch a result row as an associative array,a numeric array,or both</comment>
+      </method>
+      <method vuln_id="1087817">
+        <simple_name>___Php.mysqli_result.fetch_assoc</simple_name>
+        <signature>___Php.mysqli_result.fetch_assoc():___Php.Array</signature>
+        <info_rule id="455075"/>
+        <source_rule id="455074">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch a result row as an associative array</comment>
+      </method>
+      <method vuln_id="1087724">
+        <simple_name>___Php.mysqli_result.fetch_field</simple_name>
+        <signature>___Php.mysqli_result.fetch_field():mixed</signature>
+        <info_rule id="454932"/>
+        <source_rule id="454931">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get column information from a result and return as an object</comment>
+      </method>
+      <method vuln_id="1087733">
+        <simple_name>___Php.mysqli_result.fetch_field_direct</simple_name>
+        <signature>___Php.mysqli_result.fetch_field_direct(int):mixed</signature>
+        <info_rule id="454946"/>
+        <source_rule id="454945">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch meta-data for a single field</comment>
+      </method>
+      <method vuln_id="1087778">
+        <simple_name>___Php.mysqli_result.fetch_fields</simple_name>
+        <signature>___Php.mysqli_result.fetch_fields():mixed</signature>
+        <info_rule id="455017"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return array of objects containing field meta-data</comment>
+      </method>
+      <method vuln_id="1087710">
+        <simple_name>___Php.mysqli_result.fetch_object</simple_name>
+        <signature>___Php.mysqli_result.fetch_object(___Php.String;___Php.Array):object</signature>
+        <info_rule id="454912"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch a result row as an object</comment>
+      </method>
+      <method vuln_id="1087814">
+        <simple_name>___Php.mysqli_result.fetch_row</simple_name>
+        <signature>___Php.mysqli_result.fetch_row():___Php.Array</signature>
+        <info_rule id="455071"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get a result row as an enumerated array</comment>
+      </method>
+      <method vuln_id="1087694">
+        <simple_name>___Php.mysqli_result.field_count</simple_name>
+        <signature>___Php.mysqli_result.field_count():int</signature>
+        <info_rule id="454888"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch the number of fields returned by the last query for the given link</comment>
+      </method>
+      <method vuln_id="1087828">
+        <simple_name>___Php.mysqli_result.field_seek</simple_name>
+        <signature>___Php.mysqli_result.field_seek(int):bool</signature>
+        <info_rule id="455089"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Set result pointer to a specified field offset</comment>
+      </method>
+      <method vuln_id="1087764">
+        <simple_name>___Php.mysqli_result.free</simple_name>
+        <signature>___Php.mysqli_result.free():void</signature>
+        <info_rule id="454998"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free query result memory for the given result handle</comment>
+      </method>
+      <method vuln_id="1087780">
+        <simple_name>___Php.mysqli_result.free_result</simple_name>
+        <signature>___Php.mysqli_result.free_result():void</signature>
+        <info_rule id="455019"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free query result memory for the given result handle</comment>
+      </method>
+      <method vuln_id="1087760">
+        <simple_name>___Php.mysqli_result.lengths</simple_name>
+        <signature>___Php.mysqli_result.lengths():mixed</signature>
+        <info_rule id="454991"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get the length of each output in a result</comment>
+      </method>
+      <method vuln_id="1087743">
+        <simple_name>___Php.mysqli_result.num_rows</simple_name>
+        <signature>___Php.mysqli_result.num_rows():int</signature>
+        <info_rule id="454965"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get number of rows in result</comment>
+      </method>
+    </class>
+    <class name="mysqli_result">
+      <method vuln_id="1087835">
+        <simple_name>___Php.mysqli_result.close</simple_name>
+        <signature>___Php.mysqli_result.close():void</signature>
+        <info_rule id="455100"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free query result memory for the given result handle</comment>
+      </method>
+      <method vuln_id="1087807">
+        <simple_name>___Php.mysqli_result.current_field</simple_name>
+        <signature>___Php.mysqli_result.current_field():int</signature>
+        <info_rule id="455063"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get current field offset of result pointer</comment>
+      </method>
+      <method vuln_id="1087726">
+        <simple_name>___Php.mysqli_result.fetch_array</simple_name>
+        <signature>___Php.mysqli_result.fetch_array(int):mixed</signature>
+        <info_rule id="454935"/>
+        <source_rule id="454934">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch a result row as an associative array,a numeric array,or both</comment>
+      </method>
+      <method vuln_id="1087817">
+        <simple_name>___Php.mysqli_result.fetch_assoc</simple_name>
+        <signature>___Php.mysqli_result.fetch_assoc():___Php.Array</signature>
+        <info_rule id="455075"/>
+        <source_rule id="455074">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch a result row as an associative array</comment>
+      </method>
+      <method vuln_id="1087724">
+        <simple_name>___Php.mysqli_result.fetch_field</simple_name>
+        <signature>___Php.mysqli_result.fetch_field():mixed</signature>
+        <info_rule id="454932"/>
+        <source_rule id="454931">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get column information from a result and return as an object</comment>
+      </method>
+      <method vuln_id="1087733">
+        <simple_name>___Php.mysqli_result.fetch_field_direct</simple_name>
+        <signature>___Php.mysqli_result.fetch_field_direct(int):mixed</signature>
+        <info_rule id="454946"/>
+        <source_rule id="454945">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch meta-data for a single field</comment>
+      </method>
+      <method vuln_id="1087778">
+        <simple_name>___Php.mysqli_result.fetch_fields</simple_name>
+        <signature>___Php.mysqli_result.fetch_fields():mixed</signature>
+        <info_rule id="455017"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Return array of objects containing field meta-data</comment>
+      </method>
+      <method vuln_id="1087710">
+        <simple_name>___Php.mysqli_result.fetch_object</simple_name>
+        <signature>___Php.mysqli_result.fetch_object(___Php.String;___Php.Array):object</signature>
+        <info_rule id="454912"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch a result row as an object</comment>
+      </method>
+      <method vuln_id="1087814">
+        <simple_name>___Php.mysqli_result.fetch_row</simple_name>
+        <signature>___Php.mysqli_result.fetch_row():___Php.Array</signature>
+        <info_rule id="455071"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get a result row as an enumerated array</comment>
+      </method>
+      <method vuln_id="1087694">
+        <simple_name>___Php.mysqli_result.field_count</simple_name>
+        <signature>___Php.mysqli_result.field_count():int</signature>
+        <info_rule id="454888"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Fetch the number of fields returned by the last query for the given link</comment>
+      </method>
+      <method vuln_id="1087828">
+        <simple_name>___Php.mysqli_result.field_seek</simple_name>
+        <signature>___Php.mysqli_result.field_seek(int):bool</signature>
+        <info_rule id="455089"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Set result pointer to a specified field offset</comment>
+      </method>
+      <method vuln_id="1087764">
+        <simple_name>___Php.mysqli_result.free</simple_name>
+        <signature>___Php.mysqli_result.free():void</signature>
+        <info_rule id="454998"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free query result memory for the given result handle</comment>
+      </method>
+      <method vuln_id="1087780">
+        <simple_name>___Php.mysqli_result.free_result</simple_name>
+        <signature>___Php.mysqli_result.free_result():void</signature>
+        <info_rule id="455019"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <comment>Free query result memory for the given result handle</comment>
+      </method>
+      <method vuln_id="1087760">
+        <simple_name>___Php.mysqli_result.lengths</simple_name>
+        <signature>___Php.mysqli_result.lengths():mixed</signature>
+        <info_rule id="454991"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get the length of each output in a result</comment>
+      </method>
+      <method vuln_id="1087743">
+        <simple_name>___Php.mysqli_result.num_rows</simple_name>
+        <signature>___Php.mysqli_result.num_rows():int</signature>
+        <info_rule id="454965"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <comment>Get number of rows in result</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

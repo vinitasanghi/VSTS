@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XMLReader">
+      <method vuln_id="1089935">
+        <simple_name>___Php.XMLReader.XML</simple_name>
+        <signature>___Php.XMLReader.XML(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="457211"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Sets the string that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089937">
+        <simple_name>___Php.XMLReader.close</simple_name>
+        <signature>___Php.XMLReader.close():bool</signature>
+        <info_rule id="457213"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Closes xmlreader - current frees resources until xmlTextReaderClose is fixed in libxml</comment>
+      </method>
+      <method vuln_id="1089934">
+        <simple_name>___Php.XMLReader.expand</simple_name>
+        <signature>___Php.XMLReader.expand():___Php.DOMNode</signature>
+        <info_rule id="457209"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next node in the stream.</comment>
+      </method>
+      <method vuln_id="1089943">
+        <simple_name>___Php.XMLReader.getAttribute</simple_name>
+        <signature>___Php.XMLReader.getAttribute(___Php.String):___Php.String</signature>
+        <info_rule id="457221"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Get value of an attribute from current element</comment>
+      </method>
+      <method vuln_id="1089945">
+        <simple_name>___Php.XMLReader.getAttributeNo</simple_name>
+        <signature>___Php.XMLReader.getAttributeNo(int):___Php.String</signature>
+        <info_rule id="457223"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Get value of an attribute at index from current element</comment>
+      </method>
+      <method vuln_id="1089938">
+        <simple_name>___Php.XMLReader.getAttributeNs</simple_name>
+        <signature>___Php.XMLReader.getAttributeNs(___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="457214"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Get value of a attribute via name and namespace from current element</comment>
+      </method>
+      <method vuln_id="1089930">
+        <simple_name>___Php.XMLReader.getParserProperty</simple_name>
+        <signature>___Php.XMLReader.getParserProperty(int):bool</signature>
+        <info_rule id="457205"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Indicates whether given property (one of the parser option constants) is set or not on parser</comment>
+      </method>
+      <method vuln_id="1089926">
+        <simple_name>___Php.XMLReader.isValid</simple_name>
+        <signature>___Php.XMLReader.isValid():bool</signature>
+        <info_rule id="457200"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Returns boolean indicating if parsed document is valid or not. Must set XMLREADER_LOADDTD or XMLREADER_VALIDATE parser option prior to the first call to read or this method will always return FALSE</comment>
+      </method>
+      <method vuln_id="1089925">
+        <simple_name>___Php.XMLReader.lookupNamespace</simple_name>
+        <signature>___Php.XMLReader.lookupNamespace(___Php.String):___Php.String</signature>
+        <info_rule id="457199"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Return namespaceURI for associated prefix on current node</comment>
+      </method>
+      <method vuln_id="1089941">
+        <simple_name>___Php.XMLReader.moveToAttribute</simple_name>
+        <signature>___Php.XMLReader.moveToAttribute(___Php.String):bool</signature>
+        <info_rule id="457218"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Positions reader at specified attribute - Returns TRUE on success and FALSE on failure</comment>
+      </method>
+      <method vuln_id="1089944">
+        <simple_name>___Php.XMLReader.moveToAttributeNo</simple_name>
+        <signature>___Php.XMLReader.moveToAttributeNo(int):bool</signature>
+        <info_rule id="457222"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Positions reader at attribute at spcecified index. Returns TRUE on success and FALSE on failure</comment>
+      </method>
+      <method vuln_id="1089932">
+        <simple_name>___Php.XMLReader.moveToAttributeNs</simple_name>
+        <signature>___Php.XMLReader.moveToAttributeNs(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457207"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Positions reader at attribute spcified by name and namespaceURI. Returns TRUE on success and FALSE on failure</comment>
+      </method>
+      <method vuln_id="1089927">
+        <simple_name>___Php.XMLReader.moveToElement</simple_name>
+        <signature>___Php.XMLReader.moveToElement():bool</signature>
+        <info_rule id="457201"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the node that contains the current Attribute node.</comment>
+      </method>
+      <method vuln_id="1089940">
+        <simple_name>___Php.XMLReader.moveToFirstAttribute</simple_name>
+        <signature>___Php.XMLReader.moveToFirstAttribute():bool</signature>
+        <info_rule id="457217"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the first attribute associated with the current node.</comment>
+      </method>
+      <method vuln_id="1089936">
+        <simple_name>___Php.XMLReader.moveToNextAttribute</simple_name>
+        <signature>___Php.XMLReader.moveToNextAttribute():bool</signature>
+        <info_rule id="457212"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next attribute associated with the current node.</comment>
+      </method>
+      <method vuln_id="1089946">
+        <simple_name>___Php.XMLReader.next</simple_name>
+        <signature>___Php.XMLReader.next(___Php.String):bool</signature>
+        <info_rule id="457224"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next node in the stream.</comment>
+      </method>
+      <method vuln_id="1089942">
+        <simple_name>___Php.XMLReader.open</simple_name>
+        <signature>___Php.XMLReader.open(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="457220"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Sets the URI that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089929">
+        <simple_name>___Php.XMLReader.read</simple_name>
+        <signature>___Php.XMLReader.read():bool</signature>
+        <info_rule id="457204"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next node in the stream.</comment>
+      </method>
+      <method vuln_id="1089931">
+        <simple_name>___Php.XMLReader.readInnerXml</simple_name>
+        <signature>___Php.XMLReader.readInnerXml():bool</signature>
+        <info_rule id="457206"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Reads the contents of the current node,including child nodes and markup.</comment>
+      </method>
+      <method vuln_id="1089933">
+        <simple_name>___Php.XMLReader.readOuterXml</simple_name>
+        <signature>___Php.XMLReader.readOuterXml():bool</signature>
+        <info_rule id="457208"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Reads the contents of the current node,including child nodes and markup.</comment>
+      </method>
+      <method vuln_id="1089948">
+        <simple_name>___Php.XMLReader.readString</simple_name>
+        <signature>___Php.XMLReader.readString():bool</signature>
+        <info_rule id="457226"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Reads the contents of an element or a text node as a string.</comment>
+      </method>
+      <method vuln_id="1089947">
+        <simple_name>___Php.XMLReader.setParserProperty</simple_name>
+        <signature>___Php.XMLReader.setParserProperty(int;bool):bool</signature>
+        <info_rule id="457225"/>
+        <property>Technology.XML</property>
+        <comment>Sets parser property (one of the parser option constants). Properties must be set after open() or XML() and before the first read() is called</comment>
+      </method>
+      <method vuln_id="1089928">
+        <simple_name>___Php.XMLReader.setRelaxNGSchema</simple_name>
+        <signature>___Php.XMLReader.setRelaxNGSchema(___Php.String):bool</signature>
+        <info_rule id="457203"/>
+        <sink_rule id="474287">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Sets the string that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089924">
+        <simple_name>___Php.XMLReader.setRelaxNGSchemaSource</simple_name>
+        <signature>___Php.XMLReader.setRelaxNGSchemaSource(___Php.String):bool</signature>
+        <info_rule id="457197"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Sets the string that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089939">
+        <simple_name>___Php.XMLReader.setSchema</simple_name>
+        <signature>___Php.XMLReader.setSchema(___Php.String):bool</signature>
+        <info_rule id="457215"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Use W3C XSD schema to validate the document as it is processed. Activation is only possible before the first Read().</comment>
+      </method>
+    </class>
+    <class name="XMLReader">
+      <method vuln_id="1089935">
+        <simple_name>___Php.XMLReader.XML</simple_name>
+        <signature>___Php.XMLReader.XML(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="457211"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Sets the string that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089937">
+        <simple_name>___Php.XMLReader.close</simple_name>
+        <signature>___Php.XMLReader.close():bool</signature>
+        <info_rule id="457213"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Closes xmlreader - current frees resources until xmlTextReaderClose is fixed in libxml</comment>
+      </method>
+      <method vuln_id="1089934">
+        <simple_name>___Php.XMLReader.expand</simple_name>
+        <signature>___Php.XMLReader.expand():___Php.DOMNode</signature>
+        <info_rule id="457209"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next node in the stream.</comment>
+      </method>
+      <method vuln_id="1089943">
+        <simple_name>___Php.XMLReader.getAttribute</simple_name>
+        <signature>___Php.XMLReader.getAttribute(___Php.String):___Php.String</signature>
+        <info_rule id="457221"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Get value of an attribute from current element</comment>
+      </method>
+      <method vuln_id="1089945">
+        <simple_name>___Php.XMLReader.getAttributeNo</simple_name>
+        <signature>___Php.XMLReader.getAttributeNo(int):___Php.String</signature>
+        <info_rule id="457223"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Get value of an attribute at index from current element</comment>
+      </method>
+      <method vuln_id="1089938">
+        <simple_name>___Php.XMLReader.getAttributeNs</simple_name>
+        <signature>___Php.XMLReader.getAttributeNs(___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="457214"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML</property>
+        <comment>Get value of a attribute via name and namespace from current element</comment>
+      </method>
+      <method vuln_id="1089930">
+        <simple_name>___Php.XMLReader.getParserProperty</simple_name>
+        <signature>___Php.XMLReader.getParserProperty(int):bool</signature>
+        <info_rule id="457205"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Indicates whether given property (one of the parser option constants) is set or not on parser</comment>
+      </method>
+      <method vuln_id="1089926">
+        <simple_name>___Php.XMLReader.isValid</simple_name>
+        <signature>___Php.XMLReader.isValid():bool</signature>
+        <info_rule id="457200"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Returns boolean indicating if parsed document is valid or not. Must set XMLREADER_LOADDTD or XMLREADER_VALIDATE parser option prior to the first call to read or this method will always return FALSE</comment>
+      </method>
+      <method vuln_id="1089925">
+        <simple_name>___Php.XMLReader.lookupNamespace</simple_name>
+        <signature>___Php.XMLReader.lookupNamespace(___Php.String):___Php.String</signature>
+        <info_rule id="457199"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Return namespaceURI for associated prefix on current node</comment>
+      </method>
+      <method vuln_id="1089941">
+        <simple_name>___Php.XMLReader.moveToAttribute</simple_name>
+        <signature>___Php.XMLReader.moveToAttribute(___Php.String):bool</signature>
+        <info_rule id="457218"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Positions reader at specified attribute - Returns TRUE on success and FALSE on failure</comment>
+      </method>
+      <method vuln_id="1089944">
+        <simple_name>___Php.XMLReader.moveToAttributeNo</simple_name>
+        <signature>___Php.XMLReader.moveToAttributeNo(int):bool</signature>
+        <info_rule id="457222"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Positions reader at attribute at spcecified index. Returns TRUE on success and FALSE on failure</comment>
+      </method>
+      <method vuln_id="1089932">
+        <simple_name>___Php.XMLReader.moveToAttributeNs</simple_name>
+        <signature>___Php.XMLReader.moveToAttributeNs(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457207"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Positions reader at attribute spcified by name and namespaceURI. Returns TRUE on success and FALSE on failure</comment>
+      </method>
+      <method vuln_id="1089927">
+        <simple_name>___Php.XMLReader.moveToElement</simple_name>
+        <signature>___Php.XMLReader.moveToElement():bool</signature>
+        <info_rule id="457201"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the node that contains the current Attribute node.</comment>
+      </method>
+      <method vuln_id="1089940">
+        <simple_name>___Php.XMLReader.moveToFirstAttribute</simple_name>
+        <signature>___Php.XMLReader.moveToFirstAttribute():bool</signature>
+        <info_rule id="457217"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the first attribute associated with the current node.</comment>
+      </method>
+      <method vuln_id="1089936">
+        <simple_name>___Php.XMLReader.moveToNextAttribute</simple_name>
+        <signature>___Php.XMLReader.moveToNextAttribute():bool</signature>
+        <info_rule id="457212"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next attribute associated with the current node.</comment>
+      </method>
+      <method vuln_id="1089946">
+        <simple_name>___Php.XMLReader.next</simple_name>
+        <signature>___Php.XMLReader.next(___Php.String):bool</signature>
+        <info_rule id="457224"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next node in the stream.</comment>
+      </method>
+      <method vuln_id="1089942">
+        <simple_name>___Php.XMLReader.open</simple_name>
+        <signature>___Php.XMLReader.open(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="457220"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Sets the URI that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089929">
+        <simple_name>___Php.XMLReader.read</simple_name>
+        <signature>___Php.XMLReader.read():bool</signature>
+        <info_rule id="457204"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Moves the position of the current instance to the next node in the stream.</comment>
+      </method>
+      <method vuln_id="1089931">
+        <simple_name>___Php.XMLReader.readInnerXml</simple_name>
+        <signature>___Php.XMLReader.readInnerXml():bool</signature>
+        <info_rule id="457206"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Reads the contents of the current node,including child nodes and markup.</comment>
+      </method>
+      <method vuln_id="1089933">
+        <simple_name>___Php.XMLReader.readOuterXml</simple_name>
+        <signature>___Php.XMLReader.readOuterXml():bool</signature>
+        <info_rule id="457208"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Reads the contents of the current node,including child nodes and markup.</comment>
+      </method>
+      <method vuln_id="1089948">
+        <simple_name>___Php.XMLReader.readString</simple_name>
+        <signature>___Php.XMLReader.readString():bool</signature>
+        <info_rule id="457226"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Reads the contents of an element or a text node as a string.</comment>
+      </method>
+      <method vuln_id="1089947">
+        <simple_name>___Php.XMLReader.setParserProperty</simple_name>
+        <signature>___Php.XMLReader.setParserProperty(int;bool):bool</signature>
+        <info_rule id="457225"/>
+        <property>Technology.XML</property>
+        <comment>Sets parser property (one of the parser option constants). Properties must be set after open() or XML() and before the first read() is called</comment>
+      </method>
+      <method vuln_id="1089928">
+        <simple_name>___Php.XMLReader.setRelaxNGSchema</simple_name>
+        <signature>___Php.XMLReader.setRelaxNGSchema(___Php.String):bool</signature>
+        <info_rule id="457203"/>
+        <sink_rule id="474287">
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML</property>
+        <comment>Sets the string that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089924">
+        <simple_name>___Php.XMLReader.setRelaxNGSchemaSource</simple_name>
+        <signature>___Php.XMLReader.setRelaxNGSchemaSource(___Php.String):bool</signature>
+        <info_rule id="457197"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Sets the string that the the XMLReader will parse.</comment>
+      </method>
+      <method vuln_id="1089939">
+        <simple_name>___Php.XMLReader.setSchema</simple_name>
+        <signature>___Php.XMLReader.setSchema(___Php.String):bool</signature>
+        <info_rule id="457215"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML</property>
+        <comment>Use W3C XSD schema to validate the document as it is processed. Activation is only possible before the first Read().</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings 
+    display_name="Java Settings" 
+    description="Settings that affect scanning Java and JSP projects"
+>
+	<Setting 
+        name="search_system_classpath_first" 
+        value="true" 
+        default_value="true" 
+        type="bool"
+        display_name="Search system classpath first" 
+        description="Affects search path for Java symbols during a scan.
+            \n 'true' means use the usual classpath lookup, i.e. look in the standard
+            \n libraries first.  'false' means look in the standard libraries *after*
+            \n looking in the user's classpath.  'false' is useful when user
+            \n code is overriding methods in standard libraries." 
+    />
+	<Setting 
+        name="clear_java_cache" 
+        value="true" 
+        default_value="true" 
+        type="bool"
+        display_name="Clear Java classpath cache" 
+        description="Affects symbol lookup in java.
+            \n If different files in a project have different classpaths, lookup cache must
+            \n be cleared after each file to find correct symbol (method/data member).
+            \n Not clearing the cache makes Java translation run faster, if you're not
+            \n worried about symbol conflicts.
+            " 
+    />
+        <Setting
+        name="can_wafl_gen"
+        value="true"
+        default_value="true"
+        type="bool"
+        display_name="Can generate wafl information"
+        description="Affects generation of wafl information."
+    />
+        <Setting
+        name="wafl_gen"
+        value="frameworksCLI"
+        default_value="frameworksCLI"
+        type="string"
+        display_name="file with wafl information settings"
+        description="Affects generation of wafl information."
+    />
+
+</Settings>

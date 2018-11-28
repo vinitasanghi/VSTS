@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="InfiniteIterator">
+      <method vuln_id="1088984">
+        <simple_name>___Php.InfiniteIterator.__construct</simple_name>
+        <signature>___Php.InfiniteIterator.__construct(___Php.Iterator):void</signature>
+        <comment>Create an iterator from another iterator</comment>
+      </method>
+      <method vuln_id="1088752">
+        <simple_name>___Php.InfiniteIterator.next</simple_name>
+        <signature>___Php.InfiniteIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Prevent a call to inner iterators rewind() (internally the current data will be fetched if valid())</comment>
+      </method>
+    </class>
+    <class name="InfiniteIterator">
+      <method vuln_id="1088984">
+        <simple_name>___Php.InfiniteIterator.__construct</simple_name>
+        <signature>___Php.InfiniteIterator.__construct(___Php.Iterator):void</signature>
+        <comment>Create an iterator from another iterator</comment>
+      </method>
+      <method vuln_id="1088752">
+        <simple_name>___Php.InfiniteIterator.next</simple_name>
+        <signature>___Php.InfiniteIterator.next():void</signature>
+        <does_not_propagate_taint/>
+        <comment>Prevent a call to inner iterators rewind() (internally the current data will be fetched if valid())</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

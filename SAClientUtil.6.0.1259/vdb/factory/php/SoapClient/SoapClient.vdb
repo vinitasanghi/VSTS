@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SoapClient">
+      <method vuln_id="1122464">
+        <simple_name>SoapClient.__construct</simple_name>
+        <signature>SoapClient.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1088629">
+        <simple_name>___Php.SoapClient.__call</simple_name>
+        <signature>___Php.SoapClient.__call(___Php.String;___Php.Array;___Php.Array;___Php.Array;___Php.Array):mixed</signature>
+        <info_rule id="456127"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,4"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Deprecated</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088642">
+        <simple_name>___Php.SoapClient.__construct</simple_name>
+        <signature>___Php.SoapClient.__construct(mixed;___Php.Array):void</signature>
+      </method>
+      <method vuln_id="1088640">
+        <simple_name>___Php.SoapClient.__doRequest</simple_name>
+        <signature>___Php.SoapClient.__doRequest(___Php.String;___Php.String;___Php.String;int;int):___Php.String</signature>
+        <info_rule id="456142"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088621">
+        <simple_name>___Php.SoapClient.__getCookies</simple_name>
+        <signature>___Php.SoapClient.__getCookies():___Php.Array</signature>
+        <info_rule id="456116"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088624">
+        <simple_name>___Php.SoapClient.__getFunctions</simple_name>
+        <signature>___Php.SoapClient.__getFunctions():___Php.Array</signature>
+        <info_rule id="456119"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088631">
+        <simple_name>___Php.SoapClient.__getLastRequest</simple_name>
+        <signature>___Php.SoapClient.__getLastRequest():___Php.String</signature>
+        <info_rule id="456129"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088638">
+        <simple_name>___Php.SoapClient.__getLastRequestHeaders</simple_name>
+        <signature>___Php.SoapClient.__getLastRequestHeaders():___Php.String</signature>
+        <info_rule id="456139"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088625">
+        <simple_name>___Php.SoapClient.__getLastResponse</simple_name>
+        <signature>___Php.SoapClient.__getLastResponse():___Php.String</signature>
+        <info_rule id="456121"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088620">
+        <simple_name>___Php.SoapClient.__getLastResponseHeaders</simple_name>
+        <signature>___Php.SoapClient.__getLastResponseHeaders():___Php.String</signature>
+        <info_rule id="456114"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088636">
+        <simple_name>___Php.SoapClient.__getTypes</simple_name>
+        <signature>___Php.SoapClient.__getTypes():___Php.Array</signature>
+        <info_rule id="456135"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088637">
+        <simple_name>___Php.SoapClient.__setCookie</simple_name>
+        <signature>___Php.SoapClient.__setCookie(___Php.String;___Php.String):void</signature>
+        <info_rule id="456137"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088628">
+        <simple_name>___Php.SoapClient.__setLocation</simple_name>
+        <signature>___Php.SoapClient.__setLocation(___Php.String):___Php.String</signature>
+        <info_rule id="456124"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088613">
+        <simple_name>___Php.SoapClient.__setSoapHeaders</simple_name>
+        <signature>___Php.SoapClient.__setSoapHeaders(___Php.Array):void</signature>
+        <info_rule id="456102"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088627">
+        <simple_name>___Php.SoapClient.__soapCall</simple_name>
+        <signature>___Php.SoapClient.__soapCall(___Php.String;___Php.Array;___Php.Array;mixed;___Php.Array):mixed</signature>
+        <info_rule id="456123"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+    </class>
+    <class name="SoapClient">
+      <method vuln_id="1122464">
+        <simple_name>SoapClient.__construct</simple_name>
+        <signature>SoapClient.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1088629">
+        <simple_name>___Php.SoapClient.__call</simple_name>
+        <signature>___Php.SoapClient.__call(___Php.String;___Php.Array;___Php.Array;___Php.Array;___Php.Array):mixed</signature>
+        <info_rule id="456127"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,4"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Deprecated</property>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088642">
+        <simple_name>___Php.SoapClient.__construct</simple_name>
+        <signature>___Php.SoapClient.__construct(mixed;___Php.Array):void</signature>
+      </method>
+      <method vuln_id="1088640">
+        <simple_name>___Php.SoapClient.__doRequest</simple_name>
+        <signature>___Php.SoapClient.__doRequest(___Php.String;___Php.String;___Php.String;int;int):___Php.String</signature>
+        <info_rule id="456142"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088621">
+        <simple_name>___Php.SoapClient.__getCookies</simple_name>
+        <signature>___Php.SoapClient.__getCookies():___Php.Array</signature>
+        <info_rule id="456116"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088624">
+        <simple_name>___Php.SoapClient.__getFunctions</simple_name>
+        <signature>___Php.SoapClient.__getFunctions():___Php.Array</signature>
+        <info_rule id="456119"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088631">
+        <simple_name>___Php.SoapClient.__getLastRequest</simple_name>
+        <signature>___Php.SoapClient.__getLastRequest():___Php.String</signature>
+        <info_rule id="456129"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088638">
+        <simple_name>___Php.SoapClient.__getLastRequestHeaders</simple_name>
+        <signature>___Php.SoapClient.__getLastRequestHeaders():___Php.String</signature>
+        <info_rule id="456139"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088625">
+        <simple_name>___Php.SoapClient.__getLastResponse</simple_name>
+        <signature>___Php.SoapClient.__getLastResponse():___Php.String</signature>
+        <info_rule id="456121"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088620">
+        <simple_name>___Php.SoapClient.__getLastResponseHeaders</simple_name>
+        <signature>___Php.SoapClient.__getLastResponseHeaders():___Php.String</signature>
+        <info_rule id="456114"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088636">
+        <simple_name>___Php.SoapClient.__getTypes</simple_name>
+        <signature>___Php.SoapClient.__getTypes():___Php.Array</signature>
+        <info_rule id="456135"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088637">
+        <simple_name>___Php.SoapClient.__setCookie</simple_name>
+        <signature>___Php.SoapClient.__setCookie(___Php.String;___Php.String):void</signature>
+        <info_rule id="456137"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088628">
+        <simple_name>___Php.SoapClient.__setLocation</simple_name>
+        <signature>___Php.SoapClient.__setLocation(___Php.String):___Php.String</signature>
+        <info_rule id="456124"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088613">
+        <simple_name>___Php.SoapClient.__setSoapHeaders</simple_name>
+        <signature>___Php.SoapClient.__setSoapHeaders(___Php.Array):void</signature>
+        <info_rule id="456102"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+      <method vuln_id="1088627">
+        <simple_name>___Php.SoapClient.__soapCall</simple_name>
+        <signature>___Php.SoapClient.__soapCall(___Php.String;___Php.Array;___Php.Array;mixed;___Php.Array):mixed</signature>
+        <info_rule id="456123"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.Messaging.SOAP</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

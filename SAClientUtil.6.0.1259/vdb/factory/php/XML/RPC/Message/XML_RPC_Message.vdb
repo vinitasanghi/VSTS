@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XML_RPC_Message">
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Message.XML_RPC_Message</simple_name>
+        <signature>XML_RPC_Message.XML_RPC_Message($meth;$pars):mixed</signature>
+      </method>
+      <method vuln_id="1092760">
+        <simple_name>XML_RPC_Message.addParam</simple_name>
+        <signature>XML_RPC_Message.addParam($par):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092757">
+        <simple_name>XML_RPC_Message.createPayload</simple_name>
+        <signature>XML_RPC_Message.createPayload():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092732">
+        <simple_name>XML_RPC_Message.getEncoding</simple_name>
+        <signature>XML_RPC_Message.getEncoding($data):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Message.getEncoding</simple_name>
+        <signature>XML_RPC_Message.getEncoding():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092748">
+        <simple_name>XML_RPC_Message.getNumParams</simple_name>
+        <signature>XML_RPC_Message.getNumParams():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092742">
+        <simple_name>XML_RPC_Message.getParam</simple_name>
+        <signature>XML_RPC_Message.getParam($i):object the</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092754">
+        <simple_name>XML_RPC_Message.method</simple_name>
+        <signature>XML_RPC_Message.method($meth):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092755">
+        <simple_name>XML_RPC_Message.parseResponse</simple_name>
+        <signature>XML_RPC_Message.parseResponse($data):object a</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092747">
+        <simple_name>XML_RPC_Message.parseResponseFile</simple_name>
+        <signature>XML_RPC_Message.parseResponseFile($fp):object a</signature>
+        <info_rule id="480910"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1092758">
+        <simple_name>XML_RPC_Message.serialize</simple_name>
+        <signature>XML_RPC_Message.serialize():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092743">
+        <simple_name>XML_RPC_Message.setConvertPayloadEncoding</simple_name>
+        <signature>XML_RPC_Message.setConvertPayloadEncoding($in):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092739">
+        <simple_name>XML_RPC_Message.setSendEncoding</simple_name>
+        <signature>XML_RPC_Message.setSendEncoding($type):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092737">
+        <simple_name>XML_RPC_Message.xml_footer</simple_name>
+        <signature>XML_RPC_Message.xml_footer():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092764">
+        <simple_name>XML_RPC_Message.xml_header</simple_name>
+        <signature>XML_RPC_Message.xml_header():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="XML_RPC_Message">
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Message.XML_RPC_Message</simple_name>
+        <signature>XML_RPC_Message.XML_RPC_Message($meth;$pars):mixed</signature>
+      </method>
+      <method vuln_id="1092760">
+        <simple_name>XML_RPC_Message.addParam</simple_name>
+        <signature>XML_RPC_Message.addParam($par):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092757">
+        <simple_name>XML_RPC_Message.createPayload</simple_name>
+        <signature>XML_RPC_Message.createPayload():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092732">
+        <simple_name>XML_RPC_Message.getEncoding</simple_name>
+        <signature>XML_RPC_Message.getEncoding($data):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Message.getEncoding</simple_name>
+        <signature>XML_RPC_Message.getEncoding():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092748">
+        <simple_name>XML_RPC_Message.getNumParams</simple_name>
+        <signature>XML_RPC_Message.getNumParams():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092742">
+        <simple_name>XML_RPC_Message.getParam</simple_name>
+        <signature>XML_RPC_Message.getParam($i):object the</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092754">
+        <simple_name>XML_RPC_Message.method</simple_name>
+        <signature>XML_RPC_Message.method($meth):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092755">
+        <simple_name>XML_RPC_Message.parseResponse</simple_name>
+        <signature>XML_RPC_Message.parseResponse($data):object a</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092747">
+        <simple_name>XML_RPC_Message.parseResponseFile</simple_name>
+        <signature>XML_RPC_Message.parseResponseFile($fp):object a</signature>
+        <info_rule id="480910"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC</property>
+      </method>
+      <method vuln_id="1092758">
+        <simple_name>XML_RPC_Message.serialize</simple_name>
+        <signature>XML_RPC_Message.serialize():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092743">
+        <simple_name>XML_RPC_Message.setConvertPayloadEncoding</simple_name>
+        <signature>XML_RPC_Message.setConvertPayloadEncoding($in):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092739">
+        <simple_name>XML_RPC_Message.setSendEncoding</simple_name>
+        <signature>XML_RPC_Message.setSendEncoding($type):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092737">
+        <simple_name>XML_RPC_Message.xml_footer</simple_name>
+        <signature>XML_RPC_Message.xml_footer():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092764">
+        <simple_name>XML_RPC_Message.xml_header</simple_name>
+        <signature>XML_RPC_Message.xml_header():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

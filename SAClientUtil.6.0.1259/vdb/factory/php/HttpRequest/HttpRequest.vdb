@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpRequest">
+      <method vuln_id="1086772">
+        <simple_name>HttpRequest.__construct</simple_name>
+        <signature>HttpRequest.__construct(___Php.String;int;___Php.Array):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <comment>Instantiate a new HttpRequest object.</comment>
+      </method>
+      <method vuln_id="1086870">
+        <simple_name>HttpRequest.addCookies</simple_name>
+        <signature>HttpRequest.addCookies(___Php.Array):bool</signature>
+        <info_rule id="453813"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add custom cookies</comment>
+      </method>
+      <method vuln_id="1086774">
+        <simple_name>HttpRequest.addHeaders</simple_name>
+        <signature>HttpRequest.addHeaders(___Php.Array):bool</signature>
+        <info_rule id="453676"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add request header name/value pairs.</comment>
+      </method>
+      <method vuln_id="1086691">
+        <simple_name>HttpRequest.addPostFields</simple_name>
+        <signature>HttpRequest.addPostFields(___Php.Array):bool</signature>
+        <info_rule id="453554"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Adds POST data entries;leaving previously set unchanged;unless a post entry with the same name already exists.</comment>
+      </method>
+      <method vuln_id="1086705">
+        <simple_name>HttpRequest.addPostFile</simple_name>
+        <signature>HttpRequest.addPostFile(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="453580"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Add a file to the POST request;leaving previously set files unchanged.</comment>
+      </method>
+      <method vuln_id="1086737">
+        <simple_name>HttpRequest.addPutData</simple_name>
+        <signature>HttpRequest.addPutData(___Php.String):bool</signature>
+        <info_rule id="453624"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add PUT data;leaving previously set PUT data unchanged.</comment>
+      </method>
+      <method vuln_id="1086800">
+        <simple_name>HttpRequest.addQueryData</simple_name>
+        <signature>HttpRequest.addQueryData(___Php.Array):bool</signature>
+        <info_rule id="453710"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add parameters to the query parameter list;leaving previously set unchanged.</comment>
+      </method>
+      <method vuln_id="1086685">
+        <simple_name>HttpRequest.addRawPostData</simple_name>
+        <signature>HttpRequest.addRawPostData(___Php.String):bool</signature>
+        <info_rule id="453546"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add raw post data;leaving previously set raw post data unchanged</comment>
+      </method>
+      <method vuln_id="1086714">
+        <simple_name>HttpRequest.addSslOptions</simple_name>
+        <signature>HttpRequest.addSslOptions(___Php.Array):bool</signature>
+        <info_rule id="453595"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set additional SSL options</comment>
+      </method>
+      <method vuln_id="1086804">
+        <simple_name>HttpRequest.clearHistory</simple_name>
+        <signature>HttpRequest.clearHistory():void</signature>
+        <info_rule id="453717"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Clears all history messages.</comment>
+      </method>
+      <method vuln_id="1086864">
+        <simple_name>HttpRequest.enableCookies</simple_name>
+        <signature>HttpRequest.enableCookies():bool</signature>
+        <info_rule id="453805"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Enable automatic sending of received cookies.</comment>
+      </method>
+      <method vuln_id="1086786">
+        <simple_name>HttpRequest.getContentType</simple_name>
+        <signature>HttpRequest.getContentType():___Php.String</signature>
+        <info_rule id="453690"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set content type.</comment>
+      </method>
+      <method vuln_id="1086808">
+        <simple_name>HttpRequest.getCookies</simple_name>
+        <signature>HttpRequest.getCookies():___Php.Array</signature>
+        <info_rule id="453721"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set cookies</comment>
+      </method>
+      <method vuln_id="1086796">
+        <simple_name>HttpRequest.getHeaders</simple_name>
+        <signature>HttpRequest.getHeaders():___Php.Array</signature>
+        <info_rule id="453703"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set request headers.</comment>
+      </method>
+      <method vuln_id="1086816">
+        <simple_name>HttpRequest.getHistory</simple_name>
+        <signature>HttpRequest.getHistory():HttpMessage</signature>
+        <info_rule id="453734"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get all sent requests and received responses as an HttpMessage object.</comment>
+      </method>
+      <method vuln_id="1086743">
+        <simple_name>HttpRequest.getMethod</simple_name>
+        <signature>HttpRequest.getMethod():int</signature>
+        <info_rule id="453634"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set request method</comment>
+      </method>
+      <method vuln_id="1086778">
+        <simple_name>HttpRequest.getOptions</simple_name>
+        <signature>HttpRequest.getOptions():___Php.Array</signature>
+        <info_rule id="453681"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get currently set options</comment>
+      </method>
+      <method vuln_id="1086742">
+        <simple_name>HttpRequest.getPostFields</simple_name>
+        <signature>HttpRequest.getPostFields():___Php.Array</signature>
+        <info_rule id="453632"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set POST data</comment>
+      </method>
+      <method vuln_id="1086754">
+        <simple_name>HttpRequest.getPostFiles</simple_name>
+        <signature>HttpRequest.getPostFiles():___Php.Array</signature>
+        <info_rule id="453647"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Get all previously added POST files</comment>
+      </method>
+      <method vuln_id="1086753">
+        <simple_name>HttpRequest.getPutData</simple_name>
+        <signature>HttpRequest.getPutData():___Php.String</signature>
+        <info_rule id="453645"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set PUT data</comment>
+      </method>
+      <method vuln_id="1086831">
+        <simple_name>HttpRequest.getPutFile</simple_name>
+        <signature>HttpRequest.getPutFile():___Php.String</signature>
+        <info_rule id="453758"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Get previously set put file</comment>
+      </method>
+      <method vuln_id="1086825">
+        <simple_name>HttpRequest.getQueryData</simple_name>
+        <signature>HttpRequest.getQueryData():___Php.String</signature>
+        <info_rule id="453749"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the current query data in form of an urlencoded query string</comment>
+      </method>
+      <method vuln_id="1086835">
+        <simple_name>HttpRequest.getRawPostData</simple_name>
+        <signature>HttpRequest.getRawPostData():___Php.String</signature>
+        <info_rule id="453764"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set raw post data.</comment>
+      </method>
+      <method vuln_id="1086789">
+        <simple_name>HttpRequest.getRawRequestMessage</simple_name>
+        <signature>HttpRequest.getRawRequestMessage():___Php.String</signature>
+        <info_rule id="453693"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get sent HTTP message.</comment>
+      </method>
+      <method vuln_id="1086695">
+        <simple_name>HttpRequest.getRawResponseMessage</simple_name>
+        <signature>HttpRequest.getRawResponseMessage():___Php.String</signature>
+        <info_rule id="453561"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the entire HTTP response.</comment>
+      </method>
+      <method vuln_id="1086844">
+        <simple_name>HttpRequest.getRequestMessage</simple_name>
+        <signature>HttpRequest.getRequestMessage():HttpMessage</signature>
+        <info_rule id="453777"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get sent HTTP message</comment>
+      </method>
+      <method vuln_id="1086699">
+        <simple_name>HttpRequest.getResponseBody</simple_name>
+        <signature>HttpRequest.getResponseBody():___Php.String</signature>
+        <info_rule id="453569"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the response body after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086841">
+        <simple_name>HttpRequest.getResponseCode</simple_name>
+        <signature>HttpRequest.getResponseCode():int</signature>
+        <info_rule id="453772"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the response code after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086862">
+        <simple_name>HttpRequest.getResponseCookies</simple_name>
+        <signature>HttpRequest.getResponseCookies(int;___Php.Array):___Php.Array</signature>
+        <info_rule id="453802"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get response cookie(s):after the request has been sent.</comment>
+      </method>
+      <method vuln_id="1086712">
+        <simple_name>HttpRequest.getResponseData</simple_name>
+        <signature>HttpRequest.getResponseData():___Php.Array</signature>
+        <info_rule id="453590"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get all response data after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086764">
+        <simple_name>HttpRequest.getResponseHeader</simple_name>
+        <signature>HttpRequest.getResponseHeader(___Php.String):mixed</signature>
+        <info_rule id="453663"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get response header(s):after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086858">
+        <simple_name>HttpRequest.getResponseInfo</simple_name>
+        <signature>HttpRequest.getResponseInfo(___Php.String):mixed</signature>
+        <info_rule id="453798"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get response info after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086791">
+        <simple_name>HttpRequest.getResponseMessage</simple_name>
+        <signature>HttpRequest.getResponseMessage():HttpMessage</signature>
+        <info_rule id="453696"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the full response as HttpMessage object after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086875">
+        <simple_name>HttpRequest.getResponseStatus</simple_name>
+        <signature>HttpRequest.getResponseStatus():___Php.String</signature>
+        <info_rule id="453821"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the response status(i.e. the string after the response code):after the message has been sent</comment>
+      </method>
+      <method vuln_id="1086838">
+        <simple_name>HttpRequest.getSslOptions</simple_name>
+        <signature>HttpRequest.getSslOptions():___Php.Array</signature>
+        <info_rule id="453769"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set SSL options</comment>
+      </method>
+      <method vuln_id="1086736">
+        <simple_name>HttpRequest.getUrl</simple_name>
+        <signature>HttpRequest.getUrl():___Php.String</signature>
+        <info_rule id="453621"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set request URL.</comment>
+      </method>
+      <method vuln_id="1086724">
+        <simple_name>HttpRequest.resetCookies</simple_name>
+        <signature>HttpRequest.resetCookies(bool):bool</signature>
+        <info_rule id="453606"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Reset all automatically received/sent cookies</comment>
+      </method>
+      <method vuln_id="1086785">
+        <simple_name>HttpRequest.send</simple_name>
+        <signature>HttpRequest.send():HttpMessage</signature>
+        <info_rule id="453689"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send the HTTP request</comment>
+      </method>
+      <method vuln_id="1086840">
+        <simple_name>HttpRequest.setContentType</simple_name>
+        <signature>HttpRequest.setContentType(___Php.String):bool</signature>
+        <info_rule id="453771"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the content type the post request should have</comment>
+      </method>
+      <method vuln_id="1086819">
+        <simple_name>HttpRequest.setCookies</simple_name>
+        <signature>HttpRequest.setCookies(___Php.Array):bool</signature>
+        <info_rule id="453741"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set custom cookies</comment>
+      </method>
+      <method vuln_id="1086871">
+        <simple_name>HttpRequest.setHeaders</simple_name>
+        <signature>HttpRequest.setHeaders(___Php.Array):bool</signature>
+        <info_rule id="453815"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set request header name/value pairs.</comment>
+      </method>
+      <method vuln_id="1086766">
+        <simple_name>HttpRequest.setMethod</simple_name>
+        <signature>HttpRequest.setMethod(int):bool</signature>
+        <info_rule id="453666"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the request method.</comment>
+      </method>
+      <method vuln_id="1086869">
+        <simple_name>HttpRequest.setOptions</simple_name>
+        <signature>HttpRequest.setOptions(___Php.Array):bool</signature>
+        <info_rule id="453810"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the request options to use.</comment>
+      </method>
+      <method vuln_id="1086824">
+        <simple_name>HttpRequest.setPostFields</simple_name>
+        <signature>HttpRequest.setPostFields(___Php.Array):bool</signature>
+        <info_rule id="453748"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the POST data entries;overwriting previously set POST data.</comment>
+      </method>
+      <method vuln_id="1086713">
+        <simple_name>HttpRequest.setPostFiles</simple_name>
+        <signature>HttpRequest.setPostFiles(___Php.Array):bool</signature>
+        <info_rule id="453593"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Set files to post;overwriting previously set post files.</comment>
+      </method>
+      <method vuln_id="1086703">
+        <simple_name>HttpRequest.setPutData</simple_name>
+        <signature>HttpRequest.setPutData(___Php.String):bool</signature>
+        <info_rule id="453576"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set PUT data to send;overwriting previously set PUT data.</comment>
+      </method>
+      <method vuln_id="1086729">
+        <simple_name>HttpRequest.setPutFile</simple_name>
+        <signature>HttpRequest.setPutFile(___Php.String):bool</signature>
+        <info_rule id="453612"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Set file to put. Affects only PUT requests.</comment>
+      </method>
+      <method vuln_id="1086805">
+        <simple_name>HttpRequest.setQueryData</simple_name>
+        <signature>HttpRequest.setQueryData(mixed):bool</signature>
+        <info_rule id="453719"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the URL query parameters to use;overwriting previously set query parameters.</comment>
+      </method>
+      <method vuln_id="1086828">
+        <simple_name>HttpRequest.setRawPostData</simple_name>
+        <signature>HttpRequest.setRawPostData(___Php.String):bool</signature>
+        <info_rule id="453755"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set raw post data to send;overwriting previously set raw post data. Dont forget to specify a content type. Affects only POST and custom requests.</comment>
+      </method>
+      <method vuln_id="1086839">
+        <simple_name>HttpRequest.setSslOptions</simple_name>
+        <signature>HttpRequest.setSslOptions(___Php.Array):bool</signature>
+        <info_rule id="453770"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set SSL options.</comment>
+      </method>
+      <method vuln_id="1086693">
+        <simple_name>HttpRequest.setUrl</simple_name>
+        <signature>HttpRequest.setUrl(___Php.String):bool</signature>
+        <info_rule id="453558"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the request URL.</comment>
+      </method>
+    </class>
+    <class name="HttpRequest">
+      <method vuln_id="1086772">
+        <simple_name>HttpRequest.__construct</simple_name>
+        <signature>HttpRequest.__construct(___Php.String;int;___Php.Array):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <comment>Instantiate a new HttpRequest object.</comment>
+      </method>
+      <method vuln_id="1086870">
+        <simple_name>HttpRequest.addCookies</simple_name>
+        <signature>HttpRequest.addCookies(___Php.Array):bool</signature>
+        <info_rule id="453813"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add custom cookies</comment>
+      </method>
+      <method vuln_id="1086774">
+        <simple_name>HttpRequest.addHeaders</simple_name>
+        <signature>HttpRequest.addHeaders(___Php.Array):bool</signature>
+        <info_rule id="453676"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add request header name/value pairs.</comment>
+      </method>
+      <method vuln_id="1086691">
+        <simple_name>HttpRequest.addPostFields</simple_name>
+        <signature>HttpRequest.addPostFields(___Php.Array):bool</signature>
+        <info_rule id="453554"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Adds POST data entries;leaving previously set unchanged;unless a post entry with the same name already exists.</comment>
+      </method>
+      <method vuln_id="1086705">
+        <simple_name>HttpRequest.addPostFile</simple_name>
+        <signature>HttpRequest.addPostFile(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="453580"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Add a file to the POST request;leaving previously set files unchanged.</comment>
+      </method>
+      <method vuln_id="1086737">
+        <simple_name>HttpRequest.addPutData</simple_name>
+        <signature>HttpRequest.addPutData(___Php.String):bool</signature>
+        <info_rule id="453624"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add PUT data;leaving previously set PUT data unchanged.</comment>
+      </method>
+      <method vuln_id="1086800">
+        <simple_name>HttpRequest.addQueryData</simple_name>
+        <signature>HttpRequest.addQueryData(___Php.Array):bool</signature>
+        <info_rule id="453710"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add parameters to the query parameter list;leaving previously set unchanged.</comment>
+      </method>
+      <method vuln_id="1086685">
+        <simple_name>HttpRequest.addRawPostData</simple_name>
+        <signature>HttpRequest.addRawPostData(___Php.String):bool</signature>
+        <info_rule id="453546"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Add raw post data;leaving previously set raw post data unchanged</comment>
+      </method>
+      <method vuln_id="1086714">
+        <simple_name>HttpRequest.addSslOptions</simple_name>
+        <signature>HttpRequest.addSslOptions(___Php.Array):bool</signature>
+        <info_rule id="453595"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set additional SSL options</comment>
+      </method>
+      <method vuln_id="1086804">
+        <simple_name>HttpRequest.clearHistory</simple_name>
+        <signature>HttpRequest.clearHistory():void</signature>
+        <info_rule id="453717"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Clears all history messages.</comment>
+      </method>
+      <method vuln_id="1086864">
+        <simple_name>HttpRequest.enableCookies</simple_name>
+        <signature>HttpRequest.enableCookies():bool</signature>
+        <info_rule id="453805"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Enable automatic sending of received cookies.</comment>
+      </method>
+      <method vuln_id="1086786">
+        <simple_name>HttpRequest.getContentType</simple_name>
+        <signature>HttpRequest.getContentType():___Php.String</signature>
+        <info_rule id="453690"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set content type.</comment>
+      </method>
+      <method vuln_id="1086808">
+        <simple_name>HttpRequest.getCookies</simple_name>
+        <signature>HttpRequest.getCookies():___Php.Array</signature>
+        <info_rule id="453721"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set cookies</comment>
+      </method>
+      <method vuln_id="1086796">
+        <simple_name>HttpRequest.getHeaders</simple_name>
+        <signature>HttpRequest.getHeaders():___Php.Array</signature>
+        <info_rule id="453703"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set request headers.</comment>
+      </method>
+      <method vuln_id="1086816">
+        <simple_name>HttpRequest.getHistory</simple_name>
+        <signature>HttpRequest.getHistory():HttpMessage</signature>
+        <info_rule id="453734"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get all sent requests and received responses as an HttpMessage object.</comment>
+      </method>
+      <method vuln_id="1086743">
+        <simple_name>HttpRequest.getMethod</simple_name>
+        <signature>HttpRequest.getMethod():int</signature>
+        <info_rule id="453634"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set request method</comment>
+      </method>
+      <method vuln_id="1086778">
+        <simple_name>HttpRequest.getOptions</simple_name>
+        <signature>HttpRequest.getOptions():___Php.Array</signature>
+        <info_rule id="453681"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get currently set options</comment>
+      </method>
+      <method vuln_id="1086742">
+        <simple_name>HttpRequest.getPostFields</simple_name>
+        <signature>HttpRequest.getPostFields():___Php.Array</signature>
+        <info_rule id="453632"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set POST data</comment>
+      </method>
+      <method vuln_id="1086754">
+        <simple_name>HttpRequest.getPostFiles</simple_name>
+        <signature>HttpRequest.getPostFiles():___Php.Array</signature>
+        <info_rule id="453647"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Get all previously added POST files</comment>
+      </method>
+      <method vuln_id="1086753">
+        <simple_name>HttpRequest.getPutData</simple_name>
+        <signature>HttpRequest.getPutData():___Php.String</signature>
+        <info_rule id="453645"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set PUT data</comment>
+      </method>
+      <method vuln_id="1086831">
+        <simple_name>HttpRequest.getPutFile</simple_name>
+        <signature>HttpRequest.getPutFile():___Php.String</signature>
+        <info_rule id="453758"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Get previously set put file</comment>
+      </method>
+      <method vuln_id="1086825">
+        <simple_name>HttpRequest.getQueryData</simple_name>
+        <signature>HttpRequest.getQueryData():___Php.String</signature>
+        <info_rule id="453749"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the current query data in form of an urlencoded query string</comment>
+      </method>
+      <method vuln_id="1086835">
+        <simple_name>HttpRequest.getRawPostData</simple_name>
+        <signature>HttpRequest.getRawPostData():___Php.String</signature>
+        <info_rule id="453764"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set raw post data.</comment>
+      </method>
+      <method vuln_id="1086789">
+        <simple_name>HttpRequest.getRawRequestMessage</simple_name>
+        <signature>HttpRequest.getRawRequestMessage():___Php.String</signature>
+        <info_rule id="453693"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get sent HTTP message.</comment>
+      </method>
+      <method vuln_id="1086695">
+        <simple_name>HttpRequest.getRawResponseMessage</simple_name>
+        <signature>HttpRequest.getRawResponseMessage():___Php.String</signature>
+        <info_rule id="453561"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the entire HTTP response.</comment>
+      </method>
+      <method vuln_id="1086844">
+        <simple_name>HttpRequest.getRequestMessage</simple_name>
+        <signature>HttpRequest.getRequestMessage():HttpMessage</signature>
+        <info_rule id="453777"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get sent HTTP message</comment>
+      </method>
+      <method vuln_id="1086699">
+        <simple_name>HttpRequest.getResponseBody</simple_name>
+        <signature>HttpRequest.getResponseBody():___Php.String</signature>
+        <info_rule id="453569"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the response body after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086841">
+        <simple_name>HttpRequest.getResponseCode</simple_name>
+        <signature>HttpRequest.getResponseCode():int</signature>
+        <info_rule id="453772"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the response code after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086862">
+        <simple_name>HttpRequest.getResponseCookies</simple_name>
+        <signature>HttpRequest.getResponseCookies(int;___Php.Array):___Php.Array</signature>
+        <info_rule id="453802"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get response cookie(s):after the request has been sent.</comment>
+      </method>
+      <method vuln_id="1086712">
+        <simple_name>HttpRequest.getResponseData</simple_name>
+        <signature>HttpRequest.getResponseData():___Php.Array</signature>
+        <info_rule id="453590"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get all response data after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086764">
+        <simple_name>HttpRequest.getResponseHeader</simple_name>
+        <signature>HttpRequest.getResponseHeader(___Php.String):mixed</signature>
+        <info_rule id="453663"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get response header(s):after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086858">
+        <simple_name>HttpRequest.getResponseInfo</simple_name>
+        <signature>HttpRequest.getResponseInfo(___Php.String):mixed</signature>
+        <info_rule id="453798"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get response info after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086791">
+        <simple_name>HttpRequest.getResponseMessage</simple_name>
+        <signature>HttpRequest.getResponseMessage():HttpMessage</signature>
+        <info_rule id="453696"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the full response as HttpMessage object after the request has been sent</comment>
+      </method>
+      <method vuln_id="1086875">
+        <simple_name>HttpRequest.getResponseStatus</simple_name>
+        <signature>HttpRequest.getResponseStatus():___Php.String</signature>
+        <info_rule id="453821"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the response status(i.e. the string after the response code):after the message has been sent</comment>
+      </method>
+      <method vuln_id="1086838">
+        <simple_name>HttpRequest.getSslOptions</simple_name>
+        <signature>HttpRequest.getSslOptions():___Php.Array</signature>
+        <info_rule id="453769"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get previously set SSL options</comment>
+      </method>
+      <method vuln_id="1086736">
+        <simple_name>HttpRequest.getUrl</simple_name>
+        <signature>HttpRequest.getUrl():___Php.String</signature>
+        <info_rule id="453621"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Get the previously set request URL.</comment>
+      </method>
+      <method vuln_id="1086724">
+        <simple_name>HttpRequest.resetCookies</simple_name>
+        <signature>HttpRequest.resetCookies(bool):bool</signature>
+        <info_rule id="453606"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Reset all automatically received/sent cookies</comment>
+      </method>
+      <method vuln_id="1086785">
+        <simple_name>HttpRequest.send</simple_name>
+        <signature>HttpRequest.send():HttpMessage</signature>
+        <info_rule id="453689"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Send the HTTP request</comment>
+      </method>
+      <method vuln_id="1086840">
+        <simple_name>HttpRequest.setContentType</simple_name>
+        <signature>HttpRequest.setContentType(___Php.String):bool</signature>
+        <info_rule id="453771"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the content type the post request should have</comment>
+      </method>
+      <method vuln_id="1086819">
+        <simple_name>HttpRequest.setCookies</simple_name>
+        <signature>HttpRequest.setCookies(___Php.Array):bool</signature>
+        <info_rule id="453741"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set custom cookies</comment>
+      </method>
+      <method vuln_id="1086871">
+        <simple_name>HttpRequest.setHeaders</simple_name>
+        <signature>HttpRequest.setHeaders(___Php.Array):bool</signature>
+        <info_rule id="453815"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set request header name/value pairs.</comment>
+      </method>
+      <method vuln_id="1086766">
+        <simple_name>HttpRequest.setMethod</simple_name>
+        <signature>HttpRequest.setMethod(int):bool</signature>
+        <info_rule id="453666"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the request method.</comment>
+      </method>
+      <method vuln_id="1086869">
+        <simple_name>HttpRequest.setOptions</simple_name>
+        <signature>HttpRequest.setOptions(___Php.Array):bool</signature>
+        <info_rule id="453810"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the request options to use.</comment>
+      </method>
+      <method vuln_id="1086824">
+        <simple_name>HttpRequest.setPostFields</simple_name>
+        <signature>HttpRequest.setPostFields(___Php.Array):bool</signature>
+        <info_rule id="453748"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the POST data entries;overwriting previously set POST data.</comment>
+      </method>
+      <method vuln_id="1086713">
+        <simple_name>HttpRequest.setPostFiles</simple_name>
+        <signature>HttpRequest.setPostFiles(___Php.Array):bool</signature>
+        <info_rule id="453593"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Set files to post;overwriting previously set post files.</comment>
+      </method>
+      <method vuln_id="1086703">
+        <simple_name>HttpRequest.setPutData</simple_name>
+        <signature>HttpRequest.setPutData(___Php.String):bool</signature>
+        <info_rule id="453576"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set PUT data to send;overwriting previously set PUT data.</comment>
+      </method>
+      <method vuln_id="1086729">
+        <simple_name>HttpRequest.setPutFile</simple_name>
+        <signature>HttpRequest.setPutFile(___Php.String):bool</signature>
+        <info_rule id="453612"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP.Upload</property>
+        <comment>Set file to put. Affects only PUT requests.</comment>
+      </method>
+      <method vuln_id="1086805">
+        <simple_name>HttpRequest.setQueryData</simple_name>
+        <signature>HttpRequest.setQueryData(mixed):bool</signature>
+        <info_rule id="453719"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the URL query parameters to use;overwriting previously set query parameters.</comment>
+      </method>
+      <method vuln_id="1086828">
+        <simple_name>HttpRequest.setRawPostData</simple_name>
+        <signature>HttpRequest.setRawPostData(___Php.String):bool</signature>
+        <info_rule id="453755"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set raw post data to send;overwriting previously set raw post data. Dont forget to specify a content type. Affects only POST and custom requests.</comment>
+      </method>
+      <method vuln_id="1086839">
+        <simple_name>HttpRequest.setSslOptions</simple_name>
+        <signature>HttpRequest.setSslOptions(___Php.Array):bool</signature>
+        <info_rule id="453770"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set SSL options.</comment>
+      </method>
+      <method vuln_id="1086693">
+        <simple_name>HttpRequest.setUrl</simple_name>
+        <signature>HttpRequest.setUrl(___Php.String):bool</signature>
+        <info_rule id="453558"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <comment>Set the request URL.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

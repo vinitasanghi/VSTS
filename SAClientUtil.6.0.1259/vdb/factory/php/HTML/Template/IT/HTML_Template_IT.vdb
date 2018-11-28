@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_Template_IT">
+      <method vuln_id="1091520">
+        <simple_name>HTML_Template_IT.HTML_Template_IT</simple_name>
+        <signature>HTML_Template_IT.HTML_Template_IT($root;$options):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT._addPregDelimiters</simple_name>
+        <signature>HTML_Template_IT._addPregDelimiters($str):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT._preserveOpeningDelimiter</simple_name>
+        <signature>HTML_Template_IT._preserveOpeningDelimiter($str):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091511">
+        <simple_name>HTML_Template_IT.buildBlockvariablelist</simple_name>
+        <signature>HTML_Template_IT.buildBlockvariablelist():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT.errorMessage</simple_name>
+        <signature>HTML_Template_IT.errorMessage($value;$blockname):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT.findBlocks</simple_name>
+        <signature>HTML_Template_IT.findBlocks($string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091516">
+        <simple_name>HTML_Template_IT.free</simple_name>
+        <signature>HTML_Template_IT.free():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091517">
+        <simple_name>HTML_Template_IT.get</simple_name>
+        <signature>HTML_Template_IT.get($block):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091519">
+        <simple_name>HTML_Template_IT.getFile</simple_name>
+        <signature>HTML_Template_IT.getFile($filename):string</signature>
+        <info_rule id="480767"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451360">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091510">
+        <simple_name>HTML_Template_IT.getGlobalvariables</simple_name>
+        <signature>HTML_Template_IT.getGlobalvariables():void</signature>
+        <info_rule id="480766"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091523">
+        <simple_name>HTML_Template_IT.init</simple_name>
+        <signature>HTML_Template_IT.init():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091512">
+        <simple_name>HTML_Template_IT.loadTemplatefile</simple_name>
+        <signature>HTML_Template_IT.loadTemplatefile($filename;$removeUnknownVariables;$removeEmptyBlocks):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091518">
+        <simple_name>HTML_Template_IT.parse</simple_name>
+        <signature>HTML_Template_IT.parse($block;$flag_recursion):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091514">
+        <simple_name>HTML_Template_IT.parseCurrentBlock</simple_name>
+        <signature>HTML_Template_IT.parseCurrentBlock():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091524">
+        <simple_name>HTML_Template_IT.setCurrentBlock</simple_name>
+        <signature>HTML_Template_IT.setCurrentBlock($block):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091521">
+        <simple_name>HTML_Template_IT.setOption</simple_name>
+        <signature>HTML_Template_IT.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091515">
+        <simple_name>HTML_Template_IT.setOptions</simple_name>
+        <signature>HTML_Template_IT.setOptions($options):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091513">
+        <simple_name>HTML_Template_IT.setRoot</simple_name>
+        <signature>HTML_Template_IT.setRoot($root):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451356">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091522">
+        <simple_name>HTML_Template_IT.setTemplate</simple_name>
+        <signature>HTML_Template_IT.setTemplate($template;$removeUnknownVariables;$removeEmptyBlocks):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091525">
+        <simple_name>HTML_Template_IT.setVariable</simple_name>
+        <signature>HTML_Template_IT.setVariable($variable;$value):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091508">
+        <simple_name>HTML_Template_IT.show</simple_name>
+        <signature>HTML_Template_IT.show($block):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We flag case when the object gets tainted so we don't need to flag this too</comment>
+      </method>
+      <method vuln_id="1091509">
+        <simple_name>HTML_Template_IT.touchBlock</simple_name>
+        <signature>HTML_Template_IT.touchBlock($block):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_Template_IT">
+      <method vuln_id="1091520">
+        <simple_name>HTML_Template_IT.HTML_Template_IT</simple_name>
+        <signature>HTML_Template_IT.HTML_Template_IT($root;$options):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT._addPregDelimiters</simple_name>
+        <signature>HTML_Template_IT._addPregDelimiters($str):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT._preserveOpeningDelimiter</simple_name>
+        <signature>HTML_Template_IT._preserveOpeningDelimiter($str):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091511">
+        <simple_name>HTML_Template_IT.buildBlockvariablelist</simple_name>
+        <signature>HTML_Template_IT.buildBlockvariablelist():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT.errorMessage</simple_name>
+        <signature>HTML_Template_IT.errorMessage($value;$blockname):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_Template_IT.findBlocks</simple_name>
+        <signature>HTML_Template_IT.findBlocks($string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091516">
+        <simple_name>HTML_Template_IT.free</simple_name>
+        <signature>HTML_Template_IT.free():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091517">
+        <simple_name>HTML_Template_IT.get</simple_name>
+        <signature>HTML_Template_IT.get($block):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091519">
+        <simple_name>HTML_Template_IT.getFile</simple_name>
+        <signature>HTML_Template_IT.getFile($filename):string</signature>
+        <info_rule id="480767"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451360">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091510">
+        <simple_name>HTML_Template_IT.getGlobalvariables</simple_name>
+        <signature>HTML_Template_IT.getGlobalvariables():void</signature>
+        <info_rule id="480766"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091523">
+        <simple_name>HTML_Template_IT.init</simple_name>
+        <signature>HTML_Template_IT.init():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091512">
+        <simple_name>HTML_Template_IT.loadTemplatefile</simple_name>
+        <signature>HTML_Template_IT.loadTemplatefile($filename;$removeUnknownVariables;$removeEmptyBlocks):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091518">
+        <simple_name>HTML_Template_IT.parse</simple_name>
+        <signature>HTML_Template_IT.parse($block;$flag_recursion):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091514">
+        <simple_name>HTML_Template_IT.parseCurrentBlock</simple_name>
+        <signature>HTML_Template_IT.parseCurrentBlock():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091524">
+        <simple_name>HTML_Template_IT.setCurrentBlock</simple_name>
+        <signature>HTML_Template_IT.setCurrentBlock($block):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091521">
+        <simple_name>HTML_Template_IT.setOption</simple_name>
+        <signature>HTML_Template_IT.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091515">
+        <simple_name>HTML_Template_IT.setOptions</simple_name>
+        <signature>HTML_Template_IT.setOptions($options):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091513">
+        <simple_name>HTML_Template_IT.setRoot</simple_name>
+        <signature>HTML_Template_IT.setRoot($root):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule id="451356">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091522">
+        <simple_name>HTML_Template_IT.setTemplate</simple_name>
+        <signature>HTML_Template_IT.setTemplate($template;$removeUnknownVariables;$removeEmptyBlocks):boolean</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091525">
+        <simple_name>HTML_Template_IT.setVariable</simple_name>
+        <signature>HTML_Template_IT.setVariable($variable;$value):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091508">
+        <simple_name>HTML_Template_IT.show</simple_name>
+        <signature>HTML_Template_IT.show($block):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>We flag case when the object gets tainted so we don't need to flag this too</comment>
+      </method>
+      <method vuln_id="1091509">
+        <simple_name>HTML_Template_IT.touchBlock</simple_name>
+        <signature>HTML_Template_IT.touchBlock($block):boolean</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

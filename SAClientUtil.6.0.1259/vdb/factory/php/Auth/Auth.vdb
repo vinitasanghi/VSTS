@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Auth">
+      <method vuln_id="1107788">
+        <simple_name>Auth.Auth</simple_name>
+        <signature>Auth.Auth(mixed;mixed;___Php.String;bool):void</signature>
+        <info_rule id="463372"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107786">
+        <simple_name>Auth._factory</simple_name>
+        <signature>Auth._factory(___Php.String;___Php.String):object</signature>
+        <info_rule id="463369"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.FileInclusion</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107795">
+        <simple_name>Auth._loadLogger</simple_name>
+        <signature>Auth._loadLogger():bool</signature>
+        <info_rule id="463376"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107804">
+        <simple_name>Auth._loadStorage</simple_name>
+        <signature>Auth._loadStorage():bool</signature>
+        <info_rule id="463379"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107787">
+        <simple_name>Auth.addUser</simple_name>
+        <signature>Auth.addUser(___Php.String;___Php.String;mixed):PEAR_Error</signature>
+        <info_rule id="450833"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="463370">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463371">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="450832">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107809">
+        <simple_name>Auth.applyAuthOptions</simple_name>
+        <signature>Auth.applyAuthOptions(___Php.Array):___Php.Array</signature>
+        <info_rule id="463382"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107794">
+        <simple_name>Auth.assignData</simple_name>
+        <signature>Auth.assignData():void</signature>
+        <info_rule id="463375"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107820">
+        <simple_name>Auth.attachLogObserver</simple_name>
+        <signature>Auth.attachLogObserver(object):bool</signature>
+        <info_rule id="450855"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107808">
+        <simple_name>Auth.changePassword</simple_name>
+        <signature>Auth.changePassword(___Php.String;___Php.String):PEAR_Error</signature>
+        <info_rule id="450851"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="463380">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463381">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="450850">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107797">
+        <simple_name>Auth.checkAuth</simple_name>
+        <signature>Auth.checkAuth():bool</signature>
+        <info_rule id="450837"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107818">
+        <simple_name>Auth.drawLogin</simple_name>
+        <signature>Auth.drawLogin():Variant</signature>
+        <info_rule id="463385"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107817">
+        <simple_name>Auth.getAuth</simple_name>
+        <signature>Auth.getAuth():bool</signature>
+        <info_rule id="450858"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107806">
+        <simple_name>Auth.getAuthData</simple_name>
+        <signature>Auth.getAuthData(___Php.String):mixed</signature>
+        <info_rule id="450847"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107813">
+        <simple_name>Auth.getPostPasswordField</simple_name>
+        <signature>Auth.getPostPasswordField():___Php.String</signature>
+        <info_rule id="463383"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107814">
+        <simple_name>Auth.getPostUsernameField</simple_name>
+        <signature>Auth.getPostUsernameField():___Php.String</signature>
+        <info_rule id="463384"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107785">
+        <simple_name>Auth.getStatus</simple_name>
+        <signature>Auth.getStatus():int</signature>
+        <info_rule id="450829"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107811">
+        <simple_name>Auth.getUsername</simple_name>
+        <signature>Auth.getUsername():___Php.String</signature>
+        <info_rule id="450853"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107782">
+        <simple_name>Auth.listUsers</simple_name>
+        <signature>Auth.listUsers():___Php.Array</signature>
+        <info_rule id="450825"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107789">
+        <simple_name>Auth.log</simple_name>
+        <signature>Auth.log(___Php.String;___Php.String):bool</signature>
+        <info_rule id="463373"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107790">
+        <simple_name>Auth.login</simple_name>
+        <signature>Auth.login():void</signature>
+        <info_rule id="463374"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107803">
+        <simple_name>Auth.logout</simple_name>
+        <signature>Auth.logout():void</signature>
+        <info_rule id="450844"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication.Logout</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107801">
+        <simple_name>Auth.removeUser</simple_name>
+        <signature>Auth.removeUser(___Php.String):PEAR_Error</signature>
+        <info_rule id="450843"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS.Lockout</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107800">
+        <simple_name>Auth.sessionValidThru</simple_name>
+        <signature>Auth.sessionValidThru():int</signature>
+        <info_rule id="450830"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1107791">
+        <simple_name>Auth.setAdvancedSecurity</simple_name>
+        <signature>Auth.setAdvancedSecurity(bool):void</signature>
+        <info_rule id="450834"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107815">
+        <simple_name>Auth.setAllowLogin</simple_name>
+        <signature>Auth.setAllowLogin(bool):void</signature>
+        <info_rule id="450856"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107798">
+        <simple_name>Auth.setAuth</simple_name>
+        <signature>Auth.setAuth(___Php.String):void</signature>
+        <info_rule id="450840"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="450839">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107812">
+        <simple_name>Auth.setAuthData</simple_name>
+        <signature>Auth.setAuthData(___Php.String;mixed;bool):void</signature>
+        <info_rule id="450854"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107799">
+        <simple_name>Auth.setCheckAuthCallback</simple_name>
+        <signature>Auth.setCheckAuthCallback(___Php.String):void</signature>
+        <info_rule id="450841"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107805">
+        <simple_name>Auth.setExpire</simple_name>
+        <signature>Auth.setExpire(int;bool):void</signature>
+        <info_rule id="450845"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.SessionManagement.Timeout.Absolute</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication.Logout</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107816">
+        <simple_name>Auth.setFailedLoginCallback</simple_name>
+        <signature>Auth.setFailedLoginCallback(___Php.String):void</signature>
+        <info_rule id="450857"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107783">
+        <simple_name>Auth.setIdle</simple_name>
+        <signature>Auth.setIdle(int;bool):void</signature>
+        <info_rule id="450826"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.SessionManagement.Timeout.Absolute</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107792">
+        <simple_name>Auth.setLoginCallback</simple_name>
+        <signature>Auth.setLoginCallback(___Php.String):void</signature>
+        <info_rule id="450835"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107793">
+        <simple_name>Auth.setLogoutCallback</simple_name>
+        <signature>Auth.setLogoutCallback(___Php.String):void</signature>
+        <info_rule id="450836"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication.Logout</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107807">
+        <simple_name>Auth.setSessionName</simple_name>
+        <signature>Auth.setSessionName(___Php.String):void</signature>
+        <info_rule id="450848"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1107810">
+        <simple_name>Auth.setShowLogin</simple_name>
+        <signature>Auth.setShowLogin(bool):void</signature>
+        <info_rule id="450852"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107784">
+        <simple_name>Auth.start</simple_name>
+        <signature>Auth.start():void</signature>
+        <info_rule id="450828"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107802">
+        <simple_name>Auth.staticCheckAuth</simple_name>
+        <signature>Auth.staticCheckAuth(mixed):bool</signature>
+        <info_rule id="463378"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107796">
+        <simple_name>Auth.updateIdle</simple_name>
+        <signature>Auth.updateIdle():void</signature>
+        <info_rule id="463377"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Auth">
+      <method vuln_id="1107788">
+        <simple_name>Auth.Auth</simple_name>
+        <signature>Auth.Auth(mixed;mixed;___Php.String;bool):void</signature>
+        <info_rule id="463372"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107786">
+        <simple_name>Auth._factory</simple_name>
+        <signature>Auth._factory(___Php.String;___Php.String):object</signature>
+        <info_rule id="463369"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.FileInclusion</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107795">
+        <simple_name>Auth._loadLogger</simple_name>
+        <signature>Auth._loadLogger():bool</signature>
+        <info_rule id="463376"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107804">
+        <simple_name>Auth._loadStorage</simple_name>
+        <signature>Auth._loadStorage():bool</signature>
+        <info_rule id="463379"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107787">
+        <simple_name>Auth.addUser</simple_name>
+        <signature>Auth.addUser(___Php.String;___Php.String;mixed):PEAR_Error</signature>
+        <info_rule id="450833"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="463370">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463371">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="450832">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107809">
+        <simple_name>Auth.applyAuthOptions</simple_name>
+        <signature>Auth.applyAuthOptions(___Php.Array):___Php.Array</signature>
+        <info_rule id="463382"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107794">
+        <simple_name>Auth.assignData</simple_name>
+        <signature>Auth.assignData():void</signature>
+        <info_rule id="463375"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107820">
+        <simple_name>Auth.attachLogObserver</simple_name>
+        <signature>Auth.attachLogObserver(object):bool</signature>
+        <info_rule id="450855"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107808">
+        <simple_name>Auth.changePassword</simple_name>
+        <signature>Auth.changePassword(___Php.String;___Php.String):PEAR_Error</signature>
+        <info_rule id="450851"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="463380">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="463381">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="450850">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107797">
+        <simple_name>Auth.checkAuth</simple_name>
+        <signature>Auth.checkAuth():bool</signature>
+        <info_rule id="450837"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107818">
+        <simple_name>Auth.drawLogin</simple_name>
+        <signature>Auth.drawLogin():Variant</signature>
+        <info_rule id="463385"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107817">
+        <simple_name>Auth.getAuth</simple_name>
+        <signature>Auth.getAuth():bool</signature>
+        <info_rule id="450858"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107806">
+        <simple_name>Auth.getAuthData</simple_name>
+        <signature>Auth.getAuthData(___Php.String):mixed</signature>
+        <info_rule id="450847"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107813">
+        <simple_name>Auth.getPostPasswordField</simple_name>
+        <signature>Auth.getPostPasswordField():___Php.String</signature>
+        <info_rule id="463383"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107814">
+        <simple_name>Auth.getPostUsernameField</simple_name>
+        <signature>Auth.getPostUsernameField():___Php.String</signature>
+        <info_rule id="463384"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107785">
+        <simple_name>Auth.getStatus</simple_name>
+        <signature>Auth.getStatus():int</signature>
+        <info_rule id="450829"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107811">
+        <simple_name>Auth.getUsername</simple_name>
+        <signature>Auth.getUsername():___Php.String</signature>
+        <info_rule id="450853"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107782">
+        <simple_name>Auth.listUsers</simple_name>
+        <signature>Auth.listUsers():___Php.Array</signature>
+        <info_rule id="450825"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107789">
+        <simple_name>Auth.log</simple_name>
+        <signature>Auth.log(___Php.String;___Php.String):bool</signature>
+        <info_rule id="463373"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107790">
+        <simple_name>Auth.login</simple_name>
+        <signature>Auth.login():void</signature>
+        <info_rule id="463374"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107803">
+        <simple_name>Auth.logout</simple_name>
+        <signature>Auth.logout():void</signature>
+        <info_rule id="450844"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication.Logout</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107801">
+        <simple_name>Auth.removeUser</simple_name>
+        <signature>Auth.removeUser(___Php.String):PEAR_Error</signature>
+        <info_rule id="450843"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS.Lockout</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107800">
+        <simple_name>Auth.sessionValidThru</simple_name>
+        <signature>Auth.sessionValidThru():int</signature>
+        <info_rule id="450830"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1107791">
+        <simple_name>Auth.setAdvancedSecurity</simple_name>
+        <signature>Auth.setAdvancedSecurity(bool):void</signature>
+        <info_rule id="450834"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107815">
+        <simple_name>Auth.setAllowLogin</simple_name>
+        <signature>Auth.setAllowLogin(bool):void</signature>
+        <info_rule id="450856"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107798">
+        <simple_name>Auth.setAuth</simple_name>
+        <signature>Auth.setAuth(___Php.String):void</signature>
+        <info_rule id="450840"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="450839">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107812">
+        <simple_name>Auth.setAuthData</simple_name>
+        <signature>Auth.setAuthData(___Php.String;mixed;bool):void</signature>
+        <info_rule id="450854"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107799">
+        <simple_name>Auth.setCheckAuthCallback</simple_name>
+        <signature>Auth.setCheckAuthCallback(___Php.String):void</signature>
+        <info_rule id="450841"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107805">
+        <simple_name>Auth.setExpire</simple_name>
+        <signature>Auth.setExpire(int;bool):void</signature>
+        <info_rule id="450845"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.SessionManagement.Timeout.Absolute</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication.Logout</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107816">
+        <simple_name>Auth.setFailedLoginCallback</simple_name>
+        <signature>Auth.setFailedLoginCallback(___Php.String):void</signature>
+        <info_rule id="450857"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107783">
+        <simple_name>Auth.setIdle</simple_name>
+        <signature>Auth.setIdle(int;bool):void</signature>
+        <info_rule id="450826"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.SessionManagement.Timeout.Absolute</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107792">
+        <simple_name>Auth.setLoginCallback</simple_name>
+        <signature>Auth.setLoginCallback(___Php.String):void</signature>
+        <info_rule id="450835"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107793">
+        <simple_name>Auth.setLogoutCallback</simple_name>
+        <signature>Auth.setLogoutCallback(___Php.String):void</signature>
+        <info_rule id="450836"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication.Logout</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107807">
+        <simple_name>Auth.setSessionName</simple_name>
+        <signature>Auth.setSessionName(___Php.String):void</signature>
+        <info_rule id="450848"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1107810">
+        <simple_name>Auth.setShowLogin</simple_name>
+        <signature>Auth.setShowLogin(bool):void</signature>
+        <info_rule id="450852"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107784">
+        <simple_name>Auth.start</simple_name>
+        <signature>Auth.start():void</signature>
+        <info_rule id="450828"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107802">
+        <simple_name>Auth.staticCheckAuth</simple_name>
+        <signature>Auth.staticCheckAuth(mixed):bool</signature>
+        <info_rule id="463378"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107796">
+        <simple_name>Auth.updateIdle</simple_name>
+        <signature>Auth.updateIdle():void</signature>
+        <info_rule id="463377"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

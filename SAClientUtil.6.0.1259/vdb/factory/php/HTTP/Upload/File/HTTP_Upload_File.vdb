@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTTP_Upload_File">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.HTTP_Upload_File</simple_name>
+        <signature>HTTP_Upload_File.HTTP_Upload_File(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;mixed):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File._chk_dir_dest</simple_name>
+        <signature>HTTP_Upload_File._chk_dir_dest($dir_dest):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File._evalValidExtensions</simple_name>
+        <signature>HTTP_Upload_File._evalValidExtensions():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091613">
+        <simple_name>HTTP_Upload_File.errorMsg</simple_name>
+        <signature>HTTP_Upload_File.errorMsg():string</signature>
+        <info_rule id="451435"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.getMessage</simple_name>
+        <signature>HTTP_Upload_File.getMessage():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.getProp</simple_name>
+        <signature>HTTP_Upload_File.getProp($name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.isError</simple_name>
+        <signature>HTTP_Upload_File.isError():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091610">
+        <simple_name>HTTP_Upload_File.isMissing</simple_name>
+        <signature>HTTP_Upload_File.isMissing():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091606">
+        <simple_name>HTTP_Upload_File.isValid</simple_name>
+        <signature>HTTP_Upload_File.isValid():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091601">
+        <simple_name>HTTP_Upload_File.moveTo</simple_name>
+        <signature>HTTP_Upload_File.moveTo(___Php.String;bool):PEAR_Error</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091605">
+        <simple_name>HTTP_Upload_File.nameToSafe</simple_name>
+        <signature>HTTP_Upload_File.nameToSafe(___Php.String;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Doesn't motify the 'this' pointer . Just does string replace on param</comment>
+      </method>
+      <method vuln_id="1091608">
+        <simple_name>HTTP_Upload_File.nameToUniq</simple_name>
+        <signature>HTTP_Upload_File.nameToUniq():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091607">
+        <simple_name>HTTP_Upload_File.setName</simple_name>
+        <signature>HTTP_Upload_File.setName(___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091611">
+        <simple_name>HTTP_Upload_File.setValidExtensions</simple_name>
+        <signature>HTTP_Upload_File.setValidExtensions(___Php.Array;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTTP_Upload_File">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.HTTP_Upload_File</simple_name>
+        <signature>HTTP_Upload_File.HTTP_Upload_File(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;mixed):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File._chk_dir_dest</simple_name>
+        <signature>HTTP_Upload_File._chk_dir_dest($dir_dest):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File._evalValidExtensions</simple_name>
+        <signature>HTTP_Upload_File._evalValidExtensions():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091613">
+        <simple_name>HTTP_Upload_File.errorMsg</simple_name>
+        <signature>HTTP_Upload_File.errorMsg():string</signature>
+        <info_rule id="451435"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Deprecated</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.getMessage</simple_name>
+        <signature>HTTP_Upload_File.getMessage():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.getProp</simple_name>
+        <signature>HTTP_Upload_File.getProp($name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload_File.isError</simple_name>
+        <signature>HTTP_Upload_File.isError():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091610">
+        <simple_name>HTTP_Upload_File.isMissing</simple_name>
+        <signature>HTTP_Upload_File.isMissing():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091606">
+        <simple_name>HTTP_Upload_File.isValid</simple_name>
+        <signature>HTTP_Upload_File.isValid():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091601">
+        <simple_name>HTTP_Upload_File.moveTo</simple_name>
+        <signature>HTTP_Upload_File.moveTo(___Php.String;bool):PEAR_Error</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091605">
+        <simple_name>HTTP_Upload_File.nameToSafe</simple_name>
+        <signature>HTTP_Upload_File.nameToSafe(___Php.String;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>Doesn't motify the 'this' pointer . Just does string replace on param</comment>
+      </method>
+      <method vuln_id="1091608">
+        <simple_name>HTTP_Upload_File.nameToUniq</simple_name>
+        <signature>HTTP_Upload_File.nameToUniq():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091607">
+        <simple_name>HTTP_Upload_File.setName</simple_name>
+        <signature>HTTP_Upload_File.setName(___Php.String;___Php.String;___Php.String):___Php.String</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091611">
+        <simple_name>HTTP_Upload_File.setValidExtensions</simple_name>
+        <signature>HTTP_Upload_File.setValidExtensions(___Php.Array;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

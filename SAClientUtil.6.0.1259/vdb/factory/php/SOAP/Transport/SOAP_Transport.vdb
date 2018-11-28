@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SOAP_Transport">
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport.SOAP_Base</simple_name>
+        <signature>SOAP_Transport.SOAP_Base():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport.SOAP_Base_Object</simple_name>
+        <signature>SOAP_Transport.SOAP_Base_Object():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport._raiseSoapFault</simple_name>
+        <signature>SOAP_Transport._raiseSoapFault():Variant</signature>
+      </method>
+      <method vuln_id="1092669">
+        <simple_name>SOAP_Transport.getTransport</simple_name>
+        <signature>SOAP_Transport.getTransport($url;$encoding):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport.getTransport</simple_name>
+        <signature>SOAP_Transport.getTransport():Variant</signature>
+      </method>
+      <method vuln_id="1092668">
+        <simple_name>SOAP_Transport.send</simple_name>
+        <signature>SOAP_Transport.send($msg;$options):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="SOAP_Transport">
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport.SOAP_Base</simple_name>
+        <signature>SOAP_Transport.SOAP_Base():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport.SOAP_Base_Object</simple_name>
+        <signature>SOAP_Transport.SOAP_Base_Object():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport._raiseSoapFault</simple_name>
+        <signature>SOAP_Transport._raiseSoapFault():Variant</signature>
+      </method>
+      <method vuln_id="1092669">
+        <simple_name>SOAP_Transport.getTransport</simple_name>
+        <signature>SOAP_Transport.getTransport($url;$encoding):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_Transport.getTransport</simple_name>
+        <signature>SOAP_Transport.getTransport():Variant</signature>
+      </method>
+      <method vuln_id="1092668">
+        <simple_name>SOAP_Transport.send</simple_name>
+        <signature>SOAP_Transport.send($msg;$options):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Http_Cookie">
+      <method vuln_id="1114810">
+        <simple_name>Zend_Http_Cookie.__construct_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.__construct_@__Http_Cookie_php_1($name;$value;$domain;$expires;$path;$secure):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5,6"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114788">
+        <simple_name>Zend_Http_Cookie.__toString_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.__toString_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468054"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114846">
+        <simple_name>Zend_Http_Cookie.fromString_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.fromString_@__Http_Cookie_php_1($cookieStr;$refUri;$encodeValue):Variant</signature>
+        <info_rule id="468135"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114795">
+        <simple_name>Zend_Http_Cookie.getDomain_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getDomain_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468067"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114829">
+        <simple_name>Zend_Http_Cookie.getExpiryTime_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getExpiryTime_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468113"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114849">
+        <simple_name>Zend_Http_Cookie.getName_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getName_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468138"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114847">
+        <simple_name>Zend_Http_Cookie.getPath_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getPath_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468136"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114907">
+        <simple_name>Zend_Http_Cookie.getValue_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getValue_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468224"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114891">
+        <simple_name>Zend_Http_Cookie.isExpired_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.isExpired_@__Http_Cookie_php_1($now):Variant</signature>
+        <info_rule id="468198"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114816">
+        <simple_name>Zend_Http_Cookie.isSecure_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.isSecure_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468096"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114880">
+        <simple_name>Zend_Http_Cookie.isSessionCookie_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.isSessionCookie_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468179"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114873">
+        <simple_name>Zend_Http_Cookie.matchCookieDomain_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.matchCookieDomain_@__Http_Cookie_php_1($cookieDomain;$host):Variant</signature>
+        <info_rule id="468168"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114811">
+        <simple_name>Zend_Http_Cookie.matchCookiePath_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.matchCookiePath_@__Http_Cookie_php_1($cookiePath;$path):Variant</signature>
+        <info_rule id="468089"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114840">
+        <simple_name>Zend_Http_Cookie.match_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.match_@__Http_Cookie_php_1($uri;$matchSessionCookies;$now):Variant</signature>
+        <info_rule id="468125"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Http_Cookie">
+      <method vuln_id="1114810">
+        <simple_name>Zend_Http_Cookie.__construct_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.__construct_@__Http_Cookie_php_1($name;$value;$domain;$expires;$path;$secure):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5,6"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114788">
+        <simple_name>Zend_Http_Cookie.__toString_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.__toString_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468054"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114846">
+        <simple_name>Zend_Http_Cookie.fromString_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.fromString_@__Http_Cookie_php_1($cookieStr;$refUri;$encodeValue):Variant</signature>
+        <info_rule id="468135"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114795">
+        <simple_name>Zend_Http_Cookie.getDomain_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getDomain_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468067"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114829">
+        <simple_name>Zend_Http_Cookie.getExpiryTime_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getExpiryTime_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468113"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114849">
+        <simple_name>Zend_Http_Cookie.getName_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getName_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468138"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114847">
+        <simple_name>Zend_Http_Cookie.getPath_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getPath_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468136"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114907">
+        <simple_name>Zend_Http_Cookie.getValue_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.getValue_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468224"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114891">
+        <simple_name>Zend_Http_Cookie.isExpired_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.isExpired_@__Http_Cookie_php_1($now):Variant</signature>
+        <info_rule id="468198"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114816">
+        <simple_name>Zend_Http_Cookie.isSecure_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.isSecure_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468096"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114880">
+        <simple_name>Zend_Http_Cookie.isSessionCookie_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.isSessionCookie_@__Http_Cookie_php_1():Variant</signature>
+        <info_rule id="468179"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114873">
+        <simple_name>Zend_Http_Cookie.matchCookieDomain_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.matchCookieDomain_@__Http_Cookie_php_1($cookieDomain;$host):Variant</signature>
+        <info_rule id="468168"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114811">
+        <simple_name>Zend_Http_Cookie.matchCookiePath_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.matchCookiePath_@__Http_Cookie_php_1($cookiePath;$path):Variant</signature>
+        <info_rule id="468089"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114840">
+        <simple_name>Zend_Http_Cookie.match_@__Http_Cookie_php_1</simple_name>
+        <signature>Zend_Http_Cookie.match_@__Http_Cookie_php_1($uri;$matchSessionCookies;$now):Variant</signature>
+        <info_rule id="468125"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fMessaging">
+      <method vuln_id="1106463">
+        <simple_name>fMessaging.__construct_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.__construct_@__inc_flourish_fMessaging_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107428">
+        <simple_name>fMessaging.check_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.check_@__inc_flourish_fMessaging_php_1($name;$recipient):Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107386">
+        <simple_name>fMessaging.create_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.create_@__inc_flourish_fMessaging_php_1($name;$recipient;$message):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106916">
+        <simple_name>fMessaging.reset_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.reset_@__inc_flourish_fMessaging_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106813">
+        <simple_name>fMessaging.retrieve_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.retrieve_@__inc_flourish_fMessaging_php_1($name;$recipient):Variant</signature>
+        <info_rule id="480672"/>
+        <source_rule id="462316">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1106928">
+        <simple_name>fMessaging.show_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.show_@__inc_flourish_fMessaging_php_1($name;$recipient;$css_class):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fMessaging">
+      <method vuln_id="1106463">
+        <simple_name>fMessaging.__construct_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.__construct_@__inc_flourish_fMessaging_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107428">
+        <simple_name>fMessaging.check_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.check_@__inc_flourish_fMessaging_php_1($name;$recipient):Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107386">
+        <simple_name>fMessaging.create_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.create_@__inc_flourish_fMessaging_php_1($name;$recipient;$message):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106916">
+        <simple_name>fMessaging.reset_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.reset_@__inc_flourish_fMessaging_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106813">
+        <simple_name>fMessaging.retrieve_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.retrieve_@__inc_flourish_fMessaging_php_1($name;$recipient):Variant</signature>
+        <info_rule id="480672"/>
+        <source_rule id="462316">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1106928">
+        <simple_name>fMessaging.show_@__inc_flourish_fMessaging_php_1</simple_name>
+        <signature>fMessaging.show_@__inc_flourish_fMessaging_php_1($name;$recipient;$css_class):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

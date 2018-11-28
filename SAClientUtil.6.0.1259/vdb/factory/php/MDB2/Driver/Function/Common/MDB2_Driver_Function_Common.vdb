@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_Driver_Function_Common">
+      <method vuln_id="1091822">
+        <simple_name>MDB2_Driver_Function_Common.concat</simple_name>
+        <signature>MDB2_Driver_Function_Common.concat($value1;$value2):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091825">
+        <simple_name>MDB2_Driver_Function_Common.executeStoredProc</simple_name>
+        <signature>MDB2_Driver_Function_Common.executeStoredProc($name;$params;$types;$result_class;$result_wrap_class):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091824">
+        <simple_name>MDB2_Driver_Function_Common.functionTable</simple_name>
+        <signature>MDB2_Driver_Function_Common.functionTable():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Function_Common.getDBInstance</simple_name>
+        <signature>MDB2_Driver_Function_Common.getDBInstance():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091818">
+        <simple_name>MDB2_Driver_Function_Common.guid</simple_name>
+        <signature>MDB2_Driver_Function_Common.guid():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091821">
+        <simple_name>MDB2_Driver_Function_Common.lower</simple_name>
+        <signature>MDB2_Driver_Function_Common.lower($expression):return</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091817">
+        <simple_name>MDB2_Driver_Function_Common.now</simple_name>
+        <signature>MDB2_Driver_Function_Common.now($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091820">
+        <simple_name>MDB2_Driver_Function_Common.random</simple_name>
+        <signature>MDB2_Driver_Function_Common.random():return</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091819">
+        <simple_name>MDB2_Driver_Function_Common.substring</simple_name>
+        <signature>MDB2_Driver_Function_Common.substring($value;$position;$length):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091823">
+        <simple_name>MDB2_Driver_Function_Common.upper</simple_name>
+        <signature>MDB2_Driver_Function_Common.upper($expression):return</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_Driver_Function_Common">
+      <method vuln_id="1091822">
+        <simple_name>MDB2_Driver_Function_Common.concat</simple_name>
+        <signature>MDB2_Driver_Function_Common.concat($value1;$value2):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091825">
+        <simple_name>MDB2_Driver_Function_Common.executeStoredProc</simple_name>
+        <signature>MDB2_Driver_Function_Common.executeStoredProc($name;$params;$types;$result_class;$result_wrap_class):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091824">
+        <simple_name>MDB2_Driver_Function_Common.functionTable</simple_name>
+        <signature>MDB2_Driver_Function_Common.functionTable():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Function_Common.getDBInstance</simple_name>
+        <signature>MDB2_Driver_Function_Common.getDBInstance():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091818">
+        <simple_name>MDB2_Driver_Function_Common.guid</simple_name>
+        <signature>MDB2_Driver_Function_Common.guid():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091821">
+        <simple_name>MDB2_Driver_Function_Common.lower</simple_name>
+        <signature>MDB2_Driver_Function_Common.lower($expression):return</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091817">
+        <simple_name>MDB2_Driver_Function_Common.now</simple_name>
+        <signature>MDB2_Driver_Function_Common.now($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091820">
+        <simple_name>MDB2_Driver_Function_Common.random</simple_name>
+        <signature>MDB2_Driver_Function_Common.random():return</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091819">
+        <simple_name>MDB2_Driver_Function_Common.substring</simple_name>
+        <signature>MDB2_Driver_Function_Common.substring($value;$position;$length):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091823">
+        <simple_name>MDB2_Driver_Function_Common.upper</simple_name>
+        <signature>MDB2_Driver_Function_Common.upper($expression):return</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

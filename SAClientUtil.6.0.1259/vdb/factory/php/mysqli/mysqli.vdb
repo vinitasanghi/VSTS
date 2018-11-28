@@ -1,0 +1,1528 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="mysqli">
+      <method vuln_id="1087666">
+        <simple_name>___Php.mysqli.__construct</simple_name>
+        <signature>___Php.mysqli.__construct(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String):void</signature>
+        <info_rule id="454848"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,4,5,6"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462549">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462550">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474119">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087763">
+        <simple_name>___Php.mysqli.affected_rows</simple_name>
+        <signature>___Php.mysqli.affected_rows():mixed</signature>
+        <info_rule id="454997"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087691">
+        <simple_name>___Php.mysqli.autocommit</simple_name>
+        <signature>___Php.mysqli.autocommit(bool):bool</signature>
+        <info_rule id="454885"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087684">
+        <simple_name>___Php.mysqli.change_user</simple_name>
+        <signature>___Php.mysqli.change_user(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454877"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462552">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462553">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474121">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087822">
+        <simple_name>___Php.mysqli.character_set_name</simple_name>
+        <signature>___Php.mysqli.character_set_name(___Php.mysqli):___Php.String</signature>
+        <info_rule id="455083"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087689">
+        <simple_name>___Php.mysqli.close</simple_name>
+        <signature>___Php.mysqli.close():bool</signature>
+        <info_rule id="454882"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087744">
+        <simple_name>___Php.mysqli.commit</simple_name>
+        <signature>___Php.mysqli.commit(___Php.mysqli):bool</signature>
+        <info_rule id="454966"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087769">
+        <simple_name>___Php.mysqli.data_seek</simple_name>
+        <signature>___Php.mysqli.data_seek(int):bool</signature>
+        <info_rule id="455007"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087793">
+        <simple_name>___Php.mysqli.debug</simple_name>
+        <signature>___Php.mysqli.debug(___Php.String):bool</signature>
+        <info_rule id="455041"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="455040">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Monitoring.Logging</property>
+      </method>
+      <method vuln_id="1087790">
+        <simple_name>___Php.mysqli.disable_reads_from_master</simple_name>
+        <signature>___Php.mysqli.disable_reads_from_master():bool</signature>
+        <info_rule id="455035"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087811">
+        <simple_name>___Php.mysqli.dump_debug_info</simple_name>
+        <signature>___Php.mysqli.dump_debug_info():bool</signature>
+        <info_rule id="455068"/>
+        <rule>
+          <ActionObject id="455067">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Monitoring.Logging</property>
+      </method>
+      <method vuln_id="1087722">
+        <simple_name>___Php.mysqli.errno</simple_name>
+        <signature>___Php.mysqli.errno():int</signature>
+        <info_rule id="454928"/>
+        <rule>
+          <ActionObject id="474126">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461661">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454927">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087742">
+        <simple_name>___Php.mysqli.error</simple_name>
+        <signature>___Php.mysqli.error():___Php.String</signature>
+        <info_rule id="454964"/>
+        <rule>
+          <ActionObject id="474130">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461665">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454962">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087818">
+        <simple_name>___Php.mysqli.escape_string</simple_name>
+        <signature>___Php.mysqli.escape_string(___Php.String):___Php.String</signature>
+        <info_rule id="455076"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation.Encoding</property>
+      </method>
+      <method vuln_id="1087816">
+        <simple_name>___Php.mysqli.host_info</simple_name>
+        <signature>___Php.mysqli.host_info():___Php.String</signature>
+        <info_rule id="455073"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087843">
+        <simple_name>___Php.mysqli.info</simple_name>
+        <signature>___Php.mysqli.info():___Php.String</signature>
+        <info_rule id="455108"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087806">
+        <simple_name>___Php.mysqli.init</simple_name>
+        <signature>___Php.mysqli.init():___Php.mysqli</signature>
+        <info_rule id="455062"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087746">
+        <simple_name>___Php.mysqli.insert_id</simple_name>
+        <signature>___Php.mysqli.insert_id():int</signature>
+        <info_rule id="454971"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087786">
+        <simple_name>___Php.mysqli.kill</simple_name>
+        <signature>___Php.mysqli.kill(int):bool</signature>
+        <info_rule id="455030"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087701">
+        <simple_name>___Php.mysqli.multi_query</simple_name>
+        <signature>___Php.mysqli.multi_query(___Php.String):bool</signature>
+        <info_rule id="454896"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087687">
+        <simple_name>___Php.mysqli.options</simple_name>
+        <signature>___Php.mysqli.options(int;mixed):bool</signature>
+        <info_rule id="454880"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087708">
+        <simple_name>___Php.mysqli.ping</simple_name>
+        <signature>___Php.mysqli.ping(___Php.mysqli):bool</signature>
+        <info_rule id="454910"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation</property>
+      </method>
+      <method vuln_id="1087706">
+        <simple_name>___Php.mysqli.prepare</simple_name>
+        <signature>___Php.mysqli.prepare(___Php.String):mixed</signature>
+        <info_rule id="454907"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087673">
+        <simple_name>___Php.mysqli.protocol_version</simple_name>
+        <signature>___Php.mysqli.protocol_version():int</signature>
+        <info_rule id="454859"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087830">
+        <simple_name>___Php.mysqli.query</simple_name>
+        <signature>___Php.mysqli.query(___Php.String;int):mixed</signature>
+        <info_rule id="455091"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087767">
+        <simple_name>___Php.mysqli.real_connect</simple_name>
+        <signature>___Php.mysqli.real_connect(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String;int):bool</signature>
+        <info_rule id="455005"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,4,5,6"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462567">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462568">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474134">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087681">
+        <simple_name>___Php.mysqli.real_escape_string</simple_name>
+        <signature>___Php.mysqli.real_escape_string(___Php.String):___Php.String</signature>
+        <info_rule id="454870"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation.Encoding</property>
+      </method>
+      <method vuln_id="1087736">
+        <simple_name>___Php.mysqli.real_query</simple_name>
+        <signature>___Php.mysqli.real_query(___Php.String):bool</signature>
+        <info_rule id="454951"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087665">
+        <simple_name>___Php.mysqli.rollback</simple_name>
+        <signature>___Php.mysqli.rollback():bool</signature>
+        <info_rule id="454844"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087729">
+        <simple_name>___Php.mysqli.rpl_query_type</simple_name>
+        <signature>___Php.mysqli.rpl_query_type(___Php.String):int</signature>
+        <info_rule id="454938"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="default"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087783">
+        <simple_name>___Php.mysqli.select_db</simple_name>
+        <signature>___Php.mysqli.select_db(___Php.String):bool</signature>
+        <info_rule id="455023"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087676">
+        <simple_name>___Php.mysqli.send_query</simple_name>
+        <signature>___Php.mysqli.send_query(___Php.String):bool</signature>
+        <info_rule id="454864"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087755">
+        <simple_name>___Php.mysqli.server_info</simple_name>
+        <signature>___Php.mysqli.server_info():___Php.String</signature>
+        <info_rule id="454983"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087757">
+        <simple_name>___Php.mysqli.server_version</simple_name>
+        <signature>___Php.mysqli.server_version():int</signature>
+        <info_rule id="454985"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087798">
+        <simple_name>___Php.mysqli.set_charset</simple_name>
+        <signature>___Php.mysqli.set_charset(___Php.String):bool</signature>
+        <info_rule id="455046"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087731">
+        <simple_name>___Php.mysqli.sqlstate</simple_name>
+        <signature>___Php.mysqli.sqlstate():___Php.String</signature>
+        <info_rule id="454941"/>
+        <rule>
+          <ActionObject id="474127">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461662">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454943">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087690">
+        <simple_name>___Php.mysqli.ssl_set</simple_name>
+        <signature>___Php.mysqli.ssl_set(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454884"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Cryptography.SSL</property>
+      </method>
+      <method vuln_id="1087697">
+        <simple_name>___Php.mysqli.stat</simple_name>
+        <signature>___Php.mysqli.stat():mixed</signature>
+        <info_rule id="454892"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087748">
+        <simple_name>___Php.mysqli.stmt_init</simple_name>
+        <signature>___Php.mysqli.stmt_init():mixed</signature>
+        <info_rule id="454974"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087680">
+        <simple_name>___Php.mysqli.store_result</simple_name>
+        <signature>___Php.mysqli.store_result():___Php.mysqli_result</signature>
+        <info_rule id="454869"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087809">
+        <simple_name>___Php.mysqli.thread_id</simple_name>
+        <signature>___Php.mysqli.thread_id():int</signature>
+        <info_rule id="455065"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087714">
+        <simple_name>___Php.mysqli.use_result</simple_name>
+        <signature>___Php.mysqli.use_result():mixed</signature>
+        <info_rule id="454916"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087789">
+        <simple_name>___Php.mysqli.warning_count</simple_name>
+        <signature>___Php.mysqli.warning_count():int</signature>
+        <info_rule id="455034"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.__construct</simple_name>
+        <signature>mysqli.__construct(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.affected_rows</simple_name>
+        <signature>mysqli.affected_rows():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.autocommit</simple_name>
+        <signature>mysqli.autocommit(bool):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.change_user</simple_name>
+        <signature>mysqli.change_user(___Php.String;___Php.String;___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.character_set_name</simple_name>
+        <signature>mysqli.character_set_name(mysqli):___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.close</simple_name>
+        <signature>mysqli.close():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.commit</simple_name>
+        <signature>mysqli.commit(mysqli):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.data_seek</simple_name>
+        <signature>mysqli.data_seek(int):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.debug</simple_name>
+        <signature>mysqli.debug(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.disable_reads_from_master</simple_name>
+        <signature>mysqli.disable_reads_from_master():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.dump_debug_info</simple_name>
+        <signature>mysqli.dump_debug_info():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.errno</simple_name>
+        <signature>mysqli.errno():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.error</simple_name>
+        <signature>mysqli.error():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.escape_string</simple_name>
+        <signature>mysqli.escape_string(___Php.String):___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.host_info</simple_name>
+        <signature>mysqli.host_info():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.info</simple_name>
+        <signature>mysqli.info():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.init</simple_name>
+        <signature>mysqli.init():mysqli</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.insert_id</simple_name>
+        <signature>mysqli.insert_id():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.kill</simple_name>
+        <signature>mysqli.kill(int):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.multi_query</simple_name>
+        <signature>mysqli.multi_query(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.options</simple_name>
+        <signature>mysqli.options(int;mixed):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.ping</simple_name>
+        <signature>mysqli.ping(mysqli):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.prepare</simple_name>
+        <signature>mysqli.prepare(___Php.String):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.protocol_version</simple_name>
+        <signature>mysqli.protocol_version():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.query</simple_name>
+        <signature>mysqli.query(___Php.String;int):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.real_connect</simple_name>
+        <signature>mysqli.real_connect(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String;int):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.real_escape_string</simple_name>
+        <signature>mysqli.real_escape_string(___Php.String):___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.real_query</simple_name>
+        <signature>mysqli.real_query(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.rollback</simple_name>
+        <signature>mysqli.rollback():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.rpl_query_type</simple_name>
+        <signature>mysqli.rpl_query_type(___Php.String):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.select_db</simple_name>
+        <signature>mysqli.select_db(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.send_query</simple_name>
+        <signature>mysqli.send_query(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.server_info</simple_name>
+        <signature>mysqli.server_info():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.server_version</simple_name>
+        <signature>mysqli.server_version():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.set_charset</simple_name>
+        <signature>mysqli.set_charset(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.sqlstate</simple_name>
+        <signature>mysqli.sqlstate():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.ssl_set</simple_name>
+        <signature>mysqli.ssl_set(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.stat</simple_name>
+        <signature>mysqli.stat():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.stmt_init</simple_name>
+        <signature>mysqli.stmt_init():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.store_result</simple_name>
+        <signature>mysqli.store_result():mysqli_result</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.thread_id</simple_name>
+        <signature>mysqli.thread_id():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.use_result</simple_name>
+        <signature>mysqli.use_result():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.warning_count</simple_name>
+        <signature>mysqli.warning_count():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="mysqli">
+      <method vuln_id="1087666">
+        <simple_name>___Php.mysqli.__construct</simple_name>
+        <signature>___Php.mysqli.__construct(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String):void</signature>
+        <info_rule id="454848"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,4,5,6"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462549">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462550">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474119">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087763">
+        <simple_name>___Php.mysqli.affected_rows</simple_name>
+        <signature>___Php.mysqli.affected_rows():mixed</signature>
+        <info_rule id="454997"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087691">
+        <simple_name>___Php.mysqli.autocommit</simple_name>
+        <signature>___Php.mysqli.autocommit(bool):bool</signature>
+        <info_rule id="454885"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087684">
+        <simple_name>___Php.mysqli.change_user</simple_name>
+        <signature>___Php.mysqli.change_user(___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454877"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462552">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462553">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474121">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087822">
+        <simple_name>___Php.mysqli.character_set_name</simple_name>
+        <signature>___Php.mysqli.character_set_name(___Php.mysqli):___Php.String</signature>
+        <info_rule id="455083"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087689">
+        <simple_name>___Php.mysqli.close</simple_name>
+        <signature>___Php.mysqli.close():bool</signature>
+        <info_rule id="454882"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087744">
+        <simple_name>___Php.mysqli.commit</simple_name>
+        <signature>___Php.mysqli.commit(___Php.mysqli):bool</signature>
+        <info_rule id="454966"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087769">
+        <simple_name>___Php.mysqli.data_seek</simple_name>
+        <signature>___Php.mysqli.data_seek(int):bool</signature>
+        <info_rule id="455007"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087793">
+        <simple_name>___Php.mysqli.debug</simple_name>
+        <signature>___Php.mysqli.debug(___Php.String):bool</signature>
+        <info_rule id="455041"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="455040">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Monitoring.Logging</property>
+      </method>
+      <method vuln_id="1087790">
+        <simple_name>___Php.mysqli.disable_reads_from_master</simple_name>
+        <signature>___Php.mysqli.disable_reads_from_master():bool</signature>
+        <info_rule id="455035"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087811">
+        <simple_name>___Php.mysqli.dump_debug_info</simple_name>
+        <signature>___Php.mysqli.dump_debug_info():bool</signature>
+        <info_rule id="455068"/>
+        <rule>
+          <ActionObject id="455067">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Monitoring.Logging</property>
+      </method>
+      <method vuln_id="1087722">
+        <simple_name>___Php.mysqli.errno</simple_name>
+        <signature>___Php.mysqli.errno():int</signature>
+        <info_rule id="454928"/>
+        <rule>
+          <ActionObject id="474126">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461661">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454927">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087742">
+        <simple_name>___Php.mysqli.error</simple_name>
+        <signature>___Php.mysqli.error():___Php.String</signature>
+        <info_rule id="454964"/>
+        <rule>
+          <ActionObject id="474130">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461665">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454962">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087818">
+        <simple_name>___Php.mysqli.escape_string</simple_name>
+        <signature>___Php.mysqli.escape_string(___Php.String):___Php.String</signature>
+        <info_rule id="455076"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation.Encoding</property>
+      </method>
+      <method vuln_id="1087816">
+        <simple_name>___Php.mysqli.host_info</simple_name>
+        <signature>___Php.mysqli.host_info():___Php.String</signature>
+        <info_rule id="455073"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087843">
+        <simple_name>___Php.mysqli.info</simple_name>
+        <signature>___Php.mysqli.info():___Php.String</signature>
+        <info_rule id="455108"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087806">
+        <simple_name>___Php.mysqli.init</simple_name>
+        <signature>___Php.mysqli.init():___Php.mysqli</signature>
+        <info_rule id="455062"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087746">
+        <simple_name>___Php.mysqli.insert_id</simple_name>
+        <signature>___Php.mysqli.insert_id():int</signature>
+        <info_rule id="454971"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087786">
+        <simple_name>___Php.mysqli.kill</simple_name>
+        <signature>___Php.mysqli.kill(int):bool</signature>
+        <info_rule id="455030"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087701">
+        <simple_name>___Php.mysqli.multi_query</simple_name>
+        <signature>___Php.mysqli.multi_query(___Php.String):bool</signature>
+        <info_rule id="454896"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087687">
+        <simple_name>___Php.mysqli.options</simple_name>
+        <signature>___Php.mysqli.options(int;mixed):bool</signature>
+        <info_rule id="454880"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087708">
+        <simple_name>___Php.mysqli.ping</simple_name>
+        <signature>___Php.mysqli.ping(___Php.mysqli):bool</signature>
+        <info_rule id="454910"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation</property>
+      </method>
+      <method vuln_id="1087706">
+        <simple_name>___Php.mysqli.prepare</simple_name>
+        <signature>___Php.mysqli.prepare(___Php.String):mixed</signature>
+        <info_rule id="454907"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087673">
+        <simple_name>___Php.mysqli.protocol_version</simple_name>
+        <signature>___Php.mysqli.protocol_version():int</signature>
+        <info_rule id="454859"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087830">
+        <simple_name>___Php.mysqli.query</simple_name>
+        <signature>___Php.mysqli.query(___Php.String;int):mixed</signature>
+        <info_rule id="455091"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087767">
+        <simple_name>___Php.mysqli.real_connect</simple_name>
+        <signature>___Php.mysqli.real_connect(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String;int):bool</signature>
+        <info_rule id="455005"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,4,5,6"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462567">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462568">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474134">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1087681">
+        <simple_name>___Php.mysqli.real_escape_string</simple_name>
+        <signature>___Php.mysqli.real_escape_string(___Php.String):___Php.String</signature>
+        <info_rule id="454870"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Validation.Encoding</property>
+      </method>
+      <method vuln_id="1087736">
+        <simple_name>___Php.mysqli.real_query</simple_name>
+        <signature>___Php.mysqli.real_query(___Php.String):bool</signature>
+        <info_rule id="454951"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087665">
+        <simple_name>___Php.mysqli.rollback</simple_name>
+        <signature>___Php.mysqli.rollback():bool</signature>
+        <info_rule id="454844"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087729">
+        <simple_name>___Php.mysqli.rpl_query_type</simple_name>
+        <signature>___Php.mysqli.rpl_query_type(___Php.String):int</signature>
+        <info_rule id="454938"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="default"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087783">
+        <simple_name>___Php.mysqli.select_db</simple_name>
+        <signature>___Php.mysqli.select_db(___Php.String):bool</signature>
+        <info_rule id="455023"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087676">
+        <simple_name>___Php.mysqli.send_query</simple_name>
+        <signature>___Php.mysqli.send_query(___Php.String):bool</signature>
+        <info_rule id="454864"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087755">
+        <simple_name>___Php.mysqli.server_info</simple_name>
+        <signature>___Php.mysqli.server_info():___Php.String</signature>
+        <info_rule id="454983"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087757">
+        <simple_name>___Php.mysqli.server_version</simple_name>
+        <signature>___Php.mysqli.server_version():int</signature>
+        <info_rule id="454985"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087798">
+        <simple_name>___Php.mysqli.set_charset</simple_name>
+        <signature>___Php.mysqli.set_charset(___Php.String):bool</signature>
+        <info_rule id="455046"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087731">
+        <simple_name>___Php.mysqli.sqlstate</simple_name>
+        <signature>___Php.mysqli.sqlstate():___Php.String</signature>
+        <info_rule id="454941"/>
+        <rule>
+          <ActionObject id="474127">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461662">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="454943">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1087690">
+        <simple_name>___Php.mysqli.ssl_set</simple_name>
+        <signature>___Php.mysqli.ssl_set(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <info_rule id="454884"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Cryptography.SSL</property>
+      </method>
+      <method vuln_id="1087697">
+        <simple_name>___Php.mysqli.stat</simple_name>
+        <signature>___Php.mysqli.stat():mixed</signature>
+        <info_rule id="454892"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087748">
+        <simple_name>___Php.mysqli.stmt_init</simple_name>
+        <signature>___Php.mysqli.stmt_init():mixed</signature>
+        <info_rule id="454974"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087680">
+        <simple_name>___Php.mysqli.store_result</simple_name>
+        <signature>___Php.mysqli.store_result():___Php.mysqli_result</signature>
+        <info_rule id="454869"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087809">
+        <simple_name>___Php.mysqli.thread_id</simple_name>
+        <signature>___Php.mysqli.thread_id():int</signature>
+        <info_rule id="455065"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087714">
+        <simple_name>___Php.mysqli.use_result</simple_name>
+        <signature>___Php.mysqli.use_result():mixed</signature>
+        <info_rule id="454916"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1087789">
+        <simple_name>___Php.mysqli.warning_count</simple_name>
+        <signature>___Php.mysqli.warning_count():int</signature>
+        <info_rule id="455034"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.__construct</simple_name>
+        <signature>mysqli.__construct(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.affected_rows</simple_name>
+        <signature>mysqli.affected_rows():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.autocommit</simple_name>
+        <signature>mysqli.autocommit(bool):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.change_user</simple_name>
+        <signature>mysqli.change_user(___Php.String;___Php.String;___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.character_set_name</simple_name>
+        <signature>mysqli.character_set_name(mysqli):___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.close</simple_name>
+        <signature>mysqli.close():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.commit</simple_name>
+        <signature>mysqli.commit(mysqli):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.data_seek</simple_name>
+        <signature>mysqli.data_seek(int):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.debug</simple_name>
+        <signature>mysqli.debug(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.disable_reads_from_master</simple_name>
+        <signature>mysqli.disable_reads_from_master():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.dump_debug_info</simple_name>
+        <signature>mysqli.dump_debug_info():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.errno</simple_name>
+        <signature>mysqli.errno():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.error</simple_name>
+        <signature>mysqli.error():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.escape_string</simple_name>
+        <signature>mysqli.escape_string(___Php.String):___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.host_info</simple_name>
+        <signature>mysqli.host_info():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.info</simple_name>
+        <signature>mysqli.info():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.init</simple_name>
+        <signature>mysqli.init():mysqli</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.insert_id</simple_name>
+        <signature>mysqli.insert_id():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.kill</simple_name>
+        <signature>mysqli.kill(int):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.multi_query</simple_name>
+        <signature>mysqli.multi_query(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.options</simple_name>
+        <signature>mysqli.options(int;mixed):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.ping</simple_name>
+        <signature>mysqli.ping(mysqli):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.prepare</simple_name>
+        <signature>mysqli.prepare(___Php.String):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.protocol_version</simple_name>
+        <signature>mysqli.protocol_version():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.query</simple_name>
+        <signature>mysqli.query(___Php.String;int):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.real_connect</simple_name>
+        <signature>mysqli.real_connect(___Php.String;___Php.String;___Php.String;___Php.String;int;___Php.String;int):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.real_escape_string</simple_name>
+        <signature>mysqli.real_escape_string(___Php.String):___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.real_query</simple_name>
+        <signature>mysqli.real_query(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.rollback</simple_name>
+        <signature>mysqli.rollback():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.rpl_query_type</simple_name>
+        <signature>mysqli.rpl_query_type(___Php.String):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.select_db</simple_name>
+        <signature>mysqli.select_db(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.send_query</simple_name>
+        <signature>mysqli.send_query(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.server_info</simple_name>
+        <signature>mysqli.server_info():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.server_version</simple_name>
+        <signature>mysqli.server_version():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.set_charset</simple_name>
+        <signature>mysqli.set_charset(___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.sqlstate</simple_name>
+        <signature>mysqli.sqlstate():___Php.String</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.ssl_set</simple_name>
+        <signature>mysqli.ssl_set(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.stat</simple_name>
+        <signature>mysqli.stat():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.stmt_init</simple_name>
+        <signature>mysqli.stmt_init():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.store_result</simple_name>
+        <signature>mysqli.store_result():mysqli_result</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.thread_id</simple_name>
+        <signature>mysqli.thread_id():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.use_result</simple_name>
+        <signature>mysqli.use_result():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>mysqli.warning_count</simple_name>
+        <signature>mysqli.warning_count():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_fbsql">
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.DB_common</simple_name>
+        <signature>DB_fbsql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.DB_fbsql</simple_name>
+        <signature>DB_fbsql.DB_fbsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql._checkManip</simple_name>
+        <signature>DB_fbsql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_fbsql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql._rtrimArrayValues</simple_name>
+        <signature>DB_fbsql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090607">
+        <simple_name>DB_fbsql.affectedRows</simple_name>
+        <signature>DB_fbsql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090628">
+        <simple_name>DB_fbsql.autoCommit</simple_name>
+        <signature>DB_fbsql.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090622">
+        <simple_name>DB_fbsql.commit</simple_name>
+        <signature>DB_fbsql.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090620">
+        <simple_name>DB_fbsql.connect</simple_name>
+        <signature>DB_fbsql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451046">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090623">
+        <simple_name>DB_fbsql.createSequence</simple_name>
+        <signature>DB_fbsql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090617">
+        <simple_name>DB_fbsql.disconnect</simple_name>
+        <signature>DB_fbsql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090627">
+        <simple_name>DB_fbsql.dropSequence</simple_name>
+        <signature>DB_fbsql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090624">
+        <simple_name>DB_fbsql.errorCode</simple_name>
+        <signature>DB_fbsql.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451048">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090608">
+        <simple_name>DB_fbsql.errorNative</simple_name>
+        <signature>DB_fbsql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451050">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090629">
+        <simple_name>DB_fbsql.escapeSimple</simple_name>
+        <signature>DB_fbsql.escapeSimple():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.fbsqlRaiseError</simple_name>
+        <signature>DB_fbsql.fbsqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090621">
+        <simple_name>DB_fbsql.fetchInto</simple_name>
+        <signature>DB_fbsql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480718"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090625">
+        <simple_name>DB_fbsql.freeResult</simple_name>
+        <signature>DB_fbsql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090619">
+        <simple_name>DB_fbsql.getSequenceName</simple_name>
+        <signature>DB_fbsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090606">
+        <simple_name>DB_fbsql.getSpecialQuery</simple_name>
+        <signature>DB_fbsql.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090616">
+        <simple_name>DB_fbsql.modifyLimitQuery</simple_name>
+        <signature>DB_fbsql.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090614">
+        <simple_name>DB_fbsql.modifyQuery</simple_name>
+        <signature>DB_fbsql.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090615">
+        <simple_name>DB_fbsql.nextId</simple_name>
+        <signature>DB_fbsql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.nextResult</simple_name>
+        <signature>DB_fbsql.nextResult($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090613">
+        <simple_name>DB_fbsql.numCols</simple_name>
+        <signature>DB_fbsql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090612">
+        <simple_name>DB_fbsql.numRows</simple_name>
+        <signature>DB_fbsql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.popErrorHandling</simple_name>
+        <signature>DB_fbsql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.pushErrorHandling</simple_name>
+        <signature>DB_fbsql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090610">
+        <simple_name>DB_fbsql.query</simple_name>
+        <signature>DB_fbsql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090618">
+        <simple_name>DB_fbsql.quoteBoolean</simple_name>
+        <signature>DB_fbsql.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090626">
+        <simple_name>DB_fbsql.quoteFloat</simple_name>
+        <signature>DB_fbsql.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.raiseError</simple_name>
+        <signature>DB_fbsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090611">
+        <simple_name>DB_fbsql.rollback</simple_name>
+        <signature>DB_fbsql.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.simpleQuery</simple_name>
+        <signature>DB_fbsql.simpleQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090609">
+        <simple_name>DB_fbsql.tableInfo</simple_name>
+        <signature>DB_fbsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_fbsql">
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.DB_common</simple_name>
+        <signature>DB_fbsql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.DB_fbsql</simple_name>
+        <signature>DB_fbsql.DB_fbsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql._checkManip</simple_name>
+        <signature>DB_fbsql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_fbsql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql._rtrimArrayValues</simple_name>
+        <signature>DB_fbsql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090607">
+        <simple_name>DB_fbsql.affectedRows</simple_name>
+        <signature>DB_fbsql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090628">
+        <simple_name>DB_fbsql.autoCommit</simple_name>
+        <signature>DB_fbsql.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090622">
+        <simple_name>DB_fbsql.commit</simple_name>
+        <signature>DB_fbsql.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090620">
+        <simple_name>DB_fbsql.connect</simple_name>
+        <signature>DB_fbsql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451046">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090623">
+        <simple_name>DB_fbsql.createSequence</simple_name>
+        <signature>DB_fbsql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090617">
+        <simple_name>DB_fbsql.disconnect</simple_name>
+        <signature>DB_fbsql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090627">
+        <simple_name>DB_fbsql.dropSequence</simple_name>
+        <signature>DB_fbsql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090624">
+        <simple_name>DB_fbsql.errorCode</simple_name>
+        <signature>DB_fbsql.errorCode():Variant</signature>
+        <rule>
+          <ActionObject id="451048">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090608">
+        <simple_name>DB_fbsql.errorNative</simple_name>
+        <signature>DB_fbsql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451050">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090629">
+        <simple_name>DB_fbsql.escapeSimple</simple_name>
+        <signature>DB_fbsql.escapeSimple():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.fbsqlRaiseError</simple_name>
+        <signature>DB_fbsql.fbsqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090621">
+        <simple_name>DB_fbsql.fetchInto</simple_name>
+        <signature>DB_fbsql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480718"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090625">
+        <simple_name>DB_fbsql.freeResult</simple_name>
+        <signature>DB_fbsql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090619">
+        <simple_name>DB_fbsql.getSequenceName</simple_name>
+        <signature>DB_fbsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090606">
+        <simple_name>DB_fbsql.getSpecialQuery</simple_name>
+        <signature>DB_fbsql.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090616">
+        <simple_name>DB_fbsql.modifyLimitQuery</simple_name>
+        <signature>DB_fbsql.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090614">
+        <simple_name>DB_fbsql.modifyQuery</simple_name>
+        <signature>DB_fbsql.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090615">
+        <simple_name>DB_fbsql.nextId</simple_name>
+        <signature>DB_fbsql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.nextResult</simple_name>
+        <signature>DB_fbsql.nextResult($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090613">
+        <simple_name>DB_fbsql.numCols</simple_name>
+        <signature>DB_fbsql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090612">
+        <simple_name>DB_fbsql.numRows</simple_name>
+        <signature>DB_fbsql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.popErrorHandling</simple_name>
+        <signature>DB_fbsql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.pushErrorHandling</simple_name>
+        <signature>DB_fbsql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090610">
+        <simple_name>DB_fbsql.query</simple_name>
+        <signature>DB_fbsql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090618">
+        <simple_name>DB_fbsql.quoteBoolean</simple_name>
+        <signature>DB_fbsql.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090626">
+        <simple_name>DB_fbsql.quoteFloat</simple_name>
+        <signature>DB_fbsql.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.raiseError</simple_name>
+        <signature>DB_fbsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090611">
+        <simple_name>DB_fbsql.rollback</simple_name>
+        <signature>DB_fbsql.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_fbsql.simpleQuery</simple_name>
+        <signature>DB_fbsql.simpleQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090609">
+        <simple_name>DB_fbsql.tableInfo</simple_name>
+        <signature>DB_fbsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

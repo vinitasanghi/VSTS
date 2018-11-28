@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="ArrayObject">
+      <method vuln_id="1122673">
+        <simple_name>ArrayObject.__construct</simple_name>
+        <signature>ArrayObject.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1122576">
+        <simple_name>ArrayObject.offsetGet</simple_name>
+        <signature>ArrayObject.offsetGet(Arg#0):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1089018">
+        <simple_name>___Php.ArrayObject.__construct</simple_name>
+        <signature>___Php.ArrayObject.__construct(mixed):void</signature>
+      </method>
+      <method vuln_id="1089007">
+        <simple_name>___Php.ArrayObject.append</simple_name>
+        <signature>___Php.ArrayObject.append(mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+      </method>
+      <method vuln_id="1088732">
+        <simple_name>___Php.ArrayObject.asort</simple_name>
+        <signature>___Php.ArrayObject.asort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088700">
+        <simple_name>___Php.ArrayObject.count</simple_name>
+        <signature>___Php.ArrayObject.count():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088999">
+        <simple_name>___Php.ArrayObject.exchangeArray</simple_name>
+        <signature>___Php.ArrayObject.exchangeArray(mixed):mixed</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="1088948">
+        <simple_name>___Php.ArrayObject.getFlags</simple_name>
+        <signature>___Php.ArrayObject.getFlags():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088779">
+        <simple_name>___Php.ArrayObject.getIterator</simple_name>
+        <signature>___Php.ArrayObject.getIterator():___Php.ArrayIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088695">
+        <simple_name>___Php.ArrayObject.getIteratorClass</simple_name>
+        <signature>___Php.ArrayObject.getIteratorClass():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088833">
+        <simple_name>___Php.ArrayObject.ksort</simple_name>
+        <signature>___Php.ArrayObject.ksort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088920">
+        <simple_name>___Php.ArrayObject.natcasesort</simple_name>
+        <signature>___Php.ArrayObject.natcasesort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088980">
+        <simple_name>___Php.ArrayObject.natsort</simple_name>
+        <signature>___Php.ArrayObject.natsort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088877">
+        <simple_name>___Php.ArrayObject.offsetExists</simple_name>
+        <signature>___Php.ArrayObject.offsetExists(mixed):bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088929">
+        <simple_name>___Php.ArrayObject.offsetGet</simple_name>
+        <signature>___Php.ArrayObject.offsetGet(mixed):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088974">
+        <simple_name>___Php.ArrayObject.offsetSet</simple_name>
+        <signature>___Php.ArrayObject.offsetSet(mixed;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+      </method>
+      <method vuln_id="1088903">
+        <simple_name>___Php.ArrayObject.offsetUnset</simple_name>
+        <signature>___Php.ArrayObject.offsetUnset(mixed):void</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088693">
+        <simple_name>___Php.ArrayObject.setFlags</simple_name>
+        <signature>___Php.ArrayObject.setFlags(int):void</signature>
+      </method>
+      <method vuln_id="1088841">
+        <simple_name>___Php.ArrayObject.setIteratorClass</simple_name>
+        <signature>___Php.ArrayObject.setIteratorClass(___Php.String):void</signature>
+      </method>
+      <method vuln_id="1088905">
+        <simple_name>___Php.ArrayObject.uasort</simple_name>
+        <signature>___Php.ArrayObject.uasort(mixed):int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088946">
+        <simple_name>___Php.ArrayObject.uksort</simple_name>
+        <signature>___Php.ArrayObject.uksort(mixed):int</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+    <class name="ArrayObject">
+      <method vuln_id="1122673">
+        <simple_name>ArrayObject.__construct</simple_name>
+        <signature>ArrayObject.__construct(Arg#0;Arg#1):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1122576">
+        <simple_name>ArrayObject.offsetGet</simple_name>
+        <signature>ArrayObject.offsetGet(Arg#0):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1089018">
+        <simple_name>___Php.ArrayObject.__construct</simple_name>
+        <signature>___Php.ArrayObject.__construct(mixed):void</signature>
+      </method>
+      <method vuln_id="1089007">
+        <simple_name>___Php.ArrayObject.append</simple_name>
+        <signature>___Php.ArrayObject.append(mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+      </method>
+      <method vuln_id="1088732">
+        <simple_name>___Php.ArrayObject.asort</simple_name>
+        <signature>___Php.ArrayObject.asort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088700">
+        <simple_name>___Php.ArrayObject.count</simple_name>
+        <signature>___Php.ArrayObject.count():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088999">
+        <simple_name>___Php.ArrayObject.exchangeArray</simple_name>
+        <signature>___Php.ArrayObject.exchangeArray(mixed):mixed</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+      </method>
+      <method vuln_id="1088948">
+        <simple_name>___Php.ArrayObject.getFlags</simple_name>
+        <signature>___Php.ArrayObject.getFlags():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088779">
+        <simple_name>___Php.ArrayObject.getIterator</simple_name>
+        <signature>___Php.ArrayObject.getIterator():___Php.ArrayIterator</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088695">
+        <simple_name>___Php.ArrayObject.getIteratorClass</simple_name>
+        <signature>___Php.ArrayObject.getIteratorClass():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088833">
+        <simple_name>___Php.ArrayObject.ksort</simple_name>
+        <signature>___Php.ArrayObject.ksort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088920">
+        <simple_name>___Php.ArrayObject.natcasesort</simple_name>
+        <signature>___Php.ArrayObject.natcasesort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088980">
+        <simple_name>___Php.ArrayObject.natsort</simple_name>
+        <signature>___Php.ArrayObject.natsort():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088877">
+        <simple_name>___Php.ArrayObject.offsetExists</simple_name>
+        <signature>___Php.ArrayObject.offsetExists(mixed):bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088929">
+        <simple_name>___Php.ArrayObject.offsetGet</simple_name>
+        <signature>___Php.ArrayObject.offsetGet(mixed):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+      </method>
+      <method vuln_id="1088974">
+        <simple_name>___Php.ArrayObject.offsetSet</simple_name>
+        <signature>___Php.ArrayObject.offsetSet(mixed;mixed):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+      </method>
+      <method vuln_id="1088903">
+        <simple_name>___Php.ArrayObject.offsetUnset</simple_name>
+        <signature>___Php.ArrayObject.offsetUnset(mixed):void</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088693">
+        <simple_name>___Php.ArrayObject.setFlags</simple_name>
+        <signature>___Php.ArrayObject.setFlags(int):void</signature>
+      </method>
+      <method vuln_id="1088841">
+        <simple_name>___Php.ArrayObject.setIteratorClass</simple_name>
+        <signature>___Php.ArrayObject.setIteratorClass(___Php.String):void</signature>
+      </method>
+      <method vuln_id="1088905">
+        <simple_name>___Php.ArrayObject.uasort</simple_name>
+        <signature>___Php.ArrayObject.uasort(mixed):int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1088946">
+        <simple_name>___Php.ArrayObject.uksort</simple_name>
+        <signature>___Php.ArrayObject.uksort(mixed):int</signature>
+        <does_not_propagate_taint/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

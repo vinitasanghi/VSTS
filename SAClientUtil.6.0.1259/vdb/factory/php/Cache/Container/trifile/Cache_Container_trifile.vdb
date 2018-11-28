@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_Container_trifile">
+      <method vuln_id="1108027">
+        <simple_name>Cache_Container_trifile._getExpFile</simple_name>
+        <signature>Cache_Container_trifile._getExpFile(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108032">
+        <simple_name>Cache_Container_trifile._getFile</simple_name>
+        <signature>Cache_Container_trifile._getFile(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108031">
+        <simple_name>Cache_Container_trifile._getUDFile</simple_name>
+        <signature>Cache_Container_trifile._getUDFile(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108028">
+        <simple_name>Cache_Container_trifile._saveData</simple_name>
+        <signature>Cache_Container_trifile._saveData(___Php.String;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.File</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108034">
+        <simple_name>Cache_Container_trifile.fetch</simple_name>
+        <signature>Cache_Container_trifile.fetch(___Php.String;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108029">
+        <simple_name>Cache_Container_trifile.flushPreload</simple_name>
+        <signature>Cache_Container_trifile.flushPreload():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108030">
+        <simple_name>Cache_Container_trifile.getFilename</simple_name>
+        <signature>Cache_Container_trifile.getFilename():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108033">
+        <simple_name>Cache_Container_trifile.save</simple_name>
+        <signature>Cache_Container_trifile.save(___Php.String;mixed;mixed;___Php.String;mixed):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_Container_trifile">
+      <method vuln_id="1108027">
+        <simple_name>Cache_Container_trifile._getExpFile</simple_name>
+        <signature>Cache_Container_trifile._getExpFile(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108032">
+        <simple_name>Cache_Container_trifile._getFile</simple_name>
+        <signature>Cache_Container_trifile._getFile(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108031">
+        <simple_name>Cache_Container_trifile._getUDFile</simple_name>
+        <signature>Cache_Container_trifile._getUDFile(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108028">
+        <simple_name>Cache_Container_trifile._saveData</simple_name>
+        <signature>Cache_Container_trifile._saveData(___Php.String;___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.File</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108034">
+        <simple_name>Cache_Container_trifile.fetch</simple_name>
+        <signature>Cache_Container_trifile.fetch(___Php.String;___Php.String):___Php.Array</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108029">
+        <simple_name>Cache_Container_trifile.flushPreload</simple_name>
+        <signature>Cache_Container_trifile.flushPreload():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108030">
+        <simple_name>Cache_Container_trifile.getFilename</simple_name>
+        <signature>Cache_Container_trifile.getFilename():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108033">
+        <simple_name>Cache_Container_trifile.save</simple_name>
+        <signature>Cache_Container_trifile.save(___Php.String;mixed;mixed;___Php.String;mixed):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

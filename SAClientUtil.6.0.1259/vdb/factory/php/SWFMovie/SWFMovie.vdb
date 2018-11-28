@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SWFMovie">
+      <method vuln_id="1087415">
+        <simple_name>___Php.SWFMovie.__construct</simple_name>
+        <signature>___Php.SWFMovie.__construct(int):void</signature>
+        <info_rule id="454527"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Creates SWFMovie object according to the passed version</comment>
+      </method>
+      <method vuln_id="1087467">
+        <simple_name>___Php.SWFMovie.add</simple_name>
+        <signature>___Php.SWFMovie.add(object):mixed</signature>
+        <info_rule id="454580"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087386">
+        <simple_name>___Php.SWFMovie.addExport</simple_name>
+        <signature>___Php.SWFMovie.addExport(___Php.SWFCharacter;___Php.String):void</signature>
+        <info_rule id="454495"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087483">
+        <simple_name>___Php.SWFMovie.addFont</simple_name>
+        <signature>___Php.SWFMovie.addFont(___Php.SWFFont):mixed</signature>
+        <info_rule id="454597"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087478">
+        <simple_name>___Php.SWFMovie.importChar</simple_name>
+        <signature>___Php.SWFMovie.importChar(___Php.String;___Php.String):___Php.SWFSprite</signature>
+        <info_rule id="454592"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087376">
+        <simple_name>___Php.SWFMovie.importFont</simple_name>
+        <signature>___Php.SWFMovie.importFont(string;___Php.String):___Php.SWFFontChar</signature>
+        <info_rule id="454485"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087528">
+        <simple_name>___Php.SWFMovie.labelframe</simple_name>
+        <signature>___Php.SWFMovie.labelframe(___Php.String):void</signature>
+        <info_rule id="454645"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Labels frame</comment>
+      </method>
+      <method vuln_id="1087419">
+        <simple_name>___Php.SWFMovie.namedanchor</simple_name>
+        <signature>___Php.SWFMovie.namedanchor(___Php.String):void</signature>
+        <info_rule id="454531"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087530">
+        <simple_name>___Php.SWFMovie.nextframe</simple_name>
+        <signature>___Php.SWFMovie.nextframe():void</signature>
+        <info_rule id="454647"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087389">
+        <simple_name>___Php.SWFMovie.output</simple_name>
+        <signature>___Php.SWFMovie.output(int):int</signature>
+        <info_rule id="454498"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087453">
+        <simple_name>___Php.SWFMovie.protect</simple_name>
+        <signature>___Php.SWFMovie.protect(___Php.String):void</signature>
+        <info_rule id="454566"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087464">
+        <simple_name>___Php.SWFMovie.remove</simple_name>
+        <signature>___Php.SWFMovie.remove(object):void</signature>
+        <info_rule id="454577"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087400">
+        <simple_name>___Php.SWFMovie.save</simple_name>
+        <signature>___Php.SWFMovie.save(___Php.String;int):int</signature>
+        <info_rule id="454510"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Technology.Media.Flash</property>
+        <comment>Saves the movie. 'where' can be stream and the movie will be saved there otherwise it is treated as string and written in file with that name</comment>
+      </method>
+      <method vuln_id="1087511">
+        <simple_name>___Php.SWFMovie.saveToFile</simple_name>
+        <signature>___Php.SWFMovie.saveToFile(stream;int):int</signature>
+        <info_rule id="454628"/>
+        <propagates_taint dst_param="1" return="false" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087509">
+        <simple_name>___Php.SWFMovie.setBackground</simple_name>
+        <signature>___Php.SWFMovie.setBackground(int;int;int):void</signature>
+        <info_rule id="454626"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets background color (r,g,b)</comment>
+      </method>
+      <method vuln_id="1087459">
+        <simple_name>___Php.SWFMovie.setDimension</simple_name>
+        <signature>___Php.SWFMovie.setDimension(int;int):void</signature>
+        <info_rule id="454572"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets movie dimension</comment>
+      </method>
+      <method vuln_id="1087448">
+        <simple_name>___Php.SWFMovie.setFrames</simple_name>
+        <signature>___Php.SWFMovie.setFrames(int):void</signature>
+        <info_rule id="454561"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets number of frames</comment>
+      </method>
+      <method vuln_id="1087450">
+        <simple_name>___Php.SWFMovie.setRate</simple_name>
+        <signature>___Php.SWFMovie.setRate(int):void</signature>
+        <info_rule id="454563"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets movie rate</comment>
+      </method>
+      <method vuln_id="1087404">
+        <simple_name>___Php.SWFMovie.startSound</simple_name>
+        <signature>___Php.SWFMovie.startSound(___Php.SWFSound):___Php.SWFSoundInstance</signature>
+        <info_rule id="454514"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087516">
+        <simple_name>___Php.SWFMovie.stopSound</simple_name>
+        <signature>___Php.SWFMovie.stopSound(___Php.SWFSound):void</signature>
+        <info_rule id="454633"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087492">
+        <simple_name>___Php.SWFMovie.streamMP3</simple_name>
+        <signature>___Php.SWFMovie.streamMP3(mixed;float):int</signature>
+        <info_rule id="454607"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets sound stream of the SWF movie. The parameter can be stream or string. Returns the number of frames.</comment>
+      </method>
+      <method vuln_id="1087423">
+        <simple_name>___Php.SWFMovie.writeExports</simple_name>
+        <signature>___Php.SWFMovie.writeExports():void</signature>
+        <info_rule id="454535"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+    </class>
+    <class name="SWFMovie">
+      <method vuln_id="1087415">
+        <simple_name>___Php.SWFMovie.__construct</simple_name>
+        <signature>___Php.SWFMovie.__construct(int):void</signature>
+        <info_rule id="454527"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Creates SWFMovie object according to the passed version</comment>
+      </method>
+      <method vuln_id="1087467">
+        <simple_name>___Php.SWFMovie.add</simple_name>
+        <signature>___Php.SWFMovie.add(object):mixed</signature>
+        <info_rule id="454580"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087386">
+        <simple_name>___Php.SWFMovie.addExport</simple_name>
+        <signature>___Php.SWFMovie.addExport(___Php.SWFCharacter;___Php.String):void</signature>
+        <info_rule id="454495"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087483">
+        <simple_name>___Php.SWFMovie.addFont</simple_name>
+        <signature>___Php.SWFMovie.addFont(___Php.SWFFont):mixed</signature>
+        <info_rule id="454597"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087478">
+        <simple_name>___Php.SWFMovie.importChar</simple_name>
+        <signature>___Php.SWFMovie.importChar(___Php.String;___Php.String):___Php.SWFSprite</signature>
+        <info_rule id="454592"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087376">
+        <simple_name>___Php.SWFMovie.importFont</simple_name>
+        <signature>___Php.SWFMovie.importFont(string;___Php.String):___Php.SWFFontChar</signature>
+        <info_rule id="454485"/>
+        <propagates_taint dst_param="this" return="true" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087528">
+        <simple_name>___Php.SWFMovie.labelframe</simple_name>
+        <signature>___Php.SWFMovie.labelframe(___Php.String):void</signature>
+        <info_rule id="454645"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Labels frame</comment>
+      </method>
+      <method vuln_id="1087419">
+        <simple_name>___Php.SWFMovie.namedanchor</simple_name>
+        <signature>___Php.SWFMovie.namedanchor(___Php.String):void</signature>
+        <info_rule id="454531"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087530">
+        <simple_name>___Php.SWFMovie.nextframe</simple_name>
+        <signature>___Php.SWFMovie.nextframe():void</signature>
+        <info_rule id="454647"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087389">
+        <simple_name>___Php.SWFMovie.output</simple_name>
+        <signature>___Php.SWFMovie.output(int):int</signature>
+        <info_rule id="454498"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087453">
+        <simple_name>___Php.SWFMovie.protect</simple_name>
+        <signature>___Php.SWFMovie.protect(___Php.String):void</signature>
+        <info_rule id="454566"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087464">
+        <simple_name>___Php.SWFMovie.remove</simple_name>
+        <signature>___Php.SWFMovie.remove(object):void</signature>
+        <info_rule id="454577"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087400">
+        <simple_name>___Php.SWFMovie.save</simple_name>
+        <signature>___Php.SWFMovie.save(___Php.String;int):int</signature>
+        <info_rule id="454510"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Technology.Media.Flash</property>
+        <comment>Saves the movie. 'where' can be stream and the movie will be saved there otherwise it is treated as string and written in file with that name</comment>
+      </method>
+      <method vuln_id="1087511">
+        <simple_name>___Php.SWFMovie.saveToFile</simple_name>
+        <signature>___Php.SWFMovie.saveToFile(stream;int):int</signature>
+        <info_rule id="454628"/>
+        <propagates_taint dst_param="1" return="false" source_param="this"/>
+        <property>Technology.FileSystem</property>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087509">
+        <simple_name>___Php.SWFMovie.setBackground</simple_name>
+        <signature>___Php.SWFMovie.setBackground(int;int;int):void</signature>
+        <info_rule id="454626"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets background color (r,g,b)</comment>
+      </method>
+      <method vuln_id="1087459">
+        <simple_name>___Php.SWFMovie.setDimension</simple_name>
+        <signature>___Php.SWFMovie.setDimension(int;int):void</signature>
+        <info_rule id="454572"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets movie dimension</comment>
+      </method>
+      <method vuln_id="1087448">
+        <simple_name>___Php.SWFMovie.setFrames</simple_name>
+        <signature>___Php.SWFMovie.setFrames(int):void</signature>
+        <info_rule id="454561"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets number of frames</comment>
+      </method>
+      <method vuln_id="1087450">
+        <simple_name>___Php.SWFMovie.setRate</simple_name>
+        <signature>___Php.SWFMovie.setRate(int):void</signature>
+        <info_rule id="454563"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets movie rate</comment>
+      </method>
+      <method vuln_id="1087404">
+        <simple_name>___Php.SWFMovie.startSound</simple_name>
+        <signature>___Php.SWFMovie.startSound(___Php.SWFSound):___Php.SWFSoundInstance</signature>
+        <info_rule id="454514"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087516">
+        <simple_name>___Php.SWFMovie.stopSound</simple_name>
+        <signature>___Php.SWFMovie.stopSound(___Php.SWFSound):void</signature>
+        <info_rule id="454633"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087492">
+        <simple_name>___Php.SWFMovie.streamMP3</simple_name>
+        <signature>___Php.SWFMovie.streamMP3(mixed;float):int</signature>
+        <info_rule id="454607"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets sound stream of the SWF movie. The parameter can be stream or string. Returns the number of frames.</comment>
+      </method>
+      <method vuln_id="1087423">
+        <simple_name>___Php.SWFMovie.writeExports</simple_name>
+        <signature>___Php.SWFMovie.writeExports():void</signature>
+        <info_rule id="454535"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

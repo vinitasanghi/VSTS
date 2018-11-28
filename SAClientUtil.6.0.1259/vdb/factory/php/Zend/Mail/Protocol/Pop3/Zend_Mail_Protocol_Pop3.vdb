@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Mail_Protocol_Pop3">
+      <method vuln_id="1116207">
+        <simple_name>Zend_Mail_Protocol_Pop3.__construct_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.__construct_@__Mail_Protocol_Pop3_php_1($host;$port;$ssl):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116154">
+        <simple_name>Zend_Mail_Protocol_Pop3.__destruct_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.__destruct_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469397"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115973">
+        <simple_name>Zend_Mail_Protocol_Pop3.capa_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.capa_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469207"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116145">
+        <simple_name>Zend_Mail_Protocol_Pop3.connect_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.connect_@__Mail_Protocol_Pop3_php_1($host;$port;$ssl):Variant</signature>
+        <info_rule id="469387"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116210">
+        <simple_name>Zend_Mail_Protocol_Pop3.delete_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.delete_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469459"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116129">
+        <simple_name>Zend_Mail_Protocol_Pop3.getList_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.getList_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469370"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116186">
+        <simple_name>Zend_Mail_Protocol_Pop3.login_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.login_@__Mail_Protocol_Pop3_php_1($user;$password;$tryApop):Variant</signature>
+        <info_rule id="469434"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469432">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469431">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115972">
+        <simple_name>Zend_Mail_Protocol_Pop3.logout_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.logout_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469206"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116067">
+        <simple_name>Zend_Mail_Protocol_Pop3.noop_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.noop_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469303"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116127">
+        <simple_name>Zend_Mail_Protocol_Pop3.readResponse_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.readResponse_@__Mail_Protocol_Pop3_php_1($multiline):Variant</signature>
+        <info_rule id="469368"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115960">
+        <simple_name>Zend_Mail_Protocol_Pop3.request_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.request_@__Mail_Protocol_Pop3_php_1($request;$multiline):Variant</signature>
+        <info_rule id="469192"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116201">
+        <simple_name>Zend_Mail_Protocol_Pop3.retrieve_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.retrieve_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469450"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116143">
+        <simple_name>Zend_Mail_Protocol_Pop3.retrive_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.retrive_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469385"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116064">
+        <simple_name>Zend_Mail_Protocol_Pop3.sendRequest_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.sendRequest_@__Mail_Protocol_Pop3_php_1($request):Variant</signature>
+        <info_rule id="469300"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116016">
+        <simple_name>Zend_Mail_Protocol_Pop3.status_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.status_@__Mail_Protocol_Pop3_php_1($messages;$octets):Variant</signature>
+        <info_rule id="469252"/>
+        <propagates_taint dst_param="1,2" return="false" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116175">
+        <simple_name>Zend_Mail_Protocol_Pop3.top_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.top_@__Mail_Protocol_Pop3_php_1($msgno;$lines;$fallback):Variant</signature>
+        <info_rule id="469418"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116276">
+        <simple_name>Zend_Mail_Protocol_Pop3.undelete_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.undelete_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469521"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116212">
+        <simple_name>Zend_Mail_Protocol_Pop3.uniqueid_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.uniqueid_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469461"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+    <class name="Zend_Mail_Protocol_Pop3">
+      <method vuln_id="1116207">
+        <simple_name>Zend_Mail_Protocol_Pop3.__construct_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.__construct_@__Mail_Protocol_Pop3_php_1($host;$port;$ssl):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1116154">
+        <simple_name>Zend_Mail_Protocol_Pop3.__destruct_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.__destruct_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469397"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115973">
+        <simple_name>Zend_Mail_Protocol_Pop3.capa_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.capa_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469207"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116145">
+        <simple_name>Zend_Mail_Protocol_Pop3.connect_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.connect_@__Mail_Protocol_Pop3_php_1($host;$port;$ssl):Variant</signature>
+        <info_rule id="469387"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116210">
+        <simple_name>Zend_Mail_Protocol_Pop3.delete_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.delete_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469459"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116129">
+        <simple_name>Zend_Mail_Protocol_Pop3.getList_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.getList_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469370"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1116186">
+        <simple_name>Zend_Mail_Protocol_Pop3.login_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.login_@__Mail_Protocol_Pop3_php_1($user;$password;$tryApop):Variant</signature>
+        <info_rule id="469434"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="469432">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="469431">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication.Credentials</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115972">
+        <simple_name>Zend_Mail_Protocol_Pop3.logout_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.logout_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469206"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116067">
+        <simple_name>Zend_Mail_Protocol_Pop3.noop_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.noop_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469303"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116127">
+        <simple_name>Zend_Mail_Protocol_Pop3.readResponse_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.readResponse_@__Mail_Protocol_Pop3_php_1($multiline):Variant</signature>
+        <info_rule id="469368"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1115960">
+        <simple_name>Zend_Mail_Protocol_Pop3.request_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.request_@__Mail_Protocol_Pop3_php_1($request;$multiline):Variant</signature>
+        <info_rule id="469192"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116201">
+        <simple_name>Zend_Mail_Protocol_Pop3.retrieve_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.retrieve_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469450"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116143">
+        <simple_name>Zend_Mail_Protocol_Pop3.retrive_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.retrive_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469385"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116064">
+        <simple_name>Zend_Mail_Protocol_Pop3.sendRequest_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.sendRequest_@__Mail_Protocol_Pop3_php_1($request):Variant</signature>
+        <info_rule id="469300"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116016">
+        <simple_name>Zend_Mail_Protocol_Pop3.status_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.status_@__Mail_Protocol_Pop3_php_1($messages;$octets):Variant</signature>
+        <info_rule id="469252"/>
+        <propagates_taint dst_param="1,2" return="false" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116175">
+        <simple_name>Zend_Mail_Protocol_Pop3.top_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.top_@__Mail_Protocol_Pop3_php_1($msgno;$lines;$fallback):Variant</signature>
+        <info_rule id="469418"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116276">
+        <simple_name>Zend_Mail_Protocol_Pop3.undelete_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.undelete_@__Mail_Protocol_Pop3_php_1():Variant</signature>
+        <info_rule id="469521"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+      <method vuln_id="1116212">
+        <simple_name>Zend_Mail_Protocol_Pop3.uniqueid_@__Mail_Protocol_Pop3_php_1</simple_name>
+        <signature>Zend_Mail_Protocol_Pop3.uniqueid_@__Mail_Protocol_Pop3_php_1($msgno):Variant</signature>
+        <info_rule id="469461"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Email</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

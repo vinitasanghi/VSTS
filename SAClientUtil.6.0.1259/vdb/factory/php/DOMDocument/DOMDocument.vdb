@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DOMDocument">
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.createCDATASection</simple_name>
+        <signature>DOMDocument.createCDATASection(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.createElement</simple_name>
+        <signature>DOMDocument.createElement(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.createTextNode</simple_name>
+        <signature>DOMDocument.createTextNode(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.importNode</simple_name>
+        <signature>DOMDocument.importNode(Arg#0;Arg#1):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1086268">
+        <simple_name>___Php.DOMDocument.__construct</simple_name>
+        <signature>___Php.DOMDocument.__construct(___Php.String;___Php.String):void</signature>
+      </method>
+      <method vuln_id="1086136">
+        <simple_name>___Php.DOMDocument.createAttribute</simple_name>
+        <signature>___Php.DOMDocument.createAttribute(___Php.String):___Php.DOMAttr</signature>
+        <info_rule id="452869"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086304">
+        <simple_name>___Php.DOMDocument.createAttributeNS</simple_name>
+        <signature>___Php.DOMDocument.createAttributeNS(___Php.String;___Php.String):___Php.DOMAttr</signature>
+        <info_rule id="453075"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086354">
+        <simple_name>___Php.DOMDocument.createCDATASection</simple_name>
+        <signature>___Php.DOMDocument.createCDATASection(___Php.String):___Php.DOMCDATASection</signature>
+        <info_rule id="453134"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086254">
+        <simple_name>___Php.DOMDocument.createComment</simple_name>
+        <signature>___Php.DOMDocument.createComment(___Php.String):___Php.DOMComment</signature>
+        <info_rule id="453019"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086241">
+        <simple_name>___Php.DOMDocument.createDocumentFragment</simple_name>
+        <signature>___Php.DOMDocument.createDocumentFragment():___Php.DOMDocumentFragment</signature>
+        <info_rule id="453004"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086284">
+        <simple_name>___Php.DOMDocument.createElement</simple_name>
+        <signature>___Php.DOMDocument.createElement(___Php.String;___Php.String):___Php.DOMElement</signature>
+        <info_rule id="453050"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086148">
+        <simple_name>___Php.DOMDocument.createElementNS</simple_name>
+        <signature>___Php.DOMDocument.createElementNS(___Php.String;___Php.String;___Php.String):___Php.DOMElement</signature>
+        <info_rule id="452883"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086247">
+        <simple_name>___Php.DOMDocument.createEntityReference</simple_name>
+        <signature>___Php.DOMDocument.createEntityReference(___Php.String):___Php.DOMEntityReference</signature>
+        <info_rule id="453011"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086167">
+        <simple_name>___Php.DOMDocument.createProcessingInstruction</simple_name>
+        <signature>___Php.DOMDocument.createProcessingInstruction(___Php.String;___Php.String):___Php.DOMProcessingInstruction</signature>
+        <info_rule id="452909"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086182">
+        <simple_name>___Php.DOMDocument.createTextNode</simple_name>
+        <signature>___Php.DOMDocument.createTextNode(___Php.String):___Php.DOMText</signature>
+        <info_rule id="452929"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086288">
+        <simple_name>___Php.DOMDocument.getElementById</simple_name>
+        <signature>___Php.DOMDocument.getElementById(___Php.String):___Php.DOMElement</signature>
+        <info_rule id="453057"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086239">
+        <simple_name>___Php.DOMDocument.getElementsByTagName</simple_name>
+        <signature>___Php.DOMDocument.getElementsByTagName(___Php.String):___Php.DOMNodeList</signature>
+        <info_rule id="453002"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086273">
+        <simple_name>___Php.DOMDocument.getElementsByTagNameNS</simple_name>
+        <signature>___Php.DOMDocument.getElementsByTagNameNS(___Php.String;___Php.String):___Php.DOMNodeList</signature>
+        <info_rule id="453037"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086153">
+        <simple_name>___Php.DOMDocument.importNode</simple_name>
+        <signature>___Php.DOMDocument.importNode(___Php.DOMNode;bool):___Php.DOMNode</signature>
+        <info_rule id="452889"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086276">
+        <simple_name>___Php.DOMDocument.load</simple_name>
+        <signature>___Php.DOMDocument.load(___Php.String;int):mixed</signature>
+        <info_rule id="453041"/>
+        <source_rule>
+          <tainted_output param="this" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086309">
+        <simple_name>___Php.DOMDocument.loadHTML</simple_name>
+        <signature>___Php.DOMDocument.loadHTML(___Php.String):bool</signature>
+        <info_rule id="453082"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086223">
+        <simple_name>___Php.DOMDocument.loadHTMLFile</simple_name>
+        <signature>___Php.DOMDocument.loadHTMLFile(___Php.String):bool</signature>
+        <info_rule id="452980"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086154">
+        <simple_name>___Php.DOMDocument.loadXML</simple_name>
+        <signature>___Php.DOMDocument.loadXML(___Php.String;int):mixed</signature>
+        <info_rule id="452892"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086345">
+        <simple_name>___Php.DOMDocument.normalizeDocument</simple_name>
+        <signature>___Php.DOMDocument.normalizeDocument():void</signature>
+        <info_rule id="453123"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086203">
+        <simple_name>___Php.DOMDocument.registerNodeClass</simple_name>
+        <signature>___Php.DOMDocument.registerNodeClass(___Php.String;___Php.String):bool</signature>
+        <info_rule id="452955"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086232">
+        <simple_name>___Php.DOMDocument.relaxNGValidate</simple_name>
+        <signature>___Php.DOMDocument.relaxNGValidate(___Php.String):bool</signature>
+        <info_rule id="452993"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086281">
+        <simple_name>___Php.DOMDocument.relaxNGValidateSource</simple_name>
+        <signature>___Php.DOMDocument.relaxNGValidateSource(___Php.String):bool</signature>
+        <info_rule id="453047"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086269">
+        <simple_name>___Php.DOMDocument.save</simple_name>
+        <signature>___Php.DOMDocument.save(___Php.String;int):mixed</signature>
+        <info_rule id="453032"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086130">
+        <simple_name>___Php.DOMDocument.saveHTML</simple_name>
+        <signature>___Php.DOMDocument.saveHTML():___Php.String</signature>
+        <info_rule id="452861"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086184">
+        <simple_name>___Php.DOMDocument.saveHTMLFile</simple_name>
+        <signature>___Php.DOMDocument.saveHTMLFile(___Php.String):int</signature>
+        <info_rule id="452933"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086215">
+        <simple_name>___Php.DOMDocument.saveXML</simple_name>
+        <signature>___Php.DOMDocument.saveXML(___Php.DOMNode;int):___Php.String</signature>
+        <info_rule id="452969"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086170">
+        <simple_name>___Php.DOMDocument.schemaValidate</simple_name>
+        <signature>___Php.DOMDocument.schemaValidate(___Php.String):bool</signature>
+        <info_rule id="452914"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086336">
+        <simple_name>___Php.DOMDocument.schemaValidateSource</simple_name>
+        <signature>___Php.DOMDocument.schemaValidateSource(___Php.String):bool</signature>
+        <info_rule id="453113"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086228">
+        <simple_name>___Php.DOMDocument.validate</simple_name>
+        <signature>___Php.DOMDocument.validate():bool</signature>
+        <info_rule id="452987"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086333">
+        <simple_name>___Php.DOMDocument.xinclude</simple_name>
+        <signature>___Php.DOMDocument.xinclude(int):int</signature>
+        <info_rule id="453109"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+    </class>
+    <class name="DOMDocument">
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.createCDATASection</simple_name>
+        <signature>DOMDocument.createCDATASection(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.createElement</simple_name>
+        <signature>DOMDocument.createElement(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.createTextNode</simple_name>
+        <signature>DOMDocument.createTextNode(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DOMDocument.importNode</simple_name>
+        <signature>DOMDocument.importNode(Arg#0;Arg#1):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1086268">
+        <simple_name>___Php.DOMDocument.__construct</simple_name>
+        <signature>___Php.DOMDocument.__construct(___Php.String;___Php.String):void</signature>
+      </method>
+      <method vuln_id="1086136">
+        <simple_name>___Php.DOMDocument.createAttribute</simple_name>
+        <signature>___Php.DOMDocument.createAttribute(___Php.String):___Php.DOMAttr</signature>
+        <info_rule id="452869"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086304">
+        <simple_name>___Php.DOMDocument.createAttributeNS</simple_name>
+        <signature>___Php.DOMDocument.createAttributeNS(___Php.String;___Php.String):___Php.DOMAttr</signature>
+        <info_rule id="453075"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086354">
+        <simple_name>___Php.DOMDocument.createCDATASection</simple_name>
+        <signature>___Php.DOMDocument.createCDATASection(___Php.String):___Php.DOMCDATASection</signature>
+        <info_rule id="453134"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086254">
+        <simple_name>___Php.DOMDocument.createComment</simple_name>
+        <signature>___Php.DOMDocument.createComment(___Php.String):___Php.DOMComment</signature>
+        <info_rule id="453019"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086241">
+        <simple_name>___Php.DOMDocument.createDocumentFragment</simple_name>
+        <signature>___Php.DOMDocument.createDocumentFragment():___Php.DOMDocumentFragment</signature>
+        <info_rule id="453004"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086284">
+        <simple_name>___Php.DOMDocument.createElement</simple_name>
+        <signature>___Php.DOMDocument.createElement(___Php.String;___Php.String):___Php.DOMElement</signature>
+        <info_rule id="453050"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086148">
+        <simple_name>___Php.DOMDocument.createElementNS</simple_name>
+        <signature>___Php.DOMDocument.createElementNS(___Php.String;___Php.String;___Php.String):___Php.DOMElement</signature>
+        <info_rule id="452883"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086247">
+        <simple_name>___Php.DOMDocument.createEntityReference</simple_name>
+        <signature>___Php.DOMDocument.createEntityReference(___Php.String):___Php.DOMEntityReference</signature>
+        <info_rule id="453011"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086167">
+        <simple_name>___Php.DOMDocument.createProcessingInstruction</simple_name>
+        <signature>___Php.DOMDocument.createProcessingInstruction(___Php.String;___Php.String):___Php.DOMProcessingInstruction</signature>
+        <info_rule id="452909"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="2"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086182">
+        <simple_name>___Php.DOMDocument.createTextNode</simple_name>
+        <signature>___Php.DOMDocument.createTextNode(___Php.String):___Php.DOMText</signature>
+        <info_rule id="452929"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086288">
+        <simple_name>___Php.DOMDocument.getElementById</simple_name>
+        <signature>___Php.DOMDocument.getElementById(___Php.String):___Php.DOMElement</signature>
+        <info_rule id="453057"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086239">
+        <simple_name>___Php.DOMDocument.getElementsByTagName</simple_name>
+        <signature>___Php.DOMDocument.getElementsByTagName(___Php.String):___Php.DOMNodeList</signature>
+        <info_rule id="453002"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086273">
+        <simple_name>___Php.DOMDocument.getElementsByTagNameNS</simple_name>
+        <signature>___Php.DOMDocument.getElementsByTagNameNS(___Php.String;___Php.String):___Php.DOMNodeList</signature>
+        <info_rule id="453037"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086153">
+        <simple_name>___Php.DOMDocument.importNode</simple_name>
+        <signature>___Php.DOMDocument.importNode(___Php.DOMNode;bool):___Php.DOMNode</signature>
+        <info_rule id="452889"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086276">
+        <simple_name>___Php.DOMDocument.load</simple_name>
+        <signature>___Php.DOMDocument.load(___Php.String;int):mixed</signature>
+        <info_rule id="453041"/>
+        <source_rule>
+          <tainted_output param="this" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086309">
+        <simple_name>___Php.DOMDocument.loadHTML</simple_name>
+        <signature>___Php.DOMDocument.loadHTML(___Php.String):bool</signature>
+        <info_rule id="453082"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086223">
+        <simple_name>___Php.DOMDocument.loadHTMLFile</simple_name>
+        <signature>___Php.DOMDocument.loadHTMLFile(___Php.String):bool</signature>
+        <info_rule id="452980"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086154">
+        <simple_name>___Php.DOMDocument.loadXML</simple_name>
+        <signature>___Php.DOMDocument.loadXML(___Php.String;int):mixed</signature>
+        <info_rule id="452892"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086345">
+        <simple_name>___Php.DOMDocument.normalizeDocument</simple_name>
+        <signature>___Php.DOMDocument.normalizeDocument():void</signature>
+        <info_rule id="453123"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086203">
+        <simple_name>___Php.DOMDocument.registerNodeClass</simple_name>
+        <signature>___Php.DOMDocument.registerNodeClass(___Php.String;___Php.String):bool</signature>
+        <info_rule id="452955"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086232">
+        <simple_name>___Php.DOMDocument.relaxNGValidate</simple_name>
+        <signature>___Php.DOMDocument.relaxNGValidate(___Php.String):bool</signature>
+        <info_rule id="452993"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086281">
+        <simple_name>___Php.DOMDocument.relaxNGValidateSource</simple_name>
+        <signature>___Php.DOMDocument.relaxNGValidateSource(___Php.String):bool</signature>
+        <info_rule id="453047"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086269">
+        <simple_name>___Php.DOMDocument.save</simple_name>
+        <signature>___Php.DOMDocument.save(___Php.String;int):mixed</signature>
+        <info_rule id="453032"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086130">
+        <simple_name>___Php.DOMDocument.saveHTML</simple_name>
+        <signature>___Php.DOMDocument.saveHTML():___Php.String</signature>
+        <info_rule id="452861"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086184">
+        <simple_name>___Php.DOMDocument.saveHTMLFile</simple_name>
+        <signature>___Php.DOMDocument.saveHTMLFile(___Php.String):int</signature>
+        <info_rule id="452933"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086215">
+        <simple_name>___Php.DOMDocument.saveXML</simple_name>
+        <signature>___Php.DOMDocument.saveXML(___Php.DOMNode;int):___Php.String</signature>
+        <info_rule id="452969"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086170">
+        <simple_name>___Php.DOMDocument.schemaValidate</simple_name>
+        <signature>___Php.DOMDocument.schemaValidate(___Php.String):bool</signature>
+        <info_rule id="452914"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086336">
+        <simple_name>___Php.DOMDocument.schemaValidateSource</simple_name>
+        <signature>___Php.DOMDocument.schemaValidateSource(___Php.String):bool</signature>
+        <info_rule id="453113"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086228">
+        <simple_name>___Php.DOMDocument.validate</simple_name>
+        <signature>___Php.DOMDocument.validate():bool</signature>
+        <info_rule id="452987"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+      <method vuln_id="1086333">
+        <simple_name>___Php.DOMDocument.xinclude</simple_name>
+        <signature>___Php.DOMDocument.xinclude(int):int</signature>
+        <info_rule id="453109"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SOAP_WSDL">
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL.SOAP_WSDL</simple_name>
+        <signature>SOAP_WSDL.SOAP_WSDL($wsdl_uri;$proxy;$cacheUse;$cacheMaxAge;$docs):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._addArg</simple_name>
+        <signature>SOAP_WSDL._addArg($args;$argarray;$argname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._complexTypeArg</simple_name>
+        <signature>SOAP_WSDL._complexTypeArg($args;$argarray;$_argtype;$_argname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._elementArg</simple_name>
+        <signature>SOAP_WSDL._elementArg($args;$argarray;$_argtype;$_argname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getComplexTypeForElement</simple_name>
+        <signature>SOAP_WSDL._getComplexTypeForElement($name;$namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getDeepestArrayType</simple_name>
+        <signature>SOAP_WSDL._getDeepestArrayType($nsPrefix;$arrayType):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getPortName</simple_name>
+        <signature>SOAP_WSDL._getPortName($operation;$service):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getfault</simple_name>
+        <signature>SOAP_WSDL._getfault():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._isfault</simple_name>
+        <signature>SOAP_WSDL._isfault():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._raiseSoapFault</simple_name>
+        <signature>SOAP_WSDL._raiseSoapFault():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._sanitize</simple_name>
+        <signature>SOAP_WSDL._sanitize($name):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._validateString</simple_name>
+        <signature>SOAP_WSDL._validateString($string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092706">
+        <simple_name>SOAP_WSDL.addNamespace</simple_name>
+        <signature>SOAP_WSDL.addNamespace($namespace):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092710">
+        <simple_name>SOAP_WSDL.generateAllProxies</simple_name>
+        <signature>SOAP_WSDL.generateAllProxies():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092707">
+        <simple_name>SOAP_WSDL.generateProxyCode</simple_name>
+        <signature>SOAP_WSDL.generateProxyCode($port;$classname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092704">
+        <simple_name>SOAP_WSDL.getComplexTypeChildType</simple_name>
+        <signature>SOAP_WSDL.getComplexTypeChildType($ns;$name;$child_ns;$child_name):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092698">
+        <simple_name>SOAP_WSDL.getComplexTypeNameForElement</simple_name>
+        <signature>SOAP_WSDL.getComplexTypeNameForElement($name;$namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092701">
+        <simple_name>SOAP_WSDL.getDataHandler</simple_name>
+        <signature>SOAP_WSDL.getDataHandler($datatype;$namespace):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092714">
+        <simple_name>SOAP_WSDL.getEndpoint</simple_name>
+        <signature>SOAP_WSDL.getEndpoint($portName):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092708">
+        <simple_name>SOAP_WSDL.getNamespace</simple_name>
+        <signature>SOAP_WSDL.getNamespace($portName;$operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL.getNamespaceAttributeName</simple_name>
+        <signature>SOAP_WSDL.getNamespaceAttributeName($namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092705">
+        <simple_name>SOAP_WSDL.getOperationData</simple_name>
+        <signature>SOAP_WSDL.getOperationData($portName;$operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092709">
+        <simple_name>SOAP_WSDL.getPortName</simple_name>
+        <signature>SOAP_WSDL.getPortName($operation;$service):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092697">
+        <simple_name>SOAP_WSDL.getProxy</simple_name>
+        <signature>SOAP_WSDL.getProxy($port;$name):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092711">
+        <simple_name>SOAP_WSDL.getSchemaType</simple_name>
+        <signature>SOAP_WSDL.getSchemaType($type;$name;$type_namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092702">
+        <simple_name>SOAP_WSDL.getSoapAction</simple_name>
+        <signature>SOAP_WSDL.getSoapAction($portName;$operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092703">
+        <simple_name>SOAP_WSDL.matchMethod</simple_name>
+        <signature>SOAP_WSDL.matchMethod($operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092699">
+        <simple_name>SOAP_WSDL.parseObject</simple_name>
+        <signature>SOAP_WSDL.parseObject($wsdl_obj;$targetNamespace;$service_name;$service_desc):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092712">
+        <simple_name>SOAP_WSDL.parseURL</simple_name>
+        <signature>SOAP_WSDL.parseURL($wsdl_uri):void</signature>
+        <info_rule id="480908"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC.SOAP</property>
+      </method>
+      <method vuln_id="1092713">
+        <simple_name>SOAP_WSDL.setService</simple_name>
+        <signature>SOAP_WSDL.setService($service):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092700">
+        <simple_name>SOAP_WSDL.set_service</simple_name>
+        <signature>SOAP_WSDL.set_service($service):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="SOAP_WSDL">
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL.SOAP_WSDL</simple_name>
+        <signature>SOAP_WSDL.SOAP_WSDL($wsdl_uri;$proxy;$cacheUse;$cacheMaxAge;$docs):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._addArg</simple_name>
+        <signature>SOAP_WSDL._addArg($args;$argarray;$argname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._complexTypeArg</simple_name>
+        <signature>SOAP_WSDL._complexTypeArg($args;$argarray;$_argtype;$_argname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._elementArg</simple_name>
+        <signature>SOAP_WSDL._elementArg($args;$argarray;$_argtype;$_argname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getComplexTypeForElement</simple_name>
+        <signature>SOAP_WSDL._getComplexTypeForElement($name;$namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getDeepestArrayType</simple_name>
+        <signature>SOAP_WSDL._getDeepestArrayType($nsPrefix;$arrayType):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getPortName</simple_name>
+        <signature>SOAP_WSDL._getPortName($operation;$service):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._getfault</simple_name>
+        <signature>SOAP_WSDL._getfault():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._isfault</simple_name>
+        <signature>SOAP_WSDL._isfault():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._raiseSoapFault</simple_name>
+        <signature>SOAP_WSDL._raiseSoapFault():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._sanitize</simple_name>
+        <signature>SOAP_WSDL._sanitize($name):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL._validateString</simple_name>
+        <signature>SOAP_WSDL._validateString($string):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092706">
+        <simple_name>SOAP_WSDL.addNamespace</simple_name>
+        <signature>SOAP_WSDL.addNamespace($namespace):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092710">
+        <simple_name>SOAP_WSDL.generateAllProxies</simple_name>
+        <signature>SOAP_WSDL.generateAllProxies():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092707">
+        <simple_name>SOAP_WSDL.generateProxyCode</simple_name>
+        <signature>SOAP_WSDL.generateProxyCode($port;$classname):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092704">
+        <simple_name>SOAP_WSDL.getComplexTypeChildType</simple_name>
+        <signature>SOAP_WSDL.getComplexTypeChildType($ns;$name;$child_ns;$child_name):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092698">
+        <simple_name>SOAP_WSDL.getComplexTypeNameForElement</simple_name>
+        <signature>SOAP_WSDL.getComplexTypeNameForElement($name;$namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092701">
+        <simple_name>SOAP_WSDL.getDataHandler</simple_name>
+        <signature>SOAP_WSDL.getDataHandler($datatype;$namespace):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092714">
+        <simple_name>SOAP_WSDL.getEndpoint</simple_name>
+        <signature>SOAP_WSDL.getEndpoint($portName):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092708">
+        <simple_name>SOAP_WSDL.getNamespace</simple_name>
+        <signature>SOAP_WSDL.getNamespace($portName;$operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>SOAP_WSDL.getNamespaceAttributeName</simple_name>
+        <signature>SOAP_WSDL.getNamespaceAttributeName($namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092705">
+        <simple_name>SOAP_WSDL.getOperationData</simple_name>
+        <signature>SOAP_WSDL.getOperationData($portName;$operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092709">
+        <simple_name>SOAP_WSDL.getPortName</simple_name>
+        <signature>SOAP_WSDL.getPortName($operation;$service):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092697">
+        <simple_name>SOAP_WSDL.getProxy</simple_name>
+        <signature>SOAP_WSDL.getProxy($port;$name):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092711">
+        <simple_name>SOAP_WSDL.getSchemaType</simple_name>
+        <signature>SOAP_WSDL.getSchemaType($type;$name;$type_namespace):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092702">
+        <simple_name>SOAP_WSDL.getSoapAction</simple_name>
+        <signature>SOAP_WSDL.getSoapAction($portName;$operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092703">
+        <simple_name>SOAP_WSDL.matchMethod</simple_name>
+        <signature>SOAP_WSDL.matchMethod($operation):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092699">
+        <simple_name>SOAP_WSDL.parseObject</simple_name>
+        <signature>SOAP_WSDL.parseObject($wsdl_obj;$targetNamespace;$service_name;$service_desc):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092712">
+        <simple_name>SOAP_WSDL.parseURL</simple_name>
+        <signature>SOAP_WSDL.parseURL($wsdl_uri):void</signature>
+        <info_rule id="480908"/>
+        <source_rule>
+          <tainted_output param="this" return="false"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.RPC.SOAP</property>
+      </method>
+      <method vuln_id="1092713">
+        <simple_name>SOAP_WSDL.setService</simple_name>
+        <signature>SOAP_WSDL.setService($service):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092700">
+        <simple_name>SOAP_WSDL.set_service</simple_name>
+        <signature>SOAP_WSDL.set_service($service):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

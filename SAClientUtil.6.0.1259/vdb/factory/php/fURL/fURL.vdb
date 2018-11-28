@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fURL">
+      <method vuln_id="1107135">
+        <simple_name>fURL.__construct_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.__construct_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106366">
+        <simple_name>fURL.getDomain_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.getDomain_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106910">
+        <simple_name>fURL.getQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.getQueryString_@__inc_flourish_fURL_php_1():Variant</signature>
+        <info_rule id="480654"/>
+        <source_rule id="462328">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107039">
+        <simple_name>fURL.getWithQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.getWithQueryString_@__inc_flourish_fURL_php_1():Variant</signature>
+        <info_rule id="480659"/>
+        <source_rule id="462341">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107246">
+        <simple_name>fURL.get_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.get_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106424">
+        <simple_name>fURL.makeFriendly_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.makeFriendly_@__inc_flourish_fURL_php_1($string):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106510">
+        <simple_name>fURL.redirect_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.redirect_@__inc_flourish_fURL_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL.Redirect</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107126">
+        <simple_name>fURL.removeFromQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.removeFromQueryString_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107283">
+        <simple_name>fURL.replaceInQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.replaceInQueryString_@__inc_flourish_fURL_php_1($parameter;$value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fURL">
+      <method vuln_id="1107135">
+        <simple_name>fURL.__construct_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.__construct_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106366">
+        <simple_name>fURL.getDomain_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.getDomain_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106910">
+        <simple_name>fURL.getQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.getQueryString_@__inc_flourish_fURL_php_1():Variant</signature>
+        <info_rule id="480654"/>
+        <source_rule id="462328">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107039">
+        <simple_name>fURL.getWithQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.getWithQueryString_@__inc_flourish_fURL_php_1():Variant</signature>
+        <info_rule id="480659"/>
+        <source_rule id="462341">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107246">
+        <simple_name>fURL.get_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.get_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106424">
+        <simple_name>fURL.makeFriendly_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.makeFriendly_@__inc_flourish_fURL_php_1($string):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106510">
+        <simple_name>fURL.redirect_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.redirect_@__inc_flourish_fURL_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL.Redirect</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107126">
+        <simple_name>fURL.removeFromQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.removeFromQueryString_@__inc_flourish_fURL_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107283">
+        <simple_name>fURL.replaceInQueryString_@__inc_flourish_fURL_php_1</simple_name>
+        <signature>fURL.replaceInQueryString_@__inc_flourish_fURL_php_1($parameter;$value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

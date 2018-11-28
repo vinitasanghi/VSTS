@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Layout">
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.$method</simple_name>
+        <signature>Zend_Layout.$method(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115193">
+        <simple_name>Zend_Layout.__construct_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__construct_@__Layout_php_1($options;$initMvc):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115196">
+        <simple_name>Zend_Layout.__get_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__get_@__Layout_php_1($key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115232">
+        <simple_name>Zend_Layout.__isset_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__isset_@__Layout_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115229">
+        <simple_name>Zend_Layout.__set_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__set_@__Layout_php_1($key;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.__unset_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__unset_@__Layout_php_1($key):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initHelper_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initHelper_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initMvc_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initMvc_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initPlugin_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initPlugin_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initVarContainer_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initVarContainer_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._setMvcEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._setMvcEnabled_@__Layout_php_1($mvcEnabled):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115235">
+        <simple_name>Zend_Layout.assign_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.assign_@__Layout_php_1($spec;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115191">
+        <simple_name>Zend_Layout.disableInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.disableInflector_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115198">
+        <simple_name>Zend_Layout.disableLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.disableLayout_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115206">
+        <simple_name>Zend_Layout.enableInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.enableInflector_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115188">
+        <simple_name>Zend_Layout.enableLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.enableLayout_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115210">
+        <simple_name>Zend_Layout.getContentKey_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getContentKey_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115209">
+        <simple_name>Zend_Layout.getHelperClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getHelperClass_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115234">
+        <simple_name>Zend_Layout.getInflectorTarget_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getInflectorTarget_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115230">
+        <simple_name>Zend_Layout.getInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getInflector_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115228">
+        <simple_name>Zend_Layout.getLayoutPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getLayoutPath_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115216">
+        <simple_name>Zend_Layout.getLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getLayout_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115203">
+        <simple_name>Zend_Layout.getMvcEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getMvcEnabled_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115208">
+        <simple_name>Zend_Layout.getMvcInstance</simple_name>
+        <signature>Zend_Layout.getMvcInstance():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115207">
+        <simple_name>Zend_Layout.getMvcInstance_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getMvcInstance_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115214">
+        <simple_name>Zend_Layout.getMvcSuccessfulActionOnly_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getMvcSuccessfulActionOnly_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115212">
+        <simple_name>Zend_Layout.getPluginClass</simple_name>
+        <signature>Zend_Layout.getPluginClass():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115199">
+        <simple_name>Zend_Layout.getPluginClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getPluginClass_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115189">
+        <simple_name>Zend_Layout.getViewBasePath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getViewBasePath_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115211">
+        <simple_name>Zend_Layout.getViewScriptPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getViewScriptPath_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115221">
+        <simple_name>Zend_Layout.getViewSuffix_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getViewSuffix_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115201">
+        <simple_name>Zend_Layout.getView_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getView_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115239">
+        <simple_name>Zend_Layout.inflectorEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.inflectorEnabled_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115190">
+        <simple_name>Zend_Layout.isEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.isEnabled_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115202">
+        <simple_name>Zend_Layout.render_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.render_@__Layout_php_1($name):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115194">
+        <simple_name>Zend_Layout.resetMvcInstance_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.resetMvcInstance_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115215">
+        <simple_name>Zend_Layout.setConfig_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setConfig_@__Layout_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115226">
+        <simple_name>Zend_Layout.setContentKey_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setContentKey_@__Layout_php_1($contentKey):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115220">
+        <simple_name>Zend_Layout.setHelperClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setHelperClass_@__Layout_php_1($helperClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115205">
+        <simple_name>Zend_Layout.setInflectorTarget_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setInflectorTarget_@__Layout_php_1($inflectorTarget):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115231">
+        <simple_name>Zend_Layout.setInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setInflector_@__Layout_php_1($inflector):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115187">
+        <simple_name>Zend_Layout.setLayoutPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setLayoutPath_@__Layout_php_1($path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115236">
+        <simple_name>Zend_Layout.setLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setLayout_@__Layout_php_1($name;$enabled):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115238">
+        <simple_name>Zend_Layout.setMvcSuccessfulActionOnly_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setMvcSuccessfulActionOnly_@__Layout_php_1($successfulActionOnly):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115197">
+        <simple_name>Zend_Layout.setOptions_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setOptions_@__Layout_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115227">
+        <simple_name>Zend_Layout.setPluginClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setPluginClass_@__Layout_php_1($pluginClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115225">
+        <simple_name>Zend_Layout.setViewBasePath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setViewBasePath_@__Layout_php_1($path;$prefix):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115186">
+        <simple_name>Zend_Layout.setViewScriptPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setViewScriptPath_@__Layout_php_1($path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115192">
+        <simple_name>Zend_Layout.setViewSuffix_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setViewSuffix_@__Layout_php_1($viewSuffix):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115219">
+        <simple_name>Zend_Layout.setView_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setView_@__Layout_php_1($view):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.startMvc</simple_name>
+        <signature>Zend_Layout.startMvc(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.startMvc_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.startMvc_@__Layout_php_1($options):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Layout">
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.$method</simple_name>
+        <signature>Zend_Layout.$method(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115193">
+        <simple_name>Zend_Layout.__construct_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__construct_@__Layout_php_1($options;$initMvc):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115196">
+        <simple_name>Zend_Layout.__get_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__get_@__Layout_php_1($key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115232">
+        <simple_name>Zend_Layout.__isset_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__isset_@__Layout_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115229">
+        <simple_name>Zend_Layout.__set_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__set_@__Layout_php_1($key;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.__unset_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.__unset_@__Layout_php_1($key):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initHelper_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initHelper_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initMvc_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initMvc_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initPlugin_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initPlugin_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._initVarContainer_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._initVarContainer_@__Layout_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout._setMvcEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout._setMvcEnabled_@__Layout_php_1($mvcEnabled):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1115235">
+        <simple_name>Zend_Layout.assign_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.assign_@__Layout_php_1($spec;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115191">
+        <simple_name>Zend_Layout.disableInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.disableInflector_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115198">
+        <simple_name>Zend_Layout.disableLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.disableLayout_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115206">
+        <simple_name>Zend_Layout.enableInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.enableInflector_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115188">
+        <simple_name>Zend_Layout.enableLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.enableLayout_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115210">
+        <simple_name>Zend_Layout.getContentKey_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getContentKey_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115209">
+        <simple_name>Zend_Layout.getHelperClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getHelperClass_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115234">
+        <simple_name>Zend_Layout.getInflectorTarget_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getInflectorTarget_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115230">
+        <simple_name>Zend_Layout.getInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getInflector_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115228">
+        <simple_name>Zend_Layout.getLayoutPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getLayoutPath_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115216">
+        <simple_name>Zend_Layout.getLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getLayout_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115203">
+        <simple_name>Zend_Layout.getMvcEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getMvcEnabled_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115208">
+        <simple_name>Zend_Layout.getMvcInstance</simple_name>
+        <signature>Zend_Layout.getMvcInstance():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115207">
+        <simple_name>Zend_Layout.getMvcInstance_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getMvcInstance_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115214">
+        <simple_name>Zend_Layout.getMvcSuccessfulActionOnly_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getMvcSuccessfulActionOnly_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115212">
+        <simple_name>Zend_Layout.getPluginClass</simple_name>
+        <signature>Zend_Layout.getPluginClass():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115199">
+        <simple_name>Zend_Layout.getPluginClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getPluginClass_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115189">
+        <simple_name>Zend_Layout.getViewBasePath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getViewBasePath_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115211">
+        <simple_name>Zend_Layout.getViewScriptPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getViewScriptPath_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115221">
+        <simple_name>Zend_Layout.getViewSuffix_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getViewSuffix_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115201">
+        <simple_name>Zend_Layout.getView_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.getView_@__Layout_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115239">
+        <simple_name>Zend_Layout.inflectorEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.inflectorEnabled_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115190">
+        <simple_name>Zend_Layout.isEnabled_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.isEnabled_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115202">
+        <simple_name>Zend_Layout.render_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.render_@__Layout_php_1($name):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115194">
+        <simple_name>Zend_Layout.resetMvcInstance_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.resetMvcInstance_@__Layout_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1115215">
+        <simple_name>Zend_Layout.setConfig_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setConfig_@__Layout_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115226">
+        <simple_name>Zend_Layout.setContentKey_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setContentKey_@__Layout_php_1($contentKey):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115220">
+        <simple_name>Zend_Layout.setHelperClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setHelperClass_@__Layout_php_1($helperClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115205">
+        <simple_name>Zend_Layout.setInflectorTarget_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setInflectorTarget_@__Layout_php_1($inflectorTarget):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115231">
+        <simple_name>Zend_Layout.setInflector_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setInflector_@__Layout_php_1($inflector):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115187">
+        <simple_name>Zend_Layout.setLayoutPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setLayoutPath_@__Layout_php_1($path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115236">
+        <simple_name>Zend_Layout.setLayout_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setLayout_@__Layout_php_1($name;$enabled):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115238">
+        <simple_name>Zend_Layout.setMvcSuccessfulActionOnly_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setMvcSuccessfulActionOnly_@__Layout_php_1($successfulActionOnly):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115197">
+        <simple_name>Zend_Layout.setOptions_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setOptions_@__Layout_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115227">
+        <simple_name>Zend_Layout.setPluginClass_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setPluginClass_@__Layout_php_1($pluginClass):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115225">
+        <simple_name>Zend_Layout.setViewBasePath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setViewBasePath_@__Layout_php_1($path;$prefix):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115186">
+        <simple_name>Zend_Layout.setViewScriptPath_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setViewScriptPath_@__Layout_php_1($path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115192">
+        <simple_name>Zend_Layout.setViewSuffix_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setViewSuffix_@__Layout_php_1($viewSuffix):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1115219">
+        <simple_name>Zend_Layout.setView_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.setView_@__Layout_php_1($view):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.startMvc</simple_name>
+        <signature>Zend_Layout.startMvc(Arg#0):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Layout.startMvc_@__Layout_php_1</simple_name>
+        <signature>Zend_Layout.startMvc_@__Layout_php_1($options):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_sybase">
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.DB_common</simple_name>
+        <signature>DB_sybase.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.DB_sybase</simple_name>
+        <signature>DB_sybase.DB_sybase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._add_flag</simple_name>
+        <signature>DB_sybase._add_flag($array;$value):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._checkManip</simple_name>
+        <signature>DB_sybase._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_sybase._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._rtrimArrayValues</simple_name>
+        <signature>DB_sybase._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._sybase_field_flags</simple_name>
+        <signature>DB_sybase._sybase_field_flags($table;$column):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090899">
+        <simple_name>DB_sybase.affectedRows</simple_name>
+        <signature>DB_sybase.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090885">
+        <simple_name>DB_sybase.autoCommit</simple_name>
+        <signature>DB_sybase.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090894">
+        <simple_name>DB_sybase.commit</simple_name>
+        <signature>DB_sybase.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090895">
+        <simple_name>DB_sybase.connect</simple_name>
+        <signature>DB_sybase.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451161">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090888">
+        <simple_name>DB_sybase.createSequence</simple_name>
+        <signature>DB_sybase.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090898">
+        <simple_name>DB_sybase.disconnect</simple_name>
+        <signature>DB_sybase.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090889">
+        <simple_name>DB_sybase.dropSequence</simple_name>
+        <signature>DB_sybase.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090905">
+        <simple_name>DB_sybase.errorCode</simple_name>
+        <signature>DB_sybase.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451157">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090893">
+        <simple_name>DB_sybase.errorNative</simple_name>
+        <signature>DB_sybase.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451160">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090901">
+        <simple_name>DB_sybase.escapeSimple</simple_name>
+        <signature>DB_sybase.escapeSimple():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090891">
+        <simple_name>DB_sybase.fetchInto</simple_name>
+        <signature>DB_sybase.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480733"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090883">
+        <simple_name>DB_sybase.freeResult</simple_name>
+        <signature>DB_sybase.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090884">
+        <simple_name>DB_sybase.getSequenceName</simple_name>
+        <signature>DB_sybase.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090897">
+        <simple_name>DB_sybase.getSpecialQuery</simple_name>
+        <signature>DB_sybase.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090887">
+        <simple_name>DB_sybase.modifyQuery</simple_name>
+        <signature>DB_sybase.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090896">
+        <simple_name>DB_sybase.nextId</simple_name>
+        <signature>DB_sybase.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090890">
+        <simple_name>DB_sybase.nextResult</simple_name>
+        <signature>DB_sybase.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090904">
+        <simple_name>DB_sybase.numCols</simple_name>
+        <signature>DB_sybase.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090902">
+        <simple_name>DB_sybase.numRows</simple_name>
+        <signature>DB_sybase.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.popErrorHandling</simple_name>
+        <signature>DB_sybase.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.pushErrorHandling</simple_name>
+        <signature>DB_sybase.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090892">
+        <simple_name>DB_sybase.query</simple_name>
+        <signature>DB_sybase.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090882">
+        <simple_name>DB_sybase.quoteFloat</simple_name>
+        <signature>DB_sybase.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.raiseError</simple_name>
+        <signature>DB_sybase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090903">
+        <simple_name>DB_sybase.rollback</simple_name>
+        <signature>DB_sybase.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090900">
+        <simple_name>DB_sybase.simpleQuery</simple_name>
+        <signature>DB_sybase.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.sybaseRaiseError</simple_name>
+        <signature>DB_sybase.sybaseRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090886">
+        <simple_name>DB_sybase.tableInfo</simple_name>
+        <signature>DB_sybase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_sybase">
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.DB_common</simple_name>
+        <signature>DB_sybase.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.DB_sybase</simple_name>
+        <signature>DB_sybase.DB_sybase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._add_flag</simple_name>
+        <signature>DB_sybase._add_flag($array;$value):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._checkManip</simple_name>
+        <signature>DB_sybase._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_sybase._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._rtrimArrayValues</simple_name>
+        <signature>DB_sybase._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase._sybase_field_flags</simple_name>
+        <signature>DB_sybase._sybase_field_flags($table;$column):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090899">
+        <simple_name>DB_sybase.affectedRows</simple_name>
+        <signature>DB_sybase.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090885">
+        <simple_name>DB_sybase.autoCommit</simple_name>
+        <signature>DB_sybase.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090894">
+        <simple_name>DB_sybase.commit</simple_name>
+        <signature>DB_sybase.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090895">
+        <simple_name>DB_sybase.connect</simple_name>
+        <signature>DB_sybase.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451161">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090888">
+        <simple_name>DB_sybase.createSequence</simple_name>
+        <signature>DB_sybase.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090898">
+        <simple_name>DB_sybase.disconnect</simple_name>
+        <signature>DB_sybase.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090889">
+        <simple_name>DB_sybase.dropSequence</simple_name>
+        <signature>DB_sybase.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090905">
+        <simple_name>DB_sybase.errorCode</simple_name>
+        <signature>DB_sybase.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451157">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090893">
+        <simple_name>DB_sybase.errorNative</simple_name>
+        <signature>DB_sybase.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451160">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090901">
+        <simple_name>DB_sybase.escapeSimple</simple_name>
+        <signature>DB_sybase.escapeSimple():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090891">
+        <simple_name>DB_sybase.fetchInto</simple_name>
+        <signature>DB_sybase.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480733"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090883">
+        <simple_name>DB_sybase.freeResult</simple_name>
+        <signature>DB_sybase.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090884">
+        <simple_name>DB_sybase.getSequenceName</simple_name>
+        <signature>DB_sybase.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090897">
+        <simple_name>DB_sybase.getSpecialQuery</simple_name>
+        <signature>DB_sybase.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090887">
+        <simple_name>DB_sybase.modifyQuery</simple_name>
+        <signature>DB_sybase.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090896">
+        <simple_name>DB_sybase.nextId</simple_name>
+        <signature>DB_sybase.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090890">
+        <simple_name>DB_sybase.nextResult</simple_name>
+        <signature>DB_sybase.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090904">
+        <simple_name>DB_sybase.numCols</simple_name>
+        <signature>DB_sybase.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090902">
+        <simple_name>DB_sybase.numRows</simple_name>
+        <signature>DB_sybase.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.popErrorHandling</simple_name>
+        <signature>DB_sybase.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.pushErrorHandling</simple_name>
+        <signature>DB_sybase.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090892">
+        <simple_name>DB_sybase.query</simple_name>
+        <signature>DB_sybase.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090882">
+        <simple_name>DB_sybase.quoteFloat</simple_name>
+        <signature>DB_sybase.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.raiseError</simple_name>
+        <signature>DB_sybase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090903">
+        <simple_name>DB_sybase.rollback</simple_name>
+        <signature>DB_sybase.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090900">
+        <simple_name>DB_sybase.simpleQuery</simple_name>
+        <signature>DB_sybase.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sybase.sybaseRaiseError</simple_name>
+        <signature>DB_sybase.sybaseRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090886">
+        <simple_name>DB_sybase.tableInfo</simple_name>
+        <signature>DB_sybase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

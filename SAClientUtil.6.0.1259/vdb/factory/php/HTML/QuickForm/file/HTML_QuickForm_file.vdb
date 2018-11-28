@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_QuickForm_file">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file.$className</simple_name>
+        <signature>HTML_QuickForm_file.$className():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file.HTML_QuickForm_file</simple_name>
+        <signature>HTML_QuickForm_file.HTML_QuickForm_file($elementName;$elementLabel;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._findValue</simple_name>
+        <signature>HTML_QuickForm_file._findValue():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleCheckFileName</simple_name>
+        <signature>HTML_QuickForm_file._ruleCheckFileName($elementValue;$regex):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleCheckMaxFileSize</simple_name>
+        <signature>HTML_QuickForm_file._ruleCheckMaxFileSize($elementValue;$maxSize):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleCheckMimeType</simple_name>
+        <signature>HTML_QuickForm_file._ruleCheckMimeType($elementValue;$mimeType):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleIsUploadedFile</simple_name>
+        <signature>HTML_QuickForm_file._ruleIsUploadedFile($elementValue):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091287">
+        <simple_name>HTML_QuickForm_file.freeze</simple_name>
+        <signature>HTML_QuickForm_file.freeze():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091289">
+        <simple_name>HTML_QuickForm_file.getAttribute</simple_name>
+        <signature>HTML_QuickForm_file.getAttribute():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091296">
+        <simple_name>HTML_QuickForm_file.getName</simple_name>
+        <signature>HTML_QuickForm_file.getName():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091288">
+        <simple_name>HTML_QuickForm_file.getSize</simple_name>
+        <signature>HTML_QuickForm_file.getSize():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091291">
+        <simple_name>HTML_QuickForm_file.getValue</simple_name>
+        <signature>HTML_QuickForm_file.getValue():array</signature>
+        <info_rule id="480751"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091285">
+        <simple_name>HTML_QuickForm_file.isUploadedFile</simple_name>
+        <signature>HTML_QuickForm_file.isUploadedFile():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091290">
+        <simple_name>HTML_QuickForm_file.moveUploadedFile</simple_name>
+        <signature>HTML_QuickForm_file.moveUploadedFile($dest;$fileName):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule id="451283">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Write</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091295">
+        <simple_name>HTML_QuickForm_file.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_file.onQuickFormEvent($event;$arg;$caller):bool</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091294">
+        <simple_name>HTML_QuickForm_file.setSize</simple_name>
+        <signature>HTML_QuickForm_file.setSize($size):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091286">
+        <simple_name>HTML_QuickForm_file.setType</simple_name>
+        <signature>HTML_QuickForm_file.setType():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091293">
+        <simple_name>HTML_QuickForm_file.setValue</simple_name>
+        <signature>HTML_QuickForm_file.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091292">
+        <simple_name>HTML_QuickForm_file.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_file.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_QuickForm_file">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file.$className</simple_name>
+        <signature>HTML_QuickForm_file.$className():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file.HTML_QuickForm_file</simple_name>
+        <signature>HTML_QuickForm_file.HTML_QuickForm_file($elementName;$elementLabel;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._findValue</simple_name>
+        <signature>HTML_QuickForm_file._findValue():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleCheckFileName</simple_name>
+        <signature>HTML_QuickForm_file._ruleCheckFileName($elementValue;$regex):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleCheckMaxFileSize</simple_name>
+        <signature>HTML_QuickForm_file._ruleCheckMaxFileSize($elementValue;$maxSize):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleCheckMimeType</simple_name>
+        <signature>HTML_QuickForm_file._ruleCheckMimeType($elementValue;$mimeType):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_file._ruleIsUploadedFile</simple_name>
+        <signature>HTML_QuickForm_file._ruleIsUploadedFile($elementValue):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091287">
+        <simple_name>HTML_QuickForm_file.freeze</simple_name>
+        <signature>HTML_QuickForm_file.freeze():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091289">
+        <simple_name>HTML_QuickForm_file.getAttribute</simple_name>
+        <signature>HTML_QuickForm_file.getAttribute():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091296">
+        <simple_name>HTML_QuickForm_file.getName</simple_name>
+        <signature>HTML_QuickForm_file.getName():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091288">
+        <simple_name>HTML_QuickForm_file.getSize</simple_name>
+        <signature>HTML_QuickForm_file.getSize():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091291">
+        <simple_name>HTML_QuickForm_file.getValue</simple_name>
+        <signature>HTML_QuickForm_file.getValue():array</signature>
+        <info_rule id="480751"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091285">
+        <simple_name>HTML_QuickForm_file.isUploadedFile</simple_name>
+        <signature>HTML_QuickForm_file.isUploadedFile():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091290">
+        <simple_name>HTML_QuickForm_file.moveUploadedFile</simple_name>
+        <signature>HTML_QuickForm_file.moveUploadedFile($dest;$fileName):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule id="451283">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Write</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091295">
+        <simple_name>HTML_QuickForm_file.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_file.onQuickFormEvent($event;$arg;$caller):bool</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091294">
+        <simple_name>HTML_QuickForm_file.setSize</simple_name>
+        <signature>HTML_QuickForm_file.setSize($size):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091286">
+        <simple_name>HTML_QuickForm_file.setType</simple_name>
+        <signature>HTML_QuickForm_file.setType():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091293">
+        <simple_name>HTML_QuickForm_file.setValue</simple_name>
+        <signature>HTML_QuickForm_file.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091292">
+        <simple_name>HTML_QuickForm_file.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_file.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

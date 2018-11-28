@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HttpDeflateStream">
+      <method vuln_id="1086860">
+        <simple_name>HttpDeflateStream.__construct</simple_name>
+        <signature>HttpDeflateStream.__construct(int):void</signature>
+        <comment>Creates a new HttpDeflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086861">
+        <simple_name>HttpDeflateStream.factory</simple_name>
+        <signature>HttpDeflateStream.factory(int;___Php.String):HttpDeflateStream</signature>
+        <info_rule id="453801"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Creates a new HttpDeflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086829">
+        <simple_name>HttpDeflateStream.finish</simple_name>
+        <signature>HttpDeflateStream.finish(___Php.String):___Php.String</signature>
+        <info_rule id="453756"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Finalizes the deflate stream. The deflate stream can be reused after finalizing.</comment>
+      </method>
+      <method vuln_id="1086787">
+        <simple_name>HttpDeflateStream.flush</simple_name>
+        <signature>HttpDeflateStream.flush(___Php.String):___Php.String</signature>
+        <info_rule id="453691"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Flushes the deflate stream.</comment>
+      </method>
+      <method vuln_id="1086798">
+        <simple_name>HttpDeflateStream.update</simple_name>
+        <signature>HttpDeflateStream.update(___Php.String):___Php.String</signature>
+        <info_rule id="453707"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Passes more data through the deflate stream.</comment>
+      </method>
+    </class>
+    <class name="HttpDeflateStream">
+      <method vuln_id="1086860">
+        <simple_name>HttpDeflateStream.__construct</simple_name>
+        <signature>HttpDeflateStream.__construct(int):void</signature>
+        <comment>Creates a new HttpDeflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086861">
+        <simple_name>HttpDeflateStream.factory</simple_name>
+        <signature>HttpDeflateStream.factory(int;___Php.String):HttpDeflateStream</signature>
+        <info_rule id="453801"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Creates a new HttpDeflateStream object instance.</comment>
+      </method>
+      <method vuln_id="1086829">
+        <simple_name>HttpDeflateStream.finish</simple_name>
+        <signature>HttpDeflateStream.finish(___Php.String):___Php.String</signature>
+        <info_rule id="453756"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Finalizes the deflate stream. The deflate stream can be reused after finalizing.</comment>
+      </method>
+      <method vuln_id="1086787">
+        <simple_name>HttpDeflateStream.flush</simple_name>
+        <signature>HttpDeflateStream.flush(___Php.String):___Php.String</signature>
+        <info_rule id="453691"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Flushes the deflate stream.</comment>
+      </method>
+      <method vuln_id="1086798">
+        <simple_name>HttpDeflateStream.update</simple_name>
+        <signature>HttpDeflateStream.update(___Php.String):___Php.String</signature>
+        <info_rule id="453707"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Technology.Compression</property>
+        <comment>Passes more data through the deflate stream.</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Feed_Builder_Header">
+      <method vuln_id="1111863">
+        <simple_name>Zend_Feed_Builder_Header.__construct_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__construct_@__Feed_Builder_Header_php_1($title;$link;$charset):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111644">
+        <simple_name>Zend_Feed_Builder_Header.__get_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__get_@__Feed_Builder_Header_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111624">
+        <simple_name>Zend_Feed_Builder_Header.__isset_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__isset_@__Feed_Builder_Header_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112057">
+        <simple_name>Zend_Feed_Builder_Header.__set_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__set_@__Feed_Builder_Header_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Builder_Header.__unset_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__unset_@__Feed_Builder_Header_php_1($key):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111691">
+        <simple_name>Zend_Feed_Builder_Header.offsetExists</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetExists(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111687">
+        <simple_name>Zend_Feed_Builder_Header.offsetGet</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetGet(Arg#0):Variant</signature>
+        <info_rule id="481195"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1111689">
+        <simple_name>Zend_Feed_Builder_Header.offsetSet</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetSet(Arg#0;Arg#1):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111758">
+        <simple_name>Zend_Feed_Builder_Header.offsetUnset</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetUnset(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111634">
+        <simple_name>Zend_Feed_Builder_Header.setAuthor_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setAuthor_@__Feed_Builder_Header_php_1($author):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111879">
+        <simple_name>Zend_Feed_Builder_Header.setCloud_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setCloud_@__Feed_Builder_Header_php_1($uri;$procedure;$protocol):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111817">
+        <simple_name>Zend_Feed_Builder_Header.setCopyright_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setCopyright_@__Feed_Builder_Header_php_1($copyright):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112130">
+        <simple_name>Zend_Feed_Builder_Header.setDescription_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setDescription_@__Feed_Builder_Header_php_1($description):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111920">
+        <simple_name>Zend_Feed_Builder_Header.setEmail_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setEmail_@__Feed_Builder_Header_php_1($email):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111769">
+        <simple_name>Zend_Feed_Builder_Header.setGenerator_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setGenerator_@__Feed_Builder_Header_php_1($generator):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111787">
+        <simple_name>Zend_Feed_Builder_Header.setITunes_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setITunes_@__Feed_Builder_Header_php_1($itunes):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112188">
+        <simple_name>Zend_Feed_Builder_Header.setImage_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setImage_@__Feed_Builder_Header_php_1($image):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111635">
+        <simple_name>Zend_Feed_Builder_Header.setLanguage_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setLanguage_@__Feed_Builder_Header_php_1($language):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112113">
+        <simple_name>Zend_Feed_Builder_Header.setLastUpdate_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setLastUpdate_@__Feed_Builder_Header_php_1($lastUpdate):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111834">
+        <simple_name>Zend_Feed_Builder_Header.setPublishedDate_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setPublishedDate_@__Feed_Builder_Header_php_1($published):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111931">
+        <simple_name>Zend_Feed_Builder_Header.setRating_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setRating_@__Feed_Builder_Header_php_1($rating):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112076">
+        <simple_name>Zend_Feed_Builder_Header.setSkipDays_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setSkipDays_@__Feed_Builder_Header_php_1($days):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112171">
+        <simple_name>Zend_Feed_Builder_Header.setSkipHours_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setSkipHours_@__Feed_Builder_Header_php_1($hours):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112169">
+        <simple_name>Zend_Feed_Builder_Header.setTextInput_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setTextInput_@__Feed_Builder_Header_php_1($title;$description;$name;$link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112202">
+        <simple_name>Zend_Feed_Builder_Header.setTtl_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setTtl_@__Feed_Builder_Header_php_1($ttl):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111667">
+        <simple_name>Zend_Feed_Builder_Header.setWebmaster_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setWebmaster_@__Feed_Builder_Header_php_1($webmaster):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Feed_Builder_Header">
+      <method vuln_id="1111863">
+        <simple_name>Zend_Feed_Builder_Header.__construct_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__construct_@__Feed_Builder_Header_php_1($title;$link;$charset):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111644">
+        <simple_name>Zend_Feed_Builder_Header.__get_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__get_@__Feed_Builder_Header_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111624">
+        <simple_name>Zend_Feed_Builder_Header.__isset_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__isset_@__Feed_Builder_Header_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112057">
+        <simple_name>Zend_Feed_Builder_Header.__set_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__set_@__Feed_Builder_Header_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Builder_Header.__unset_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.__unset_@__Feed_Builder_Header_php_1($key):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111691">
+        <simple_name>Zend_Feed_Builder_Header.offsetExists</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetExists(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111687">
+        <simple_name>Zend_Feed_Builder_Header.offsetGet</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetGet(Arg#0):Variant</signature>
+        <info_rule id="481195"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.Messaging</property>
+      </method>
+      <method vuln_id="1111689">
+        <simple_name>Zend_Feed_Builder_Header.offsetSet</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetSet(Arg#0;Arg#1):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111758">
+        <simple_name>Zend_Feed_Builder_Header.offsetUnset</simple_name>
+        <signature>Zend_Feed_Builder_Header.offsetUnset(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111634">
+        <simple_name>Zend_Feed_Builder_Header.setAuthor_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setAuthor_@__Feed_Builder_Header_php_1($author):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111879">
+        <simple_name>Zend_Feed_Builder_Header.setCloud_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setCloud_@__Feed_Builder_Header_php_1($uri;$procedure;$protocol):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111817">
+        <simple_name>Zend_Feed_Builder_Header.setCopyright_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setCopyright_@__Feed_Builder_Header_php_1($copyright):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112130">
+        <simple_name>Zend_Feed_Builder_Header.setDescription_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setDescription_@__Feed_Builder_Header_php_1($description):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111920">
+        <simple_name>Zend_Feed_Builder_Header.setEmail_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setEmail_@__Feed_Builder_Header_php_1($email):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111769">
+        <simple_name>Zend_Feed_Builder_Header.setGenerator_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setGenerator_@__Feed_Builder_Header_php_1($generator):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111787">
+        <simple_name>Zend_Feed_Builder_Header.setITunes_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setITunes_@__Feed_Builder_Header_php_1($itunes):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112188">
+        <simple_name>Zend_Feed_Builder_Header.setImage_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setImage_@__Feed_Builder_Header_php_1($image):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111635">
+        <simple_name>Zend_Feed_Builder_Header.setLanguage_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setLanguage_@__Feed_Builder_Header_php_1($language):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112113">
+        <simple_name>Zend_Feed_Builder_Header.setLastUpdate_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setLastUpdate_@__Feed_Builder_Header_php_1($lastUpdate):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111834">
+        <simple_name>Zend_Feed_Builder_Header.setPublishedDate_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setPublishedDate_@__Feed_Builder_Header_php_1($published):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111931">
+        <simple_name>Zend_Feed_Builder_Header.setRating_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setRating_@__Feed_Builder_Header_php_1($rating):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112076">
+        <simple_name>Zend_Feed_Builder_Header.setSkipDays_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setSkipDays_@__Feed_Builder_Header_php_1($days):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112171">
+        <simple_name>Zend_Feed_Builder_Header.setSkipHours_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setSkipHours_@__Feed_Builder_Header_php_1($hours):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112169">
+        <simple_name>Zend_Feed_Builder_Header.setTextInput_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setTextInput_@__Feed_Builder_Header_php_1($title;$description;$name;$link):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting.Stored</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112202">
+        <simple_name>Zend_Feed_Builder_Header.setTtl_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setTtl_@__Feed_Builder_Header_php_1($ttl):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111667">
+        <simple_name>Zend_Feed_Builder_Header.setWebmaster_@__Feed_Builder_Header_php_1</simple_name>
+        <signature>Zend_Feed_Builder_Header.setWebmaster_@__Feed_Builder_Header_php_1($webmaster):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

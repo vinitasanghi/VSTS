@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XML_RPC_Value">
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Value.XML_RPC_Value</simple_name>
+        <signature>XML_RPC_Value.XML_RPC_Value($val;$type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092735">
+        <simple_name>XML_RPC_Value.addArray</simple_name>
+        <signature>XML_RPC_Value.addArray($vals):int</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092749">
+        <simple_name>XML_RPC_Value.addScalar</simple_name>
+        <signature>XML_RPC_Value.addScalar($val;$type):int</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092751">
+        <simple_name>XML_RPC_Value.addStruct</simple_name>
+        <signature>XML_RPC_Value.addStruct($vals):int</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092763">
+        <simple_name>XML_RPC_Value.arraymem</simple_name>
+        <signature>XML_RPC_Value.arraymem($m):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092756">
+        <simple_name>XML_RPC_Value.arraysize</simple_name>
+        <signature>XML_RPC_Value.arraysize():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092741">
+        <simple_name>XML_RPC_Value.dump</simple_name>
+        <signature>XML_RPC_Value.dump($ar):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092752">
+        <simple_name>XML_RPC_Value.getval</simple_name>
+        <signature>XML_RPC_Value.getval():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Value.isValue</simple_name>
+        <signature>XML_RPC_Value.isValue($val):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092768">
+        <simple_name>XML_RPC_Value.kindOf</simple_name>
+        <signature>XML_RPC_Value.kindOf():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092769">
+        <simple_name>XML_RPC_Value.scalartyp</simple_name>
+        <signature>XML_RPC_Value.scalartyp():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092753">
+        <simple_name>XML_RPC_Value.scalarval</simple_name>
+        <signature>XML_RPC_Value.scalarval():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092766">
+        <simple_name>XML_RPC_Value.serialize</simple_name>
+        <signature>XML_RPC_Value.serialize():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092767">
+        <simple_name>XML_RPC_Value.serializedata</simple_name>
+        <signature>XML_RPC_Value.serializedata($typ;$val):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092745">
+        <simple_name>XML_RPC_Value.serializeval</simple_name>
+        <signature>XML_RPC_Value.serializeval($o):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092731">
+        <simple_name>XML_RPC_Value.structeach</simple_name>
+        <signature>XML_RPC_Value.structeach():the</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Value.structmem</simple_name>
+        <signature>XML_RPC_Value.structmem($m):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092738">
+        <simple_name>XML_RPC_Value.structreset</simple_name>
+        <signature>XML_RPC_Value.structreset():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="XML_RPC_Value">
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Value.XML_RPC_Value</simple_name>
+        <signature>XML_RPC_Value.XML_RPC_Value($val;$type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092735">
+        <simple_name>XML_RPC_Value.addArray</simple_name>
+        <signature>XML_RPC_Value.addArray($vals):int</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092749">
+        <simple_name>XML_RPC_Value.addScalar</simple_name>
+        <signature>XML_RPC_Value.addScalar($val;$type):int</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092751">
+        <simple_name>XML_RPC_Value.addStruct</simple_name>
+        <signature>XML_RPC_Value.addStruct($vals):int</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092763">
+        <simple_name>XML_RPC_Value.arraymem</simple_name>
+        <signature>XML_RPC_Value.arraymem($m):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092756">
+        <simple_name>XML_RPC_Value.arraysize</simple_name>
+        <signature>XML_RPC_Value.arraysize():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092741">
+        <simple_name>XML_RPC_Value.dump</simple_name>
+        <signature>XML_RPC_Value.dump($ar):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092752">
+        <simple_name>XML_RPC_Value.getval</simple_name>
+        <signature>XML_RPC_Value.getval():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Value.isValue</simple_name>
+        <signature>XML_RPC_Value.isValue($val):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092768">
+        <simple_name>XML_RPC_Value.kindOf</simple_name>
+        <signature>XML_RPC_Value.kindOf():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092769">
+        <simple_name>XML_RPC_Value.scalartyp</simple_name>
+        <signature>XML_RPC_Value.scalartyp():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092753">
+        <simple_name>XML_RPC_Value.scalarval</simple_name>
+        <signature>XML_RPC_Value.scalarval():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092766">
+        <simple_name>XML_RPC_Value.serialize</simple_name>
+        <signature>XML_RPC_Value.serialize():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092767">
+        <simple_name>XML_RPC_Value.serializedata</simple_name>
+        <signature>XML_RPC_Value.serializedata($typ;$val):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092745">
+        <simple_name>XML_RPC_Value.serializeval</simple_name>
+        <signature>XML_RPC_Value.serializeval($o):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092731">
+        <simple_name>XML_RPC_Value.structeach</simple_name>
+        <signature>XML_RPC_Value.structeach():the</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>XML_RPC_Value.structmem</simple_name>
+        <signature>XML_RPC_Value.structmem($m):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092738">
+        <simple_name>XML_RPC_Value.structreset</simple_name>
+        <signature>XML_RPC_Value.structreset():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

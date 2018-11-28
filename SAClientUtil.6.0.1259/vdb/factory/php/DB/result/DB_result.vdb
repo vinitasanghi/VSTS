@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_result">
+      <method vuln_id="-1">
+        <simple_name>DB_result.DB_result</simple_name>
+        <signature>DB_result.DB_result($dbh;$result;$options):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090468">
+        <simple_name>DB_result.fetchInto</simple_name>
+        <signature>DB_result.fetchInto($arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480706"/>
+        <source_rule>
+          <tainted_output param="1" return="false"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090473">
+        <simple_name>DB_result.fetchRow</simple_name>
+        <signature>DB_result.fetchRow($fetchmode;$rownum):mixed</signature>
+        <info_rule id="480705"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090469">
+        <simple_name>DB_result.free</simple_name>
+        <signature>DB_result.free():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090480">
+        <simple_name>DB_result.getQuery</simple_name>
+        <signature>DB_result.getQuery():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090471">
+        <simple_name>DB_result.getRowCounter</simple_name>
+        <signature>DB_result.getRowCounter():integer</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090481">
+        <simple_name>DB_result.nextResult</simple_name>
+        <signature>DB_result.nextResult():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090467">
+        <simple_name>DB_result.numCols</simple_name>
+        <signature>DB_result.numCols():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090472">
+        <simple_name>DB_result.numRows</simple_name>
+        <signature>DB_result.numRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090474">
+        <simple_name>DB_result.setOption</simple_name>
+        <signature>DB_result.setOption($key;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_result.tableInfo</simple_name>
+        <signature>DB_result.tableInfo($mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_result">
+      <method vuln_id="-1">
+        <simple_name>DB_result.DB_result</simple_name>
+        <signature>DB_result.DB_result($dbh;$result;$options):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090468">
+        <simple_name>DB_result.fetchInto</simple_name>
+        <signature>DB_result.fetchInto($arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480706"/>
+        <source_rule>
+          <tainted_output param="1" return="false"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090473">
+        <simple_name>DB_result.fetchRow</simple_name>
+        <signature>DB_result.fetchRow($fetchmode;$rownum):mixed</signature>
+        <info_rule id="480705"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090469">
+        <simple_name>DB_result.free</simple_name>
+        <signature>DB_result.free():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090480">
+        <simple_name>DB_result.getQuery</simple_name>
+        <signature>DB_result.getQuery():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090471">
+        <simple_name>DB_result.getRowCounter</simple_name>
+        <signature>DB_result.getRowCounter():integer</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090481">
+        <simple_name>DB_result.nextResult</simple_name>
+        <signature>DB_result.nextResult():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090467">
+        <simple_name>DB_result.numCols</simple_name>
+        <signature>DB_result.numCols():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090472">
+        <simple_name>DB_result.numRows</simple_name>
+        <signature>DB_result.numRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090474">
+        <simple_name>DB_result.setOption</simple_name>
+        <signature>DB_result.setOption($key;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_result.tableInfo</simple_name>
+        <signature>DB_result.tableInfo($mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

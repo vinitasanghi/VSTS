@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="ZipArchive">
+      <method vuln_id="1122254">
+        <simple_name>ZipArchive.getFromName</simple_name>
+        <signature>ZipArchive.getFromName(Arg#0):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1090135">
+        <simple_name>___Php.ZipArchive.addEmptyDir</simple_name>
+        <signature>___Php.ZipArchive.addEmptyDir(___Php.String):bool</signature>
+        <info_rule id="457496"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090142">
+        <simple_name>___Php.ZipArchive.addFile</simple_name>
+        <signature>___Php.ZipArchive.addFile(___Php.String;___Php.String;int;int):bool</signature>
+        <info_rule id="457506"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090137">
+        <simple_name>___Php.ZipArchive.addFromString</simple_name>
+        <signature>___Php.ZipArchive.addFromString(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457498"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090150">
+        <simple_name>___Php.ZipArchive.close</simple_name>
+        <signature>___Php.ZipArchive.close():bool</signature>
+        <info_rule id="457516"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090120">
+        <simple_name>___Php.ZipArchive.createEmptyDir</simple_name>
+        <signature>___Php.ZipArchive.createEmptyDir(___Php.String):bool</signature>
+        <info_rule id="457477"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090146">
+        <simple_name>___Php.ZipArchive.deleteIndex</simple_name>
+        <signature>___Php.ZipArchive.deleteIndex(int):bool</signature>
+        <info_rule id="457512"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090155">
+        <simple_name>___Php.ZipArchive.deleteName</simple_name>
+        <signature>___Php.ZipArchive.deleteName(___Php.String):bool</signature>
+        <info_rule id="457522"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090147">
+        <simple_name>___Php.ZipArchive.extractTo</simple_name>
+        <signature>___Php.ZipArchive.extractTo(___Php.String;mixed):bool</signature>
+        <info_rule id="457513"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090124">
+        <simple_name>___Php.ZipArchive.getArchiveComment</simple_name>
+        <signature>___Php.ZipArchive.getArchiveComment():___Php.String</signature>
+        <info_rule id="457482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090127">
+        <simple_name>___Php.ZipArchive.getCommentIndex</simple_name>
+        <signature>___Php.ZipArchive.getCommentIndex(int;int):___Php.String</signature>
+        <info_rule id="457485"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090123">
+        <simple_name>___Php.ZipArchive.getCommentName</simple_name>
+        <signature>___Php.ZipArchive.getCommentName(___Php.String;int):___Php.String</signature>
+        <info_rule id="457481"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090119">
+        <simple_name>___Php.ZipArchive.getFromIndex</simple_name>
+        <signature>___Php.ZipArchive.getFromIndex(int;int):___Php.String</signature>
+        <info_rule id="457476"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090151">
+        <simple_name>___Php.ZipArchive.getFromName</simple_name>
+        <signature>___Php.ZipArchive.getFromName(___Php.String;int):___Php.String</signature>
+        <info_rule id="457517"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090130">
+        <simple_name>___Php.ZipArchive.getNameIndex</simple_name>
+        <signature>___Php.ZipArchive.getNameIndex(int):___Php.String</signature>
+        <info_rule id="457490"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090116">
+        <simple_name>___Php.ZipArchive.getStream</simple_name>
+        <signature>___Php.ZipArchive.getStream(___Php.String):int</signature>
+        <info_rule id="457472"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090131">
+        <simple_name>___Php.ZipArchive.locateName</simple_name>
+        <signature>___Php.ZipArchive.locateName(___Php.String;int):int</signature>
+        <info_rule id="457491"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090145">
+        <simple_name>___Php.ZipArchive.open</simple_name>
+        <signature>___Php.ZipArchive.open(___Php.String;int):bool</signature>
+        <info_rule id="457510"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090126">
+        <simple_name>___Php.ZipArchive.renameIndex</simple_name>
+        <signature>___Php.ZipArchive.renameIndex(int;___Php.String):bool</signature>
+        <info_rule id="457484"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090143">
+        <simple_name>___Php.ZipArchive.renameName</simple_name>
+        <signature>___Php.ZipArchive.renameName(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457507"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090129">
+        <simple_name>___Php.ZipArchive.setArchiveComment</simple_name>
+        <signature>___Php.ZipArchive.setArchiveComment(___Php.String):bool</signature>
+        <info_rule id="457489"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090140">
+        <simple_name>___Php.ZipArchive.setCommentIndex</simple_name>
+        <signature>___Php.ZipArchive.setCommentIndex(int;___Php.String):bool</signature>
+        <info_rule id="457502"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090141">
+        <simple_name>___Php.ZipArchive.setCommentName</simple_name>
+        <signature>___Php.ZipArchive.setCommentName(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457504"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090154">
+        <simple_name>___Php.ZipArchive.statIndex</simple_name>
+        <signature>___Php.ZipArchive.statIndex(int;int):___Php.Array</signature>
+        <info_rule id="457520"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090125">
+        <simple_name>___Php.ZipArchive.statName</simple_name>
+        <signature>___Php.ZipArchive.statName(___Php.String;int):___Php.Array</signature>
+        <info_rule id="457483"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090132">
+        <simple_name>___Php.ZipArchive.unchangeAll</simple_name>
+        <signature>___Php.ZipArchive.unchangeAll():bool</signature>
+        <info_rule id="457492"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090153">
+        <simple_name>___Php.ZipArchive.unchangeArchive</simple_name>
+        <signature>___Php.ZipArchive.unchangeArchive():bool</signature>
+        <info_rule id="457519"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090149">
+        <simple_name>___Php.ZipArchive.unchangeIndex</simple_name>
+        <signature>___Php.ZipArchive.unchangeIndex(int):bool</signature>
+        <info_rule id="457515"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090121">
+        <simple_name>___Php.ZipArchive.unchangeName</simple_name>
+        <signature>___Php.ZipArchive.unchangeName(___Php.String):bool</signature>
+        <info_rule id="457479"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+    </class>
+    <class name="ZipArchive">
+      <method vuln_id="1122254">
+        <simple_name>ZipArchive.getFromName</simple_name>
+        <signature>ZipArchive.getFromName(Arg#0):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1090135">
+        <simple_name>___Php.ZipArchive.addEmptyDir</simple_name>
+        <signature>___Php.ZipArchive.addEmptyDir(___Php.String):bool</signature>
+        <info_rule id="457496"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090142">
+        <simple_name>___Php.ZipArchive.addFile</simple_name>
+        <signature>___Php.ZipArchive.addFile(___Php.String;___Php.String;int;int):bool</signature>
+        <info_rule id="457506"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090137">
+        <simple_name>___Php.ZipArchive.addFromString</simple_name>
+        <signature>___Php.ZipArchive.addFromString(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457498"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090150">
+        <simple_name>___Php.ZipArchive.close</simple_name>
+        <signature>___Php.ZipArchive.close():bool</signature>
+        <info_rule id="457516"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090120">
+        <simple_name>___Php.ZipArchive.createEmptyDir</simple_name>
+        <signature>___Php.ZipArchive.createEmptyDir(___Php.String):bool</signature>
+        <info_rule id="457477"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090146">
+        <simple_name>___Php.ZipArchive.deleteIndex</simple_name>
+        <signature>___Php.ZipArchive.deleteIndex(int):bool</signature>
+        <info_rule id="457512"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090155">
+        <simple_name>___Php.ZipArchive.deleteName</simple_name>
+        <signature>___Php.ZipArchive.deleteName(___Php.String):bool</signature>
+        <info_rule id="457522"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090147">
+        <simple_name>___Php.ZipArchive.extractTo</simple_name>
+        <signature>___Php.ZipArchive.extractTo(___Php.String;mixed):bool</signature>
+        <info_rule id="457513"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090124">
+        <simple_name>___Php.ZipArchive.getArchiveComment</simple_name>
+        <signature>___Php.ZipArchive.getArchiveComment():___Php.String</signature>
+        <info_rule id="457482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090127">
+        <simple_name>___Php.ZipArchive.getCommentIndex</simple_name>
+        <signature>___Php.ZipArchive.getCommentIndex(int;int):___Php.String</signature>
+        <info_rule id="457485"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090123">
+        <simple_name>___Php.ZipArchive.getCommentName</simple_name>
+        <signature>___Php.ZipArchive.getCommentName(___Php.String;int):___Php.String</signature>
+        <info_rule id="457481"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090119">
+        <simple_name>___Php.ZipArchive.getFromIndex</simple_name>
+        <signature>___Php.ZipArchive.getFromIndex(int;int):___Php.String</signature>
+        <info_rule id="457476"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090151">
+        <simple_name>___Php.ZipArchive.getFromName</simple_name>
+        <signature>___Php.ZipArchive.getFromName(___Php.String;int):___Php.String</signature>
+        <info_rule id="457517"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090130">
+        <simple_name>___Php.ZipArchive.getNameIndex</simple_name>
+        <signature>___Php.ZipArchive.getNameIndex(int):___Php.String</signature>
+        <info_rule id="457490"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090116">
+        <simple_name>___Php.ZipArchive.getStream</simple_name>
+        <signature>___Php.ZipArchive.getStream(___Php.String):int</signature>
+        <info_rule id="457472"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090131">
+        <simple_name>___Php.ZipArchive.locateName</simple_name>
+        <signature>___Php.ZipArchive.locateName(___Php.String;int):int</signature>
+        <info_rule id="457491"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090145">
+        <simple_name>___Php.ZipArchive.open</simple_name>
+        <signature>___Php.ZipArchive.open(___Php.String;int):bool</signature>
+        <info_rule id="457510"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090126">
+        <simple_name>___Php.ZipArchive.renameIndex</simple_name>
+        <signature>___Php.ZipArchive.renameIndex(int;___Php.String):bool</signature>
+        <info_rule id="457484"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090143">
+        <simple_name>___Php.ZipArchive.renameName</simple_name>
+        <signature>___Php.ZipArchive.renameName(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457507"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090129">
+        <simple_name>___Php.ZipArchive.setArchiveComment</simple_name>
+        <signature>___Php.ZipArchive.setArchiveComment(___Php.String):bool</signature>
+        <info_rule id="457489"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090140">
+        <simple_name>___Php.ZipArchive.setCommentIndex</simple_name>
+        <signature>___Php.ZipArchive.setCommentIndex(int;___Php.String):bool</signature>
+        <info_rule id="457502"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090141">
+        <simple_name>___Php.ZipArchive.setCommentName</simple_name>
+        <signature>___Php.ZipArchive.setCommentName(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457504"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090154">
+        <simple_name>___Php.ZipArchive.statIndex</simple_name>
+        <signature>___Php.ZipArchive.statIndex(int;int):___Php.Array</signature>
+        <info_rule id="457520"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090125">
+        <simple_name>___Php.ZipArchive.statName</simple_name>
+        <signature>___Php.ZipArchive.statName(___Php.String;int):___Php.Array</signature>
+        <info_rule id="457483"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090132">
+        <simple_name>___Php.ZipArchive.unchangeAll</simple_name>
+        <signature>___Php.ZipArchive.unchangeAll():bool</signature>
+        <info_rule id="457492"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090153">
+        <simple_name>___Php.ZipArchive.unchangeArchive</simple_name>
+        <signature>___Php.ZipArchive.unchangeArchive():bool</signature>
+        <info_rule id="457519"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090149">
+        <simple_name>___Php.ZipArchive.unchangeIndex</simple_name>
+        <signature>___Php.ZipArchive.unchangeIndex(int):bool</signature>
+        <info_rule id="457515"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+      <method vuln_id="1090121">
+        <simple_name>___Php.ZipArchive.unchangeName</simple_name>
+        <signature>___Php.ZipArchive.unchangeName(___Php.String):bool</signature>
+        <info_rule id="457479"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Compression</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

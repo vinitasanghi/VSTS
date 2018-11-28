@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Mail_RFC822">
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822.Mail_RFC822</simple_name>
+        <signature>Mail_RFC822.Mail_RFC822($address;$default_domain;$nest_groups;$validate;$limit):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._hasUnclosedBrackets</simple_name>
+        <signature>Mail_RFC822._hasUnclosedBrackets($string;$chars):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._hasUnclosedBracketsSub</simple_name>
+        <signature>Mail_RFC822._hasUnclosedBracketsSub($string;$num;$char):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._hasUnclosedQuotes</simple_name>
+        <signature>Mail_RFC822._hasUnclosedQuotes($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._isGroup</simple_name>
+        <signature>Mail_RFC822._isGroup($address):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._splitAddresses</simple_name>
+        <signature>Mail_RFC822._splitAddresses($address):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._splitCheck</simple_name>
+        <signature>Mail_RFC822._splitCheck($parts;$char):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateAddrSpec</simple_name>
+        <signature>Mail_RFC822._validateAddrSpec($addr_spec):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateAddress</simple_name>
+        <signature>Mail_RFC822._validateAddress($address):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateAtom</simple_name>
+        <signature>Mail_RFC822._validateAtom($atom):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateDliteral</simple_name>
+        <signature>Mail_RFC822._validateDliteral($dliteral):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateDomain</simple_name>
+        <signature>Mail_RFC822._validateDomain($domain):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateLocalPart</simple_name>
+        <signature>Mail_RFC822._validateLocalPart($local_part):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validatePhrase</simple_name>
+        <signature>Mail_RFC822._validatePhrase($phrase):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateQuotedString</simple_name>
+        <signature>Mail_RFC822._validateQuotedString($qstring):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateRoute</simple_name>
+        <signature>Mail_RFC822._validateRoute($route):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateRouteAddr</simple_name>
+        <signature>Mail_RFC822._validateRouteAddr($route_addr):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateSubdomain</simple_name>
+        <signature>Mail_RFC822._validateSubdomain($subdomain):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092474">
+        <simple_name>Mail_RFC822.approximateCount</simple_name>
+        <signature>Mail_RFC822.approximateCount($data):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092473">
+        <simple_name>Mail_RFC822.isValidInetAddress</simple_name>
+        <signature>Mail_RFC822.isValidInetAddress($data;$strict):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092475">
+        <simple_name>Mail_RFC822.parseAddressList</simple_name>
+        <signature>Mail_RFC822.parseAddressList($address;$default_domain;$nest_groups;$validate;$limit):array</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092476">
+        <simple_name>Mail_RFC822.validateMailbox</simple_name>
+        <signature>Mail_RFC822.validateMailbox($mailbox):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Mail_RFC822">
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822.Mail_RFC822</simple_name>
+        <signature>Mail_RFC822.Mail_RFC822($address;$default_domain;$nest_groups;$validate;$limit):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._hasUnclosedBrackets</simple_name>
+        <signature>Mail_RFC822._hasUnclosedBrackets($string;$chars):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._hasUnclosedBracketsSub</simple_name>
+        <signature>Mail_RFC822._hasUnclosedBracketsSub($string;$num;$char):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._hasUnclosedQuotes</simple_name>
+        <signature>Mail_RFC822._hasUnclosedQuotes($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._isGroup</simple_name>
+        <signature>Mail_RFC822._isGroup($address):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._splitAddresses</simple_name>
+        <signature>Mail_RFC822._splitAddresses($address):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._splitCheck</simple_name>
+        <signature>Mail_RFC822._splitCheck($parts;$char):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateAddrSpec</simple_name>
+        <signature>Mail_RFC822._validateAddrSpec($addr_spec):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateAddress</simple_name>
+        <signature>Mail_RFC822._validateAddress($address):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateAtom</simple_name>
+        <signature>Mail_RFC822._validateAtom($atom):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateDliteral</simple_name>
+        <signature>Mail_RFC822._validateDliteral($dliteral):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateDomain</simple_name>
+        <signature>Mail_RFC822._validateDomain($domain):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateLocalPart</simple_name>
+        <signature>Mail_RFC822._validateLocalPart($local_part):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validatePhrase</simple_name>
+        <signature>Mail_RFC822._validatePhrase($phrase):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateQuotedString</simple_name>
+        <signature>Mail_RFC822._validateQuotedString($qstring):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateRoute</simple_name>
+        <signature>Mail_RFC822._validateRoute($route):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateRouteAddr</simple_name>
+        <signature>Mail_RFC822._validateRouteAddr($route_addr):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail_RFC822._validateSubdomain</simple_name>
+        <signature>Mail_RFC822._validateSubdomain($subdomain):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092474">
+        <simple_name>Mail_RFC822.approximateCount</simple_name>
+        <signature>Mail_RFC822.approximateCount($data):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092473">
+        <simple_name>Mail_RFC822.isValidInetAddress</simple_name>
+        <signature>Mail_RFC822.isValidInetAddress($data;$strict):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092475">
+        <simple_name>Mail_RFC822.parseAddressList</simple_name>
+        <signature>Mail_RFC822.parseAddressList($address;$default_domain;$nest_groups;$validate;$limit):array</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092476">
+        <simple_name>Mail_RFC822.validateMailbox</simple_name>
+        <signature>Mail_RFC822.validateMailbox($mailbox):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

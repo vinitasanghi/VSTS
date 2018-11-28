@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Console_Getopt">
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._isLongOpt</simple_name>
+        <signature>Console_Getopt._isLongOpt($arg):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._isShortOpt</simple_name>
+        <signature>Console_Getopt._isShortOpt($arg):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._parseLongOption</simple_name>
+        <signature>Console_Getopt._parseLongOption($arg;$long_options;$opts;$args):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._parseShortOption</simple_name>
+        <signature>Console_Getopt._parseShortOption($arg;$short_options;$opts;$args):mixed</signature>
+      </method>
+      <method vuln_id="1090462">
+        <simple_name>Console_Getopt.doGetopt</simple_name>
+        <signature>Console_Getopt.doGetopt($version;$args;$short_options;$long_options):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090461">
+        <simple_name>Console_Getopt.getopt</simple_name>
+        <signature>Console_Getopt.getopt($args;$short_options;$long_options):void</signature>
+        <info_rule id="480704"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt.getopt</simple_name>
+        <signature>Console_Getopt.getopt():Variant</signature>
+      </method>
+      <method vuln_id="1090464">
+        <simple_name>Console_Getopt.getopt2</simple_name>
+        <signature>Console_Getopt.getopt2($args;$short_options;$long_options):array</signature>
+        <info_rule id="480702"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt.getopt2</simple_name>
+        <signature>Console_Getopt.getopt2():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt.readPHPArgv</simple_name>
+        <signature>Console_Getopt.readPHPArgv():Variant</signature>
+      </method>
+      <method vuln_id="1090463">
+        <simple_name>Console_Getopt.readPHPArgv</simple_name>
+        <signature>Console_Getopt.readPHPArgv():mixed</signature>
+        <info_rule id="480703"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+    </class>
+    <class name="Console_Getopt">
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._isLongOpt</simple_name>
+        <signature>Console_Getopt._isLongOpt($arg):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._isShortOpt</simple_name>
+        <signature>Console_Getopt._isShortOpt($arg):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._parseLongOption</simple_name>
+        <signature>Console_Getopt._parseLongOption($arg;$long_options;$opts;$args):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt._parseShortOption</simple_name>
+        <signature>Console_Getopt._parseShortOption($arg;$short_options;$opts;$args):mixed</signature>
+      </method>
+      <method vuln_id="1090462">
+        <simple_name>Console_Getopt.doGetopt</simple_name>
+        <signature>Console_Getopt.doGetopt($version;$args;$short_options;$long_options):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090461">
+        <simple_name>Console_Getopt.getopt</simple_name>
+        <signature>Console_Getopt.getopt($args;$short_options;$long_options):void</signature>
+        <info_rule id="480704"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt.getopt</simple_name>
+        <signature>Console_Getopt.getopt():Variant</signature>
+      </method>
+      <method vuln_id="1090464">
+        <simple_name>Console_Getopt.getopt2</simple_name>
+        <signature>Console_Getopt.getopt2($args;$short_options;$long_options):array</signature>
+        <info_rule id="480702"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt.getopt2</simple_name>
+        <signature>Console_Getopt.getopt2():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Console_Getopt.readPHPArgv</simple_name>
+        <signature>Console_Getopt.readPHPArgv():Variant</signature>
+      </method>
+      <method vuln_id="1090463">
+        <simple_name>Console_Getopt.readPHPArgv</simple_name>
+        <signature>Console_Getopt.readPHPArgv():mixed</signature>
+        <info_rule id="480703"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

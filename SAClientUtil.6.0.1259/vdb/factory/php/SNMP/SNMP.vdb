@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SNMP">
+      <method vuln_id="1350681">
+        <simple_name>___Php.SNMP.__construct</simple_name>
+        <signature>___Php.SNMP.__construct(int;___Php.String;___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1350682">
+        <simple_name>___Php.SNMP.__construct</simple_name>
+        <signature>___Php.SNMP.__construct(int;___Php.String;___Php.String;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1350683">
+        <simple_name>___Php.SNMP.__construct</simple_name>
+        <signature>___Php.SNMP.__construct(int;___Php.String;___Php.String;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1350684">
+        <simple_name>___Php.SNMP.close</simple_name>
+        <signature>___Php.SNMP.close():bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1350685">
+        <simple_name>___Php.SNMP.get</simple_name>
+        <signature>___Php.SNMP.get(mixed):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350686">
+        <simple_name>___Php.SNMP.get</simple_name>
+        <signature>___Php.SNMP.get(mixed;bool):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350687">
+        <simple_name>___Php.SNMP.getErrno</simple_name>
+        <signature>___Php.SNMP.getErrno():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1350688">
+        <simple_name>___Php.SNMP.getnext</simple_name>
+        <signature>___Php.SNMP.getnext(mixed):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350689">
+        <simple_name>___Php.SNMP.set</simple_name>
+        <signature>___Php.SNMP.set(mixed;mixed;mixed):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350690">
+        <simple_name>___Php.SNMP.setSecurity</simple_name>
+        <signature>___Php.SNMP.setSecurity(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="3,5"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="509980">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="High" min_confidence="Medium" operator="compile_time_constant" option_name="argument_value" parameter_position="3,5" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350691">
+        <simple_name>___Php.SNMP.walk</simple_name>
+        <signature>___Php.SNMP.walk(___Php.String;bool;int;int):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+    </class>
+    <class name="SNMP">
+      <method vuln_id="1350681">
+        <simple_name>___Php.SNMP.__construct</simple_name>
+        <signature>___Php.SNMP.__construct(int;___Php.String;___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1350682">
+        <simple_name>___Php.SNMP.__construct</simple_name>
+        <signature>___Php.SNMP.__construct(int;___Php.String;___Php.String;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1350683">
+        <simple_name>___Php.SNMP.__construct</simple_name>
+        <signature>___Php.SNMP.__construct(int;___Php.String;___Php.String;int;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="default"/>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1350684">
+        <simple_name>___Php.SNMP.close</simple_name>
+        <signature>___Php.SNMP.close():bool</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1350685">
+        <simple_name>___Php.SNMP.get</simple_name>
+        <signature>___Php.SNMP.get(mixed):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350686">
+        <simple_name>___Php.SNMP.get</simple_name>
+        <signature>___Php.SNMP.get(mixed;bool):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350687">
+        <simple_name>___Php.SNMP.getErrno</simple_name>
+        <signature>___Php.SNMP.getErrno():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1350688">
+        <simple_name>___Php.SNMP.getnext</simple_name>
+        <signature>___Php.SNMP.getnext(mixed):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350689">
+        <simple_name>___Php.SNMP.set</simple_name>
+        <signature>___Php.SNMP.set(mixed;mixed;mixed):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="3"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350690">
+        <simple_name>___Php.SNMP.setSecurity</simple_name>
+        <signature>___Php.SNMP.setSecurity(___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;___Php.String;):bool</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="3,5"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="509980">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="High" min_confidence="Medium" operator="compile_time_constant" option_name="argument_value" parameter_position="3,5" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+      <method vuln_id="1350691">
+        <simple_name>___Php.SNMP.walk</simple_name>
+        <signature>___Php.SNMP.walk(___Php.String;bool;int;int):___Php.Array</signature>
+        <does_not_propagate_taint/>
+        <property>Technology.IO</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

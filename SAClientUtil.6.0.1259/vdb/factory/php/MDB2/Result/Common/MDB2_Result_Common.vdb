@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_Result_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.MDB2_Result_Common</simple_name>
+        <signature>MDB2_Result_Common.MDB2_Result_Common($db;$result;$limit;$offset):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.__construct</simple_name>
+        <signature>MDB2_Result_Common.__construct($db;$result;$limit;$offset):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common._assignBindColumns</simple_name>
+        <signature>MDB2_Result_Common._assignBindColumns($row):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common._getColumnNames</simple_name>
+        <signature>MDB2_Result_Common._getColumnNames():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091711">
+        <simple_name>MDB2_Result_Common.bindColumn</simple_name>
+        <signature>MDB2_Result_Common.bindColumn($column;$value;$type):mixed</signature>
+        <propagates_taint dst_param="2" return="false" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091791">
+        <simple_name>MDB2_Result_Common.fetchAll</simple_name>
+        <signature>MDB2_Result_Common.fetchAll($fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480783"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091756">
+        <simple_name>MDB2_Result_Common.fetchCol</simple_name>
+        <signature>MDB2_Result_Common.fetchCol($colnum):mixed</signature>
+        <info_rule id="480784"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091787">
+        <simple_name>MDB2_Result_Common.fetchOne</simple_name>
+        <signature>MDB2_Result_Common.fetchOne($colnum;$rownum):string</signature>
+        <info_rule id="480779"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091779">
+        <simple_name>MDB2_Result_Common.fetchRow</simple_name>
+        <signature>MDB2_Result_Common.fetchRow($fetchmode;$rownum):int</signature>
+        <info_rule id="480786"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.free</simple_name>
+        <signature>MDB2_Result_Common.free():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091769">
+        <simple_name>MDB2_Result_Common.getColumnNames</simple_name>
+        <signature>MDB2_Result_Common.getColumnNames($flip):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091788">
+        <simple_name>MDB2_Result_Common.getResource</simple_name>
+        <signature>MDB2_Result_Common.getResource():resource</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091753">
+        <simple_name>MDB2_Result_Common.nextResult</simple_name>
+        <signature>MDB2_Result_Common.nextResult():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091709">
+        <simple_name>MDB2_Result_Common.numCols</simple_name>
+        <signature>MDB2_Result_Common.numCols():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091717">
+        <simple_name>MDB2_Result_Common.numRows</simple_name>
+        <signature>MDB2_Result_Common.numRows():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091707">
+        <simple_name>MDB2_Result_Common.rowCount</simple_name>
+        <signature>MDB2_Result_Common.rowCount():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.seek</simple_name>
+        <signature>MDB2_Result_Common.seek($rownum):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.setResultTypes</simple_name>
+        <signature>MDB2_Result_Common.setResultTypes($types):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_Result_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.MDB2_Result_Common</simple_name>
+        <signature>MDB2_Result_Common.MDB2_Result_Common($db;$result;$limit;$offset):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.__construct</simple_name>
+        <signature>MDB2_Result_Common.__construct($db;$result;$limit;$offset):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common._assignBindColumns</simple_name>
+        <signature>MDB2_Result_Common._assignBindColumns($row):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common._getColumnNames</simple_name>
+        <signature>MDB2_Result_Common._getColumnNames():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091711">
+        <simple_name>MDB2_Result_Common.bindColumn</simple_name>
+        <signature>MDB2_Result_Common.bindColumn($column;$value;$type):mixed</signature>
+        <propagates_taint dst_param="2" return="false" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091791">
+        <simple_name>MDB2_Result_Common.fetchAll</simple_name>
+        <signature>MDB2_Result_Common.fetchAll($fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480783"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091756">
+        <simple_name>MDB2_Result_Common.fetchCol</simple_name>
+        <signature>MDB2_Result_Common.fetchCol($colnum):mixed</signature>
+        <info_rule id="480784"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091787">
+        <simple_name>MDB2_Result_Common.fetchOne</simple_name>
+        <signature>MDB2_Result_Common.fetchOne($colnum;$rownum):string</signature>
+        <info_rule id="480779"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091779">
+        <simple_name>MDB2_Result_Common.fetchRow</simple_name>
+        <signature>MDB2_Result_Common.fetchRow($fetchmode;$rownum):int</signature>
+        <info_rule id="480786"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.free</simple_name>
+        <signature>MDB2_Result_Common.free():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091769">
+        <simple_name>MDB2_Result_Common.getColumnNames</simple_name>
+        <signature>MDB2_Result_Common.getColumnNames($flip):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091788">
+        <simple_name>MDB2_Result_Common.getResource</simple_name>
+        <signature>MDB2_Result_Common.getResource():resource</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091753">
+        <simple_name>MDB2_Result_Common.nextResult</simple_name>
+        <signature>MDB2_Result_Common.nextResult():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091709">
+        <simple_name>MDB2_Result_Common.numCols</simple_name>
+        <signature>MDB2_Result_Common.numCols():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091717">
+        <simple_name>MDB2_Result_Common.numRows</simple_name>
+        <signature>MDB2_Result_Common.numRows():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091707">
+        <simple_name>MDB2_Result_Common.rowCount</simple_name>
+        <signature>MDB2_Result_Common.rowCount():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.seek</simple_name>
+        <signature>MDB2_Result_Common.seek($rownum):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Result_Common.setResultTypes</simple_name>
+        <signature>MDB2_Result_Common.setResultTypes($types):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

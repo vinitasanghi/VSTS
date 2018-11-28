@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Filter_Input">
+      <method vuln_id="1112354">
+        <simple_name>Zend_Filter_Input.__construct_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.__construct_@__Filter_Input_php_1($filterRules;$validatorRules;$data;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112484">
+        <simple_name>Zend_Filter_Input.__get_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.__get_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112384">
+        <simple_name>Zend_Filter_Input.__isset_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.__isset_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._escapeRecursive_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._escapeRecursive_@__Filter_Input_php_1($data):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._filterRule_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._filterRule_@__Filter_Input_php_1($filterRule):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._filter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._filter_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getDefaultEscapeFilter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getDefaultEscapeFilter_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getFilterOrValidator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getFilterOrValidator_@__Filter_Input_php_1($type;$classBaseName):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getFilter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getFilter_@__Filter_Input_php_1($classBaseName):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getMissingMessage_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getMissingMessage_@__Filter_Input_php_1($rule;$field):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getNotEmptyMessage_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getNotEmptyMessage_@__Filter_Input_php_1($rule;$field):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getValidator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getValidator_@__Filter_Input_php_1($classBaseName):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._process_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._process_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._validateRule_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._validateRule_@__Filter_Input_php_1($validatorRule):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._validate_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._validate_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112540">
+        <simple_name>Zend_Filter_Input.addFilterPrefixPath_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.addFilterPrefixPath_@__Filter_Input_php_1($prefix;$path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112525">
+        <simple_name>Zend_Filter_Input.addNamespace_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.addNamespace_@__Filter_Input_php_1($namespaces):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112453">
+        <simple_name>Zend_Filter_Input.addValidatorPrefixPath_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.addValidatorPrefixPath_@__Filter_Input_php_1($prefix;$path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112534">
+        <simple_name>Zend_Filter_Input.getErrors_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getErrors_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112383">
+        <simple_name>Zend_Filter_Input.getEscaped_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getEscaped_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112435">
+        <simple_name>Zend_Filter_Input.getInvalid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getInvalid_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112557">
+        <simple_name>Zend_Filter_Input.getMessages_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getMessages_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112362">
+        <simple_name>Zend_Filter_Input.getMissing_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getMissing_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112495">
+        <simple_name>Zend_Filter_Input.getPluginLoader_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getPluginLoader_@__Filter_Input_php_1($type):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112493">
+        <simple_name>Zend_Filter_Input.getTranslator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getTranslator_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112402">
+        <simple_name>Zend_Filter_Input.getUnescaped_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getUnescaped_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112339">
+        <simple_name>Zend_Filter_Input.getUnknown_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getUnknown_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112533">
+        <simple_name>Zend_Filter_Input.hasInvalid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasInvalid_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112433">
+        <simple_name>Zend_Filter_Input.hasMissing_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasMissing_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112563">
+        <simple_name>Zend_Filter_Input.hasUnknown_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasUnknown_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112575">
+        <simple_name>Zend_Filter_Input.hasValid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasValid_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112327">
+        <simple_name>Zend_Filter_Input.isValid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.isValid_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input.process_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.process_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112464">
+        <simple_name>Zend_Filter_Input.setData_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setData_@__Filter_Input_php_1($data):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112528">
+        <simple_name>Zend_Filter_Input.setDefaultEscapeFilter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setDefaultEscapeFilter_@__Filter_Input_php_1($escapeFilter):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112502">
+        <simple_name>Zend_Filter_Input.setDisableTranslator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setDisableTranslator_@__Filter_Input_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112558">
+        <simple_name>Zend_Filter_Input.setOptions_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setOptions_@__Filter_Input_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112522">
+        <simple_name>Zend_Filter_Input.setPluginLoader_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setPluginLoader_@__Filter_Input_php_1($loader;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112366">
+        <simple_name>Zend_Filter_Input.setTranslator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setTranslator_@__Filter_Input_php_1($translator):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input.translatorIsDisabled_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.translatorIsDisabled_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Filter_Input">
+      <method vuln_id="1112354">
+        <simple_name>Zend_Filter_Input.__construct_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.__construct_@__Filter_Input_php_1($filterRules;$validatorRules;$data;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112484">
+        <simple_name>Zend_Filter_Input.__get_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.__get_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112384">
+        <simple_name>Zend_Filter_Input.__isset_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.__isset_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._escapeRecursive_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._escapeRecursive_@__Filter_Input_php_1($data):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._filterRule_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._filterRule_@__Filter_Input_php_1($filterRule):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._filter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._filter_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getDefaultEscapeFilter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getDefaultEscapeFilter_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getFilterOrValidator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getFilterOrValidator_@__Filter_Input_php_1($type;$classBaseName):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getFilter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getFilter_@__Filter_Input_php_1($classBaseName):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getMissingMessage_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getMissingMessage_@__Filter_Input_php_1($rule;$field):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getNotEmptyMessage_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getNotEmptyMessage_@__Filter_Input_php_1($rule;$field):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._getValidator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._getValidator_@__Filter_Input_php_1($classBaseName):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._process_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._process_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._validateRule_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._validateRule_@__Filter_Input_php_1($validatorRule):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input._validate_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input._validate_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112540">
+        <simple_name>Zend_Filter_Input.addFilterPrefixPath_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.addFilterPrefixPath_@__Filter_Input_php_1($prefix;$path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112525">
+        <simple_name>Zend_Filter_Input.addNamespace_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.addNamespace_@__Filter_Input_php_1($namespaces):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112453">
+        <simple_name>Zend_Filter_Input.addValidatorPrefixPath_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.addValidatorPrefixPath_@__Filter_Input_php_1($prefix;$path):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112534">
+        <simple_name>Zend_Filter_Input.getErrors_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getErrors_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112383">
+        <simple_name>Zend_Filter_Input.getEscaped_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getEscaped_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112435">
+        <simple_name>Zend_Filter_Input.getInvalid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getInvalid_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112557">
+        <simple_name>Zend_Filter_Input.getMessages_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getMessages_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112362">
+        <simple_name>Zend_Filter_Input.getMissing_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getMissing_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112495">
+        <simple_name>Zend_Filter_Input.getPluginLoader_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getPluginLoader_@__Filter_Input_php_1($type):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112493">
+        <simple_name>Zend_Filter_Input.getTranslator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getTranslator_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112402">
+        <simple_name>Zend_Filter_Input.getUnescaped_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getUnescaped_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112339">
+        <simple_name>Zend_Filter_Input.getUnknown_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.getUnknown_@__Filter_Input_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112533">
+        <simple_name>Zend_Filter_Input.hasInvalid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasInvalid_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112433">
+        <simple_name>Zend_Filter_Input.hasMissing_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasMissing_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112563">
+        <simple_name>Zend_Filter_Input.hasUnknown_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasUnknown_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112575">
+        <simple_name>Zend_Filter_Input.hasValid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.hasValid_@__Filter_Input_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112327">
+        <simple_name>Zend_Filter_Input.isValid_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.isValid_@__Filter_Input_php_1($fieldName):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input.process_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.process_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112464">
+        <simple_name>Zend_Filter_Input.setData_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setData_@__Filter_Input_php_1($data):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112528">
+        <simple_name>Zend_Filter_Input.setDefaultEscapeFilter_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setDefaultEscapeFilter_@__Filter_Input_php_1($escapeFilter):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112502">
+        <simple_name>Zend_Filter_Input.setDisableTranslator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setDisableTranslator_@__Filter_Input_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112558">
+        <simple_name>Zend_Filter_Input.setOptions_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setOptions_@__Filter_Input_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112522">
+        <simple_name>Zend_Filter_Input.setPluginLoader_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setPluginLoader_@__Filter_Input_php_1($loader;$type):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112366">
+        <simple_name>Zend_Filter_Input.setTranslator_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.setTranslator_@__Filter_Input_php_1($translator):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Filter_Input.translatorIsDisabled_@__Filter_Input_php_1</simple_name>
+        <signature>Zend_Filter_Input.translatorIsDisabled_@__Filter_Input_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

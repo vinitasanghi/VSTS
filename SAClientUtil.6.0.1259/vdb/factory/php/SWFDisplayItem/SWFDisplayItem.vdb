@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SWFDisplayItem">
+      <method vuln_id="1087481">
+        <simple_name>___Php.SWFDisplayItem.addAction</simple_name>
+        <signature>___Php.SWFDisplayItem.addAction(___Php.SWFAction;int):void</signature>
+        <info_rule id="454595"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Adds this SWFAction to the given SWFSprite instance</comment>
+      </method>
+      <method vuln_id="1087432">
+        <simple_name>___Php.SWFDisplayItem.addColor</simple_name>
+        <signature>___Php.SWFDisplayItem.addColor(int;int;int;int):void</signature>
+        <info_rule id="454544"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the add color part of this SWFDisplayItem's CXform to (r,g,b,a),a defaults to 0</comment>
+      </method>
+      <method vuln_id="1087436">
+        <simple_name>___Php.SWFDisplayItem.endMask</simple_name>
+        <signature>___Php.SWFDisplayItem.endMask():void</signature>
+        <info_rule id="454548"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>another way of defining a MASK layer</comment>
+      </method>
+      <method vuln_id="1087399">
+        <simple_name>___Php.SWFDisplayItem.getRot</simple_name>
+        <signature>___Php.SWFDisplayItem.getRot():float</signature>
+        <info_rule id="454508"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087401">
+        <simple_name>___Php.SWFDisplayItem.getX</simple_name>
+        <signature>___Php.SWFDisplayItem.getX():float</signature>
+        <info_rule id="454511"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087504">
+        <simple_name>___Php.SWFDisplayItem.getXScale</simple_name>
+        <signature>___Php.SWFDisplayItem.getXScale():float</signature>
+        <info_rule id="454621"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087406">
+        <simple_name>___Php.SWFDisplayItem.getXSkew</simple_name>
+        <signature>___Php.SWFDisplayItem.getXSkew():float</signature>
+        <info_rule id="454516"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087403">
+        <simple_name>___Php.SWFDisplayItem.getY</simple_name>
+        <signature>___Php.SWFDisplayItem.getY():float</signature>
+        <info_rule id="454513"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087519">
+        <simple_name>___Php.SWFDisplayItem.getYScale</simple_name>
+        <signature>___Php.SWFDisplayItem.getYScale():float</signature>
+        <info_rule id="454636"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087411">
+        <simple_name>___Php.SWFDisplayItem.getYSkew</simple_name>
+        <signature>___Php.SWFDisplayItem.getYSkew():float</signature>
+        <info_rule id="454522"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087482">
+        <simple_name>___Php.SWFDisplayItem.move</simple_name>
+        <signature>___Php.SWFDisplayItem.move(int;int):void</signature>
+        <info_rule id="454596"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Displaces this SWFDisplayItem by (dx,dy) in movie coordinates</comment>
+      </method>
+      <method vuln_id="1087470">
+        <simple_name>___Php.SWFDisplayItem.moveTo</simple_name>
+        <signature>___Php.SWFDisplayItem.moveTo(int;int):void</signature>
+        <info_rule id="454583"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves this SWFDisplayItem to movie coordinates (x,y)</comment>
+      </method>
+      <method vuln_id="1087498">
+        <simple_name>___Php.SWFDisplayItem.multColor</simple_name>
+        <signature>___Php.SWFDisplayItem.multColor(int;int;int;int):void</signature>
+        <info_rule id="454614"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the multiply color part of this SWFDisplayItem's CXform to (r,g,b,a),a defaults to 1.0</comment>
+      </method>
+      <method vuln_id="1087523">
+        <simple_name>___Php.SWFDisplayItem.remove</simple_name>
+        <signature>___Php.SWFDisplayItem.remove(void):void</signature>
+        <info_rule id="454640"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Removes the object from the movie</comment>
+      </method>
+      <method vuln_id="1087489">
+        <simple_name>___Php.SWFDisplayItem.rotate</simple_name>
+        <signature>___Php.SWFDisplayItem.rotate(float):void</signature>
+        <info_rule id="454604"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Rotates this SWFDisplayItem the given (clockwise) degrees from its current orientation</comment>
+      </method>
+      <method vuln_id="1087416">
+        <simple_name>___Php.SWFDisplayItem.rotateTo</simple_name>
+        <signature>___Php.SWFDisplayItem.rotateTo(float):void</signature>
+        <info_rule id="454528"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Rotates this SWFDisplayItem the given (clockwise) degrees from its original orientation</comment>
+      </method>
+      <method vuln_id="1087474">
+        <simple_name>___Php.SWFDisplayItem.scale</simple_name>
+        <signature>___Php.SWFDisplayItem.scale(int;int):void</signature>
+        <info_rule id="454587"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Multiplies this SWFDisplayItem's current x scale by xScale,its y scale by yScale</comment>
+      </method>
+      <method vuln_id="1087438">
+        <simple_name>___Php.SWFDisplayItem.scaleTo</simple_name>
+        <signature>___Php.SWFDisplayItem.scaleTo(int;int):void</signature>
+        <info_rule id="454550"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Scales this SWFDisplayItem by xScale in the x direction,yScale in the y,or both to xScale if only one arg</comment>
+      </method>
+      <method vuln_id="1087488">
+        <simple_name>___Php.SWFDisplayItem.setDepth</simple_name>
+        <signature>___Php.SWFDisplayItem.setDepth(int):void</signature>
+        <info_rule id="454603"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's z-depth to depth. Items with higher depth values are drawn on top of those with lower values</comment>
+      </method>
+      <method vuln_id="1087508">
+        <simple_name>___Php.SWFDisplayItem.setMaskLevel</simple_name>
+        <signature>___Php.SWFDisplayItem.setMaskLevel(int):void</signature>
+        <info_rule id="454625"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>defines a MASK layer at level</comment>
+      </method>
+      <method vuln_id="1087484">
+        <simple_name>___Php.SWFDisplayItem.setMatrix</simple_name>
+        <signature>___Php.SWFDisplayItem.setMatrix(float;float;float;float;float;float):void</signature>
+        <info_rule id="454598"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5,6"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the item's transform matrix</comment>
+      </method>
+      <method vuln_id="1087433">
+        <simple_name>___Php.SWFDisplayItem.setName</simple_name>
+        <signature>___Php.SWFDisplayItem.setName(___Php.String):void</signature>
+        <info_rule id="454545"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's name to name</comment>
+      </method>
+      <method vuln_id="1087515">
+        <simple_name>___Php.SWFDisplayItem.setRatio</simple_name>
+        <signature>___Php.SWFDisplayItem.setRatio(float):void</signature>
+        <info_rule id="454632"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's ratio to ratio. Obviously only does anything if displayitem was created from an SWFMorph</comment>
+      </method>
+      <method vuln_id="1087437">
+        <simple_name>___Php.SWFDisplayItem.skewX</simple_name>
+        <signature>___Php.SWFDisplayItem.skewX(float):void</signature>
+        <info_rule id="454549"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Adds xSkew to this SWFDisplayItem's x skew value</comment>
+      </method>
+      <method vuln_id="1087496">
+        <simple_name>___Php.SWFDisplayItem.skewXTo</simple_name>
+        <signature>___Php.SWFDisplayItem.skewXTo(float):void</signature>
+        <info_rule id="454612"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's x skew value to xSkew</comment>
+      </method>
+      <method vuln_id="1087440">
+        <simple_name>___Php.SWFDisplayItem.skewY</simple_name>
+        <signature>___Php.SWFDisplayItem.skewY(float):void</signature>
+        <info_rule id="454552"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Adds ySkew to this SWFDisplayItem's y skew value</comment>
+      </method>
+      <method vuln_id="1087466">
+        <simple_name>___Php.SWFDisplayItem.skewYTo</simple_name>
+        <signature>___Php.SWFDisplayItem.skewYTo(float):void</signature>
+        <info_rule id="454579"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's y skew value to ySkew</comment>
+      </method>
+    </class>
+    <class name="SWFDisplayItem">
+      <method vuln_id="1087481">
+        <simple_name>___Php.SWFDisplayItem.addAction</simple_name>
+        <signature>___Php.SWFDisplayItem.addAction(___Php.SWFAction;int):void</signature>
+        <info_rule id="454595"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Adds this SWFAction to the given SWFSprite instance</comment>
+      </method>
+      <method vuln_id="1087432">
+        <simple_name>___Php.SWFDisplayItem.addColor</simple_name>
+        <signature>___Php.SWFDisplayItem.addColor(int;int;int;int):void</signature>
+        <info_rule id="454544"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the add color part of this SWFDisplayItem's CXform to (r,g,b,a),a defaults to 0</comment>
+      </method>
+      <method vuln_id="1087436">
+        <simple_name>___Php.SWFDisplayItem.endMask</simple_name>
+        <signature>___Php.SWFDisplayItem.endMask():void</signature>
+        <info_rule id="454548"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>another way of defining a MASK layer</comment>
+      </method>
+      <method vuln_id="1087399">
+        <simple_name>___Php.SWFDisplayItem.getRot</simple_name>
+        <signature>___Php.SWFDisplayItem.getRot():float</signature>
+        <info_rule id="454508"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087401">
+        <simple_name>___Php.SWFDisplayItem.getX</simple_name>
+        <signature>___Php.SWFDisplayItem.getX():float</signature>
+        <info_rule id="454511"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087504">
+        <simple_name>___Php.SWFDisplayItem.getXScale</simple_name>
+        <signature>___Php.SWFDisplayItem.getXScale():float</signature>
+        <info_rule id="454621"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087406">
+        <simple_name>___Php.SWFDisplayItem.getXSkew</simple_name>
+        <signature>___Php.SWFDisplayItem.getXSkew():float</signature>
+        <info_rule id="454516"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087403">
+        <simple_name>___Php.SWFDisplayItem.getY</simple_name>
+        <signature>___Php.SWFDisplayItem.getY():float</signature>
+        <info_rule id="454513"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087519">
+        <simple_name>___Php.SWFDisplayItem.getYScale</simple_name>
+        <signature>___Php.SWFDisplayItem.getYScale():float</signature>
+        <info_rule id="454636"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087411">
+        <simple_name>___Php.SWFDisplayItem.getYSkew</simple_name>
+        <signature>___Php.SWFDisplayItem.getYSkew():float</signature>
+        <info_rule id="454522"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Media.Flash</property>
+      </method>
+      <method vuln_id="1087482">
+        <simple_name>___Php.SWFDisplayItem.move</simple_name>
+        <signature>___Php.SWFDisplayItem.move(int;int):void</signature>
+        <info_rule id="454596"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Displaces this SWFDisplayItem by (dx,dy) in movie coordinates</comment>
+      </method>
+      <method vuln_id="1087470">
+        <simple_name>___Php.SWFDisplayItem.moveTo</simple_name>
+        <signature>___Php.SWFDisplayItem.moveTo(int;int):void</signature>
+        <info_rule id="454583"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves this SWFDisplayItem to movie coordinates (x,y)</comment>
+      </method>
+      <method vuln_id="1087498">
+        <simple_name>___Php.SWFDisplayItem.multColor</simple_name>
+        <signature>___Php.SWFDisplayItem.multColor(int;int;int;int):void</signature>
+        <info_rule id="454614"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the multiply color part of this SWFDisplayItem's CXform to (r,g,b,a),a defaults to 1.0</comment>
+      </method>
+      <method vuln_id="1087523">
+        <simple_name>___Php.SWFDisplayItem.remove</simple_name>
+        <signature>___Php.SWFDisplayItem.remove(void):void</signature>
+        <info_rule id="454640"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Removes the object from the movie</comment>
+      </method>
+      <method vuln_id="1087489">
+        <simple_name>___Php.SWFDisplayItem.rotate</simple_name>
+        <signature>___Php.SWFDisplayItem.rotate(float):void</signature>
+        <info_rule id="454604"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Rotates this SWFDisplayItem the given (clockwise) degrees from its current orientation</comment>
+      </method>
+      <method vuln_id="1087416">
+        <simple_name>___Php.SWFDisplayItem.rotateTo</simple_name>
+        <signature>___Php.SWFDisplayItem.rotateTo(float):void</signature>
+        <info_rule id="454528"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Rotates this SWFDisplayItem the given (clockwise) degrees from its original orientation</comment>
+      </method>
+      <method vuln_id="1087474">
+        <simple_name>___Php.SWFDisplayItem.scale</simple_name>
+        <signature>___Php.SWFDisplayItem.scale(int;int):void</signature>
+        <info_rule id="454587"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Multiplies this SWFDisplayItem's current x scale by xScale,its y scale by yScale</comment>
+      </method>
+      <method vuln_id="1087438">
+        <simple_name>___Php.SWFDisplayItem.scaleTo</simple_name>
+        <signature>___Php.SWFDisplayItem.scaleTo(int;int):void</signature>
+        <info_rule id="454550"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Scales this SWFDisplayItem by xScale in the x direction,yScale in the y,or both to xScale if only one arg</comment>
+      </method>
+      <method vuln_id="1087488">
+        <simple_name>___Php.SWFDisplayItem.setDepth</simple_name>
+        <signature>___Php.SWFDisplayItem.setDepth(int):void</signature>
+        <info_rule id="454603"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's z-depth to depth. Items with higher depth values are drawn on top of those with lower values</comment>
+      </method>
+      <method vuln_id="1087508">
+        <simple_name>___Php.SWFDisplayItem.setMaskLevel</simple_name>
+        <signature>___Php.SWFDisplayItem.setMaskLevel(int):void</signature>
+        <info_rule id="454625"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>defines a MASK layer at level</comment>
+      </method>
+      <method vuln_id="1087484">
+        <simple_name>___Php.SWFDisplayItem.setMatrix</simple_name>
+        <signature>___Php.SWFDisplayItem.setMatrix(float;float;float;float;float;float):void</signature>
+        <info_rule id="454598"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5,6"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the item's transform matrix</comment>
+      </method>
+      <method vuln_id="1087433">
+        <simple_name>___Php.SWFDisplayItem.setName</simple_name>
+        <signature>___Php.SWFDisplayItem.setName(___Php.String):void</signature>
+        <info_rule id="454545"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's name to name</comment>
+      </method>
+      <method vuln_id="1087515">
+        <simple_name>___Php.SWFDisplayItem.setRatio</simple_name>
+        <signature>___Php.SWFDisplayItem.setRatio(float):void</signature>
+        <info_rule id="454632"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's ratio to ratio. Obviously only does anything if displayitem was created from an SWFMorph</comment>
+      </method>
+      <method vuln_id="1087437">
+        <simple_name>___Php.SWFDisplayItem.skewX</simple_name>
+        <signature>___Php.SWFDisplayItem.skewX(float):void</signature>
+        <info_rule id="454549"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Adds xSkew to this SWFDisplayItem's x skew value</comment>
+      </method>
+      <method vuln_id="1087496">
+        <simple_name>___Php.SWFDisplayItem.skewXTo</simple_name>
+        <signature>___Php.SWFDisplayItem.skewXTo(float):void</signature>
+        <info_rule id="454612"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's x skew value to xSkew</comment>
+      </method>
+      <method vuln_id="1087440">
+        <simple_name>___Php.SWFDisplayItem.skewY</simple_name>
+        <signature>___Php.SWFDisplayItem.skewY(float):void</signature>
+        <info_rule id="454552"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Adds ySkew to this SWFDisplayItem's y skew value</comment>
+      </method>
+      <method vuln_id="1087466">
+        <simple_name>___Php.SWFDisplayItem.skewYTo</simple_name>
+        <signature>___Php.SWFDisplayItem.skewYTo(float):void</signature>
+        <info_rule id="454579"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets this SWFDisplayItem's y skew value to ySkew</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

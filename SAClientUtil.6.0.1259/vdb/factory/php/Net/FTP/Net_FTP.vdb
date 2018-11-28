@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Net_FTP">
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.Net_FTP</simple_name>
+        <signature>Net_FTP.Net_FTP($host;$port;$timeout):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.PEAR</simple_name>
+        <signature>Net_FTP.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._announce</simple_name>
+        <signature>Net_FTP._announce($event):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._checkDir</simple_name>
+        <signature>Net_FTP._checkDir($path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._constructPath</simple_name>
+        <signature>Net_FTP._constructPath($path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._determineOSMatch</simple_name>
+        <signature>Net_FTP._determineOSMatch($dir_list):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._listAndParse</simple_name>
+        <signature>Net_FTP._listAndParse($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsBoth</simple_name>
+        <signature>Net_FTP._lsBoth($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsDirs</simple_name>
+        <signature>Net_FTP._lsDirs($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsFiles</simple_name>
+        <signature>Net_FTP._lsFiles($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsLocal</simple_name>
+        <signature>Net_FTP._lsLocal($dir_path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._makeDirPermissions</simple_name>
+        <signature>Net_FTP._makeDirPermissions($permissions):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._natSort</simple_name>
+        <signature>Net_FTP._natSort($item_1;$item_2):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._parseDate</simple_name>
+        <signature>Net_FTP._parseDate($date):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._rmDir</simple_name>
+        <signature>Net_FTP._rmDir($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._rmDirRecursive</simple_name>
+        <signature>Net_FTP._rmDirRecursive($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._rmFile</simple_name>
+        <signature>Net_FTP._rmFile($file):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.addExtension</simple_name>
+        <signature>Net_FTP.addExtension($mode;$ext):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.attach</simple_name>
+        <signature>Net_FTP.attach($observer):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.cd</simple_name>
+        <signature>Net_FTP.cd($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.checkFileExtension</simple_name>
+        <signature>Net_FTP.checkFileExtension($filename):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1106210">
+        <simple_name>Net_FTP.chmod</simple_name>
+        <signature>Net_FTP.chmod($target;$permissions):mixed</signature>
+        <info_rule id="461759"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1106211">
+        <simple_name>Net_FTP.chmodRecursive</simple_name>
+        <signature>Net_FTP.chmodRecursive($target;$permissions):mixed</signature>
+        <info_rule id="461761"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.connect</simple_name>
+        <signature>Net_FTP.connect($host;$port):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.detach</simple_name>
+        <signature>Net_FTP.detach($observer):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.disconnect</simple_name>
+        <signature>Net_FTP.disconnect():bool|PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.execute</simple_name>
+        <signature>Net_FTP.execute($command):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.get</simple_name>
+        <signature>Net_FTP.get($remote_file;$local_file;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getExtensionMode</simple_name>
+        <signature>Net_FTP.getExtensionMode($ext):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getExtensionsFile</simple_name>
+        <signature>Net_FTP.getExtensionsFile($filename):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getHostname</simple_name>
+        <signature>Net_FTP.getHostname():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getMode</simple_name>
+        <signature>Net_FTP.getMode():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getPassword</simple_name>
+        <signature>Net_FTP.getPassword():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getPort</simple_name>
+        <signature>Net_FTP.getPort():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getRecursive</simple_name>
+        <signature>Net_FTP.getRecursive($remote_path;$local_path;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getTimeout</simple_name>
+        <signature>Net_FTP.getTimeout():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getUsername</simple_name>
+        <signature>Net_FTP.getUsername():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.isError</simple_name>
+        <signature>Net_FTP.isError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.isPassive</simple_name>
+        <signature>Net_FTP.isPassive():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092505">
+        <simple_name>Net_FTP.login</simple_name>
+        <signature>Net_FTP.login($username;$password):mixed</signature>
+        <rule>
+          <ActionObject id="463000">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462999">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451876">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.ls</simple_name>
+        <signature>Net_FTP.ls($dir;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.mdtm</simple_name>
+        <signature>Net_FTP.mdtm($file;$format):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.mkdir</simple_name>
+        <signature>Net_FTP.mkdir($dir;$recursive):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.popErrorHandling</simple_name>
+        <signature>Net_FTP.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.pushErrorHandling</simple_name>
+        <signature>Net_FTP.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.put</simple_name>
+        <signature>Net_FTP.put($local_file;$remote_file;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.putRecursive</simple_name>
+        <signature>Net_FTP.putRecursive($local_path;$remote_path;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.pwd</simple_name>
+        <signature>Net_FTP.pwd():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.raiseError</simple_name>
+        <signature>Net_FTP.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.removeExtension</simple_name>
+        <signature>Net_FTP.removeExtension($ext):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.rename</simple_name>
+        <signature>Net_FTP.rename($remote_from;$remote_to):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.rm</simple_name>
+        <signature>Net_FTP.rm($path;$recursive):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setActive</simple_name>
+        <signature>Net_FTP.setActive():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setHostname</simple_name>
+        <signature>Net_FTP.setHostname($host):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setMode</simple_name>
+        <signature>Net_FTP.setMode($mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setPassive</simple_name>
+        <signature>Net_FTP.setPassive():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092506">
+        <simple_name>Net_FTP.setPassword</simple_name>
+        <signature>Net_FTP.setPassword($password):mixed</signature>
+        <rule>
+          <ActionObject id="451877">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setPort</simple_name>
+        <signature>Net_FTP.setPort($port):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setTimeout</simple_name>
+        <signature>Net_FTP.setTimeout($timeout):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setUsername</simple_name>
+        <signature>Net_FTP.setUsername($user):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.site</simple_name>
+        <signature>Net_FTP.site($command):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.size</simple_name>
+        <signature>Net_FTP.size($file):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Net_FTP">
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.Net_FTP</simple_name>
+        <signature>Net_FTP.Net_FTP($host;$port;$timeout):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.PEAR</simple_name>
+        <signature>Net_FTP.PEAR():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._announce</simple_name>
+        <signature>Net_FTP._announce($event):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._checkDir</simple_name>
+        <signature>Net_FTP._checkDir($path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._constructPath</simple_name>
+        <signature>Net_FTP._constructPath($path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._determineOSMatch</simple_name>
+        <signature>Net_FTP._determineOSMatch($dir_list):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._listAndParse</simple_name>
+        <signature>Net_FTP._listAndParse($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsBoth</simple_name>
+        <signature>Net_FTP._lsBoth($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsDirs</simple_name>
+        <signature>Net_FTP._lsDirs($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsFiles</simple_name>
+        <signature>Net_FTP._lsFiles($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._lsLocal</simple_name>
+        <signature>Net_FTP._lsLocal($dir_path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._makeDirPermissions</simple_name>
+        <signature>Net_FTP._makeDirPermissions($permissions):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._natSort</simple_name>
+        <signature>Net_FTP._natSort($item_1;$item_2):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._parseDate</simple_name>
+        <signature>Net_FTP._parseDate($date):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._rmDir</simple_name>
+        <signature>Net_FTP._rmDir($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._rmDirRecursive</simple_name>
+        <signature>Net_FTP._rmDirRecursive($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP._rmFile</simple_name>
+        <signature>Net_FTP._rmFile($file):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.addExtension</simple_name>
+        <signature>Net_FTP.addExtension($mode;$ext):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.attach</simple_name>
+        <signature>Net_FTP.attach($observer):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.cd</simple_name>
+        <signature>Net_FTP.cd($dir):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.checkFileExtension</simple_name>
+        <signature>Net_FTP.checkFileExtension($filename):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1106210">
+        <simple_name>Net_FTP.chmod</simple_name>
+        <signature>Net_FTP.chmod($target;$permissions):mixed</signature>
+        <info_rule id="461759"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1106211">
+        <simple_name>Net_FTP.chmodRecursive</simple_name>
+        <signature>Net_FTP.chmodRecursive($target;$permissions):mixed</signature>
+        <info_rule id="461761"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Mechanism.AccessControl</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.connect</simple_name>
+        <signature>Net_FTP.connect($host;$port):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.detach</simple_name>
+        <signature>Net_FTP.detach($observer):boolean</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.disconnect</simple_name>
+        <signature>Net_FTP.disconnect():bool|PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.execute</simple_name>
+        <signature>Net_FTP.execute($command):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.get</simple_name>
+        <signature>Net_FTP.get($remote_file;$local_file;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getExtensionMode</simple_name>
+        <signature>Net_FTP.getExtensionMode($ext):int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getExtensionsFile</simple_name>
+        <signature>Net_FTP.getExtensionsFile($filename):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getHostname</simple_name>
+        <signature>Net_FTP.getHostname():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getMode</simple_name>
+        <signature>Net_FTP.getMode():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getPassword</simple_name>
+        <signature>Net_FTP.getPassword():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getPort</simple_name>
+        <signature>Net_FTP.getPort():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getRecursive</simple_name>
+        <signature>Net_FTP.getRecursive($remote_path;$local_path;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getTimeout</simple_name>
+        <signature>Net_FTP.getTimeout():int</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.getUsername</simple_name>
+        <signature>Net_FTP.getUsername():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.isError</simple_name>
+        <signature>Net_FTP.isError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.isPassive</simple_name>
+        <signature>Net_FTP.isPassive():bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092505">
+        <simple_name>Net_FTP.login</simple_name>
+        <signature>Net_FTP.login($username;$password):mixed</signature>
+        <rule>
+          <ActionObject id="463000">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462999">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451876">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.ls</simple_name>
+        <signature>Net_FTP.ls($dir;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.mdtm</simple_name>
+        <signature>Net_FTP.mdtm($file;$format):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.mkdir</simple_name>
+        <signature>Net_FTP.mkdir($dir;$recursive):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.popErrorHandling</simple_name>
+        <signature>Net_FTP.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.pushErrorHandling</simple_name>
+        <signature>Net_FTP.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.put</simple_name>
+        <signature>Net_FTP.put($local_file;$remote_file;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.putRecursive</simple_name>
+        <signature>Net_FTP.putRecursive($local_path;$remote_path;$overwrite;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.pwd</simple_name>
+        <signature>Net_FTP.pwd():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.raiseError</simple_name>
+        <signature>Net_FTP.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.removeExtension</simple_name>
+        <signature>Net_FTP.removeExtension($ext):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.rename</simple_name>
+        <signature>Net_FTP.rename($remote_from;$remote_to):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.rm</simple_name>
+        <signature>Net_FTP.rm($path;$recursive):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setActive</simple_name>
+        <signature>Net_FTP.setActive():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setHostname</simple_name>
+        <signature>Net_FTP.setHostname($host):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setMode</simple_name>
+        <signature>Net_FTP.setMode($mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setPassive</simple_name>
+        <signature>Net_FTP.setPassive():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092506">
+        <simple_name>Net_FTP.setPassword</simple_name>
+        <signature>Net_FTP.setPassword($password):mixed</signature>
+        <rule>
+          <ActionObject id="451877">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setPort</simple_name>
+        <signature>Net_FTP.setPort($port):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setTimeout</simple_name>
+        <signature>Net_FTP.setTimeout($timeout):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.setUsername</simple_name>
+        <signature>Net_FTP.setUsername($user):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.site</simple_name>
+        <signature>Net_FTP.site($command):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Net_FTP.size</simple_name>
+        <signature>Net_FTP.size($file):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

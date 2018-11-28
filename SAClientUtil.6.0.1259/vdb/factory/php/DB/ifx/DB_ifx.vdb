@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_ifx">
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.DB_common</simple_name>
+        <signature>DB_ifx.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.DB_ifx</simple_name>
+        <signature>DB_ifx.DB_ifx():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx._checkManip</simple_name>
+        <signature>DB_ifx._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_ifx._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx._rtrimArrayValues</simple_name>
+        <signature>DB_ifx._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090666">
+        <simple_name>DB_ifx.affectedRows</simple_name>
+        <signature>DB_ifx.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090656">
+        <simple_name>DB_ifx.autoCommit</simple_name>
+        <signature>DB_ifx.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090658">
+        <simple_name>DB_ifx.commit</simple_name>
+        <signature>DB_ifx.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090659">
+        <simple_name>DB_ifx.connect</simple_name>
+        <signature>DB_ifx.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451064">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090660">
+        <simple_name>DB_ifx.disconnect</simple_name>
+        <signature>DB_ifx.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090665">
+        <simple_name>DB_ifx.errorCode</simple_name>
+        <signature>DB_ifx.errorCode($nativecode):int</signature>
+        <rule>
+          <ActionObject id="451066">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090667">
+        <simple_name>DB_ifx.errorNative</simple_name>
+        <signature>DB_ifx.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451067">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090661">
+        <simple_name>DB_ifx.fetchInto</simple_name>
+        <signature>DB_ifx.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480720"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090668">
+        <simple_name>DB_ifx.freeResult</simple_name>
+        <signature>DB_ifx.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090669">
+        <simple_name>DB_ifx.getSpecialQuery</simple_name>
+        <signature>DB_ifx.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.ifxRaiseError</simple_name>
+        <signature>DB_ifx.ifxRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090662">
+        <simple_name>DB_ifx.nextResult</simple_name>
+        <signature>DB_ifx.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090664">
+        <simple_name>DB_ifx.numCols</simple_name>
+        <signature>DB_ifx.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.raiseError</simple_name>
+        <signature>DB_ifx.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090670">
+        <simple_name>DB_ifx.rollback</simple_name>
+        <signature>DB_ifx.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090657">
+        <simple_name>DB_ifx.simpleQuery</simple_name>
+        <signature>DB_ifx.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090663">
+        <simple_name>DB_ifx.tableInfo</simple_name>
+        <signature>DB_ifx.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_ifx">
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.DB_common</simple_name>
+        <signature>DB_ifx.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.DB_ifx</simple_name>
+        <signature>DB_ifx.DB_ifx():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx._checkManip</simple_name>
+        <signature>DB_ifx._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_ifx._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx._rtrimArrayValues</simple_name>
+        <signature>DB_ifx._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090666">
+        <simple_name>DB_ifx.affectedRows</simple_name>
+        <signature>DB_ifx.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090656">
+        <simple_name>DB_ifx.autoCommit</simple_name>
+        <signature>DB_ifx.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090658">
+        <simple_name>DB_ifx.commit</simple_name>
+        <signature>DB_ifx.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090659">
+        <simple_name>DB_ifx.connect</simple_name>
+        <signature>DB_ifx.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451064">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090660">
+        <simple_name>DB_ifx.disconnect</simple_name>
+        <signature>DB_ifx.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090665">
+        <simple_name>DB_ifx.errorCode</simple_name>
+        <signature>DB_ifx.errorCode($nativecode):int</signature>
+        <rule>
+          <ActionObject id="451066">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090667">
+        <simple_name>DB_ifx.errorNative</simple_name>
+        <signature>DB_ifx.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451067">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090661">
+        <simple_name>DB_ifx.fetchInto</simple_name>
+        <signature>DB_ifx.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480720"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090668">
+        <simple_name>DB_ifx.freeResult</simple_name>
+        <signature>DB_ifx.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090669">
+        <simple_name>DB_ifx.getSpecialQuery</simple_name>
+        <signature>DB_ifx.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.ifxRaiseError</simple_name>
+        <signature>DB_ifx.ifxRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090662">
+        <simple_name>DB_ifx.nextResult</simple_name>
+        <signature>DB_ifx.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090664">
+        <simple_name>DB_ifx.numCols</simple_name>
+        <signature>DB_ifx.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_ifx.raiseError</simple_name>
+        <signature>DB_ifx.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090670">
+        <simple_name>DB_ifx.rollback</simple_name>
+        <signature>DB_ifx.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090657">
+        <simple_name>DB_ifx.simpleQuery</simple_name>
+        <signature>DB_ifx.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090663">
+        <simple_name>DB_ifx.tableInfo</simple_name>
+        <signature>DB_ifx.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings description="AppScan Source Engine Settings for IRGen" display_name="AppScan Source Engine Settings for IRGen">
+  <Setting
+		 name="single_ir"
+		 value="true"
+		 description="single_ir"
+		 display_name="single_ir"
+	/>
+  <Setting
+		 name="ir_gen_clean"
+		 value="true"
+		 description="ir_gen_clean"
+		 display_name="ir_gen_clean"
+	/>
+	<Setting
+		 name="string_analysis"
+		 value="false"
+		 description="String Analysis is currently disabled"
+		 display_name="String Analysis"
+	/>	
+	<Setting
+        name="treat_statics_as_locals"
+        value="false"
+        default_value="false"
+        type="bool"
+        hidden="false"
+        display_name="Treat globals as locals"
+        description="If true, variables of static duration (globals, file/function statics,
+                     \n static class members)are treated as if they are local variables
+                     \n in the routines that reference them; i.e., side-effects of calls
+                     \n and aliasing are ignored."
+/>
+	<Setting
+		 name="dotnet_use_long_signatures"
+		 value="true"
+		 description="dotnet_use_long_signatures"
+		 display_name="dotnet_use_long_signatures"
+	/>	
+	<Setting
+		name="wafl_globals_tracking"
+		value="true"
+		default_value="true"
+		type="bool"
+		hidden="true"
+            description_id="msg.settings.waflglobalstracking.description"
+            display_name_id="msg.settings.waflglobalstracking.name"
+		display_name="WAFL globals Tracking"
+		description="Track globals declared in the WAFL spec"
+/>
+<Setting
+        name="replaceSetGetAttributeCalls"
+	  value="false"
+	  default_value="false"
+	  type="bool"
+        description_id="msg.settings.replacesetgetattributecalls.description"
+        display_name_id="msg.settings.replacesetgetattributecalls.name"
+        display_name="Replace SetGetAttribute Calls"
+	  description="Enable Replacing set/getAttribute calls. 
+                     \n This should be set to true only when wafl_globals_tracking is set to true."
+/>
+<Setting
+		name="wafl_call_replacements"
+		value="true"
+		default_value="true"
+		type="bool"
+		hidden="true"
+		display_name="WAFL Call Replacements"
+		description="Perform call replacements specified in the WAFL spec."
+/>
+	<Setting
+		 name="ssa"
+		 value="true"
+		 description="ssa"
+		 display_name="ssa"
+	/>
+	<Setting
+		 name="structural_analysis"
+		 value="true"
+		 description="structural_analysis"
+		 display_name="structural_analysis"
+	/>
+	<Setting 
+        name="assignment_to_global_lost_sink"
+        value="false" 
+        default_value="false" 
+        type="bool"
+        hidden="false"
+        display_name="Assignment to Global as Lost Sink"
+        description="Treat all assignments to global variables as lost sinks.
+                     \n This will ensure you get findings when taint disappears into global variables."
+/>  
+	<Setting 
+        name="convert_getters_setters_to_fields" 
+        value="true" 
+        default_value="true" 
+        type="bool"
+        hidden="true"
+        display_name="Convert calls to property getters/setters to field operations" 
+        description="Convert calls to property getters/setters to field operations" 
+/>
+	<Setting
+		 name="process_attributes"
+		 value="true"
+		 description="process_attributes - used by dotNet and Java LSPs"
+		 display_name="process_attributes"
+	/>
+    <Setting
+         name="process_security_annotations"
+         value="true"
+         default_value="true"
+         description="When turned on, method annotations will be processed - used by DotNet and Java LSPs"
+         display_name="Process Security Annotations"
+         type="bool"
+	/>
+	<Setting
+		name="scan_without_dependency_jar"
+		value="false"
+		default_value="false"
+		type="bool"
+		hidden="true"
+		display_name="scan_without_dependency_jar"
+		description="Synthesizes CIR for missing dependencies"
+	/>
+  	<Setting
+		 name="se_exception_handling"
+		 value="false"
+		 description="se_exception_handling"
+		 display_name="se_exception_handling"
+	/>
+</Settings>

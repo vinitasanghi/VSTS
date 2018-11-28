@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Application">
+      <method vuln_id="1108911">
+        <simple_name>Zend_Application.__construct_@__Application_php_1</simple_name>
+        <signature>Zend_Application.__construct_@__Application_php_1($environment;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Application._loadConfig_@__Application_php_1</simple_name>
+        <signature>Zend_Application._loadConfig_@__Application_php_1($file):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108890">
+        <simple_name>Zend_Application.bootstrap_@__Application_php_1</simple_name>
+        <signature>Zend_Application.bootstrap_@__Application_php_1($resource):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108933">
+        <simple_name>Zend_Application.getAutoloader_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getAutoloader_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109002">
+        <simple_name>Zend_Application.getBootstrap_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getBootstrap_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108999">
+        <simple_name>Zend_Application.getEnvironment_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getEnvironment_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108980">
+        <simple_name>Zend_Application.getOption_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getOption_@__Application_php_1($key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108914">
+        <simple_name>Zend_Application.getOptions_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getOptions_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108987">
+        <simple_name>Zend_Application.hasOption_@__Application_php_1</simple_name>
+        <signature>Zend_Application.hasOption_@__Application_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108931">
+        <simple_name>Zend_Application.mergeOptions_@__Application_php_1</simple_name>
+        <signature>Zend_Application.mergeOptions_@__Application_php_1($array1;$array2):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108903">
+        <simple_name>Zend_Application.run_@__Application_php_1</simple_name>
+        <signature>Zend_Application.run_@__Application_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108926">
+        <simple_name>Zend_Application.setAutoloaderNamespaces_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setAutoloaderNamespaces_@__Application_php_1($namespaces):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108952">
+        <simple_name>Zend_Application.setBootstrap_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setBootstrap_@__Application_php_1($path;$class):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108894">
+        <simple_name>Zend_Application.setIncludePaths</simple_name>
+        <signature>Zend_Application.setIncludePaths(Arg#0):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108964">
+        <simple_name>Zend_Application.setIncludePaths_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setIncludePaths_@__Application_php_1($paths):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108885">
+        <simple_name>Zend_Application.setOptions_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setOptions_@__Application_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109011">
+        <simple_name>Zend_Application.setPhpSettings_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setPhpSettings_@__Application_php_1($settings;$prefix):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Integrity</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Application">
+      <method vuln_id="1108911">
+        <simple_name>Zend_Application.__construct_@__Application_php_1</simple_name>
+        <signature>Zend_Application.__construct_@__Application_php_1($environment;$options):Variant</signature>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Application._loadConfig_@__Application_php_1</simple_name>
+        <signature>Zend_Application._loadConfig_@__Application_php_1($file):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108890">
+        <simple_name>Zend_Application.bootstrap_@__Application_php_1</simple_name>
+        <signature>Zend_Application.bootstrap_@__Application_php_1($resource):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108933">
+        <simple_name>Zend_Application.getAutoloader_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getAutoloader_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109002">
+        <simple_name>Zend_Application.getBootstrap_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getBootstrap_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108999">
+        <simple_name>Zend_Application.getEnvironment_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getEnvironment_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108980">
+        <simple_name>Zend_Application.getOption_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getOption_@__Application_php_1($key):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108914">
+        <simple_name>Zend_Application.getOptions_@__Application_php_1</simple_name>
+        <signature>Zend_Application.getOptions_@__Application_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108987">
+        <simple_name>Zend_Application.hasOption_@__Application_php_1</simple_name>
+        <signature>Zend_Application.hasOption_@__Application_php_1($key):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108931">
+        <simple_name>Zend_Application.mergeOptions_@__Application_php_1</simple_name>
+        <signature>Zend_Application.mergeOptions_@__Application_php_1($array1;$array2):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108903">
+        <simple_name>Zend_Application.run_@__Application_php_1</simple_name>
+        <signature>Zend_Application.run_@__Application_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108926">
+        <simple_name>Zend_Application.setAutoloaderNamespaces_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setAutoloaderNamespaces_@__Application_php_1($namespaces):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108952">
+        <simple_name>Zend_Application.setBootstrap_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setBootstrap_@__Application_php_1($path;$class):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108894">
+        <simple_name>Zend_Application.setIncludePaths</simple_name>
+        <signature>Zend_Application.setIncludePaths(Arg#0):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108964">
+        <simple_name>Zend_Application.setIncludePaths_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setIncludePaths_@__Application_php_1($paths):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1108885">
+        <simple_name>Zend_Application.setOptions_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setOptions_@__Application_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1109011">
+        <simple_name>Zend_Application.setPhpSettings_@__Application_php_1</simple_name>
+        <signature>Zend_Application.setPhpSettings_@__Application_php_1($settings;$prefix):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Integrity</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

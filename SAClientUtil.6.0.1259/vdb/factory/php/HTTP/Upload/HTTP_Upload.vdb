@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTTP_Upload">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload.HTTP_Upload</simple_name>
+        <signature>HTTP_Upload.HTTP_Upload(___Php.String):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091609">
+        <simple_name>HTTP_Upload._buildFiles</simple_name>
+        <signature>HTTP_Upload._buildFiles():___Php.Array&amp;</signature>
+        <info_rule id="480778"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.HTTP.Upload</property>
+      </method>
+      <method vuln_id="1091602">
+        <simple_name>HTTP_Upload.getFiles</simple_name>
+        <signature>HTTP_Upload.getFiles(mixed):___Php.Array&amp;</signature>
+        <info_rule id="480777"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.HTTP.Upload</property>
+      </method>
+      <method vuln_id="1091612">
+        <simple_name>HTTP_Upload.isMissing</simple_name>
+        <signature>HTTP_Upload.isMissing():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091600">
+        <simple_name>HTTP_Upload.setChmod</simple_name>
+        <signature>HTTP_Upload.setChmod(int):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTTP_Upload">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Upload.HTTP_Upload</simple_name>
+        <signature>HTTP_Upload.HTTP_Upload(___Php.String):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091609">
+        <simple_name>HTTP_Upload._buildFiles</simple_name>
+        <signature>HTTP_Upload._buildFiles():___Php.Array&amp;</signature>
+        <info_rule id="480778"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.HTTP.Upload</property>
+      </method>
+      <method vuln_id="1091602">
+        <simple_name>HTTP_Upload.getFiles</simple_name>
+        <signature>HTTP_Upload.getFiles(mixed):___Php.Array&amp;</signature>
+        <info_rule id="480777"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.HTTP.Upload</property>
+      </method>
+      <method vuln_id="1091612">
+        <simple_name>HTTP_Upload.isMissing</simple_name>
+        <signature>HTTP_Upload.isMissing():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091600">
+        <simple_name>HTTP_Upload.setChmod</simple_name>
+        <signature>HTTP_Upload.setChmod(int):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

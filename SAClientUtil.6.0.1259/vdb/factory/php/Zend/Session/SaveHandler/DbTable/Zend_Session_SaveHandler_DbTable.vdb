@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Session_SaveHandler_DbTable">
+      <method vuln_id="1120072">
+        <simple_name>Zend_Session_SaveHandler_DbTable.__construct_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.__construct_@__Session_SaveHandler_DbTable_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1120078">
+        <simple_name>Zend_Session_SaveHandler_DbTable.__destruct_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.__destruct_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472445"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120122">
+        <simple_name>Zend_Session_SaveHandler_DbTable._checkRequiredColumns_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._checkRequiredColumns_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472490"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120081">
+        <simple_name>Zend_Session_SaveHandler_DbTable._getExpirationTime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._getExpirationTime_@__Session_SaveHandler_DbTable_php_1($row):Variant</signature>
+        <info_rule id="472448"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120120">
+        <simple_name>Zend_Session_SaveHandler_DbTable._getLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._getLifetime_@__Session_SaveHandler_DbTable_php_1($row):Variant</signature>
+        <info_rule id="472488"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120111">
+        <simple_name>Zend_Session_SaveHandler_DbTable._getPrimary_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._getPrimary_@__Session_SaveHandler_DbTable_php_1($id;$type):Variant</signature>
+        <info_rule id="472479"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120065">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setupPrimaryAssignment_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setupPrimaryAssignment_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472433"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120151">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setupPrimaryKey</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setupPrimaryKey():Variant</signature>
+        <info_rule id="472520"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120094">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setupTableName_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setupTableName_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472462"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120108">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setup_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setup_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472476"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120142">
+        <simple_name>Zend_Session_SaveHandler_DbTable.close_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.close_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472511"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120131">
+        <simple_name>Zend_Session_SaveHandler_DbTable.delete</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.delete(Arg#0):Variant</signature>
+        <info_rule id="472500"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120090">
+        <simple_name>Zend_Session_SaveHandler_DbTable.destroy_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.destroy_@__Session_SaveHandler_DbTable_php_1($id):Variant</signature>
+        <info_rule id="472458"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120089">
+        <simple_name>Zend_Session_SaveHandler_DbTable.gc_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.gc_@__Session_SaveHandler_DbTable_php_1($maxlifetime):Variant</signature>
+        <info_rule id="472457"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120085">
+        <simple_name>Zend_Session_SaveHandler_DbTable.getAdapter</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.getAdapter():Variant</signature>
+        <info_rule id="472453"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120140">
+        <simple_name>Zend_Session_SaveHandler_DbTable.getLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.getLifetime_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472509"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120134">
+        <simple_name>Zend_Session_SaveHandler_DbTable.getOverrideLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.getOverrideLifetime_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472503"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120145">
+        <simple_name>Zend_Session_SaveHandler_DbTable.insert</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.insert(Arg#0):Variant</signature>
+        <info_rule id="472514"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120146">
+        <simple_name>Zend_Session_SaveHandler_DbTable.open_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.open_@__Session_SaveHandler_DbTable_php_1($save_path;$name):Variant</signature>
+        <info_rule id="472515"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120098">
+        <simple_name>Zend_Session_SaveHandler_DbTable.read_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.read_@__Session_SaveHandler_DbTable_php_1($id):Variant</signature>
+        <info_rule id="472466"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120144">
+        <simple_name>Zend_Session_SaveHandler_DbTable.setLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.setLifetime_@__Session_SaveHandler_DbTable_php_1($lifetime;$overrideLifetime):Variant</signature>
+        <info_rule id="472513"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120083">
+        <simple_name>Zend_Session_SaveHandler_DbTable.setOverrideLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.setOverrideLifetime_@__Session_SaveHandler_DbTable_php_1($overrideLifetime):Variant</signature>
+        <info_rule id="472450"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120071">
+        <simple_name>Zend_Session_SaveHandler_DbTable.update</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.update(Arg#0;Arg#1):Variant</signature>
+        <info_rule id="472440"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120070">
+        <simple_name>Zend_Session_SaveHandler_DbTable.write_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.write_@__Session_SaveHandler_DbTable_php_1($id;$data):Variant</signature>
+        <info_rule id="472438"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+    </class>
+    <class name="Zend_Session_SaveHandler_DbTable">
+      <method vuln_id="1120072">
+        <simple_name>Zend_Session_SaveHandler_DbTable.__construct_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.__construct_@__Session_SaveHandler_DbTable_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1120078">
+        <simple_name>Zend_Session_SaveHandler_DbTable.__destruct_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.__destruct_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472445"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120122">
+        <simple_name>Zend_Session_SaveHandler_DbTable._checkRequiredColumns_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._checkRequiredColumns_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472490"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120081">
+        <simple_name>Zend_Session_SaveHandler_DbTable._getExpirationTime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._getExpirationTime_@__Session_SaveHandler_DbTable_php_1($row):Variant</signature>
+        <info_rule id="472448"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120120">
+        <simple_name>Zend_Session_SaveHandler_DbTable._getLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._getLifetime_@__Session_SaveHandler_DbTable_php_1($row):Variant</signature>
+        <info_rule id="472488"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120111">
+        <simple_name>Zend_Session_SaveHandler_DbTable._getPrimary_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._getPrimary_@__Session_SaveHandler_DbTable_php_1($id;$type):Variant</signature>
+        <info_rule id="472479"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120065">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setupPrimaryAssignment_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setupPrimaryAssignment_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472433"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120151">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setupPrimaryKey</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setupPrimaryKey():Variant</signature>
+        <info_rule id="472520"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120094">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setupTableName_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setupTableName_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472462"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120108">
+        <simple_name>Zend_Session_SaveHandler_DbTable._setup_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable._setup_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472476"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120142">
+        <simple_name>Zend_Session_SaveHandler_DbTable.close_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.close_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472511"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120131">
+        <simple_name>Zend_Session_SaveHandler_DbTable.delete</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.delete(Arg#0):Variant</signature>
+        <info_rule id="472500"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120090">
+        <simple_name>Zend_Session_SaveHandler_DbTable.destroy_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.destroy_@__Session_SaveHandler_DbTable_php_1($id):Variant</signature>
+        <info_rule id="472458"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120089">
+        <simple_name>Zend_Session_SaveHandler_DbTable.gc_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.gc_@__Session_SaveHandler_DbTable_php_1($maxlifetime):Variant</signature>
+        <info_rule id="472457"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120085">
+        <simple_name>Zend_Session_SaveHandler_DbTable.getAdapter</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.getAdapter():Variant</signature>
+        <info_rule id="472453"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120140">
+        <simple_name>Zend_Session_SaveHandler_DbTable.getLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.getLifetime_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472509"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120134">
+        <simple_name>Zend_Session_SaveHandler_DbTable.getOverrideLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.getOverrideLifetime_@__Session_SaveHandler_DbTable_php_1():Variant</signature>
+        <info_rule id="472503"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120145">
+        <simple_name>Zend_Session_SaveHandler_DbTable.insert</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.insert(Arg#0):Variant</signature>
+        <info_rule id="472514"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120146">
+        <simple_name>Zend_Session_SaveHandler_DbTable.open_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.open_@__Session_SaveHandler_DbTable_php_1($save_path;$name):Variant</signature>
+        <info_rule id="472515"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120098">
+        <simple_name>Zend_Session_SaveHandler_DbTable.read_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.read_@__Session_SaveHandler_DbTable_php_1($id):Variant</signature>
+        <info_rule id="472466"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120144">
+        <simple_name>Zend_Session_SaveHandler_DbTable.setLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.setLifetime_@__Session_SaveHandler_DbTable_php_1($lifetime;$overrideLifetime):Variant</signature>
+        <info_rule id="472513"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120083">
+        <simple_name>Zend_Session_SaveHandler_DbTable.setOverrideLifetime_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.setOverrideLifetime_@__Session_SaveHandler_DbTable_php_1($overrideLifetime):Variant</signature>
+        <info_rule id="472450"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1120071">
+        <simple_name>Zend_Session_SaveHandler_DbTable.update</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.update(Arg#0;Arg#1):Variant</signature>
+        <info_rule id="472440"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+      <method vuln_id="1120070">
+        <simple_name>Zend_Session_SaveHandler_DbTable.write_@__Session_SaveHandler_DbTable_php_1</simple_name>
+        <signature>Zend_Session_SaveHandler_DbTable.write_@__Session_SaveHandler_DbTable_php_1($id;$data):Variant</signature>
+        <info_rule id="472438"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.SessionManagement</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

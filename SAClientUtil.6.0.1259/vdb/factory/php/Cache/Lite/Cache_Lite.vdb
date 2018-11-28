@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_Lite">
+      <method vuln_id="-1">
+        <simple_name>Cache_Lite.Cache_Lite</simple_name>
+        <signature>Cache_Lite.Cache_Lite($options):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108068">
+        <simple_name>Cache_Lite._cleanDir</simple_name>
+        <signature>Cache_Lite._cleanDir(___Php.String;___Php.String;___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108069">
+        <simple_name>Cache_Lite._hash</simple_name>
+        <signature>Cache_Lite._hash(___Php.String;___Php.String):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108076">
+        <simple_name>Cache_Lite._memoryCacheAdd</simple_name>
+        <signature>Cache_Lite._memoryCacheAdd(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108073">
+        <simple_name>Cache_Lite._read</simple_name>
+        <signature>Cache_Lite._read():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108074">
+        <simple_name>Cache_Lite._setFileName</simple_name>
+        <signature>Cache_Lite._setFileName(___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108066">
+        <simple_name>Cache_Lite._setRefreshTime</simple_name>
+        <signature>Cache_Lite._setRefreshTime():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108072">
+        <simple_name>Cache_Lite._unlink</simple_name>
+        <signature>Cache_Lite._unlink(___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108059">
+        <simple_name>Cache_Lite._write</simple_name>
+        <signature>Cache_Lite._write(___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.File</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Lite._writeAndControl</simple_name>
+        <signature>Cache_Lite._writeAndControl(___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108070">
+        <simple_name>Cache_Lite.clean</simple_name>
+        <signature>Cache_Lite.clean(___Php.String;___Php.String):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108060">
+        <simple_name>Cache_Lite.extendLife</simple_name>
+        <signature>Cache_Lite.extendLife():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108077">
+        <simple_name>Cache_Lite.get</simple_name>
+        <signature>Cache_Lite.get(___Php.String;___Php.String;bool):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108065">
+        <simple_name>Cache_Lite.getMemoryCachingState</simple_name>
+        <signature>Cache_Lite.getMemoryCachingState(___Php.String;___Php.String;bool):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108063">
+        <simple_name>Cache_Lite.lastModified</simple_name>
+        <signature>Cache_Lite.lastModified():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108078">
+        <simple_name>Cache_Lite.raiseError</simple_name>
+        <signature>Cache_Lite.raiseError(___Php.String;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108071">
+        <simple_name>Cache_Lite.remove</simple_name>
+        <signature>Cache_Lite.remove(___Php.String;___Php.String):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108061">
+        <simple_name>Cache_Lite.save</simple_name>
+        <signature>Cache_Lite.save(___Php.String;___Php.String;___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108067">
+        <simple_name>Cache_Lite.saveMemoryCachingState</simple_name>
+        <signature>Cache_Lite.saveMemoryCachingState(___Php.String;___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108062">
+        <simple_name>Cache_Lite.setLifeTime</simple_name>
+        <signature>Cache_Lite.setLifeTime(int):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108075">
+        <simple_name>Cache_Lite.setOption</simple_name>
+        <signature>Cache_Lite.setOption(___Php.String;mixed):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108064">
+        <simple_name>Cache_Lite.setToDebug</simple_name>
+        <signature>Cache_Lite.setToDebug():void</signature>
+        <rule>
+          <ActionObject id="450924">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_Lite">
+      <method vuln_id="-1">
+        <simple_name>Cache_Lite.Cache_Lite</simple_name>
+        <signature>Cache_Lite.Cache_Lite($options):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108068">
+        <simple_name>Cache_Lite._cleanDir</simple_name>
+        <signature>Cache_Lite._cleanDir(___Php.String;___Php.String;___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108069">
+        <simple_name>Cache_Lite._hash</simple_name>
+        <signature>Cache_Lite._hash(___Php.String;___Php.String):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108076">
+        <simple_name>Cache_Lite._memoryCacheAdd</simple_name>
+        <signature>Cache_Lite._memoryCacheAdd(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108073">
+        <simple_name>Cache_Lite._read</simple_name>
+        <signature>Cache_Lite._read():mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108074">
+        <simple_name>Cache_Lite._setFileName</simple_name>
+        <signature>Cache_Lite._setFileName(___Php.String;___Php.String):void</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108066">
+        <simple_name>Cache_Lite._setRefreshTime</simple_name>
+        <signature>Cache_Lite._setRefreshTime():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108072">
+        <simple_name>Cache_Lite._unlink</simple_name>
+        <signature>Cache_Lite._unlink(___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108059">
+        <simple_name>Cache_Lite._write</simple_name>
+        <signature>Cache_Lite._write(___Php.String):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection.File</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Lite._writeAndControl</simple_name>
+        <signature>Cache_Lite._writeAndControl(___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108070">
+        <simple_name>Cache_Lite.clean</simple_name>
+        <signature>Cache_Lite.clean(___Php.String;___Php.String):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108060">
+        <simple_name>Cache_Lite.extendLife</simple_name>
+        <signature>Cache_Lite.extendLife():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108077">
+        <simple_name>Cache_Lite.get</simple_name>
+        <signature>Cache_Lite.get(___Php.String;___Php.String;bool):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108065">
+        <simple_name>Cache_Lite.getMemoryCachingState</simple_name>
+        <signature>Cache_Lite.getMemoryCachingState(___Php.String;___Php.String;bool):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108063">
+        <simple_name>Cache_Lite.lastModified</simple_name>
+        <signature>Cache_Lite.lastModified():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108078">
+        <simple_name>Cache_Lite.raiseError</simple_name>
+        <signature>Cache_Lite.raiseError(___Php.String;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108071">
+        <simple_name>Cache_Lite.remove</simple_name>
+        <signature>Cache_Lite.remove(___Php.String;___Php.String):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108061">
+        <simple_name>Cache_Lite.save</simple_name>
+        <signature>Cache_Lite.save(___Php.String;___Php.String;___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108067">
+        <simple_name>Cache_Lite.saveMemoryCachingState</simple_name>
+        <signature>Cache_Lite.saveMemoryCachingState(___Php.String;___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108062">
+        <simple_name>Cache_Lite.setLifeTime</simple_name>
+        <signature>Cache_Lite.setLifeTime(int):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108075">
+        <simple_name>Cache_Lite.setOption</simple_name>
+        <signature>Cache_Lite.setOption(___Php.String;mixed):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108064">
+        <simple_name>Cache_Lite.setToDebug</simple_name>
+        <signature>Cache_Lite.setToDebug():void</signature>
+        <rule>
+          <ActionObject id="450924">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

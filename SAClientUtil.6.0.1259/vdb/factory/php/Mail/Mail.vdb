@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Mail">
+      <method vuln_id="1108567">
+        <simple_name>Mail._sanitizeHeaders</simple_name>
+        <signature>Mail._sanitizeHeaders($headers):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092471">
+        <simple_name>Mail.factory</simple_name>
+        <signature>Mail.factory($driver;$params):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>todo need to add class loader vulnerability on param 1</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail.factory</simple_name>
+        <signature>Mail.factory():Variant</signature>
+      </method>
+      <method vuln_id="1108566">
+        <simple_name>Mail.parseRecipients</simple_name>
+        <signature>Mail.parseRecipients($recipients):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108565">
+        <simple_name>Mail.prepareHeaders</simple_name>
+        <signature>Mail.prepareHeaders($headers):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092472">
+        <simple_name>Mail.send</simple_name>
+        <signature>Mail.send($recipients;$headers;$body):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Mail">
+      <method vuln_id="1108567">
+        <simple_name>Mail._sanitizeHeaders</simple_name>
+        <signature>Mail._sanitizeHeaders($headers):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092471">
+        <simple_name>Mail.factory</simple_name>
+        <signature>Mail.factory($driver;$params):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>todo need to add class loader vulnerability on param 1</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Mail.factory</simple_name>
+        <signature>Mail.factory():Variant</signature>
+      </method>
+      <method vuln_id="1108566">
+        <simple_name>Mail.parseRecipients</simple_name>
+        <signature>Mail.parseRecipients($recipients):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108565">
+        <simple_name>Mail.prepareHeaders</simple_name>
+        <signature>Mail.prepareHeaders($headers):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092472">
+        <simple_name>Mail.send</simple_name>
+        <signature>Mail.send($recipients;$headers;$body):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.Mail</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

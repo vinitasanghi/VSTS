@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_sqlite">
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.DB_common</simple_name>
+        <signature>DB_sqlite.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.DB_sqlite</simple_name>
+        <signature>DB_sqlite.DB_sqlite():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite._checkManip</simple_name>
+        <signature>DB_sqlite._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_sqlite._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite._rtrimArrayValues</simple_name>
+        <signature>DB_sqlite._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090861">
+        <simple_name>DB_sqlite.affectedRows</simple_name>
+        <signature>DB_sqlite.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090871">
+        <simple_name>DB_sqlite.connect</simple_name>
+        <signature>DB_sqlite.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451150">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090869">
+        <simple_name>DB_sqlite.createSequence</simple_name>
+        <signature>DB_sqlite.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090868">
+        <simple_name>DB_sqlite.disconnect</simple_name>
+        <signature>DB_sqlite.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090862">
+        <simple_name>DB_sqlite.dropSequence</simple_name>
+        <signature>DB_sqlite.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090873">
+        <simple_name>DB_sqlite.errorCode</simple_name>
+        <signature>DB_sqlite.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451146">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090856">
+        <simple_name>DB_sqlite.errorNative</simple_name>
+        <signature>DB_sqlite.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451142">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090866">
+        <simple_name>DB_sqlite.escapeSimple</simple_name>
+        <signature>DB_sqlite.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090863">
+        <simple_name>DB_sqlite.fetchInto</simple_name>
+        <signature>DB_sqlite.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480731"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090870">
+        <simple_name>DB_sqlite.freeResult</simple_name>
+        <signature>DB_sqlite.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.getDbFileStats</simple_name>
+        <signature>DB_sqlite.getDbFileStats($arg):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090859">
+        <simple_name>DB_sqlite.getSequenceName</simple_name>
+        <signature>DB_sqlite.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090854">
+        <simple_name>DB_sqlite.getSpecialQuery</simple_name>
+        <signature>DB_sqlite.getSpecialQuery($type;$args):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090857">
+        <simple_name>DB_sqlite.modifyLimitQuery</simple_name>
+        <signature>DB_sqlite.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090865">
+        <simple_name>DB_sqlite.modifyQuery</simple_name>
+        <signature>DB_sqlite.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090858">
+        <simple_name>DB_sqlite.nextId</simple_name>
+        <signature>DB_sqlite.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090860">
+        <simple_name>DB_sqlite.nextResult</simple_name>
+        <signature>DB_sqlite.nextResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090872">
+        <simple_name>DB_sqlite.numCols</simple_name>
+        <signature>DB_sqlite.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090853">
+        <simple_name>DB_sqlite.numRows</simple_name>
+        <signature>DB_sqlite.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.popErrorHandling</simple_name>
+        <signature>DB_sqlite.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.pushErrorHandling</simple_name>
+        <signature>DB_sqlite.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090867">
+        <simple_name>DB_sqlite.query</simple_name>
+        <signature>DB_sqlite.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.raiseError</simple_name>
+        <signature>DB_sqlite.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090864">
+        <simple_name>DB_sqlite.simpleQuery</simple_name>
+        <signature>DB_sqlite.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.sqliteRaiseError</simple_name>
+        <signature>DB_sqlite.sqliteRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090855">
+        <simple_name>DB_sqlite.tableInfo</simple_name>
+        <signature>DB_sqlite.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_sqlite">
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.DB_common</simple_name>
+        <signature>DB_sqlite.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.DB_sqlite</simple_name>
+        <signature>DB_sqlite.DB_sqlite():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite._checkManip</simple_name>
+        <signature>DB_sqlite._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_sqlite._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite._rtrimArrayValues</simple_name>
+        <signature>DB_sqlite._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090861">
+        <simple_name>DB_sqlite.affectedRows</simple_name>
+        <signature>DB_sqlite.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090871">
+        <simple_name>DB_sqlite.connect</simple_name>
+        <signature>DB_sqlite.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451150">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090869">
+        <simple_name>DB_sqlite.createSequence</simple_name>
+        <signature>DB_sqlite.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090868">
+        <simple_name>DB_sqlite.disconnect</simple_name>
+        <signature>DB_sqlite.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090862">
+        <simple_name>DB_sqlite.dropSequence</simple_name>
+        <signature>DB_sqlite.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090873">
+        <simple_name>DB_sqlite.errorCode</simple_name>
+        <signature>DB_sqlite.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451146">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090856">
+        <simple_name>DB_sqlite.errorNative</simple_name>
+        <signature>DB_sqlite.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451142">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090866">
+        <simple_name>DB_sqlite.escapeSimple</simple_name>
+        <signature>DB_sqlite.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090863">
+        <simple_name>DB_sqlite.fetchInto</simple_name>
+        <signature>DB_sqlite.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480731"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090870">
+        <simple_name>DB_sqlite.freeResult</simple_name>
+        <signature>DB_sqlite.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.getDbFileStats</simple_name>
+        <signature>DB_sqlite.getDbFileStats($arg):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090859">
+        <simple_name>DB_sqlite.getSequenceName</simple_name>
+        <signature>DB_sqlite.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090854">
+        <simple_name>DB_sqlite.getSpecialQuery</simple_name>
+        <signature>DB_sqlite.getSpecialQuery($type;$args):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090857">
+        <simple_name>DB_sqlite.modifyLimitQuery</simple_name>
+        <signature>DB_sqlite.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090865">
+        <simple_name>DB_sqlite.modifyQuery</simple_name>
+        <signature>DB_sqlite.modifyQuery($query):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090858">
+        <simple_name>DB_sqlite.nextId</simple_name>
+        <signature>DB_sqlite.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090860">
+        <simple_name>DB_sqlite.nextResult</simple_name>
+        <signature>DB_sqlite.nextResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090872">
+        <simple_name>DB_sqlite.numCols</simple_name>
+        <signature>DB_sqlite.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090853">
+        <simple_name>DB_sqlite.numRows</simple_name>
+        <signature>DB_sqlite.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.popErrorHandling</simple_name>
+        <signature>DB_sqlite.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.pushErrorHandling</simple_name>
+        <signature>DB_sqlite.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090867">
+        <simple_name>DB_sqlite.query</simple_name>
+        <signature>DB_sqlite.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.raiseError</simple_name>
+        <signature>DB_sqlite.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090864">
+        <simple_name>DB_sqlite.simpleQuery</simple_name>
+        <signature>DB_sqlite.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_sqlite.sqliteRaiseError</simple_name>
+        <signature>DB_sqlite.sqliteRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090855">
+        <simple_name>DB_sqlite.tableInfo</simple_name>
+        <signature>DB_sqlite.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

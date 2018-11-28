@@ -1,0 +1,2544 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.MDB_Common</simple_name>
+        <signature>MDB_Common.MDB_Common():void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.PEAR</simple_name>
+        <signature>MDB_Common.PEAR():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._MDB_Common</simple_name>
+        <signature>MDB_Common._MDB_Common():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.__toString</simple_name>
+        <signature>MDB_Common.__toString():string</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._baseConvertResult</simple_name>
+        <signature>MDB_Common._baseConvertResult($value;$type):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._close</simple_name>
+        <signature>MDB_Common._close():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._destroyResultLob</simple_name>
+        <signature>MDB_Common._destroyResultLob($lob):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._executePreparedQuery</simple_name>
+        <signature>MDB_Common._executePreparedQuery($prepared_query;$query;$types):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._isSequenceName</simple_name>
+        <signature>MDB_Common._isSequenceName($sqn):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._loadModule</simple_name>
+        <signature>MDB_Common._loadModule($scope;$module;$included_constant;$include):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._quote</simple_name>
+        <signature>MDB_Common._quote($text):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._readResultLob</simple_name>
+        <signature>MDB_Common._readResultLob($lob;$data;$length):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._retrieveLob</simple_name>
+        <signature>MDB_Common._retrieveLob($lob):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._validatePreparedQuery</simple_name>
+        <signature>MDB_Common._validatePreparedQuery($prepared_query):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.affectedRows</simple_name>
+        <signature>MDB_Common.affectedRows():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091945">
+        <simple_name>MDB_Common.affectedRows</simple_name>
+        <signature>MDB_Common.affectedRows():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091965">
+        <simple_name>MDB_Common.alterTable</simple_name>
+        <signature>MDB_Common.alterTable($name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091941">
+        <simple_name>MDB_Common.autoCommit</simple_name>
+        <signature>MDB_Common.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091933">
+        <simple_name>MDB_Common.captureDebugOutput</simple_name>
+        <signature>MDB_Common.captureDebugOutput($capture):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091937">
+        <simple_name>MDB_Common.commit</simple_name>
+        <signature>MDB_Common.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091898">
+        <simple_name>MDB_Common.convertResult</simple_name>
+        <signature>MDB_Common.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091912">
+        <simple_name>MDB_Common.convertResultRow</simple_name>
+        <signature>MDB_Common.convertResultRow($result;$row):mixed</signature>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091980">
+        <simple_name>MDB_Common.createDatabase</simple_name>
+        <signature>MDB_Common.createDatabase($name):mixed</signature>
+      </method>
+      <method vuln_id="1091958">
+        <simple_name>MDB_Common.createIndex</simple_name>
+        <signature>MDB_Common.createIndex($table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091902">
+        <simple_name>MDB_Common.createLob</simple_name>
+        <signature>MDB_Common.createLob($arguments):integer</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091947">
+        <simple_name>MDB_Common.createSequence</simple_name>
+        <signature>MDB_Common.createSequence($name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091951">
+        <simple_name>MDB_Common.createTable</simple_name>
+        <signature>MDB_Common.createTable($name;$fields):mixed</signature>
+      </method>
+      <method vuln_id="1091891">
+        <simple_name>MDB_Common.currId</simple_name>
+        <signature>MDB_Common.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091972">
+        <simple_name>MDB_Common.debug</simple_name>
+        <signature>MDB_Common.debug($message):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091952">
+        <simple_name>MDB_Common.debugOutput</simple_name>
+        <signature>MDB_Common.debugOutput():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091904">
+        <simple_name>MDB_Common.destroyLob</simple_name>
+        <signature>MDB_Common.destroyLob($lob):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092004">
+        <simple_name>MDB_Common.disconnect</simple_name>
+        <signature>MDB_Common.disconnect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092012">
+        <simple_name>MDB_Common.dropDatabase</simple_name>
+        <signature>MDB_Common.dropDatabase($name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091953">
+        <simple_name>MDB_Common.dropIndex</simple_name>
+        <signature>MDB_Common.dropIndex($table;$name):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091956">
+        <simple_name>MDB_Common.dropSequence</simple_name>
+        <signature>MDB_Common.dropSequence($name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092016">
+        <simple_name>MDB_Common.dropTable</simple_name>
+        <signature>MDB_Common.dropTable($name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092019">
+        <simple_name>MDB_Common.endOfLob</simple_name>
+        <signature>MDB_Common.endOfLob($lob):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091942">
+        <simple_name>MDB_Common.endOfResult</simple_name>
+        <signature>MDB_Common.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091934">
+        <simple_name>MDB_Common.endOfResultLob</simple_name>
+        <signature>MDB_Common.endOfResultLob($lob):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091911">
+        <simple_name>MDB_Common.error</simple_name>
+        <signature>MDB_Common.error():string</signature>
+        <rule>
+          <ActionObject id="451600">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091921">
+        <simple_name>MDB_Common.errorCode</simple_name>
+        <signature>MDB_Common.errorCode($nativecode):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091973">
+        <simple_name>MDB_Common.errorMessage</simple_name>
+        <signature>MDB_Common.errorMessage($dbcode):string</signature>
+        <rule>
+          <ActionObject id="451644">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091974">
+        <simple_name>MDB_Common.errorNative</simple_name>
+        <signature>MDB_Common.errorNative():mixed</signature>
+        <rule>
+          <ActionObject id="451645">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092008">
+        <simple_name>MDB_Common.execute</simple_name>
+        <signature>MDB_Common.execute($prepared_query;$types;$params;$param_types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091993">
+        <simple_name>MDB_Common.executeMultiple</simple_name>
+        <signature>MDB_Common.executeMultiple($prepared_query;$types;$params;$param_types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091986">
+        <simple_name>MDB_Common.executeQuery</simple_name>
+        <signature>MDB_Common.executeQuery($prepared_query;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.expectError</simple_name>
+        <signature>MDB_Common.expectError():Variant</signature>
+      </method>
+      <method vuln_id="1091920">
+        <simple_name>MDB_Common.fetch</simple_name>
+        <signature>MDB_Common.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480810"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091935">
+        <simple_name>MDB_Common.fetchAll</simple_name>
+        <signature>MDB_Common.fetchAll($result;$fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480823"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091932">
+        <simple_name>MDB_Common.fetchBlob</simple_name>
+        <signature>MDB_Common.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480818"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091906">
+        <simple_name>MDB_Common.fetchBoolean</simple_name>
+        <signature>MDB_Common.fetchBoolean($result;$row;$field):mixed</signature>
+        <info_rule id="480809"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091950">
+        <simple_name>MDB_Common.fetchClob</simple_name>
+        <signature>MDB_Common.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480802"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091967">
+        <simple_name>MDB_Common.fetchCol</simple_name>
+        <signature>MDB_Common.fetchCol($result;$colnum):mixed</signature>
+        <info_rule id="480800"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091903">
+        <simple_name>MDB_Common.fetchDate</simple_name>
+        <signature>MDB_Common.fetchDate($result;$row;$field):mixed</signature>
+        <info_rule id="480816"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092013">
+        <simple_name>MDB_Common.fetchDecimal</simple_name>
+        <signature>MDB_Common.fetchDecimal($result;$row;$field):mixed</signature>
+        <info_rule id="480821"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092015">
+        <simple_name>MDB_Common.fetchFloat</simple_name>
+        <signature>MDB_Common.fetchFloat($result;$row;$field):mixed</signature>
+        <info_rule id="480813"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091996">
+        <simple_name>MDB_Common.fetchInto</simple_name>
+        <signature>MDB_Common.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480804"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091888">
+        <simple_name>MDB_Common.fetchLob</simple_name>
+        <signature>MDB_Common.fetchLob($result;$row;$field):mixed</signature>
+        <info_rule id="480803"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091992">
+        <simple_name>MDB_Common.fetchOne</simple_name>
+        <signature>MDB_Common.fetchOne($result):mixed</signature>
+        <info_rule id="480812"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091901">
+        <simple_name>MDB_Common.fetchRow</simple_name>
+        <signature>MDB_Common.fetchRow($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480817"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091999">
+        <simple_name>MDB_Common.fetchTime</simple_name>
+        <signature>MDB_Common.fetchTime($result;$row;$field):mixed</signature>
+        <info_rule id="480805"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091939">
+        <simple_name>MDB_Common.fetchTimestamp</simple_name>
+        <signature>MDB_Common.fetchTimestamp($result;$row;$field):mixed</signature>
+        <info_rule id="480799"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091918">
+        <simple_name>MDB_Common.freeBlobValue</simple_name>
+        <signature>MDB_Common.freeBlobValue($prepared_query;$blob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091960">
+        <simple_name>MDB_Common.freeClobValue</simple_name>
+        <signature>MDB_Common.freeClobValue($prepared_query;$clob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091978">
+        <simple_name>MDB_Common.freePreparedQuery</simple_name>
+        <signature>MDB_Common.freePreparedQuery($prepared_query):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091990">
+        <simple_name>MDB_Common.freeResult</simple_name>
+        <signature>MDB_Common.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091917">
+        <simple_name>MDB_Common.getAll</simple_name>
+        <signature>MDB_Common.getAll($query;$types;$params;$param_types;$fetchmode):array</signature>
+        <info_rule id="480801"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091998">
+        <simple_name>MDB_Common.getAssoc</simple_name>
+        <signature>MDB_Common.getAssoc($query;$types;$params;$param_types;$fetchmode;$force_array;$group):array</signature>
+        <info_rule id="480814"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091964">
+        <simple_name>MDB_Common.getBlobDeclaration</simple_name>
+        <signature>MDB_Common.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091962">
+        <simple_name>MDB_Common.getBlobValue</simple_name>
+        <signature>MDB_Common.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092010">
+        <simple_name>MDB_Common.getBooleanDeclaration</simple_name>
+        <signature>MDB_Common.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092005">
+        <simple_name>MDB_Common.getBooleanValue</simple_name>
+        <signature>MDB_Common.getBooleanValue($value):string</signature>
+      </method>
+      <method vuln_id="1091899">
+        <simple_name>MDB_Common.getClobDeclaration</simple_name>
+        <signature>MDB_Common.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091892">
+        <simple_name>MDB_Common.getClobValue</simple_name>
+        <signature>MDB_Common.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092014">
+        <simple_name>MDB_Common.getCol</simple_name>
+        <signature>MDB_Common.getCol($query;$type;$params;$param_types;$colnum):array</signature>
+        <info_rule id="480798"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091887">
+        <simple_name>MDB_Common.getColumnNames</simple_name>
+        <signature>MDB_Common.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091991">
+        <simple_name>MDB_Common.getDSN</simple_name>
+        <signature>MDB_Common.getDSN($type):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091905">
+        <simple_name>MDB_Common.getDateDeclaration</simple_name>
+        <signature>MDB_Common.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091985">
+        <simple_name>MDB_Common.getDateValue</simple_name>
+        <signature>MDB_Common.getDateValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091922">
+        <simple_name>MDB_Common.getDecimalDeclaration</simple_name>
+        <signature>MDB_Common.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091938">
+        <simple_name>MDB_Common.getDecimalValue</simple_name>
+        <signature>MDB_Common.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091982">
+        <simple_name>MDB_Common.getFieldDeclaration</simple_name>
+        <signature>MDB_Common.getFieldDeclaration($field_name;$field):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091915">
+        <simple_name>MDB_Common.getFieldDeclarationList</simple_name>
+        <signature>MDB_Common.getFieldDeclarationList($fields):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091910">
+        <simple_name>MDB_Common.getFloatDeclaration</simple_name>
+        <signature>MDB_Common.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092003">
+        <simple_name>MDB_Common.getFloatValue</simple_name>
+        <signature>MDB_Common.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091979">
+        <simple_name>MDB_Common.getIntegerDeclaration</simple_name>
+        <signature>MDB_Common.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091925">
+        <simple_name>MDB_Common.getIntegerValue</simple_name>
+        <signature>MDB_Common.getIntegerValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091968">
+        <simple_name>MDB_Common.getOne</simple_name>
+        <signature>MDB_Common.getOne($query;$type;$params;$param_types):mixed</signature>
+        <info_rule id="480807"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091908">
+        <simple_name>MDB_Common.getOption</simple_name>
+        <signature>MDB_Common.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092006">
+        <simple_name>MDB_Common.getRow</simple_name>
+        <signature>MDB_Common.getRow($query;$types;$params;$param_types;$fetchmode):array</signature>
+        <info_rule id="480796"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091975">
+        <simple_name>MDB_Common.getSequenceDefinition</simple_name>
+        <signature>MDB_Common.getSequenceDefinition($sequence):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091971">
+        <simple_name>MDB_Common.getSequenceName</simple_name>
+        <signature>MDB_Common.getSequenceName($sqn):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091928">
+        <simple_name>MDB_Common.getTableFieldDefinition</simple_name>
+        <signature>MDB_Common.getTableFieldDefinition($table;$field):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091895">
+        <simple_name>MDB_Common.getTableIndexDefinition</simple_name>
+        <signature>MDB_Common.getTableIndexDefinition($table;$index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091988">
+        <simple_name>MDB_Common.getTextDeclaration</simple_name>
+        <signature>MDB_Common.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091916">
+        <simple_name>MDB_Common.getTextValue</simple_name>
+        <signature>MDB_Common.getTextValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091987">
+        <simple_name>MDB_Common.getTimeDeclaration</simple_name>
+        <signature>MDB_Common.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091936">
+        <simple_name>MDB_Common.getTimeValue</simple_name>
+        <signature>MDB_Common.getTimeValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092000">
+        <simple_name>MDB_Common.getTimestampDeclaration</simple_name>
+        <signature>MDB_Common.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091954">
+        <simple_name>MDB_Common.getTimestampValue</simple_name>
+        <signature>MDB_Common.getTimestampValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092011">
+        <simple_name>MDB_Common.getValue</simple_name>
+        <signature>MDB_Common.getValue($type;$value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091944">
+        <simple_name>MDB_Common.getWarnings</simple_name>
+        <signature>MDB_Common.getWarnings():array</signature>
+        <rule>
+          <ActionObject id="451624">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091926">
+        <simple_name>MDB_Common.limitQuery</simple_name>
+        <signature>MDB_Common.limitQuery($query;$types;$from;$count):mixed</signature>
+        <info_rule id="480806"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092017">
+        <simple_name>MDB_Common.listDatabases</simple_name>
+        <signature>MDB_Common.listDatabases():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091984">
+        <simple_name>MDB_Common.listFunctions</simple_name>
+        <signature>MDB_Common.listFunctions():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091931">
+        <simple_name>MDB_Common.listSequences</simple_name>
+        <signature>MDB_Common.listSequences():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091943">
+        <simple_name>MDB_Common.listTableFields</simple_name>
+        <signature>MDB_Common.listTableFields($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092020">
+        <simple_name>MDB_Common.listTableIndexes</simple_name>
+        <signature>MDB_Common.listTableIndexes($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092018">
+        <simple_name>MDB_Common.listTables</simple_name>
+        <signature>MDB_Common.listTables():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091889">
+        <simple_name>MDB_Common.listUsers</simple_name>
+        <signature>MDB_Common.listUsers():mixed</signature>
+        <info_rule id="480820"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091948">
+        <simple_name>MDB_Common.listViews</simple_name>
+        <signature>MDB_Common.listViews():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091966">
+        <simple_name>MDB_Common.loadLob</simple_name>
+        <signature>MDB_Common.loadLob($scope):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091893">
+        <simple_name>MDB_Common.loadManager</simple_name>
+        <signature>MDB_Common.loadManager($scope):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091995">
+        <simple_name>MDB_Common.nextId</simple_name>
+        <signature>MDB_Common.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091949">
+        <simple_name>MDB_Common.numCols</simple_name>
+        <signature>MDB_Common.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091976">
+        <simple_name>MDB_Common.numRows</simple_name>
+        <signature>MDB_Common.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.popExpect</simple_name>
+        <signature>MDB_Common.popExpect():Variant</signature>
+      </method>
+      <method vuln_id="1091961">
+        <simple_name>MDB_Common.prepareQuery</simple_name>
+        <signature>MDB_Common.prepareQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091919">
+        <simple_name>MDB_Common.query</simple_name>
+        <signature>MDB_Common.query($query;$types):mixed</signature>
+        <info_rule id="480822"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092009">
+        <simple_name>MDB_Common.queryAll</simple_name>
+        <signature>MDB_Common.queryAll($query;$types;$fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480811"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091940">
+        <simple_name>MDB_Common.queryCol</simple_name>
+        <signature>MDB_Common.queryCol($query;$type;$colnum):mixed</signature>
+        <info_rule id="480808"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091946">
+        <simple_name>MDB_Common.queryOne</simple_name>
+        <signature>MDB_Common.queryOne($query;$type):mixed</signature>
+        <info_rule id="480815"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092002">
+        <simple_name>MDB_Common.queryRow</simple_name>
+        <signature>MDB_Common.queryRow($query;$types;$fetchmode):mixed</signature>
+        <info_rule id="480797"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091959">
+        <simple_name>MDB_Common.quoteIdentifier</simple_name>
+        <signature>MDB_Common.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.raiseError</simple_name>
+        <signature>MDB_Common.raiseError($code;$mode;$options;$userinfo;$nativecode):object a</signature>
+      </method>
+      <method vuln_id="1091970">
+        <simple_name>MDB_Common.readLob</simple_name>
+        <signature>MDB_Common.readLob($lob;$data;$length):mixed</signature>
+        <info_rule id="480819"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091927">
+        <simple_name>MDB_Common.replace</simple_name>
+        <signature>MDB_Common.replace($table;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091886">
+        <simple_name>MDB_Common.resetWarnings</simple_name>
+        <signature>MDB_Common.resetWarnings():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091977">
+        <simple_name>MDB_Common.resultIsNull</simple_name>
+        <signature>MDB_Common.resultIsNull($result;$row;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091969">
+        <simple_name>MDB_Common.rollback</simple_name>
+        <signature>MDB_Common.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091913">
+        <simple_name>MDB_Common.setDSN</simple_name>
+        <signature>MDB_Common.setDSN($dsn):MDB_OK</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091997">
+        <simple_name>MDB_Common.setDatabase</simple_name>
+        <signature>MDB_Common.setDatabase($name):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.setError</simple_name>
+        <signature>MDB_Common.setError($scope;$message):mixed</signature>
+      </method>
+      <method vuln_id="1091909">
+        <simple_name>MDB_Common.setErrorHandler</simple_name>
+        <signature>MDB_Common.setErrorHandler($function):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.MethodName</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091907">
+        <simple_name>MDB_Common.setFetchMode</simple_name>
+        <signature>MDB_Common.setFetchMode($fetchmode):void</signature>
+      </method>
+      <method vuln_id="1091983">
+        <simple_name>MDB_Common.setOption</simple_name>
+        <signature>MDB_Common.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091930">
+        <simple_name>MDB_Common.setParam</simple_name>
+        <signature>MDB_Common.setParam($prepared_query;$parameter;$type;$value;$is_null;$field):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3,4,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091929">
+        <simple_name>MDB_Common.setParamArray</simple_name>
+        <signature>MDB_Common.setParamArray($prepared_query;$params;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091900">
+        <simple_name>MDB_Common.setParamBlob</simple_name>
+        <signature>MDB_Common.setParamBlob($prepared_query;$parameter;$value;$field):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091994">
+        <simple_name>MDB_Common.setParamBoolean</simple_name>
+        <signature>MDB_Common.setParamBoolean($prepared_query;$parameter;$value):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091981">
+        <simple_name>MDB_Common.setParamClob</simple_name>
+        <signature>MDB_Common.setParamClob($prepared_query;$parameter;$value;$field):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091955">
+        <simple_name>MDB_Common.setParamDate</simple_name>
+        <signature>MDB_Common.setParamDate($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091897">
+        <simple_name>MDB_Common.setParamDecimal</simple_name>
+        <signature>MDB_Common.setParamDecimal($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091890">
+        <simple_name>MDB_Common.setParamFloat</simple_name>
+        <signature>MDB_Common.setParamFloat($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091894">
+        <simple_name>MDB_Common.setParamInteger</simple_name>
+        <signature>MDB_Common.setParamInteger($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092001">
+        <simple_name>MDB_Common.setParamNull</simple_name>
+        <signature>MDB_Common.setParamNull($prepared_query;$parameter;$type):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091896">
+        <simple_name>MDB_Common.setParamText</simple_name>
+        <signature>MDB_Common.setParamText($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091989">
+        <simple_name>MDB_Common.setParamTime</simple_name>
+        <signature>MDB_Common.setParamTime($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091914">
+        <simple_name>MDB_Common.setParamTimestamp</simple_name>
+        <signature>MDB_Common.setParamTimestamp($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091924">
+        <simple_name>MDB_Common.setResultTypes</simple_name>
+        <signature>MDB_Common.setResultTypes($result;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091963">
+        <simple_name>MDB_Common.setSelectedRowRange</simple_name>
+        <signature>MDB_Common.setSelectedRowRange($first;$limit):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092007">
+        <simple_name>MDB_Common.subSelect</simple_name>
+        <signature>MDB_Common.subSelect($query;$quote):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091923">
+        <simple_name>MDB_Common.support</simple_name>
+        <signature>MDB_Common.support($feature):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091957">
+        <simple_name>MDB_Common.tableInfo</simple_name>
+        <signature>MDB_Common.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.MDB_Common</simple_name>
+        <signature>MDB_Common.MDB_Common():void</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.PEAR</simple_name>
+        <signature>MDB_Common.PEAR():Variant</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._MDB_Common</simple_name>
+        <signature>MDB_Common._MDB_Common():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.__toString</simple_name>
+        <signature>MDB_Common.__toString():string</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._baseConvertResult</simple_name>
+        <signature>MDB_Common._baseConvertResult($value;$type):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._close</simple_name>
+        <signature>MDB_Common._close():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._destroyResultLob</simple_name>
+        <signature>MDB_Common._destroyResultLob($lob):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._executePreparedQuery</simple_name>
+        <signature>MDB_Common._executePreparedQuery($prepared_query;$query;$types):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._isSequenceName</simple_name>
+        <signature>MDB_Common._isSequenceName($sqn):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._loadModule</simple_name>
+        <signature>MDB_Common._loadModule($scope;$module;$included_constant;$include):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._quote</simple_name>
+        <signature>MDB_Common._quote($text):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._readResultLob</simple_name>
+        <signature>MDB_Common._readResultLob($lob;$data;$length):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._retrieveLob</simple_name>
+        <signature>MDB_Common._retrieveLob($lob):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common._validatePreparedQuery</simple_name>
+        <signature>MDB_Common._validatePreparedQuery($prepared_query):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.affectedRows</simple_name>
+        <signature>MDB_Common.affectedRows():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091945">
+        <simple_name>MDB_Common.affectedRows</simple_name>
+        <signature>MDB_Common.affectedRows():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091965">
+        <simple_name>MDB_Common.alterTable</simple_name>
+        <signature>MDB_Common.alterTable($name;$changes;$check):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091941">
+        <simple_name>MDB_Common.autoCommit</simple_name>
+        <signature>MDB_Common.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091933">
+        <simple_name>MDB_Common.captureDebugOutput</simple_name>
+        <signature>MDB_Common.captureDebugOutput($capture):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091937">
+        <simple_name>MDB_Common.commit</simple_name>
+        <signature>MDB_Common.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091898">
+        <simple_name>MDB_Common.convertResult</simple_name>
+        <signature>MDB_Common.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091912">
+        <simple_name>MDB_Common.convertResultRow</simple_name>
+        <signature>MDB_Common.convertResultRow($result;$row):mixed</signature>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091980">
+        <simple_name>MDB_Common.createDatabase</simple_name>
+        <signature>MDB_Common.createDatabase($name):mixed</signature>
+      </method>
+      <method vuln_id="1091958">
+        <simple_name>MDB_Common.createIndex</simple_name>
+        <signature>MDB_Common.createIndex($table;$name;$definition):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091902">
+        <simple_name>MDB_Common.createLob</simple_name>
+        <signature>MDB_Common.createLob($arguments):integer</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091947">
+        <simple_name>MDB_Common.createSequence</simple_name>
+        <signature>MDB_Common.createSequence($name;$start):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091951">
+        <simple_name>MDB_Common.createTable</simple_name>
+        <signature>MDB_Common.createTable($name;$fields):mixed</signature>
+      </method>
+      <method vuln_id="1091891">
+        <simple_name>MDB_Common.currId</simple_name>
+        <signature>MDB_Common.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091972">
+        <simple_name>MDB_Common.debug</simple_name>
+        <signature>MDB_Common.debug($message):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091952">
+        <simple_name>MDB_Common.debugOutput</simple_name>
+        <signature>MDB_Common.debugOutput():string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091904">
+        <simple_name>MDB_Common.destroyLob</simple_name>
+        <signature>MDB_Common.destroyLob($lob):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092004">
+        <simple_name>MDB_Common.disconnect</simple_name>
+        <signature>MDB_Common.disconnect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092012">
+        <simple_name>MDB_Common.dropDatabase</simple_name>
+        <signature>MDB_Common.dropDatabase($name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091953">
+        <simple_name>MDB_Common.dropIndex</simple_name>
+        <signature>MDB_Common.dropIndex($table;$name):mixed</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091956">
+        <simple_name>MDB_Common.dropSequence</simple_name>
+        <signature>MDB_Common.dropSequence($name):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092016">
+        <simple_name>MDB_Common.dropTable</simple_name>
+        <signature>MDB_Common.dropTable($name):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092019">
+        <simple_name>MDB_Common.endOfLob</simple_name>
+        <signature>MDB_Common.endOfLob($lob):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091942">
+        <simple_name>MDB_Common.endOfResult</simple_name>
+        <signature>MDB_Common.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091934">
+        <simple_name>MDB_Common.endOfResultLob</simple_name>
+        <signature>MDB_Common.endOfResultLob($lob):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091911">
+        <simple_name>MDB_Common.error</simple_name>
+        <signature>MDB_Common.error():string</signature>
+        <rule>
+          <ActionObject id="451600">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091921">
+        <simple_name>MDB_Common.errorCode</simple_name>
+        <signature>MDB_Common.errorCode($nativecode):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091973">
+        <simple_name>MDB_Common.errorMessage</simple_name>
+        <signature>MDB_Common.errorMessage($dbcode):string</signature>
+        <rule>
+          <ActionObject id="451644">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091974">
+        <simple_name>MDB_Common.errorNative</simple_name>
+        <signature>MDB_Common.errorNative():mixed</signature>
+        <rule>
+          <ActionObject id="451645">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092008">
+        <simple_name>MDB_Common.execute</simple_name>
+        <signature>MDB_Common.execute($prepared_query;$types;$params;$param_types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091993">
+        <simple_name>MDB_Common.executeMultiple</simple_name>
+        <signature>MDB_Common.executeMultiple($prepared_query;$types;$params;$param_types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091986">
+        <simple_name>MDB_Common.executeQuery</simple_name>
+        <signature>MDB_Common.executeQuery($prepared_query;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.expectError</simple_name>
+        <signature>MDB_Common.expectError():Variant</signature>
+      </method>
+      <method vuln_id="1091920">
+        <simple_name>MDB_Common.fetch</simple_name>
+        <signature>MDB_Common.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480810"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091935">
+        <simple_name>MDB_Common.fetchAll</simple_name>
+        <signature>MDB_Common.fetchAll($result;$fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480823"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091932">
+        <simple_name>MDB_Common.fetchBlob</simple_name>
+        <signature>MDB_Common.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480818"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091906">
+        <simple_name>MDB_Common.fetchBoolean</simple_name>
+        <signature>MDB_Common.fetchBoolean($result;$row;$field):mixed</signature>
+        <info_rule id="480809"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091950">
+        <simple_name>MDB_Common.fetchClob</simple_name>
+        <signature>MDB_Common.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480802"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091967">
+        <simple_name>MDB_Common.fetchCol</simple_name>
+        <signature>MDB_Common.fetchCol($result;$colnum):mixed</signature>
+        <info_rule id="480800"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091903">
+        <simple_name>MDB_Common.fetchDate</simple_name>
+        <signature>MDB_Common.fetchDate($result;$row;$field):mixed</signature>
+        <info_rule id="480816"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092013">
+        <simple_name>MDB_Common.fetchDecimal</simple_name>
+        <signature>MDB_Common.fetchDecimal($result;$row;$field):mixed</signature>
+        <info_rule id="480821"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092015">
+        <simple_name>MDB_Common.fetchFloat</simple_name>
+        <signature>MDB_Common.fetchFloat($result;$row;$field):mixed</signature>
+        <info_rule id="480813"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091996">
+        <simple_name>MDB_Common.fetchInto</simple_name>
+        <signature>MDB_Common.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480804"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091888">
+        <simple_name>MDB_Common.fetchLob</simple_name>
+        <signature>MDB_Common.fetchLob($result;$row;$field):mixed</signature>
+        <info_rule id="480803"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091992">
+        <simple_name>MDB_Common.fetchOne</simple_name>
+        <signature>MDB_Common.fetchOne($result):mixed</signature>
+        <info_rule id="480812"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091901">
+        <simple_name>MDB_Common.fetchRow</simple_name>
+        <signature>MDB_Common.fetchRow($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480817"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091999">
+        <simple_name>MDB_Common.fetchTime</simple_name>
+        <signature>MDB_Common.fetchTime($result;$row;$field):mixed</signature>
+        <info_rule id="480805"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091939">
+        <simple_name>MDB_Common.fetchTimestamp</simple_name>
+        <signature>MDB_Common.fetchTimestamp($result;$row;$field):mixed</signature>
+        <info_rule id="480799"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091918">
+        <simple_name>MDB_Common.freeBlobValue</simple_name>
+        <signature>MDB_Common.freeBlobValue($prepared_query;$blob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091960">
+        <simple_name>MDB_Common.freeClobValue</simple_name>
+        <signature>MDB_Common.freeClobValue($prepared_query;$clob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091978">
+        <simple_name>MDB_Common.freePreparedQuery</simple_name>
+        <signature>MDB_Common.freePreparedQuery($prepared_query):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091990">
+        <simple_name>MDB_Common.freeResult</simple_name>
+        <signature>MDB_Common.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091917">
+        <simple_name>MDB_Common.getAll</simple_name>
+        <signature>MDB_Common.getAll($query;$types;$params;$param_types;$fetchmode):array</signature>
+        <info_rule id="480801"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091998">
+        <simple_name>MDB_Common.getAssoc</simple_name>
+        <signature>MDB_Common.getAssoc($query;$types;$params;$param_types;$fetchmode;$force_array;$group):array</signature>
+        <info_rule id="480814"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091964">
+        <simple_name>MDB_Common.getBlobDeclaration</simple_name>
+        <signature>MDB_Common.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091962">
+        <simple_name>MDB_Common.getBlobValue</simple_name>
+        <signature>MDB_Common.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092010">
+        <simple_name>MDB_Common.getBooleanDeclaration</simple_name>
+        <signature>MDB_Common.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092005">
+        <simple_name>MDB_Common.getBooleanValue</simple_name>
+        <signature>MDB_Common.getBooleanValue($value):string</signature>
+      </method>
+      <method vuln_id="1091899">
+        <simple_name>MDB_Common.getClobDeclaration</simple_name>
+        <signature>MDB_Common.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091892">
+        <simple_name>MDB_Common.getClobValue</simple_name>
+        <signature>MDB_Common.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092014">
+        <simple_name>MDB_Common.getCol</simple_name>
+        <signature>MDB_Common.getCol($query;$type;$params;$param_types;$colnum):array</signature>
+        <info_rule id="480798"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091887">
+        <simple_name>MDB_Common.getColumnNames</simple_name>
+        <signature>MDB_Common.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091991">
+        <simple_name>MDB_Common.getDSN</simple_name>
+        <signature>MDB_Common.getDSN($type):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091905">
+        <simple_name>MDB_Common.getDateDeclaration</simple_name>
+        <signature>MDB_Common.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091985">
+        <simple_name>MDB_Common.getDateValue</simple_name>
+        <signature>MDB_Common.getDateValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091922">
+        <simple_name>MDB_Common.getDecimalDeclaration</simple_name>
+        <signature>MDB_Common.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091938">
+        <simple_name>MDB_Common.getDecimalValue</simple_name>
+        <signature>MDB_Common.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091982">
+        <simple_name>MDB_Common.getFieldDeclaration</simple_name>
+        <signature>MDB_Common.getFieldDeclaration($field_name;$field):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091915">
+        <simple_name>MDB_Common.getFieldDeclarationList</simple_name>
+        <signature>MDB_Common.getFieldDeclarationList($fields):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091910">
+        <simple_name>MDB_Common.getFloatDeclaration</simple_name>
+        <signature>MDB_Common.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092003">
+        <simple_name>MDB_Common.getFloatValue</simple_name>
+        <signature>MDB_Common.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091979">
+        <simple_name>MDB_Common.getIntegerDeclaration</simple_name>
+        <signature>MDB_Common.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091925">
+        <simple_name>MDB_Common.getIntegerValue</simple_name>
+        <signature>MDB_Common.getIntegerValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091968">
+        <simple_name>MDB_Common.getOne</simple_name>
+        <signature>MDB_Common.getOne($query;$type;$params;$param_types):mixed</signature>
+        <info_rule id="480807"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091908">
+        <simple_name>MDB_Common.getOption</simple_name>
+        <signature>MDB_Common.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092006">
+        <simple_name>MDB_Common.getRow</simple_name>
+        <signature>MDB_Common.getRow($query;$types;$params;$param_types;$fetchmode):array</signature>
+        <info_rule id="480796"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091975">
+        <simple_name>MDB_Common.getSequenceDefinition</simple_name>
+        <signature>MDB_Common.getSequenceDefinition($sequence):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091971">
+        <simple_name>MDB_Common.getSequenceName</simple_name>
+        <signature>MDB_Common.getSequenceName($sqn):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091928">
+        <simple_name>MDB_Common.getTableFieldDefinition</simple_name>
+        <signature>MDB_Common.getTableFieldDefinition($table;$field):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091895">
+        <simple_name>MDB_Common.getTableIndexDefinition</simple_name>
+        <signature>MDB_Common.getTableIndexDefinition($table;$index):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091988">
+        <simple_name>MDB_Common.getTextDeclaration</simple_name>
+        <signature>MDB_Common.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091916">
+        <simple_name>MDB_Common.getTextValue</simple_name>
+        <signature>MDB_Common.getTextValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091987">
+        <simple_name>MDB_Common.getTimeDeclaration</simple_name>
+        <signature>MDB_Common.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091936">
+        <simple_name>MDB_Common.getTimeValue</simple_name>
+        <signature>MDB_Common.getTimeValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092000">
+        <simple_name>MDB_Common.getTimestampDeclaration</simple_name>
+        <signature>MDB_Common.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091954">
+        <simple_name>MDB_Common.getTimestampValue</simple_name>
+        <signature>MDB_Common.getTimestampValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092011">
+        <simple_name>MDB_Common.getValue</simple_name>
+        <signature>MDB_Common.getValue($type;$value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091944">
+        <simple_name>MDB_Common.getWarnings</simple_name>
+        <signature>MDB_Common.getWarnings():array</signature>
+        <rule>
+          <ActionObject id="451624">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091926">
+        <simple_name>MDB_Common.limitQuery</simple_name>
+        <signature>MDB_Common.limitQuery($query;$types;$from;$count):mixed</signature>
+        <info_rule id="480806"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092017">
+        <simple_name>MDB_Common.listDatabases</simple_name>
+        <signature>MDB_Common.listDatabases():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091984">
+        <simple_name>MDB_Common.listFunctions</simple_name>
+        <signature>MDB_Common.listFunctions():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091931">
+        <simple_name>MDB_Common.listSequences</simple_name>
+        <signature>MDB_Common.listSequences():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091943">
+        <simple_name>MDB_Common.listTableFields</simple_name>
+        <signature>MDB_Common.listTableFields($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092020">
+        <simple_name>MDB_Common.listTableIndexes</simple_name>
+        <signature>MDB_Common.listTableIndexes($table):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092018">
+        <simple_name>MDB_Common.listTables</simple_name>
+        <signature>MDB_Common.listTables():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091889">
+        <simple_name>MDB_Common.listUsers</simple_name>
+        <signature>MDB_Common.listUsers():mixed</signature>
+        <info_rule id="480820"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091948">
+        <simple_name>MDB_Common.listViews</simple_name>
+        <signature>MDB_Common.listViews():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091966">
+        <simple_name>MDB_Common.loadLob</simple_name>
+        <signature>MDB_Common.loadLob($scope):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091893">
+        <simple_name>MDB_Common.loadManager</simple_name>
+        <signature>MDB_Common.loadManager($scope):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091995">
+        <simple_name>MDB_Common.nextId</simple_name>
+        <signature>MDB_Common.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091949">
+        <simple_name>MDB_Common.numCols</simple_name>
+        <signature>MDB_Common.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091976">
+        <simple_name>MDB_Common.numRows</simple_name>
+        <signature>MDB_Common.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.popExpect</simple_name>
+        <signature>MDB_Common.popExpect():Variant</signature>
+      </method>
+      <method vuln_id="1091961">
+        <simple_name>MDB_Common.prepareQuery</simple_name>
+        <signature>MDB_Common.prepareQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091919">
+        <simple_name>MDB_Common.query</simple_name>
+        <signature>MDB_Common.query($query;$types):mixed</signature>
+        <info_rule id="480822"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092009">
+        <simple_name>MDB_Common.queryAll</simple_name>
+        <signature>MDB_Common.queryAll($query;$types;$fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480811"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091940">
+        <simple_name>MDB_Common.queryCol</simple_name>
+        <signature>MDB_Common.queryCol($query;$type;$colnum):mixed</signature>
+        <info_rule id="480808"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091946">
+        <simple_name>MDB_Common.queryOne</simple_name>
+        <signature>MDB_Common.queryOne($query;$type):mixed</signature>
+        <info_rule id="480815"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092002">
+        <simple_name>MDB_Common.queryRow</simple_name>
+        <signature>MDB_Common.queryRow($query;$types;$fetchmode):mixed</signature>
+        <info_rule id="480797"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091959">
+        <simple_name>MDB_Common.quoteIdentifier</simple_name>
+        <signature>MDB_Common.quoteIdentifier($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.raiseError</simple_name>
+        <signature>MDB_Common.raiseError($code;$mode;$options;$userinfo;$nativecode):object a</signature>
+      </method>
+      <method vuln_id="1091970">
+        <simple_name>MDB_Common.readLob</simple_name>
+        <signature>MDB_Common.readLob($lob;$data;$length):mixed</signature>
+        <info_rule id="480819"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091927">
+        <simple_name>MDB_Common.replace</simple_name>
+        <signature>MDB_Common.replace($table;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091886">
+        <simple_name>MDB_Common.resetWarnings</simple_name>
+        <signature>MDB_Common.resetWarnings():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091977">
+        <simple_name>MDB_Common.resultIsNull</simple_name>
+        <signature>MDB_Common.resultIsNull($result;$row;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091969">
+        <simple_name>MDB_Common.rollback</simple_name>
+        <signature>MDB_Common.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091913">
+        <simple_name>MDB_Common.setDSN</simple_name>
+        <signature>MDB_Common.setDSN($dsn):MDB_OK</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091997">
+        <simple_name>MDB_Common.setDatabase</simple_name>
+        <signature>MDB_Common.setDatabase($name):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_Common.setError</simple_name>
+        <signature>MDB_Common.setError($scope;$message):mixed</signature>
+      </method>
+      <method vuln_id="1091909">
+        <simple_name>MDB_Common.setErrorHandler</simple_name>
+        <signature>MDB_Common.setErrorHandler($function):string</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.MethodName</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091907">
+        <simple_name>MDB_Common.setFetchMode</simple_name>
+        <signature>MDB_Common.setFetchMode($fetchmode):void</signature>
+      </method>
+      <method vuln_id="1091983">
+        <simple_name>MDB_Common.setOption</simple_name>
+        <signature>MDB_Common.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091930">
+        <simple_name>MDB_Common.setParam</simple_name>
+        <signature>MDB_Common.setParam($prepared_query;$parameter;$type;$value;$is_null;$field):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3,4,6"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091929">
+        <simple_name>MDB_Common.setParamArray</simple_name>
+        <signature>MDB_Common.setParamArray($prepared_query;$params;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091900">
+        <simple_name>MDB_Common.setParamBlob</simple_name>
+        <signature>MDB_Common.setParamBlob($prepared_query;$parameter;$value;$field):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091994">
+        <simple_name>MDB_Common.setParamBoolean</simple_name>
+        <signature>MDB_Common.setParamBoolean($prepared_query;$parameter;$value):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091981">
+        <simple_name>MDB_Common.setParamClob</simple_name>
+        <signature>MDB_Common.setParamClob($prepared_query;$parameter;$value;$field):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091955">
+        <simple_name>MDB_Common.setParamDate</simple_name>
+        <signature>MDB_Common.setParamDate($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091897">
+        <simple_name>MDB_Common.setParamDecimal</simple_name>
+        <signature>MDB_Common.setParamDecimal($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091890">
+        <simple_name>MDB_Common.setParamFloat</simple_name>
+        <signature>MDB_Common.setParamFloat($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091894">
+        <simple_name>MDB_Common.setParamInteger</simple_name>
+        <signature>MDB_Common.setParamInteger($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092001">
+        <simple_name>MDB_Common.setParamNull</simple_name>
+        <signature>MDB_Common.setParamNull($prepared_query;$parameter;$type):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091896">
+        <simple_name>MDB_Common.setParamText</simple_name>
+        <signature>MDB_Common.setParamText($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091989">
+        <simple_name>MDB_Common.setParamTime</simple_name>
+        <signature>MDB_Common.setParamTime($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091914">
+        <simple_name>MDB_Common.setParamTimestamp</simple_name>
+        <signature>MDB_Common.setParamTimestamp($prepared_query;$parameter;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091924">
+        <simple_name>MDB_Common.setResultTypes</simple_name>
+        <signature>MDB_Common.setResultTypes($result;$types):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091963">
+        <simple_name>MDB_Common.setSelectedRowRange</simple_name>
+        <signature>MDB_Common.setSelectedRowRange($first;$limit):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092007">
+        <simple_name>MDB_Common.subSelect</simple_name>
+        <signature>MDB_Common.subSelect($query;$quote):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091923">
+        <simple_name>MDB_Common.support</simple_name>
+        <signature>MDB_Common.support($feature):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091957">
+        <simple_name>MDB_Common.tableInfo</simple_name>
+        <signature>MDB_Common.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

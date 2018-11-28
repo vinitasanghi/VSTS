@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fUpload">
+      <method vuln_id="1107111">
+        <simple_name>fUpload.__construct_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.__construct_@__inc_flourish_fUpload_php_1():void</signature>
+      </method>
+      <method vuln_id="1106627">
+        <simple_name>fUpload.__get_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.__get_@__inc_flourish_fUpload_php_1($method):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107384">
+        <simple_name>fUpload.allowPHP_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.allowPHP_@__inc_flourish_fUpload_php_1():Variant</signature>
+        <rule>
+          <ActionObject id="462368">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Malicious.DynamicCode.Loading</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107213">
+        <simple_name>fUpload.check_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.check_@__inc_flourish_fUpload_php_1($field):Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107244">
+        <simple_name>fUpload.count_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.count_@__inc_flourish_fUpload_php_1($field):Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106763">
+        <simple_name>fUpload.enableOverwrite_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.enableOverwrite_@__inc_flourish_fUpload_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106649">
+        <simple_name>fUpload.extractFileUploadArray_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.extractFileUploadArray_@__inc_flourish_fUpload_php_1($field;$index):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107202">
+        <simple_name>fUpload.move_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.move_@__inc_flourish_fUpload_php_1($directory;$field;$index):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107044">
+        <simple_name>fUpload.setMIMETypes_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.setMIMETypes_@__inc_flourish_fUpload_php_1($mime_types;$message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106798">
+        <simple_name>fUpload.setMaxFileSize_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.setMaxFileSize_@__inc_flourish_fUpload_php_1($size):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106773">
+        <simple_name>fUpload.validate_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.validate_@__inc_flourish_fUpload_php_1($field;$index):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fUpload">
+      <method vuln_id="1107111">
+        <simple_name>fUpload.__construct_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.__construct_@__inc_flourish_fUpload_php_1():void</signature>
+      </method>
+      <method vuln_id="1106627">
+        <simple_name>fUpload.__get_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.__get_@__inc_flourish_fUpload_php_1($method):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107384">
+        <simple_name>fUpload.allowPHP_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.allowPHP_@__inc_flourish_fUpload_php_1():Variant</signature>
+        <rule>
+          <ActionObject id="462368">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Malicious.DynamicCode.Loading</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107213">
+        <simple_name>fUpload.check_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.check_@__inc_flourish_fUpload_php_1($field):Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1107244">
+        <simple_name>fUpload.count_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.count_@__inc_flourish_fUpload_php_1($field):Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106763">
+        <simple_name>fUpload.enableOverwrite_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.enableOverwrite_@__inc_flourish_fUpload_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106649">
+        <simple_name>fUpload.extractFileUploadArray_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.extractFileUploadArray_@__inc_flourish_fUpload_php_1($field;$index):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107202">
+        <simple_name>fUpload.move_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.move_@__inc_flourish_fUpload_php_1($directory;$field;$index):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107044">
+        <simple_name>fUpload.setMIMETypes_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.setMIMETypes_@__inc_flourish_fUpload_php_1($mime_types;$message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106798">
+        <simple_name>fUpload.setMaxFileSize_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.setMaxFileSize_@__inc_flourish_fUpload_php_1($size):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106773">
+        <simple_name>fUpload.validate_@__inc_flourish_fUpload_php_1</simple_name>
+        <signature>fUpload.validate_@__inc_flourish_fUpload_php_1($field;$index):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

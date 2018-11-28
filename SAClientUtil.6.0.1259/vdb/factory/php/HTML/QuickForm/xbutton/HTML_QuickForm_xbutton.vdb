@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTML_QuickForm_xbutton">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton.HTML_QuickForm_element</simple_name>
+        <signature>HTML_QuickForm_xbutton.HTML_QuickForm_element():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton.HTML_QuickForm_xbutton</simple_name>
+        <signature>HTML_QuickForm_xbutton.HTML_QuickForm_xbutton($elementName;$elementContent;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton._findValue</simple_name>
+        <signature>HTML_QuickForm_xbutton._findValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton._prepareValue</simple_name>
+        <signature>HTML_QuickForm_xbutton._prepareValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091437">
+        <simple_name>HTML_QuickForm_xbutton.exportValue</simple_name>
+        <signature>HTML_QuickForm_xbutton.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480764"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091445">
+        <simple_name>HTML_QuickForm_xbutton.freeze</simple_name>
+        <signature>HTML_QuickForm_xbutton.freeze():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091435">
+        <simple_name>HTML_QuickForm_xbutton.getAttribute</simple_name>
+        <signature>HTML_QuickForm_xbutton.getAttribute():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091443">
+        <simple_name>HTML_QuickForm_xbutton.getAttributes</simple_name>
+        <signature>HTML_QuickForm_xbutton.getAttributes():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091436">
+        <simple_name>HTML_QuickForm_xbutton.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_xbutton.getFrozenHtml():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091440">
+        <simple_name>HTML_QuickForm_xbutton.getName</simple_name>
+        <signature>HTML_QuickForm_xbutton.getName():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091434">
+        <simple_name>HTML_QuickForm_xbutton.getValue</simple_name>
+        <signature>HTML_QuickForm_xbutton.getValue():void</signature>
+        <info_rule id="480765"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091446">
+        <simple_name>HTML_QuickForm_xbutton.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_xbutton.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091441">
+        <simple_name>HTML_QuickForm_xbutton.setContent</simple_name>
+        <signature>HTML_QuickForm_xbutton.setContent($content):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091438">
+        <simple_name>HTML_QuickForm_xbutton.setName</simple_name>
+        <signature>HTML_QuickForm_xbutton.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091444">
+        <simple_name>HTML_QuickForm_xbutton.setPersistantFreeze</simple_name>
+        <signature>HTML_QuickForm_xbutton.setPersistantFreeze():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091439">
+        <simple_name>HTML_QuickForm_xbutton.setValue</simple_name>
+        <signature>HTML_QuickForm_xbutton.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091433">
+        <simple_name>HTML_QuickForm_xbutton.toHtml</simple_name>
+        <signature>HTML_QuickForm_xbutton.toHtml():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091442">
+        <simple_name>HTML_QuickForm_xbutton.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_xbutton.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTML_QuickForm_xbutton">
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton.HTML_QuickForm_element</simple_name>
+        <signature>HTML_QuickForm_xbutton.HTML_QuickForm_element():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton.HTML_QuickForm_xbutton</simple_name>
+        <signature>HTML_QuickForm_xbutton.HTML_QuickForm_xbutton($elementName;$elementContent;$attributes):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton._findValue</simple_name>
+        <signature>HTML_QuickForm_xbutton._findValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTML_QuickForm_xbutton._prepareValue</simple_name>
+        <signature>HTML_QuickForm_xbutton._prepareValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091437">
+        <simple_name>HTML_QuickForm_xbutton.exportValue</simple_name>
+        <signature>HTML_QuickForm_xbutton.exportValue($submitValues;$assoc):void</signature>
+        <info_rule id="480764"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091445">
+        <simple_name>HTML_QuickForm_xbutton.freeze</simple_name>
+        <signature>HTML_QuickForm_xbutton.freeze():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091435">
+        <simple_name>HTML_QuickForm_xbutton.getAttribute</simple_name>
+        <signature>HTML_QuickForm_xbutton.getAttribute():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091443">
+        <simple_name>HTML_QuickForm_xbutton.getAttributes</simple_name>
+        <signature>HTML_QuickForm_xbutton.getAttributes():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091436">
+        <simple_name>HTML_QuickForm_xbutton.getFrozenHtml</simple_name>
+        <signature>HTML_QuickForm_xbutton.getFrozenHtml():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091440">
+        <simple_name>HTML_QuickForm_xbutton.getName</simple_name>
+        <signature>HTML_QuickForm_xbutton.getName():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091434">
+        <simple_name>HTML_QuickForm_xbutton.getValue</simple_name>
+        <signature>HTML_QuickForm_xbutton.getValue():void</signature>
+        <info_rule id="480765"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Client.GUI</property>
+      </method>
+      <method vuln_id="1091446">
+        <simple_name>HTML_QuickForm_xbutton.onQuickFormEvent</simple_name>
+        <signature>HTML_QuickForm_xbutton.onQuickFormEvent($event;$arg;$caller):void</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091441">
+        <simple_name>HTML_QuickForm_xbutton.setContent</simple_name>
+        <signature>HTML_QuickForm_xbutton.setContent($content):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091438">
+        <simple_name>HTML_QuickForm_xbutton.setName</simple_name>
+        <signature>HTML_QuickForm_xbutton.setName($name):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091444">
+        <simple_name>HTML_QuickForm_xbutton.setPersistantFreeze</simple_name>
+        <signature>HTML_QuickForm_xbutton.setPersistantFreeze():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091439">
+        <simple_name>HTML_QuickForm_xbutton.setValue</simple_name>
+        <signature>HTML_QuickForm_xbutton.setValue($value):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091433">
+        <simple_name>HTML_QuickForm_xbutton.toHtml</simple_name>
+        <signature>HTML_QuickForm_xbutton.toHtml():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091442">
+        <simple_name>HTML_QuickForm_xbutton.updateAttributes</simple_name>
+        <signature>HTML_QuickForm_xbutton.updateAttributes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

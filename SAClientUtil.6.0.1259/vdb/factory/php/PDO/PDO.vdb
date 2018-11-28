@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="PDO">
+      <method vuln_id="1122194">
+        <simple_name>PDO.getAvailableDrivers</simple_name>
+        <signature>PDO.getAvailableDrivers():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1088157">
+        <simple_name>___Php.PDO.__construct</simple_name>
+        <signature>___Php.PDO.__construct(___Php.String;___Php.String;___Php.String;___Php.Array):void</signature>
+        <info_rule id="455540"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462624">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462625">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474172">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1088144">
+        <simple_name>___Php.PDO.__sleep</simple_name>
+        <signature>___Php.PDO.__sleep():int</signature>
+        <info_rule id="455523"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088154">
+        <simple_name>___Php.PDO.__wakeup</simple_name>
+        <signature>___Php.PDO.__wakeup():int</signature>
+        <info_rule id="455534"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088121">
+        <simple_name>___Php.PDO.beginTransaction</simple_name>
+        <signature>___Php.PDO.beginTransaction():bool</signature>
+        <info_rule id="455493"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1088162">
+        <simple_name>___Php.PDO.commit</simple_name>
+        <signature>___Php.PDO.commit():bool</signature>
+        <info_rule id="455549"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1088116">
+        <simple_name>___Php.PDO.errorCode</simple_name>
+        <signature>___Php.PDO.errorCode():___Php.String</signature>
+        <info_rule id="455485"/>
+        <rule>
+          <ActionObject id="474169">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461686">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455484">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1088128">
+        <simple_name>___Php.PDO.errorInfo</simple_name>
+        <signature>___Php.PDO.errorInfo():___Php.Array</signature>
+        <info_rule id="455506"/>
+        <rule>
+          <ActionObject id="474171">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461688">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455504">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1088122">
+        <simple_name>___Php.PDO.exec</simple_name>
+        <signature>___Php.PDO.exec(___Php.String):int</signature>
+        <info_rule id="455494"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088114">
+        <simple_name>___Php.PDO.getAttribute</simple_name>
+        <signature>___Php.PDO.getAttribute(int):mixed</signature>
+        <info_rule id="455482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088113">
+        <simple_name>___Php.PDO.getAvailableDrivers</simple_name>
+        <signature>___Php.PDO.getAvailableDrivers():___Php.Array</signature>
+        <info_rule id="455481"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088139">
+        <simple_name>___Php.PDO.lastInsertId</simple_name>
+        <signature>___Php.PDO.lastInsertId(___Php.String):___Php.String</signature>
+        <info_rule id="455518"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088135">
+        <simple_name>___Php.PDO.pgsqlLOBCreate</simple_name>
+        <signature>___Php.PDO.pgsqlLOBCreate():___Php.String</signature>
+        <info_rule id="455513"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088133">
+        <simple_name>___Php.PDO.pgsqlLOBOpen</simple_name>
+        <signature>___Php.PDO.pgsqlLOBOpen(___Php.String;___Php.String):int</signature>
+        <info_rule id="455511"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088134">
+        <simple_name>___Php.PDO.pgsqlLOBUnlink</simple_name>
+        <signature>___Php.PDO.pgsqlLOBUnlink(___Php.String):bool</signature>
+        <info_rule id="455512"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088151">
+        <simple_name>___Php.PDO.prepare</simple_name>
+        <signature>___Php.PDO.prepare(___Php.String;___Php.Array):___Php.PDOStatement</signature>
+        <info_rule id="455531"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String):___Php.PDOStatement</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088161">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String;int;___Php.String;___Php.Array):___Php.PDOStatement</signature>
+        <info_rule id="455547"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String;int;int):___Php.PDOStatement</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String;int;object):___Php.PDOStatement</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088140">
+        <simple_name>___Php.PDO.quote</simple_name>
+        <signature>___Php.PDO.quote(___Php.String;int):___Php.String</signature>
+        <info_rule id="455519"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088119">
+        <simple_name>___Php.PDO.rollBack</simple_name>
+        <signature>___Php.PDO.rollBack():bool</signature>
+        <info_rule id="455489"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1088130">
+        <simple_name>___Php.PDO.setAttribute</simple_name>
+        <signature>___Php.PDO.setAttribute(int;mixed):bool</signature>
+        <info_rule id="455508"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088143">
+        <simple_name>___Php.PDO.sqliteCreateAggregate</simple_name>
+        <signature>___Php.PDO.sqliteCreateAggregate(___Php.String;___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="455522"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088156">
+        <simple_name>___Php.PDO.sqliteCreateFunction</simple_name>
+        <signature>___Php.PDO.sqliteCreateFunction(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="455536"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+    </class>
+    <class name="PDO">
+      <method vuln_id="1122194">
+        <simple_name>PDO.getAvailableDrivers</simple_name>
+        <signature>PDO.getAvailableDrivers():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1088157">
+        <simple_name>___Php.PDO.__construct</simple_name>
+        <signature>___Php.PDO.__construct(___Php.String;___Php.String;___Php.String;___Php.Array):void</signature>
+        <info_rule id="455540"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462624">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462625">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="474172">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2,3" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Technology.Database</property>
+        <property>Mechanism.Authentication.Credentials</property>
+      </method>
+      <method vuln_id="1088144">
+        <simple_name>___Php.PDO.__sleep</simple_name>
+        <signature>___Php.PDO.__sleep():int</signature>
+        <info_rule id="455523"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088154">
+        <simple_name>___Php.PDO.__wakeup</simple_name>
+        <signature>___Php.PDO.__wakeup():int</signature>
+        <info_rule id="455534"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088121">
+        <simple_name>___Php.PDO.beginTransaction</simple_name>
+        <signature>___Php.PDO.beginTransaction():bool</signature>
+        <info_rule id="455493"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1088162">
+        <simple_name>___Php.PDO.commit</simple_name>
+        <signature>___Php.PDO.commit():bool</signature>
+        <info_rule id="455549"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1088116">
+        <simple_name>___Php.PDO.errorCode</simple_name>
+        <signature>___Php.PDO.errorCode():___Php.String</signature>
+        <info_rule id="455485"/>
+        <rule>
+          <ActionObject id="474169">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461686">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455484">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1088128">
+        <simple_name>___Php.PDO.errorInfo</simple_name>
+        <signature>___Php.PDO.errorInfo():___Php.Array</signature>
+        <info_rule id="455506"/>
+        <rule>
+          <ActionObject id="474171">
+            <signature>AnyHigh</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="461688">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Logging.Required</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="455504">
+            <signature>AnyMedium</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Mechanism.ErrorHandling</property>
+      </method>
+      <method vuln_id="1088122">
+        <simple_name>___Php.PDO.exec</simple_name>
+        <signature>___Php.PDO.exec(___Php.String):int</signature>
+        <info_rule id="455494"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088114">
+        <simple_name>___Php.PDO.getAttribute</simple_name>
+        <signature>___Php.PDO.getAttribute(int):mixed</signature>
+        <info_rule id="455482"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088113">
+        <simple_name>___Php.PDO.getAvailableDrivers</simple_name>
+        <signature>___Php.PDO.getAvailableDrivers():___Php.Array</signature>
+        <info_rule id="455481"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088139">
+        <simple_name>___Php.PDO.lastInsertId</simple_name>
+        <signature>___Php.PDO.lastInsertId(___Php.String):___Php.String</signature>
+        <info_rule id="455518"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088135">
+        <simple_name>___Php.PDO.pgsqlLOBCreate</simple_name>
+        <signature>___Php.PDO.pgsqlLOBCreate():___Php.String</signature>
+        <info_rule id="455513"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088133">
+        <simple_name>___Php.PDO.pgsqlLOBOpen</simple_name>
+        <signature>___Php.PDO.pgsqlLOBOpen(___Php.String;___Php.String):int</signature>
+        <info_rule id="455511"/>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088134">
+        <simple_name>___Php.PDO.pgsqlLOBUnlink</simple_name>
+        <signature>___Php.PDO.pgsqlLOBUnlink(___Php.String):bool</signature>
+        <info_rule id="455512"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088151">
+        <simple_name>___Php.PDO.prepare</simple_name>
+        <signature>___Php.PDO.prepare(___Php.String;___Php.Array):___Php.PDOStatement</signature>
+        <info_rule id="455531"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String):___Php.PDOStatement</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088161">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String;int;___Php.String;___Php.Array):___Php.PDOStatement</signature>
+        <info_rule id="455547"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String;int;int):___Php.PDOStatement</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.PDO.query</simple_name>
+        <signature>___Php.PDO.query(___Php.String;int;object):___Php.PDOStatement</signature>
+        <info_rule id="0"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088140">
+        <simple_name>___Php.PDO.quote</simple_name>
+        <signature>___Php.PDO.quote(___Php.String;int):___Php.String</signature>
+        <info_rule id="455519"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088119">
+        <simple_name>___Php.PDO.rollBack</simple_name>
+        <signature>___Php.PDO.rollBack():bool</signature>
+        <info_rule id="455489"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+        <property>Mechanism.Transactions</property>
+      </method>
+      <method vuln_id="1088130">
+        <simple_name>___Php.PDO.setAttribute</simple_name>
+        <signature>___Php.PDO.setAttribute(int;mixed):bool</signature>
+        <info_rule id="455508"/>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088143">
+        <simple_name>___Php.PDO.sqliteCreateAggregate</simple_name>
+        <signature>___Php.PDO.sqliteCreateAggregate(___Php.String;___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="455522"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+      <method vuln_id="1088156">
+        <simple_name>___Php.PDO.sqliteCreateFunction</simple_name>
+        <signature>___Php.PDO.sqliteCreateFunction(___Php.String;___Php.String;int):bool</signature>
+        <info_rule id="455536"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Database</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

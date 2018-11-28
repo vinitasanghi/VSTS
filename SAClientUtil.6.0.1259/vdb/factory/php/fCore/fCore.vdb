@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fCore">
+      <method vuln_id="1107399">
+        <simple_name>fCore.___Class_Initializer_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.___Class_Initializer_@__inc_flourish_fCore_php_1():void</signature>
+      </method>
+      <method vuln_id="1106335">
+        <simple_name>fCore.__construct_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.__construct_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107331">
+        <simple_name>fCore.backtrace_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.backtrace_@__inc_flourish_fCore_php_1($remove_lines):Variant</signature>
+        <rule>
+          <ActionObject id="462364">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106664">
+        <simple_name>fCore.call_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.call_@__inc_flourish_fCore_php_1($callback;$parameters):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106311">
+        <simple_name>fCore.callback_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.callback_@__inc_flourish_fCore_php_1($callback):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106864">
+        <simple_name>fCore.checkDestination_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.checkDestination_@__inc_flourish_fCore_php_1($destination):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106569">
+        <simple_name>fCore.checkOS_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.checkOS_@__inc_flourish_fCore_php_1($os):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106493">
+        <simple_name>fCore.checkVersion_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.checkVersion_@__inc_flourish_fCore_php_1($version):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106324">
+        <simple_name>fCore.compose_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.compose_@__inc_flourish_fCore_php_1($message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106444">
+        <simple_name>fCore.debug_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.debug_@__inc_flourish_fCore_php_1($message;$force):Variant</signature>
+        <rule>
+          <ActionObject id="462276">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107152">
+        <simple_name>fCore.dump_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.dump_@__inc_flourish_fCore_php_1($data):Variant</signature>
+        <rule>
+          <ActionObject id="462350">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106412">
+        <simple_name>fCore.enableDebugging_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableDebugging_@__inc_flourish_fCore_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107028">
+        <simple_name>fCore.enableDynamicConstants_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableDynamicConstants_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107276">
+        <simple_name>fCore.enableErrorHandling_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableErrorHandling_@__inc_flourish_fCore_php_1($destination):Variant</signature>
+        <rule>
+          <ActionObject id="462354">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107388">
+        <simple_name>fCore.enableExceptionHandling_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableExceptionHandling_@__inc_flourish_fCore_php_1($destination;$closing_code;$parameters):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462372">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106363">
+        <simple_name>fCore.expose_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.expose_@__inc_flourish_fCore_php_1($data):Variant</signature>
+        <rule>
+          <ActionObject id="462265">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107432">
+        <simple_name>fCore.generateContext_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.generateContext_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107361">
+        <simple_name>fCore.handleError_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.handleError_@__inc_flourish_fCore_php_1($error_number;$error_string;$error_file;$error_line;$error_context):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106361">
+        <simple_name>fCore.handleException_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.handleException_@__inc_flourish_fCore_php_1($exception):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106317">
+        <simple_name>fCore.registerDebugCallback_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.registerDebugCallback_@__inc_flourish_fCore_php_1($callback):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107308">
+        <simple_name>fCore.reset_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.reset_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106879">
+        <simple_name>fCore.sendMessageToDestination_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.sendMessageToDestination_@__inc_flourish_fCore_php_1($type;$message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106785">
+        <simple_name>fCore.sendMessagesOnShutdown_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.sendMessagesOnShutdown_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fCore">
+      <method vuln_id="1107399">
+        <simple_name>fCore.___Class_Initializer_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.___Class_Initializer_@__inc_flourish_fCore_php_1():void</signature>
+      </method>
+      <method vuln_id="1106335">
+        <simple_name>fCore.__construct_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.__construct_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107331">
+        <simple_name>fCore.backtrace_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.backtrace_@__inc_flourish_fCore_php_1($remove_lines):Variant</signature>
+        <rule>
+          <ActionObject id="462364">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106664">
+        <simple_name>fCore.call_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.call_@__inc_flourish_fCore_php_1($callback;$parameters):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106311">
+        <simple_name>fCore.callback_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.callback_@__inc_flourish_fCore_php_1($callback):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106864">
+        <simple_name>fCore.checkDestination_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.checkDestination_@__inc_flourish_fCore_php_1($destination):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106569">
+        <simple_name>fCore.checkOS_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.checkOS_@__inc_flourish_fCore_php_1($os):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106493">
+        <simple_name>fCore.checkVersion_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.checkVersion_@__inc_flourish_fCore_php_1($version):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106324">
+        <simple_name>fCore.compose_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.compose_@__inc_flourish_fCore_php_1($message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106444">
+        <simple_name>fCore.debug_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.debug_@__inc_flourish_fCore_php_1($message;$force):Variant</signature>
+        <rule>
+          <ActionObject id="462276">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107152">
+        <simple_name>fCore.dump_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.dump_@__inc_flourish_fCore_php_1($data):Variant</signature>
+        <rule>
+          <ActionObject id="462350">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106412">
+        <simple_name>fCore.enableDebugging_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableDebugging_@__inc_flourish_fCore_php_1($flag):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107028">
+        <simple_name>fCore.enableDynamicConstants_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableDynamicConstants_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107276">
+        <simple_name>fCore.enableErrorHandling_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableErrorHandling_@__inc_flourish_fCore_php_1($destination):Variant</signature>
+        <rule>
+          <ActionObject id="462354">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107388">
+        <simple_name>fCore.enableExceptionHandling_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.enableExceptionHandling_@__inc_flourish_fCore_php_1($destination;$closing_code;$parameters):Variant</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <rule>
+          <ActionObject id="462372">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106363">
+        <simple_name>fCore.expose_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.expose_@__inc_flourish_fCore_php_1($data):Variant</signature>
+        <rule>
+          <ActionObject id="462265">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107432">
+        <simple_name>fCore.generateContext_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.generateContext_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107361">
+        <simple_name>fCore.handleError_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.handleError_@__inc_flourish_fCore_php_1($error_number;$error_string;$error_file;$error_line;$error_context):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106361">
+        <simple_name>fCore.handleException_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.handleException_@__inc_flourish_fCore_php_1($exception):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106317">
+        <simple_name>fCore.registerDebugCallback_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.registerDebugCallback_@__inc_flourish_fCore_php_1($callback):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107308">
+        <simple_name>fCore.reset_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.reset_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106879">
+        <simple_name>fCore.sendMessageToDestination_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.sendMessageToDestination_@__inc_flourish_fCore_php_1($type;$message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106785">
+        <simple_name>fCore.sendMessagesOnShutdown_@__inc_flourish_fCore_php_1</simple_name>
+        <signature>fCore.sendMessagesOnShutdown_@__inc_flourish_fCore_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

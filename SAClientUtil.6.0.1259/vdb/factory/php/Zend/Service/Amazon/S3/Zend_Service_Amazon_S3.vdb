@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Service_Amazon_S3">
+      <method vuln_id="1119423">
+        <simple_name>Zend_Service_Amazon_S3.___Class_Initializer_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.___Class_Initializer_@__Service_Amazon_S3_php_1():void</signature>
+        <info_rule id="471823"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118741">
+        <simple_name>Zend_Service_Amazon_S3.__construct_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.__construct_@__Service_Amazon_S3_php_1($accessKey;$secretKey;$region):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119522">
+        <simple_name>Zend_Service_Amazon_S3._fixupObjectName_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3._fixupObjectName_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="471923"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119738">
+        <simple_name>Zend_Service_Amazon_S3._makeRequest_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3._makeRequest_@__Service_Amazon_S3_php_1($method;$path;$params;$headers;$data):Variant</signature>
+        <info_rule id="472124"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119641">
+        <simple_name>Zend_Service_Amazon_S3._validBucketName_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3._validBucketName_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="472032"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119080">
+        <simple_name>Zend_Service_Amazon_S3.addSignature_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.addSignature_@__Service_Amazon_S3_php_1($method;$path;$headers):Variant</signature>
+        <info_rule id="471510"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119200">
+        <simple_name>Zend_Service_Amazon_S3.cleanBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.cleanBucket_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="471621"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119456">
+        <simple_name>Zend_Service_Amazon_S3.createBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.createBucket_@__Service_Amazon_S3_php_1($bucket;$location):Variant</signature>
+        <info_rule id="471853"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118958">
+        <simple_name>Zend_Service_Amazon_S3.getBuckets_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getBuckets_@__Service_Amazon_S3_php_1():Variant</signature>
+        <info_rule id="471383"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119871">
+        <simple_name>Zend_Service_Amazon_S3.getEndpoint_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getEndpoint_@__Service_Amazon_S3_php_1():Variant</signature>
+        <info_rule id="472258"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119337">
+        <simple_name>Zend_Service_Amazon_S3.getInfo_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getInfo_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="471743"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119025">
+        <simple_name>Zend_Service_Amazon_S3.getMimeType_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getMimeType_@__Service_Amazon_S3_php_1($path):Variant</signature>
+        <info_rule id="471458"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119511">
+        <simple_name>Zend_Service_Amazon_S3.getObjectStream_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getObjectStream_@__Service_Amazon_S3_php_1($object;$streamfile;$paidobject):Variant</signature>
+        <info_rule id="471910"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119840">
+        <simple_name>Zend_Service_Amazon_S3.getObject_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getObject_@__Service_Amazon_S3_php_1($object;$paidobject):Variant</signature>
+        <info_rule id="472228"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118912">
+        <simple_name>Zend_Service_Amazon_S3.getObjectsByBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getObjectsByBucket_@__Service_Amazon_S3_php_1($bucket;$params):Variant</signature>
+        <info_rule id="471337"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119734">
+        <simple_name>Zend_Service_Amazon_S3.getWrapperClient_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getWrapperClient_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="472121"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118681">
+        <simple_name>Zend_Service_Amazon_S3.isBucketAvailable_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.isBucketAvailable_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="471121"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118713">
+        <simple_name>Zend_Service_Amazon_S3.isObjectAvailable_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.isObjectAvailable_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="471150"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119045">
+        <simple_name>Zend_Service_Amazon_S3.putFileStream_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.putFileStream_@__Service_Amazon_S3_php_1($path;$object;$meta):Variant</signature>
+        <info_rule id="471479"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119093">
+        <simple_name>Zend_Service_Amazon_S3.putFile_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.putFile_@__Service_Amazon_S3_php_1($path;$object;$meta):Variant</signature>
+        <info_rule id="471522"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118743">
+        <simple_name>Zend_Service_Amazon_S3.putObject_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.putObject_@__Service_Amazon_S3_php_1($object;$data;$meta):Variant</signature>
+        <info_rule id="471179"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118667">
+        <simple_name>Zend_Service_Amazon_S3.registerAsClient_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.registerAsClient_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="471109"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119665">
+        <simple_name>Zend_Service_Amazon_S3.registerStreamWrapper_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.registerStreamWrapper_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="472053"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119626">
+        <simple_name>Zend_Service_Amazon_S3.removeBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.removeBucket_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="472018"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120021">
+        <simple_name>Zend_Service_Amazon_S3.removeObject_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.removeObject_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="472392"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119567">
+        <simple_name>Zend_Service_Amazon_S3.setEndpoint_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.setEndpoint_@__Service_Amazon_S3_php_1($endpoint):Variant</signature>
+        <info_rule id="471962"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118893">
+        <simple_name>Zend_Service_Amazon_S3.unregisterAsClient_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.unregisterAsClient_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="471320"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118940">
+        <simple_name>Zend_Service_Amazon_S3.unregisterStreamWrapper_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.unregisterStreamWrapper_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="471366"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+    <class name="Zend_Service_Amazon_S3">
+      <method vuln_id="1119423">
+        <simple_name>Zend_Service_Amazon_S3.___Class_Initializer_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.___Class_Initializer_@__Service_Amazon_S3_php_1():void</signature>
+        <info_rule id="471823"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118741">
+        <simple_name>Zend_Service_Amazon_S3.__construct_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.__construct_@__Service_Amazon_S3_php_1($accessKey;$secretKey;$region):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1119522">
+        <simple_name>Zend_Service_Amazon_S3._fixupObjectName_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3._fixupObjectName_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="471923"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119738">
+        <simple_name>Zend_Service_Amazon_S3._makeRequest_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3._makeRequest_@__Service_Amazon_S3_php_1($method;$path;$params;$headers;$data):Variant</signature>
+        <info_rule id="472124"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119641">
+        <simple_name>Zend_Service_Amazon_S3._validBucketName_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3._validBucketName_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="472032"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119080">
+        <simple_name>Zend_Service_Amazon_S3.addSignature_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.addSignature_@__Service_Amazon_S3_php_1($method;$path;$headers):Variant</signature>
+        <info_rule id="471510"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119200">
+        <simple_name>Zend_Service_Amazon_S3.cleanBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.cleanBucket_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="471621"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119456">
+        <simple_name>Zend_Service_Amazon_S3.createBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.createBucket_@__Service_Amazon_S3_php_1($bucket;$location):Variant</signature>
+        <info_rule id="471853"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118958">
+        <simple_name>Zend_Service_Amazon_S3.getBuckets_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getBuckets_@__Service_Amazon_S3_php_1():Variant</signature>
+        <info_rule id="471383"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119871">
+        <simple_name>Zend_Service_Amazon_S3.getEndpoint_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getEndpoint_@__Service_Amazon_S3_php_1():Variant</signature>
+        <info_rule id="472258"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119337">
+        <simple_name>Zend_Service_Amazon_S3.getInfo_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getInfo_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="471743"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119025">
+        <simple_name>Zend_Service_Amazon_S3.getMimeType_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getMimeType_@__Service_Amazon_S3_php_1($path):Variant</signature>
+        <info_rule id="471458"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119511">
+        <simple_name>Zend_Service_Amazon_S3.getObjectStream_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getObjectStream_@__Service_Amazon_S3_php_1($object;$streamfile;$paidobject):Variant</signature>
+        <info_rule id="471910"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119840">
+        <simple_name>Zend_Service_Amazon_S3.getObject_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getObject_@__Service_Amazon_S3_php_1($object;$paidobject):Variant</signature>
+        <info_rule id="472228"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118912">
+        <simple_name>Zend_Service_Amazon_S3.getObjectsByBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getObjectsByBucket_@__Service_Amazon_S3_php_1($bucket;$params):Variant</signature>
+        <info_rule id="471337"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1119734">
+        <simple_name>Zend_Service_Amazon_S3.getWrapperClient_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.getWrapperClient_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="472121"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118681">
+        <simple_name>Zend_Service_Amazon_S3.isBucketAvailable_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.isBucketAvailable_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="471121"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118713">
+        <simple_name>Zend_Service_Amazon_S3.isObjectAvailable_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.isObjectAvailable_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="471150"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119045">
+        <simple_name>Zend_Service_Amazon_S3.putFileStream_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.putFileStream_@__Service_Amazon_S3_php_1($path;$object;$meta):Variant</signature>
+        <info_rule id="471479"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119093">
+        <simple_name>Zend_Service_Amazon_S3.putFile_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.putFile_@__Service_Amazon_S3_php_1($path;$object;$meta):Variant</signature>
+        <info_rule id="471522"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118743">
+        <simple_name>Zend_Service_Amazon_S3.putObject_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.putObject_@__Service_Amazon_S3_php_1($object;$data;$meta):Variant</signature>
+        <info_rule id="471179"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118667">
+        <simple_name>Zend_Service_Amazon_S3.registerAsClient_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.registerAsClient_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="471109"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119665">
+        <simple_name>Zend_Service_Amazon_S3.registerStreamWrapper_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.registerStreamWrapper_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="472053"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119626">
+        <simple_name>Zend_Service_Amazon_S3.removeBucket_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.removeBucket_@__Service_Amazon_S3_php_1($bucket):Variant</signature>
+        <info_rule id="472018"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1120021">
+        <simple_name>Zend_Service_Amazon_S3.removeObject_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.removeObject_@__Service_Amazon_S3_php_1($object):Variant</signature>
+        <info_rule id="472392"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1119567">
+        <simple_name>Zend_Service_Amazon_S3.setEndpoint_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.setEndpoint_@__Service_Amazon_S3_php_1($endpoint):Variant</signature>
+        <info_rule id="471962"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1118893">
+        <simple_name>Zend_Service_Amazon_S3.unregisterAsClient_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.unregisterAsClient_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="471320"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+      <method vuln_id="1118940">
+        <simple_name>Zend_Service_Amazon_S3.unregisterStreamWrapper_@__Service_Amazon_S3_php_1</simple_name>
+        <signature>Zend_Service_Amazon_S3.unregisterStreamWrapper_@__Service_Amazon_S3_php_1($name):Variant</signature>
+        <info_rule id="471366"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Communications.WebService</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

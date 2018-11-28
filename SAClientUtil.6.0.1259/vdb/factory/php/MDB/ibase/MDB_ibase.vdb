@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_ibase">
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.MDB_Common</simple_name>
+        <signature>MDB_ibase.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.MDB_ibase</simple_name>
+        <signature>MDB_ibase.MDB_ibase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._baseConvertResult</simple_name>
+        <signature>MDB_ibase._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._close</simple_name>
+        <signature>MDB_ibase._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._destroyResultLob</simple_name>
+        <signature>MDB_ibase._destroyResultLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._doConnect</simple_name>
+        <signature>MDB_ibase._doConnect($database_name;$persistent):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._doQuery</simple_name>
+        <signature>MDB_ibase._doQuery($query;$first;$limit;$prepared_query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._executePreparedQuery</simple_name>
+        <signature>MDB_ibase._executePreparedQuery($prepared_query;$query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._getLobValue</simple_name>
+        <signature>MDB_ibase._getLobValue($prepared_query;$parameter;$lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._ibaseFieldFlags</simple_name>
+        <signature>MDB_ibase._ibaseFieldFlags($resource;$num_field;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._readResultLob</simple_name>
+        <signature>MDB_ibase._readResultLob($lob;$data;$length):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._retrieveLob</simple_name>
+        <signature>MDB_ibase._retrieveLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._skipLimitOffset</simple_name>
+        <signature>MDB_ibase._skipLimitOffset($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092251">
+        <simple_name>MDB_ibase.affectedRows</simple_name>
+        <signature>MDB_ibase.affectedRows():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092223">
+        <simple_name>MDB_ibase.autoCommit</simple_name>
+        <signature>MDB_ibase.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092220">
+        <simple_name>MDB_ibase.commit</simple_name>
+        <signature>MDB_ibase.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.connect</simple_name>
+        <signature>MDB_ibase.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092214">
+        <simple_name>MDB_ibase.convertResult</simple_name>
+        <signature>MDB_ibase.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092206">
+        <simple_name>MDB_ibase.convertResultRow</simple_name>
+        <signature>MDB_ibase.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092215">
+        <simple_name>MDB_ibase.createSequence</simple_name>
+        <signature>MDB_ibase.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092205">
+        <simple_name>MDB_ibase.currId</simple_name>
+        <signature>MDB_ibase.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092248">
+        <simple_name>MDB_ibase.debug</simple_name>
+        <signature>MDB_ibase.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092247">
+        <simple_name>MDB_ibase.endOfLob</simple_name>
+        <signature>MDB_ibase.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092234">
+        <simple_name>MDB_ibase.endOfResult</simple_name>
+        <signature>MDB_ibase.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092231">
+        <simple_name>MDB_ibase.endOfResultLob</simple_name>
+        <signature>MDB_ibase.endOfResultLob($lob):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092229">
+        <simple_name>MDB_ibase.errorCode</simple_name>
+        <signature>MDB_ibase.errorCode($errormsg):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092246">
+        <simple_name>MDB_ibase.errorNative</simple_name>
+        <signature>MDB_ibase.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451772">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.expectError</simple_name>
+        <signature>MDB_ibase.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092249">
+        <simple_name>MDB_ibase.fetch</simple_name>
+        <signature>MDB_ibase.fetch($result;$rownum;$field):mixed</signature>
+        <info_rule id="480836"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092237">
+        <simple_name>MDB_ibase.fetchBlob</simple_name>
+        <signature>MDB_ibase.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480838"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092210">
+        <simple_name>MDB_ibase.fetchClob</simple_name>
+        <signature>MDB_ibase.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480834"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092207">
+        <simple_name>MDB_ibase.fetchInto</simple_name>
+        <signature>MDB_ibase.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480831"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092244">
+        <simple_name>MDB_ibase.fetchLob</simple_name>
+        <signature>MDB_ibase.fetchLob():Variant</signature>
+        <info_rule id="480839"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092241">
+        <simple_name>MDB_ibase.fetchOne</simple_name>
+        <signature>MDB_ibase.fetchOne():Variant</signature>
+        <info_rule id="480832"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092217">
+        <simple_name>MDB_ibase.freeBlobValue</simple_name>
+        <signature>MDB_ibase.freeBlobValue($prepared_query;$blob;$value):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092227">
+        <simple_name>MDB_ibase.freeClobValue</simple_name>
+        <signature>MDB_ibase.freeClobValue($prepared_query;$clob;$value):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.freeLobValue</simple_name>
+        <signature>MDB_ibase.freeLobValue($prepared_query;$lob;$value):MDB_OK</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092225">
+        <simple_name>MDB_ibase.freeResult</simple_name>
+        <signature>MDB_ibase.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092221">
+        <simple_name>MDB_ibase.getBlobDeclaration</simple_name>
+        <signature>MDB_ibase.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092211">
+        <simple_name>MDB_ibase.getBlobValue</simple_name>
+        <signature>MDB_ibase.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092218">
+        <simple_name>MDB_ibase.getClobDeclaration</simple_name>
+        <signature>MDB_ibase.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092219">
+        <simple_name>MDB_ibase.getClobValue</simple_name>
+        <signature>MDB_ibase.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092222">
+        <simple_name>MDB_ibase.getColumnNames</simple_name>
+        <signature>MDB_ibase.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.getDatabaseFile</simple_name>
+        <signature>MDB_ibase.getDatabaseFile($database_name):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092240">
+        <simple_name>MDB_ibase.getDateDeclaration</simple_name>
+        <signature>MDB_ibase.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092250">
+        <simple_name>MDB_ibase.getDecimalDeclaration</simple_name>
+        <signature>MDB_ibase.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092232">
+        <simple_name>MDB_ibase.getDecimalValue</simple_name>
+        <signature>MDB_ibase.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092245">
+        <simple_name>MDB_ibase.getFloatDeclaration</simple_name>
+        <signature>MDB_ibase.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092243">
+        <simple_name>MDB_ibase.getFloatValue</simple_name>
+        <signature>MDB_ibase.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092233">
+        <simple_name>MDB_ibase.getSequenceName</simple_name>
+        <signature>MDB_ibase.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092209">
+        <simple_name>MDB_ibase.getTextDeclaration</simple_name>
+        <signature>MDB_ibase.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092236">
+        <simple_name>MDB_ibase.getTextValue</simple_name>
+        <signature>MDB_ibase.getTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092213">
+        <simple_name>MDB_ibase.getTimeDeclaration</simple_name>
+        <signature>MDB_ibase.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.getTypeDeclaration</simple_name>
+        <signature>MDB_ibase.getTypeDeclaration($field):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.ibaseRaiseError</simple_name>
+        <signature>MDB_ibase.ibaseRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092208">
+        <simple_name>MDB_ibase.nextId</simple_name>
+        <signature>MDB_ibase.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092228">
+        <simple_name>MDB_ibase.nextResult</simple_name>
+        <signature>MDB_ibase.nextResult($result):TRUE</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092242">
+        <simple_name>MDB_ibase.numCols</simple_name>
+        <signature>MDB_ibase.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092235">
+        <simple_name>MDB_ibase.numRows</simple_name>
+        <signature>MDB_ibase.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.popExpect</simple_name>
+        <signature>MDB_ibase.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092212">
+        <simple_name>MDB_ibase.query</simple_name>
+        <signature>MDB_ibase.query($query;$types):mixed</signature>
+        <info_rule id="480833"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092230">
+        <simple_name>MDB_ibase.queryOne</simple_name>
+        <signature>MDB_ibase.queryOne():Variant</signature>
+        <info_rule id="480835"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.raiseError</simple_name>
+        <signature>MDB_ibase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092224">
+        <simple_name>MDB_ibase.readLob</simple_name>
+        <signature>MDB_ibase.readLob():Variant</signature>
+        <info_rule id="480837"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092239">
+        <simple_name>MDB_ibase.resultIsNull</simple_name>
+        <signature>MDB_ibase.resultIsNull($result;$rownum;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092226">
+        <simple_name>MDB_ibase.rollback</simple_name>
+        <signature>MDB_ibase.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092238">
+        <simple_name>MDB_ibase.setResultTypes</simple_name>
+        <signature>MDB_ibase.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092216">
+        <simple_name>MDB_ibase.tableInfo</simple_name>
+        <signature>MDB_ibase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_ibase">
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.MDB_Common</simple_name>
+        <signature>MDB_ibase.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.MDB_ibase</simple_name>
+        <signature>MDB_ibase.MDB_ibase():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._baseConvertResult</simple_name>
+        <signature>MDB_ibase._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._close</simple_name>
+        <signature>MDB_ibase._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._destroyResultLob</simple_name>
+        <signature>MDB_ibase._destroyResultLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._doConnect</simple_name>
+        <signature>MDB_ibase._doConnect($database_name;$persistent):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._doQuery</simple_name>
+        <signature>MDB_ibase._doQuery($query;$first;$limit;$prepared_query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._executePreparedQuery</simple_name>
+        <signature>MDB_ibase._executePreparedQuery($prepared_query;$query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._getLobValue</simple_name>
+        <signature>MDB_ibase._getLobValue($prepared_query;$parameter;$lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._ibaseFieldFlags</simple_name>
+        <signature>MDB_ibase._ibaseFieldFlags($resource;$num_field;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._readResultLob</simple_name>
+        <signature>MDB_ibase._readResultLob($lob;$data;$length):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._retrieveLob</simple_name>
+        <signature>MDB_ibase._retrieveLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase._skipLimitOffset</simple_name>
+        <signature>MDB_ibase._skipLimitOffset($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092251">
+        <simple_name>MDB_ibase.affectedRows</simple_name>
+        <signature>MDB_ibase.affectedRows():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092223">
+        <simple_name>MDB_ibase.autoCommit</simple_name>
+        <signature>MDB_ibase.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092220">
+        <simple_name>MDB_ibase.commit</simple_name>
+        <signature>MDB_ibase.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.connect</simple_name>
+        <signature>MDB_ibase.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092214">
+        <simple_name>MDB_ibase.convertResult</simple_name>
+        <signature>MDB_ibase.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092206">
+        <simple_name>MDB_ibase.convertResultRow</simple_name>
+        <signature>MDB_ibase.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092215">
+        <simple_name>MDB_ibase.createSequence</simple_name>
+        <signature>MDB_ibase.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092205">
+        <simple_name>MDB_ibase.currId</simple_name>
+        <signature>MDB_ibase.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092248">
+        <simple_name>MDB_ibase.debug</simple_name>
+        <signature>MDB_ibase.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092247">
+        <simple_name>MDB_ibase.endOfLob</simple_name>
+        <signature>MDB_ibase.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092234">
+        <simple_name>MDB_ibase.endOfResult</simple_name>
+        <signature>MDB_ibase.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092231">
+        <simple_name>MDB_ibase.endOfResultLob</simple_name>
+        <signature>MDB_ibase.endOfResultLob($lob):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092229">
+        <simple_name>MDB_ibase.errorCode</simple_name>
+        <signature>MDB_ibase.errorCode($errormsg):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092246">
+        <simple_name>MDB_ibase.errorNative</simple_name>
+        <signature>MDB_ibase.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451772">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.expectError</simple_name>
+        <signature>MDB_ibase.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092249">
+        <simple_name>MDB_ibase.fetch</simple_name>
+        <signature>MDB_ibase.fetch($result;$rownum;$field):mixed</signature>
+        <info_rule id="480836"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092237">
+        <simple_name>MDB_ibase.fetchBlob</simple_name>
+        <signature>MDB_ibase.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480838"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092210">
+        <simple_name>MDB_ibase.fetchClob</simple_name>
+        <signature>MDB_ibase.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480834"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092207">
+        <simple_name>MDB_ibase.fetchInto</simple_name>
+        <signature>MDB_ibase.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480831"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092244">
+        <simple_name>MDB_ibase.fetchLob</simple_name>
+        <signature>MDB_ibase.fetchLob():Variant</signature>
+        <info_rule id="480839"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092241">
+        <simple_name>MDB_ibase.fetchOne</simple_name>
+        <signature>MDB_ibase.fetchOne():Variant</signature>
+        <info_rule id="480832"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092217">
+        <simple_name>MDB_ibase.freeBlobValue</simple_name>
+        <signature>MDB_ibase.freeBlobValue($prepared_query;$blob;$value):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092227">
+        <simple_name>MDB_ibase.freeClobValue</simple_name>
+        <signature>MDB_ibase.freeClobValue($prepared_query;$clob;$value):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.freeLobValue</simple_name>
+        <signature>MDB_ibase.freeLobValue($prepared_query;$lob;$value):MDB_OK</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092225">
+        <simple_name>MDB_ibase.freeResult</simple_name>
+        <signature>MDB_ibase.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092221">
+        <simple_name>MDB_ibase.getBlobDeclaration</simple_name>
+        <signature>MDB_ibase.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092211">
+        <simple_name>MDB_ibase.getBlobValue</simple_name>
+        <signature>MDB_ibase.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092218">
+        <simple_name>MDB_ibase.getClobDeclaration</simple_name>
+        <signature>MDB_ibase.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092219">
+        <simple_name>MDB_ibase.getClobValue</simple_name>
+        <signature>MDB_ibase.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092222">
+        <simple_name>MDB_ibase.getColumnNames</simple_name>
+        <signature>MDB_ibase.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.getDatabaseFile</simple_name>
+        <signature>MDB_ibase.getDatabaseFile($database_name):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092240">
+        <simple_name>MDB_ibase.getDateDeclaration</simple_name>
+        <signature>MDB_ibase.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092250">
+        <simple_name>MDB_ibase.getDecimalDeclaration</simple_name>
+        <signature>MDB_ibase.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092232">
+        <simple_name>MDB_ibase.getDecimalValue</simple_name>
+        <signature>MDB_ibase.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092245">
+        <simple_name>MDB_ibase.getFloatDeclaration</simple_name>
+        <signature>MDB_ibase.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092243">
+        <simple_name>MDB_ibase.getFloatValue</simple_name>
+        <signature>MDB_ibase.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092233">
+        <simple_name>MDB_ibase.getSequenceName</simple_name>
+        <signature>MDB_ibase.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092209">
+        <simple_name>MDB_ibase.getTextDeclaration</simple_name>
+        <signature>MDB_ibase.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092236">
+        <simple_name>MDB_ibase.getTextValue</simple_name>
+        <signature>MDB_ibase.getTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092213">
+        <simple_name>MDB_ibase.getTimeDeclaration</simple_name>
+        <signature>MDB_ibase.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.getTypeDeclaration</simple_name>
+        <signature>MDB_ibase.getTypeDeclaration($field):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.ibaseRaiseError</simple_name>
+        <signature>MDB_ibase.ibaseRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092208">
+        <simple_name>MDB_ibase.nextId</simple_name>
+        <signature>MDB_ibase.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092228">
+        <simple_name>MDB_ibase.nextResult</simple_name>
+        <signature>MDB_ibase.nextResult($result):TRUE</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092242">
+        <simple_name>MDB_ibase.numCols</simple_name>
+        <signature>MDB_ibase.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092235">
+        <simple_name>MDB_ibase.numRows</simple_name>
+        <signature>MDB_ibase.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.popExpect</simple_name>
+        <signature>MDB_ibase.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092212">
+        <simple_name>MDB_ibase.query</simple_name>
+        <signature>MDB_ibase.query($query;$types):mixed</signature>
+        <info_rule id="480833"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092230">
+        <simple_name>MDB_ibase.queryOne</simple_name>
+        <signature>MDB_ibase.queryOne():Variant</signature>
+        <info_rule id="480835"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_ibase.raiseError</simple_name>
+        <signature>MDB_ibase.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092224">
+        <simple_name>MDB_ibase.readLob</simple_name>
+        <signature>MDB_ibase.readLob():Variant</signature>
+        <info_rule id="480837"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092239">
+        <simple_name>MDB_ibase.resultIsNull</simple_name>
+        <signature>MDB_ibase.resultIsNull($result;$rownum;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092226">
+        <simple_name>MDB_ibase.rollback</simple_name>
+        <signature>MDB_ibase.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092238">
+        <simple_name>MDB_ibase.setResultTypes</simple_name>
+        <signature>MDB_ibase.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092216">
+        <simple_name>MDB_ibase.tableInfo</simple_name>
+        <signature>MDB_ibase.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

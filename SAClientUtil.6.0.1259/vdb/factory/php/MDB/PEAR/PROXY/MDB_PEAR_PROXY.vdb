@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_PEAR_PROXY">
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.MDB_PEAR_PROXY</simple_name>
+        <signature>MDB_PEAR_PROXY.MDB_PEAR_PROXY($MDB_object):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY._quote</simple_name>
+        <signature>MDB_PEAR_PROXY._quote():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.affectedRows</simple_name>
+        <signature>MDB_PEAR_PROXY.affectedRows():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.autoCommit</simple_name>
+        <signature>MDB_PEAR_PROXY.autoCommit($onoff):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.autoExecute</simple_name>
+        <signature>MDB_PEAR_PROXY.autoExecute($table;$fields_values;$mode;$where):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.autoPrepare</simple_name>
+        <signature>MDB_PEAR_PROXY.autoPrepare($table;$table_fields;$mode;$where):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.buildManipSQL</simple_name>
+        <signature>MDB_PEAR_PROXY.buildManipSQL($table;$table_fields;$mode;$where):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.commit</simple_name>
+        <signature>MDB_PEAR_PROXY.commit():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092411">
+        <simple_name>MDB_PEAR_PROXY.connect</simple_name>
+        <signature>MDB_PEAR_PROXY.connect($dsninfo;$persistent):mixed</signature>
+        <rule>
+          <ActionObject id="451830">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule id="451831">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.createSequence</simple_name>
+        <signature>MDB_PEAR_PROXY.createSequence($seq_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.disconnect</simple_name>
+        <signature>MDB_PEAR_PROXY.disconnect():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.dropSequence</simple_name>
+        <signature>MDB_PEAR_PROXY.dropSequence($seq_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.errorCode</simple_name>
+        <signature>MDB_PEAR_PROXY.errorCode($nativecode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092414">
+        <simple_name>MDB_PEAR_PROXY.errorMessage</simple_name>
+        <signature>MDB_PEAR_PROXY.errorMessage($dbcode):mixed</signature>
+        <rule>
+          <ActionObject id="451832">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.errorNative</simple_name>
+        <signature>MDB_PEAR_PROXY.errorNative():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.execute</simple_name>
+        <signature>MDB_PEAR_PROXY.execute($stmt;$data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.executeMultiple</simple_name>
+        <signature>MDB_PEAR_PROXY.executeMultiple($stmt;$data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getAll</simple_name>
+        <signature>MDB_PEAR_PROXY.getAll($query;$params;$fetchmode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getAssoc</simple_name>
+        <signature>MDB_PEAR_PROXY.getAssoc($query;$force_array;$params;$fetchmode;$group):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getCol</simple_name>
+        <signature>MDB_PEAR_PROXY.getCol($query;$col;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getListOf</simple_name>
+        <signature>MDB_PEAR_PROXY.getListOf($type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getOne</simple_name>
+        <signature>MDB_PEAR_PROXY.getOne($query;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getOption</simple_name>
+        <signature>MDB_PEAR_PROXY.getOption($option):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getRow</simple_name>
+        <signature>MDB_PEAR_PROXY.getRow($query;$params;$fetchmode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getTables</simple_name>
+        <signature>MDB_PEAR_PROXY.getTables():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.limitQuery</simple_name>
+        <signature>MDB_PEAR_PROXY.limitQuery($query;$from;$count):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.nextId</simple_name>
+        <signature>MDB_PEAR_PROXY.nextId($seq_name;$ondemand):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092405">
+        <simple_name>MDB_PEAR_PROXY.numRows</simple_name>
+        <signature>MDB_PEAR_PROXY.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.prepare</simple_name>
+        <signature>MDB_PEAR_PROXY.prepare($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.provides</simple_name>
+        <signature>MDB_PEAR_PROXY.provides($feature):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.query</simple_name>
+        <signature>MDB_PEAR_PROXY.query($query;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.quote</simple_name>
+        <signature>MDB_PEAR_PROXY.quote($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.quoteString</simple_name>
+        <signature>MDB_PEAR_PROXY.quoteString($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.raiseError</simple_name>
+        <signature>MDB_PEAR_PROXY.raiseError($code;$mode;$options;$userinfo;$nativecode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.rollback</simple_name>
+        <signature>MDB_PEAR_PROXY.rollback():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.setFetchMode</simple_name>
+        <signature>MDB_PEAR_PROXY.setFetchMode($fetchmode;$object_class):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092408">
+        <simple_name>MDB_PEAR_PROXY.setOption</simple_name>
+        <signature>MDB_PEAR_PROXY.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.simpleQuery</simple_name>
+        <signature>MDB_PEAR_PROXY.simpleQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.tableInfo</simple_name>
+        <signature>MDB_PEAR_PROXY.tableInfo($result;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_PEAR_PROXY">
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.MDB_PEAR_PROXY</simple_name>
+        <signature>MDB_PEAR_PROXY.MDB_PEAR_PROXY($MDB_object):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY._quote</simple_name>
+        <signature>MDB_PEAR_PROXY._quote():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.affectedRows</simple_name>
+        <signature>MDB_PEAR_PROXY.affectedRows():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.autoCommit</simple_name>
+        <signature>MDB_PEAR_PROXY.autoCommit($onoff):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.autoExecute</simple_name>
+        <signature>MDB_PEAR_PROXY.autoExecute($table;$fields_values;$mode;$where):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.autoPrepare</simple_name>
+        <signature>MDB_PEAR_PROXY.autoPrepare($table;$table_fields;$mode;$where):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.buildManipSQL</simple_name>
+        <signature>MDB_PEAR_PROXY.buildManipSQL($table;$table_fields;$mode;$where):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.commit</simple_name>
+        <signature>MDB_PEAR_PROXY.commit():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092411">
+        <simple_name>MDB_PEAR_PROXY.connect</simple_name>
+        <signature>MDB_PEAR_PROXY.connect($dsninfo;$persistent):mixed</signature>
+        <rule>
+          <ActionObject id="451830">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <sink_rule id="451831">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.createSequence</simple_name>
+        <signature>MDB_PEAR_PROXY.createSequence($seq_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.disconnect</simple_name>
+        <signature>MDB_PEAR_PROXY.disconnect():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.dropSequence</simple_name>
+        <signature>MDB_PEAR_PROXY.dropSequence($seq_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.errorCode</simple_name>
+        <signature>MDB_PEAR_PROXY.errorCode($nativecode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092414">
+        <simple_name>MDB_PEAR_PROXY.errorMessage</simple_name>
+        <signature>MDB_PEAR_PROXY.errorMessage($dbcode):mixed</signature>
+        <rule>
+          <ActionObject id="451832">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.errorNative</simple_name>
+        <signature>MDB_PEAR_PROXY.errorNative():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.execute</simple_name>
+        <signature>MDB_PEAR_PROXY.execute($stmt;$data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.executeMultiple</simple_name>
+        <signature>MDB_PEAR_PROXY.executeMultiple($stmt;$data):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getAll</simple_name>
+        <signature>MDB_PEAR_PROXY.getAll($query;$params;$fetchmode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getAssoc</simple_name>
+        <signature>MDB_PEAR_PROXY.getAssoc($query;$force_array;$params;$fetchmode;$group):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getCol</simple_name>
+        <signature>MDB_PEAR_PROXY.getCol($query;$col;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getListOf</simple_name>
+        <signature>MDB_PEAR_PROXY.getListOf($type):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getOne</simple_name>
+        <signature>MDB_PEAR_PROXY.getOne($query;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getOption</simple_name>
+        <signature>MDB_PEAR_PROXY.getOption($option):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getRow</simple_name>
+        <signature>MDB_PEAR_PROXY.getRow($query;$params;$fetchmode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.getTables</simple_name>
+        <signature>MDB_PEAR_PROXY.getTables():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.limitQuery</simple_name>
+        <signature>MDB_PEAR_PROXY.limitQuery($query;$from;$count):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.nextId</simple_name>
+        <signature>MDB_PEAR_PROXY.nextId($seq_name;$ondemand):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092405">
+        <simple_name>MDB_PEAR_PROXY.numRows</simple_name>
+        <signature>MDB_PEAR_PROXY.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.prepare</simple_name>
+        <signature>MDB_PEAR_PROXY.prepare($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.provides</simple_name>
+        <signature>MDB_PEAR_PROXY.provides($feature):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.query</simple_name>
+        <signature>MDB_PEAR_PROXY.query($query;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.quote</simple_name>
+        <signature>MDB_PEAR_PROXY.quote($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.quoteString</simple_name>
+        <signature>MDB_PEAR_PROXY.quoteString($string):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.raiseError</simple_name>
+        <signature>MDB_PEAR_PROXY.raiseError($code;$mode;$options;$userinfo;$nativecode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.rollback</simple_name>
+        <signature>MDB_PEAR_PROXY.rollback():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.setFetchMode</simple_name>
+        <signature>MDB_PEAR_PROXY.setFetchMode($fetchmode;$object_class):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092408">
+        <simple_name>MDB_PEAR_PROXY.setOption</simple_name>
+        <signature>MDB_PEAR_PROXY.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.simpleQuery</simple_name>
+        <signature>MDB_PEAR_PROXY.simpleQuery($query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_PEAR_PROXY.tableInfo</simple_name>
+        <signature>MDB_PEAR_PROXY.tableInfo($result;$mode):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

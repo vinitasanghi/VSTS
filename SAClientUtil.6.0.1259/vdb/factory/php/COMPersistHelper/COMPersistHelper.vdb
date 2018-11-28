@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="COMPersistHelper">
+      <method vuln_id="1085824">
+        <simple_name>___Php.COMPersistHelper.GetCurFile</simple_name>
+        <signature>___Php.COMPersistHelper.GetCurFile():___Php.String</signature>
+        <info_rule id="452503"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.COM.Interop</property>
+        <comment>Determines the filename into which an object will be saved,or false if none is set,via IPersistFile.GetCurFile</comment>
+      </method>
+      <method vuln_id="1085817">
+        <simple_name>___Php.COMPersistHelper.GetMaxStreamSize</simple_name>
+        <signature>___Php.COMPersistHelper.GetMaxStreamSize():int</signature>
+        <info_rule id="452492"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.COM.Interop</property>
+        <comment>Gets maximum stream size required to store the object data,via IPersistStream.GetSizeMax (or IPersistStreamInit.GetSizeMax)</comment>
+      </method>
+      <method vuln_id="1085818">
+        <simple_name>___Php.COMPersistHelper.InitNew</simple_name>
+        <signature>___Php.COMPersistHelper.InitNew():int</signature>
+        <info_rule id="452493"/>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Initializes the object to a default state,via IPersistStreamInit.InitNew</comment>
+      </method>
+      <method vuln_id="1085823">
+        <simple_name>___Php.COMPersistHelper.LoadFromFile</simple_name>
+        <signature>___Php.COMPersistHelper.LoadFromFile(___Php.String;int):bool</signature>
+        <info_rule id="452502"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Load object data from file,via IPersistFile.Load</comment>
+      </method>
+      <method vuln_id="1085822">
+        <simple_name>___Php.COMPersistHelper.LoadFromStream</simple_name>
+        <signature>___Php.COMPersistHelper.LoadFromStream(int):mixed</signature>
+        <info_rule id="452500"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule id="452499">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Initializes an object from the stream where it was previously saved,via IPersistStream.Load or OleLoadFromStream</comment>
+      </method>
+      <method vuln_id="1085860">
+        <simple_name>___Php.COMPersistHelper.SaveToFile</simple_name>
+        <signature>___Php.COMPersistHelper.SaveToFile(___Php.String;bool):bool</signature>
+        <info_rule id="452543"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Persist object data to file,via IPersistFile.Save</comment>
+      </method>
+      <method vuln_id="1085826">
+        <simple_name>___Php.COMPersistHelper.SaveToStream</simple_name>
+        <signature>___Php.COMPersistHelper.SaveToStream(int):int</signature>
+        <info_rule id="452506"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Saves the object to a stream,via IPersistStream.Save</comment>
+      </method>
+      <method vuln_id="1085865">
+        <simple_name>___Php.COMPersistHelper.__construct</simple_name>
+        <signature>___Php.COMPersistHelper.__construct(object):void</signature>
+        <comment>Creates a persistence helper object,usually associated with a com_object</comment>
+      </method>
+    </class>
+    <class name="COMPersistHelper">
+      <method vuln_id="1085824">
+        <simple_name>___Php.COMPersistHelper.GetCurFile</simple_name>
+        <signature>___Php.COMPersistHelper.GetCurFile():___Php.String</signature>
+        <info_rule id="452503"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.COM.Interop</property>
+        <comment>Determines the filename into which an object will be saved,or false if none is set,via IPersistFile.GetCurFile</comment>
+      </method>
+      <method vuln_id="1085817">
+        <simple_name>___Php.COMPersistHelper.GetMaxStreamSize</simple_name>
+        <signature>___Php.COMPersistHelper.GetMaxStreamSize():int</signature>
+        <info_rule id="452492"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.COM.Interop</property>
+        <comment>Gets maximum stream size required to store the object data,via IPersistStream.GetSizeMax (or IPersistStreamInit.GetSizeMax)</comment>
+      </method>
+      <method vuln_id="1085818">
+        <simple_name>___Php.COMPersistHelper.InitNew</simple_name>
+        <signature>___Php.COMPersistHelper.InitNew():int</signature>
+        <info_rule id="452493"/>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Initializes the object to a default state,via IPersistStreamInit.InitNew</comment>
+      </method>
+      <method vuln_id="1085823">
+        <simple_name>___Php.COMPersistHelper.LoadFromFile</simple_name>
+        <signature>___Php.COMPersistHelper.LoadFromFile(___Php.String;int):bool</signature>
+        <info_rule id="452502"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Load object data from file,via IPersistFile.Load</comment>
+      </method>
+      <method vuln_id="1085822">
+        <simple_name>___Php.COMPersistHelper.LoadFromStream</simple_name>
+        <signature>___Php.COMPersistHelper.LoadFromStream(int):mixed</signature>
+        <info_rule id="452500"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule id="452499">
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Initializes an object from the stream where it was previously saved,via IPersistStream.Load or OleLoadFromStream</comment>
+      </method>
+      <method vuln_id="1085860">
+        <simple_name>___Php.COMPersistHelper.SaveToFile</simple_name>
+        <signature>___Php.COMPersistHelper.SaveToFile(___Php.String;bool):bool</signature>
+        <info_rule id="452543"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Persist object data to file,via IPersistFile.Save</comment>
+      </method>
+      <method vuln_id="1085826">
+        <simple_name>___Php.COMPersistHelper.SaveToStream</simple_name>
+        <signature>___Php.COMPersistHelper.SaveToStream(int):int</signature>
+        <info_rule id="452506"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.COM.Interop</property>
+        <comment>Saves the object to a stream,via IPersistStream.Save</comment>
+      </method>
+      <method vuln_id="1085865">
+        <simple_name>___Php.COMPersistHelper.__construct</simple_name>
+        <signature>___Php.COMPersistHelper.__construct(object):void</signature>
+        <comment>Creates a persistence helper object,usually associated with a com_object</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="SWFShape">
+      <method vuln_id="1087378">
+        <simple_name>___Php.SWFShape.__construct</simple_name>
+        <signature>___Php.SWFShape.__construct():void</signature>
+        <info_rule id="454487"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Creates a new SWFShape object</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(___Php.SWFBitmap;int):___Php.SWFFill</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(___Php.SWFGradient;int):___Php.SWFFill</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(int;int;int;int):___Php.SWFFill</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107483">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(mixed;int;int;int):___Php.SWFFill</signature>
+        <info_rule id="462532"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns a fill object,for use with SWFShape_setleftfill and SWFShape_setrightfill. If 1 or 2 parameter(s) is (are) passed first should be object (from gradient class) and the second int (flags). Gradient fill is performed. If 3 or 4 parameters are passed : r,g,b,a. Solid fill is performed.</comment>
+      </method>
+      <method vuln_id="1087479">
+        <simple_name>___Php.SWFShape.drawarc</simple_name>
+        <signature>___Php.SWFShape.drawarc(float;float;float):void</signature>
+        <info_rule id="454593"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws an arc of radius r centered at the current location,from angle startAngle to angle endAngle measured clockwise from 12 o'clock</comment>
+      </method>
+      <method vuln_id="1087529">
+        <simple_name>___Php.SWFShape.drawcircle</simple_name>
+        <signature>___Php.SWFShape.drawcircle(float):void</signature>
+        <info_rule id="454646"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a circle of radius r centered at the current location,in a counter-clockwise fashion</comment>
+      </method>
+      <method vuln_id="1087526">
+        <simple_name>___Php.SWFShape.drawcubic</simple_name>
+        <signature>___Php.SWFShape.drawcubic(float;float;float;float;float;float):int</signature>
+        <info_rule id="454643"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a cubic bezier curve using the current position and the three given points as control points</comment>
+      </method>
+      <method vuln_id="1087418">
+        <simple_name>___Php.SWFShape.drawcubicto</simple_name>
+        <signature>___Php.SWFShape.drawcubicto(float;float;float;float;float;float):int</signature>
+        <info_rule id="454530"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a cubic bezier curve using the current position and the three given points as control points</comment>
+      </method>
+      <method vuln_id="1087527">
+        <simple_name>___Php.SWFShape.drawcurve</simple_name>
+        <signature>___Php.SWFShape.drawcurve(int;int;int;int;int;int):int</signature>
+        <info_rule id="454644"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a curve from the current pen position (x,y) to the point (x+bdx,y+bdy) in the current line style,using point (x+adx,y+ady) as a control point or draws a cubic bezier to point (x+cdx,x+cdy) with control points (x+adx,y+ady) and (x+bdx,y+bdy)</comment>
+      </method>
+      <method vuln_id="1087517">
+        <simple_name>___Php.SWFShape.drawcurveto</simple_name>
+        <signature>___Php.SWFShape.drawcurveto(int;int;int;int;int;int):int</signature>
+        <info_rule id="454634"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a curve from the current pen position (x,y) to the point (bx,by) in the current line style,using point (ax,ay) as a control point. Or draws a cubic bezier to point (dx,dy) with control points (ax,ay) and (bx,by)</comment>
+      </method>
+      <method vuln_id="1087451">
+        <simple_name>___Php.SWFShape.drawglyph</simple_name>
+        <signature>___Php.SWFShape.drawglyph(___Php.SWFFont;___Php.String;int):void</signature>
+        <info_rule id="454564"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws the first character in the given string into the shape using the glyph definition from the given font</comment>
+      </method>
+      <method vuln_id="1087500">
+        <simple_name>___Php.SWFShape.drawline</simple_name>
+        <signature>___Php.SWFShape.drawline(int;int):void</signature>
+        <info_rule id="454616"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a line from the current pen position (x,y) to the point (x+dx,y+dy) in the current line style</comment>
+      </method>
+      <method vuln_id="1087502">
+        <simple_name>___Php.SWFShape.drawlineto</simple_name>
+        <signature>___Php.SWFShape.drawlineto(int;int):void</signature>
+        <info_rule id="454618"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a line from the current pen position to shape coordinates (x,y) in the current line style</comment>
+      </method>
+      <method vuln_id="1087398">
+        <simple_name>___Php.SWFShape.movepen</simple_name>
+        <signature>___Php.SWFShape.movepen(int;int):void</signature>
+        <info_rule id="454507"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves the pen from its current location by vector (x,y)</comment>
+      </method>
+      <method vuln_id="1087422">
+        <simple_name>___Php.SWFShape.movepento</simple_name>
+        <signature>___Php.SWFShape.movepento(int;int):void</signature>
+        <info_rule id="454534"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves the pen to shape coordinates (x,y)</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setleftfill</simple_name>
+        <signature>___Php.SWFShape.setleftfill(___Php.SWFGradient):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setleftfill</simple_name>
+        <signature>___Php.SWFShape.setleftfill(int;int;int;int):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107486">
+        <simple_name>___Php.SWFShape.setleftfill</simple_name>
+        <signature>___Php.SWFShape.setleftfill(mixed;int;int;int):void</signature>
+        <info_rule id="462535"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the left side fill style to fill in case only one parameter is passed. When 3 or 4 parameters are passed they are treated as : int r,int g,int b,int a . Solid fill is performed in this case before setting left side fill type.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setline</simple_name>
+        <signature>___Php.SWFShape.setline(___Php.SWFShape):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setline</simple_name>
+        <signature>___Php.SWFShape.setline(int;int;int;int;int):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107484">
+        <simple_name>___Php.SWFShape.setline</simple_name>
+        <signature>___Php.SWFShape.setline(mixed;int;int;int;int):void</signature>
+        <info_rule id="462533"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the current line style for this SWFShape</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setrightfill</simple_name>
+        <signature>___Php.SWFShape.setrightfill(___Php.SWFGradient):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setrightfill</simple_name>
+        <signature>___Php.SWFShape.setrightfill(int;int;int;int):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107485">
+        <simple_name>___Php.SWFShape.setrightfill</simple_name>
+        <signature>___Php.SWFShape.setrightfill(mixed;int;int;int):void</signature>
+        <info_rule id="462534"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets right rasterizing color</comment>
+      </method>
+    </class>
+    <class name="SWFShape">
+      <method vuln_id="1087378">
+        <simple_name>___Php.SWFShape.__construct</simple_name>
+        <signature>___Php.SWFShape.__construct():void</signature>
+        <info_rule id="454487"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Creates a new SWFShape object</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(___Php.SWFBitmap;int):___Php.SWFFill</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(___Php.SWFGradient;int):___Php.SWFFill</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(int;int;int;int):___Php.SWFFill</signature>
+        <info_rule id="0"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107483">
+        <simple_name>___Php.SWFShape.addfill</simple_name>
+        <signature>___Php.SWFShape.addfill(mixed;int;int;int):___Php.SWFFill</signature>
+        <info_rule id="462532"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Technology.Media.Flash</property>
+        <comment>Returns a fill object,for use with SWFShape_setleftfill and SWFShape_setrightfill. If 1 or 2 parameter(s) is (are) passed first should be object (from gradient class) and the second int (flags). Gradient fill is performed. If 3 or 4 parameters are passed : r,g,b,a. Solid fill is performed.</comment>
+      </method>
+      <method vuln_id="1087479">
+        <simple_name>___Php.SWFShape.drawarc</simple_name>
+        <signature>___Php.SWFShape.drawarc(float;float;float):void</signature>
+        <info_rule id="454593"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws an arc of radius r centered at the current location,from angle startAngle to angle endAngle measured clockwise from 12 o'clock</comment>
+      </method>
+      <method vuln_id="1087529">
+        <simple_name>___Php.SWFShape.drawcircle</simple_name>
+        <signature>___Php.SWFShape.drawcircle(float):void</signature>
+        <info_rule id="454646"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a circle of radius r centered at the current location,in a counter-clockwise fashion</comment>
+      </method>
+      <method vuln_id="1087526">
+        <simple_name>___Php.SWFShape.drawcubic</simple_name>
+        <signature>___Php.SWFShape.drawcubic(float;float;float;float;float;float):int</signature>
+        <info_rule id="454643"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a cubic bezier curve using the current position and the three given points as control points</comment>
+      </method>
+      <method vuln_id="1087418">
+        <simple_name>___Php.SWFShape.drawcubicto</simple_name>
+        <signature>___Php.SWFShape.drawcubicto(float;float;float;float;float;float):int</signature>
+        <info_rule id="454530"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a cubic bezier curve using the current position and the three given points as control points</comment>
+      </method>
+      <method vuln_id="1087527">
+        <simple_name>___Php.SWFShape.drawcurve</simple_name>
+        <signature>___Php.SWFShape.drawcurve(int;int;int;int;int;int):int</signature>
+        <info_rule id="454644"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a curve from the current pen position (x,y) to the point (x+bdx,y+bdy) in the current line style,using point (x+adx,y+ady) as a control point or draws a cubic bezier to point (x+cdx,x+cdy) with control points (x+adx,y+ady) and (x+bdx,y+bdy)</comment>
+      </method>
+      <method vuln_id="1087517">
+        <simple_name>___Php.SWFShape.drawcurveto</simple_name>
+        <signature>___Php.SWFShape.drawcurveto(int;int;int;int;int;int):int</signature>
+        <info_rule id="454634"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a curve from the current pen position (x,y) to the point (bx,by) in the current line style,using point (ax,ay) as a control point. Or draws a cubic bezier to point (dx,dy) with control points (ax,ay) and (bx,by)</comment>
+      </method>
+      <method vuln_id="1087451">
+        <simple_name>___Php.SWFShape.drawglyph</simple_name>
+        <signature>___Php.SWFShape.drawglyph(___Php.SWFFont;___Php.String;int):void</signature>
+        <info_rule id="454564"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws the first character in the given string into the shape using the glyph definition from the given font</comment>
+      </method>
+      <method vuln_id="1087500">
+        <simple_name>___Php.SWFShape.drawline</simple_name>
+        <signature>___Php.SWFShape.drawline(int;int):void</signature>
+        <info_rule id="454616"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a line from the current pen position (x,y) to the point (x+dx,y+dy) in the current line style</comment>
+      </method>
+      <method vuln_id="1087502">
+        <simple_name>___Php.SWFShape.drawlineto</simple_name>
+        <signature>___Php.SWFShape.drawlineto(int;int):void</signature>
+        <info_rule id="454618"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Draws a line from the current pen position to shape coordinates (x,y) in the current line style</comment>
+      </method>
+      <method vuln_id="1087398">
+        <simple_name>___Php.SWFShape.movepen</simple_name>
+        <signature>___Php.SWFShape.movepen(int;int):void</signature>
+        <info_rule id="454507"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves the pen from its current location by vector (x,y)</comment>
+      </method>
+      <method vuln_id="1087422">
+        <simple_name>___Php.SWFShape.movepento</simple_name>
+        <signature>___Php.SWFShape.movepento(int;int):void</signature>
+        <info_rule id="454534"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Moves the pen to shape coordinates (x,y)</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setleftfill</simple_name>
+        <signature>___Php.SWFShape.setleftfill(___Php.SWFGradient):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setleftfill</simple_name>
+        <signature>___Php.SWFShape.setleftfill(int;int;int;int):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107486">
+        <simple_name>___Php.SWFShape.setleftfill</simple_name>
+        <signature>___Php.SWFShape.setleftfill(mixed;int;int;int):void</signature>
+        <info_rule id="462535"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the left side fill style to fill in case only one parameter is passed. When 3 or 4 parameters are passed they are treated as : int r,int g,int b,int a . Solid fill is performed in this case before setting left side fill type.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setline</simple_name>
+        <signature>___Php.SWFShape.setline(___Php.SWFShape):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setline</simple_name>
+        <signature>___Php.SWFShape.setline(int;int;int;int;int):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107484">
+        <simple_name>___Php.SWFShape.setline</simple_name>
+        <signature>___Php.SWFShape.setline(mixed;int;int;int;int):void</signature>
+        <info_rule id="462533"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets the current line style for this SWFShape</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setrightfill</simple_name>
+        <signature>___Php.SWFShape.setrightfill(___Php.SWFGradient):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.SWFShape.setrightfill</simple_name>
+        <signature>___Php.SWFShape.setrightfill(int;int;int;int):void</signature>
+        <info_rule id="0"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>This is an overload, do not enable.</comment>
+      </method>
+      <method vuln_id="1107485">
+        <simple_name>___Php.SWFShape.setrightfill</simple_name>
+        <signature>___Php.SWFShape.setrightfill(mixed;int;int;int):void</signature>
+        <info_rule id="462534"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Media.Flash</property>
+        <comment>Sets right rasterizing color</comment>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

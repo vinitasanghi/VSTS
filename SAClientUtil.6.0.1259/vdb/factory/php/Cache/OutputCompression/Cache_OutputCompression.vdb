@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_OutputCompression">
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression.Cache</simple_name>
+        <signature>Cache_OutputCompression.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression.Cache_OutputCompression</simple_name>
+        <signature>Cache_OutputCompression.Cache_OutputCompression($container;$container_options;$encoding):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression._Cache</simple_name>
+        <signature>Cache_OutputCompression._Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression._Cache_OutputCompression</simple_name>
+        <signature>Cache_OutputCompression._Cache_OutputCompression():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108102">
+        <simple_name>Cache_OutputCompression._importGlobalVariable</simple_name>
+        <signature>Cache_OutputCompression._importGlobalVariable(___Php.String):mixed</signature>
+        <info_rule id="480693"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108098">
+        <simple_name>Cache_OutputCompression.end</simple_name>
+        <signature>Cache_OutputCompression.end(int;___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108107">
+        <simple_name>Cache_OutputCompression.endPrint</simple_name>
+        <signature>Cache_OutputCompression.endPrint(int;___Php.String):void</signature>
+        <sink_rule id="450936">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108099">
+        <simple_name>Cache_OutputCompression.extSave</simple_name>
+        <signature>Cache_OutputCompression.extSave(___Php.String;mixed;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450933"/>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108109">
+        <simple_name>Cache_OutputCompression.generateID</simple_name>
+        <signature>Cache_OutputCompression.generateID(___Php.String):mixed</signature>
+        <info_rule id="450932"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108101">
+        <simple_name>Cache_OutputCompression.get</simple_name>
+        <signature>Cache_OutputCompression.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450930"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108108">
+        <simple_name>Cache_OutputCompression.getEncoding</simple_name>
+        <signature>Cache_OutputCompression.getEncoding():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108103">
+        <simple_name>Cache_OutputCompression.isCached</simple_name>
+        <signature>Cache_OutputCompression.isCached():bool</signature>
+        <info_rule id="450931"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108105">
+        <simple_name>Cache_OutputCompression.isCompressed</simple_name>
+        <signature>Cache_OutputCompression.isCompressed():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108100">
+        <simple_name>Cache_OutputCompression.isExpired</simple_name>
+        <signature>Cache_OutputCompression.isExpired():bool</signature>
+        <info_rule id="450937"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108110">
+        <simple_name>Cache_OutputCompression.load</simple_name>
+        <signature>Cache_OutputCompression.load(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450935"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108115">
+        <simple_name>Cache_OutputCompression.printContent</simple_name>
+        <signature>Cache_OutputCompression.printContent(___Php.String):void</signature>
+        <sink_rule id="450934">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108106">
+        <simple_name>Cache_OutputCompression.setEncoding</simple_name>
+        <signature>Cache_OutputCompression.setEncoding(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_OutputCompression">
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression.Cache</simple_name>
+        <signature>Cache_OutputCompression.Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression.Cache_OutputCompression</simple_name>
+        <signature>Cache_OutputCompression.Cache_OutputCompression($container;$container_options;$encoding):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression._Cache</simple_name>
+        <signature>Cache_OutputCompression._Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_OutputCompression._Cache_OutputCompression</simple_name>
+        <signature>Cache_OutputCompression._Cache_OutputCompression():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108102">
+        <simple_name>Cache_OutputCompression._importGlobalVariable</simple_name>
+        <signature>Cache_OutputCompression._importGlobalVariable(___Php.String):mixed</signature>
+        <info_rule id="480693"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108098">
+        <simple_name>Cache_OutputCompression.end</simple_name>
+        <signature>Cache_OutputCompression.end(int;___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108107">
+        <simple_name>Cache_OutputCompression.endPrint</simple_name>
+        <signature>Cache_OutputCompression.endPrint(int;___Php.String):void</signature>
+        <sink_rule id="450936">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108099">
+        <simple_name>Cache_OutputCompression.extSave</simple_name>
+        <signature>Cache_OutputCompression.extSave(___Php.String;mixed;mixed;int;___Php.String):bool</signature>
+        <info_rule id="450933"/>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108109">
+        <simple_name>Cache_OutputCompression.generateID</simple_name>
+        <signature>Cache_OutputCompression.generateID(___Php.String):mixed</signature>
+        <info_rule id="450932"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108101">
+        <simple_name>Cache_OutputCompression.get</simple_name>
+        <signature>Cache_OutputCompression.get(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450930"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108108">
+        <simple_name>Cache_OutputCompression.getEncoding</simple_name>
+        <signature>Cache_OutputCompression.getEncoding():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108103">
+        <simple_name>Cache_OutputCompression.isCached</simple_name>
+        <signature>Cache_OutputCompression.isCached():bool</signature>
+        <info_rule id="450931"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108105">
+        <simple_name>Cache_OutputCompression.isCompressed</simple_name>
+        <signature>Cache_OutputCompression.isCompressed():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108100">
+        <simple_name>Cache_OutputCompression.isExpired</simple_name>
+        <signature>Cache_OutputCompression.isExpired():bool</signature>
+        <info_rule id="450937"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108110">
+        <simple_name>Cache_OutputCompression.load</simple_name>
+        <signature>Cache_OutputCompression.load(___Php.String;___Php.String):mixed</signature>
+        <info_rule id="450935"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108115">
+        <simple_name>Cache_OutputCompression.printContent</simple_name>
+        <signature>Cache_OutputCompression.printContent(___Php.String):void</signature>
+        <sink_rule id="450934">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108106">
+        <simple_name>Cache_OutputCompression.setEncoding</simple_name>
+        <signature>Cache_OutputCompression.setEncoding(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

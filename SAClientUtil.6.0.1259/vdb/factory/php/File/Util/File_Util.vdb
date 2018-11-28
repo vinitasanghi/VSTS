@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="File_Util">
+      <method vuln_id="1091146">
+        <simple_name>File_Util.buildPath</simple_name>
+        <signature>File_Util.buildPath($parts;$separator):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091138">
+        <simple_name>File_Util.isAbsolute</simple_name>
+        <signature>File_Util.isAbsolute($path):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091136">
+        <simple_name>File_Util.isIncludable</simple_name>
+        <signature>File_Util.isIncludable($file;$sep):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091141">
+        <simple_name>File_Util.listDir</simple_name>
+        <signature>File_Util.listDir($path;$list;$sort;$cb):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091140">
+        <simple_name>File_Util.pathInRoot</simple_name>
+        <signature>File_Util.pathInRoot($path;$root):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091144">
+        <simple_name>File_Util.realPath</simple_name>
+        <signature>File_Util.realPath($path;$separator):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091142">
+        <simple_name>File_Util.relativePath</simple_name>
+        <signature>File_Util.relativePath($path;$root;$separator):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091143">
+        <simple_name>File_Util.skipRoot</simple_name>
+        <signature>File_Util.skipRoot($path):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091147">
+        <simple_name>File_Util.sortFiles</simple_name>
+        <signature>File_Util.sortFiles($files;$sort):array</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091137">
+        <simple_name>File_Util.switchExt</simple_name>
+        <signature>File_Util.switchExt($filename;$to;$from;$reverse):string|array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091139">
+        <simple_name>File_Util.tmpDir</simple_name>
+        <signature>File_Util.tmpDir():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091145">
+        <simple_name>File_Util.tmpFile</simple_name>
+        <signature>File_Util.tmpFile($dirname):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="File_Util">
+      <method vuln_id="1091146">
+        <simple_name>File_Util.buildPath</simple_name>
+        <signature>File_Util.buildPath($parts;$separator):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091138">
+        <simple_name>File_Util.isAbsolute</simple_name>
+        <signature>File_Util.isAbsolute($path):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091136">
+        <simple_name>File_Util.isIncludable</simple_name>
+        <signature>File_Util.isIncludable($file;$sep):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091141">
+        <simple_name>File_Util.listDir</simple_name>
+        <signature>File_Util.listDir($path;$list;$sort;$cb):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091140">
+        <simple_name>File_Util.pathInRoot</simple_name>
+        <signature>File_Util.pathInRoot($path;$root):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091144">
+        <simple_name>File_Util.realPath</simple_name>
+        <signature>File_Util.realPath($path;$separator):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091142">
+        <simple_name>File_Util.relativePath</simple_name>
+        <signature>File_Util.relativePath($path;$root;$separator):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091143">
+        <simple_name>File_Util.skipRoot</simple_name>
+        <signature>File_Util.skipRoot($path):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091147">
+        <simple_name>File_Util.sortFiles</simple_name>
+        <signature>File_Util.sortFiles($files;$sort):array</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091137">
+        <simple_name>File_Util.switchExt</simple_name>
+        <signature>File_Util.switchExt($filename;$to;$from;$reverse):string|array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091139">
+        <simple_name>File_Util.tmpDir</simple_name>
+        <signature>File_Util.tmpDir():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091145">
+        <simple_name>File_Util.tmpFile</simple_name>
+        <signature>File_Util.tmpFile($dirname):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

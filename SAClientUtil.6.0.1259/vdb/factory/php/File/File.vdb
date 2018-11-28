@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="File">
+      <method vuln_id="-1">
+        <simple_name>File._File</simple_name>
+        <signature>File._File():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File._getFilePointer</simple_name>
+        <signature>File._getFilePointer($filename;$mode;$lock):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File._getFilePointer</simple_name>
+        <signature>File._getFilePointer():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091058">
+        <simple_name>File.buildPath</simple_name>
+        <signature>File.buildPath($parts;$separator):void</signature>
+      </method>
+      <method vuln_id="1091052">
+        <simple_name>File.close</simple_name>
+        <signature>File.close($filename;$mode):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091068">
+        <simple_name>File.closeAll</simple_name>
+        <signature>File.closeAll():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091051">
+        <simple_name>File.getTempDir</simple_name>
+        <signature>File.getTempDir():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091061">
+        <simple_name>File.getTempFile</simple_name>
+        <signature>File.getTempFile($dirname):void</signature>
+      </method>
+      <method vuln_id="1091067">
+        <simple_name>File.isAbsolute</simple_name>
+        <signature>File.isAbsolute($path):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091064">
+        <simple_name>File.read</simple_name>
+        <signature>File.read($filename;$size;$lock):mixed</signature>
+        <info_rule id="480736"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091065">
+        <simple_name>File.readAll</simple_name>
+        <signature>File.readAll($filename;$lock):mixed</signature>
+        <info_rule id="480735"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091063">
+        <simple_name>File.readChar</simple_name>
+        <signature>File.readChar($filename;$lock):mixed</signature>
+        <info_rule id="480737"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091053">
+        <simple_name>File.readLine</simple_name>
+        <signature>File.readLine($filename;$lock):mixed</signature>
+        <info_rule id="480734"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091056">
+        <simple_name>File.realpath</simple_name>
+        <signature>File.realpath($path;$separator):void</signature>
+      </method>
+      <method vuln_id="1091059">
+        <simple_name>File.relativePath</simple_name>
+        <signature>File.relativePath($path;$root;$separator):void</signature>
+      </method>
+      <method vuln_id="1091062">
+        <simple_name>File.rewind</simple_name>
+        <signature>File.rewind($filename;$mode):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091069">
+        <simple_name>File.skipRoot</simple_name>
+        <signature>File.skipRoot($path):void</signature>
+      </method>
+      <method vuln_id="1091060">
+        <simple_name>File.stripLeadingSeparators</simple_name>
+        <signature>File.stripLeadingSeparators($path;$separator):void</signature>
+      </method>
+      <method vuln_id="1091054">
+        <simple_name>File.stripTrailingSeparators</simple_name>
+        <signature>File.stripTrailingSeparators($path;$separator):void</signature>
+      </method>
+      <method vuln_id="1091055">
+        <simple_name>File.unlock</simple_name>
+        <signature>File.unlock($filename;$mode):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091057">
+        <simple_name>File.write</simple_name>
+        <signature>File.write($filename;$data;$mode;$lock):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091050">
+        <simple_name>File.writeChar</simple_name>
+        <signature>File.writeChar($filename;$char;$mode;$lock):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091066">
+        <simple_name>File.writeLine</simple_name>
+        <signature>File.writeLine($filename;$line;$mode;$crlf;$lock):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="3,5"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="2,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="File">
+      <method vuln_id="-1">
+        <simple_name>File._File</simple_name>
+        <signature>File._File():mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File._getFilePointer</simple_name>
+        <signature>File._getFilePointer($filename;$mode;$lock):mixed</signature>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File._getFilePointer</simple_name>
+        <signature>File._getFilePointer():Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091058">
+        <simple_name>File.buildPath</simple_name>
+        <signature>File.buildPath($parts;$separator):void</signature>
+      </method>
+      <method vuln_id="1091052">
+        <simple_name>File.close</simple_name>
+        <signature>File.close($filename;$mode):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091068">
+        <simple_name>File.closeAll</simple_name>
+        <signature>File.closeAll():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091051">
+        <simple_name>File.getTempDir</simple_name>
+        <signature>File.getTempDir():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091061">
+        <simple_name>File.getTempFile</simple_name>
+        <signature>File.getTempFile($dirname):void</signature>
+      </method>
+      <method vuln_id="1091067">
+        <simple_name>File.isAbsolute</simple_name>
+        <signature>File.isAbsolute($path):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091064">
+        <simple_name>File.read</simple_name>
+        <signature>File.read($filename;$size;$lock):mixed</signature>
+        <info_rule id="480736"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091065">
+        <simple_name>File.readAll</simple_name>
+        <signature>File.readAll($filename;$lock):mixed</signature>
+        <info_rule id="480735"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091063">
+        <simple_name>File.readChar</simple_name>
+        <signature>File.readChar($filename;$lock):mixed</signature>
+        <info_rule id="480737"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091053">
+        <simple_name>File.readLine</simple_name>
+        <signature>File.readLine($filename;$lock):mixed</signature>
+        <info_rule id="480734"/>
+        <source_rule>
+          <tainted_output param="default" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.FilePath.Read</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091056">
+        <simple_name>File.realpath</simple_name>
+        <signature>File.realpath($path;$separator):void</signature>
+      </method>
+      <method vuln_id="1091059">
+        <simple_name>File.relativePath</simple_name>
+        <signature>File.relativePath($path;$root;$separator):void</signature>
+      </method>
+      <method vuln_id="1091062">
+        <simple_name>File.rewind</simple_name>
+        <signature>File.rewind($filename;$mode):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091069">
+        <simple_name>File.skipRoot</simple_name>
+        <signature>File.skipRoot($path):void</signature>
+      </method>
+      <method vuln_id="1091060">
+        <simple_name>File.stripLeadingSeparators</simple_name>
+        <signature>File.stripLeadingSeparators($path;$separator):void</signature>
+      </method>
+      <method vuln_id="1091054">
+        <simple_name>File.stripTrailingSeparators</simple_name>
+        <signature>File.stripTrailingSeparators($path;$separator):void</signature>
+      </method>
+      <method vuln_id="1091055">
+        <simple_name>File.unlock</simple_name>
+        <signature>File.unlock($filename;$mode):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091057">
+        <simple_name>File.write</simple_name>
+        <signature>File.write($filename;$data;$mode;$lock):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091050">
+        <simple_name>File.writeChar</simple_name>
+        <signature>File.writeChar($filename;$char;$mode;$lock):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091066">
+        <simple_name>File.writeLine</simple_name>
+        <signature>File.writeLine($filename;$line;$mode;$crlf;$lock):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="3,5"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.EncodingRequired</vulnerability_type>
+          <taint_susceptible_input param="2,4"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

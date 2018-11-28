@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Date_Span">
+      <method vuln_id="-1">
+        <simple_name>Date_Span.Date_Span</simple_name>
+        <signature>Date_Span.Date_Span($time;$format):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Span.__clone</simple_name>
+        <signature>Date_Span.__clone():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091013">
+        <simple_name>Date_Span.add</simple_name>
+        <signature>Date_Span.add($time):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091017">
+        <simple_name>Date_Span.compare</simple_name>
+        <signature>Date_Span.compare($time1;$time2):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091023">
+        <simple_name>Date_Span.copy</simple_name>
+        <signature>Date_Span.copy($time):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091034">
+        <simple_name>Date_Span.equal</simple_name>
+        <signature>Date_Span.equal($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091018">
+        <simple_name>Date_Span.format</simple_name>
+        <signature>Date_Span.format($format):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Span.getDefaultFormat</simple_name>
+        <signature>Date_Span.getDefaultFormat():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Span.getDefaultInputFormat</simple_name>
+        <signature>Date_Span.getDefaultInputFormat():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091014">
+        <simple_name>Date_Span.greater</simple_name>
+        <signature>Date_Span.greater($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091010">
+        <simple_name>Date_Span.greaterEqual</simple_name>
+        <signature>Date_Span.greaterEqual($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091012">
+        <simple_name>Date_Span.isEmpty</simple_name>
+        <signature>Date_Span.isEmpty():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091030">
+        <simple_name>Date_Span.lower</simple_name>
+        <signature>Date_Span.lower($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091029">
+        <simple_name>Date_Span.lowerEqual</simple_name>
+        <signature>Date_Span.lowerEqual($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091026">
+        <simple_name>Date_Span.set</simple_name>
+        <signature>Date_Span.set($time;$format):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091032">
+        <simple_name>Date_Span.setDefaultFormat</simple_name>
+        <signature>Date_Span.setDefaultFormat($format):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091011">
+        <simple_name>Date_Span.setDefaultInputFormat</simple_name>
+        <signature>Date_Span.setDefaultInputFormat($format):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091027">
+        <simple_name>Date_Span.setFromArray</simple_name>
+        <signature>Date_Span.setFromArray($time):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091024">
+        <simple_name>Date_Span.setFromDateDiff</simple_name>
+        <signature>Date_Span.setFromDateDiff($date1;$date2):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091022">
+        <simple_name>Date_Span.setFromDays</simple_name>
+        <signature>Date_Span.setFromDays($days):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091016">
+        <simple_name>Date_Span.setFromHours</simple_name>
+        <signature>Date_Span.setFromHours($hours):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091019">
+        <simple_name>Date_Span.setFromMinutes</simple_name>
+        <signature>Date_Span.setFromMinutes($minutes):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091031">
+        <simple_name>Date_Span.setFromSeconds</simple_name>
+        <signature>Date_Span.setFromSeconds($seconds):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091033">
+        <simple_name>Date_Span.setFromString</simple_name>
+        <signature>Date_Span.setFromString($time;$format):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091025">
+        <simple_name>Date_Span.subtract</simple_name>
+        <signature>Date_Span.subtract($time):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091028">
+        <simple_name>Date_Span.toDays</simple_name>
+        <signature>Date_Span.toDays():float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091021">
+        <simple_name>Date_Span.toHours</simple_name>
+        <signature>Date_Span.toHours():float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091020">
+        <simple_name>Date_Span.toMinutes</simple_name>
+        <signature>Date_Span.toMinutes():float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091015">
+        <simple_name>Date_Span.toSeconds</simple_name>
+        <signature>Date_Span.toSeconds():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Date_Span">
+      <method vuln_id="-1">
+        <simple_name>Date_Span.Date_Span</simple_name>
+        <signature>Date_Span.Date_Span($time;$format):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Span.__clone</simple_name>
+        <signature>Date_Span.__clone():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091013">
+        <simple_name>Date_Span.add</simple_name>
+        <signature>Date_Span.add($time):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091017">
+        <simple_name>Date_Span.compare</simple_name>
+        <signature>Date_Span.compare($time1;$time2):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091023">
+        <simple_name>Date_Span.copy</simple_name>
+        <signature>Date_Span.copy($time):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091034">
+        <simple_name>Date_Span.equal</simple_name>
+        <signature>Date_Span.equal($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091018">
+        <simple_name>Date_Span.format</simple_name>
+        <signature>Date_Span.format($format):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Span.getDefaultFormat</simple_name>
+        <signature>Date_Span.getDefaultFormat():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date_Span.getDefaultInputFormat</simple_name>
+        <signature>Date_Span.getDefaultInputFormat():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091014">
+        <simple_name>Date_Span.greater</simple_name>
+        <signature>Date_Span.greater($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091010">
+        <simple_name>Date_Span.greaterEqual</simple_name>
+        <signature>Date_Span.greaterEqual($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091012">
+        <simple_name>Date_Span.isEmpty</simple_name>
+        <signature>Date_Span.isEmpty():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091030">
+        <simple_name>Date_Span.lower</simple_name>
+        <signature>Date_Span.lower($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091029">
+        <simple_name>Date_Span.lowerEqual</simple_name>
+        <signature>Date_Span.lowerEqual($time):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091026">
+        <simple_name>Date_Span.set</simple_name>
+        <signature>Date_Span.set($time;$format):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091032">
+        <simple_name>Date_Span.setDefaultFormat</simple_name>
+        <signature>Date_Span.setDefaultFormat($format):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091011">
+        <simple_name>Date_Span.setDefaultInputFormat</simple_name>
+        <signature>Date_Span.setDefaultInputFormat($format):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091027">
+        <simple_name>Date_Span.setFromArray</simple_name>
+        <signature>Date_Span.setFromArray($time):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091024">
+        <simple_name>Date_Span.setFromDateDiff</simple_name>
+        <signature>Date_Span.setFromDateDiff($date1;$date2):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091022">
+        <simple_name>Date_Span.setFromDays</simple_name>
+        <signature>Date_Span.setFromDays($days):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091016">
+        <simple_name>Date_Span.setFromHours</simple_name>
+        <signature>Date_Span.setFromHours($hours):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091019">
+        <simple_name>Date_Span.setFromMinutes</simple_name>
+        <signature>Date_Span.setFromMinutes($minutes):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091031">
+        <simple_name>Date_Span.setFromSeconds</simple_name>
+        <signature>Date_Span.setFromSeconds($seconds):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091033">
+        <simple_name>Date_Span.setFromString</simple_name>
+        <signature>Date_Span.setFromString($time;$format):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091025">
+        <simple_name>Date_Span.subtract</simple_name>
+        <signature>Date_Span.subtract($time):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091028">
+        <simple_name>Date_Span.toDays</simple_name>
+        <signature>Date_Span.toDays():float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091021">
+        <simple_name>Date_Span.toHours</simple_name>
+        <signature>Date_Span.toHours():float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091020">
+        <simple_name>Date_Span.toMinutes</simple_name>
+        <signature>Date_Span.toMinutes():float</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091015">
+        <simple_name>Date_Span.toSeconds</simple_name>
+        <signature>Date_Span.toSeconds():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

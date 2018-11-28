@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Cache_Output">
+      <method vuln_id="-1">
+        <simple_name>Cache_Output._Cache</simple_name>
+        <signature>Cache_Output._Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Output._Cache_Output</simple_name>
+        <signature>Cache_Output._Cache_Output():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108095">
+        <simple_name>Cache_Output.end</simple_name>
+        <signature>Cache_Output.end(int;___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108093">
+        <simple_name>Cache_Output.endGet</simple_name>
+        <signature>Cache_Output.endGet():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108094">
+        <simple_name>Cache_Output.endPrint</simple_name>
+        <signature>Cache_Output.endPrint(int;___Php.String):void</signature>
+        <sink_rule id="450929">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108097">
+        <simple_name>Cache_Output.get</simple_name>
+        <signature>Cache_Output.get():mixed</signature>
+        <info_rule id="450928"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108096">
+        <simple_name>Cache_Output.printContent</simple_name>
+        <signature>Cache_Output.printContent(___Php.String):void</signature>
+        <sink_rule id="450927">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108092">
+        <simple_name>Cache_Output.start</simple_name>
+        <signature>Cache_Output.start(___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Cache_Output">
+      <method vuln_id="-1">
+        <simple_name>Cache_Output._Cache</simple_name>
+        <signature>Cache_Output._Cache():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Cache_Output._Cache_Output</simple_name>
+        <signature>Cache_Output._Cache_Output():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108095">
+        <simple_name>Cache_Output.end</simple_name>
+        <signature>Cache_Output.end(int;___Php.String):mixed</signature>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108093">
+        <simple_name>Cache_Output.endGet</simple_name>
+        <signature>Cache_Output.endGet():___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108094">
+        <simple_name>Cache_Output.endPrint</simple_name>
+        <signature>Cache_Output.endPrint(int;___Php.String):void</signature>
+        <sink_rule id="450929">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108097">
+        <simple_name>Cache_Output.get</simple_name>
+        <signature>Cache_Output.get():mixed</signature>
+        <info_rule id="450928"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Technology.Storage.Cache</property>
+      </method>
+      <method vuln_id="1108096">
+        <simple_name>Cache_Output.printContent</simple_name>
+        <signature>Cache_Output.printContent(___Php.String):void</signature>
+        <sink_rule id="450927">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="this,1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108092">
+        <simple_name>Cache_Output.start</simple_name>
+        <signature>Cache_Output.start(___Php.String;___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

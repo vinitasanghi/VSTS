@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Acl">
+      <method vuln_id="1108670">
+        <simple_name>Zend_Acl.__construct_@__1</simple_name>
+        <signature>Zend_Acl.__construct_@__1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108705">
+        <simple_name>Zend_Acl._getRoleRegistry_@__1</simple_name>
+        <signature>Zend_Acl._getRoleRegistry_@__1():Variant</signature>
+        <info_rule id="465529"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108688">
+        <simple_name>Zend_Acl._getRuleType_@__1</simple_name>
+        <signature>Zend_Acl._getRuleType_@__1($resource;$role;$privilege):Variant</signature>
+        <info_rule id="465514"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108715">
+        <simple_name>Zend_Acl._getRules_@__1</simple_name>
+        <signature>Zend_Acl._getRules_@__1($resource;$role;$create):Variant</signature>
+        <info_rule id="465540"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108692">
+        <simple_name>Zend_Acl._roleDFSAllPrivileges_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSAllPrivileges_@__1($role;$resource):Variant</signature>
+        <info_rule id="465519"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108720">
+        <simple_name>Zend_Acl._roleDFSOnePrivilege_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSOnePrivilege_@__1($role;$resource;$privilege):Variant</signature>
+        <info_rule id="465545"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108701">
+        <simple_name>Zend_Acl._roleDFSVisitAllPrivileges_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSVisitAllPrivileges_@__1($role;$resource;$dfs):Variant</signature>
+        <info_rule id="465525"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108712">
+        <simple_name>Zend_Acl._roleDFSVisitOnePrivilege_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSVisitOnePrivilege_@__1($role;$resource;$privilege;$dfs):Variant</signature>
+        <info_rule id="465537"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108716">
+        <simple_name>Zend_Acl.addResource_@__1</simple_name>
+        <signature>Zend_Acl.addResource_@__1($resource;$parent):Variant</signature>
+        <info_rule id="465541"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108672">
+        <simple_name>Zend_Acl.addRole_@__1</simple_name>
+        <signature>Zend_Acl.addRole_@__1($role;$parents):Variant</signature>
+        <info_rule id="465499"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108702">
+        <simple_name>Zend_Acl.add_@__1</simple_name>
+        <signature>Zend_Acl.add_@__1($resource;$parent):Variant</signature>
+        <info_rule id="465526"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108683">
+        <simple_name>Zend_Acl.allow_@__1</simple_name>
+        <signature>Zend_Acl.allow_@__1($roles;$resources;$privileges;$assert):Variant</signature>
+        <info_rule id="465508"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108706">
+        <simple_name>Zend_Acl.deny_@__1</simple_name>
+        <signature>Zend_Acl.deny_@__1($roles;$resources;$privileges;$assert):Variant</signature>
+        <info_rule id="465531"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108699">
+        <simple_name>Zend_Acl.getRegisteredRoles_@__1</simple_name>
+        <signature>Zend_Acl.getRegisteredRoles_@__1():Variant</signature>
+        <info_rule id="465523"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108677">
+        <simple_name>Zend_Acl.getResources_@__1</simple_name>
+        <signature>Zend_Acl.getResources_@__1():Variant</signature>
+        <info_rule id="465503"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108707">
+        <simple_name>Zend_Acl.getRole_@__1</simple_name>
+        <signature>Zend_Acl.getRole_@__1($role):Variant</signature>
+        <info_rule id="465532"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108674">
+        <simple_name>Zend_Acl.getRoles_@__1</simple_name>
+        <signature>Zend_Acl.getRoles_@__1():Variant</signature>
+        <info_rule id="465501"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108721">
+        <simple_name>Zend_Acl.get_@__1</simple_name>
+        <signature>Zend_Acl.get_@__1($resource):Variant</signature>
+        <info_rule id="465546"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108676">
+        <simple_name>Zend_Acl.hasRole_@__1</simple_name>
+        <signature>Zend_Acl.hasRole_@__1($role):Variant</signature>
+        <info_rule id="465502"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108686">
+        <simple_name>Zend_Acl.has_@__1</simple_name>
+        <signature>Zend_Acl.has_@__1($resource):Variant</signature>
+        <info_rule id="465512"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108710">
+        <simple_name>Zend_Acl.inheritsRole_@__1</simple_name>
+        <signature>Zend_Acl.inheritsRole_@__1($role;$inherit;$onlyParents):Variant</signature>
+        <info_rule id="465535"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108708">
+        <simple_name>Zend_Acl.inherits_@__1</simple_name>
+        <signature>Zend_Acl.inherits_@__1($resource;$inherit;$onlyParent):Variant</signature>
+        <info_rule id="465533"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108691">
+        <simple_name>Zend_Acl.isAllowed_@__1</simple_name>
+        <signature>Zend_Acl.isAllowed_@__1($role;$resource;$privilege):Variant</signature>
+        <info_rule id="465518"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108685">
+        <simple_name>Zend_Acl.removeAll_@__1</simple_name>
+        <signature>Zend_Acl.removeAll_@__1():Variant</signature>
+        <info_rule id="465511"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108696">
+        <simple_name>Zend_Acl.removeAllow_@__1</simple_name>
+        <signature>Zend_Acl.removeAllow_@__1($roles;$resources;$privileges):Variant</signature>
+        <info_rule id="465522"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108680">
+        <simple_name>Zend_Acl.removeDeny_@__1</simple_name>
+        <signature>Zend_Acl.removeDeny_@__1($roles;$resources;$privileges):Variant</signature>
+        <info_rule id="465505"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108719">
+        <simple_name>Zend_Acl.removeRoleAll_@__1</simple_name>
+        <signature>Zend_Acl.removeRoleAll_@__1():Variant</signature>
+        <info_rule id="465544"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108718">
+        <simple_name>Zend_Acl.removeRole_@__1</simple_name>
+        <signature>Zend_Acl.removeRole_@__1($role):Variant</signature>
+        <info_rule id="465543"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108717">
+        <simple_name>Zend_Acl.remove_@__1</simple_name>
+        <signature>Zend_Acl.remove_@__1($resource):Variant</signature>
+        <info_rule id="465542"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108694">
+        <simple_name>Zend_Acl.setRule_@__1</simple_name>
+        <signature>Zend_Acl.setRule_@__1($operation;$type;$roles;$resources;$privileges;$assert):Variant</signature>
+        <info_rule id="465520"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4,5,6"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Acl">
+      <method vuln_id="1108670">
+        <simple_name>Zend_Acl.__construct_@__1</simple_name>
+        <signature>Zend_Acl.__construct_@__1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108705">
+        <simple_name>Zend_Acl._getRoleRegistry_@__1</simple_name>
+        <signature>Zend_Acl._getRoleRegistry_@__1():Variant</signature>
+        <info_rule id="465529"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108688">
+        <simple_name>Zend_Acl._getRuleType_@__1</simple_name>
+        <signature>Zend_Acl._getRuleType_@__1($resource;$role;$privilege):Variant</signature>
+        <info_rule id="465514"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108715">
+        <simple_name>Zend_Acl._getRules_@__1</simple_name>
+        <signature>Zend_Acl._getRules_@__1($resource;$role;$create):Variant</signature>
+        <info_rule id="465540"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108692">
+        <simple_name>Zend_Acl._roleDFSAllPrivileges_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSAllPrivileges_@__1($role;$resource):Variant</signature>
+        <info_rule id="465519"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108720">
+        <simple_name>Zend_Acl._roleDFSOnePrivilege_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSOnePrivilege_@__1($role;$resource;$privilege):Variant</signature>
+        <info_rule id="465545"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108701">
+        <simple_name>Zend_Acl._roleDFSVisitAllPrivileges_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSVisitAllPrivileges_@__1($role;$resource;$dfs):Variant</signature>
+        <info_rule id="465525"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108712">
+        <simple_name>Zend_Acl._roleDFSVisitOnePrivilege_@__1</simple_name>
+        <signature>Zend_Acl._roleDFSVisitOnePrivilege_@__1($role;$resource;$privilege;$dfs):Variant</signature>
+        <info_rule id="465537"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1108716">
+        <simple_name>Zend_Acl.addResource_@__1</simple_name>
+        <signature>Zend_Acl.addResource_@__1($resource;$parent):Variant</signature>
+        <info_rule id="465541"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108672">
+        <simple_name>Zend_Acl.addRole_@__1</simple_name>
+        <signature>Zend_Acl.addRole_@__1($role;$parents):Variant</signature>
+        <info_rule id="465499"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108702">
+        <simple_name>Zend_Acl.add_@__1</simple_name>
+        <signature>Zend_Acl.add_@__1($resource;$parent):Variant</signature>
+        <info_rule id="465526"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108683">
+        <simple_name>Zend_Acl.allow_@__1</simple_name>
+        <signature>Zend_Acl.allow_@__1($roles;$resources;$privileges;$assert):Variant</signature>
+        <info_rule id="465508"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108706">
+        <simple_name>Zend_Acl.deny_@__1</simple_name>
+        <signature>Zend_Acl.deny_@__1($roles;$resources;$privileges;$assert):Variant</signature>
+        <info_rule id="465531"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.AccessControl.Bypass</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108699">
+        <simple_name>Zend_Acl.getRegisteredRoles_@__1</simple_name>
+        <signature>Zend_Acl.getRegisteredRoles_@__1():Variant</signature>
+        <info_rule id="465523"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108677">
+        <simple_name>Zend_Acl.getResources_@__1</simple_name>
+        <signature>Zend_Acl.getResources_@__1():Variant</signature>
+        <info_rule id="465503"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108707">
+        <simple_name>Zend_Acl.getRole_@__1</simple_name>
+        <signature>Zend_Acl.getRole_@__1($role):Variant</signature>
+        <info_rule id="465532"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108674">
+        <simple_name>Zend_Acl.getRoles_@__1</simple_name>
+        <signature>Zend_Acl.getRoles_@__1():Variant</signature>
+        <info_rule id="465501"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108721">
+        <simple_name>Zend_Acl.get_@__1</simple_name>
+        <signature>Zend_Acl.get_@__1($resource):Variant</signature>
+        <info_rule id="465546"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108676">
+        <simple_name>Zend_Acl.hasRole_@__1</simple_name>
+        <signature>Zend_Acl.hasRole_@__1($role):Variant</signature>
+        <info_rule id="465502"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108686">
+        <simple_name>Zend_Acl.has_@__1</simple_name>
+        <signature>Zend_Acl.has_@__1($resource):Variant</signature>
+        <info_rule id="465512"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108710">
+        <simple_name>Zend_Acl.inheritsRole_@__1</simple_name>
+        <signature>Zend_Acl.inheritsRole_@__1($role;$inherit;$onlyParents):Variant</signature>
+        <info_rule id="465535"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108708">
+        <simple_name>Zend_Acl.inherits_@__1</simple_name>
+        <signature>Zend_Acl.inherits_@__1($resource;$inherit;$onlyParent):Variant</signature>
+        <info_rule id="465533"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108691">
+        <simple_name>Zend_Acl.isAllowed_@__1</simple_name>
+        <signature>Zend_Acl.isAllowed_@__1($role;$resource;$privilege):Variant</signature>
+        <info_rule id="465518"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108685">
+        <simple_name>Zend_Acl.removeAll_@__1</simple_name>
+        <signature>Zend_Acl.removeAll_@__1():Variant</signature>
+        <info_rule id="465511"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108696">
+        <simple_name>Zend_Acl.removeAllow_@__1</simple_name>
+        <signature>Zend_Acl.removeAllow_@__1($roles;$resources;$privileges):Variant</signature>
+        <info_rule id="465522"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108680">
+        <simple_name>Zend_Acl.removeDeny_@__1</simple_name>
+        <signature>Zend_Acl.removeDeny_@__1($roles;$resources;$privileges):Variant</signature>
+        <info_rule id="465505"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108719">
+        <simple_name>Zend_Acl.removeRoleAll_@__1</simple_name>
+        <signature>Zend_Acl.removeRoleAll_@__1():Variant</signature>
+        <info_rule id="465544"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108718">
+        <simple_name>Zend_Acl.removeRole_@__1</simple_name>
+        <signature>Zend_Acl.removeRole_@__1($role):Variant</signature>
+        <info_rule id="465543"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108717">
+        <simple_name>Zend_Acl.remove_@__1</simple_name>
+        <signature>Zend_Acl.remove_@__1($resource):Variant</signature>
+        <info_rule id="465542"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1108694">
+        <simple_name>Zend_Acl.setRule_@__1</simple_name>
+        <signature>Zend_Acl.setRule_@__1($operation;$type;$roles;$resources;$privileges;$assert):Variant</signature>
+        <info_rule id="465520"/>
+        <propagates_taint dst_param="this" return="true" source_param="1,2,3,4,5,6"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

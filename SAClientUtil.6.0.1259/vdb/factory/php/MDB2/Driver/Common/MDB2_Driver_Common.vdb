@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB2_Driver_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.MDB2_Driver_Common</simple_name>
+        <signature>MDB2_Driver_Common.MDB2_Driver_Common():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__call</simple_name>
+        <signature>MDB2_Driver_Common.__call($method;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__construct</simple_name>
+        <signature>MDB2_Driver_Common.__construct():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__destruct</simple_name>
+        <signature>MDB2_Driver_Common.__destruct():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__toString</simple_name>
+        <signature>MDB2_Driver_Common.__toString():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common._affectedRows</simple_name>
+        <signature>MDB2_Driver_Common._affectedRows($connection;$result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091728">
+        <simple_name>MDB2_Driver_Common._doQuery</simple_name>
+        <signature>MDB2_Driver_Common._doQuery($query;$is_manip;$connection;$database_name):result</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091767">
+        <simple_name>MDB2_Driver_Common._fixResultArrayValues</simple_name>
+        <signature>MDB2_Driver_Common._fixResultArrayValues($row;$mode):mixed</signature>
+        <propagates_taint dst_param="1" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091710">
+        <simple_name>MDB2_Driver_Common._modifyQuery</simple_name>
+        <signature>MDB2_Driver_Common._modifyQuery($query;$is_manip;$limit;$offset):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091741">
+        <simple_name>MDB2_Driver_Common._skipDelimitedStrings</simple_name>
+        <signature>MDB2_Driver_Common._skipDelimitedStrings($query;$position;$p_position):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091746">
+        <simple_name>MDB2_Driver_Common._wrapResult</simple_name>
+        <signature>MDB2_Driver_Common._wrapResult($result;$types;$result_class;$result_wrap_class;$limit;$offset):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091733">
+        <simple_name>MDB2_Driver_Common.beginNestedTransaction</simple_name>
+        <signature>MDB2_Driver_Common.beginNestedTransaction():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091725">
+        <simple_name>MDB2_Driver_Common.beginTransaction</simple_name>
+        <signature>MDB2_Driver_Common.beginTransaction($savepoint):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091730">
+        <simple_name>MDB2_Driver_Common.commit</simple_name>
+        <signature>MDB2_Driver_Common.commit($savepoint):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091713">
+        <simple_name>MDB2_Driver_Common.compareDefinition</simple_name>
+        <signature>MDB2_Driver_Common.compareDefinition($current;$previous):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091782">
+        <simple_name>MDB2_Driver_Common.completeNestedTransaction</simple_name>
+        <signature>MDB2_Driver_Common.completeNestedTransaction($force_rollback):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091724">
+        <simple_name>MDB2_Driver_Common.connect</simple_name>
+        <signature>MDB2_Driver_Common.connect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091748">
+        <simple_name>MDB2_Driver_Common.currID</simple_name>
+        <signature>MDB2_Driver_Common.currID($seq_name):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.debug</simple_name>
+        <signature>MDB2_Driver_Common.debug($message;$scope;$context):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091739">
+        <simple_name>MDB2_Driver_Common.disconnect</simple_name>
+        <signature>MDB2_Driver_Common.disconnect($force):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091762">
+        <simple_name>MDB2_Driver_Common.errorInfo</simple_name>
+        <signature>MDB2_Driver_Common.errorInfo($error):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091718">
+        <simple_name>MDB2_Driver_Common.escape</simple_name>
+        <signature>MDB2_Driver_Common.escape($text;$escape_wildcards):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091790">
+        <simple_name>MDB2_Driver_Common.escapePattern</simple_name>
+        <signature>MDB2_Driver_Common.escapePattern($text):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091768">
+        <simple_name>MDB2_Driver_Common.exec</simple_name>
+        <signature>MDB2_Driver_Common.exec($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091749">
+        <simple_name>MDB2_Driver_Common.failNestedTransaction</simple_name>
+        <signature>MDB2_Driver_Common.failNestedTransaction($error;$immediately):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091750">
+        <simple_name>MDB2_Driver_Common.free</simple_name>
+        <signature>MDB2_Driver_Common.free():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091755">
+        <simple_name>MDB2_Driver_Common.getAsKeyword</simple_name>
+        <signature>MDB2_Driver_Common.getAsKeyword():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091758">
+        <simple_name>MDB2_Driver_Common.getConnection</simple_name>
+        <signature>MDB2_Driver_Common.getConnection():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091783">
+        <simple_name>MDB2_Driver_Common.getDSN</simple_name>
+        <signature>MDB2_Driver_Common.getDSN($type;$hidepw):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091772">
+        <simple_name>MDB2_Driver_Common.getDatabase</simple_name>
+        <signature>MDB2_Driver_Common.getDatabase():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091740">
+        <simple_name>MDB2_Driver_Common.getDebugOutput</simple_name>
+        <signature>MDB2_Driver_Common.getDebugOutput():string</signature>
+        <rule>
+          <ActionObject id="451502">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091766">
+        <simple_name>MDB2_Driver_Common.getDeclaration</simple_name>
+        <signature>MDB2_Driver_Common.getDeclaration($type;$name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091759">
+        <simple_name>MDB2_Driver_Common.getIndexName</simple_name>
+        <signature>MDB2_Driver_Common.getIndexName($idx):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091784">
+        <simple_name>MDB2_Driver_Common.getNestedTransactionError</simple_name>
+        <signature>MDB2_Driver_Common.getNestedTransactionError():mixed</signature>
+        <rule>
+          <ActionObject id="451534">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091706">
+        <simple_name>MDB2_Driver_Common.getOption</simple_name>
+        <signature>MDB2_Driver_Common.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091743">
+        <simple_name>MDB2_Driver_Common.getSequenceName</simple_name>
+        <signature>MDB2_Driver_Common.getSequenceName($sqn):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091771">
+        <simple_name>MDB2_Driver_Common.getServerVersion</simple_name>
+        <signature>MDB2_Driver_Common.getServerVersion($native):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091760">
+        <simple_name>MDB2_Driver_Common.getWarnings</simple_name>
+        <signature>MDB2_Driver_Common.getWarnings():array</signature>
+        <rule>
+          <ActionObject id="451504">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091786">
+        <simple_name>MDB2_Driver_Common.inTransaction</simple_name>
+        <signature>MDB2_Driver_Common.inTransaction($ignore_nested):int|bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091775">
+        <simple_name>MDB2_Driver_Common.lastInsertID</simple_name>
+        <signature>MDB2_Driver_Common.lastInsertID($table;$field):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091761">
+        <simple_name>MDB2_Driver_Common.loadModule</simple_name>
+        <signature>MDB2_Driver_Common.loadModule($module;$property;$phptype_specific):object on</signature>
+        <sink_rule id="451505">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091727">
+        <simple_name>MDB2_Driver_Common.nextID</simple_name>
+        <signature>MDB2_Driver_Common.nextID($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091735">
+        <simple_name>MDB2_Driver_Common.prepare</simple_name>
+        <signature>MDB2_Driver_Common.prepare($query;$types;$result_types;$lobs):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091780">
+        <simple_name>MDB2_Driver_Common.query</simple_name>
+        <signature>MDB2_Driver_Common.query($query;$types;$result_class;$result_wrap_class):mixed</signature>
+        <info_rule id="480785"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091712">
+        <simple_name>MDB2_Driver_Common.queryAll</simple_name>
+        <signature>MDB2_Driver_Common.queryAll($query;$types;$fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480787"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091777">
+        <simple_name>MDB2_Driver_Common.queryCol</simple_name>
+        <signature>MDB2_Driver_Common.queryCol($query;$type;$colnum):mixed</signature>
+        <info_rule id="480782"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091785">
+        <simple_name>MDB2_Driver_Common.queryOne</simple_name>
+        <signature>MDB2_Driver_Common.queryOne($query;$type;$colnum):mixed</signature>
+        <info_rule id="480781"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091736">
+        <simple_name>MDB2_Driver_Common.queryRow</simple_name>
+        <signature>MDB2_Driver_Common.queryRow($query;$types;$fetchmode):mixed</signature>
+        <info_rule id="480780"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091754">
+        <simple_name>MDB2_Driver_Common.quote</simple_name>
+        <signature>MDB2_Driver_Common.quote($value;$type;$quote;$escape_wildcards):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091720">
+        <simple_name>MDB2_Driver_Common.quoteIdentifier</simple_name>
+        <signature>MDB2_Driver_Common.quoteIdentifier($str;$check_option):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.raiseError</simple_name>
+        <signature>MDB2_Driver_Common.raiseError($code;$mode;$options;$userinfo;$method):PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091726">
+        <simple_name>MDB2_Driver_Common.replace</simple_name>
+        <signature>MDB2_Driver_Common.replace($table;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091751">
+        <simple_name>MDB2_Driver_Common.resetWarnings</simple_name>
+        <signature>MDB2_Driver_Common.resetWarnings():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091705">
+        <simple_name>MDB2_Driver_Common.rollback</simple_name>
+        <signature>MDB2_Driver_Common.rollback($savepoint):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091744">
+        <simple_name>MDB2_Driver_Common.setCharset</simple_name>
+        <signature>MDB2_Driver_Common.setCharset($charset;$connection):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091708">
+        <simple_name>MDB2_Driver_Common.setDSN</simple_name>
+        <signature>MDB2_Driver_Common.setDSN($dsn):mixed</signature>
+        <sink_rule id="451515">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091764">
+        <simple_name>MDB2_Driver_Common.setDatabase</simple_name>
+        <signature>MDB2_Driver_Common.setDatabase($name):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091773">
+        <simple_name>MDB2_Driver_Common.setFetchMode</simple_name>
+        <signature>MDB2_Driver_Common.setFetchMode($fetchmode;$object_class):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091737">
+        <simple_name>MDB2_Driver_Common.setLimit</simple_name>
+        <signature>MDB2_Driver_Common.setLimit($limit;$offset):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091776">
+        <simple_name>MDB2_Driver_Common.setOption</simple_name>
+        <signature>MDB2_Driver_Common.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091781">
+        <simple_name>MDB2_Driver_Common.setTransactionIsolation</simple_name>
+        <signature>MDB2_Driver_Common.setTransactionIsolation($isolation;$options):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.standaloneQuery</simple_name>
+        <signature>MDB2_Driver_Common.standaloneQuery($query;$types;$is_manip):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091714">
+        <simple_name>MDB2_Driver_Common.subSelect</simple_name>
+        <signature>MDB2_Driver_Common.subSelect($query;$type):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091752">
+        <simple_name>MDB2_Driver_Common.supports</simple_name>
+        <signature>MDB2_Driver_Common.supports($feature):bool|string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB2_Driver_Common">
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.MDB2_Driver_Common</simple_name>
+        <signature>MDB2_Driver_Common.MDB2_Driver_Common():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__call</simple_name>
+        <signature>MDB2_Driver_Common.__call($method;$params):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__construct</simple_name>
+        <signature>MDB2_Driver_Common.__construct():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__destruct</simple_name>
+        <signature>MDB2_Driver_Common.__destruct():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.__toString</simple_name>
+        <signature>MDB2_Driver_Common.__toString():string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common._affectedRows</simple_name>
+        <signature>MDB2_Driver_Common._affectedRows($connection;$result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091728">
+        <simple_name>MDB2_Driver_Common._doQuery</simple_name>
+        <signature>MDB2_Driver_Common._doQuery($query;$is_manip;$connection;$database_name):result</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091767">
+        <simple_name>MDB2_Driver_Common._fixResultArrayValues</simple_name>
+        <signature>MDB2_Driver_Common._fixResultArrayValues($row;$mode):mixed</signature>
+        <propagates_taint dst_param="1" return="false" source_param="2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091710">
+        <simple_name>MDB2_Driver_Common._modifyQuery</simple_name>
+        <signature>MDB2_Driver_Common._modifyQuery($query;$is_manip;$limit;$offset):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091741">
+        <simple_name>MDB2_Driver_Common._skipDelimitedStrings</simple_name>
+        <signature>MDB2_Driver_Common._skipDelimitedStrings($query;$position;$p_position):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091746">
+        <simple_name>MDB2_Driver_Common._wrapResult</simple_name>
+        <signature>MDB2_Driver_Common._wrapResult($result;$types;$result_class;$result_wrap_class;$limit;$offset):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091733">
+        <simple_name>MDB2_Driver_Common.beginNestedTransaction</simple_name>
+        <signature>MDB2_Driver_Common.beginNestedTransaction():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091725">
+        <simple_name>MDB2_Driver_Common.beginTransaction</simple_name>
+        <signature>MDB2_Driver_Common.beginTransaction($savepoint):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091730">
+        <simple_name>MDB2_Driver_Common.commit</simple_name>
+        <signature>MDB2_Driver_Common.commit($savepoint):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091713">
+        <simple_name>MDB2_Driver_Common.compareDefinition</simple_name>
+        <signature>MDB2_Driver_Common.compareDefinition($current;$previous):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091782">
+        <simple_name>MDB2_Driver_Common.completeNestedTransaction</simple_name>
+        <signature>MDB2_Driver_Common.completeNestedTransaction($force_rollback):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091724">
+        <simple_name>MDB2_Driver_Common.connect</simple_name>
+        <signature>MDB2_Driver_Common.connect():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091748">
+        <simple_name>MDB2_Driver_Common.currID</simple_name>
+        <signature>MDB2_Driver_Common.currID($seq_name):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.debug</simple_name>
+        <signature>MDB2_Driver_Common.debug($message;$scope;$context):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091739">
+        <simple_name>MDB2_Driver_Common.disconnect</simple_name>
+        <signature>MDB2_Driver_Common.disconnect($force):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091762">
+        <simple_name>MDB2_Driver_Common.errorInfo</simple_name>
+        <signature>MDB2_Driver_Common.errorInfo($error):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091718">
+        <simple_name>MDB2_Driver_Common.escape</simple_name>
+        <signature>MDB2_Driver_Common.escape($text;$escape_wildcards):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091790">
+        <simple_name>MDB2_Driver_Common.escapePattern</simple_name>
+        <signature>MDB2_Driver_Common.escapePattern($text):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091768">
+        <simple_name>MDB2_Driver_Common.exec</simple_name>
+        <signature>MDB2_Driver_Common.exec($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091749">
+        <simple_name>MDB2_Driver_Common.failNestedTransaction</simple_name>
+        <signature>MDB2_Driver_Common.failNestedTransaction($error;$immediately):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091750">
+        <simple_name>MDB2_Driver_Common.free</simple_name>
+        <signature>MDB2_Driver_Common.free():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091755">
+        <simple_name>MDB2_Driver_Common.getAsKeyword</simple_name>
+        <signature>MDB2_Driver_Common.getAsKeyword():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091758">
+        <simple_name>MDB2_Driver_Common.getConnection</simple_name>
+        <signature>MDB2_Driver_Common.getConnection():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091783">
+        <simple_name>MDB2_Driver_Common.getDSN</simple_name>
+        <signature>MDB2_Driver_Common.getDSN($type;$hidepw):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091772">
+        <simple_name>MDB2_Driver_Common.getDatabase</simple_name>
+        <signature>MDB2_Driver_Common.getDatabase():string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091740">
+        <simple_name>MDB2_Driver_Common.getDebugOutput</simple_name>
+        <signature>MDB2_Driver_Common.getDebugOutput():string</signature>
+        <rule>
+          <ActionObject id="451502">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091766">
+        <simple_name>MDB2_Driver_Common.getDeclaration</simple_name>
+        <signature>MDB2_Driver_Common.getDeclaration($type;$name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091759">
+        <simple_name>MDB2_Driver_Common.getIndexName</simple_name>
+        <signature>MDB2_Driver_Common.getIndexName($idx):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091784">
+        <simple_name>MDB2_Driver_Common.getNestedTransactionError</simple_name>
+        <signature>MDB2_Driver_Common.getNestedTransactionError():mixed</signature>
+        <rule>
+          <ActionObject id="451534">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091706">
+        <simple_name>MDB2_Driver_Common.getOption</simple_name>
+        <signature>MDB2_Driver_Common.getOption($option):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091743">
+        <simple_name>MDB2_Driver_Common.getSequenceName</simple_name>
+        <signature>MDB2_Driver_Common.getSequenceName($sqn):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091771">
+        <simple_name>MDB2_Driver_Common.getServerVersion</simple_name>
+        <signature>MDB2_Driver_Common.getServerVersion($native):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091760">
+        <simple_name>MDB2_Driver_Common.getWarnings</simple_name>
+        <signature>MDB2_Driver_Common.getWarnings():array</signature>
+        <rule>
+          <ActionObject id="451504">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091786">
+        <simple_name>MDB2_Driver_Common.inTransaction</simple_name>
+        <signature>MDB2_Driver_Common.inTransaction($ignore_nested):int|bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091775">
+        <simple_name>MDB2_Driver_Common.lastInsertID</simple_name>
+        <signature>MDB2_Driver_Common.lastInsertID($table;$field):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091761">
+        <simple_name>MDB2_Driver_Common.loadModule</simple_name>
+        <signature>MDB2_Driver_Common.loadModule($module;$property;$phptype_specific):object on</signature>
+        <sink_rule id="451505">
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091727">
+        <simple_name>MDB2_Driver_Common.nextID</simple_name>
+        <signature>MDB2_Driver_Common.nextID($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091735">
+        <simple_name>MDB2_Driver_Common.prepare</simple_name>
+        <signature>MDB2_Driver_Common.prepare($query;$types;$result_types;$lobs):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091780">
+        <simple_name>MDB2_Driver_Common.query</simple_name>
+        <signature>MDB2_Driver_Common.query($query;$types;$result_class;$result_wrap_class):mixed</signature>
+        <info_rule id="480785"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3,4"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091712">
+        <simple_name>MDB2_Driver_Common.queryAll</simple_name>
+        <signature>MDB2_Driver_Common.queryAll($query;$types;$fetchmode;$rekey;$force_array;$group):mixed</signature>
+        <info_rule id="480787"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091777">
+        <simple_name>MDB2_Driver_Common.queryCol</simple_name>
+        <signature>MDB2_Driver_Common.queryCol($query;$type;$colnum):mixed</signature>
+        <info_rule id="480782"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091785">
+        <simple_name>MDB2_Driver_Common.queryOne</simple_name>
+        <signature>MDB2_Driver_Common.queryOne($query;$type;$colnum):mixed</signature>
+        <info_rule id="480781"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091736">
+        <simple_name>MDB2_Driver_Common.queryRow</simple_name>
+        <signature>MDB2_Driver_Common.queryRow($query;$types;$fetchmode):mixed</signature>
+        <info_rule id="480780"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091754">
+        <simple_name>MDB2_Driver_Common.quote</simple_name>
+        <signature>MDB2_Driver_Common.quote($value;$type;$quote;$escape_wildcards):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091720">
+        <simple_name>MDB2_Driver_Common.quoteIdentifier</simple_name>
+        <signature>MDB2_Driver_Common.quoteIdentifier($str;$check_option):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.raiseError</simple_name>
+        <signature>MDB2_Driver_Common.raiseError($code;$mode;$options;$userinfo;$method):PEAR_Error</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091726">
+        <simple_name>MDB2_Driver_Common.replace</simple_name>
+        <signature>MDB2_Driver_Common.replace($table;$fields):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091751">
+        <simple_name>MDB2_Driver_Common.resetWarnings</simple_name>
+        <signature>MDB2_Driver_Common.resetWarnings():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091705">
+        <simple_name>MDB2_Driver_Common.rollback</simple_name>
+        <signature>MDB2_Driver_Common.rollback($savepoint):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091744">
+        <simple_name>MDB2_Driver_Common.setCharset</simple_name>
+        <signature>MDB2_Driver_Common.setCharset($charset;$connection):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091708">
+        <simple_name>MDB2_Driver_Common.setDSN</simple_name>
+        <signature>MDB2_Driver_Common.setDSN($dsn):mixed</signature>
+        <sink_rule id="451515">
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PrivilegeEscalation.ClassLoader</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091764">
+        <simple_name>MDB2_Driver_Common.setDatabase</simple_name>
+        <signature>MDB2_Driver_Common.setDatabase($name):string</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091773">
+        <simple_name>MDB2_Driver_Common.setFetchMode</simple_name>
+        <signature>MDB2_Driver_Common.setFetchMode($fetchmode;$object_class):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091737">
+        <simple_name>MDB2_Driver_Common.setLimit</simple_name>
+        <signature>MDB2_Driver_Common.setLimit($limit;$offset):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091776">
+        <simple_name>MDB2_Driver_Common.setOption</simple_name>
+        <signature>MDB2_Driver_Common.setOption($option;$value):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091781">
+        <simple_name>MDB2_Driver_Common.setTransactionIsolation</simple_name>
+        <signature>MDB2_Driver_Common.setTransactionIsolation($isolation;$options):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB2_Driver_Common.standaloneQuery</simple_name>
+        <signature>MDB2_Driver_Common.standaloneQuery($query;$types;$is_manip):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091714">
+        <simple_name>MDB2_Driver_Common.subSelect</simple_name>
+        <signature>MDB2_Driver_Common.subSelect($query;$type):string</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091752">
+        <simple_name>MDB2_Driver_Common.supports</simple_name>
+        <signature>MDB2_Driver_Common.supports($feature):bool|string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

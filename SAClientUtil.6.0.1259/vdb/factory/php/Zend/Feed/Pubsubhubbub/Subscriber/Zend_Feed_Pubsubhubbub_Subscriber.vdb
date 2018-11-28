@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Feed_Pubsubhubbub_Subscriber">
+      <method vuln_id="1112004">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.__construct_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.__construct_@__Feed_Pubsubhubbub_Subscriber_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._doRequest_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._doRequest_@__Feed_Pubsubhubbub_Subscriber_php_1($mode):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._generateSubscriptionKey_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._generateSubscriptionKey_@__Feed_Pubsubhubbub_Subscriber_php_1($params;$hubUrl):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._generateVerifyToken_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._generateVerifyToken_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._getHttpClient_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._getHttpClient_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._getRequestParameters_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._getRequestParameters_@__Feed_Pubsubhubbub_Subscriber_php_1($hubUrl;$mode):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._toByteValueOrderedString_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._toByteValueOrderedString_@__Feed_Pubsubhubbub_Subscriber_php_1($params):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._urlEncode_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._urlEncode_@__Feed_Pubsubhubbub_Subscriber_php_1($params):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112225">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentication_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentication_@__Feed_Pubsubhubbub_Subscriber_php_1($url;$authentication):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112069">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1($authentications):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111992">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111674">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1($urls):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111741">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getAsyncHubs_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getAsyncHubs_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111628">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111948">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111815">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getErrors_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getErrors_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111697">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112028">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112203">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getParameters_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getParameters_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111854">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111882">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getStorage_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getStorage_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111622">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111926">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.isSuccess_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.isSuccess_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111618">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.removeHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.removeHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111830">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.removeParameter_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.removeParameter_@__Feed_Pubsubhubbub_Subscriber_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112107">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112059">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setConfig_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setConfig_@__Feed_Pubsubhubbub_Subscriber_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111809">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1($seconds):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111880">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setParameter_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setParameter_@__Feed_Pubsubhubbub_Subscriber_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112173">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setParameters_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setParameters_@__Feed_Pubsubhubbub_Subscriber_php_1($parameters):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112100">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1($mode):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111801">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setStorage_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setStorage_@__Feed_Pubsubhubbub_Subscriber_php_1($storage):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111860">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setTestStaticToken_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setTestStaticToken_@__Feed_Pubsubhubbub_Subscriber_php_1($token):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111714">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.subscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.subscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.unsubscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.unsubscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.usePathParameter_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.usePathParameter_@__Feed_Pubsubhubbub_Subscriber_php_1($bool):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Zend_Feed_Pubsubhubbub_Subscriber">
+      <method vuln_id="1112004">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.__construct_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.__construct_@__Feed_Pubsubhubbub_Subscriber_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._doRequest_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._doRequest_@__Feed_Pubsubhubbub_Subscriber_php_1($mode):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._generateSubscriptionKey_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._generateSubscriptionKey_@__Feed_Pubsubhubbub_Subscriber_php_1($params;$hubUrl):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._generateVerifyToken_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._generateVerifyToken_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._getHttpClient_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._getHttpClient_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._getRequestParameters_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._getRequestParameters_@__Feed_Pubsubhubbub_Subscriber_php_1($hubUrl;$mode):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._toByteValueOrderedString_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._toByteValueOrderedString_@__Feed_Pubsubhubbub_Subscriber_php_1($params):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber._urlEncode_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber._urlEncode_@__Feed_Pubsubhubbub_Subscriber_php_1($params):Variant</signature>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="1112225">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentication_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentication_@__Feed_Pubsubhubbub_Subscriber_php_1($url;$authentication):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112069">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1($authentications):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111992">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111674">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.addHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1($urls):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111741">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getAsyncHubs_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getAsyncHubs_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111628">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getAuthentications_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111948">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111815">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getErrors_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getErrors_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111697">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getHubUrls_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112028">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112203">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getParameters_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getParameters_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111854">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111882">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getStorage_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getStorage_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111622">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.getTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.getTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111926">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.isSuccess_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.isSuccess_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111618">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.removeHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.removeHubUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1111830">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.removeParameter_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.removeParameter_@__Feed_Pubsubhubbub_Subscriber_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1112107">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setCallbackUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112059">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setConfig_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setConfig_@__Feed_Pubsubhubbub_Subscriber_php_1($config):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111809">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setLeaseSeconds_@__Feed_Pubsubhubbub_Subscriber_php_1($seconds):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111880">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setParameter_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setParameter_@__Feed_Pubsubhubbub_Subscriber_php_1($name;$value):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112173">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setParameters_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setParameters_@__Feed_Pubsubhubbub_Subscriber_php_1($parameters):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1112100">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setPreferredVerificationMode_@__Feed_Pubsubhubbub_Subscriber_php_1($mode):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111801">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setStorage_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setStorage_@__Feed_Pubsubhubbub_Subscriber_php_1($storage):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111860">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setTestStaticToken_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setTestStaticToken_@__Feed_Pubsubhubbub_Subscriber_php_1($token):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1111714">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.setTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.setTopicUrl_@__Feed_Pubsubhubbub_Subscriber_php_1($url):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required.URL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.subscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.subscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.unsubscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.unsubscribeAll_@__Feed_Pubsubhubbub_Subscriber_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Feed_Pubsubhubbub_Subscriber.usePathParameter_@__Feed_Pubsubhubbub_Subscriber_php_1</simple_name>
+        <signature>Zend_Feed_Pubsubhubbub_Subscriber.usePathParameter_@__Feed_Pubsubhubbub_Subscriber_php_1($bool):Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

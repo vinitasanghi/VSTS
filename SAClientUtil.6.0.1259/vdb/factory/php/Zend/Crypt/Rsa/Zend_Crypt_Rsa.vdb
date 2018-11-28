@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Crypt_Rsa">
+      <method vuln_id="1110354">
+        <simple_name>Zend_Crypt_Rsa.__construct_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.__construct_@__Crypt_Rsa_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110390">
+        <simple_name>Zend_Crypt_Rsa._parseConfigArgs_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa._parseConfigArgs_@__Crypt_Rsa_php_1($config):Variant</signature>
+        <info_rule id="466485"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110350">
+        <simple_name>Zend_Crypt_Rsa.decrypt_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.decrypt_@__Crypt_Rsa_php_1($data;$key;$format):Variant</signature>
+        <info_rule id="466448"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110407">
+        <simple_name>Zend_Crypt_Rsa.encrypt_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.encrypt_@__Crypt_Rsa_php_1($data;$key;$format):Variant</signature>
+        <info_rule id="466501"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110394">
+        <simple_name>Zend_Crypt_Rsa.generateKeys_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.generateKeys_@__Crypt_Rsa_php_1($configargs):Variant</signature>
+        <info_rule id="466489"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110358">
+        <simple_name>Zend_Crypt_Rsa.getCertificatePath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getCertificatePath_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466455"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110414">
+        <simple_name>Zend_Crypt_Rsa.getCertificateString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getCertificateString_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466508"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110351">
+        <simple_name>Zend_Crypt_Rsa.getHashAlgorithm_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getHashAlgorithm_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466449"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110348">
+        <simple_name>Zend_Crypt_Rsa.getPemPath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPemPath_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466446"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110392">
+        <simple_name>Zend_Crypt_Rsa.getPemString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPemString_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466487"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110426">
+        <simple_name>Zend_Crypt_Rsa.getPrivateKey_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPrivateKey_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466518"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110383">
+        <simple_name>Zend_Crypt_Rsa.getPublicKey_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPublicKey_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466478"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110370">
+        <simple_name>Zend_Crypt_Rsa.setCertificatePath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setCertificatePath_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466468"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110420">
+        <simple_name>Zend_Crypt_Rsa.setCertificateString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setCertificateString_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466513"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110344">
+        <simple_name>Zend_Crypt_Rsa.setHashAlgorithm_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setHashAlgorithm_@__Crypt_Rsa_php_1($name):Variant</signature>
+        <info_rule id="466443"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110352">
+        <simple_name>Zend_Crypt_Rsa.setOptions_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setOptions_@__Crypt_Rsa_php_1($options):Variant</signature>
+        <info_rule id="466450"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110427">
+        <simple_name>Zend_Crypt_Rsa.setPemPath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setPemPath_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466519"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110399">
+        <simple_name>Zend_Crypt_Rsa.setPemString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setPemString_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466494"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110408">
+        <simple_name>Zend_Crypt_Rsa.sign_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.sign_@__Crypt_Rsa_php_1($data;$privateKey;$format):Variant</signature>
+        <info_rule id="466502"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110339">
+        <simple_name>Zend_Crypt_Rsa.verifySignature_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.verifySignature_@__Crypt_Rsa_php_1($data;$signature;$format):Variant</signature>
+        <info_rule id="466439"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+    </class>
+    <class name="Zend_Crypt_Rsa">
+      <method vuln_id="1110354">
+        <simple_name>Zend_Crypt_Rsa.__construct_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.__construct_@__Crypt_Rsa_php_1($options):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110390">
+        <simple_name>Zend_Crypt_Rsa._parseConfigArgs_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa._parseConfigArgs_@__Crypt_Rsa_php_1($config):Variant</signature>
+        <info_rule id="466485"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110350">
+        <simple_name>Zend_Crypt_Rsa.decrypt_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.decrypt_@__Crypt_Rsa_php_1($data;$key;$format):Variant</signature>
+        <info_rule id="466448"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110407">
+        <simple_name>Zend_Crypt_Rsa.encrypt_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.encrypt_@__Crypt_Rsa_php_1($data;$key;$format):Variant</signature>
+        <info_rule id="466501"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110394">
+        <simple_name>Zend_Crypt_Rsa.generateKeys_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.generateKeys_@__Crypt_Rsa_php_1($configargs):Variant</signature>
+        <info_rule id="466489"/>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110358">
+        <simple_name>Zend_Crypt_Rsa.getCertificatePath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getCertificatePath_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466455"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110414">
+        <simple_name>Zend_Crypt_Rsa.getCertificateString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getCertificateString_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466508"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110351">
+        <simple_name>Zend_Crypt_Rsa.getHashAlgorithm_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getHashAlgorithm_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466449"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110348">
+        <simple_name>Zend_Crypt_Rsa.getPemPath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPemPath_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466446"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110392">
+        <simple_name>Zend_Crypt_Rsa.getPemString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPemString_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466487"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110426">
+        <simple_name>Zend_Crypt_Rsa.getPrivateKey_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPrivateKey_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466518"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110383">
+        <simple_name>Zend_Crypt_Rsa.getPublicKey_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.getPublicKey_@__Crypt_Rsa_php_1():Variant</signature>
+        <info_rule id="466478"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110370">
+        <simple_name>Zend_Crypt_Rsa.setCertificatePath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setCertificatePath_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466468"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110420">
+        <simple_name>Zend_Crypt_Rsa.setCertificateString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setCertificateString_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466513"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110344">
+        <simple_name>Zend_Crypt_Rsa.setHashAlgorithm_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setHashAlgorithm_@__Crypt_Rsa_php_1($name):Variant</signature>
+        <info_rule id="466443"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110352">
+        <simple_name>Zend_Crypt_Rsa.setOptions_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setOptions_@__Crypt_Rsa_php_1($options):Variant</signature>
+        <info_rule id="466450"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110427">
+        <simple_name>Zend_Crypt_Rsa.setPemPath_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setPemPath_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466519"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110399">
+        <simple_name>Zend_Crypt_Rsa.setPemString_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.setPemString_@__Crypt_Rsa_php_1($value):Variant</signature>
+        <info_rule id="466494"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110408">
+        <simple_name>Zend_Crypt_Rsa.sign_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.sign_@__Crypt_Rsa_php_1($data;$privateKey;$format):Variant</signature>
+        <info_rule id="466502"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+      <method vuln_id="1110339">
+        <simple_name>Zend_Crypt_Rsa.verifySignature_@__Crypt_Rsa_php_1</simple_name>
+        <signature>Zend_Crypt_Rsa.verifySignature_@__Crypt_Rsa_php_1($data;$signature;$format):Variant</signature>
+        <info_rule id="466439"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Mechanism.Cryptography.Encryption</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

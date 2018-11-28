@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<!-- definition of attributes -->
+	<xs:attribute name="path" type="xs:string" />
+	<xs:attribute name="outputs-only" type="xs:boolean" />
+
+	<!-- definition of complex elements -->
+	<xs:element name="Target">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="CustomBuildInfo" minOccurs="0"
+					maxOccurs="unbounded" />
+				<xs:element ref="BuildInfo" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="Include" type="xs:string" minOccurs="0"
+					maxOccurs="unbounded" />
+				<xs:element name="Exclude" type="xs:string" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:choice>
+			<xs:attribute ref="path" use="required" />
+			<xs:attribute ref="outputs-only" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="CustomBuildInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Nothing yet -->
+			</xs:sequence>
+			<xs:anyAttribute processContents="skip" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="BuildInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Nothing yet -->
+			</xs:sequence>
+			<xs:anyAttribute processContents="skip" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Targets">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Target" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Settings">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Nothing yet -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="TargetSettings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Target" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Configuration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Targets" />
+				<xs:element ref="Settings" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="TargetSettings" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

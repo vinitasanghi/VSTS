@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTTP">
+      <method vuln_id="1091546">
+        <simple_name>HTTP.Date</simple_name>
+        <signature>HTTP.Date(mixed):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+        <comment>static</comment>
+      </method>
+      <method vuln_id="1091549">
+        <simple_name>HTTP.absoluteURI</simple_name>
+        <signature>HTTP.absoluteURI(___Php.String;___Php.String;integer):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>static</comment>
+      </method>
+      <method vuln_id="1091551">
+        <simple_name>HTTP.head</simple_name>
+        <signature>HTTP.head(___Php.String;integer):mixed</signature>
+        <info_rule id="480769"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091547">
+        <simple_name>HTTP.negotiateLanguage</simple_name>
+        <signature>HTTP.negotiateLanguage(___Php.Array;___Php.String):___Php.String</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091548">
+        <simple_name>HTTP.raiseError</simple_name>
+        <signature>HTTP.raiseError(mixed;int):PEAR_Error</signature>
+        <info_rule id="451387"/>
+        <rule>
+          <ActionObject id="451386">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091550">
+        <simple_name>HTTP.redirect</simple_name>
+        <signature>HTTP.redirect(___Php.String;bool;bool):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTTP">
+      <method vuln_id="1091546">
+        <simple_name>HTTP.Date</simple_name>
+        <signature>HTTP.Date(mixed):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+        <comment>static</comment>
+      </method>
+      <method vuln_id="1091549">
+        <simple_name>HTTP.absoluteURI</simple_name>
+        <signature>HTTP.absoluteURI(___Php.String;___Php.String;integer):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>static</comment>
+      </method>
+      <method vuln_id="1091551">
+        <simple_name>HTTP.head</simple_name>
+        <signature>HTTP.head(___Php.String;integer):mixed</signature>
+        <info_rule id="480769"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091547">
+        <simple_name>HTTP.negotiateLanguage</simple_name>
+        <signature>HTTP.negotiateLanguage(___Php.Array;___Php.String):___Php.String</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091548">
+        <simple_name>HTTP.raiseError</simple_name>
+        <signature>HTTP.raiseError(mixed;int):PEAR_Error</signature>
+        <info_rule id="451387"/>
+        <rule>
+          <ActionObject id="451386">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Mechanism.ErrorHandling</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091550">
+        <simple_name>HTTP.redirect</simple_name>
+        <signature>HTTP.redirect(___Php.String;bool;bool):mixed</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

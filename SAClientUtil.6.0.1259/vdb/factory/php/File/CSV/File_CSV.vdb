@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="File_CSV">
+      <method vuln_id="-1">
+        <simple_name>File_CSV._conf</simple_name>
+        <signature>File_CSV._conf($error;$conf):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_CSV._dbgBuff</simple_name>
+        <signature>File_CSV._dbgBuff($str):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091070">
+        <simple_name>File_CSV.discoverFormat</simple_name>
+        <signature>File_CSV.discoverFormat($file;$extraSeps):mixed</signature>
+        <info_rule id="480739"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091073">
+        <simple_name>File_CSV.getPointer</simple_name>
+        <signature>File_CSV.getPointer($file;$conf;$mode;$reset):mixed</signature>
+        <info_rule id="480738"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_CSV.raiseError</simple_name>
+        <signature>File_CSV.raiseError($error):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091076">
+        <simple_name>File_CSV.read</simple_name>
+        <signature>File_CSV.read($file;$conf):mixed</signature>
+        <info_rule id="480740"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091074">
+        <simple_name>File_CSV.readQuoted</simple_name>
+        <signature>File_CSV.readQuoted($file;$conf):mixed</signature>
+        <info_rule id="480741"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091072">
+        <simple_name>File_CSV.resetPointer</simple_name>
+        <signature>File_CSV.resetPointer($file;$conf;$mode):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091075">
+        <simple_name>File_CSV.unquote</simple_name>
+        <signature>File_CSV.unquote($field;$quote):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091071">
+        <simple_name>File_CSV.write</simple_name>
+        <signature>File_CSV.write($file;$fields;$conf):bool</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="File_CSV">
+      <method vuln_id="-1">
+        <simple_name>File_CSV._conf</simple_name>
+        <signature>File_CSV._conf($error;$conf):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_CSV._dbgBuff</simple_name>
+        <signature>File_CSV._dbgBuff($str):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091070">
+        <simple_name>File_CSV.discoverFormat</simple_name>
+        <signature>File_CSV.discoverFormat($file;$extraSeps):mixed</signature>
+        <info_rule id="480739"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091073">
+        <simple_name>File_CSV.getPointer</simple_name>
+        <signature>File_CSV.getPointer($file;$conf;$mode;$reset):mixed</signature>
+        <info_rule id="480738"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2,3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>File_CSV.raiseError</simple_name>
+        <signature>File_CSV.raiseError($error):bool</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091076">
+        <simple_name>File_CSV.read</simple_name>
+        <signature>File_CSV.read($file;$conf):mixed</signature>
+        <info_rule id="480740"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091074">
+        <simple_name>File_CSV.readQuoted</simple_name>
+        <signature>File_CSV.readQuoted($file;$conf):mixed</signature>
+        <info_rule id="480741"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.FileSystem</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091072">
+        <simple_name>File_CSV.resetPointer</simple_name>
+        <signature>File_CSV.resetPointer($file;$conf;$mode):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091075">
+        <simple_name>File_CSV.unquote</simple_name>
+        <signature>File_CSV.unquote($field;$quote):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091071">
+        <simple_name>File_CSV.write</simple_name>
+        <signature>File_CSV.write($file;$fields;$conf):bool</signature>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

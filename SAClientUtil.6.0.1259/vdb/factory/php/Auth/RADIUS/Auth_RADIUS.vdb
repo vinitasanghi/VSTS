@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Auth_RADIUS">
+      <method vuln_id="1107878">
+        <simple_name>Auth_RADIUS.Auth_RADIUS</simple_name>
+        <signature>Auth_RADIUS.Auth_RADIUS():void</signature>
+        <info_rule id="463453"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107876">
+        <simple_name>Auth_RADIUS.PEAR</simple_name>
+        <signature>Auth_RADIUS.PEAR():Variant</signature>
+        <info_rule id="463451"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107880">
+        <simple_name>Auth_RADIUS.addServer</simple_name>
+        <signature>Auth_RADIUS.addServer(___Php.String;int;___Php.String;int;int):void</signature>
+        <info_rule id="463455"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107882">
+        <simple_name>Auth_RADIUS.close</simple_name>
+        <signature>Auth_RADIUS.close():void</signature>
+        <info_rule id="463457"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107897">
+        <simple_name>Auth_RADIUS.createRequest</simple_name>
+        <signature>Auth_RADIUS.createRequest():bool</signature>
+        <info_rule id="463474"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107896">
+        <simple_name>Auth_RADIUS.dumpAttributes</simple_name>
+        <signature>Auth_RADIUS.dumpAttributes():void</signature>
+        <info_rule id="463473"/>
+        <rule>
+          <ActionObject id="463472">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107883">
+        <simple_name>Auth_RADIUS.getAttributes</simple_name>
+        <signature>Auth_RADIUS.getAttributes():bool</signature>
+        <info_rule id="463458"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107874">
+        <simple_name>Auth_RADIUS.getError</simple_name>
+        <signature>Auth_RADIUS.getError():string</signature>
+        <info_rule id="463449"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107869">
+        <simple_name>Auth_RADIUS.open</simple_name>
+        <signature>Auth_RADIUS.open():bool</signature>
+        <info_rule id="463442"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107885">
+        <simple_name>Auth_RADIUS.putAttribute</simple_name>
+        <signature>Auth_RADIUS.putAttribute(int;mixed;object):bool</signature>
+        <info_rule id="463460"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107877">
+        <simple_name>Auth_RADIUS.putAuthAttributes</simple_name>
+        <signature>Auth_RADIUS.putAuthAttributes():void</signature>
+        <info_rule id="463452"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107889">
+        <simple_name>Auth_RADIUS.putConfigfile</simple_name>
+        <signature>Auth_RADIUS.putConfigfile(___Php.String):bool</signature>
+        <info_rule id="463464"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107881">
+        <simple_name>Auth_RADIUS.putServer</simple_name>
+        <signature>Auth_RADIUS.putServer(___Php.String;int;___Php.String;int;int):bool</signature>
+        <info_rule id="463456"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107872">
+        <simple_name>Auth_RADIUS.putStandardAttributes</simple_name>
+        <signature>Auth_RADIUS.putStandardAttributes():void</signature>
+        <info_rule id="463447"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107868">
+        <simple_name>Auth_RADIUS.putVendorAttribute</simple_name>
+        <signature>Auth_RADIUS.putVendorAttribute(int;int;mixed;object):bool</signature>
+        <info_rule id="463441"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107888">
+        <simple_name>Auth_RADIUS.raiseError</simple_name>
+        <signature>Auth_RADIUS.raiseError(___Php.String):mixed</signature>
+        <info_rule id="463463"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107871">
+        <simple_name>Auth_RADIUS.send</simple_name>
+        <signature>Auth_RADIUS.send():mixed</signature>
+        <info_rule id="463446"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107898">
+        <simple_name>Auth_RADIUS.setConfigfile</simple_name>
+        <signature>Auth_RADIUS.setConfigfile(___Php.String):void</signature>
+        <info_rule id="463475"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107890">
+        <simple_name>Auth_RADIUS.start</simple_name>
+        <signature>Auth_RADIUS.start():bool</signature>
+        <info_rule id="463466"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="Auth_RADIUS">
+      <method vuln_id="1107878">
+        <simple_name>Auth_RADIUS.Auth_RADIUS</simple_name>
+        <signature>Auth_RADIUS.Auth_RADIUS():void</signature>
+        <info_rule id="463453"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107876">
+        <simple_name>Auth_RADIUS.PEAR</simple_name>
+        <signature>Auth_RADIUS.PEAR():Variant</signature>
+        <info_rule id="463451"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107880">
+        <simple_name>Auth_RADIUS.addServer</simple_name>
+        <signature>Auth_RADIUS.addServer(___Php.String;int;___Php.String;int;int):void</signature>
+        <info_rule id="463455"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107882">
+        <simple_name>Auth_RADIUS.close</simple_name>
+        <signature>Auth_RADIUS.close():void</signature>
+        <info_rule id="463457"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107897">
+        <simple_name>Auth_RADIUS.createRequest</simple_name>
+        <signature>Auth_RADIUS.createRequest():bool</signature>
+        <info_rule id="463474"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107896">
+        <simple_name>Auth_RADIUS.dumpAttributes</simple_name>
+        <signature>Auth_RADIUS.dumpAttributes():void</signature>
+        <info_rule id="463473"/>
+        <rule>
+          <ActionObject id="463472">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Mechanism.Monitoring.Logging</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107883">
+        <simple_name>Auth_RADIUS.getAttributes</simple_name>
+        <signature>Auth_RADIUS.getAttributes():bool</signature>
+        <info_rule id="463458"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107874">
+        <simple_name>Auth_RADIUS.getError</simple_name>
+        <signature>Auth_RADIUS.getError():string</signature>
+        <info_rule id="463449"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107869">
+        <simple_name>Auth_RADIUS.open</simple_name>
+        <signature>Auth_RADIUS.open():bool</signature>
+        <info_rule id="463442"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107885">
+        <simple_name>Auth_RADIUS.putAttribute</simple_name>
+        <signature>Auth_RADIUS.putAttribute(int;mixed;object):bool</signature>
+        <info_rule id="463460"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107877">
+        <simple_name>Auth_RADIUS.putAuthAttributes</simple_name>
+        <signature>Auth_RADIUS.putAuthAttributes():void</signature>
+        <info_rule id="463452"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107889">
+        <simple_name>Auth_RADIUS.putConfigfile</simple_name>
+        <signature>Auth_RADIUS.putConfigfile(___Php.String):bool</signature>
+        <info_rule id="463464"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107881">
+        <simple_name>Auth_RADIUS.putServer</simple_name>
+        <signature>Auth_RADIUS.putServer(___Php.String;int;___Php.String;int;int):bool</signature>
+        <info_rule id="463456"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107872">
+        <simple_name>Auth_RADIUS.putStandardAttributes</simple_name>
+        <signature>Auth_RADIUS.putStandardAttributes():void</signature>
+        <info_rule id="463447"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107868">
+        <simple_name>Auth_RADIUS.putVendorAttribute</simple_name>
+        <signature>Auth_RADIUS.putVendorAttribute(int;int;mixed;object):bool</signature>
+        <info_rule id="463441"/>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107888">
+        <simple_name>Auth_RADIUS.raiseError</simple_name>
+        <signature>Auth_RADIUS.raiseError(___Php.String):mixed</signature>
+        <info_rule id="463463"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107871">
+        <simple_name>Auth_RADIUS.send</simple_name>
+        <signature>Auth_RADIUS.send():mixed</signature>
+        <info_rule id="463446"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107898">
+        <simple_name>Auth_RADIUS.setConfigfile</simple_name>
+        <signature>Auth_RADIUS.setConfigfile(___Php.String):void</signature>
+        <info_rule id="463475"/>
+        <sink_rule>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1107890">
+        <simple_name>Auth_RADIUS.start</simple_name>
+        <signature>Auth_RADIUS.start():bool</signature>
+        <info_rule id="463466"/>
+        <does_not_propagate_taint/>
+        <property>Mechanism.Authentication</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fDatabase">
+      <method vuln_id="1106869">
+        <simple_name>fDatabase.__construct_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.__construct_@__inc_flourish_fDatabase_php_1($type;$database;$username;$password;$host;$port):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106718">
+        <simple_name>fDatabase.__destruct_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.__destruct_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106706">
+        <simple_name>fDatabase.__get_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.__get_@__inc_flourish_fDatabase_php_1($method):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107337">
+        <simple_name>fDatabase.checkForError_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.checkForError_@__inc_flourish_fDatabase_php_1($result;$sqlite_error_message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107327">
+        <simple_name>fDatabase.compose_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.compose_@__inc_flourish_fDatabase_php_1($message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107037">
+        <simple_name>fDatabase.connectToDatabase_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.connectToDatabase_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106550">
+        <simple_name>fDatabase.determineExtension_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.determineExtension_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106521">
+        <simple_name>fDatabase.enableDebugging_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.enableDebugging_@__inc_flourish_fDatabase_php_1($flag):Variant</signature>
+        <rule>
+          <ActionObject id="462282">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107026">
+        <simple_name>fDatabase.enableSlowQueryWarnings_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.enableSlowQueryWarnings_@__inc_flourish_fDatabase_php_1($threshold):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107324">
+        <simple_name>fDatabase.escapeBlob_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeBlob_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107341">
+        <simple_name>fDatabase.escapeBoolean_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeBoolean_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107092">
+        <simple_name>fDatabase.escapeDate_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeDate_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106907">
+        <simple_name>fDatabase.escapeFloat_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeFloat_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107146">
+        <simple_name>fDatabase.escapeInteger_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeInteger_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107401">
+        <simple_name>fDatabase.escapeString_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeString_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106389">
+        <simple_name>fDatabase.escapeTime_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeTime_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107365">
+        <simple_name>fDatabase.escapeTimestamp_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeTimestamp_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106303">
+        <simple_name>fDatabase.escape_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escape_@__inc_flourish_fDatabase_php_1($sql_or_type;$value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106993">
+        <simple_name>fDatabase.executeQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.executeQuery_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106951">
+        <simple_name>fDatabase.executeUnbufferedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.executeUnbufferedQuery_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107172">
+        <simple_name>fDatabase.explodeQueries_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.explodeQueries_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106630">
+        <simple_name>fDatabase.getDatabase_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.getDatabase_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106865">
+        <simple_name>fDatabase.getExtension_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.getExtension_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106782">
+        <simple_name>fDatabase.getType_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.getType_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106297">
+        <simple_name>fDatabase.handleAutoIncrementedValue_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.handleAutoIncrementedValue_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107214">
+        <simple_name>fDatabase.handleTransactionQueries_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.handleTransactionQueries_@__inc_flourish_fDatabase_php_1($sql;$result_class):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107019">
+        <simple_name>fDatabase.isInsideTransaction_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.isInsideTransaction_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106393">
+        <simple_name>fDatabase.query_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.query_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106575">
+        <simple_name>fDatabase.setAffectedRows_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.setAffectedRows_@__inc_flourish_fDatabase_php_1($result;$resource):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106438">
+        <simple_name>fDatabase.setReturnedRows_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.setReturnedRows_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107006">
+        <simple_name>fDatabase.trackTransactions_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.trackTransactions_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107452">
+        <simple_name>fDatabase.translatedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.translatedQuery_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106769">
+        <simple_name>fDatabase.unbufferedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unbufferedQuery_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106539">
+        <simple_name>fDatabase.unbufferedTranslatedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unbufferedTranslatedQuery_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106891">
+        <simple_name>fDatabase.unescapeBlob_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeBlob_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106788">
+        <simple_name>fDatabase.unescapeBoolean_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeBoolean_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107121">
+        <simple_name>fDatabase.unescapeDate_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeDate_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106406">
+        <simple_name>fDatabase.unescapeFloat_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeFloat_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106921">
+        <simple_name>fDatabase.unescapeInteger_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeInteger_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106342">
+        <simple_name>fDatabase.unescapeString_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeString_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107288">
+        <simple_name>fDatabase.unescapeTime_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeTime_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107124">
+        <simple_name>fDatabase.unescapeTimestamp_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeTimestamp_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107010">
+        <simple_name>fDatabase.unescape_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescape_@__inc_flourish_fDatabase_php_1($data_type;$value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fDatabase">
+      <method vuln_id="1106869">
+        <simple_name>fDatabase.__construct_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.__construct_@__inc_flourish_fDatabase_php_1($type;$database;$username;$password;$host;$port):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Unprotected</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106718">
+        <simple_name>fDatabase.__destruct_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.__destruct_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106706">
+        <simple_name>fDatabase.__get_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.__get_@__inc_flourish_fDatabase_php_1($method):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107337">
+        <simple_name>fDatabase.checkForError_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.checkForError_@__inc_flourish_fDatabase_php_1($result;$sqlite_error_message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107327">
+        <simple_name>fDatabase.compose_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.compose_@__inc_flourish_fDatabase_php_1($message):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107037">
+        <simple_name>fDatabase.connectToDatabase_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.connectToDatabase_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106550">
+        <simple_name>fDatabase.determineExtension_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.determineExtension_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106521">
+        <simple_name>fDatabase.enableDebugging_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.enableDebugging_@__inc_flourish_fDatabase_php_1($flag):Variant</signature>
+        <rule>
+          <ActionObject id="462282">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Quality.TestCode</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107026">
+        <simple_name>fDatabase.enableSlowQueryWarnings_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.enableSlowQueryWarnings_@__inc_flourish_fDatabase_php_1($threshold):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107324">
+        <simple_name>fDatabase.escapeBlob_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeBlob_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107341">
+        <simple_name>fDatabase.escapeBoolean_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeBoolean_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107092">
+        <simple_name>fDatabase.escapeDate_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeDate_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106907">
+        <simple_name>fDatabase.escapeFloat_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeFloat_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107146">
+        <simple_name>fDatabase.escapeInteger_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeInteger_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107401">
+        <simple_name>fDatabase.escapeString_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeString_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106389">
+        <simple_name>fDatabase.escapeTime_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeTime_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107365">
+        <simple_name>fDatabase.escapeTimestamp_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escapeTimestamp_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106303">
+        <simple_name>fDatabase.escape_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.escape_@__inc_flourish_fDatabase_php_1($sql_or_type;$value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106993">
+        <simple_name>fDatabase.executeQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.executeQuery_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106951">
+        <simple_name>fDatabase.executeUnbufferedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.executeUnbufferedQuery_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107172">
+        <simple_name>fDatabase.explodeQueries_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.explodeQueries_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106630">
+        <simple_name>fDatabase.getDatabase_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.getDatabase_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106865">
+        <simple_name>fDatabase.getExtension_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.getExtension_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106782">
+        <simple_name>fDatabase.getType_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.getType_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106297">
+        <simple_name>fDatabase.handleAutoIncrementedValue_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.handleAutoIncrementedValue_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107214">
+        <simple_name>fDatabase.handleTransactionQueries_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.handleTransactionQueries_@__inc_flourish_fDatabase_php_1($sql;$result_class):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107019">
+        <simple_name>fDatabase.isInsideTransaction_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.isInsideTransaction_@__inc_flourish_fDatabase_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106393">
+        <simple_name>fDatabase.query_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.query_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106575">
+        <simple_name>fDatabase.setAffectedRows_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.setAffectedRows_@__inc_flourish_fDatabase_php_1($result;$resource):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106438">
+        <simple_name>fDatabase.setReturnedRows_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.setReturnedRows_@__inc_flourish_fDatabase_php_1($result):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107006">
+        <simple_name>fDatabase.trackTransactions_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.trackTransactions_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107452">
+        <simple_name>fDatabase.translatedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.translatedQuery_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106769">
+        <simple_name>fDatabase.unbufferedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unbufferedQuery_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106539">
+        <simple_name>fDatabase.unbufferedTranslatedQuery_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unbufferedTranslatedQuery_@__inc_flourish_fDatabase_php_1($sql):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106891">
+        <simple_name>fDatabase.unescapeBlob_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeBlob_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106788">
+        <simple_name>fDatabase.unescapeBoolean_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeBoolean_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107121">
+        <simple_name>fDatabase.unescapeDate_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeDate_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106406">
+        <simple_name>fDatabase.unescapeFloat_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeFloat_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106921">
+        <simple_name>fDatabase.unescapeInteger_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeInteger_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106342">
+        <simple_name>fDatabase.unescapeString_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeString_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107288">
+        <simple_name>fDatabase.unescapeTime_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeTime_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107124">
+        <simple_name>fDatabase.unescapeTimestamp_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescapeTimestamp_@__inc_flourish_fDatabase_php_1($value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107010">
+        <simple_name>fDatabase.unescape_@__inc_flourish_fDatabase_php_1</simple_name>
+        <signature>fDatabase.unescape_@__inc_flourish_fDatabase_php_1($data_type;$value):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

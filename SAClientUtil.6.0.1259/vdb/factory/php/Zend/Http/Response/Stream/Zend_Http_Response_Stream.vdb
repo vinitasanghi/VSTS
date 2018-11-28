@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Http_Response_Stream">
+      <method vuln_id="1114812">
+        <simple_name>Zend_Http_Response_Stream.__construct_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.__construct_@__Http_Response_Stream_php_1($code;$headers;$body;$version;$message):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114823">
+        <simple_name>Zend_Http_Response_Stream.__destruct_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.__destruct_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468106"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114827">
+        <simple_name>Zend_Http_Response_Stream.extractCode</simple_name>
+        <signature>Zend_Http_Response_Stream.extractCode(Arg#0):Variant</signature>
+        <info_rule id="468111"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114912">
+        <simple_name>Zend_Http_Response_Stream.extractHeaders</simple_name>
+        <signature>Zend_Http_Response_Stream.extractHeaders(Arg#0):Variant</signature>
+        <info_rule id="468232"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114834">
+        <simple_name>Zend_Http_Response_Stream.extractMessage</simple_name>
+        <signature>Zend_Http_Response_Stream.extractMessage(Arg#0):Variant</signature>
+        <info_rule id="468118"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114915">
+        <simple_name>Zend_Http_Response_Stream.extractVersion</simple_name>
+        <signature>Zend_Http_Response_Stream.extractVersion(Arg#0):Variant</signature>
+        <info_rule id="468237"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114911">
+        <simple_name>Zend_Http_Response_Stream.fromStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.fromStream_@__Http_Response_Stream_php_1($response_str;$stream):Variant</signature>
+        <info_rule id="468231"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114851">
+        <simple_name>Zend_Http_Response_Stream.getBody_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getBody_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468141"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114819">
+        <simple_name>Zend_Http_Response_Stream.getCleanup_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getCleanup_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468100"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114882">
+        <simple_name>Zend_Http_Response_Stream.getRawBody_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getRawBody_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468181"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114836">
+        <simple_name>Zend_Http_Response_Stream.getStreamName_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getStreamName_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468121"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114828">
+        <simple_name>Zend_Http_Response_Stream.getStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getStream_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468112"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114820">
+        <simple_name>Zend_Http_Response_Stream.readStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.readStream_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468101"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114815">
+        <simple_name>Zend_Http_Response_Stream.setCleanup_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.setCleanup_@__Http_Response_Stream_php_1($cleanup):Variant</signature>
+        <info_rule id="468095"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114869">
+        <simple_name>Zend_Http_Response_Stream.setStreamName_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.setStreamName_@__Http_Response_Stream_php_1($stream_name):Variant</signature>
+        <info_rule id="468163"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114778">
+        <simple_name>Zend_Http_Response_Stream.setStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.setStream_@__Http_Response_Stream_php_1($stream):Variant</signature>
+        <info_rule id="468045"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Http_Response_Stream">
+      <method vuln_id="1114812">
+        <simple_name>Zend_Http_Response_Stream.__construct_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.__construct_@__Http_Response_Stream_php_1($code;$headers;$body;$version;$message):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1,2,3,4,5"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114823">
+        <simple_name>Zend_Http_Response_Stream.__destruct_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.__destruct_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468106"/>
+        <does_not_propagate_taint/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114827">
+        <simple_name>Zend_Http_Response_Stream.extractCode</simple_name>
+        <signature>Zend_Http_Response_Stream.extractCode(Arg#0):Variant</signature>
+        <info_rule id="468111"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114912">
+        <simple_name>Zend_Http_Response_Stream.extractHeaders</simple_name>
+        <signature>Zend_Http_Response_Stream.extractHeaders(Arg#0):Variant</signature>
+        <info_rule id="468232"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114834">
+        <simple_name>Zend_Http_Response_Stream.extractMessage</simple_name>
+        <signature>Zend_Http_Response_Stream.extractMessage(Arg#0):Variant</signature>
+        <info_rule id="468118"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114915">
+        <simple_name>Zend_Http_Response_Stream.extractVersion</simple_name>
+        <signature>Zend_Http_Response_Stream.extractVersion(Arg#0):Variant</signature>
+        <info_rule id="468237"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114911">
+        <simple_name>Zend_Http_Response_Stream.fromStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.fromStream_@__Http_Response_Stream_php_1($response_str;$stream):Variant</signature>
+        <info_rule id="468231"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.CrossSiteScripting</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1114851">
+        <simple_name>Zend_Http_Response_Stream.getBody_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getBody_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468141"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114819">
+        <simple_name>Zend_Http_Response_Stream.getCleanup_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getCleanup_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468100"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114882">
+        <simple_name>Zend_Http_Response_Stream.getRawBody_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getRawBody_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468181"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114836">
+        <simple_name>Zend_Http_Response_Stream.getStreamName_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getStreamName_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468121"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114828">
+        <simple_name>Zend_Http_Response_Stream.getStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.getStream_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468112"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114820">
+        <simple_name>Zend_Http_Response_Stream.readStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.readStream_@__Http_Response_Stream_php_1():Variant</signature>
+        <info_rule id="468101"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Protected</property>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1114815">
+        <simple_name>Zend_Http_Response_Stream.setCleanup_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.setCleanup_@__Http_Response_Stream_php_1($cleanup):Variant</signature>
+        <info_rule id="468095"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114869">
+        <simple_name>Zend_Http_Response_Stream.setStreamName_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.setStreamName_@__Http_Response_Stream_php_1($stream_name):Variant</signature>
+        <info_rule id="468163"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1114778">
+        <simple_name>Zend_Http_Response_Stream.setStream_@__Http_Response_Stream_php_1</simple_name>
+        <signature>Zend_Http_Response_Stream.setStream_@__Http_Response_Stream_php_1($stream):Variant</signature>
+        <info_rule id="468045"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

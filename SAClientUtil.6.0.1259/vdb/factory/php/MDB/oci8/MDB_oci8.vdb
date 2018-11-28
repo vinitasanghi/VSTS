@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_oci8">
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.MDB_Common</simple_name>
+        <signature>MDB_oci8.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.MDB_oci8</simple_name>
+        <signature>MDB_oci8.MDB_oci8():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._baseConvertResult</simple_name>
+        <signature>MDB_oci8._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._close</simple_name>
+        <signature>MDB_oci8._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._doQuery</simple_name>
+        <signature>MDB_oci8._doQuery($query;$first;$limit;$prepared_query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._executePreparedQuery</simple_name>
+        <signature>MDB_oci8._executePreparedQuery($prepared_query;$query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._retrieveLob</simple_name>
+        <signature>MDB_oci8._retrieveLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._skipLimitOffset</simple_name>
+        <signature>MDB_oci8._skipLimitOffset($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092374">
+        <simple_name>MDB_oci8.autoCommit</simple_name>
+        <signature>MDB_oci8.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092402">
+        <simple_name>MDB_oci8.commit</simple_name>
+        <signature>MDB_oci8.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092365">
+        <simple_name>MDB_oci8.connect</simple_name>
+        <signature>MDB_oci8.connect($user;$password;$persistent):TRUE</signature>
+        <rule>
+          <ActionObject id="462998">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462997">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451818">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092400">
+        <simple_name>MDB_oci8.convertResult</simple_name>
+        <signature>MDB_oci8.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092385">
+        <simple_name>MDB_oci8.convertResultRow</simple_name>
+        <signature>MDB_oci8.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092363">
+        <simple_name>MDB_oci8.createSequence</simple_name>
+        <signature>MDB_oci8.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092366">
+        <simple_name>MDB_oci8.currId</simple_name>
+        <signature>MDB_oci8.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092401">
+        <simple_name>MDB_oci8.debug</simple_name>
+        <signature>MDB_oci8.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.endOfLOB</simple_name>
+        <signature>MDB_oci8.endOfLOB():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092392">
+        <simple_name>MDB_oci8.endOfResult</simple_name>
+        <signature>MDB_oci8.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092396">
+        <simple_name>MDB_oci8.errorCode</simple_name>
+        <signature>MDB_oci8.errorCode():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092403">
+        <simple_name>MDB_oci8.errorNative</simple_name>
+        <signature>MDB_oci8.errorNative($statement):int</signature>
+        <rule>
+          <ActionObject id="451825">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.expectError</simple_name>
+        <signature>MDB_oci8.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092375">
+        <simple_name>MDB_oci8.fetch</simple_name>
+        <signature>MDB_oci8.fetch($result;$rownum;$colnum):mixed</signature>
+        <info_rule id="480870"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092387">
+        <simple_name>MDB_oci8.fetchBlob</simple_name>
+        <signature>MDB_oci8.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480867"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092398">
+        <simple_name>MDB_oci8.fetchClob</simple_name>
+        <signature>MDB_oci8.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480872"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092386">
+        <simple_name>MDB_oci8.fetchInto</simple_name>
+        <signature>MDB_oci8.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480871"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.fetchLOB</simple_name>
+        <signature>MDB_oci8.fetchLOB():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092373">
+        <simple_name>MDB_oci8.fetchOne</simple_name>
+        <signature>MDB_oci8.fetchOne():Variant</signature>
+        <info_rule id="480869"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092395">
+        <simple_name>MDB_oci8.freeBlobValue</simple_name>
+        <signature>MDB_oci8.freeBlobValue($prepared_query;$blob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092390">
+        <simple_name>MDB_oci8.freeClobValue</simple_name>
+        <signature>MDB_oci8.freeClobValue($prepared_query;$clob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092391">
+        <simple_name>MDB_oci8.freeResult</simple_name>
+        <signature>MDB_oci8.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092369">
+        <simple_name>MDB_oci8.getBlobDeclaration</simple_name>
+        <signature>MDB_oci8.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092384">
+        <simple_name>MDB_oci8.getBlobValue</simple_name>
+        <signature>MDB_oci8.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092359">
+        <simple_name>MDB_oci8.getBooleanDeclaration</simple_name>
+        <signature>MDB_oci8.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092394">
+        <simple_name>MDB_oci8.getBooleanValue</simple_name>
+        <signature>MDB_oci8.getBooleanValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092368">
+        <simple_name>MDB_oci8.getClobDeclaration</simple_name>
+        <signature>MDB_oci8.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092380">
+        <simple_name>MDB_oci8.getClobValue</simple_name>
+        <signature>MDB_oci8.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092356">
+        <simple_name>MDB_oci8.getColumnNames</simple_name>
+        <signature>MDB_oci8.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092364">
+        <simple_name>MDB_oci8.getDateDeclaration</simple_name>
+        <signature>MDB_oci8.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092377">
+        <simple_name>MDB_oci8.getDateValue</simple_name>
+        <signature>MDB_oci8.getDateValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092378">
+        <simple_name>MDB_oci8.getDecimalDeclaration</simple_name>
+        <signature>MDB_oci8.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092379">
+        <simple_name>MDB_oci8.getDecimalValue</simple_name>
+        <signature>MDB_oci8.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092397">
+        <simple_name>MDB_oci8.getFloatDeclaration</simple_name>
+        <signature>MDB_oci8.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092370">
+        <simple_name>MDB_oci8.getFloatValue</simple_name>
+        <signature>MDB_oci8.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092393">
+        <simple_name>MDB_oci8.getIntegerDeclaration</simple_name>
+        <signature>MDB_oci8.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092399">
+        <simple_name>MDB_oci8.getOption</simple_name>
+        <signature>MDB_oci8.getOption():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092388">
+        <simple_name>MDB_oci8.getSequenceName</simple_name>
+        <signature>MDB_oci8.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092357">
+        <simple_name>MDB_oci8.getTextDeclaration</simple_name>
+        <signature>MDB_oci8.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092358">
+        <simple_name>MDB_oci8.getTextValue</simple_name>
+        <signature>MDB_oci8.getTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092367">
+        <simple_name>MDB_oci8.getTimeDeclaration</simple_name>
+        <signature>MDB_oci8.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092376">
+        <simple_name>MDB_oci8.getTimeValue</simple_name>
+        <signature>MDB_oci8.getTimeValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092389">
+        <simple_name>MDB_oci8.getTimestampDeclaration</simple_name>
+        <signature>MDB_oci8.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092371">
+        <simple_name>MDB_oci8.getTimestampValue</simple_name>
+        <signature>MDB_oci8.getTimestampValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.getTypeDeclaration</simple_name>
+        <signature>MDB_oci8.getTypeDeclaration($field):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092361">
+        <simple_name>MDB_oci8.nextId</simple_name>
+        <signature>MDB_oci8.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092382">
+        <simple_name>MDB_oci8.nextResult</simple_name>
+        <signature>MDB_oci8.nextResult($result):TRUE</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092355">
+        <simple_name>MDB_oci8.numCols</simple_name>
+        <signature>MDB_oci8.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092383">
+        <simple_name>MDB_oci8.numRows</simple_name>
+        <signature>MDB_oci8.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.oci8RaiseError</simple_name>
+        <signature>MDB_oci8.oci8RaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.popExpect</simple_name>
+        <signature>MDB_oci8.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092404">
+        <simple_name>MDB_oci8.query</simple_name>
+        <signature>MDB_oci8.query($query;$types):mixed</signature>
+        <info_rule id="480868"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.raiseError</simple_name>
+        <signature>MDB_oci8.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.readLOB</simple_name>
+        <signature>MDB_oci8.readLOB():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092372">
+        <simple_name>MDB_oci8.resultIsNull</simple_name>
+        <signature>MDB_oci8.resultIsNull($result;$rownum;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092360">
+        <simple_name>MDB_oci8.rollback</simple_name>
+        <signature>MDB_oci8.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092362">
+        <simple_name>MDB_oci8.setResultTypes</simple_name>
+        <signature>MDB_oci8.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092381">
+        <simple_name>MDB_oci8.tableInfo</simple_name>
+        <signature>MDB_oci8.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_oci8">
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.MDB_Common</simple_name>
+        <signature>MDB_oci8.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.MDB_oci8</simple_name>
+        <signature>MDB_oci8.MDB_oci8():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._baseConvertResult</simple_name>
+        <signature>MDB_oci8._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._close</simple_name>
+        <signature>MDB_oci8._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._doQuery</simple_name>
+        <signature>MDB_oci8._doQuery($query;$first;$limit;$prepared_query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._executePreparedQuery</simple_name>
+        <signature>MDB_oci8._executePreparedQuery($prepared_query;$query):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._retrieveLob</simple_name>
+        <signature>MDB_oci8._retrieveLob($lob):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8._skipLimitOffset</simple_name>
+        <signature>MDB_oci8._skipLimitOffset($result):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092374">
+        <simple_name>MDB_oci8.autoCommit</simple_name>
+        <signature>MDB_oci8.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092402">
+        <simple_name>MDB_oci8.commit</simple_name>
+        <signature>MDB_oci8.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092365">
+        <simple_name>MDB_oci8.connect</simple_name>
+        <signature>MDB_oci8.connect($user;$password;$persistent):TRUE</signature>
+        <rule>
+          <ActionObject id="462998">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="462997">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <rule>
+          <ActionObject id="451818">
+            <signature>OptionBasedTester</signature>
+            <option operator="compile_time_constant" option_name="argument_value" parameter_position="1,2" value=""/>
+          </ActionObject>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092400">
+        <simple_name>MDB_oci8.convertResult</simple_name>
+        <signature>MDB_oci8.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092385">
+        <simple_name>MDB_oci8.convertResultRow</simple_name>
+        <signature>MDB_oci8.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092363">
+        <simple_name>MDB_oci8.createSequence</simple_name>
+        <signature>MDB_oci8.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092366">
+        <simple_name>MDB_oci8.currId</simple_name>
+        <signature>MDB_oci8.currId($seq_name):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092401">
+        <simple_name>MDB_oci8.debug</simple_name>
+        <signature>MDB_oci8.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.endOfLOB</simple_name>
+        <signature>MDB_oci8.endOfLOB():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092392">
+        <simple_name>MDB_oci8.endOfResult</simple_name>
+        <signature>MDB_oci8.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092396">
+        <simple_name>MDB_oci8.errorCode</simple_name>
+        <signature>MDB_oci8.errorCode():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092403">
+        <simple_name>MDB_oci8.errorNative</simple_name>
+        <signature>MDB_oci8.errorNative($statement):int</signature>
+        <rule>
+          <ActionObject id="451825">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.expectError</simple_name>
+        <signature>MDB_oci8.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092375">
+        <simple_name>MDB_oci8.fetch</simple_name>
+        <signature>MDB_oci8.fetch($result;$rownum;$colnum):mixed</signature>
+        <info_rule id="480870"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092387">
+        <simple_name>MDB_oci8.fetchBlob</simple_name>
+        <signature>MDB_oci8.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480867"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092398">
+        <simple_name>MDB_oci8.fetchClob</simple_name>
+        <signature>MDB_oci8.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480872"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092386">
+        <simple_name>MDB_oci8.fetchInto</simple_name>
+        <signature>MDB_oci8.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480871"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.fetchLOB</simple_name>
+        <signature>MDB_oci8.fetchLOB():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092373">
+        <simple_name>MDB_oci8.fetchOne</simple_name>
+        <signature>MDB_oci8.fetchOne():Variant</signature>
+        <info_rule id="480869"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092395">
+        <simple_name>MDB_oci8.freeBlobValue</simple_name>
+        <signature>MDB_oci8.freeBlobValue($prepared_query;$blob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092390">
+        <simple_name>MDB_oci8.freeClobValue</simple_name>
+        <signature>MDB_oci8.freeClobValue($prepared_query;$clob;$value):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092391">
+        <simple_name>MDB_oci8.freeResult</simple_name>
+        <signature>MDB_oci8.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092369">
+        <simple_name>MDB_oci8.getBlobDeclaration</simple_name>
+        <signature>MDB_oci8.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092384">
+        <simple_name>MDB_oci8.getBlobValue</simple_name>
+        <signature>MDB_oci8.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092359">
+        <simple_name>MDB_oci8.getBooleanDeclaration</simple_name>
+        <signature>MDB_oci8.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092394">
+        <simple_name>MDB_oci8.getBooleanValue</simple_name>
+        <signature>MDB_oci8.getBooleanValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092368">
+        <simple_name>MDB_oci8.getClobDeclaration</simple_name>
+        <signature>MDB_oci8.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092380">
+        <simple_name>MDB_oci8.getClobValue</simple_name>
+        <signature>MDB_oci8.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092356">
+        <simple_name>MDB_oci8.getColumnNames</simple_name>
+        <signature>MDB_oci8.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092364">
+        <simple_name>MDB_oci8.getDateDeclaration</simple_name>
+        <signature>MDB_oci8.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092377">
+        <simple_name>MDB_oci8.getDateValue</simple_name>
+        <signature>MDB_oci8.getDateValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092378">
+        <simple_name>MDB_oci8.getDecimalDeclaration</simple_name>
+        <signature>MDB_oci8.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092379">
+        <simple_name>MDB_oci8.getDecimalValue</simple_name>
+        <signature>MDB_oci8.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092397">
+        <simple_name>MDB_oci8.getFloatDeclaration</simple_name>
+        <signature>MDB_oci8.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092370">
+        <simple_name>MDB_oci8.getFloatValue</simple_name>
+        <signature>MDB_oci8.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092393">
+        <simple_name>MDB_oci8.getIntegerDeclaration</simple_name>
+        <signature>MDB_oci8.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092399">
+        <simple_name>MDB_oci8.getOption</simple_name>
+        <signature>MDB_oci8.getOption():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092388">
+        <simple_name>MDB_oci8.getSequenceName</simple_name>
+        <signature>MDB_oci8.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092357">
+        <simple_name>MDB_oci8.getTextDeclaration</simple_name>
+        <signature>MDB_oci8.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092358">
+        <simple_name>MDB_oci8.getTextValue</simple_name>
+        <signature>MDB_oci8.getTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092367">
+        <simple_name>MDB_oci8.getTimeDeclaration</simple_name>
+        <signature>MDB_oci8.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092376">
+        <simple_name>MDB_oci8.getTimeValue</simple_name>
+        <signature>MDB_oci8.getTimeValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092389">
+        <simple_name>MDB_oci8.getTimestampDeclaration</simple_name>
+        <signature>MDB_oci8.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092371">
+        <simple_name>MDB_oci8.getTimestampValue</simple_name>
+        <signature>MDB_oci8.getTimestampValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.getTypeDeclaration</simple_name>
+        <signature>MDB_oci8.getTypeDeclaration($field):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092361">
+        <simple_name>MDB_oci8.nextId</simple_name>
+        <signature>MDB_oci8.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092382">
+        <simple_name>MDB_oci8.nextResult</simple_name>
+        <signature>MDB_oci8.nextResult($result):TRUE</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092355">
+        <simple_name>MDB_oci8.numCols</simple_name>
+        <signature>MDB_oci8.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092383">
+        <simple_name>MDB_oci8.numRows</simple_name>
+        <signature>MDB_oci8.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.oci8RaiseError</simple_name>
+        <signature>MDB_oci8.oci8RaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.popExpect</simple_name>
+        <signature>MDB_oci8.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092404">
+        <simple_name>MDB_oci8.query</simple_name>
+        <signature>MDB_oci8.query($query;$types):mixed</signature>
+        <info_rule id="480868"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.raiseError</simple_name>
+        <signature>MDB_oci8.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_oci8.readLOB</simple_name>
+        <signature>MDB_oci8.readLOB():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092372">
+        <simple_name>MDB_oci8.resultIsNull</simple_name>
+        <signature>MDB_oci8.resultIsNull($result;$rownum;$field):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092360">
+        <simple_name>MDB_oci8.rollback</simple_name>
+        <signature>MDB_oci8.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092362">
+        <simple_name>MDB_oci8.setResultTypes</simple_name>
+        <signature>MDB_oci8.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092381">
+        <simple_name>MDB_oci8.tableInfo</simple_name>
+        <signature>MDB_oci8.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

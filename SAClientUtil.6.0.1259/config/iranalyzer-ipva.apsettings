@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings 
+    display_name="IPVA Settings" 
+    description="Settings that affect Interprocedural Vulnerability Analysis" 
+>
+<Setting 
+        name="ipva_merge" 
+        value="false" 
+        default_value="false" 
+        type="bool"
+        hidden="false"
+        display_name="Merge IPVA to produce a single IPVA" 
+        description="Merge IPVA from 2 IR files and produce one single IPVA." 
+/>
+<Setting
+      name="use_auto_markup"
+      value="0"
+      default_value="1"
+      description="Use Auto Markup For Getters\Setters\Boolean return, no argument APIs. This setting will automatically propagate taint for getters, setters and APIs which return boolean with no arguments"
+      display_name="Auto Markup"
+      type="list"
+      available_values="1:On,0:Off"
+	/>
+<Setting
+      name="allow_likelihood"
+      value="1"
+      default_value="1"
+      description="Allow the processing of the Likelihood attributes to help determine trace confidence based on the source API"
+      display_name="Allow Likelihood"
+      type="list"
+      available_values="1:On,0:Off"
+/>
+<Setting 
+	name="ipva_time_limit" 
+        value="0" 
+        default_value="0" 
+        type="text"
+		display_name="IPVA time limit" 
+        description="The IPVA time limit controls the total amount of time taken
+            \n for interprocedural analysis. The specified value is in minutes. 
+            \n When the time limit expires, analysis is stopped and results up to
+            \n the current time are given. 0 (the default) means unlimited time."
+/>
+<Setting 
+	name="cma_compute_limit" 
+        value="50" 
+        default_value="50" 
+        type="text"
+	  display_name="IPVA per-root time limit" 
+	  description="Limits the amount of time spent analyzing one call graph root. 
+	\n The value can range from 0 to 1000. 
+	\n (value * 3 seconds) is the time allowed in the process-root phase,
+	\n and (value * 3 seconds) is the time allowed in the assess-root phase.
+	\n For instance, if IPVA per-root time limit is 50, then 150 seconds are allowed in the process-root phase,
+	\n and 150 seconds are allowed in the assess-root phase.
+	\n When the time-limit is reached, analysis of that root is cut off yielding results up to that point,
+	\n and we move on to the next phase or next root. 
+	\n Set 'Suppress processing restricted messages' to false to see console messages when this happens.
+	\n Note: 0 is a special value, meaning unlimited time."
+        description_id="msg.settings.cmacomputelimit.description"
+        display_name_id="msg.settings.cmacomputelimit.name"
+/>
+<Setting 
+        name="prototypical_traces" 
+        value="0" 
+        default_value="0" 
+        type="text"
+        hidden="false"
+        display_name="Prototypical traces" 
+        description="Only show 'n' prototypical instances of 'similar' traces. Zero is special, meaning 'show all instances'. Setting this to a low non-zero value can help reduce memory and time consumption of a scan, but can potentially remove traces that have interesting intermediates."
+        description_id="msg.settings.prototypicaltraces.description"
+        display_name_id="msg.settings.prototypicaltraces.name"
+/>
+<Setting 
+        name="ipva_prune_size" 
+        value="7" 
+        default_value="7" 
+        type="text"
+        hidden="false"
+        display_name="Initial pruning heuristic" 
+        description="Affects a heuristic that tries to minimize the number of traces that are almost identical. Higher values will reduce the number of traces."
+        description_id="msg.settings.ipvaprunesize.description"
+        display_name_id="msg.settings.ipvaprunesize.name"        
+/>
+<Setting 
+        name="ipva_max_prune_size" 
+        value="100" 
+        default_value="100" 
+        type="text"
+        hidden="false"
+        display_name="Maximum pruning heuristic" 
+        description="Maximum value to which Ounce will auto-adjust the pruning heuristic.
+           \n See the description of Initial pruning heuristic for details." 
+/>
+<Setting 
+        name="adjust_prune_size_threshold" 
+        value="5000000" 
+        default_value="5000000" 
+        type="text"
+        hidden="true"
+        display_name="Adjust pruning heuristic threshold" 
+        description="This is a size above which Ounce will adjust the pruning heuristic higher.
+            \n More precisely, this value represents the number of tainted trace elements
+            \n in a set of tainted traces (associated with a value). Above this size,
+            \n the pruning heuristic will be adjusted higher for this set of tainted traces.
+            \n Also see the description of Initial pruning heuristic." 
+/>
+<Setting 
+        name="show_taint_propagators" 
+        value="true" 
+        default_value="true" 
+        type="bool"
+        hidden="false"
+        display_name="Show all trace leaves" 
+        description="Can be used to limit the size and number of traces reported. 
+            \n If true, show all leaves in all traces. 
+            \n If false, remove some leaves in the traces; this can remove some traces if leaf
+            \n removal makes them appear the same." 
+/>       
+<Setting 
+        name="single_virtual_call" 
+        value="true" 
+        default_value="true" 
+        type="bool"
+        hidden="false"
+        display_name="Single virtual call" 
+        description="If true, the concrete implementation of virtual calls will be followed if the virtual call has one and only one concrete implementation. If false, follow N number of concrete implementations of a virtual function where N is specified by the Virtual call count setting."
+        description_id="msg.settings.singlevirtualcall.description"
+        display_name_id="msg.settings.singlevirtualcall.name"
+/>
+<Setting 
+        name="virtual_call_target_count" 
+        value="0" 
+        default_value="0" 
+        type="text"
+        hidden="false"
+        display_name="Virtual call count"
+        description="Follow the specified number of concrete implementations of a virtual call. The value 0 means follow all targets (note this can be expensive). This setting has no effect unless Single virtual call is false."
+        description_id="msg.settings.virtualcalltargetcount.description"
+        display_name_id="msg.settings.virtualcalltargetcount.name"
+/>
+<Setting 
+        name="virtual_call_auto_callback_threshold" 
+        value="0" 
+        default_value="0" 
+        type="text"
+        hidden="false"
+        display_name="Virtual call auto callback threshold" 
+        description="If the number of concrete implementations of a virtual call equal or exceed this value, then the concrete implementations are all marked as auto-callbacks. This takes effect only when the Single virtual call is false and the Virtual call count is 0 and the value of this setting is greater than 1." 
+        description_id="msg.settings.virtualcallautocallbackthreshold.description"
+        display_name_id="msg.settings.virtualcallautocallbackthreshold.name"
+/>
+<Setting 
+        name="reachable_single_std_override" 
+        value="false" 
+        default_value="false" 
+        type="bool"
+        hidden="false"
+        display_name="Reachable standard lib override" 
+        description="When exactly one definition of a standard library routine
+            \n is seen and it is user code, this setting affects whether the code is
+            \n is considered reachable from virtual calls to that routine.
+            \n If true, the user override is reachable from all virtual calls.
+            \n If false, the user code is not reachable. "
+/>
+<Setting 
+        name="automatic_callback_markup"
+        value="false" 
+        default_value="false" 
+        type="bool"
+        hidden="false"
+        display_name="Automatic callback markup"
+        description="Mark all functions that are not called within the application as a tainted callback. This helps identify potential vulnerabilities in methods that are not called by the application code."
+        description_id="msg.settings.automaticcallbackmarkup.description"
+        display_name_id="msg.settings.automaticcallbackmarkup.name"
+/>    
+<Setting
+        name="automatic_propagator_markup"
+        value="false"
+        default_value="false"
+        description="Mark all lost sinks as taint propagators. This should only be done after proper lost sink resolution is performed on external calls."
+        display_name="Automatic propagator markup"
+        description_id="msg.settings.automaticpropagatormarkup.description"
+        display_name_id="msg.settings.automaticpropagatormarkup.name"
+        type="bool"
+        hidden="false"
+/>   
+<Setting
+        name="accumulate_taint_in_fields"
+        value="false"
+        default_value="false"
+        type="bool"
+        hidden="false"
+        display_name="Propagate taint through fields"
+        description="If true, keep track of taint that goes into fields, 
+                     \n and treat any loads of those fields (from the current analysis root)
+                     \n as being tainted. Example: p1->f=taint; followed later by 
+                     \n vulnerable_api(p2->taint);. Turning this on will conservatively
+                     \n report a finding here, while leaving this off will only report a finding
+                     \n when we can trace the taint through specific objects (e.g. 
+                     \n x1.f = taint; x2=x1; vulnerable_api(x2.f);
+                     \n As with similar settings, turning this on increases findings but
+                     \n but there is a time and memory cost."
+/>
+<Setting
+		name="deep_field_tracking"
+		value="true"
+		default_value="true"
+		type="bool"
+		hidden="true"
+		display_name="Deep Field Tracking"
+		description="Track field assignments deeply."
+/>
+<Setting
+		name="prune_if_tainted"
+		value="false"
+		default_value="false"
+		type="bool"
+		hidden="true"
+		display_name="REMOVE - Prune if already tainted"
+		description="Do not add traces if the receiver is already tainted.
+                         \n If this is set to true then we would get less number of traces."
+/>
+ <Setting
+	    name="validation_flow_aware"
+	    value="true"
+	    default_value="true"
+	    type="bool"
+	    display_name="Validation flow aware"
+	    description="Affects whether traces can be considered inherently 
+	        \n 'unvalidatable' in cases for which tainted data only goes through
+	        \n routines that cannot be validation routines.  'true' means
+	        \n such traces are reported as Vulnerabilities. 'false' means they
+	        \n are reported as Type I exceptions, unless a relevant validation 
+	        \n routine is specified."
+	    />
+<Setting
+	    name="no_inline_validation"
+	    value="false"
+	    default_value="false"
+	    type="bool"
+	    display_name="No inline validation"
+      display_name_id="msg.settings.noinlinevalidation.name"
+      description_id="msg.settings.noinlinevalidation.description"
+	    description="Declares whether application source code is determined 
+	        \n to have inline validation code. 'true' means code that is
+	        \n processed has no inline validation code. 'false' means there
+	        \n could be inline validation in the source code. When set to 'true'
+	        \n some Type I traces will be promoted to Vulnerabilities."
+	    />
+	    <Setting
+         name="process_security_annotations"
+         value="true"
+         default_value="true"
+         description="When turned on, method annotations will be processed"
+         display_name="Process Security Annotations"
+         type="bool"
+		/>
+</Settings>

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_pgsql">
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.DB_common</simple_name>
+        <signature>DB_pgsql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.DB_pgsql</simple_name>
+        <signature>DB_pgsql.DB_pgsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._checkManip</simple_name>
+        <signature>DB_pgsql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_pgsql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._pgFieldFlags</simple_name>
+        <signature>DB_pgsql._pgFieldFlags($resource;$num_field;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._rtrimArrayValues</simple_name>
+        <signature>DB_pgsql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090844">
+        <simple_name>DB_pgsql.affectedRows</simple_name>
+        <signature>DB_pgsql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090837">
+        <simple_name>DB_pgsql.autoCommit</simple_name>
+        <signature>DB_pgsql.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090828">
+        <simple_name>DB_pgsql.commit</simple_name>
+        <signature>DB_pgsql.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090847">
+        <simple_name>DB_pgsql.connect</simple_name>
+        <signature>DB_pgsql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451139">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090842">
+        <simple_name>DB_pgsql.createSequence</simple_name>
+        <signature>DB_pgsql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090840">
+        <simple_name>DB_pgsql.disconnect</simple_name>
+        <signature>DB_pgsql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090851">
+        <simple_name>DB_pgsql.dropSequence</simple_name>
+        <signature>DB_pgsql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090850">
+        <simple_name>DB_pgsql.errorCode</simple_name>
+        <signature>DB_pgsql.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451141">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090843">
+        <simple_name>DB_pgsql.errorNative</simple_name>
+        <signature>DB_pgsql.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451138">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090833">
+        <simple_name>DB_pgsql.escapeSimple</simple_name>
+        <signature>DB_pgsql.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090832">
+        <simple_name>DB_pgsql.fetchInto</simple_name>
+        <signature>DB_pgsql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480730"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090835">
+        <simple_name>DB_pgsql.freeResult</simple_name>
+        <signature>DB_pgsql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090827">
+        <simple_name>DB_pgsql.getSequenceName</simple_name>
+        <signature>DB_pgsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090841">
+        <simple_name>DB_pgsql.getSpecialQuery</simple_name>
+        <signature>DB_pgsql.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090836">
+        <simple_name>DB_pgsql.modifyLimitQuery</simple_name>
+        <signature>DB_pgsql.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090834">
+        <simple_name>DB_pgsql.modifyQuery</simple_name>
+        <signature>DB_pgsql.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090852">
+        <simple_name>DB_pgsql.nextId</simple_name>
+        <signature>DB_pgsql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090848">
+        <simple_name>DB_pgsql.nextResult</simple_name>
+        <signature>DB_pgsql.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090846">
+        <simple_name>DB_pgsql.numCols</simple_name>
+        <signature>DB_pgsql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090849">
+        <simple_name>DB_pgsql.numRows</simple_name>
+        <signature>DB_pgsql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.pgsqlRaiseError</simple_name>
+        <signature>DB_pgsql.pgsqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.popErrorHandling</simple_name>
+        <signature>DB_pgsql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.pushErrorHandling</simple_name>
+        <signature>DB_pgsql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090830">
+        <simple_name>DB_pgsql.query</simple_name>
+        <signature>DB_pgsql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090838">
+        <simple_name>DB_pgsql.quote</simple_name>
+        <signature>DB_pgsql.quote($str):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090839">
+        <simple_name>DB_pgsql.quoteBoolean</simple_name>
+        <signature>DB_pgsql.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090845">
+        <simple_name>DB_pgsql.quoteSmart</simple_name>
+        <signature>DB_pgsql.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.raiseError</simple_name>
+        <signature>DB_pgsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090831">
+        <simple_name>DB_pgsql.rollback</simple_name>
+        <signature>DB_pgsql.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090826">
+        <simple_name>DB_pgsql.simpleQuery</simple_name>
+        <signature>DB_pgsql.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090829">
+        <simple_name>DB_pgsql.tableInfo</simple_name>
+        <signature>DB_pgsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_pgsql">
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.DB_common</simple_name>
+        <signature>DB_pgsql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.DB_pgsql</simple_name>
+        <signature>DB_pgsql.DB_pgsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._checkManip</simple_name>
+        <signature>DB_pgsql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_pgsql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._pgFieldFlags</simple_name>
+        <signature>DB_pgsql._pgFieldFlags($resource;$num_field;$table_name):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql._rtrimArrayValues</simple_name>
+        <signature>DB_pgsql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090844">
+        <simple_name>DB_pgsql.affectedRows</simple_name>
+        <signature>DB_pgsql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090837">
+        <simple_name>DB_pgsql.autoCommit</simple_name>
+        <signature>DB_pgsql.autoCommit($onoff):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090828">
+        <simple_name>DB_pgsql.commit</simple_name>
+        <signature>DB_pgsql.commit():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090847">
+        <simple_name>DB_pgsql.connect</simple_name>
+        <signature>DB_pgsql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451139">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090842">
+        <simple_name>DB_pgsql.createSequence</simple_name>
+        <signature>DB_pgsql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090840">
+        <simple_name>DB_pgsql.disconnect</simple_name>
+        <signature>DB_pgsql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090851">
+        <simple_name>DB_pgsql.dropSequence</simple_name>
+        <signature>DB_pgsql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090850">
+        <simple_name>DB_pgsql.errorCode</simple_name>
+        <signature>DB_pgsql.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451141">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090843">
+        <simple_name>DB_pgsql.errorNative</simple_name>
+        <signature>DB_pgsql.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451138">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090833">
+        <simple_name>DB_pgsql.escapeSimple</simple_name>
+        <signature>DB_pgsql.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090832">
+        <simple_name>DB_pgsql.fetchInto</simple_name>
+        <signature>DB_pgsql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480730"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090835">
+        <simple_name>DB_pgsql.freeResult</simple_name>
+        <signature>DB_pgsql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090827">
+        <simple_name>DB_pgsql.getSequenceName</simple_name>
+        <signature>DB_pgsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090841">
+        <simple_name>DB_pgsql.getSpecialQuery</simple_name>
+        <signature>DB_pgsql.getSpecialQuery($type):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090836">
+        <simple_name>DB_pgsql.modifyLimitQuery</simple_name>
+        <signature>DB_pgsql.modifyLimitQuery($query;$from;$count;$params):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3,4"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090834">
+        <simple_name>DB_pgsql.modifyQuery</simple_name>
+        <signature>DB_pgsql.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090852">
+        <simple_name>DB_pgsql.nextId</simple_name>
+        <signature>DB_pgsql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090848">
+        <simple_name>DB_pgsql.nextResult</simple_name>
+        <signature>DB_pgsql.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090846">
+        <simple_name>DB_pgsql.numCols</simple_name>
+        <signature>DB_pgsql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090849">
+        <simple_name>DB_pgsql.numRows</simple_name>
+        <signature>DB_pgsql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.pgsqlRaiseError</simple_name>
+        <signature>DB_pgsql.pgsqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.popErrorHandling</simple_name>
+        <signature>DB_pgsql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.pushErrorHandling</simple_name>
+        <signature>DB_pgsql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090830">
+        <simple_name>DB_pgsql.query</simple_name>
+        <signature>DB_pgsql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090838">
+        <simple_name>DB_pgsql.quote</simple_name>
+        <signature>DB_pgsql.quote($str):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090839">
+        <simple_name>DB_pgsql.quoteBoolean</simple_name>
+        <signature>DB_pgsql.quoteBoolean($boolean):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090845">
+        <simple_name>DB_pgsql.quoteSmart</simple_name>
+        <signature>DB_pgsql.quoteSmart():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_pgsql.raiseError</simple_name>
+        <signature>DB_pgsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090831">
+        <simple_name>DB_pgsql.rollback</simple_name>
+        <signature>DB_pgsql.rollback():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090826">
+        <simple_name>DB_pgsql.simpleQuery</simple_name>
+        <signature>DB_pgsql.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090829">
+        <simple_name>DB_pgsql.tableInfo</simple_name>
+        <signature>DB_pgsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

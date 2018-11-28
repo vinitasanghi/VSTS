@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DB_msql">
+      <method vuln_id="-1">
+        <simple_name>DB_msql.DB_common</simple_name>
+        <signature>DB_msql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.DB_msql</simple_name>
+        <signature>DB_msql.DB_msql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql._checkManip</simple_name>
+        <signature>DB_msql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_msql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql._rtrimArrayValues</simple_name>
+        <signature>DB_msql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090673">
+        <simple_name>DB_msql.affectedRows</simple_name>
+        <signature>DB_msql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090675">
+        <simple_name>DB_msql.connect</simple_name>
+        <signature>DB_msql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451072">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090680">
+        <simple_name>DB_msql.createSequence</simple_name>
+        <signature>DB_msql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090685">
+        <simple_name>DB_msql.disconnect</simple_name>
+        <signature>DB_msql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090672">
+        <simple_name>DB_msql.dropSequence</simple_name>
+        <signature>DB_msql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090691">
+        <simple_name>DB_msql.errorCode</simple_name>
+        <signature>DB_msql.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451076">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090677">
+        <simple_name>DB_msql.errorNative</simple_name>
+        <signature>DB_msql.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451073">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090676">
+        <simple_name>DB_msql.escapeSimple</simple_name>
+        <signature>DB_msql.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090674">
+        <simple_name>DB_msql.fetchInto</simple_name>
+        <signature>DB_msql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480721"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090692">
+        <simple_name>DB_msql.freeResult</simple_name>
+        <signature>DB_msql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090687">
+        <simple_name>DB_msql.getSequenceName</simple_name>
+        <signature>DB_msql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090682">
+        <simple_name>DB_msql.getSpecialQuery</simple_name>
+        <signature>DB_msql.getSpecialQuery($type):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090681">
+        <simple_name>DB_msql.modifyQuery</simple_name>
+        <signature>DB_msql.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.msqlRaiseError</simple_name>
+        <signature>DB_msql.msqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090690">
+        <simple_name>DB_msql.nextId</simple_name>
+        <signature>DB_msql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090679">
+        <simple_name>DB_msql.nextResult</simple_name>
+        <signature>DB_msql.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090686">
+        <simple_name>DB_msql.numCols</simple_name>
+        <signature>DB_msql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090689">
+        <simple_name>DB_msql.numRows</simple_name>
+        <signature>DB_msql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.popErrorHandling</simple_name>
+        <signature>DB_msql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.pushErrorHandling</simple_name>
+        <signature>DB_msql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090683">
+        <simple_name>DB_msql.query</simple_name>
+        <signature>DB_msql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090678">
+        <simple_name>DB_msql.quoteFloat</simple_name>
+        <signature>DB_msql.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090684">
+        <simple_name>DB_msql.quoteIdentifier</simple_name>
+        <signature>DB_msql.quoteIdentifier($str):object a</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.raiseError</simple_name>
+        <signature>DB_msql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090688">
+        <simple_name>DB_msql.simpleQuery</simple_name>
+        <signature>DB_msql.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090671">
+        <simple_name>DB_msql.tableInfo</simple_name>
+        <signature>DB_msql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="DB_msql">
+      <method vuln_id="-1">
+        <simple_name>DB_msql.DB_common</simple_name>
+        <signature>DB_msql.DB_common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.DB_msql</simple_name>
+        <signature>DB_msql.DB_msql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql._checkManip</simple_name>
+        <signature>DB_msql._checkManip():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql._convertNullArrayValuesToEmpty</simple_name>
+        <signature>DB_msql._convertNullArrayValuesToEmpty():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql._rtrimArrayValues</simple_name>
+        <signature>DB_msql._rtrimArrayValues():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090673">
+        <simple_name>DB_msql.affectedRows</simple_name>
+        <signature>DB_msql.affectedRows():int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090675">
+        <simple_name>DB_msql.connect</simple_name>
+        <signature>DB_msql.connect($dsn;$persistent):int</signature>
+        <rule>
+          <ActionObject id="451072">
+            <signature>OptionBasedTester</signature>
+            <option max_confidence="Low" operator="compile_time_constant" option_name="argument_value" parameter_position="1" value=""/>
+          </ActionObject>
+          <severity>Medium</severity>
+          <vulnerability_type>Vulnerability.Authentication.Entity</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+        <comment>It would be nice to parse the dsn string to determine if their really is a hard coded password</comment>
+      </method>
+      <method vuln_id="1090680">
+        <simple_name>DB_msql.createSequence</simple_name>
+        <signature>DB_msql.createSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090685">
+        <simple_name>DB_msql.disconnect</simple_name>
+        <signature>DB_msql.disconnect():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090672">
+        <simple_name>DB_msql.dropSequence</simple_name>
+        <signature>DB_msql.dropSequence($seq_name):int</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.AppDOS</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090691">
+        <simple_name>DB_msql.errorCode</simple_name>
+        <signature>DB_msql.errorCode($errormsg):integer</signature>
+        <rule>
+          <ActionObject id="451076">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="this" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090677">
+        <simple_name>DB_msql.errorNative</simple_name>
+        <signature>DB_msql.errorNative():string</signature>
+        <rule>
+          <ActionObject id="451073">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090676">
+        <simple_name>DB_msql.escapeSimple</simple_name>
+        <signature>DB_msql.escapeSimple($str):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090674">
+        <simple_name>DB_msql.fetchInto</simple_name>
+        <signature>DB_msql.fetchInto($result;$arr;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480721"/>
+        <source_rule>
+          <tainted_output param="2" return="false"/>
+        </source_rule>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090692">
+        <simple_name>DB_msql.freeResult</simple_name>
+        <signature>DB_msql.freeResult($result):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090687">
+        <simple_name>DB_msql.getSequenceName</simple_name>
+        <signature>DB_msql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090682">
+        <simple_name>DB_msql.getSpecialQuery</simple_name>
+        <signature>DB_msql.getSpecialQuery($type):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090681">
+        <simple_name>DB_msql.modifyQuery</simple_name>
+        <signature>DB_msql.modifyQuery():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.msqlRaiseError</simple_name>
+        <signature>DB_msql.msqlRaiseError($errno):object the</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090690">
+        <simple_name>DB_msql.nextId</simple_name>
+        <signature>DB_msql.nextId($seq_name;$ondemand):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090679">
+        <simple_name>DB_msql.nextResult</simple_name>
+        <signature>DB_msql.nextResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090686">
+        <simple_name>DB_msql.numCols</simple_name>
+        <signature>DB_msql.numCols($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090689">
+        <simple_name>DB_msql.numRows</simple_name>
+        <signature>DB_msql.numRows($result):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.popErrorHandling</simple_name>
+        <signature>DB_msql.popErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.pushErrorHandling</simple_name>
+        <signature>DB_msql.pushErrorHandling():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090683">
+        <simple_name>DB_msql.query</simple_name>
+        <signature>DB_msql.query():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090678">
+        <simple_name>DB_msql.quoteFloat</simple_name>
+        <signature>DB_msql.quoteFloat($float):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090684">
+        <simple_name>DB_msql.quoteIdentifier</simple_name>
+        <signature>DB_msql.quoteIdentifier($str):object a</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>DB_msql.raiseError</simple_name>
+        <signature>DB_msql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090688">
+        <simple_name>DB_msql.simpleQuery</simple_name>
+        <signature>DB_msql.simpleQuery($query):mixed</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090671">
+        <simple_name>DB_msql.tableInfo</simple_name>
+        <signature>DB_msql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

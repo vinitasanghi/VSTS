@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="DOMImplementation">
+      <method vuln_id="1086320">
+        <simple_name>___Php.DOMImplementation.__construct</simple_name>
+        <signature>___Php.DOMImplementation.__construct():void</signature>
+      </method>
+      <method vuln_id="1086122">
+        <simple_name>___Php.DOMImplementation.createDocument</simple_name>
+        <signature>___Php.DOMImplementation.createDocument(___Php.String;___Php.String;___Php.DOMDocumentType):___Php.DOMDocument</signature>
+        <info_rule id="452850"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086163">
+        <simple_name>___Php.DOMImplementation.createDocumentType</simple_name>
+        <signature>___Php.DOMImplementation.createDocumentType(___Php.String;___Php.String;___Php.String):___Php.DOMDocumentType</signature>
+        <info_rule id="452904"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086249">
+        <simple_name>___Php.DOMImplementation.hasFeature</simple_name>
+        <signature>___Php.DOMImplementation.hasFeature(___Php.String;___Php.String):bool</signature>
+        <info_rule id="453014"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+    </class>
+    <class name="DOMImplementation">
+      <method vuln_id="1086320">
+        <simple_name>___Php.DOMImplementation.__construct</simple_name>
+        <signature>___Php.DOMImplementation.__construct():void</signature>
+      </method>
+      <method vuln_id="1086122">
+        <simple_name>___Php.DOMImplementation.createDocument</simple_name>
+        <signature>___Php.DOMImplementation.createDocument(___Php.String;___Php.String;___Php.DOMDocumentType):___Php.DOMDocument</signature>
+        <info_rule id="452850"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086163">
+        <simple_name>___Php.DOMImplementation.createDocumentType</simple_name>
+        <signature>___Php.DOMImplementation.createDocumentType(___Php.String;___Php.String;___Php.String):___Php.DOMDocumentType</signature>
+        <info_rule id="452904"/>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="none" return="true" source_param="1,2,3"/>
+        <property>Technology.XML.DOM</property>
+      </method>
+      <method vuln_id="1086249">
+        <simple_name>___Php.DOMImplementation.hasFeature</simple_name>
+        <signature>___Php.DOMImplementation.hasFeature(___Php.String;___Php.String):bool</signature>
+        <info_rule id="453014"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.DOM</property>
+        <property>Mechanism.Validation.XML</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="fCookie">
+      <method vuln_id="1106689">
+        <simple_name>fCookie.___Class_Initializer_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.___Class_Initializer_@__inc_flourish_fCookie_php_1():void</signature>
+      </method>
+      <method vuln_id="1106435">
+        <simple_name>fCookie.__construct_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.__construct_@__inc_flourish_fCookie_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106365">
+        <simple_name>fCookie.get_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.get_@__inc_flourish_fCookie_php_1($name;$default_value):Variant</signature>
+        <info_rule id="480657"/>
+        <source_rule id="462267">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107086">
+        <simple_name>fCookie.reset_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.reset_@__inc_flourish_fCookie_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106662">
+        <simple_name>fCookie.setDefaultDomain_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultDomain_@__inc_flourish_fCookie_php_1($domain):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107115">
+        <simple_name>fCookie.setDefaultExpires_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultExpires_@__inc_flourish_fCookie_php_1($expires):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107357">
+        <simple_name>fCookie.setDefaultHTTPOnly_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultHTTPOnly_@__inc_flourish_fCookie_php_1($httponly):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106364">
+        <simple_name>fCookie.setDefaultPath_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultPath_@__inc_flourish_fCookie_php_1($path):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107235">
+        <simple_name>fCookie.setDefaultSecure_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultSecure_@__inc_flourish_fCookie_php_1($secure):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106353">
+        <simple_name>fCookie.set_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.set_@__inc_flourish_fCookie_php_1($name;$value;$expires;$path;$domain;$secure;$httponly):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Cookies</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+    <class name="fCookie">
+      <method vuln_id="1106689">
+        <simple_name>fCookie.___Class_Initializer_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.___Class_Initializer_@__inc_flourish_fCookie_php_1():void</signature>
+      </method>
+      <method vuln_id="1106435">
+        <simple_name>fCookie.__construct_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.__construct_@__inc_flourish_fCookie_php_1():Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106365">
+        <simple_name>fCookie.get_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.get_@__inc_flourish_fCookie_php_1($name;$default_value):Variant</signature>
+        <info_rule id="480657"/>
+        <source_rule id="462267">
+          <tainted_output param="all" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+        <property>Technology.Communications.HTTP</property>
+      </method>
+      <method vuln_id="1107086">
+        <simple_name>fCookie.reset_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.reset_@__inc_flourish_fCookie_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1106662">
+        <simple_name>fCookie.setDefaultDomain_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultDomain_@__inc_flourish_fCookie_php_1($domain):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107115">
+        <simple_name>fCookie.setDefaultExpires_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultExpires_@__inc_flourish_fCookie_php_1($expires):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107357">
+        <simple_name>fCookie.setDefaultHTTPOnly_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultHTTPOnly_@__inc_flourish_fCookie_php_1($httponly):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106364">
+        <simple_name>fCookie.setDefaultPath_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultPath_@__inc_flourish_fCookie_php_1($path):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1107235">
+        <simple_name>fCookie.setDefaultSecure_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.setDefaultSecure_@__inc_flourish_fCookie_php_1($secure):Variant</signature>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+      <method vuln_id="1106353">
+        <simple_name>fCookie.set_@__inc_flourish_fCookie_php_1</simple_name>
+        <signature>fCookie.set_@__inc_flourish_fCookie_php_1($name;$value;$expires;$path;$domain;$secure;$httponly):Variant</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Authentication.Credentials.Cookies</vulnerability_type>
+          <taint_susceptible_input param="all"/>
+        </sink_rule>
+        <propagates_taint dst_param="all" return="true" source_param="all"/>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

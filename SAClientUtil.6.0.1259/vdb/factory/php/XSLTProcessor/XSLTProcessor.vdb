@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="XSLTProcessor">
+      <method vuln_id="1090052">
+        <simple_name>___Php.XSLTProcessor.__construct</simple_name>
+        <signature>___Php.XSLTProcessor.__construct():void</signature>
+      </method>
+      <method vuln_id="1090047">
+        <simple_name>___Php.XSLTProcessor.getParameter</simple_name>
+        <signature>___Php.XSLTProcessor.getParameter(___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="457380"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1350699">
+        <simple_name>___Php.XSLTProcessor.getSecurityPrefs</simple_name>
+        <signature>___Php.XSLTProcessor.getSecurityPrefs():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1090053">
+        <simple_name>___Php.XSLTProcessor.hasExsltSupport</simple_name>
+        <signature>___Php.XSLTProcessor.hasExsltSupport():bool</signature>
+        <info_rule id="457387"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090054">
+        <simple_name>___Php.XSLTProcessor.importStylesheet</simple_name>
+        <signature>___Php.XSLTProcessor.importStylesheet(___Php.DOMDocument):void</signature>
+        <info_rule id="457388"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+        <comment>URL: http://www.w3.org/TR/2003/WD-DOM-Level-3-Core-20030226/DOM3-Core.html</comment>
+      </method>
+      <method vuln_id="1090055">
+        <simple_name>___Php.XSLTProcessor.registerPHPFunctions</simple_name>
+        <signature>___Php.XSLTProcessor.registerPHPFunctions(mixed):void</signature>
+        <info_rule id="457389"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090049">
+        <simple_name>___Php.XSLTProcessor.removeParameter</simple_name>
+        <signature>___Php.XSLTProcessor.removeParameter(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457384"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="2015059">
+        <simple_name>___Php.XSLTProcessor.setProfiling</simple_name>
+        <signature>___Php.XSLTProcessor.setProfiling(___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+      </method>
+      <method vuln_id="1350700">
+        <simple_name>___Php.XSLTProcessor.setSecurityPrefs</simple_name>
+        <signature>___Php.XSLTProcessor.setSecurityPrefs(int):int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1090048">
+        <simple_name>___Php.XSLTProcessor.set_parameter</simple_name>
+        <signature>___Php.XSLTProcessor.set_parameter(___Php.String;mixed;___Php.String):bool</signature>
+        <info_rule id="457382"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090056">
+        <simple_name>___Php.XSLTProcessor.transformToDoc</simple_name>
+        <signature>___Php.XSLTProcessor.transformToDoc(___Php.DOMNode):___Php.DOMDocument</signature>
+        <info_rule id="457390"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+        <comment>URL: http://www.w3.org/TR/2003/WD-DOM-Level-3-Core-20030226/DOM3-Core.html</comment>
+      </method>
+      <method vuln_id="1090050">
+        <simple_name>___Php.XSLTProcessor.transformToURI</simple_name>
+        <signature>___Php.XSLTProcessor.transformToURI(___Php.DOMDocument;___Php.String):int</signature>
+        <info_rule id="457385"/>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090051">
+        <simple_name>___Php.XSLTProcessor.transformToXML</simple_name>
+        <signature>___Php.XSLTProcessor.transformToXML(___Php.DOMDocument):___Php.String</signature>
+        <info_rule id="457386"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+    </class>
+    <class name="XSLTProcessor">
+      <method vuln_id="1090052">
+        <simple_name>___Php.XSLTProcessor.__construct</simple_name>
+        <signature>___Php.XSLTProcessor.__construct():void</signature>
+      </method>
+      <method vuln_id="1090047">
+        <simple_name>___Php.XSLTProcessor.getParameter</simple_name>
+        <signature>___Php.XSLTProcessor.getParameter(___Php.String;___Php.String):___Php.String</signature>
+        <info_rule id="457380"/>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1350699">
+        <simple_name>___Php.XSLTProcessor.getSecurityPrefs</simple_name>
+        <signature>___Php.XSLTProcessor.getSecurityPrefs():int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1090053">
+        <simple_name>___Php.XSLTProcessor.hasExsltSupport</simple_name>
+        <signature>___Php.XSLTProcessor.hasExsltSupport():bool</signature>
+        <info_rule id="457387"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090054">
+        <simple_name>___Php.XSLTProcessor.importStylesheet</simple_name>
+        <signature>___Php.XSLTProcessor.importStylesheet(___Php.DOMDocument):void</signature>
+        <info_rule id="457388"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+        <comment>URL: http://www.w3.org/TR/2003/WD-DOM-Level-3-Core-20030226/DOM3-Core.html</comment>
+      </method>
+      <method vuln_id="1090055">
+        <simple_name>___Php.XSLTProcessor.registerPHPFunctions</simple_name>
+        <signature>___Php.XSLTProcessor.registerPHPFunctions(mixed):void</signature>
+        <info_rule id="457389"/>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090049">
+        <simple_name>___Php.XSLTProcessor.removeParameter</simple_name>
+        <signature>___Php.XSLTProcessor.removeParameter(___Php.String;___Php.String):bool</signature>
+        <info_rule id="457384"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="1,2"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="2015059">
+        <simple_name>___Php.XSLTProcessor.setProfiling</simple_name>
+        <signature>___Php.XSLTProcessor.setProfiling(___Php.String):bool</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+      </method>
+      <method vuln_id="1350700">
+        <simple_name>___Php.XSLTProcessor.setSecurityPrefs</simple_name>
+        <signature>___Php.XSLTProcessor.setSecurityPrefs(int):int</signature>
+        <does_not_propagate_taint/>
+      </method>
+      <method vuln_id="1090048">
+        <simple_name>___Php.XSLTProcessor.set_parameter</simple_name>
+        <signature>___Php.XSLTProcessor.set_parameter(___Php.String;mixed;___Php.String):bool</signature>
+        <info_rule id="457382"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Validation.Required</vulnerability_type>
+          <taint_susceptible_input param="2,3"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="2,3"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090056">
+        <simple_name>___Php.XSLTProcessor.transformToDoc</simple_name>
+        <signature>___Php.XSLTProcessor.transformToDoc(___Php.DOMNode):___Php.DOMDocument</signature>
+        <info_rule id="457390"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+        <comment>URL: http://www.w3.org/TR/2003/WD-DOM-Level-3-Core-20030226/DOM3-Core.html</comment>
+      </method>
+      <method vuln_id="1090050">
+        <simple_name>___Php.XSLTProcessor.transformToURI</simple_name>
+        <signature>___Php.XSLTProcessor.transformToURI(___Php.DOMDocument;___Php.String):int</signature>
+        <info_rule id="457385"/>
+        <propagates_taint dst_param="2" return="false" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+      <method vuln_id="1090051">
+        <simple_name>___Php.XSLTProcessor.transformToXML</simple_name>
+        <signature>___Php.XSLTProcessor.transformToXML(___Php.DOMDocument):___Php.String</signature>
+        <info_rule id="457386"/>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Technology.XML.Schema</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

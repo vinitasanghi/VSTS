@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Zend_Controller_Action_HelperBroker">
+      <method vuln_id="1110119">
+        <simple_name>Zend_Controller_Action_HelperBroker.___Class_Initializer_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.___Class_Initializer_@__Controller_Action_HelperBroker_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110137">
+        <simple_name>Zend_Controller_Action_HelperBroker.__call_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.__call_@__Controller_Action_HelperBroker_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110282">
+        <simple_name>Zend_Controller_Action_HelperBroker.__construct_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.__construct_@__Controller_Action_HelperBroker_php_1($actionController):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109868">
+        <simple_name>Zend_Controller_Action_HelperBroker.__get_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.__get_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker._loadHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker._loadHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker._normalizeHelperName_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker._normalizeHelperName_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addHelper</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addHelper(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addHelper_@__Controller_Action_HelperBroker_php_1($helper):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addPath</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addPath(Arg#0;Arg#1):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addPath_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addPath_@__Controller_Action_HelperBroker_php_1($path;$prefix):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addPrefix_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addPrefix_@__Controller_Action_HelperBroker_php_1($prefix):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110251">
+        <simple_name>Zend_Controller_Action_HelperBroker.getExistingHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getExistingHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110064">
+        <simple_name>Zend_Controller_Action_HelperBroker.getExistingHelpers_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getExistingHelpers_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110220">
+        <simple_name>Zend_Controller_Action_HelperBroker.getHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110234">
+        <simple_name>Zend_Controller_Action_HelperBroker.getPluginLoader_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getPluginLoader_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110202">
+        <simple_name>Zend_Controller_Action_HelperBroker.getStack_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getStack_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110279">
+        <simple_name>Zend_Controller_Action_HelperBroker.getStaticHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getStaticHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110110">
+        <simple_name>Zend_Controller_Action_HelperBroker.hasHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.hasHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.notifyPostDispatch_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.notifyPostDispatch_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.notifyPreDispatch_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.notifyPreDispatch_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110006">
+        <simple_name>Zend_Controller_Action_HelperBroker.removeHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.removeHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110044">
+        <simple_name>Zend_Controller_Action_HelperBroker.resetHelpers_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.resetHelpers_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109980">
+        <simple_name>Zend_Controller_Action_HelperBroker.setPluginLoader_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.setPluginLoader_@__Controller_Action_HelperBroker_php_1($loader):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+    <class name="Zend_Controller_Action_HelperBroker">
+      <method vuln_id="1110119">
+        <simple_name>Zend_Controller_Action_HelperBroker.___Class_Initializer_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.___Class_Initializer_@__Controller_Action_HelperBroker_php_1():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110137">
+        <simple_name>Zend_Controller_Action_HelperBroker.__call_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.__call_@__Controller_Action_HelperBroker_php_1($method;$args):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110282">
+        <simple_name>Zend_Controller_Action_HelperBroker.__construct_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.__construct_@__Controller_Action_HelperBroker_php_1($actionController):Variant</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109868">
+        <simple_name>Zend_Controller_Action_HelperBroker.__get_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.__get_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker._loadHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker._loadHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker._normalizeHelperName_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker._normalizeHelperName_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Protected</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addHelper</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addHelper(Arg#0):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addHelper_@__Controller_Action_HelperBroker_php_1($helper):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addPath</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addPath(Arg#0;Arg#1):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addPath_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addPath_@__Controller_Action_HelperBroker_php_1($path;$prefix):Variant</signature>
+        <sink_rule>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.PathTraversal</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.addPrefix_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.addPrefix_@__Controller_Action_HelperBroker_php_1($prefix):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110251">
+        <simple_name>Zend_Controller_Action_HelperBroker.getExistingHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getExistingHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110064">
+        <simple_name>Zend_Controller_Action_HelperBroker.getExistingHelpers_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getExistingHelpers_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110220">
+        <simple_name>Zend_Controller_Action_HelperBroker.getHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110234">
+        <simple_name>Zend_Controller_Action_HelperBroker.getPluginLoader_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getPluginLoader_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110202">
+        <simple_name>Zend_Controller_Action_HelperBroker.getStack_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getStack_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110279">
+        <simple_name>Zend_Controller_Action_HelperBroker.getStaticHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.getStaticHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+      <method vuln_id="1110110">
+        <simple_name>Zend_Controller_Action_HelperBroker.hasHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.hasHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.notifyPostDispatch_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.notifyPostDispatch_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Zend_Controller_Action_HelperBroker.notifyPreDispatch_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.notifyPreDispatch_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110006">
+        <simple_name>Zend_Controller_Action_HelperBroker.removeHelper_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.removeHelper_@__Controller_Action_HelperBroker_php_1($name):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1110044">
+        <simple_name>Zend_Controller_Action_HelperBroker.resetHelpers_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.resetHelpers_@__Controller_Action_HelperBroker_php_1():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1109980">
+        <simple_name>Zend_Controller_Action_HelperBroker.setPluginLoader_@__Controller_Action_HelperBroker_php_1</simple_name>
+        <signature>Zend_Controller_Action_HelperBroker.setPluginLoader_@__Controller_Action_HelperBroker_php_1($loader):Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Static</property>
+        <property>Attribute.Modifier.Public</property>
+        <property>Attribute.Validation.None</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="MDB_fbsql">
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.GetTextValue</simple_name>
+        <signature>MDB_fbsql.GetTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.MDB_Common</simple_name>
+        <signature>MDB_fbsql.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.MDB_fbsql</simple_name>
+        <signature>MDB_fbsql.MDB_fbsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql._baseConvertResult</simple_name>
+        <signature>MDB_fbsql._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql._close</simple_name>
+        <signature>MDB_fbsql._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql._quote</simple_name>
+        <signature>MDB_fbsql._quote():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092201">
+        <simple_name>MDB_fbsql.autoCommit</simple_name>
+        <signature>MDB_fbsql.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092204">
+        <simple_name>MDB_fbsql.commit</simple_name>
+        <signature>MDB_fbsql.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.connect</simple_name>
+        <signature>MDB_fbsql.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092202">
+        <simple_name>MDB_fbsql.convertResult</simple_name>
+        <signature>MDB_fbsql.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092176">
+        <simple_name>MDB_fbsql.convertResultRow</simple_name>
+        <signature>MDB_fbsql.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092173">
+        <simple_name>MDB_fbsql.createSequence</simple_name>
+        <signature>MDB_fbsql.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092188">
+        <simple_name>MDB_fbsql.debug</simple_name>
+        <signature>MDB_fbsql.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092175">
+        <simple_name>MDB_fbsql.endOfLob</simple_name>
+        <signature>MDB_fbsql.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092189">
+        <simple_name>MDB_fbsql.endOfResult</simple_name>
+        <signature>MDB_fbsql.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092178">
+        <simple_name>MDB_fbsql.errorCode</simple_name>
+        <signature>MDB_fbsql.errorCode():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092186">
+        <simple_name>MDB_fbsql.errorNative</simple_name>
+        <signature>MDB_fbsql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451755">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.expectError</simple_name>
+        <signature>MDB_fbsql.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.fbsqlRaiseError</simple_name>
+        <signature>MDB_fbsql.fbsqlRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092160">
+        <simple_name>MDB_fbsql.fetch</simple_name>
+        <signature>MDB_fbsql.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480826"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092180">
+        <simple_name>MDB_fbsql.fetchBlob</simple_name>
+        <signature>MDB_fbsql.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480825"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092181">
+        <simple_name>MDB_fbsql.fetchClob</simple_name>
+        <signature>MDB_fbsql.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480829"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092193">
+        <simple_name>MDB_fbsql.fetchInto</simple_name>
+        <signature>MDB_fbsql.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480828"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092183">
+        <simple_name>MDB_fbsql.fetchLob</simple_name>
+        <signature>MDB_fbsql.fetchLob():Variant</signature>
+        <info_rule id="480827"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092196">
+        <simple_name>MDB_fbsql.freeBlobValue</simple_name>
+        <signature>MDB_fbsql.freeBlobValue($prepared_query;$blob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092174">
+        <simple_name>MDB_fbsql.freeClobValue</simple_name>
+        <signature>MDB_fbsql.freeClobValue($prepared_query;$clob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092170">
+        <simple_name>MDB_fbsql.freeResult</simple_name>
+        <signature>MDB_fbsql.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092187">
+        <simple_name>MDB_fbsql.getBlobDeclaration</simple_name>
+        <signature>MDB_fbsql.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092179">
+        <simple_name>MDB_fbsql.getBlobValue</simple_name>
+        <signature>MDB_fbsql.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092198">
+        <simple_name>MDB_fbsql.getBooleanDeclaration</simple_name>
+        <signature>MDB_fbsql.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092190">
+        <simple_name>MDB_fbsql.getBooleanValue</simple_name>
+        <signature>MDB_fbsql.getBooleanValue($value):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092165">
+        <simple_name>MDB_fbsql.getClobDeclaration</simple_name>
+        <signature>MDB_fbsql.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092159">
+        <simple_name>MDB_fbsql.getClobValue</simple_name>
+        <signature>MDB_fbsql.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092185">
+        <simple_name>MDB_fbsql.getColumnNames</simple_name>
+        <signature>MDB_fbsql.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092164">
+        <simple_name>MDB_fbsql.getDateDeclaration</simple_name>
+        <signature>MDB_fbsql.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092163">
+        <simple_name>MDB_fbsql.getDateValue</simple_name>
+        <signature>MDB_fbsql.getDateValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092197">
+        <simple_name>MDB_fbsql.getDecimalDeclaration</simple_name>
+        <signature>MDB_fbsql.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092177">
+        <simple_name>MDB_fbsql.getDecimalValue</simple_name>
+        <signature>MDB_fbsql.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092203">
+        <simple_name>MDB_fbsql.getFloatDeclaration</simple_name>
+        <signature>MDB_fbsql.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092167">
+        <simple_name>MDB_fbsql.getFloatValue</simple_name>
+        <signature>MDB_fbsql.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092162">
+        <simple_name>MDB_fbsql.getIntegerDeclaration</simple_name>
+        <signature>MDB_fbsql.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092171">
+        <simple_name>MDB_fbsql.getSequenceName</simple_name>
+        <signature>MDB_fbsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092158">
+        <simple_name>MDB_fbsql.getTextDeclaration</simple_name>
+        <signature>MDB_fbsql.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092192">
+        <simple_name>MDB_fbsql.getTimeDeclaration</simple_name>
+        <signature>MDB_fbsql.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092169">
+        <simple_name>MDB_fbsql.getTimeValue</simple_name>
+        <signature>MDB_fbsql.getTimeValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092191">
+        <simple_name>MDB_fbsql.getTimestampDeclaration</simple_name>
+        <signature>MDB_fbsql.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092182">
+        <simple_name>MDB_fbsql.getTimestampValue</simple_name>
+        <signature>MDB_fbsql.getTimestampValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092200">
+        <simple_name>MDB_fbsql.nextId</simple_name>
+        <signature>MDB_fbsql.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092166">
+        <simple_name>MDB_fbsql.nextResult</simple_name>
+        <signature>MDB_fbsql.nextResult($result):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092194">
+        <simple_name>MDB_fbsql.numCols</simple_name>
+        <signature>MDB_fbsql.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092184">
+        <simple_name>MDB_fbsql.numRows</simple_name>
+        <signature>MDB_fbsql.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.popExpect</simple_name>
+        <signature>MDB_fbsql.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092172">
+        <simple_name>MDB_fbsql.query</simple_name>
+        <signature>MDB_fbsql.query($query;$types):mixed</signature>
+        <info_rule id="480830"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.raiseError</simple_name>
+        <signature>MDB_fbsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092168">
+        <simple_name>MDB_fbsql.readLob</simple_name>
+        <signature>MDB_fbsql.readLob():Variant</signature>
+        <info_rule id="480824"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092195">
+        <simple_name>MDB_fbsql.rollback</simple_name>
+        <signature>MDB_fbsql.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092199">
+        <simple_name>MDB_fbsql.setResultTypes</simple_name>
+        <signature>MDB_fbsql.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092161">
+        <simple_name>MDB_fbsql.tableInfo</simple_name>
+        <signature>MDB_fbsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="MDB_fbsql">
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.GetTextValue</simple_name>
+        <signature>MDB_fbsql.GetTextValue():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.MDB_Common</simple_name>
+        <signature>MDB_fbsql.MDB_Common():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.MDB_fbsql</simple_name>
+        <signature>MDB_fbsql.MDB_fbsql():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql._baseConvertResult</simple_name>
+        <signature>MDB_fbsql._baseConvertResult():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql._close</simple_name>
+        <signature>MDB_fbsql._close():mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql._quote</simple_name>
+        <signature>MDB_fbsql._quote():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092201">
+        <simple_name>MDB_fbsql.autoCommit</simple_name>
+        <signature>MDB_fbsql.autoCommit($auto_commit):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092204">
+        <simple_name>MDB_fbsql.commit</simple_name>
+        <signature>MDB_fbsql.commit():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.connect</simple_name>
+        <signature>MDB_fbsql.connect():TRUE</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092202">
+        <simple_name>MDB_fbsql.convertResult</simple_name>
+        <signature>MDB_fbsql.convertResult($value;$type):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092176">
+        <simple_name>MDB_fbsql.convertResultRow</simple_name>
+        <signature>MDB_fbsql.convertResultRow():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092173">
+        <simple_name>MDB_fbsql.createSequence</simple_name>
+        <signature>MDB_fbsql.createSequence():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092188">
+        <simple_name>MDB_fbsql.debug</simple_name>
+        <signature>MDB_fbsql.debug():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092175">
+        <simple_name>MDB_fbsql.endOfLob</simple_name>
+        <signature>MDB_fbsql.endOfLob():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092189">
+        <simple_name>MDB_fbsql.endOfResult</simple_name>
+        <signature>MDB_fbsql.endOfResult($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092178">
+        <simple_name>MDB_fbsql.errorCode</simple_name>
+        <signature>MDB_fbsql.errorCode():Variant</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092186">
+        <simple_name>MDB_fbsql.errorNative</simple_name>
+        <signature>MDB_fbsql.errorNative():int</signature>
+        <rule>
+          <ActionObject id="451755">
+            <signature>AnyLow</signature>
+          </ActionObject>
+          <severity>Low</severity>
+          <vulnerability_type>Vulnerability.ErrorHandling.RevealDetails.Message</vulnerability_type>
+        </rule>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.expectError</simple_name>
+        <signature>MDB_fbsql.expectError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.fbsqlRaiseError</simple_name>
+        <signature>MDB_fbsql.fbsqlRaiseError($errno;$message):object a</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092160">
+        <simple_name>MDB_fbsql.fetch</simple_name>
+        <signature>MDB_fbsql.fetch($result;$row;$field):mixed</signature>
+        <info_rule id="480826"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092180">
+        <simple_name>MDB_fbsql.fetchBlob</simple_name>
+        <signature>MDB_fbsql.fetchBlob($result;$row;$field):mixed</signature>
+        <info_rule id="480825"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092181">
+        <simple_name>MDB_fbsql.fetchClob</simple_name>
+        <signature>MDB_fbsql.fetchClob($result;$row;$field):mixed</signature>
+        <info_rule id="480829"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092193">
+        <simple_name>MDB_fbsql.fetchInto</simple_name>
+        <signature>MDB_fbsql.fetchInto($result;$fetchmode;$rownum):mixed</signature>
+        <info_rule id="480828"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092183">
+        <simple_name>MDB_fbsql.fetchLob</simple_name>
+        <signature>MDB_fbsql.fetchLob():Variant</signature>
+        <info_rule id="480827"/>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092196">
+        <simple_name>MDB_fbsql.freeBlobValue</simple_name>
+        <signature>MDB_fbsql.freeBlobValue($prepared_query;$blob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092174">
+        <simple_name>MDB_fbsql.freeClobValue</simple_name>
+        <signature>MDB_fbsql.freeClobValue($prepared_query;$clob):MDB_OK</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092170">
+        <simple_name>MDB_fbsql.freeResult</simple_name>
+        <signature>MDB_fbsql.freeResult($result):boolean</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092187">
+        <simple_name>MDB_fbsql.getBlobDeclaration</simple_name>
+        <signature>MDB_fbsql.getBlobDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092179">
+        <simple_name>MDB_fbsql.getBlobValue</simple_name>
+        <signature>MDB_fbsql.getBlobValue($prepared_query;$parameter;$blob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092198">
+        <simple_name>MDB_fbsql.getBooleanDeclaration</simple_name>
+        <signature>MDB_fbsql.getBooleanDeclaration($name;$field):string</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092190">
+        <simple_name>MDB_fbsql.getBooleanValue</simple_name>
+        <signature>MDB_fbsql.getBooleanValue($value):string</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092165">
+        <simple_name>MDB_fbsql.getClobDeclaration</simple_name>
+        <signature>MDB_fbsql.getClobDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092159">
+        <simple_name>MDB_fbsql.getClobValue</simple_name>
+        <signature>MDB_fbsql.getClobValue($prepared_query;$parameter;$clob):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="3"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092185">
+        <simple_name>MDB_fbsql.getColumnNames</simple_name>
+        <signature>MDB_fbsql.getColumnNames($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092164">
+        <simple_name>MDB_fbsql.getDateDeclaration</simple_name>
+        <signature>MDB_fbsql.getDateDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092163">
+        <simple_name>MDB_fbsql.getDateValue</simple_name>
+        <signature>MDB_fbsql.getDateValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092197">
+        <simple_name>MDB_fbsql.getDecimalDeclaration</simple_name>
+        <signature>MDB_fbsql.getDecimalDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092177">
+        <simple_name>MDB_fbsql.getDecimalValue</simple_name>
+        <signature>MDB_fbsql.getDecimalValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092203">
+        <simple_name>MDB_fbsql.getFloatDeclaration</simple_name>
+        <signature>MDB_fbsql.getFloatDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092167">
+        <simple_name>MDB_fbsql.getFloatValue</simple_name>
+        <signature>MDB_fbsql.getFloatValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092162">
+        <simple_name>MDB_fbsql.getIntegerDeclaration</simple_name>
+        <signature>MDB_fbsql.getIntegerDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092171">
+        <simple_name>MDB_fbsql.getSequenceName</simple_name>
+        <signature>MDB_fbsql.getSequenceName():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092158">
+        <simple_name>MDB_fbsql.getTextDeclaration</simple_name>
+        <signature>MDB_fbsql.getTextDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092192">
+        <simple_name>MDB_fbsql.getTimeDeclaration</simple_name>
+        <signature>MDB_fbsql.getTimeDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092169">
+        <simple_name>MDB_fbsql.getTimeValue</simple_name>
+        <signature>MDB_fbsql.getTimeValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092191">
+        <simple_name>MDB_fbsql.getTimestampDeclaration</simple_name>
+        <signature>MDB_fbsql.getTimestampDeclaration($name;$field):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092182">
+        <simple_name>MDB_fbsql.getTimestampValue</simple_name>
+        <signature>MDB_fbsql.getTimestampValue($value):string</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092200">
+        <simple_name>MDB_fbsql.nextId</simple_name>
+        <signature>MDB_fbsql.nextId($seq_name;$ondemand):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092166">
+        <simple_name>MDB_fbsql.nextResult</simple_name>
+        <signature>MDB_fbsql.nextResult($result):mixed</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092194">
+        <simple_name>MDB_fbsql.numCols</simple_name>
+        <signature>MDB_fbsql.numCols($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092184">
+        <simple_name>MDB_fbsql.numRows</simple_name>
+        <signature>MDB_fbsql.numRows($result):mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.popExpect</simple_name>
+        <signature>MDB_fbsql.popExpect():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092172">
+        <simple_name>MDB_fbsql.query</simple_name>
+        <signature>MDB_fbsql.query($query;$types):mixed</signature>
+        <info_rule id="480830"/>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection.SQL</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <source_rule>
+          <tainted_output param="none" return="true"/>
+        </source_rule>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>MDB_fbsql.raiseError</simple_name>
+        <signature>MDB_fbsql.raiseError():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092168">
+        <simple_name>MDB_fbsql.readLob</simple_name>
+        <signature>MDB_fbsql.readLob():Variant</signature>
+        <info_rule id="480824"/>
+        <property>Technology.Database</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092195">
+        <simple_name>MDB_fbsql.rollback</simple_name>
+        <signature>MDB_fbsql.rollback():mixed</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092199">
+        <simple_name>MDB_fbsql.setResultTypes</simple_name>
+        <signature>MDB_fbsql.setResultTypes():Variant</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1092161">
+        <simple_name>MDB_fbsql.tableInfo</simple_name>
+        <signature>MDB_fbsql.tableInfo($result;$mode):array</signature>
+        <propagates_taint dst_param="none" return="true" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

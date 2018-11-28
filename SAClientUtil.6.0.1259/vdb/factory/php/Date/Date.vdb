@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="Date">
+      <method vuln_id="-1">
+        <simple_name>Date.Date</simple_name>
+        <signature>Date.Date(mixed):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090926">
+        <simple_name>Date.addSeconds</simple_name>
+        <signature>Date.addSeconds(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090913">
+        <simple_name>Date.addSpan</simple_name>
+        <signature>Date.addSpan(Date_Span):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090924">
+        <simple_name>Date.after</simple_name>
+        <signature>Date.after(__Date_php.Date):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090939">
+        <simple_name>Date.before</simple_name>
+        <signature>Date.before(__Date_php.Date):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090921">
+        <simple_name>Date.compare</simple_name>
+        <signature>Date.compare(__Date_php.Date;__Date_php.Date):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090931">
+        <simple_name>Date.convertTZ</simple_name>
+        <signature>Date.convertTZ(Date_TimeZone):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090953">
+        <simple_name>Date.convertTZbyID</simple_name>
+        <signature>Date.convertTZbyID(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090940">
+        <simple_name>Date.copy</simple_name>
+        <signature>Date.copy(__Date_php.Date):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090928">
+        <simple_name>Date.equals</simple_name>
+        <signature>Date.equals(__Date_php.Date):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090933">
+        <simple_name>Date.format</simple_name>
+        <signature>Date.format(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090923">
+        <simple_name>Date.getDate</simple_name>
+        <signature>Date.getDate(int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090945">
+        <simple_name>Date.getDay</simple_name>
+        <signature>Date.getDay():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090949">
+        <simple_name>Date.getDayName</simple_name>
+        <signature>Date.getDayName(bool;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090925">
+        <simple_name>Date.getDayOfWeek</simple_name>
+        <signature>Date.getDayOfWeek():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090952">
+        <simple_name>Date.getDaysInMonth</simple_name>
+        <signature>Date.getDaysInMonth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090911">
+        <simple_name>Date.getHour</simple_name>
+        <signature>Date.getHour():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090927">
+        <simple_name>Date.getJulianDate</simple_name>
+        <signature>Date.getJulianDate():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090915">
+        <simple_name>Date.getMinute</simple_name>
+        <signature>Date.getMinute():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090929">
+        <simple_name>Date.getMonth</simple_name>
+        <signature>Date.getMonth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090948">
+        <simple_name>Date.getMonthName</simple_name>
+        <signature>Date.getMonthName(bool):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090917">
+        <simple_name>Date.getNextDay</simple_name>
+        <signature>Date.getNextDay():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090944">
+        <simple_name>Date.getNextWeekday</simple_name>
+        <signature>Date.getNextWeekday():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090938">
+        <simple_name>Date.getPrevDay</simple_name>
+        <signature>Date.getPrevDay():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090937">
+        <simple_name>Date.getPrevWeekday</simple_name>
+        <signature>Date.getPrevWeekday():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090936">
+        <simple_name>Date.getQuarterOfYear</simple_name>
+        <signature>Date.getQuarterOfYear():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090955">
+        <simple_name>Date.getSecond</simple_name>
+        <signature>Date.getSecond():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090951">
+        <simple_name>Date.getTime</simple_name>
+        <signature>Date.getTime():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090907">
+        <simple_name>Date.getWeekOfYear</simple_name>
+        <signature>Date.getWeekOfYear():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090916">
+        <simple_name>Date.getWeeksInMonth</simple_name>
+        <signature>Date.getWeeksInMonth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090942">
+        <simple_name>Date.getYear</simple_name>
+        <signature>Date.getYear():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090943">
+        <simple_name>Date.inDaylightTime</simple_name>
+        <signature>Date.inDaylightTime():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090914">
+        <simple_name>Date.isFuture</simple_name>
+        <signature>Date.isFuture():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090906">
+        <simple_name>Date.isLeapYear</simple_name>
+        <signature>Date.isLeapYear():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090919">
+        <simple_name>Date.isPast</simple_name>
+        <signature>Date.isPast():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090935">
+        <simple_name>Date.setDate</simple_name>
+        <signature>Date.setDate(___Php.String;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090918">
+        <simple_name>Date.setDay</simple_name>
+        <signature>Date.setDay(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090954">
+        <simple_name>Date.setHour</simple_name>
+        <signature>Date.setHour(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090908">
+        <simple_name>Date.setMinute</simple_name>
+        <signature>Date.setMinute(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090946">
+        <simple_name>Date.setMonth</simple_name>
+        <signature>Date.setMonth(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090930">
+        <simple_name>Date.setSecond</simple_name>
+        <signature>Date.setSecond(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090947">
+        <simple_name>Date.setTZ</simple_name>
+        <signature>Date.setTZ(Date_TimeZone):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090956">
+        <simple_name>Date.setTZbyID</simple_name>
+        <signature>Date.setTZbyID(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090934">
+        <simple_name>Date.setYear</simple_name>
+        <signature>Date.setYear(nt):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090920">
+        <simple_name>Date.subtractSeconds</simple_name>
+        <signature>Date.subtractSeconds(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090912">
+        <simple_name>Date.subtractSpan</simple_name>
+        <signature>Date.subtractSpan(Date_Span):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date.toUTC</simple_name>
+        <signature>Date.toUTC():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090909">
+        <simple_name>Date.toUTCbyOffset</simple_name>
+        <signature>Date.toUTCbyOffset(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Date.__construct</simple_name>
+        <signature>___Php.Date.__construct():void</signature>
+      </method>
+    </class>
+    <class name="Date">
+      <method vuln_id="-1">
+        <simple_name>Date.Date</simple_name>
+        <signature>Date.Date(mixed):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090926">
+        <simple_name>Date.addSeconds</simple_name>
+        <signature>Date.addSeconds(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090913">
+        <simple_name>Date.addSpan</simple_name>
+        <signature>Date.addSpan(Date_Span):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090924">
+        <simple_name>Date.after</simple_name>
+        <signature>Date.after(__Date_php.Date):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090939">
+        <simple_name>Date.before</simple_name>
+        <signature>Date.before(__Date_php.Date):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090921">
+        <simple_name>Date.compare</simple_name>
+        <signature>Date.compare(__Date_php.Date;__Date_php.Date):int</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090931">
+        <simple_name>Date.convertTZ</simple_name>
+        <signature>Date.convertTZ(Date_TimeZone):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090953">
+        <simple_name>Date.convertTZbyID</simple_name>
+        <signature>Date.convertTZbyID(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090940">
+        <simple_name>Date.copy</simple_name>
+        <signature>Date.copy(__Date_php.Date):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090928">
+        <simple_name>Date.equals</simple_name>
+        <signature>Date.equals(__Date_php.Date):bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090933">
+        <simple_name>Date.format</simple_name>
+        <signature>Date.format(___Php.String):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090923">
+        <simple_name>Date.getDate</simple_name>
+        <signature>Date.getDate(int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this,1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090945">
+        <simple_name>Date.getDay</simple_name>
+        <signature>Date.getDay():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090949">
+        <simple_name>Date.getDayName</simple_name>
+        <signature>Date.getDayName(bool;int):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090925">
+        <simple_name>Date.getDayOfWeek</simple_name>
+        <signature>Date.getDayOfWeek():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090952">
+        <simple_name>Date.getDaysInMonth</simple_name>
+        <signature>Date.getDaysInMonth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090911">
+        <simple_name>Date.getHour</simple_name>
+        <signature>Date.getHour():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090927">
+        <simple_name>Date.getJulianDate</simple_name>
+        <signature>Date.getJulianDate():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090915">
+        <simple_name>Date.getMinute</simple_name>
+        <signature>Date.getMinute():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090929">
+        <simple_name>Date.getMonth</simple_name>
+        <signature>Date.getMonth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090948">
+        <simple_name>Date.getMonthName</simple_name>
+        <signature>Date.getMonthName(bool):___Php.String</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090917">
+        <simple_name>Date.getNextDay</simple_name>
+        <signature>Date.getNextDay():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090944">
+        <simple_name>Date.getNextWeekday</simple_name>
+        <signature>Date.getNextWeekday():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090938">
+        <simple_name>Date.getPrevDay</simple_name>
+        <signature>Date.getPrevDay():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090937">
+        <simple_name>Date.getPrevWeekday</simple_name>
+        <signature>Date.getPrevWeekday():__Date_php.Date</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090936">
+        <simple_name>Date.getQuarterOfYear</simple_name>
+        <signature>Date.getQuarterOfYear():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090955">
+        <simple_name>Date.getSecond</simple_name>
+        <signature>Date.getSecond():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090951">
+        <simple_name>Date.getTime</simple_name>
+        <signature>Date.getTime():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090907">
+        <simple_name>Date.getWeekOfYear</simple_name>
+        <signature>Date.getWeekOfYear():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090916">
+        <simple_name>Date.getWeeksInMonth</simple_name>
+        <signature>Date.getWeeksInMonth():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090942">
+        <simple_name>Date.getYear</simple_name>
+        <signature>Date.getYear():int</signature>
+        <propagates_taint dst_param="none" return="true" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090943">
+        <simple_name>Date.inDaylightTime</simple_name>
+        <signature>Date.inDaylightTime():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090914">
+        <simple_name>Date.isFuture</simple_name>
+        <signature>Date.isFuture():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090906">
+        <simple_name>Date.isLeapYear</simple_name>
+        <signature>Date.isLeapYear():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090919">
+        <simple_name>Date.isPast</simple_name>
+        <signature>Date.isPast():bool</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090935">
+        <simple_name>Date.setDate</simple_name>
+        <signature>Date.setDate(___Php.String;int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1,2"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090918">
+        <simple_name>Date.setDay</simple_name>
+        <signature>Date.setDay(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090954">
+        <simple_name>Date.setHour</simple_name>
+        <signature>Date.setHour(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090908">
+        <simple_name>Date.setMinute</simple_name>
+        <signature>Date.setMinute(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090946">
+        <simple_name>Date.setMonth</simple_name>
+        <signature>Date.setMonth(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090930">
+        <simple_name>Date.setSecond</simple_name>
+        <signature>Date.setSecond(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090947">
+        <simple_name>Date.setTZ</simple_name>
+        <signature>Date.setTZ(Date_TimeZone):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090956">
+        <simple_name>Date.setTZbyID</simple_name>
+        <signature>Date.setTZbyID(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090934">
+        <simple_name>Date.setYear</simple_name>
+        <signature>Date.setYear(nt):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090920">
+        <simple_name>Date.subtractSeconds</simple_name>
+        <signature>Date.subtractSeconds(int):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090912">
+        <simple_name>Date.subtractSpan</simple_name>
+        <signature>Date.subtractSpan(Date_Span):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>Date.toUTC</simple_name>
+        <signature>Date.toUTC():void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1090909">
+        <simple_name>Date.toUTCbyOffset</simple_name>
+        <signature>Date.toUTCbyOffset(___Php.String):void</signature>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>___Php.Date.__construct</simple_name>
+        <signature>___Php.Date.__construct():void</signature>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>

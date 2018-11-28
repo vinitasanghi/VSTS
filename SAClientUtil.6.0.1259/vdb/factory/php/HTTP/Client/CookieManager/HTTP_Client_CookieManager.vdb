@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LanguageDependentDB>
+  <Header language="php" version="3.0.0">
+    <description># # Ounce Labs Confidential # # Copyright (c) 2003, 2004 Ounce Labs, Inc. All-Rights Reserved. # # &lt;a href="http://www.ouncelabs.com"&gt;Ounce Labs&lt;/a&gt; # # This software and documentation constitute an unpublished work and contains # valuable trade secrets and proprietary information belonging to Ounce Labs. # None of the foregoing material may be copied, duplicated or disclosed # without the express written permission of Ounce Labs. #</description>
+  </Header>
+  <api_info>
+    <class name="HTTP_Client_CookieManager">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client_CookieManager.HTTP_Client_CookieManager</simple_name>
+        <signature>HTTP_Client_CookieManager.HTTP_Client_CookieManager(bool):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091570">
+        <simple_name>HTTP_Client_CookieManager.__sleep</simple_name>
+        <signature>HTTP_Client_CookieManager.__sleep():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091566">
+        <simple_name>HTTP_Client_CookieManager.__wakeup</simple_name>
+        <signature>HTTP_Client_CookieManager.__wakeup():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client_CookieManager._domainMatch</simple_name>
+        <signature>HTTP_Client_CookieManager._domainMatch($requestHost;$cookieDomain):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client_CookieManager._makeHash</simple_name>
+        <signature>HTTP_Client_CookieManager._makeHash($name;$domain;$path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091565">
+        <simple_name>HTTP_Client_CookieManager.addCookie</simple_name>
+        <signature>HTTP_Client_CookieManager.addCookie(___Php.Array):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091569">
+        <simple_name>HTTP_Client_CookieManager.passCookies</simple_name>
+        <signature>HTTP_Client_CookieManager.passCookies(HTTP_Request):void</signature>
+        <propagates_taint dst_param="1" return="false" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091564">
+        <simple_name>HTTP_Client_CookieManager.reset</simple_name>
+        <signature>HTTP_Client_CookieManager.reset():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091568">
+        <simple_name>HTTP_Client_CookieManager.serializeSessionCookies</simple_name>
+        <signature>HTTP_Client_CookieManager.serializeSessionCookies(bool):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091567">
+        <simple_name>HTTP_Client_CookieManager.updateCookies</simple_name>
+        <signature>HTTP_Client_CookieManager.updateCookies(HTTP_Request):void</signature>
+        <info_rule id="480772"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+    <class name="HTTP_Client_CookieManager">
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client_CookieManager.HTTP_Client_CookieManager</simple_name>
+        <signature>HTTP_Client_CookieManager.HTTP_Client_CookieManager(bool):void</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091570">
+        <simple_name>HTTP_Client_CookieManager.__sleep</simple_name>
+        <signature>HTTP_Client_CookieManager.__sleep():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091566">
+        <simple_name>HTTP_Client_CookieManager.__wakeup</simple_name>
+        <signature>HTTP_Client_CookieManager.__wakeup():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client_CookieManager._domainMatch</simple_name>
+        <signature>HTTP_Client_CookieManager._domainMatch($requestHost;$cookieDomain):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="-1">
+        <simple_name>HTTP_Client_CookieManager._makeHash</simple_name>
+        <signature>HTTP_Client_CookieManager._makeHash($name;$domain;$path):mixed</signature>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091565">
+        <simple_name>HTTP_Client_CookieManager.addCookie</simple_name>
+        <signature>HTTP_Client_CookieManager.addCookie(___Php.Array):void</signature>
+        <sink_rule>
+          <severity>High</severity>
+          <vulnerability_type>Vulnerability.Injection</vulnerability_type>
+          <taint_susceptible_input param="1"/>
+        </sink_rule>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091569">
+        <simple_name>HTTP_Client_CookieManager.passCookies</simple_name>
+        <signature>HTTP_Client_CookieManager.passCookies(HTTP_Request):void</signature>
+        <propagates_taint dst_param="1" return="false" source_param="this"/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091564">
+        <simple_name>HTTP_Client_CookieManager.reset</simple_name>
+        <signature>HTTP_Client_CookieManager.reset():void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091568">
+        <simple_name>HTTP_Client_CookieManager.serializeSessionCookies</simple_name>
+        <signature>HTTP_Client_CookieManager.serializeSessionCookies(bool):void</signature>
+        <does_not_propagate_taint/>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+      <method vuln_id="1091567">
+        <simple_name>HTTP_Client_CookieManager.updateCookies</simple_name>
+        <signature>HTTP_Client_CookieManager.updateCookies(HTTP_Request):void</signature>
+        <info_rule id="480772"/>
+        <propagates_taint dst_param="this" return="false" source_param="1"/>
+        <property>Technology.Communications.HTTP</property>
+        <property>Attribute.Modifier.Public</property>
+      </method>
+    </class>
+  </api_info>
+</LanguageDependentDB>
