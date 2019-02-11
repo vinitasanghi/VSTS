@@ -28,3 +28,18 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: HCLTechnologies.ApplicationSecurity-VSTS.custom-build-release-task.ApplicationSecurity@1
+  displayName: 'Application Security Test'
+  inputs:
+    AppSecTestService: AppSecTest
+
+    applications: '18f3c3ca-a689-e811-ad5d-00259057d989'
+
+    scanname: Scan1
+
+    scanloc: 'SimpleIOT-Maven'
+
+    FailBuildConfiguration: false
+
+  condition: succeededOrFailed()
