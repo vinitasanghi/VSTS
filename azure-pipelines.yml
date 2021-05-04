@@ -12,17 +12,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: HCLTechnologies.ApplicationSecurity-VSTS.custom-build-release-task.ApplicationSecurity@1
-  displayName: 'Application Security Test'
+- task: HCLAppScanOnCloud@2
   inputs:
-    AppSecTestService: AppSecTest
-
-    applications: '18f3c3ca-a689-e811-ad5d-00259057d989'
-
-    scanname: Scan1
-
+    AppSecTestService: 'ASoC'
+    applications: '85d8ec91-bc9d-48d8-9435-c42843fc831b'
+    scanname: 'First'
+    scantype: 'static'
     scanloc: 'SimpleIOT-Maven'
 
-    FailBuildConfiguration: false
-
-  condition: succeededOrFailed()
